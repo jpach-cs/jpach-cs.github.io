@@ -1,10 +1,3 @@
-# Jakub Leszek Pach
-
-📍 Butte, MT 59701  
-📧 [jpach@mtech.edu](mailto:jpach@mtech.edu)  
-
----
-
 ## Summary Statement
 
 Interdisciplinary scientist using the knowledge on historical writing in the analysis of images and enthusiastic lecturer.  
