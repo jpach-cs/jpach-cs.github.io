@@ -1,12 +1,7 @@
 # Jakub Leszek Pach
 
 📍 Butte, MT 59701  
-<!--
-📧 [jakubleszekpach@gmail.com](mailto:jakubleszekpach@gmail.com)  
-📱 +1 (406) 410-1822  
-
-
--->
+📧 [jpach@mtech.edu](mailto:jpach@mtech.edu)  
 
 ---
 
