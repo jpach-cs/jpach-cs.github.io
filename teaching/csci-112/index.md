@@ -13,8 +13,8 @@ This course provides a comprehensive introduction to the C programming language.
 ## Course Components
 *(Links will become active as the semester progresses)*
 
-*   **Syllabus & Course Policies** (Coming soon)
-*   **Weekly Schedule** (Coming soon)
+*   [Course Syllabus]({{ '/teaching/csci-112/syllabus' | relative_url }})
+*   [Weekly Schedule]({{ '/teaching/csci-112/schedule' | relative_url }})
 *   **Lecture Slides (MARP)** (Coming soon)
 *   **Assignments** (Coming soon)
 
