@@ -1,3 +1,12 @@
+---
+layout: default
+title: Portfolio & CV
+---
+
+[← Back to Home]({{ '/' | relative_url }})
+
+# Academic & Professional Portfolio
+
 ## Summary Statement
 
 Interdisciplinary scientist using the knowledge on historical writing in the analysis of images and enthusiastic lecturer.  
