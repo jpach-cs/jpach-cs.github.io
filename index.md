@@ -10,7 +10,11 @@ Montana Technological University — Butte, MT
 
 ---
 
-[About & CV (Portfolio)]({{ '/portfolio/' | relative_url }}) | [Research]({{ '/research/' | relative_url }}) | [Teaching]({{ '/teaching/' | relative_url }})
+[About & CV (Portfolio)]({{ '/portfolio/' | relative_url }}) | [Research]({{ '/research/' | relative_url }}) | [Teaching]({{ '/teaching/' | relative_url }} | [Downloads & Toolchains]({{ '/downloads/' | relative_url }}))
+
+
+
+
 
 ---
 
