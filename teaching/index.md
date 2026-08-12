@@ -14,7 +14,7 @@ Welcome to my academic courses portal. Below you can find the active courses for
 ### 1. [CSCI 112 — Programming with C]({{ '/teaching/csci-112/' | relative_url }})
 An introductory course focused on structured programming in ANSI/ISO C. This semester, we emphasize low-level memory mechanics, system standard library implementation (e.g., writing our own `atoi`), and automated testing workflows via GitHub.
 
-### 2. CSCI 232 — Data Structures and Algorithms
+### 2. [CSCI 232 — Data Structures and Algorithms]({{ '/teaching/csci-232/' | relative_url }})
 *Link coming soon*  
 Transitioning from pure programming to software construction. Focuses on core data structures, algorithms, and a bridge between C, C++, and Python.
 

@@ -3,7 +3,7 @@ layout: default
 title: Downloads & Toolchains
 ---
 
-[← Back to CSCI 112]({{ '/teaching/' | relative_url }})
+[← Back to Home]({{ '/' | relative_url }})
 
 
 # Downloads & Toolchains
