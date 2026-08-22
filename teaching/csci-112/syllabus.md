@@ -6,6 +6,7 @@ title: CSCI 112 — Syllabus
 [← Back to CSCI 112]({{ '/teaching/csci-112/' | relative_url }})
 
 # CSCI 112: Programming with C
+
 **Montana Technological University** | **Fall 2026**
 
 
@@ -21,6 +22,7 @@ title: CSCI 112 — Syllabus
 
 
 ## Course Description
+
 This course provides a comprehensive introduction to structured programming using the C language. Students will gain a deep understanding of memory management techniques such as pointers and dynamic allocation. The skills acquired in this course will be essential for those who wish to pursue further studies in languages like C++, C#, and Java, as well as microcontroller programming. Additionally, this course will lay a strong foundation for understanding computer architecture.
 
 
@@ -43,6 +45,7 @@ The course grade will be determined by two equally weighted components:
 
 
 ## Grading
+
 The final course grade will be determined by two equally weighted components:
 * Lecture Component: 40%
 * Laboratory Component: 60%
@@ -55,47 +58,61 @@ The Laboratory Component is evaluated according to the following criteria:
 Not every laboratory session will necessarily include an entrance quiz or a concluding quiz. When scheduled, these assessments will count toward the corresponding laboratory component.
 
 ## Attendance & General Course Policies
+
 ### In-Person Format
+
 * This is strictly an in-person course. Regular attendance and active participation are expected.
 
 ### Attendance Policy
+
 * Attendance at every class is required.
 * Students are allowed up to two unexcused absences during the semester without penalty.
 * __Each additional unexcused absence beyond this two-absence allowance will result in a 1 percentage-point deduction from the final course grade.__
 
 ### Excused Absences & Emergencies
+
 * Official university-excused absences, university-sanctioned activities, serious personal emergencies, and documented medical circumstances will not count toward the unexcused absence allowance.
 * Students should notify the instructor as soon as reasonably possible when an emergency or officially excused absence occurs.
 
 ### Makeup Exams
+
 * Makeup exams will only be granted for documented medical or officially recognized reasons.
 
 ## Laboratory Rules
+
 ### Entrance Quiz
+
 * When an entrance quiz is scheduled, it will consist of three questions.
 * A score of at least 2 out of 3 is required to pass.
 * A failed entrance quiz may be retaken up to two times during the semester. Only failed entrance quizzes may be retaken.
 
 ### Assignments & Deadline
+
 * Students will have six calendar days to complete and submit each assignment.
 * The deadline is strict. Once the six-day submission period has closed, the normal submission path will be closed and late or makeup submissions will not be accepted, except where an official University policy, documented emergency, or approved accommodation requires otherwise.
 * Students are responsible for submitting their work before the deadline. Students should not wait until the final minutes before the deadline to submit an assignment.
 
 ### Brief Concluding Quiz
+
 * When scheduled, the concluding quiz is a short summative assessment covering the material addressed during the laboratory session.
 
 
 ## Code Formatting, Authorship & Declaration
+
 ### Code Formatting
+
 * Every submitted source file must begin with exactly four lines of comments containing the required authorship declaration.
 * The following template must be used:
+
   ```c
   // Your Name
   // CSCI 112 Fall 2026
   // Programming Assignment #1
   // I declare that I am the author of this work, take full responsibility for it, and have disclosed any material external assistance.
   ```
+
 ### Authorship Requirement
+
 * The four-line declaration is __mandatory__.
 * A source file submitted without the required declaration will receive __0 points__.
 * If a student submits an assignment before the deadline but accidentally omits the required declaration, the instructor may allow the student to resubmit __the same code with the declaration added__ after the deadline as a correction of an administrative omission.
@@ -104,7 +121,9 @@ Not every laboratory session will necessarily include an entrance quiz or a conc
 
 
 ## Academic Integrity, Collaboration & External Resources
+
 Students are encouraged to use appropriate external resources to learn and solve problems. Such resources may include:
+
 * textbooks and other books;
 * official programming documentation;
 * technical websites and documentation;
@@ -115,23 +134,29 @@ __The use of an external resource does not, by itself, constitute academic misco
 However, students remain fully responsible for the work they submit.
 
 ### Disclosure of External Assistance
+
 * Students must disclose __material external assistance__ that contributed to their submitted work.
 * Such assistance may include, but is not limited to, substantial assistance from another person, technical resources, or generative AI tools.
 * The disclosure should be made in an appropriate comment in the source code.
 
 For example:
+
 ```c
 // I used the C standard library documentation to verify the behavior of strtok().
 ```
+
   or:
+
 ```c
 // I used ChatGPT to help explain pointer arithmetic.
 // I wrote, tested, and verified the submitted implementation myself.
 ```
+
 The purpose of this requirement is not to prohibit the use of external resources. Its purpose is to ensure that the origin of significant assistance is honestly acknowledged.
 Students are __not required to document ordinary searches or routine consultation of documentation__ that do not materially contribute to the submitted work.
 
 ### Responsibility for Submitted Work
+
 * Regardless of what resources were used during the development process, each student is fully responsible for understanding the work submitted under their name.
 * Assignments may be reviewed orally by the instructor.
 * During such a review, the instructor may ask the student to:
@@ -154,7 +179,9 @@ A student's inability to explain substantial portions of submitted work, particu
 
 
 ## Declaration of Responsibility
+
 By submitting an assignment, the student declares that:
+
 1. I am the author of the work I am submitting.
 2. I have disclosed any material external assistance used in preparing this work.
 3. I understand the code and other work that I am submitting.
@@ -163,8 +190,8 @@ By submitting an assignment, the student declares that:
 
 __The four-line source-file declaration constitutes the student's acknowledgment of these requirements.__
 
-
 ## University Accommodations
+
 * Students who require academic accommodations should work directly with Montana Tech Disability Services and provide the appropriate documentation to the instructor as soon as possible.
 * Approved accommodations will be provided in accordance with University policy.
 

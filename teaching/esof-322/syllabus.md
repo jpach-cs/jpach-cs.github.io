@@ -53,27 +53,27 @@ The final grade will be calculated as a weighted average of the scores obtained 
 
 ## Docs:
 
--	GNU GCC; make
-  -	https://www.gnu.org/software/make/manual/make.html
-  -	https://gcc.gnu.org/onlinedocs/
--	Commonmark / markdown
-  -	https://www.markdownguide.org/basic-syntax/
-  -	https://spec.commonmark.org/0.31.2/
--	Mermaid
-  -	https://mermaid.js.org/intro/syntax-reference.html
--	Visual Studio Code:
-  -	https://code.visualstudio.com/docs
--	Git
-  -	https://git-scm.com/docs
--	GitHub
-  -	https://docs.github.com/en
--	JSON
-  -	https://www.json.org/json-en.html
--	UML
-  -	https://www.omg.org/spec/UML/2.5.1/About-UML
-  -	https://www.omg.org/spec/UML/2.5.1/PDF
--	REST API
-  -	https://docs.github.com/en/rest?apiVersion=2022-11-28
+- GNU GCC; make
+  - https://www.gnu.org/software/make/manual/make.html
+  - https://gcc.gnu.org/onlinedocs/
+- Commonmark / markdown
+  - https://www.markdownguide.org/basic-syntax/
+  - https://spec.commonmark.org/0.31.2/
+- Mermaid
+  - https://mermaid.js.org/intro/syntax-reference.html
+- Visual Studio Code
+  - https://code.visualstudio.com/docs
+- Git
+  - https://git-scm.com/docs
+- GitHub
+  - https://docs.github.com/en
+- JSON
+  - https://www.json.org/json-en.html
+- UML
+  - https://www.omg.org/spec/UML/2.5.1/About-UML
+  - https://www.omg.org/spec/UML/2.5.1/PDF
+- REST API
+  - https://docs.github.com/en/rest?apiVersion=2022-11-28
 
 
 ---
@@ -121,12 +121,14 @@ The final grade will be calculated as a weighted average of the scores obtained 
 
 * Every submitted source file must begin with exactly four lines of comments containing the required authorship declaration.
 * The following template must be used:
+
   ```c
   // Your Name
   // ESOF 322 Fall 2026
   // Programming Assignment #1
   // I declare that I am the author of this work, take full responsibility for it, and have disclosed any material external assistance.
   ```
+
 ### Authorship Requirement
 
 * The four-line declaration is __mandatory__.
@@ -137,6 +139,7 @@ The final grade will be calculated as a weighted average of the scores obtained 
 
 
 ## Academic Integrity, Collaboration & External Resources
+
 Students are encouraged to use appropriate external resources to learn and solve problems. Such resources may include:
 * textbooks and other books;
 * official programming documentation;
@@ -148,11 +151,13 @@ __The use of an external resource does not, by itself, constitute academic misco
 However, students remain fully responsible for the work they submit.
 
 ### Disclosure of External Assistance
+
 * Students must disclose __material external assistance__ that contributed to their submitted work.
 * Such assistance may include, but is not limited to, substantial assistance from another person, technical resources, or generative AI tools.
 * The disclosure should be made in an appropriate comment in the source code.
 
 For example:
+
 ```c
 // I used the C standard library documentation to verify the behavior of strtok().
 ```
@@ -161,6 +166,7 @@ For example:
 // I used ChatGPT to help explain pointer arithmetic.
 // I wrote, tested, and verified the submitted implementation myself.
 ```
+
 The purpose of this requirement is not to prohibit the use of external resources. Its purpose is to ensure that the origin of significant assistance is honestly acknowledged.
 Students are __not required to document ordinary searches or routine consultation of documentation__ that do not materially contribute to the submitted work.
 
