@@ -7,7 +7,6 @@ title: CSCI 446 — Syllabus
 
  (CSCI 446)
 
-
 # CSCI 446: Artificial Intelligence
 
 **Montana Technological University**  
@@ -30,9 +29,7 @@ title: CSCI 446 — Syllabus
 
 ## Course Description
 
-An introduction to the basic concepts of Artificial Intelligence. Topics to be covered include the history of AI, the problems 
-treated in AI, solution techniques, state spaces, search algorithms and heuristics, expert systems, natural language 
-processing, and robotics. 
+An introduction to the basic concepts of Artificial Intelligence. Topics to be covered include the history of AI, the problems treated in AI, solution techniques, state spaces, search algorithms and heuristics, expert systems, natural language processing, and robotics.
 
 ---
 
@@ -49,10 +46,10 @@ The final grade will be calculated as a weighted average of the scores obtained 
 
 ## Textbooks
 
-- **Required:** _Russell, S. J., & Norvig, P. (2021). Artificial Intelligence: A Modern Approach (4th ed.). 
+- **Required:** _Russell, S. J., & Norvig, P. (2021). Artificial Intelligence: A Modern Approach (4th ed.).
 Pearson._
 
-- **Optional:** _Moroney, L. (2021). AI and Machine Learning for On-Device Development: A Programmer's 
+- **Optional:** _Moroney, L. (2021). AI and Machine Learning for On-Device Development: A Programmer's
 Guide. " O'Reilly Media, Inc._
 
 - **Optional:** _Situnayake, D., & Plunkett, J. (2023). AI at the Edge. " O'Reilly Media, Inc._
