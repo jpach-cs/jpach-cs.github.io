@@ -1,16 +1,16 @@
 ---
 layout: default
-title: CSCI 446 — Syllabus
+title: ESOF 322 — Syllabus
 ---
 
-[← Back to CSCI 446]({{ '/teaching/csci-446/' | relative_url }})
+[← Back to ESOF 322]({{ '/teaching/csci-446/' | relative_url }})
 
- (CSCI 446)
+ (ESOF 322)
 
 
-# CSCI 446: Artificial Intelligence
+# ESOF 322: Software Engineering
 
-**Montana Technological University**  
+**Montana Technological University**
 **Fall 2026**
 
 ---
