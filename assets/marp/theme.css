@@ -1,5 +1,12 @@
 /* @theme pach */
 
+/* String notation is required: Marpit only treats `@import '<theme>'` as a
+ * theme import. The `url()` form stylelint prefers is passed through as a
+ * plain CSS import that resolves to nothing, which is how this theme came
+ * to run without the default theme underneath it. `.stylelintrc.json`
+ * pins `import-notation` to "string" for that reason. */
+@import 'default';
+
 /*
  * Shared Marp theme for Dr. Jacob Pach's Montana Tech course decks.
  *
@@ -8,6 +15,16 @@
  * the markdown front matter "style:" directive, layered on top of Marp's
  * built-in "default" theme). This file is now the single source of truth;
  * decks reference it with "theme: pach" instead of inlining the CSS.
+ *
+ * The import below is that "layered on top of default" part. Without it the
+ * theme stands alone and loses everything the default theme provided
+ * underneath: the code block box, the page-number position, heading margins,
+ * table defaults, and the `invert` colour scheme. The hand-authored reference
+ * deck (teaching/csci-232/lectures/lecture01-intro/) additionally set three
+ * directives on every slide - `class: invert`, `backgroundColor: #f3fcfd`,
+ * and `footer:` - and `_paginate: skip` on its title and closing slides. All
+ * but the footer text are baked in here, so a deck needs only `theme: pach`
+ * and its own `footer:` line to look like the reference.
  *
  * Comments below the design-token section are the original author's, in
  * Polish, and are preserved verbatim.
@@ -18,12 +35,10 @@
  * nothing copied alongside a rendered deck's index.html. See CONTRIBUTING.md.
  */
 
-@import url('default');
-
 /* 1. DESIGN TOKENS - Zmienne sterujące całym systemem */
 :root {
   /* Kolory */
-  --color-bg: #fdfaf3;
+  --color-bg: #f3fcfd; /* the reference deck's `backgroundColor:`; the token's original #fdfaf3 never showed */
   --color-primary: #7F9754;   /* h1 */
   --color-secondary: #A2422C; /* h2 / akcenty */
   --color-accent: #333;    /* h3 / grafit */
@@ -33,13 +48,13 @@
   /* Typografia */
   --font-header: 'Roboto Slab', serif;
   --font-body: 'Open Sans', sans-serif;
-  --font-code:  consolas;
+  --font-code:  'Consolas', 'Menlo', 'DejaVu Sans Mono', monospace; /* Consolas is Windows-only */
 
   /* Rozmiary */
   --h1-size: 40px;
   --h2-size: 1.2em;
   --h3-size: 0.9em;
-  --body-size: 28px;
+  --body-size: 24px; /* was 28px; see "Sizing" below */
   --code-base-size: 0.85em;
 
   /* Zasoby (Assety) */
@@ -112,7 +127,9 @@ section code[class*="language-python"]::after {
 
   }
 
-  section code[class*="language-c"]::after {
+  /* Exact classes: a substring match on "language-c" also hit `console`. */
+  section code.language-c::after,
+  section code.language-cpp::after {
   content: "";
   position: absolute;    
 
@@ -171,12 +188,48 @@ section pre {
 
 /* 2. RESET I BAZA */
 section {
+  /* The reference deck ran with `class: invert` on every slide; on top of the
+   * overrides below, what that changes is the dark code block, which the
+   * default theme derives from the colour scheme. */
+  color-scheme: dark;
   font-family: var(--font-body);
   background-color: var(--color-bg);
   color: var(--color-text);
   font-size: var(--body-size);
-  padding: 160px 80px 80px;
+  padding: 140px 80px 50px;
   justify-content: flex-start;
+}
+
+/*
+ * Sizing. PowerPoint fits a text box to its slide by shrinking the type; Marp
+ * does not, and at the theme's original 28px on a 720px slide, 41 percent of
+ * the converted slides ran off the bottom (measured in a browser across all
+ * 65 decks). 24px is the same proportion of the slide as PowerPoint's 18pt
+ * body default on a 7.5in slide, so it is what the author's slides were
+ * designed around; together with the tighter list, table and padding values
+ * below it fits about half of those slides with nothing else changed.
+ *
+ * The rest is PowerPoint's per-box autofit, which the .pptx records as
+ * `<a:normAutofit fontScale="77500"/>`. The converter turns a slide's
+ * smallest scale into one of these classes, so a slide the author let
+ * PowerPoint shrink to 70 percent is shrunk to 70 percent here too. What is
+ * left after that is content no font size can fit, which is the author's
+ * to split.
+ */
+section.fit-90 { font-size: calc(var(--body-size) * 0.9); }
+section.fit-80 { font-size: calc(var(--body-size) * 0.8); }
+section.fit-70 { font-size: calc(var(--body-size) * 0.7); }
+section.fit-60 { font-size: calc(var(--body-size) * 0.6); }
+section.fit-50 { font-size: calc(var(--body-size) * 0.5); }
+section.fit-40 { font-size: calc(var(--body-size) * 0.4); }
+section.fit-30 { font-size: calc(var(--body-size) * 0.3); }
+
+section img {
+  /* A screenshot emitted at its PowerPoint width keeps that width; its height
+   * is capped so it cannot push the rest of the slide off the bottom. */
+  max-height: 460px;
+  object-fit: contain;
+  object-position: left top;
 }
 
 /* 3. TYPOGRAFIA (H1, H2, H3) */
@@ -188,6 +241,7 @@ h1 {
   color: var(--color-primary);
   font-family: var(--font-header);
   font-size: var(--h1-size);
+  line-height: 1.15; /* two lines fit the 80px band; three need `long-title` */
   text-transform: uppercase;
 }
 
@@ -246,7 +300,7 @@ section ul {
 
 section ul li {
   position: relative;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
   padding-left: 0.35em;
 }
 
@@ -340,11 +394,15 @@ section footer {
   opacity: 0.8;
 }
 
-section.lead::before,
 section.lead header,
-section.lead footer {
+section.lead footer,
+section.lead::before,
+section.lead::after {
+  /* No footer or page number on the title slide, as the reference's
+   * `_paginate: skip` did. The MT icon the rule below positions is also
+   * off: the reference never displayed it, and at 200px it sits on top of
+   * the subtitle. */
   display: none;
-
 }
 
 /* 8. MODYFIKATORY ROZMIARU (Utility Classes) */
@@ -357,7 +415,9 @@ section.tiny-code { --code-base-size: 0.4em; }
 
   /* 3. SLAJD POWITALNY (LEAD) */
 section.lead {
-  background-color: var(--color-primary);
+  /* The reference title slide is light: its `backgroundColor:` directive won
+   * over the green set here, and the green h1 below is invisible on green. */
+  background-color: var(--color-bg);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -367,9 +427,10 @@ section.lead {
 }
 
 section.lead::before {
-  display: block; /* Upewniamy się, że jest widoczne */
+  display: none; /* see above; the author's placement is kept for reference */
   content: "";
   position: absolute;
+  top: auto; /* the base rule's top: 3px would otherwise win over bottom */
   bottom: 100px; /* Umieszczone nad stopką z autorem */
   left: 50%;
   transform: translateX(-50%); /* Centrowanie poziome */
@@ -589,8 +650,8 @@ section.code-description::after {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5em 0;
-  font-size: 28px;
+  margin: 0.6em 0;
+  font-size: 0.9em; /* scales with the slide's body size and `fit-*` class */
 }
 
 /* Remove outer borders */
@@ -605,7 +666,7 @@ table thead th {
   background-color: var(--color-primary); /* deep green */
   color: #fff;
   text-align: left;
-  padding: 18px 20px;
+  padding: 0.4em 0.6em;
   font-weight: 700;
 }
 
@@ -613,13 +674,13 @@ table thead th {
 table tbody td {
   background-color: var(--color-white); /* light cream */
   color: #222;
-  padding: 20px;
+  padding: 0.4em 0.6em;
   border-bottom: 1px solid #ddd;
 }
 
 /* Optional: monospace for code-like columns */
 table tbody td:first-child {
-  font-family: Consolas, monospace;
+  font-family: var(--font-code);
 }
 
 /* zmiana koloru podkreslonego kodu ( nie dziala!) */
