@@ -77,6 +77,24 @@ def test_referenced_assets_exist(slides_path: Path) -> None:
     )
 
 
+@pytest.mark.parametrize('slides_path', DECK_SOURCES, ids=DECK_SOURCE_IDS)
+def test_every_asset_is_referenced(slides_path: Path) -> None:
+    '''
+    Every file in a deck's `assets/` folder is used by the deck. An unreferenced
+    asset is usually an image from a slide that was hidden in PowerPoint (and so
+    is not published) or from a slide that was later removed; it is dead weight
+    in the repository and in the built site.
+    '''
+    assets_dir = slides_path.parent / 'assets'
+    if not assets_dir.is_dir():
+        return
+    referenced = set(ASSET_REFERENCE_PATTERN.findall(slides_path.read_text(encoding='utf-8')))
+    unused = sorted(path.name for path in assets_dir.iterdir() if path.name not in referenced)
+    assert not unused, (
+        f'{slides_path.relative_to(TEACHING_ROOT)} has asset(s) no slide uses: {", ".join(unused)}'
+    )
+
+
 @pytest.mark.skipif(not GIT_AVAILABLE, reason='git is not installed')
 @pytest.mark.parametrize('slides_path', DECK_SOURCES, ids=DECK_SOURCE_IDS)
 def test_no_committed_index_html_alongside_source(slides_path: Path) -> None:

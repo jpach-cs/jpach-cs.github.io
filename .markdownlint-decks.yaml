@@ -1,0 +1,13 @@
+# markdownlint rules for Marp slide decks (teaching/**/slides.md). A deck is not
+# a document: it is a sequence of slides that Marp renders, and several rules
+# written for documents contradict what a deck has to be. `npm run lint:md:decks`
+# runs from teaching/ so that this file, not .markdownlint.yaml, is the base.
+line-length: false   # a slide's paragraph is one line; wrapping it changes nothing Marp shows
+MD025: false         # single h1 per file: every slide's title is an h1 (the theme's title bar)
+MD026: false         # trailing punctuation in headings: titles are the author's words, verbatim
+MD024: false         # duplicate headings: decks repeat "Example" and "Exercise" by design
+MD010: false         # hard tabs: makefile recipes require them
+MD033: false         # inline HTML: Marp directives are HTML comments, and <br> splits a title
+MD036: false         # emphasis as heading: an italic line under a title is a subtitle, not a heading
+MD040: false         # fence language: the converter emits plain fences for text it cannot classify
+MD014: false         # "$" before commands without output: console examples show the prompt on purpose

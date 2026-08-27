@@ -4,8 +4,10 @@
   "description": "Pinned node-based linters for CI and local use. The site itself is Jekyll; see _config.yml.",
   "scripts": {
     "lint:css": "stylelint \"assets/**/*.css\"",
-    "lint:md": "markdownlint-cli2 \"**/*.md\" \"#_site\" \"#node_modules\"",
-    "lint:toml": "taplo check pyproject.toml"
+    "lint:md": "npm run lint:md:pages && npm run lint:md:decks",
+    "lint:toml": "taplo check pyproject.toml",
+    "lint:md:pages": "markdownlint-cli2 \"**/*.md\" \"#_site\" \"#node_modules\" \"#teaching/**/slides.md\"",
+    "lint:md:decks": "cd teaching && markdownlint-cli2 --config ../.markdownlint-decks.yaml \"**/slides.md\""
   },
   "devDependencies": {
     "@taplo/cli": "0.7.0",

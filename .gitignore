@@ -13,3 +13,9 @@ __pycache__/
 
 # Node linters from package.json (stylelint, markdownlint, taplo).
 node_modules/
+
+# robert.7z holds the 65 PowerPoint sources the decks were converted from
+# (34 MB), and robert/ is where `7zz x robert.7z` extracts them. Neither is
+# published; the markdown under teaching/ is the committed form.
+*.7z
+/robert/

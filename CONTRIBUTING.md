@@ -150,6 +150,7 @@ any other (a class the theme has no rule for silently does nothing):
 | `lead` | The deck's title slide. Recentres the title and sizes the `h2` subtitle. Exactly one per deck. |
 | `caption-slide` | A divider slide: white title on a filled background. Used for the closing "Thank You" slide. |
 | `long-title` | A slide whose title is a whole caption sentence. Steps the type down and lets the title bar grow. |
+| `fit-90` to `fit-30` | Body type scaled by PowerPoint's autofit factor for the slide; set by the converter. |
 | `code-description` | Two-column layout, code on the left and prose on the right. |
 | `small-code`, `tiny-code` | Reduce `--code-base-size` on a slide with a large code block. |
 
@@ -240,7 +241,8 @@ of them. Run the same commands locally before opening a pull request:
 | `Dockerfile` | hadolint | `hadolint Dockerfile` |
 | `pyproject.toml` | taplo | `npm run lint:toml` |
 | `assets/**/*.css` | stylelint | `npm run lint:css` |
-| `**/*.md` | markdownlint | `npm run lint:md` |
+| `**/*.md` except decks | markdownlint | `npm run lint:md:pages` |
+| `teaching/**/slides.md` | markdownlint, deck rules | `npm run lint:md:decks` (`lint:md` runs both) |
 | `**/*.svg` | xmllint (well-formedness) | `xmllint --noout $(find . -name '*.svg')` |
 | `Gemfile` | ruby syntax check | `ruby -c Gemfile` |
 
@@ -248,7 +250,15 @@ Python tools come from `tests/requirements.txt`; node tools from `package.json`
 (`npm ci`). Every version is pinned in those two files. Linter configuration lives in
 `.pylintrc`, `pyproject.toml`, `.yamllint`, `.markdownlint.yaml`, and `.stylelintrc.json`;
 the only rule relaxed anywhere is the line length, set to 120 to match the repo
-convention.
+convention, and stylelint's `import-notation` is pinned to `string` because Marp
+only recognises `@import 'default'` in that form (the `url()` form it would
+otherwise demand silently imports nothing).
 
 Do not add per-line lint suppressions. If a linter is wrong for a whole file type,
-change the configuration file and say why in the pull request.
+change the configuration file and say why in the pull request. `.markdownlint-decks.yaml`
+is the worked example: a Marp deck is a sequence of slides, not a document, so the
+rules about one h1 per file, duplicate headings, trailing punctuation in headings,
+hard tabs (makefile recipes), and inline HTML (Marp directives) are off for
+`teaching/**/slides.md`, each with its reason in the file. The old converter used to
+strip the trailing colon from every slide title to satisfy MD026; that rewrote the
+author's titles, and is exactly the kind of "fix" this rule exists to prevent.
