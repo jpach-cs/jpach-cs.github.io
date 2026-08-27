@@ -1,3 +1,8 @@
 [FORMAT]
 # Matches the line-length rule in the umbrella AGENTS.md.
 max-line-length=120
+
+[MAIN]
+# Test and tool modules import their siblings directly (pytest puts each test
+# directory on sys.path); tell pylint the same so it can resolve them.
+init-hook=import sys; sys.path[:0] = ["tools", "tests/unit", "tests/content", "tests/e2e"]

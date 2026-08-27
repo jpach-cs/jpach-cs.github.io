@@ -158,7 +158,7 @@ Formal model describing complete interactions:
 
 - A use case in the Mentcare system
 
-![5.3 UseCase.eps](assets/image2.emf)
+![w:786px 5.3 UseCase.eps](assets/image2.emf)
 <!-- pptx2marp: image2.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- Figure 5.3 shows a use case from the Mentcare system that represents the task of uploading data from the Mentcare system to a more general patient record system. This more general system maintains summary data about a patient rather than data about each consultation, which is recorded in the Mentcare system. Notice that there are two actors in this use case—the operator who is transferring the data and the patient record system. The stick figure notation was originally devel oped to cover human interaction, but it is also used to represent other external sys tems and hardware. Formally, use case diagrams should use lines without arrows as arrows in the UML indicate the direction of flow of messages. Obviously, in a use case, messages pass in both directions. However, the arrows in Figure 5.3 are used informally to indicate that the medical receptionist initiates the transaction and data is transferred to the patient record system. -->
@@ -167,7 +167,7 @@ Formal model describing complete interactions:
 
 ## Use cases in the Mentcare system involving the role ‘Medical Receptionist’
 
-![5.5 RecepUseCases.eps](assets/image3.emf)
+![w:467px 5.5 RecepUseCases.eps](assets/image3.emf)
 <!-- pptx2marp: image3.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- For example, Figure 5.5 shows all of the use cases in the Mentcare system in which the actor “Medical Receptionist” is involved. Each of these should be accompanied by a more detailed description. The UML includes a number of constructs for sharing all or part of a use case in other use case diagrams. While these constructs can sometimes be helpful for system designers, Author say: “my experience is that many people, especially end-users, find them difficult to understand.” For this reason, these constructs are not described here. -->
@@ -176,7 +176,7 @@ Formal model describing complete interactions:
 
 ## Weather station use cases
 
-![7.2 WS-UseCases.eps](assets/image4.emf)
+![w:344px 7.2 WS-UseCases.eps](assets/image4.emf)
 <!-- pptx2marp: image4.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -193,23 +193,20 @@ Formal model describing complete interactions:
 
 - We can use a subgraph, employing a rectangle to represent the 'system’;
 
-![Content Placeholder 6](assets/image5.png)
+![w:822px Content Placeholder 6](assets/image5.png)
 
 - <https://www.utm.mx/~caff/doc/OpenUPWeb/openup/guidances/concepts/use_case_BB199D1B.html>
 
-\`\`\`mermaid
-
+````
+```mermaid
 flowchart TB
-
-    c1--&gt;a2
-
-    subgraph ide1 \[one\]
-
-    a1--&gt;a2
-
+    c1-->a2
+    subgraph ide1 [one]
+    a1-->a2
     end
+````
 
-![Picture 15](assets/image6.png)
+![w:256px Picture 15](assets/image6.png)
 
 ---
 
@@ -217,132 +214,105 @@ flowchart TB
 
 - We are able to use icons to represent the actors.
 
-![Content Placeholder 6](assets/image5.png)
+![w:822px Content Placeholder 6](assets/image5.png)
 
 - <https://www.utm.mx/~caff/doc/OpenUPWeb/openup/guidances/concepts/use_case_BB199D1B.html>
 
-ACTOR1(("\*\*fa:fa-user\*\*"))
+```
 
-![Picture 6](assets/image7.png)
+ACTOR1(("**fa:fa-user**"))
+
+```
+
+![w:320px Picture 6](assets/image7.png)
 
 ---
 
 ## So…
 
-![7.2 WS-UseCases.eps](assets/image4.emf)
+![w:359px 7.2 WS-UseCases.eps](assets/image4.emf)
 <!-- pptx2marp: image4.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
-\`\`\`mermaid
-
-graph LR<br>
+````
+```mermaid
+graph LR
 
     A((System information Monitoring))
-
     B((Control system))
 
-<br>
 
-    UC1\[Report weather\]
-
-    UC2\[Report status\]
-
-    UC3\[Restart\]
-
-    UC4\[Shutdown\]
-
-    UC5\[Reconfigure\]
-
-    UC6\[Powersave\]
-
-    UC7\[Remote control\]<br>
+    UC1[Report weather]
+    UC2[Report status]
+    UC3[Restart]
+    UC4[Shutdown]
+    UC5[Reconfigure]
+    UC6[Powersave]
+    UC7[Remote control]
 
     A --- UC1
-
-    A --- UC2<br>
+    A --- UC2
 
     B --- UC3
-
     B --- UC4
-
     B --- UC5
-
     B --- UC6
-
     B --- UC7
+````
 
-![Picture 9](assets/image8.png)
+![w:341px Picture 9](assets/image8.png)
 
 ---
 
 ## And…
 
-\`\`\`mermaid
-
+````
+```mermaid
 flowchart LR
-
-    ACTOR1(("\*\*fa:fa-user\*\* User1"))
-
-    ACTOR2(("\*\*fa:fa-user\*\* User2"))
-
+    ACTOR1(("**fa:fa-user** User1"))
+    ACTOR2(("**fa:fa-user** User2"))
     UC1("Use case1")
-
     UC2("Use case2")
-
-    UC2("Use case3")<br>
+    UC2("Use case3")
 
     ACTOR1 --- UC1
-
     ACTOR2 --- UC2
-
     ACTOR2 --- UC3
+````
 
-![Picture 8](assets/image9.png)
+![w:308px Picture 8](assets/image9.png)
 
 ---
 
 ## Recommended Practice: IDs and Separate Connections
 
-\`\`\`mermaid
-
+````
+```mermaid
 graph TD
+A[Start] --> B{Is data valid?}
+B -- Yes --> C[Process data]
+B -- No --> D[Show error]
+C ==> E([End])
+D -. Retry .-> A
+````
 
-A\[Start\] --&gt; B{Is data valid?}
+![w:324px Picture 13](assets/image10.png)
 
-B -- Yes --&gt; C\[Process data\]
-
-B -- No --&gt; D\[Show error\]
-
-C ==&gt; E(\[End\])
-
-D -. Retry .-&gt; A
-
-![Picture 13](assets/image10.png)
-
-\`\`\`mermaid
-
+````
+```mermaid
 graph TD
-
-A\[Start\]
-
+A[Start]
 B{Is data valid?}
+C[Process data]
+D[Show error]
+E([End])
 
-C\[Process data\]
 
-D\[Show error\]
-
-E(\[End\])
-
-<br>
-
-A --&gt; B
-
-B -- Yes --&gt; C
-
-B -- No --&gt; D
-
-C ==&gt; E
-
-D -. Retry .-&gt; A
+A --> B
+B -- Yes --> C
+B -- No --> D
+C ==> E
+D -. Retry .-> A
+````
 
 - Although Mermaid allows defining nodes and connections in one line
 - (e.g. A\[Start\] --&gt; B\[Process\]), it is often clearer to **separate definitions**:

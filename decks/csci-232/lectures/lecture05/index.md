@@ -69,15 +69,14 @@ When we write programs, we need a way to check if our code works correctly. Ther
 - If the condition in assert is false, the program immediately stops (crashes). Example:
 - Good for debugging, **but not suitable for automated testing**, because once it fails, the program cannot continue.
 
-\#include &lt;assert.h&gt;<br>int divide(int a, int b)
-
+```c
+#include <assert.h>
+int divide(int a, int b)
 {
-
     assert(b != 0);  // program will stop if b == 0
-
     return a / b;
-
 }
+```
 
 ---
 
@@ -106,18 +105,19 @@ Conceptually, it’s as if the programmer is saying: “I assert that x equals 1
 - The program returned exit code 0, which means it ran successfully.
 - A non-zero exit code usually indicates an error or failure.
 
-int main(int argc, char \*argv\[\])
-
+```c
+int main(int argc, char *argv[])
 {
-
     return 0; // cmd/powershell:  echo $LASTEXITCODE
-
 }
+```
 
-- C:&gt;main.exe
-- C:&gt;echo $LASTEXITCODE
-- 0
-- C:&gt;
+```c
+C:>main.exe
+C:>echo $LASTEXITCODE
+0
+C:>
+```
 
 ---
 
@@ -128,17 +128,14 @@ int main(int argc, char \*argv\[\])
 - Unlike assert, Unity Test does not stop the program when a test fails. Instead, it records the failure and continues with other tests.
 - This way we get a summary of all passed and failed tests at the end. Example test with Unity:
 
-\#include "unity.h"
-
-void test\_addition(void)
-
+```c
+#include "unity.h"
+void test_addition(void)
 {
-
-    TEST\_ASSERT\_EQUAL(4, 2 + 2);  // this will pass
-
-    TEST\_ASSERT\_EQUAL(5, 2 + 2);  // this will fail, but program continues
-
+    TEST_ASSERT_EQUAL(4, 2 + 2);  // this will pass
+    TEST_ASSERT_EQUAL(5, 2 + 2);  // this will fail, but program continues
 }
+```
 
 ---
 
@@ -159,23 +156,17 @@ void test\_addition(void)
   - 0 = success
   - non-zero = error
 
-int findElement(int arr\[\], int size, int target)
-
+```c
+int findElement(int arr[], int size, int target)
 {
-
-    for(int i = 0; i &lt; size; i++)
-
+    for(int i = 0; i < size; i++)
     {
-
-        if(arr\[i\] == target)
-
+        if(arr[i] == target)
             return i;  // found, return index
-
     }
-
     return -1;  // not found → error
-
 }
+```
 
 ---
 
@@ -293,9 +284,15 @@ The steps are as follows:
 - Open your terminal in the repository folder.
 - Commit your changes (commit):
 - Push the changes to GitHub (push):
-- git add .
-- git commit -m "Brief description of my changes"
-- git push origin main
+
+```c
+git add .
+git commit -m "Brief description of my changes"
+```
+
+```c
+git push origin main
+```
 
 ---
 

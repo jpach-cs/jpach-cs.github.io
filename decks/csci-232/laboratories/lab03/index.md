@@ -35,101 +35,128 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## Function arguments
-
-Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
+## Function arguments Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
 
 ---
 
-## by the Value
+## by the Value Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
 
-Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
+```c
+5
+5
 
-- 5
-- 5
+```
+
 - Result:
-- \#include &lt;stdio.h&gt;
-- <br>void byTheValue(int);
-- <br>void byTheValue(int value)
-- {
--     value++;
--     return;
-- }
-- int main()
-- {
--     int x = 5;
--     printf("%d\n", x);
--     byTheValue(x);
--     printf("%d\n", x);
--   return 0;
-- }
+
+```c
+#include <stdio.h>
+
+void byTheValue(int);
+
+void byTheValue(int value)
+{
+    value++;
+    return;
+}
+
+int main()
+{
+    int x = 5;
+    printf("%d\n", x);
+    byTheValue(x);
+    printf("%d\n", x);
+  return 0;
+}
+```
 
 ---
 
-## by the Reference
+## by the Reference Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
 
-Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
+```c
+#include <stdio.h>
 
-- \#include &lt;stdio.h&gt;
-- <br>void byTheReference(int\*);
-- <br>void byTheReference(int\* ref)
-- {
--     (\*ref)++;
--     return;
-- }
-- int main()
-- {
--     int x = 5;
--     printf("%d\n", x);
--     byTheReference(&amp;x);
--     printf("%d\n", x);
--   return 0;
-- }
-- 5
-- 6
+void byTheReference(int*);
+
+void byTheReference(int* ref)
+{
+    (*ref)++;
+    return;
+}
+
+int main()
+{
+    int x = 5;
+    printf("%d\n", x);
+    byTheReference(&x);
+    printf("%d\n", x);
+  return 0;
+}
+```
+
+```c
+5
+6
+
+```
+
 - Result:
 
 ---
 
 ## Some examples
 
-- int main()
-- {
--   int x = 5, y = 7;
--   int \* p = &amp;x;
--   int \*\* pp = &amp;p;   /\* pointer to pointer\*/
--   y = \*\*pp;
--   printf("y equals %d.\n\n",  y );
-- <br>  printf("&amp;y\t\tequals %d.\n", &amp;y );
--   printf("\*(&amp;y)\t\tequals %d.\n", \*(&amp;y) );
--   printf("&amp;(\*(&amp;y))\tequals %d.\n", &amp;(\*(&amp;y)) );
--   printf("&amp;\*&amp;y\t\tequals %d.\n", &amp;\*&amp;y );
--   printf("\*&amp;\*&amp;y\t\tequals %d.\n\n", \*&amp;\*&amp;y );
-- <br>  printf("&amp;x\t\tequals %d.\n", &amp;x );
--   printf("p\t\tequals %d.\n", p );
--   printf("&amp;p\t\tequals %d.\n", &amp;p );
--   printf("\*p\t\tequals %d.\n\n", \*p );
-- <br>  printf("pp\t\tequals %d.\n", pp );
--   printf("&amp;pp\t\tequals %d.\n", &amp;pp );
--   printf("\*pp\t\tequals %d.\n", \*pp );
--   printf("\*&amp;\*pp\t\tequals %d.\n", \*&amp;\*pp );
--   printf("\*\*pp\t\tequals %d.\n", \*\*pp );
--   return 0; <br>}
-- y equals 5.
-- &amp;y              equals 6422292.
-- \*(&amp;y)           equals 7.
-- &amp;(\*(&amp;y))        equals 6422292.
-- &amp;\*&amp;y            equals 6422292.
-- \*&amp;\*&amp;y           equals 7.
-- &amp;x              equals 6422296.
-- p               equals 6422296.
-- &amp;p              equals 6422288.
-- \*p              equals 5.
-- pp              equals 6422288.
-- &amp;pp             equals 6422284.
-- \*pp             equals 6422296.
-- \*&amp;\*pp           equals 6422296.
-- \*\*pp            equals 5.
+```c
+int main()
+{
+  int x = 5, y = 7;
+  int * p = &x;
+  int ** pp = &p;   /* pointer to pointer*/
+  y = **pp;
+  printf("y equals %d.\n\n",  y );
+
+  printf("&y\t\tequals %d.\n", &y );
+  printf("*(&y)\t\tequals %d.\n", *(&y) );
+  printf("&(*(&y))\tequals %d.\n", &(*(&y)) );
+  printf("&*&y\t\tequals %d.\n", &*&y );
+  printf("*&*&y\t\tequals %d.\n\n", *&*&y );
+
+  printf("&x\t\tequals %d.\n", &x );
+  printf("p\t\tequals %d.\n", p );
+  printf("&p\t\tequals %d.\n", &p );
+  printf("*p\t\tequals %d.\n\n", *p );
+
+  printf("pp\t\tequals %d.\n", pp );
+  printf("&pp\t\tequals %d.\n", &pp );
+  printf("*pp\t\tequals %d.\n", *pp );
+  printf("*&*pp\t\tequals %d.\n", *&*pp );
+  printf("**pp\t\tequals %d.\n", **pp );
+  return 0;
+}
+```
+
+```c
+y equals 5.
+
+&y              equals 6422292.
+*(&y)           equals 7.
+&(*(&y))        equals 6422292.
+&*&y            equals 6422292.
+*&*&y           equals 7.
+
+&x              equals 6422296.
+p               equals 6422296.
+&p              equals 6422288.
+*p              equals 5.
+
+pp              equals 6422288.
+&pp             equals 6422284.
+*pp             equals 6422296.
+*&*pp           equals 6422296.
+**pp            equals 5.
+```
+
 - Result:
 
 ||Memory Addresses and Values|||
@@ -167,14 +194,23 @@ Function arguments are always **copies** of our variables, and **not** the same 
 This statement reserves space in memory for 10 integers and creates an 'unchanging address of memory' that points to the beginning of this array.
 
 - int a\[10\];
-- int main()
-- {
--   int a\[\] = {1, 2, 3, 4, 5, 6, 7};
--   printf("%-4s equals %d.\n", "a", a);
--   /\*a equals'unchanging address of memory’\*/
--   return 0;
-- }
-- a    equals 6422272.
+
+```c
+int main()
+{
+  int a[] = {1, 2, 3, 4, 5, 6, 7};
+  printf("%-4s equals %d.\n", "a", a);
+  /*a equals'unchanging address of memory’*/
+  return 0;
+}
+```
+
+```c
+a    equals 6422272.
+
+
+```
+
 - Result:
 
 ![Ink 17](assets/image140.png)
@@ -185,34 +221,21 @@ This statement reserves space in memory for 10 integers and creates an 'unchangi
 
 ## Relations between pointers and arrays
 
-- int main()
-- {
--   int a\[\] = {1, 2, 3, 4, 5, 6, 7};
--   printf("%-4s equals %d.\n","a", a);
--   printf("%-4s equals %d.\n","&amp;a", &amp;a);
--   printf("%-4s equals %d.\n","\*a", \*a);
--   return 0;
-- }
-- a    equals 6422272.
-- ?
-- Result:
+```c
+int main()
+{
+  int a[] = {1, 2, 3, 4, 5, 6, 7};
+  printf("%-4s equals %d.\n","a", a);
+  printf("%-4s equals %d.\n","&a", &a);
+  printf("%-4s equals %d.\n","*a", *a);
+  return 0;
+}
+```
 
----
-
-## Relations between pointers and arrays
-
-- int main()
-- {
--   int a\[\] = {1, 2, 3, 4, 5, 6, 7};
--   printf("%-4s equals %d.\n","a", a);
--   printf("%-4s equals %d.\n","&amp;a", &amp;a);
--   printf("%-4s equals %d.\n","\*a", \*a);
--   return 0;
-- }
-- a    equals 6422272.
-- &amp;a   equals 6422272.
-
+```c
+a    equals 6422272.
 ?
+```
 
 - Result:
 
@@ -220,43 +243,76 @@ This statement reserves space in memory for 10 integers and creates an 'unchangi
 
 ## Relations between pointers and arrays
 
-- int main()
-- {
--   int a\[\] = {1, 2, 3, 4, 5, 6, 7};
--   printf("%-4s equals %d.\n","a", a);
--   printf("%-4s equals %d.\n","&amp;a", &amp;a);
--   printf("%-4s equals %d.\n","\*a", \*a);
--   return 0;
-- }
-- a    equals 6422272.
-- &amp;a   equals 6422272.
-- \*a   equals 1.
+```c
+int main()
+{
+  int a[] = {1, 2, 3, 4, 5, 6, 7};
+  printf("%-4s equals %d.\n","a", a);
+  printf("%-4s equals %d.\n","&a", &a);
+  printf("%-4s equals %d.\n","*a", *a);
+  return 0;
+}
+```
+
+```c
+a    equals 6422272.
+&a   equals 6422272.
+?
+```
+
 - Result:
 
 ---
 
 ## Relations between pointers and arrays
 
-**So, what does it mean?**
+```c
+int main()
+{
+  int a[] = {1, 2, 3, 4, 5, 6, 7};
+  printf("%-4s equals %d.\n","a", a);
+  printf("%-4s equals %d.\n","&a", &a);
+  printf("%-4s equals %d.\n","*a", *a);
+  return 0;
+}
+```
 
-- int main()
-- {
--   int x = 5, y = 7, z = 9;
--   int \* pointer = &amp;y;
--   printf("%-4s equals %d.\n", "x", &amp;x);
--   printf("%-4s equals %d.\n", "y", &amp;y);
--   printf("%-4s equals %d.\n", "z", &amp;z);
--   printf("%-4s equals %d.\n", "pointer", pointer);
--   printf("%-4s equals %d.\n", "pointer\*", \*pointer);
--   printf("%-4s equals %d.\n", "pointer\[1\]", pointer\[1\]);
--   return 0;
-- }
-- x    equals 6422292.
-- y    equals 6422288.
-- z    equals 6422284.
-- pointer equals 6422288.
-- pointer\* equals 7.
-- pointer\[1\] equals 5.
+```c
+a    equals 6422272.
+&a   equals 6422272.
+*a   equals 1.
+```
+
+- Result:
+
+---
+
+## Relations between pointers and arrays **So, what does it mean?**
+
+```c
+int main()
+{
+  int x = 5, y = 7, z = 9;
+  int * pointer = &y;
+  printf("%-4s equals %d.\n", "x", &x);
+  printf("%-4s equals %d.\n", "y", &y);
+  printf("%-4s equals %d.\n", "z", &z);
+  printf("%-4s equals %d.\n", "pointer", pointer);
+  printf("%-4s equals %d.\n", "pointer*", *pointer);
+  printf("%-4s equals %d.\n", "pointer[1]", pointer[1]);
+  return 0;
+}
+```
+
+```c
+x    equals 6422292.
+y    equals 6422288.
+z    equals 6422284.
+pointer equals 6422288.
+pointer* equals 7.
+pointer[1] equals 5.
+```
+
 - Result:
 
 ---
@@ -267,8 +323,11 @@ When performing arithmetic operations on pointers, the array index is automatica
 
 For example, if the array stores char values, the index is multiplied by 1, and if it stores int values, the index is multiplied by 4 (assuming an int is 4 bytes).
 
-- int a\[10\];
-- a\[i\] == \*(a+i)        &amp;a\[i\] == &amp;\*(a+i) == a+i
+```c
+int a[10];
+
+a[i] == *(a+i)		&a[i] == &*(a+i) == a+i
+```
 
 ---
 
@@ -284,45 +343,35 @@ For example, if the array stores char values, the index is multiplied by 1, and 
 
 ## crème de la crème
 
-- int main()
-- {
-
+```c
+int main()
+{
     unsigned int x = 0x41424344; // Store a 32-bit integer with ASCII-like hex values
-
-    char \*p = (char\*) &amp;x;          // Cast the address of x to a char pointer
-
+    char *p = (char*) &x;          // Cast the address of x to a char pointer
     printf("x = 0x%X\n", x);
-
-    // Using p\[i\] does not mean we have an array.
-
-    // In C, p\[i\] is just shorthand for \*(p + i),
-
+    // Using p[i] does not mean we have an array.
+    // In C, p[i] is just shorthand for *(p + i),
     // which means "take the value at address p plus i bytes."
-
-    // Since p is a char\*, each step moves by 1 byte.
-
+    // Since p is a char*, each step moves by 1 byte.
     // The actual output depends on system endianness:
-
-    // - Little-endian: p\[0\] = 'D', p\[1\] = 'C', p\[2\] = 'B', p\[3\] = 'A'
-
-    // - Big-endian:    p\[0\] = 'A', p\[1\] = 'B', p\[2\] = 'C', p\[3\] = 'D'
-
-    printf("p\[0\] = %c\n", p\[0\]);
-
-    printf("p\[1\] = %c\n", p\[1\]);
-
-    printf("p\[2\] = %c\n", p\[2\]);
-
-    printf("p\[3\] = %c\n", p\[3\]);
-
+    // - Little-endian: p[0] = 'D', p[1] = 'C', p[2] = 'B', p[3] = 'A'
+    // - Big-endian:    p[0] = 'A', p[1] = 'B', p[2] = 'C', p[3] = 'D'
+    printf("p[0] = %c\n", p[0]);
+    printf("p[1] = %c\n", p[1]);
+    printf("p[2] = %c\n", p[2]);
+    printf("p[3] = %c\n", p[3]);
     return 0;
+}
+```
 
-- }
-- x = 0x41424344
-- p\[0\] = D
-- p\[1\] = C
-- p\[2\] = B
-- p\[3\] = A
+```c
+x = 0x41424344
+p[0] = D
+p[1] = C
+p[2] = B
+p[3] = A
+```
+
 - Result:
 
 ---

@@ -43,24 +43,30 @@ title: "Data Structures & Algorithms"
 
 ---
 
-- int arrayMax(int A\[\], int n)
-- {
--     int currentMax = A\[0\];
--     for (int i = 1; i &lt; n; i++)
--     {
--         if( currentMax &lt; A\[i\] )
--             currentMax = A\[i\];
--     }
--     return currentMax;
-- }
-- **Algorithm** arrayMax(*A*, *n*):
-- **Input**: An array *A* storing *n* ≥ 1 integers.
-- **Output**: The maximum element in *A*.
-- currentMax ← *A*\[0\]
-- **for** *i* ← 1 **to** *n* - 1 **do**
-  - **if** *currentMax* &lt; A\[*i*\] **then**
-    - *currentMax* ← A\[*i*\]
-- **return** *currentMax*
+```c
+int arrayMax(int A[], int n)
+{
+    int currentMax = A[0];
+    for (int i = 1; i < n; i++)
+    {
+        if( currentMax < A[i] )
+            currentMax = A[i];
+    }
+    return currentMax;
+}
+```
+
+```c
+Algorithm arrayMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	currentMax ← A[0]
+	for i ← 1 to n - 1 do
+	if currentMax < A[i] then
+	currentMax ← A[i]
+	return currentMax
+```
+
 - Searching for the maximum value in an array
 
 <!-- chooseAndSwapArrayWithLargerFirstElement(&amp;arr1, &amp;arr2); -->
@@ -69,23 +75,28 @@ title: "Data Structures & Algorithms"
 
 ## Curio
 
-- int arrayMax(int A\[\], int n)
-- {
--     int currentMax = A\[0\];
--     for (int i = 1; i &lt; n; i++)
--         currentMax = currentMax &lt; A\[i\] ? A\[i\] : currentMax;
--     return currentMax;
-- }
-- int arrayMax(int A\[\], int n)
-- {
--     int currentMax = A\[0\];
--     for (int i = 1; i &lt; n; i++)
--     {
--         if( currentMax &lt; A\[i\] )
--             currentMax = A\[i\];
--     }
--     return currentMax;
-- }
+```c
+int arrayMax(int A[], int n)
+{
+    int currentMax = A[0];
+    for (int i = 1; i < n; i++)
+        currentMax = currentMax < A[i] ? A[i] : currentMax;
+    return currentMax;
+}
+```
+
+```c
+int arrayMax(int A[], int n)
+{
+    int currentMax = A[0];
+    for (int i = 1; i < n; i++)
+    {
+        if( currentMax < A[i] )
+            currentMax = A[i];
+    }
+    return currentMax;
+}
+```
 
 <!-- chooseAndSwapArrayWithLargerFirstElement(&amp;arr1, &amp;arr2); -->
 
@@ -97,14 +108,16 @@ By inspecting the pseudocode, we can argue about the correctness of algorithm a
 
 .
 
-- **Algorithm** arrayMax(*A*, *n*):
-- **Input**: An array *A* storing *n* ≥ 1 integers.
-- **Output**: The maximum element in *A*.
-- currentMax ← *A*\[0\]
-- **for** *i* ← 1 **to** *n* - 1 **do**
-  - **if** *currentMax* &lt; A\[*i*\] **then**
-    - *currentMax* ← A\[*i*\]
-- **return** *currentMax*
+```c
+Algorithm arrayMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	currentMax ← A[0]
+	for i ← 1 to n - 1 do
+	if currentMax < A[i] then
+	currentMax ← A[i]
+	return currentMax
+```
 
 ---
 
@@ -136,9 +149,7 @@ If we wish to analyze a particular algorithm without performing experiments on i
 
 ---
 
-## The random access machine (RAM) model
-
-Specifically, a primitive operation corresponds to a low-level instruction with an execution time that depends on the hardware and software environment but is nevertheless constant. Instead of trying to determine the specific execution time of each primitive operation, we will simply count how many primitive operations are executed, and use this number ***t***  as a high-level estimate of the running time of the algorithm. This operation ***count*** will correlate to an actual running time in a specific hardware and software environment, for each primitive operation corresponds to a constant-time instruction, and there are only a fixed number of primitive operations. The implicit assumption in this approach is that the running times of different primitive operations will be fairly similar. Thus, the number, ***t*** , of primitive operations an algorithm performs will be proportional to the actual running time of that algorithm.
+## The random access machine (RAM) model Specifically, a primitive operation corresponds to a low-level instruction with an execution time that depends on the hardware and software environment but is nevertheless constant. Instead of trying to determine the specific execution time of each primitive operation, we will simply count how many primitive operations are executed, and use this number ***t***  as a high-level estimate of the running time of the algorithm. This operation ***count*** will correlate to an actual running time in a specific hardware and software environment, for each primitive operation corresponds to a constant-time instruction, and there are only a fixed number of primitive operations. The implicit assumption in this approach is that the running times of different primitive operations will be fairly similar. Thus, the number, ***t*** , of primitive operations an algorithm performs will be proportional to the actual running time of that algorithm.
 
 ---
 
@@ -162,29 +173,22 @@ c7    Returning from a method.
 
 ---
 
-## RAM machine model definition
-
-This approach of simply counting primitive operations gives rise to a computational model called the **Random Access Machine** (RAM). This model, which should not be confused with "random access memory," views a computer simply as a CPU connected to a bank of memory cells. Each memory cell stores a word, which can be a number, a character string, or an address—that is, the value of a base type. The term ***random access*** refers to the ability of the CPU to access an arbitrary memory cell with ***one primitive operation***. To keep the model simple, we do not place any specific limits on the size of numbers that can be stored in words of memory. We assume the CPU in the RAM model can perform any primitive operation in a constant number of steps, which do not depend on the size of the input. Thus, an accurate bound on the number of primitive operations an algorithm performs corresponds directly to the running time of that algorithm in the RAM model.
+## RAM machine model definition This approach of simply counting primitive operations gives rise to a computational model called the **Random Access Machine** (RAM). This model, which should not be confused with "random access memory," views a computer simply as a CPU connected to a bank of memory cells. Each memory cell stores a word, which can be a number, a character string, or an address—that is, the value of a base type. The term ***random access*** refers to the ability of the CPU to access an arbitrary memory cell with ***one primitive operation***. To keep the model simple, we do not place any specific limits on the size of numbers that can be stored in words of memory. We assume the CPU in the RAM model can perform any primitive operation in a constant number of steps, which do not depend on the size of the input. Thus, an accurate bound on the number of primitive operations an algorithm performs corresponds directly to the running time of that algorithm in the RAM model.
 
 ---
 
 ## Counting primitive operations
 
-**Algorithm** arrayMax(*A*, *n*):
-
-**Input**: An array *A* storing *n* ≥ 1 integers.
-
-**Output**: The maximum element in *A*.
-
-currentMax ← *A*\[0\]
-
-**for** *i* ← 1 **to** *n* - 1 **do**
-
-**if** *currentMax* &lt; A\[*i*\] **then**
-
-*currentMax* ← A\[*i*\]
-
-**return** *currentMax*
+```c
+Algorithm arrayMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	currentMax ← A[0]
+	for i ← 1 to n - 1 do
+	if currentMax < A[i] then
+	currentMax ← A[i]
+	return currentMax
+```
 
 **c1    Assigning a value to a variable**
 
@@ -208,23 +212,20 @@ currentMax ← *A*\[0\]
 
 - Initializing the variable currentMax to A\[0\] corresponds to two primitive operations (indexing into an array and assigning a value to a variable) and is executed only once at the beginning of the algorithm. Thus, it contributes two units to the count.
 
-**Algorithm** arrayMax(*A*, *n*):
+```c
+Algorithm arrayMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	currentMax ← A[0]
+	for i ← 1 to n - 1 do
+	if currentMax < A[i] then
+	currentMax ← A[i]
+	return currentMax
+```
 
-**Input**: An array *A* storing *n* ≥ 1 integers.
-
-**Output**: The maximum element in *A*.
-
-currentMax ← *A*\[0\]
-
-**for** *i* ← 1 **to** *n* - 1 **do**
-
-**if** *currentMax* &lt; A\[*i*\] **then**
-
-*currentMax* ← A\[*i*\]
-
-**return** *currentMax*
-
-currentMax ← *A*\[0\]
+```c
+currentMax ← A[0]
+```
 
 **c1    Assigning a value to a variable**
 
@@ -248,21 +249,16 @@ currentMax ← *A*\[0\]
 
 - At the beginning of the for loop, counter i is initialized to 1. This action corresponds to executing one primitive operation (assigning a value to a variable).
 
-**Algorithm** arrayMax(*A*, *n*):
-
-**Input**: An array *A* storing *n* ≥ 1 integers.
-
-**Output**: The maximum element in *A*.
-
-currentMax ← *A*\[0\]
-
-**for** *i* ← 1 **to** *n* - 1 **do**
-
-**if** *currentMax* &lt; A\[*i*\] **then**
-
-*currentMax* ← A\[*i*\]
-
-**return** *currentMax*
+```c
+Algorithm arrayMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	currentMax ← A[0]
+	for i ← 1 to n - 1 do
+	if currentMax < A[i] then
+	currentMax ← A[i]
+	return currentMax
+```
 
 i ← 1
 
@@ -288,23 +284,20 @@ i ← 1
 
 - Before entering the body of the for loop, condition i &lt; n is verified. This action corresponds to executing one primitive instruction (comparing two numbers). Since counter i starts at 1 and is incremented by 1 at the end of each iteration of the loop, the comparison i &lt; n is performed n  times. Thus, it contributes n units to the count.
 
-**Algorithm** arrayMax(*A*, *n*):
+```c
+Algorithm arrayMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	currentMax ← A[0]
+	for i ← 1 to n - 1 do
+	if currentMax < A[i] then
+	currentMax ← A[i]
+	return currentMax
+```
 
-**Input**: An array *A* storing *n* ≥ 1 integers.
-
-**Output**: The maximum element in *A*.
-
-currentMax ← *A*\[0\]
-
-**for** *i* ← 1 **to** *n* - 1 **do**
-
-**if** *currentMax* &lt; A\[*i*\] **then**
-
-*currentMax* ← A\[*i*\]
-
-**return** *currentMax*
-
-**for** *i* ← 1 **to** *n* - 1 **do**
+```c
+for i ← 1 to n - 1 do
+```
 
 **c1    Assigning a value to a variable**
 
@@ -320,7 +313,9 @@ currentMax ← *A*\[0\]
 
 **c7    Returning from a method.**
 
-    for (int i = 1; i &lt; n; i++)
+```c
+    for (int i = 1; i < n; i++)
+```
 
 <!-- I now show how to count the number of primitive operations executed by an algorithm, using as an example algorithm arrayMax. We do this analysis by focusing on each step of the algorithm and counting the primitive operations that it takes, taking into consideration that some operations are repeated, because they are enclosed in the body of a loop. -->
 
@@ -335,21 +330,16 @@ currentMax ← *A*\[0\]
 - Hence, at each iteration of the loop, either four or six primitive operations are performed, depending on whether A\[i\] &lt;= currentMax or A\[i\]&gt;currentMax.
 - Therefore, the body of the loop contributes between 4(n-1) and 6(n-1) units to the count.
 
-**Algorithm** arrayMax(*A*, *n*):
-
-**Input**: An array *A* storing *n* ≥ 1 integers.
-
-**Output**: The maximum element in *A*.
-
-currentMax ← *A*\[0\]
-
-**for** *i* ← 1 **to** *n* - 1 **do**
-
-**if** *currentMax* &lt; A\[*i*\] **then**
-
-*currentMax* ← A\[*i*\]
-
-**return** *currentMax*
+```c
+Algorithm arrayMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	currentMax ← A[0]
+	for i ← 1 to n - 1 do
+	if currentMax < A[i] then
+	currentMax ← A[i]
+	return currentMax
+```
 
 **c1    Assigning a value to a variable**
 
@@ -381,21 +371,16 @@ normalnie jest n+1 -->
 - Hence, at each iteration of the loop, either four or six primitive operations are performed, depending on whether A\[i\] &lt;= currentMax or A\[i\]&gt;currentMax.
 - Therefore, the body of the loop contributes between 4(n-1) and 6(n-1) units to the count.
 
-**Algorithm** arrayMax(*A*, *n*):
-
-**Input**: An array *A* storing *n* ≥ 1 integers.
-
-**Output**: The maximum element in *A*.
-
-currentMax ← *A*\[0\]
-
-**for** *i* ← 1 **to** *n* - 1 **do**
-
-**if** *currentMax* &lt; A\[*i*\] **then**
-
-*currentMax* ← A\[*i*\]
-
-**return** *currentMax*
+```c
+Algorithm arrayMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	currentMax ← A[0]
+	for i ← 1 to n - 1 do
+	if currentMax < A[i] then
+	currentMax ← A[i]
+	return currentMax
+```
 
 **c1    Assigning a value to a variable**
 
@@ -425,21 +410,16 @@ normalnie jest n+1 -->
 - Hence, at each iteration of the loop, either four or six primitive operations are performed, depending on whether A\[i\] &lt;= currentMax or A\[i\]&gt;currentMax.
 - Therefore, the body of the loop contributes between 4(n-1) and 6(n-1) units to the count.
 
-**Algorithm** arrayMax(*A*, *n*):
-
-**Input**: An array *A* storing *n* ≥ 1 integers.
-
-**Output**: The maximum element in *A*.
-
-currentMax ← *A*\[0\]
-
-**for** *i* ← 1 **to** *n* - 1 **do**
-
-**if** *currentMax* &lt; A\[*i*\] **then**
-
-*currentMax* ← A\[*i*\]
-
-**return** *currentMax*
+```c
+Algorithm arrayMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	currentMax ← A[0]
+	for i ← 1 to n - 1 do
+	if currentMax < A[i] then
+	currentMax ← A[i]
+	return currentMax
+```
 
 **c1    Assigning a value to a variable**
 
@@ -469,21 +449,16 @@ normalnie jest n+1 -->
 - Hence, at each iteration of the loop, either four or six primitive operations are performed, depending on whether A\[i\] &lt;= currentMax or A\[i\]&gt;currentMax.
 - Therefore, the body of the loop contributes between 4(n-1) and 6(n-1) units to the count.
 
-**Algorithm** arrayMax(*A*, *n*):
-
-**Input**: An array *A* storing *n* ≥ 1 integers.
-
-**Output**: The maximum element in *A*.
-
-currentMax ← *A*\[0\]
-
-**for** *i* ← 1 **to** *n* - 1 **do**
-
-**if** *currentMax* &lt; A\[*i*\] **then**
-
-*currentMax* ← A\[*i*\]
-
-**return** *currentMax*
+```c
+Algorithm arrayMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	currentMax ← A[0]
+	for i ← 1 to n - 1 do
+	if currentMax < A[i] then
+	currentMax ← A[i]
+	return currentMax
+```
 
 **c1    Assigning a value to a variable**
 
@@ -513,21 +488,16 @@ normalnie jest n+1 -->
 - Hence, at each iteration of the loop, either four or six primitive operations are performed, depending on whether A\[i\] &lt;= currentMax or A\[i\]&gt;currentMax.
 - Therefore, the body of the loop contributes between 4(n-1) and 6(n-1) units to the count.
 
-**Algorithm** arrayMax(*A*, *n*):
-
-**Input**: An array *A* storing *n* ≥ 1 integers.
-
-**Output**: The maximum element in *A*.
-
-currentMax ← *A*\[0\]
-
-**for** *i* ← 1 **to** *n* - 1 **do**
-
-**if** *currentMax* &lt; A\[*i*\] **then**
-
-*currentMax* ← A\[*i*\]
-
-**return** *currentMax*
+```c
+Algorithm arrayMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	currentMax ← A[0]
+	for i ← 1 to n - 1 do
+	if currentMax < A[i] then
+	currentMax ← A[i]
+	return currentMax
+```
 
 **c1    Assigning a value to a variable**
 
@@ -552,39 +522,29 @@ normalnie jest n+1 -->
 
 - Returning the value of variable currentMax corresponds to one primitive operation, and is executed only once.
 
-**Algorithm** arrayMax(*A*, *n*):
-
-**Input**: An array *A* storing *n* ≥ 1 integers.
-
-**Output**: The maximum element in *A*.
-
-currentMax ← *A*\[0\]
-
-**for** *i* ← 1 **to** *n* - 1 **do**
-
-**if** *currentMax* &lt; A\[*i*\] **then**
-
-*currentMax* ← A\[*i*\]
-
-**return** *currentMax*
+```c
+Algorithm arrayMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	currentMax ← A[0]
+	for i ← 1 to n - 1 do
+	if currentMax < A[i] then
+	currentMax ← A[i]
+	return currentMax
+```
 
 or
 
-**Algorithm** arrayMax(*A*, *n*):
-
-**Input**: An array *A* storing *n* ≥ 1 integers.
-
-**Output**: The maximum element in *A*.
-
-currentMax ← *A*\[0\]
-
-**for** *i* ← 1 **to** *n* - 1 **d**
-
-**if** *currentMax* &lt; A\[*i*\] **then**
-
-*currentMax* ← A\[*i*\]
-
-**return** *currentMax*
+```c
+Algorithm arrayMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	currentMax ← A[0]
+	for i ← 1 to n - 1 d
+	if currentMax < A[i] then
+	currentMax ← A[i]
+	return currentMax
+```
 
 **c1    Assigning a value to a variable**
 
@@ -609,21 +569,16 @@ normalnie jest n+1 -->
 
 - To summarize, the number of primitive operations t(n) (or  T(n)) executed by algorithm arrayMax is at least:
 
-**Algorithm** arrayMax(*A*, *n*):
-
-**Input**: An array *A* storing *n* ≥ 1 integers.
-
-**Output**: The maximum element in *A*.
-
-currentMax ← *A*\[0\]
-
-**for** *i* ← 1 **to** *n* - 1 **do**
-
-**if** *currentMax* &lt; A\[*i*\] **then**
-
-*currentMax* ← A\[*i*\]
-
-**return** *currentMax*
+```c
+Algorithm arrayMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	currentMax ← A[0]
+	for i ← 1 to n - 1 do
+	if currentMax < A[i] then
+	currentMax ← A[i]
+	return currentMax
+```
 
 and at most:
 
@@ -640,7 +595,7 @@ normalnie jest n+1 -->
 
 The figure schematically shows how, depending on the input distribution, the running time of an algorithm can be anywhere between the worst-case time and the best-case time. For example, what if inputs are really only of types "A" or "D"?
 
-![Picture 9](assets/image16.png)
+![w:463px Picture 9](assets/image16.png)
 
 ---
 
@@ -654,23 +609,28 @@ The figure schematically shows how, depending on the input distribution, the run
 
 ## Which is faster?
 
-- int arrayMax(int A\[\], int n)
-- {
--     int currentMax = A\[0\];
--     for (int i = 1; i &lt; n; i++)
--     {
--         if( currentMax &lt; A\[i\] )
--             currentMax = A\[i\];
--     }
--     return currentMax;
-- }
-- int arrayMax(int A\[\], int n)
-- {
--     int currentMax = A\[0\];
--     for (int i = 1; i &lt; n; i++)
--         currentMax = currentMax &lt; A\[i\] ? A\[i\] : currentMax;
--     return currentMax;
-- }
+```c
+int arrayMax(int A[], int n)
+{
+    int currentMax = A[0];
+    for (int i = 1; i < n; i++)
+    {
+        if( currentMax < A[i] )
+            currentMax = A[i];
+    }
+    return currentMax;
+}
+```
+
+```c
+int arrayMax(int A[], int n)
+{
+    int currentMax = A[0];
+    for (int i = 1; i < n; i++)
+        currentMax = currentMax < A[i] ? A[i] : currentMax;
+    return currentMax;
+}
+```
 
 ---
 

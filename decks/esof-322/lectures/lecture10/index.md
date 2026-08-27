@@ -38,8 +38,12 @@ title: "Software Engineering"
 
 - Write something simple in README.md :
 - or index.md
-- \# Welcome to Assignment 04
-- This is my first GitHub Pages project.
+
+```
+# Welcome to Assignment 04
+This is my first GitHub Pages project.
+
+```
 
 ---
 
@@ -53,10 +57,12 @@ title: "Software Engineering"
 
 <https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll>
 
-- title: Assignment 04
-- show\_downloads: false
-- theme: jekyll-theme-minimal
-- description: MarkDown
+```
+title: Assignment 04
+show_downloads: false
+theme: jekyll-theme-minimal
+description: MarkDown
+```
 
 ---
 
@@ -82,7 +88,7 @@ After updating the changes in the \_config.yml and README.md files, GitHub’s s
 - Visit your site link again and refresh.
 - You should now see the applied theme.
 
-![Picture 5](assets/image2.png)
+![w:566px Picture 5](assets/image2.png)
 
 ---
 
@@ -94,9 +100,9 @@ After updating the changes in the \_config.yml and README.md files, GitHub’s s
 - right-click on README.md and select *Preview*.
 - You can now split the window to edit and preview at the same time.
 
-![Picture 6](assets/image3.png)
+![w:498px Picture 6](assets/image3.png)
 
-![Picture 8](assets/image4.png)
+![w:555px Picture 8](assets/image4.png)
 
 ---
 
@@ -151,24 +157,27 @@ After updating the changes in the \_config.yml and README.md files, GitHub’s s
   - if you divide text into chapters and subchapters, a subchapter cannot consist of only one item, because such a division makes no sense. On the other hand,
   - if subchapters differ drastically in length or content, it usually means that the structure was poorly designed.
   - There is also an unwritten rule that you should avoid using more than three levels of subdivision.
-- \# 1 level
-- some text
-- \## 2 level
-- some text
-- \### 3 level
-- some text
-- \#### 4 level
-- some text
-- \##### 5 level
-- some text
-- \##### 5 level
-- the same level 5
-- \#### 4 level
-- \### 3 level
-- \## 2 level
-- \# 1 level
 
-![Picture 7](assets/image5.png)
+```
+# 1 level
+some text
+## 2 level
+some text
+### 3 level
+some text
+#### 4 level
+some text
+##### 5 level
+some text
+##### 5 level
+the same level 5
+#### 4 level
+### 3 level
+## 2 level
+# 1 level
+```
+
+![w:122px Picture 7](assets/image5.png)
 
 ---
 
@@ -180,18 +189,24 @@ Lists:
 - For unordered lists, Markdown expects a **dash (-)** before each item.
 - For ordered lists, you use **numbers followed by a dot**.
 - **Keep in mind**: in Markdown it doesn’t matter what number you type—Markdown will **automatically renumber** the items correctly in sequence.
-- my unordered list:
-- \- 1 item
-- \- 2 item
-- my unordered list:
-- 1\. 1 item
-- 1\. 2 item
-- but:
-- my unordered list:
-- 1\. 1 item
-- 3\. 2 item
 
-![Picture 8](assets/image6.png)
+```
+my unordered list:
+- 1 item
+- 2 item
+
+my unordered list:
+1. 1 item
+1. 2 item
+
+but:
+
+my unordered list:
+1. 1 item
+3. 2 item
+```
+
+![w:205px Picture 8](assets/image6.png)
 
 ---
 
@@ -205,10 +220,16 @@ Links and Images:
 - !\[alt\](url):
   - alt → alternative text (displayed if the image cannot load)
   - url → the path or link to the image
-- \[Google\](<https://www.google.com>)
-- !\[Logo\](<https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png>)
 
-![Picture 10](assets/image7.png)
+```
+[Google](https://www.google.com)
+
+![Logo](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)
+
+
+```
+
+![w:267px Picture 10](assets/image7.png)
 
 ---
 
@@ -222,19 +243,25 @@ Tables
 
 Note: Markdown itself does not support cell merging; for that, you need to embed HTML within the .md file.
 
-- | Column 1 | Column 2 | Column 3 |
-- |----------|----------|----------|
-- | Value 1  | Value 2  | Value 3  |
-- | A        | B        | C        |
+```
+| Column 1 | Column 2 | Column 3 |
+|----------|----------|----------|
+| Value 1  | Value 2  | Value 3  |
+| A        | B        | C        |
 
-![Picture 12](assets/image8.png)
+```
 
-- | Column 1 | Column 2 | Column 3 |
-- |:---------|:--------:|---------:|
-- | Value 1  | Value 2  | Value 3  |
-- | A        | B        | C        |
+![w:265px Picture 12](assets/image8.png)
 
-![Picture 10](assets/image9.png)
+```
+| Column 1 | Column 2 | Column 3 |
+|:---------|:--------:|---------:|
+| Value 1  | Value 2  | Value 3  |
+| A        | B        | C        |
+
+```
+
+![w:288px Picture 10](assets/image9.png)
 
 ---
 
@@ -249,12 +276,18 @@ Code:
 
 Note: After three tildes, you can inform Markdown what language the code is in for syntax highlighting, but this only works for code blocks.
 
-- \`code\`
-- \`\`\`c
-- def hello():
-- print("Hello Markdown!")
+```
+`code`
 
-![Picture 8](assets/image10.png)
+```
+
+````
+```c
+def hello():
+    print("Hello Markdown!")
+````
+
+![w:751px Picture 8](assets/image10.png)
 
 ---
 

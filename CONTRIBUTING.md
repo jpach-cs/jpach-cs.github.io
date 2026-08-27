@@ -84,22 +84,21 @@ lecture 2.
 Reference it from a deck's front matter with `theme: pach`, not by pasting
 CSS. If the look needs to change, edit `assets/marp/theme.css` once.
 
-`theme.css` also carries `assets/marp/logo.svg`, `mt.svg`, and `picax.svg` -
-the logo, bullet icon, and Montana Tech icon the theme's CSS custom
-properties (`--logo-main`, `--bullet-icon`, `--mt-icon`) point at. The theme
-references them with plain relative `url('logo.svg')` paths rather than a
-root-relative `/assets/marp/logo.svg` path. That's a deliberate choice, not
-an oversight: those `url()` values get embedded into each deck's own
-`index.html` and are resolved by the browser (or by Chromium during PDF
-export) relative to *that page's own location*, not relative to
-`theme.css`'s location - a root-relative path would work when the site is
-served over HTTP but break for PDF export, since Chromium loads the page
-from a local file and has no server root to resolve `/...` against. So the
-render script (`tools/render-decks.sh`) copies the three shared asset
-files into every deck's output directory alongside its `index.html`, sourced
-from `assets/marp/` each time. There's exactly one authored copy of each
-asset; the small binary copies in build output are disposable, unlike the
-24KB of theme CSS this replaces.
+`theme.css` also carries every image it uses - the Montana Tech logo, the
+bullet icon, and the title-slide MT icon (the theme's CSS custom properties
+`--logo-main`, `--bullet-icon`, `--mt-icon` point at them), plus the three
+per-language badges shown on Python, x86 assembly, and C code blocks -
+embedded directly as base64 `data:image/svg+xml;base64,...` URIs rather than
+as `url('logo.svg')`-style paths to sibling files. That's a deliberate
+choice, not an oversight: a deck's rendered `index.html` can live anywhere
+under `teaching/`, and PDF export has Chromium load that HTML from a local
+file with no server root to resolve a path against, so any `url()` pointing
+at a separate asset file would need that file copied alongside every single
+rendered deck to resolve correctly in both HTML and PDF output. Embedding the
+assets as data URIs sidesteps that path-resolution problem entirely - the
+theme is fully self-contained, `tools/render-decks.sh` has nothing asset-related
+to copy, and there's exactly one authored copy of each image, living only in
+`theme.css`.
 
 ## Generated output and `.gitignore`
 

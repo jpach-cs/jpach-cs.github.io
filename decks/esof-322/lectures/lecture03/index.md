@@ -28,7 +28,7 @@ Git
 - Create and log in in GitHub account
 - Please turn of AI
 
-![Content Placeholder 10](assets/image2.png)
+![w:606px Content Placeholder 10](assets/image2.png)
 
 ---
 
@@ -39,11 +39,16 @@ Git
 ## Git Settings
 
 - Let’s start by configuring Git. Every user—whether on Windows or Linux—has their own local Git settings. Here are the key commands:
-- git config --global user.name "Jacob Pach"       # Sets your name for commits
-- git config --global user.email "<jpach@mtech.edu>" # Sets your email for commits
-- git config --global core.editor "code --wait"    # Sets VS Code as the default editor
-- git config --global -e                           # Opens the global config file for editing
-- git config --global core.autocrlf true           # Handles line endings (important on Windows)
+
+```
+
+git config --global user.name "Jacob Pach"       # Sets your name for commits
+git config --global user.email "jpach@mtech.edu" # Sets your email for commits
+git config --global core.editor "code --wait"    # Sets VS Code as the default editor
+git config --global -e                           # Opens the global config file for editing
+git config --global core.autocrlf true           # Handles line endings (important on Windows)
+
+```
 
 ---
 
@@ -51,13 +56,11 @@ Git
 
 - <https://www.warp.dev/download>
 
-![Picture 6](assets/image3.png)
+![w:808px Picture 6](assets/image3.png)
 
 ---
 
-## git config --global core.autocrlf true
-
-This Git configuration command ensures consistent handling of line endings across different operating systems. When set to true, Git automatically converts Windows-style carriage return + line feed (CRLF) to Unix-style line feed (LF) when committing, and converts back to CRLF when checking out files on Windows. This helps prevent issues caused by inconsistent line endings in collaborative projects involving multiple platforms.
+## git config --global core.autocrlf true This Git configuration command ensures consistent handling of line endings across different operating systems. When set to true, Git automatically converts Windows-style carriage return + line feed (CRLF) to Unix-style line feed (LF) when committing, and converts back to CRLF when checking out files on Windows. This helps prevent issues caused by inconsistent line endings in collaborative projects involving multiple platforms.
 
 - CRLF
 - LF
@@ -75,30 +78,37 @@ This Git configuration command ensures consistent handling of line endings acros
 
 This command initializes a new Git repository in the current directory. It creates a hidden .git folder that stores all version control data. After running git init, you can start tracking changes, committing files, and using other Git features. It’s typically the first step when starting a new project with Git.
 
-- .git
-- +---hooks
-- +---info
-- +---logs
-- +---objects
-- +---refs
-- |   COMMIT\_EDITMSG
-- |   config
-- |   description
-- |   HEAD
-- |   index
-- git init
-- Initialized empty Git repository in ...
+```
+.git
++---hooks
++---info
++---logs
++---objects
++---refs
+|   COMMIT_EDITMSG
+|   config
+|   description
+|   HEAD
+|   index
+```
+
+```
+git init
+Initialized empty Git repository in ...
+```
 
 ---
 
-## Git status
+## Git status This command displays the current state of the working directory and staging area. It shows which files have been modified, staged for commit, or are untracked. It helps developers understand what changes are pending and whether they need to add, commit, or discard changes. It’s a key tool for tracking progress and avoiding mistakes during version control.
 
-This command displays the current state of the working directory and staging area. It shows which files have been modified, staged for commit, or are untracked. It helps developers understand what changes are pending and whether they need to add, commit, or discard changes. It’s a key tool for tracking progress and avoiding mistakes during version control.
+```
+$ git status
+On branch master
 
-- $ git status
-- On branch master
-- No commits yet
-- nothing to commit (create/copy files and use "git add" to track)
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+```
 
 ---
 
@@ -120,7 +130,10 @@ Each line shows the status and the filename, making it ideal for fast reviews du
 
 git status -s is especially useful when working with many files. It helps you stay focused and avoid clutter from long status messages.
 
-- $ git status –s
+```
+$ git status –s
+
+```
 
 ---
 
@@ -142,14 +155,17 @@ Let's try adding a file to our directory by creating the first file, firstFile.t
 - Git has detected a new file, firsFile.txt, but it is untracked, meaning it is not yet being monitored by Git.
 - Git suggests using git add &lt;file&gt; to start tracking the file and include it in the next commit.
 - This is a typical state right after creating a new file in a freshly initialized repository.
-- $ touch firstFile.txt
-- $ git status
-- On branch master
-- No commits yet
-- Untracked files:
-- (use "git add &lt;file&gt;..." to include in what will be committed)
-- firstFile.txt
-- nothing added to commit but untracked files present (use "git add" to track)
+
+```
+$ touch firstFile.txt
+$ git status
+On branch master
+No commits yet
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        firstFile.txt
+nothing added to commit but untracked files present (use "git add" to track)
+```
 
 ---
 
@@ -187,8 +203,11 @@ Why?
 
 - When you run git commit, Git opens your default text editor (like Notepad or VSC) and waits for you to enter a commit message. This message should briefly describe the changes you’re saving to the repository.
 - The message is important because it becomes part of the project’s history and helps others (and your future self) understand what was changed and why.
-- $ git commit
-- hint: Waiting for your editor to close the file...
+
+```
+$ git commit
+hint: Waiting for your editor to close the file...
+```
 
 ---
 
@@ -217,17 +236,20 @@ When you run git commit without the -m flag, Git opens your default text editor 
 - You can optionally add a longer description below, separated by a blank line, to explain the change in more detail.
 - The rest of the file may contain comments or instructions from Git (lines starting with #). These can be left as-is or removed.
 - Once you're done, save and close the file. Git will then finalize the commit and return you to the terminal.
-- Add firstFile.txt
-- \# Please enter the commit message for your changes. Lines starting
-- \# with '#' will be ignored, and an empty message aborts the commit.
-- \#
-- \# On branch master
-- \#
-- \# Initial commit
-- \#
-- \# Changes to be committed:
-- \#    new file:   firstFile.txt
-- \#
+
+```
+Add firstFile.txt
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#	new file:   firstFile.txt
+#
+```
 
 ---
 
@@ -236,7 +258,10 @@ When you run git commit without the -m flag, Git opens your default text editor 
 - Instead of typing git commit and opening the default editor, you can write your commit message directly in the terminal using:
 - This saves time and avoids switching to the editor. The message should be short and descriptive.
 - Use -m when your message is simple and clear. For longer or multi-line messages, it's better to use the editor to provide more context
-- $ git commit -m "Your commit message"
+
+```
+$ git commit -m "Your commit message"
+```
 
 ---
 
@@ -250,8 +275,10 @@ This command displays all the files that Git is currently tracking in your repos
 
 Use git ls-files to verify which files are being tracked by Git. If a file doesn’t appear, it’s either untracked or ignored via .gitignore.
 
-- $ git ls-files
-- firstFile.txt
+```
+$ git ls-files
+firstFile.txt
+```
 
 ---
 
@@ -264,14 +291,21 @@ This command displays the complete commit history of the repository. Each entry 
 - Date and time of the commit
 - The full commit message
 - It’s useful for reviewing detailed information about each change made to the project.
-- $ git status
-- On branch master
-- nothing to commit, working tree clean
-- $ git log
-- commit d06aafaf2cd37f5bc7cd4015656e1ae15241c996 (HEAD -&gt; master)
-- Author: Jacob Pach &lt;<jpach@mtech.edu>&gt;
-- Date:   Thu Aug 28 20:09:17 2025 -0600
-- Add firstFile.txt
+
+```
+$ git status
+On branch master
+nothing to commit, working tree clean
+```
+
+```
+$ git log
+commit d06aafaf2cd37f5bc7cd4015656e1ae15241c996 (HEAD -> master)
+Author: Jacob Pach <jpach@mtech.edu>
+Date:   Thu Aug 28 20:09:17 2025 -0600
+
+    Add firstFile.txt
+```
 
 ---
 
@@ -286,8 +320,11 @@ It’s ideal for quickly scanning the history or identifying specific commits wi
 
 Use git log when you need full context, and git log --oneline when you want a quick overview. Both are essential tools for navigating and understanding your project’s history.
 
-- $ git log --oneline
-- d06aafa (HEAD -&gt; master) Add firstFile.txt
+```
+$ git log --oneline
+d06aafa (HEAD -> master) Add firstFile.txt
+
+```
 
 ---
 
@@ -298,7 +335,10 @@ Use git log when you need full context, and git log --oneline when you want a qu
 - This may seem counterintuitive, but it tells Git: “I want this deletion to be part of the next commit.” Once committed, the file will no longer exist in the current branch.
 - Of course, you can always **restore the file** by checking out a previous commit where it still existed.
 - Git tracks changes — including deletions — only when you explicitly stage them. Use git add even for removed files to make the change part of your commit history.
-- $ git add firstFile.txt
+
+```
+$ git add firstFile.txt
+```
 
 ---
 
@@ -313,9 +353,12 @@ So, if you rename a file manually (e.g., from oldName.txt to newName.txt), Git w
 
 - To properly reflect this change in Git, you should:
 - Git doesn’t track file names — it tracks content. Renaming a file is treated as removing one and adding another. Always stage both the deletion and the new file to keep your history clean and understandable.
-- $  git add oldName.txt
-- $  git add newName.txt
-- $  git commit -m "Renamed file from oldName.txt to newName.txt"
+
+```
+$  git add oldName.txt
+$  git add newName.txt
+$  git commit -m "Renamed file from oldName.txt to newName.txt"
+```
 
 ---
 
@@ -340,10 +383,12 @@ Git will ignore any file or folder that matches these patterns — even if they 
 
 Use .gitignore to keep your repository clean and focused only on the files that matter. It helps avoid accidentally committing sensitive data or unnecessary clutter.
 
-- \*.log
-- \*.tmp
-- node\_modules/
-- .env
+```
+*.log
+*.tmp
+node_modules/
+.env
+```
 
 ---
 
@@ -374,9 +419,18 @@ These dot-prefixed files and folders are used to configure tools and environment
 
 - The command git branch shows a list of all branches in your repository. The currently active branch is marked with an asterisk (\*).
 - When working with a repository that has multiple branches, we can switch between them using two different commands. This is because modern versions of Git introduced standardized naming conventions, but the older commands were kept to ensure backward compatibility and to avoid forcing experienced users to relearn everything from scratch.
-- git branch new\_branch
-- $ git switch second\_branch
-- $ git checkout second\_branch
+
+```
+git branch new_branch
+```
+
+```
+$ git switch second_branch
+```
+
+```
+$ git checkout second_branch
+```
 
 ---
 
@@ -384,33 +438,41 @@ These dot-prefixed files and folders are used to configure tools and environment
 
 It is worth mentioning that Git stores information about branches in the .git/refs/head directory, where each file represents a local branch and contains the commit hash it points to. The currently active branch is indicated by the .git/HEAD file, which usually contains a reference like ref: refs/heads/main.
 
-- .git
-- +---hooks
-- +---info
-- +---logs
-- +---objects
-- +---refs
-- |   COMMIT\_EDITMSG
-- |   config
-- |   description
-- |   HEAD
-- |   index
-- $ git status
-- On branch master
-- ...
+```
+.git
++---hooks
++---info
++---logs
++---objects
++---refs
+|   COMMIT_EDITMSG
+|   config
+|   description
+|   HEAD
+|   index
+```
+
+```
+$ git status
+On branch master
+...
+```
 
 ---
 
-## Git status &amp; git branch
+## Git status &amp; git branch Depending on the shell or terminal, Git can display additional information in the prompt, such as the current branch, whether all files are tracked, or if there are uncommitted changes. However, to check which branch you are on, you can always use the git status command or git branch without any parameters.
 
-Depending on the shell or terminal, Git can display additional information in the prompt, such as the current branch, whether all files are tracked, or if there are uncommitted changes. However, to check which branch you are on, you can always use the git status command or git branch without any parameters.
+```
+$ git branch
+* master
+  second
+```
 
-- $ git branch
-- \* master
-- second
-- $ git status
-- On branch master
-- ...
+```
+$ git status
+On branch master
+...
+```
 
 ---
 

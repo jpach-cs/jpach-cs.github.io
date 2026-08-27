@@ -30,7 +30,7 @@ Git
 - Create and log in in GitHub account
 - Please turn of AI
 
-![Content Placeholder 10](assets/image2.png)
+![w:606px Content Placeholder 10](assets/image2.png)
 
 ---
 
@@ -46,12 +46,18 @@ Git
   - main now includes the changes from feature-branch
 - A merge creates a **merge commit** that keeps both branch histories visible.
 - Useful when you want a **complete history** of how branches diverged and then rejoined.
-- A---B---C---D  (main)
-- \
-- E---F (feature)
-- A---B---C---D---M  (main)
-- \     /
-- E---F
+
+```
+A---B---C---D  (main)
+         \
+          E---F (feature)
+```
+
+```
+A---B---C---D---M  (main)
+         \     /
+          E---F
+```
 
 ---
 
@@ -67,10 +73,17 @@ Git
   - Run git rebase main
   - Commits from feature-branch are “replayed” on top of main.
 - Rebase creates a **linear history**, making it look like work happened in sequence.
-- A---B---C---D  (main)
-- \
-- E---F (feature)
-- A---B---C---D---E'---F'  (feature)
+
+```
+A---B---C---D  (main)
+         \
+          E---F (feature)
+```
+
+```
+A---B---C---D---E'---F'  (feature)
+
+```
 
 ---
 
@@ -136,7 +149,10 @@ The behavior of git reset depends on the option:
 
 Effect: last commit undone, but changes still staged.
 
-- git reset --soft HEAD~1
+```
+git reset --soft HEAD~1
+
+```
 
 ---
 
@@ -150,7 +166,10 @@ Effect: last commit undone, but changes still staged.
 
 Effect: last commit undone, changes remain in files, but are **unstaged**.
 
-- git reset --mixed HEAD~1
+```
+git reset --mixed HEAD~1
+
+```
 
 ---
 
@@ -165,7 +184,10 @@ Effect: last commit undone, changes remain in files, but are **unstaged**.
 
 Dangerous – use with caution.
 
-- git reset --hard HEAD~1
+```
+git reset --hard HEAD~1
+
+```
 
 ---
 
@@ -179,7 +201,10 @@ Leaves changes in the working directory.
 
 Equivalent to: “Unstage this file.”
 
-- git reset HEAD filename
+```
+git reset HEAD filename
+
+```
 
 ---
 
@@ -209,9 +234,17 @@ Use reset carefully – it can rewrite history and delete changes.
 
 - Discard changes in a **tracked file** (not yet staged):
 - Discard changes that are **staged for commit**:
-- git checkout – filename
-- git reset HEAD filename   # Unstage
-- git checkout -- filename  # Discard changes
+
+```
+git checkout – filename
+
+```
+
+```
+git reset HEAD filename   # Unstage
+git checkout -- filename  # Discard changes
+
+```
 
 ---
 
@@ -224,10 +257,22 @@ Use reset carefully – it can rewrite history and delete changes.
 **Important:** Make sure your .gitignore is correct.
 
 - If you want to ignore obj/ folder, it should be:
-- Git status
-- git reset HEAD path/to/file
-- git rm --cached path/to/file
-- obj/
+
+```
+Git status
+git reset HEAD path/to/file
+
+```
+
+```
+git rm --cached path/to/file
+
+```
+
+```
+obj/
+
+```
 
 ---
 
@@ -235,17 +280,29 @@ Use reset carefully – it can rewrite history and delete changes.
 
 - **Scenario A:** Last commit was a mistake, **you haven’t pushed yet**:
 - **Scenario B:** Undo commit **after it was pushed**:
-- git reset --soft HEAD~1   # Keep changes staged
-- git reset --mixed HEAD~1  # Keep changes unstaged
-- git reset --hard HEAD~1   # Discard changes completely
-- git revert &lt;commit-id&gt;    #Safer than reset if others already pulled your changes.
+
+```
+git reset --soft HEAD~1   # Keep changes staged
+git reset --mixed HEAD~1  # Keep changes unstaged
+git reset --hard HEAD~1   # Discard changes completely
+
+```
+
+```
+git revert <commit-id>	#Safer than reset if others already pulled your changes.
+
+```
 
 ---
 
 ## Modifying a commit message
 
 - **Situation:** You want to change the last commit message **before pushing**:
-- git commit --amend -m "New commit message“
+
+```
+git commit --amend -m "New commit message“
+
+```
 
 ---
 
@@ -253,8 +310,16 @@ Use reset carefully – it can rewrite history and delete changes.
 
 - **Scenario:** A file was deleted by mistake and not committed yet:
 - **Scenario B:** File was deleted in a previous commit:
-- git checkout – filename
-- git checkout &lt;commit-id&gt; -- filename
+
+```
+git checkout – filename
+
+```
+
+```
+git checkout <commit-id> -- filename
+
+```
 
 ---
 
@@ -265,11 +330,19 @@ Use reset carefully – it can rewrite history and delete changes.
 - Options:
   - Stash changes:
   - Or commit to a temporary branch:
-- git stash
-- git checkout other-branch
-- git stash apply
-- git checkout -b temp-branch
-- git commit -m "WIP“
+
+```
+git stash
+git checkout other-branch
+git stash apply
+
+```
+
+```
+git checkout -b temp-branch
+git commit -m "WIP“
+
+```
 
 ---
 

@@ -42,25 +42,19 @@ title: "Software Engineering"
 - Use volatile to ensure the variable stays in RAM.
 - You can also use XOR, CRC, or even SHA-based checksums.
 
+```
 int health = 100;
+int health_checksum = ~health;
 
-int health\_checksum = ~health;
-
-void check\_health\_integrity()
-
+void check_health_integrity()
 {
-
-    if (health\_checksum != ~health)
-
+    if (health_checksum != ~health)
     {
-
         printf("Memory tampering detected!\n");
-
         exit(1);
-
     }
-
 }
+```
 
 ---
 
@@ -94,43 +88,29 @@ void check\_health\_integrity()
 - Detect if a debugger is present (IsDebuggerPresent() on Windows).
 - If detected, disable features or exit.
 
-bool integrity\_checked = false;
+```
+bool integrity_checked = false;
 
-<br>
 
-void check\_health\_integrity()
-
+void check_health_integrity()
 {
-
-    integrity\_checked = true;
-
-    if (health\_checksum != ~health)
-
+    integrity_checked = true;
+    if (health_checksum != ~health)
     {
-
         printf("Memory tampering detected!\n");
-
         exit(1);
-
     }
-
-}<br>
-
-void verify\_integrity\_check()
-
-{
-
-    if (!integrity\_checked)
-
-    {
-
-        printf("Integrity check was skipped!\n");
-
-        exit(1);
-
-    }
-
 }
+
+void verify_integrity_check()
+{
+    if (!integrity_checked)
+    {
+        printf("Integrity check was skipped!\n");
+        exit(1);
+    }
+}
+```
 
 ---
 
@@ -162,113 +142,90 @@ void verify\_integrity\_check()
   - **reuse** pieces in other projects,
   - **keep things clear** – each file has one responsibility
 
+```
 project/
-
-│── Makefile        &lt;- main file
-
-│── paths.mk        &lt;- directories, paths
-
-│── rules.mk        &lt;- compilation rules
-
-│── clean.mk        &lt;- cleaning rules
-
-│── deps.mk         &lt;- dependencies (optional)
-
+│── Makefile        <- main file
+│── paths.mk        <- directories, paths
+│── rules.mk        <- compilation rules
+│── clean.mk        <- cleaning rules
+│── deps.mk         <- dependencies (optional)
 ├── src/
-
 │   ├── main.c
-
 │   └── other.c
-
 └── inc/
+    └── other.h
 
-└── other.h
+```
 
 ---
 
 ## Modular Makefile
 
-INC\_DIR :=inc#include for headers
-
-- BIN\_DIR :=bin# \*.exe
-
-CC     := gcc
-
-CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC\_DIR) # compiler flags
-
-LFLAG  := -g # linker flag<br>
-
-TARGET := $(BIN\_DIR)/main.exe #$(SCR\_DIR)/main.exe
-
-OBJS   := main.o other.o
-
-RM := -rm -f <br>
-
-.PHONY: all clean check-shell<br>
-
-all: $(TARGET)<br>
-
-$(TARGET): $(OBJS) | $(BIN\_DIR) #order-only prerequisite
-
-    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
-
-main.o: main.c
-
-    $(CC) $(CFLAGS) -c main.c -o main.o
-
-other.o: $(INC\_DIR)/other.h other.c
-
-    $(CC) $(CFLAGS) -c other.c -o other.o<br>
-
-$(BIN\_DIR):
-
-    mkdir $(BIN\_DIR)<br>
-
-clean:
-
-    $(RM) $(OBJS)
-
-INC\_DIR :=inc#
-
-- BIN\_DIR :=bin#
+```
+INC_DIR :=inc#include for headers
+BIN_DIR :=bin# *.exe
 
 CC     := gcc
+CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC_DIR) # compiler flags
+LFLAG  := -g # linker flag
 
-CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC\_DIR)
-
-LFLAG  := -g<br>
-
-TARGET := $(BIN\_DIR)/main.exe
-
+TARGET := $(BIN_DIR)/main.exe #$(SCR_DIR)/main.exe
 OBJS   := main.o other.o
-
 RM := -rm -f
-
-- paths.mk
 
 .PHONY: all clean check-shell
 
-all: $(TARGET)<br>
+all: $(TARGET)
 
-$(TARGET): $(OBJS) | $(BIN\_DIR) #
-
+$(TARGET): $(OBJS) | $(BIN_DIR) #order-only prerequisite
     $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
 main.o: main.c
-
     $(CC) $(CFLAGS) -c main.c -o main.o
 
-other.o: $(INC\_DIR)/other.h other.c
+other.o: $(INC_DIR)/other.h other.c
+    $(CC) $(CFLAGS) -c other.c -o other.o
 
-    $(CC) $(CFLAGS) -c other.c -o other.o<br>
-
-$(BIN\_DIR):
-
-    mkdir $(BIN\_DIR)
+$(BIN_DIR):
+    mkdir $(BIN_DIR)
 
 clean:
-
     $(RM) $(OBJS)
+```
+
+```
+INC_DIR :=inc#
+BIN_DIR :=bin#
+
+CC     := gcc
+CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC_DIR)
+LFLAG  := -g
+
+TARGET := $(BIN_DIR)/main.exe
+OBJS   := main.o other.o
+RM := -rm -f
+```
+
+- paths.mk
+
+```
+.PHONY: all clean check-shell
+all: $(TARGET)
+
+$(TARGET): $(OBJS) | $(BIN_DIR) #
+    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+
+main.o: main.c
+    $(CC) $(CFLAGS) -c main.c -o main.o
+
+other.o: $(INC_DIR)/other.h other.c
+    $(CC) $(CFLAGS) -c other.c -o other.o
+
+$(BIN_DIR):
+    mkdir $(BIN_DIR)
+clean:
+    $(RM) $(OBJS)
+```
 
 - rules.mk
 
@@ -282,53 +239,45 @@ How It Works:
 - Then it includes the contents of paths.mk, rules.mk.
 - The end result is one big Makefile, but structured into smaller logical pieces.
 
-\# Combine everything together
-
+```
+# Combine everything together
 include paths.mk
-
 include rules.mk
+```
 
-INC\_DIR :=inc#
-
-- BIN\_DIR :=bin#
+```
+INC_DIR :=inc#
+BIN_DIR :=bin#
 
 CC     := gcc
+CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC_DIR)
+LFLAG  := -g
 
-CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC\_DIR)
-
-LFLAG  := -g<br>
-
-TARGET := $(BIN\_DIR)/main.exe
-
+TARGET := $(BIN_DIR)/main.exe
 OBJS   := main.o other.o
-
 RM := -rm -f
+```
 
 - paths.mk
 
+```
 .PHONY: all clean check-shell
+all: $(TARGET)
 
-all: $(TARGET)<br>
-
-$(TARGET): $(OBJS) | $(BIN\_DIR) #
-
+$(TARGET): $(OBJS) | $(BIN_DIR) #
     $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
 main.o: main.c
-
     $(CC) $(CFLAGS) -c main.c -o main.o
 
-other.o: $(INC\_DIR)/other.h other.c
+other.o: $(INC_DIR)/other.h other.c
+    $(CC) $(CFLAGS) -c other.c -o other.o
 
-    $(CC) $(CFLAGS) -c other.c -o other.o<br>
-
-$(BIN\_DIR):
-
-    mkdir $(BIN\_DIR)
-
+$(BIN_DIR):
+    mkdir $(BIN_DIR)
 clean:
-
     $(RM) $(OBJS)
+```
 
 - rules.mk
 
@@ -352,21 +301,16 @@ clean:
 - **Portability** → different .mk sets for Windows, Linux, macOS.
 - **Industry Standard** → many open-source projects follow this convention.
 
+```
 project/
-
 │── Makefile
-
 │── src/
-
 │── inc/
-
 │── mk/
-
 │ ├── paths.mk
-
 │ ├── compiler.mk
-
 │ └── rules.mk
+```
 
 ---
 
@@ -383,9 +327,13 @@ project/
   - Commonly used to collect source files automatically.
 - \# Expands to:
 
-SOURCES = $(wildcard src/\*.c)
+```
+SOURCES = $(wildcard src/*.c)
+```
 
+```
 src/main.c src/other.c ...
+```
 
 ---
 
@@ -396,9 +344,13 @@ src/main.c src/other.c ...
   - Often used to map .c files to corresponding .o object files.
 - \# Expands to:
 
+```
 OBJECTS = $(patsubst src/%.c,obj/%.o,$(SOURCES))
+```
 
+```
 obj/main.o obj/other.o ...
+```
 
 ---
 
@@ -429,9 +381,10 @@ obj/main.o obj/other.o ...
 
 → $@ expands to main.o.
 
+```
 main.o: main.c
-
     gcc -c main.c -o $@
+```
 
 ---
 
@@ -442,9 +395,10 @@ main.o: main.c
 
 → $&lt; expands to main.c.
 
+```
 main.o: main.c
-
-    gcc -c $&lt; -o $@
+    gcc -c $< -o $@
+```
 
 ---
 
@@ -455,9 +409,10 @@ main.o: main.c
 
 → $^ expands to main.o utils.o.
 
+```
 app: main.o utils.o
-
     gcc $^ -o $@
+```
 
 ---
 
@@ -468,9 +423,10 @@ app: main.o utils.o
 
 → recompiles only when needed.
 
+```
 app: main.o utils.o
-
     gcc $? -o $@
+```
 
 ---
 
@@ -481,9 +437,10 @@ app: main.o utils.o
 
 → Here $\* would expand to main if the target is main.o.
 
+```
 %.o: %.c
-
-    gcc -c $&lt; -o $@
+    gcc -c $< -o $@
+```
 
 ---
 
@@ -526,33 +483,22 @@ app: main.o utils.o
 - -MP: Add phony targets to avoid errors if headers are deleted
 - -include $(DEPS): Load dependencies if they exist (ignore missing ones at first run)
 
-\# Compiler flags for dependency generation
-
+```
+# Compiler flags for dependency generation
 CFLAGS := -g -Wall -std=c99 -pedantic -I inc -MMD -MP
-
-\# Sources and objects
-
-SOURCES := $(wildcard src/\*.c)
-
+# Sources and objects
+SOURCES := $(wildcard src/*.c)
 OBJECTS := $(patsubst src/%.c,obj/%.o,$(SOURCES))
-
 DEPS    := $(OBJECTS:.o=.d)
-
-\# Build rule (note use of $@ and $&lt;)
-
+# Build rule (note use of $@ and $<)
 obj/%.o: src/%.c
-
-    $(CC) $(CFLAGS) -c $&lt; -o $@
-
-\# Link final binary
-
+    $(CC) $(CFLAGS) -c $< -o $@
+# Link final binary
 bin/main.exe: $(OBJECTS)
-
     $(CC) $(OBJECTS) -o $@
-
-\# Include generated dependency files
-
+# Include generated dependency files
 -include $(DEPS)
+```
 
 ---
 
@@ -564,73 +510,53 @@ bin/main.exe: $(OBJECTS)
 
 ---
 
-\# Directories
+```
+# Directories
+SRC_DIR := src
+INC_DIR := inc
+OBJ_DIR := obj
+BIN_DIR := bin
 
-SRC\_DIR := src
-
-INC\_DIR := inc
-
-OBJ\_DIR := obj
-
-BIN\_DIR := bin
-
-\# Compiler and flags
-
+# Compiler and flags
 CC     := gcc
-
-CFLAGS := -Wall -Wextra -std=c99 -g -I$(INC\_DIR) -MMD -MP
-
+CFLAGS := -Wall -Wextra -std=c99 -g -I$(INC_DIR) -MMD -MP
 LDFLAGS := -g
 
-\# Files
-
-SRCS := $(wildcard $(SRC\_DIR)/\*.c)
-
-OBJS := $(patsubst $(SRC\_DIR)/%.c, $(OBJ\_DIR)/%.o, $(SRCS))
-
+# Files
+SRCS := $(wildcard $(SRC_DIR)/*.c)
+OBJS := $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 DEPS := $(OBJS:.o=.d)
 
-TARGET := $(BIN\_DIR)/main.exe
+TARGET := $(BIN_DIR)/main.exe
 
-\# Tools
-
+# Tools
 RM := -rm -f
-
 MKDIR := mkdir
 
 .PHONY: all clean dirs
 
-\# Default target
-
+# Default target
 all: dirs $(TARGET)
 
-\# Link
-
+# Link
 $(TARGET): $(OBJS)
+	$(CC) $(LDFLAGS) $^ -o $@
 
-$(CC) $(LDFLAGS) $^ -o $@
+# Compile rule
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-\# Compile rule
-
-$(OBJ\_DIR)/%.o: $(SRC\_DIR)/%.c
-
-$(CC) $(CFLAGS) -c $&lt; -o $@
-
-\# Make sure dirs exist
-
+# Make sure dirs exist
 dirs:
+	@$(MKDIR) $(OBJ_DIR) $(BIN_DIR)
 
-@$(MKDIR) $(OBJ\_DIR) $(BIN\_DIR)
-
-\# Clean
-
+# Clean
 clean:
+	$(RM) $(OBJ_DIR)/* $(TARGET)
 
-$(RM) $(OBJ\_DIR)/\* $(TARGET)
-
-\# Include dependency files
-
+# Include dependency files
 -include $(DEPS)
+```
 
 ---
 
@@ -649,45 +575,37 @@ Modifications include:
 
 These changes ensure that the build artifacts are separated from the source code and repository, and that make handles the directory creation safely and efficiently.
 
-INC\_DIR :=inc#include for headers
-
-BIN\_DIR :=bin# \*.exe
+```
+INC_DIR :=inc#include for headers
+BIN_DIR :=bin# *.exe
 
 CC     := gcc
+CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC_DIR) # compiler flags
+LFLAG  := -g # linker flag
 
-CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC\_DIR) # compiler flags
-
-LFLAG  := -g # linker flag<br>
-
-TARGET := $(BIN\_DIR)/main.exe #$(SCR\_DIR)/main.exe
-
+TARGET := $(BIN_DIR)/main.exe #$(SCR_DIR)/main.exe
 OBJS   := main.o other.o
+RM := -rm -f
 
-RM := -rm -f <br>
+.PHONY: all clean check-shell
 
-.PHONY: all clean check-shell<br>
+all: $(TARGET)
 
-all: $(TARGET)<br>
-
-$(TARGET): $(OBJS) | $(BIN\_DIR) #order-only prerequisite
-
+$(TARGET): $(OBJS) | $(BIN_DIR) #order-only prerequisite
     $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
 main.o: main.c
-
     $(CC) $(CFLAGS) -c main.c -o main.o
 
-other.o: $(INC\_DIR)/other.h other.c
+other.o: $(INC_DIR)/other.h other.c
+    $(CC) $(CFLAGS) -c other.c -o other.o
 
-    $(CC) $(CFLAGS) -c other.c -o other.o<br>
-
-$(BIN\_DIR):
-
-    mkdir $(BIN\_DIR)<br>
+$(BIN_DIR):
+    mkdir $(BIN_DIR)
 
 clean:
-
     $(RM) $(OBJS)
+```
 
 ---
 
@@ -734,29 +652,20 @@ make debug flags:
 - Helps understand dependency issues, missing files, or outdated targets.
 - Essential when working with complex Makefiles or large projects.
 
-\# Show which targets are out-of-date
-
+```
+# Show which targets are out-of-date
 make --debug=b
-
-\# Explain why a target is rebuilt
-
+# Explain why a target is rebuilt
 make --debug=why
-
-\# Trace implicit rules
-
+# Trace implicit rules
 make --debug=i
-
-\# Debug sub-command invocations
-
+# Debug sub-command invocations
 make --debug=j
-
-\# Debug Makefile rebuilds
-
+# Debug Makefile rebuilds
 make --debug=m
-
-\# Full debug output (equivalent to --debug=a)
-
+# Full debug output (equivalent to --debug=a)
 make -d
+```
 
 ---
 

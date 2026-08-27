@@ -13,7 +13,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-![Graphic 3](assets/image3.png)
+![w:277px Graphic 3](assets/image3.png)
 
 ---
 
@@ -31,9 +31,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## 1. Character Classification and Conversion (&lt;ctype.h&gt;)
-
-Used for testing and converting characters.
+## 1. Character Classification and Conversion (&lt;ctype.h&gt;) Used for testing and converting characters.
 
 |Function|Description|Example|
 |---|---|---|
@@ -51,9 +49,7 @@ Used for testing and converting characters.
 
 ---
 
-## 2. String Handling (&lt;string.h&gt;)
-
-Used for manipulating null-terminated character arrays.
+## 2. String Handling (&lt;string.h&gt;) Used for manipulating null-terminated character arrays.
 
 |Function|Description|Example|
 |---|---|---|
@@ -74,11 +70,9 @@ Used for manipulating null-terminated character arrays.
 
 ---
 
-## When we run a program
+## When we run a program When you run a compiled program, it means that through the operating system, it is loaded into RAM, all data are already on the stack, and the stack pointer points to its top, which means that something can be further written from that point.
 
-When you run a compiled program, it means that through the operating system, it is loaded into RAM, all data are already on the stack, and the stack pointer points to its top, which means that something can be further written from that point.
-
-![Picture 48](assets/image5.png)
+![w:498px Picture 48](assets/image5.png)
 
 ---
 
@@ -88,18 +82,25 @@ When you run a compiled program, it means that through the operating system, it 
 - ...
 - 0061FF14
 - (6,422,292)
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--   int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344;
--   printf("%-4s equals %d.\n", "x", &amp;x);
--   printf("%-4s equals %d.\n", "y", &amp;y);
--   printf("%-4s equals %d.\n", "z", &amp;z);
--   return 0;
-- }
-- x    equals 6422292.
-- y    equals 6422288.
-- z    equals 6422284.
+
+```c
+#include <stdio.h>
+int main()
+{
+  int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344;
+  printf("%-4s equals %d.\n", "x", &x);
+  printf("%-4s equals %d.\n", "y", &y);
+  printf("%-4s equals %d.\n", "z", &z);
+  return 0;
+}
+```
+
+```c
+x    equals 6422292.
+y    equals 6422288.
+z    equals 6422284.
+```
+
 - Result:
 - The compiler, when declaring a variable x of type int, reserves 4 bytes of memory, which means it decrements the stack pointer (held in the stack pointer register) by 4, then writes the contents from the least significant bit to the most significant bit starting from that address.
 - It then proceeds similarly with the next variable y of type int,
@@ -109,7 +110,10 @@ When you run a compiled program, it means that through the operating system, it 
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 
 - 0061FF18
-- (Stack Pointer)
+
+```c
+(Stack Pointer)
+```
 
 ---
 
@@ -119,18 +123,25 @@ When you run a compiled program, it means that through the operating system, it 
 - ...
 - 0061FF14
 - (6,422,292)
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--   int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344;
--   printf("%-4s equals %d.\n", "x", &amp;x);
--   printf("%-4s equals %d.\n", "y", &amp;y);
--   printf("%-4s equals %d.\n", "z", &amp;z);
--   return 0;
-- }
-- x    equals 6422292.
-- y    equals 6422288.
-- z    equals 6422284.
+
+```c
+#include <stdio.h>
+int main()
+{
+  int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344;
+  printf("%-4s equals %d.\n", "x", &x);
+  printf("%-4s equals %d.\n", "y", &y);
+  printf("%-4s equals %d.\n", "z", &z);
+  return 0;
+}
+```
+
+```c
+x    equals 6422292.
+y    equals 6422288.
+z    equals 6422284.
+```
+
 - Result:
 - 0061FF10
 - (6,422,288)
@@ -142,7 +153,10 @@ When you run a compiled program, it means that through the operating system, it 
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 
 - 0061FF14
-- (Stack Pointer)
+
+```c
+(Stack Pointer)
+```
 
 ---
 
@@ -152,18 +166,25 @@ When you run a compiled program, it means that through the operating system, it 
 - ...
 - 0061FF14
 - (6,422,292)
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--   int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344;
--   printf("%-4s equals %d.\n", "x", &amp;x);
--   printf("%-4s equals %d.\n", "y", &amp;y);
--   printf("%-4s equals %d.\n", "z", &amp;z);
--   return 0;
-- }
-- x    equals 6422292.
-- y    equals 6422288.
-- z    equals 6422284.
+
+```c
+#include <stdio.h>
+int main()
+{
+  int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344;
+  printf("%-4s equals %d.\n", "x", &x);
+  printf("%-4s equals %d.\n", "y", &y);
+  printf("%-4s equals %d.\n", "z", &z);
+  return 0;
+}
+```
+
+```c
+x    equals 6422292.
+y    equals 6422288.
+z    equals 6422284.
+```
+
 - Result:
 - 0061FF0C
 - (6,422,284)
@@ -175,7 +196,11 @@ When you run a compiled program, it means that through the operating system, it 
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 
 - 0061FF10
-- (Stack Pointer)
+
+```c
+(Stack Pointer)
+```
+
 - 0061FF18
 
 ---
@@ -186,18 +211,25 @@ When you run a compiled program, it means that through the operating system, it 
 - ...
 - 0061FF14
 - (6,422,292)
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--   int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344;
--   printf("%-4s equals %d.\n", "x", &amp;x);
--   printf("%-4s equals %d.\n", "y", &amp;y);
--   printf("%-4s equals %d.\n", "z", &amp;z);
--   return 0;
-- }
-- x    equals 6422292.
-- y    equals 6422288.
-- z    equals 6422284.
+
+```c
+#include <stdio.h>
+int main()
+{
+  int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344;
+  printf("%-4s equals %d.\n", "x", &x);
+  printf("%-4s equals %d.\n", "y", &y);
+  printf("%-4s equals %d.\n", "z", &z);
+  return 0;
+}
+```
+
+```c
+x    equals 6422292.
+y    equals 6422288.
+z    equals 6422284.
+```
+
 - Result:
 - 0061FF10
 - (6,422,288)
@@ -211,7 +243,11 @@ When you run a compiled program, it means that through the operating system, it 
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 
 - 0061FF10
-- (Stack Pointer)
+
+```c
+(Stack Pointer)
+```
+
 - 0061FF18
 
 ---
@@ -222,18 +258,25 @@ When you run a compiled program, it means that through the operating system, it 
 - ...
 - 0061FF14
 - (6,422,292)
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--   int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344;
--   printf("%-4s equals %d.\n", "x", &amp;x);
--   printf("%-4s equals %d.\n", "y", &amp;y);
--   printf("%-4s equals %d.\n", "z", &amp;z);
--   return 0;
-- }
-- x    equals 6422292.
-- y    equals 6422288.
-- z    equals 6422284.
+
+```c
+#include <stdio.h>
+int main()
+{
+  int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344;
+  printf("%-4s equals %d.\n", "x", &x);
+  printf("%-4s equals %d.\n", "y", &y);
+  printf("%-4s equals %d.\n", "z", &z);
+  return 0;
+}
+```
+
+```c
+x    equals 6422292.
+y    equals 6422288.
+z    equals 6422284.
+```
+
 - Result:
 - 0061FF10
 - (6,422,288)
@@ -244,7 +287,11 @@ When you run a compiled program, it means that through the operating system, it 
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 
 - 0061FF10
-- (Stack Pointer)
+
+```c
+(Stack Pointer)
+```
+
 - 0061FF18
 - The compiler, when declaring a variable x of type int, reserves 4 bytes of memory, which means it decrements the stack pointer (held in the stack pointer register) by 4, then writes the contents from the least significant bit to the most significant bit starting from that address.
 - It then proceeds similarly with the next variable y of type int,
@@ -257,18 +304,25 @@ When you run a compiled program, it means that through the operating system, it 
 - ...
 - 0061FF14
 - (6,422,292)
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--   int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344;
--   printf("%-4s equals %d.\n", "x", &amp;x);
--   printf("%-4s equals %d.\n", "y", &amp;y);
--   printf("%-4s equals %d.\n", "z", &amp;z);
--   return 0;
-- }
-- x    equals 6422292.
-- y    equals 6422288.
-- z    equals 6422284.
+
+```c
+#include <stdio.h>
+int main()
+{
+  int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344;
+  printf("%-4s equals %d.\n", "x", &x);
+  printf("%-4s equals %d.\n", "y", &y);
+  printf("%-4s equals %d.\n", "z", &z);
+  return 0;
+}
+```
+
+```c
+x    equals 6422292.
+y    equals 6422288.
+z    equals 6422284.
+```
+
 - Result:
 - 0061FF10
 - (6,422,288)
@@ -279,7 +333,11 @@ When you run a compiled program, it means that through the operating system, it 
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 
 - 0061FF10
-- (Stack Pointer)
+
+```c
+(Stack Pointer)
+```
+
 - 0061FF18
 
 |Address|Value|
@@ -305,8 +363,10 @@ When you run a compiled program, it means that through the operating system, it 
 
 ## Take a closer look at this fragment of memory
 
-- int main()
-- {  int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344; return 0;}
+```c
+int main()
+{  int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344; return 0;}
+```
 
 |Address|Value|
 |---|---|
@@ -340,16 +400,31 @@ Data storage in RAM in Windows systems follows the little-endian standard, which
 - The operating system allocates a specific amount of memory to a program, loads it into RAM, and initiates it. This allocated memory size is fixed and relatively small. To overcome this limitation, dynamic memory allocation was introduced, which we refer to as the heap. This means that during the execution of the program (as opposed to when it is loaded and launched), additional RAM segments can be allocated in collaboration with the operating system, according to the program’s needs and within the available physical memory limits.
 - In contrast to the program code placed on the stack—which can simply be cleared by adjusting the stack pointer after program execution, preventing memory leaks—dynamically allocated memory requires the program (or programmer) to manually release every byte requested from the operating system. If not freed by the program, these bytes remain locked and unusable until the operating system is restarted, a condition known as a memory leak. This is a common problem. While dynamic memory allocation offers extensive capabilities, it also introduces significant challenges. Many modern applications are developed without a deep understanding of this mechanism, leading to increasing memory usage over time. As memory leaks accumulate, RAM utilization grows until, eventually, the system runs out of memory and the user has to reboot.
 - In theory, the heap is located below the stack, but in practice, the operating system can allocate any free block of RAM.
-- local variables,<br>arguments
+
+```c
+local variables,
+arguments
+```
+
 - free space
 - heap data
-- static variables,
-- code
+
+```c
+static variables,
+code
+```
+
 - stack
 - heap
 - static
-- high memory addresses
-- low memory addresses
+
+```c
+high memory addresses
+```
+
+```c
+low memory addresses
+```
 
 ---
 
@@ -358,30 +433,43 @@ Data storage in RAM in Windows systems follows the little-endian standard, which
 - To use dynamic memory allocation functions like malloc, you need to include the stdlib.h library.
 - Malloc and free are always used together.
 - The malloc function does not initialize the values of the allocated memory block; the values remain as they were previously in that memory area.
-- \#include &lt;stdio.h&gt;
-- \#include &lt;stdlib.h&gt;
-- <br>int main()
-- {
--     int stackVariable = 5; // Declare a variable on the stack
--     printf("Address of stackVariable: %p\n", &amp;stackVariable);
-- <br>    // Allocate memory on the heap for an integer
--     int \*heapValue = (int\*) malloc( sizeof(int) \* 1  );  // Size multiplied by the number of elements
--     //Since the malloc function returns a void pointer,
--     //it is recommended to explicitly cast it to the desired type, such as int\*, to avoid ambiguity.
-- <br>    if (heapValue)      //(heapValue != NULL)
--     {
--         \*heapValue = 5; // Assign a value to the allocated memory
--         printf("Address of heapValue: %p\n", heapValue);
--         printf("The value of dynamicVariable is = %d\n", \*heapValue);
--         free(heapValue); // Deallocate the memory - so important!
--     }
--     else
--         printf("Memory allocation failed!\n");
--     return 0;
-- }
-- Address of stackVariable: 0062ff14
-- Address of heapValue: 00c41808
-- The value of dynamicVariable is = 5
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+    int stackVariable = 5; // Declare a variable on the stack
+    printf("Address of stackVariable: %p\n", &stackVariable);
+
+    // Allocate memory on the heap for an integer
+    int *heapValue = (int*) malloc( sizeof(int) * 1  );  // Size multiplied by the number of elements
+    //Since the malloc function returns a void pointer,
+    //it is recommended to explicitly cast it to the desired type, such as int*, to avoid ambiguity.
+
+    if (heapValue)      //(heapValue != NULL)
+    {
+        *heapValue = 5; // Assign a value to the allocated memory
+        printf("Address of heapValue: %p\n", heapValue);
+        printf("The value of dynamicVariable is = %d\n", *heapValue);
+
+        free(heapValue); // Deallocate the memory - so important!
+    }
+    else
+        printf("Memory allocation failed!\n");
+    return 0;
+}
+```
+
+```c
+Address of stackVariable: 0062ff14
+Address of heapValue: 00c41808
+The value of dynamicVariable is = 5
+
+```
+
 - Result:
 - Malloc expects only one argument, the number of bytes to be allocated.
 
@@ -389,46 +477,66 @@ Data storage in RAM in Windows systems follows the little-endian standard, which
 
 ## malloc() &amp; free() - Allocating/Deallocating a block of memory
 
-- \#include &lt;stdio.h&gt;
-- \#include &lt;stdlib.h&gt;
-- <br>int main()
-- {
--     int stackVariable = 5;
--     printf("Address of stackVariable: %p\n", &amp;stackVariable);
-- <br>    int \*heapValue = (int\*) malloc( sizeof(int) \* 1  );
-- // Size multiplied by the number of elements<br>    if (heapValue)
--     {
--         \*heapValue = 5;
--         printf("Address of heapValue: %p\n", heapValue);
--         printf("The value of dynamicVariable is = %d\n", \*heapValue);
--         free(heapValue);
--     }
--     else
--         printf("Memory allocation failed!\n");
--     return 0;
-- }
-- Address of stackVariable: 0062ff14
-- Address of heapValue: 00c41808
-- The value of dynamicVariable is = 5
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+    int stackVariable = 5;
+    printf("Address of stackVariable: %p\n", &stackVariable);
+
+    int *heapValue = (int*) malloc( sizeof(int) * 1  );
+	// Size multiplied by the number of elements
+    if (heapValue)
+    {
+        *heapValue = 5;
+        printf("Address of heapValue: %p\n", heapValue);
+        printf("The value of dynamicVariable is = %d\n", *heapValue);
+
+        free(heapValue);
+    }
+    else
+        printf("Memory allocation failed!\n");
+    return 0;
+}
+```
+
+```c
+Address of stackVariable: 0062ff14
+Address of heapValue: 00c41808
+The value of dynamicVariable is = 5
+
+```
+
 - Result:
-- \#include &lt;stdio.h&gt;
-- \#include &lt;stdlib.h&gt;
-- <br>int main()
-- {
--     int stackVariable = 5;
--     printf("Address of stackVariable: %p\n", &amp;stackVariable);
-- <br>    int \*heapValue = (int\*) malloc( 4 );
-- // Size multiplied by the number of elements<br>    if (heapValue)
--     {
--         \*heapValue = 5;
--         printf("Address of heapValue: %p\n", heapValue);
--         printf("The value of dynamicVariable is = %d\n", \*heapValue);
--         free(heapValue);
--     }
--     else
--         printf("Memory allocation failed!\n");
--     return 0;
-- }
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+    int stackVariable = 5;
+    printf("Address of stackVariable: %p\n", &stackVariable);
+
+    int *heapValue = (int*) malloc( 4 );
+	// Size multiplied by the number of elements
+    if (heapValue)
+    {
+        *heapValue = 5;
+        printf("Address of heapValue: %p\n", heapValue);
+        printf("The value of dynamicVariable is = %d\n", *heapValue);
+
+        free(heapValue);
+    }
+    else
+        printf("Memory allocation failed!\n");
+    return 0;
+}
+```
 
 ---
 
@@ -449,7 +557,11 @@ Data storage in RAM in Windows systems follows the little-endian standard, which
 - 0061FF14
 - (6,422,292)
 - FFFFFFFE
-- (4,294,967,295)
+
+```c
+(4,294,967,295)
+```
+
 - ...
 
 |B|B|B|B|B|B|B|
@@ -463,11 +575,18 @@ Data storage in RAM in Windows systems follows the little-endian standard, which
 |---|---|---|---|---|---|---|---|
 
 - B
-- B = Byte
-- b = bit
+
+```c
+B = Byte
+b = bit
+```
+
 - This region
-- this is just
-- an example value
+
+```c
+this is just
+an example value
+```
 
 ---
 
@@ -486,7 +605,11 @@ Data storage in RAM in Windows systems follows the little-endian standard, which
 - 0062FF14
 - (6,422,292)
 - FFFFFFFE
-- (4,294,967,295)
+
+```c
+(4,294,967,295)
+```
+
 - ...
 
 |B|B|B|B|B|B|B|
@@ -516,34 +639,48 @@ Data storage in RAM in Windows systems follows the little-endian standard, which
 
 - Malloc does not require static values for allocation.
 - Malloc expects only one argument, the number of bytes to be allocated.
-- \#include &lt;stdio.h&gt;
-- \#include &lt;stdlib.h&gt;
-- <br>int main()
-- {
--     const int n = 3;
--     int m = 3;
--     int stackArray\[n\];
-- <br>    printf("Address of stackArray\[0\]:\t %.8d\n", &amp;stackArray\[0\]);
--     printf("Address of stackArray\[1\]:\t %.8d\n", &amp;stackArray\[1\]);
--     printf("Address of stackArray\[2\]:\t %.8d\n\n", &amp;stackArray\[2\]);
-- <br>    int \*heapArray = (int\*) malloc( sizeof(int) \* m  );
-- <br>    if (heapArray)
--     {
--         printf("Address of heapArray\[0\]:\t %.8d\n", &amp;heapArray\[0\]);
--         printf("Address of heapArray\[1\]:\t %.8d\n", &amp;heapArray\[1\]);
--         printf("Address of heapArray\[2\]:\t %.8d\n\n", &amp;heapArray\[2\]);
--         free(heapArray); // so important!
--     }
--     else
--         printf("Memory allocation failed!\n");
--     return 0;
-- }
-- Address of stackArray\[0\]:        06487768
-- Address of stackArray\[1\]:        06487772
-- Address of stackArray\[2\]:        06487776
-- Address of heapArray\[0\]:         06559344
-- Address of heapArray\[1\]:         06559348
-- Address of heapArray\[2\]:         06559352
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    const int n = 3;
+    int m = 3;
+    int stackArray[n];
+
+    printf("Address of stackArray[0]:\t %.8d\n", &stackArray[0]);
+    printf("Address of stackArray[1]:\t %.8d\n", &stackArray[1]);
+    printf("Address of stackArray[2]:\t %.8d\n\n", &stackArray[2]);
+
+    int *heapArray = (int*) malloc( sizeof(int) * m  );
+
+    if (heapArray)
+    {
+        printf("Address of heapArray[0]:\t %.8d\n", &heapArray[0]);
+        printf("Address of heapArray[1]:\t %.8d\n", &heapArray[1]);
+        printf("Address of heapArray[2]:\t %.8d\n\n", &heapArray[2]);
+
+        free(heapArray); // so important!
+    }
+    else
+        printf("Memory allocation failed!\n");
+    return 0;
+}
+```
+
+```c
+Address of stackArray[0]:        06487768
+Address of stackArray[1]:        06487772
+Address of stackArray[2]:        06487776
+
+Address of heapArray[0]:         06559344
+Address of heapArray[1]:         06559348
+Address of heapArray[2]:         06559352
+
+```
+
 - Result:
 
 ---
@@ -561,70 +698,98 @@ When a program that utilizes dynamically allocated memory crashes and fails to d
 - calloc() is similar to malloc() but additionally initializes the allocated memory to zero.
 - calloc() is slower than malloc() due to this extra operation. However, calloc() is more efficient when you need an array filled with zeros.
 - Both malloc() and calloc() use the free function to deallocate memory.
-- \#include &lt;stdio.h&gt;
-- \#include &lt;stdlib.h&gt;
-- <br>int main()
-- {
--     int n = 3;
--     int \*heapArray1 = (int\*) calloc( n, sizeof(int)   );
--     int \*heapArray2 = (int\*) malloc( sizeof(int) \* n  );
-- <br>    if (heapArray1)
--     {
--         printf("The value of heapArray1\[0\]:\t %.8d\n", heapArray1\[0\]);
--         printf("The value of heapArray1\[1\]:\t %.8d\n", heapArray1\[1\]);
--         printf("The value of heapArray1\[2\]:\t %.8d\n\n", heapArray1\[2\]);
--         free(heapArray1); // so important!
--     }
--     if (heapArray2)
--     {
--         printf("The value of heapArray2\[0\]:\t %.8d\n", heapArray2\[0\]);
--         printf("The value of heapArray2\[1\]:\t %.8d\n", heapArray2\[1\]);
--         printf("The value of heapArray2\[2\]:\t %.8d\n\n", heapArray2\[2\]);
--         free(heapArray2); // so important!
--     }
--     return 0;
-- }
-- The value of heapArray1\[0\]:      00000000
-- The value of heapArray1\[1\]:      00000000
-- The value of heapArray1\[2\]:      00000000
-- The value of heapArray2\[0\]:      -1163005939
-- The value of heapArray2\[1\]:      -1163005939
-- The value of heapArray2\[2\]:      -1163005939
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n = 3;
+    int *heapArray1 = (int*) calloc( n, sizeof(int)   );
+    int *heapArray2 = (int*) malloc( sizeof(int) * n  );
+
+    if (heapArray1)
+    {
+        printf("The value of heapArray1[0]:\t %.8d\n", heapArray1[0]);
+        printf("The value of heapArray1[1]:\t %.8d\n", heapArray1[1]);
+        printf("The value of heapArray1[2]:\t %.8d\n\n", heapArray1[2]);
+        free(heapArray1); // so important!
+    }
+    if (heapArray2)
+    {
+        printf("The value of heapArray2[0]:\t %.8d\n", heapArray2[0]);
+        printf("The value of heapArray2[1]:\t %.8d\n", heapArray2[1]);
+        printf("The value of heapArray2[2]:\t %.8d\n\n", heapArray2[2]);
+
+        free(heapArray2); // so important!
+    }
+    return 0;
+}
+```
+
+```c
+The value of heapArray1[0]:      00000000
+The value of heapArray1[1]:      00000000
+The value of heapArray1[2]:      00000000
+
+The value of heapArray2[0]:      -1163005939
+The value of heapArray2[1]:      -1163005939
+The value of heapArray2[2]:      -1163005939
+
+```
+
 - Result:
 
 ---
 
 ## realloc()
 
-- Data loss: When reducing the size of a block, data located outside the new, smaller block will be lost.
-- Data movement: realloc() may move the entire memory block to a new location, so always update the pointer.
-- Freeing memory: If realloc() is successful, the original block will be automatically freed.
-- void \*realloc(void \*ptr, size\_t new\_size);
-- \#include &lt;stdio.h&gt;
-- \#include &lt;stdlib.h&gt;
-- <br>int main()
-- {
--     int n = 10;
-- <br>    int \*heapArray1 = (int\*)malloc(n \* sizeof(int));
--     // ...
--     // After some time, we want to reduce the size of the array to 5 elements
--     int \*newHeapArray1 = (int\*)realloc(heapArray1, 5 \* sizeof(int));
--     if (newHeapArray1 == NULL)
--     {
--         printf("Handle error: allocation failed\n");
--         free(heapArray1);
--     }
--     else
--     {
--         printf("Successful allocation, update the pointer\n");
--         heapArray1 = newHeapArray1;
--     }
--     //...
-- <br>    if(heapArray1)
--         free(heapArray1);<br><br>    getchar();
--     return 0;
-- }
-- Successful allocation, update the pointer
+```c
+Data loss: When reducing the size of a block, data located outside the new, smaller block will be lost.
+Data movement: realloc() may move the entire memory block to a new location, so always update the pointer.
+Freeing memory: If realloc() is successful, the original block will be automatically freed.
+void *realloc(void *ptr, size_t new_size);
+
+```
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n = 10;
+
+    int *heapArray1 = (int*)malloc(n * sizeof(int));
+    // ...
+    // After some time, we want to reduce the size of the array to 5 elements
+    int *newHeapArray1 = (int*)realloc(heapArray1, 5 * sizeof(int));
+    if (newHeapArray1 == NULL)
+    {
+        printf("Handle error: allocation failed\n");
+        free(heapArray1);
+    }
+    else
+    {
+        printf("Successful allocation, update the pointer\n");
+        heapArray1 = newHeapArray1;
+    }
+    //...
+
+    if(heapArray1)
+        free(heapArray1);
+
+    getchar();
+    return 0;
+}
+```
+
+```c
+Successful allocation, update the pointer
+
+```
+
 - Result:
 
 What does realloc() return?
@@ -696,9 +861,7 @@ Memory fragmentation is a problem that can occur when memory is repeatedly alloc
 
 ---
 
-## 3. Memory Handling (&lt;string.h&gt;)
-
-Used for working with raw memory blocks.
+## 3. Memory Handling (&lt;string.h&gt;) Used for working with raw memory blocks.
 
 |Function|Description|Example|
 |---|---|---|
@@ -712,35 +875,41 @@ Used for working with raw memory blocks.
 
 ## memcpy()– Copies n bytes from source to destination
 
-- **Header:** &lt;string.h&gt;
-- Copied array: 1 2 4 5
+```c
+Header: <string.h>
+
+
+
+
+
+
+
+
+
+```
+
+```c
+Copied array: 1 2 4 5
+```
+
 - Result:
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main(void)
-
 {
-
-    int src\[10\] = {1,2,4,5};
-
-    int dest\[20\];
-
-    memcpy(dest, src, sizeof(\*src)\*4  );  // +1 for '\0'
-
+    int src[10] = {1,2,4,5};
+    int dest[20];
+    memcpy(dest, src, sizeof(*src)*4  );  // +1 for '\0'
     printf("Copied array: ");
-
-    for (int i = 0; i &lt; 4; i++)
-
-            printf("%d ", dest\[i\]);
-
+    for (int i = 0; i < 4; i++)
+            printf("%d ", dest[i]);
     printf("\n");
-
     return 0;
-
 }
+```
 
 - **Danger:** The source and destination **must not overlap** — otherwise, behavior is undefined.
 
@@ -750,28 +919,26 @@ int main(void)
 
 - **Header:** &lt;string.h&gt;
 - **Danger:** The source and destination **must not overlap** — otherwise, behavior is undefined.
-- Copied text: Hello, world!
+
+```c
+Copied text: Hello, world!
+```
+
 - Result:
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main(void)
-
 {
-
-    char src\[\] = "Hello, world!";
-
-    char dest\[20\];
-
+    char src[] = "Hello, world!";
+    char dest[20];
     memcpy(dest, src, strlen(src) + 1);  // +1 for '\0'
-
     printf("Copied text: %s\n", dest);
-
     return 0;
-
 }
+```
 
 - memcpy(destination, source, n)
 
@@ -781,28 +948,26 @@ int main(void)
 
 - **Header:** &lt;string.h&gt;
 - Like memcpy, but **safe for overlapping regions**. It first copies data to a temporary buffer, ensuring correctness.
-- After memmove: ABABC
+
+```c
+After memmove: ABABC
+```
+
 - Result:
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main(void)
-
 {
-
-    char text\[\] = "ABCDE";
-
+    char text[] = "ABCDE";
     // Overlapping copy (moves the first 3 chars two positions right)
-
     memmove(text + 2, text, 3);
-
     printf("After memmove: %s\n", text);
-
     return 0;
-
 }
+```
 
 - memmove(destination, source, n)
 
@@ -815,31 +980,32 @@ Compares two memory blocks byte by byte.<br>Returns:
 - 0 if equal
 - &lt; 0 if the first differing byte in ptr1 is smaller
 - &gt; 0 if the first differing byte in ptr1 is larger
-- memcmp result: 1
+
+```c
+memcmp result: 1
+```
+
 - Result:
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main(void)
-
 {
-
-    int a\[\] = {21, 2};
-
-    int b\[\] = {21, 1};
-
+    int a[] = {21, 2};
+    int b[] = {21, 1};
     int result = memcmp(a, b, 8);  // Compare first 8 bytes
-
     printf("memcmp result: %d\n", result);
-
     return 0;
-
 }
+```
 
 - memcmp(ptr1, ptr2, n)
-- **Header:** &lt;string.h&gt;
+
+```c
+Header: <string.h>
+```
 
 ---
 
@@ -850,135 +1016,123 @@ Compares two memory blocks byte by byte.<br>Returns:
 - 0 if equal
 - &lt; 0 if the first differing byte in ptr1 is smaller
 - &gt; 0 if the first differing byte in ptr1 is larger
-- memcmp result: -1
+
+```c
+memcmp result: -1
+```
+
 - Result:
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main(void)
-
 {
-
-    char a\[\] = "apple";
-
-    char b\[\] = "apricot";
-
+    char a[] = "apple";
+    char b[] = "apricot";
     int result = memcmp(a, b, 3);  // Compare first 3 bytes
-
     printf("memcmp result: %d\n", result);
-
     return 0;
-
 }
+```
 
 - memcmp(ptr1, ptr2, n)
-- **Header:** &lt;string.h&gt;
+
+```c
+Header: <string.h>
+```
 
 ---
 
-## memset()– Fills a memory block with a specific byte value
-
-Typically used for initializing arrays or structs.
+## memset()– Fills a memory block with a specific byte value Typically used for initializing arrays or structs.
 
 - \----------
 - Result:
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main(void)
-
 {
-
-    char buffer\[10\];
-
+    char buffer[10];
     memset(buffer, '-', sizeof(buffer));  // Fill with '-'
-
-    for (int i = 0; i &lt; 10; i++)
-
-        printf("%c", buffer\[i\]);
-
+    for (int i = 0; i < 10; i++)
+        printf("%c", buffer[i]);
     printf("\n");
-
     return 0;
-
 }
+```
 
 - memset(ptr, value, n)
-- **Header:** &lt;string.h&gt;
+
+```c
+Header: <string.h>
+```
 
 ---
 
-## memset()– Fills a memory block with a specific byte value
+## memset()– Fills a memory block with a specific byte value Typically used for initializing arrays or structs.
 
-Typically used for initializing arrays or structs.
+```c
+0 0 0 0 0 0 0 0 0 0
+```
 
-- 0 0 0 0 0 0 0 0 0 0
 - Result:
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main(void)
-
 {
-
-    int buffer\[10\];
-
+    int buffer[10];
     memset(buffer, 0, sizeof(buffer));  // Fill with 0
-
-    for (int i = 0; i &lt; 10; i++)
-
-        printf("%d ", buffer\[i\]);
-
+    for (int i = 0; i < 10; i++)
+        printf("%d ", buffer[i]);
     printf("\n");
-
     return 0;
-
 }
+```
 
 - memset(ptr, value, n)
-- **Header:** &lt;string.h&gt;
+
+```c
+Header: <string.h>
+```
 
 ---
 
-## memchr()– Searches for the first occurrence of a byte value in the first n bytes of memory
+## memchr()– Searches for the first occurrence of a byte value in the first n bytes of memory Returns a pointer to the found byte or NULL if not found.
 
-Returns a pointer to the found byte or NULL if not found.
+```c
+Found 'w' at position: 6
+```
 
-- Found 'w' at position: 6
 - Result:
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main(void)
-
 {
-
-    char data\[\] = "Hello world";
-
-    char \*found = memchr(data, 'w', strlen(data));
-
+    char data[] = "Hello world";
+    char *found = memchr(data, 'w', strlen(data));
     if (found)
-
         printf("Found 'w' at position: %ld\n", found - data);
-
     else
-
         printf("'w' not found.\n");
-
     return 0;
-
 }
+```
 
 - memchr(ptr, value, n)
-- **Header:** &lt;string.h&gt;
+
+```c
+Header: <string.h>
+```
 
 ---
 
@@ -989,9 +1143,7 @@ int main(void)
 
 ---
 
-## 4. Input / Output Functions (&lt;stdio.h&gt;)
-
-Work with files and streams.
+## 4. Input / Output Functions (&lt;stdio.h&gt;) Work with files and streams.
 
 |Function|Description|Example|
 |---|---|---|
@@ -1015,9 +1167,7 @@ Work with files and streams.
 
 ---
 
-## 5. Conversion Functions (&lt;stdlib.h&gt;)
-
-Convert strings to numbers.
+## 5. Conversion Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -1030,9 +1180,7 @@ Convert strings to numbers.
 
 ---
 
-## 6. Math Functions (&lt;math.h&gt;)
-
-Convert strings to numbers.
+## 6. Math Functions (&lt;math.h&gt;) Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -1048,9 +1196,7 @@ Convert strings to numbers.
 
 ---
 
-## 7. Utility Functions (&lt;stdlib.h&gt;)
-
-Convert strings to numbers.
+## 7. Utility Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -1066,9 +1212,7 @@ Convert strings to numbers.
 
 ---
 
-## 8. Diagnostics and Assertions (&lt;assert.h&gt;)
-
-Useful for debugging and safety.
+## 8. Diagnostics and Assertions (&lt;assert.h&gt;) Useful for debugging and safety.
 
 |Function / Macro|Description|Example|
 |---|---|---|
@@ -1077,9 +1221,7 @@ Useful for debugging and safety.
 
 ---
 
-## 9. Time and Date Functions (&lt;time.h&gt;)
-
-Work with clocks and timestamps.
+## 9. Time and Date Functions (&lt;time.h&gt;) Work with clocks and timestamps.
 
 |Function|Description|Example|
 |---|---|---|
@@ -1094,9 +1236,7 @@ Work with clocks and timestamps.
 
 ---
 
-## 10. Variable Argument Lists (&lt;stdarg.h&gt;)
-
-For functions that accept a variable number of parameters.
+## 10. Variable Argument Lists (&lt;stdarg.h&gt;) For functions that accept a variable number of parameters.
 
 |Macro|Description|Example|
 |---|---|---|
@@ -1106,9 +1246,7 @@ For functions that accept a variable number of parameters.
 
 ---
 
-## 1. Character Classification and Conversion (&lt;ctype.h&gt;)
-
-Used for testing and converting characters.
+## 1. Character Classification and Conversion (&lt;ctype.h&gt;) Used for testing and converting characters.
 
 |Function|Description|Example|
 |---|---|---|
@@ -1126,9 +1264,7 @@ Used for testing and converting characters.
 
 ---
 
-## Most Common System Libraries in Windows (WinAPI)
-
-These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
+## Most Common System Libraries in Windows (WinAPI) These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
 
 |Library|Description|Typical Functions|
 |---|---|---|
@@ -1156,7 +1292,7 @@ These headers are provided with the Windows SDK and are available in compilers s
 - Brian W. Kernighan, Dennis M. Ritchie. C Programming Language, 2nd Edition. Prentice Hall, 1988
 - Seacord, R. C. (2024). Effective C: An Introduction to Professional C Programming. No Starch Press, Inc. (Optional)
 
-![Amazon.com: C Programming Language, 2nd Edition: 8601410794231: Brian W.  Kernighan, Dennis M. Ritchie: Books](assets/image6.jpeg)
+![w:251px Amazon.com: C Programming Language, 2nd Edition: 8601410794231: Brian W.  Kernighan, Dennis M. Ritchie: Books](assets/image6.jpeg)
 
 ![Picture 4](assets/image7.jpeg)
 

@@ -40,14 +40,14 @@ title: "Software Engineering"
 
 ## State diagram of a microwave oven
 
-![5.16 MWOvenStateDiag.eps](assets/image2.emf)
+![w:993px 5.16 MWOvenStateDiag.eps](assets/image2.emf)
 <!-- pptx2marp: image2.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
 ## State diagram of a microwave oven
 
-![5.16 MWOvenStateDiag.eps](assets/image2.emf)
+![w:993px 5.16 MWOvenStateDiag.eps](assets/image2.emf)
 <!-- pptx2marp: image2.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -57,7 +57,7 @@ title: "Software Engineering"
 - While the State Diagram displaying an explicit **do: action** within a state is a valid, though relatively rare, feature of strict UML modeling, **Mermaid often does not handle this specific syntax reliably**.
 - In standard documentation, diagrams are frequently simplified: the **state** is represented by a rounded rectangle, and the **transition arrow** includes text that defines the action (or event) that must occur to move to the **next state**. This is the most common and robust way to model basic state changes in Mermaid.
 
-![Content Placeholder 6](assets/image3.png)
+![w:513px Content Placeholder 6](assets/image3.png)
 
 ---
 
@@ -153,27 +153,26 @@ State diagrams are perfect when modeling systems where:
 
 - All class diagrams must start with this directive.
 - For vsc
-- \`\`\`mermaid
-- stateDiagram-v2
 
-\`\`\`mermaid
-
+````
+```mermaid
 stateDiagram-v2
+````
 
-    \[\*\] --&gt; Idle
-
-    Idle --&gt; Running: start
-
-    Running --&gt; Idle: stop
-
-    Running --&gt; Error: fail
-
-    Error --&gt; Idle: reset
+````
+```mermaid
+stateDiagram-v2
+    [*] --> Idle
+    Idle --> Running: start
+    Running --> Idle: stop
+    Running --> Error: fail
+    Error --> Idle: reset
+````
 
 - Like the **Graph** (Flowchart) diagram, you can change the rendering direction for a **state Diagram (**  e.g.  direction LR **)**.
 - There is also a first version, stateDiagram, that is no longer used in Mermaid.
 
-![Picture 9](assets/image4.png)
+![w:198px Picture 9](assets/image4.png)
 
 ---
 
@@ -213,23 +212,22 @@ stateDiagram-v2
 - Initial and Final States
 - Transition with event
 
-\`\`\`mermaid
-
+````
+```mermaid
 stateDiagram-v2
+    [*] --> A       %% initial
+    A --> [*]       %% final
+````
 
-    \[\*\] --&gt; A       %% initial
+![w:68px Picture 7](assets/image5.png)
 
-    A --&gt; \[\*\]       %% final
-
-![Picture 7](assets/image5.png)
-
-\`\`\`mermaid
-
+````
+```mermaid
 stateDiagram-v2
+    A --> B: eventName
+````
 
-    A --&gt; B: eventName
-
-![Picture 13](assets/image6.png)
+![w:103px Picture 13](assets/image6.png)
 
 ---
 
@@ -238,39 +236,30 @@ stateDiagram-v2
 - Composite (Nested) State
 - Entry / Exit / Do Activities
 
-\`\`\`mermaid
-
+````
+```mermaid
 stateDiagram-v2
-
 state LoggedIn {
-
-    \[\*\] --&gt; Dashboard
-
-    Dashboard --&gt; Settings: openSettings
-
-    Settings --&gt; Dashboard: back
-
+    [*] --> Dashboard
+    Dashboard --> Settings: openSettings
+    Settings --> Dashboard: back
 }
+````
 
-\`\`\`mermaid
-
+````
+```mermaid
 stateDiagram-v2
-
 state Downloading {
-
-    \[\*\] --&gt; Start
-
+    [*] --> Start
     Start: entry/ beginDownload()
-
     Start: do/ downloading()
-
     Start: exit/ finalize()
-
 }
+````
 
-![Picture 8](assets/image7.png)
+![w:225px Picture 8](assets/image7.png)
 
-![Picture 12](assets/image8.png)
+![w:242px Picture 12](assets/image8.png)
 
 ---
 
@@ -279,35 +268,29 @@ state Downloading {
 - Notes
 - Choice Pseudo-state
 
-\`\`\`mermaid
-
+````
+```mermaid
     stateDiagram-v2
-
     A: entry/ initialize
-
     note right of A
-
         This state prepares resources
-
     end note
+````
 
-\`\`\`mermaid
-
+````
+```mermaid
     stateDiagram-v2
+    state decision <<choice>>
 
-    state decision &lt;&lt;choice&gt;&gt;
 
-<br>
+    Idle --> decision
+    decision --> Work: taskFound
+    decision --> Idle: noTask
+````
 
-    Idle --&gt; decision
+![w:279px Picture 8](assets/image9.png)
 
-    decision --&gt; Work: taskFound
-
-    decision --&gt; Idle: noTask
-
-![Picture 8](assets/image9.png)
-
-![Picture 12](assets/image10.png)
+![w:257px Picture 12](assets/image10.png)
 
 ---
 
@@ -315,29 +298,22 @@ state Downloading {
 
 - Fork / Join
 
-\`\`\`mermaid
-
+````
+```mermaid
     stateDiagram-v2
+    state fork1 <<fork>>
+    state join1 <<join>>
 
-    state fork1 &lt;&lt;fork&gt;&gt;
 
-    state join1 &lt;&lt;join&gt;&gt;
+    A --> fork1
+    fork1 --> B
+    fork1 --> C
+    B --> join1
+    C --> join1
+    join1 --> D
+````
 
-<br>
-
-    A --&gt; fork1
-
-    fork1 --&gt; B
-
-    fork1 --&gt; C
-
-    B --&gt; join1
-
-    C --&gt; join1
-
-    join1 --&gt; D
-
-![Picture 7](assets/image11.png)
+![w:203px Picture 7](assets/image11.png)
 
 ---
 
@@ -352,35 +328,27 @@ state Downloading {
 - transitions with events
 - nested behavior
 
-\`\`\`mermaid
+````
+```mermaid
+    stateDiagram-v2
 
-    stateDiagram-v2<br>
+    [*] --> LoggedOut
 
-    \[\*\] --&gt; LoggedOut
-
-    LoggedOut --&gt; Authenticating: login
-
-    Authenticating --&gt; LoggedIn: success
-
-    Authenticating --&gt; LoggedOut: failure<br>
+    LoggedOut --> Authenticating: login
+    Authenticating --> LoggedIn: success
+    Authenticating --> LoggedOut: failure
 
     state LoggedIn {
-
-        \[\*\] --&gt; Dashboard
-
-        Dashboard --&gt; Settings: openSettings
-
-        Settings --&gt; Dashboard: back
-
+        [*] --> Dashboard
+        Dashboard --> Settings: openSettings
+        Settings --> Dashboard: back
         Dashboard: entry/ loadUserData()
-
     }
+    LoggedIn --> LoggedOut: logout
+    LoggedOut --> [*]
+````
 
-    LoggedIn --&gt; LoggedOut: logout
-
-    LoggedOut --&gt; \[\*\]
-
-![Picture 6](assets/image12.png)
+![w:264px Picture 6](assets/image12.png)
 
 ---
 
@@ -405,106 +373,85 @@ state Downloading {
 
 ## but
 
-\`\`\`mermaid
-
+````
+```mermaid
 stateDiagram-v2
 
-<br>
 
-\[\*\] --&gt; s2
+[*] --> s2
+s2 --> [*]
 
-s2 --&gt; \[\*\]
-
-<br>
 
 state "Start" as s2
 
-<br>
 
 s2: entry #58; beginDownload()
-
 s2: do#58; downloading()
-
 s2: exit #58; finalize()
+
+````
 
 - The stateDiagram in Mermaid presents an issue: if you use an identifier alone, the states will not have a proper label, and the entry, do, and exit actions will appear in the place of the state's label. To solve this problem, you need to explicitly assign a label to the state using the syntax: state "label" as id.
 - Once labeled, you can safely add actions/events to the state. Furthermore, to make the output look exactly like standard UML (where internal actions are often preceded by a colon), you can use the character code for the colon: **#58;** (semicolon + hash + 58 + semicolon). Using #58; ensures that we adhere to the Mermaid syntax while allowing the state actions to look just like in UML.
 
-![Picture 9](assets/image13.png)
+![w:288px Picture 9](assets/image13.png)
 
 ---
 
-![Content Placeholder 7](assets/image14.png)
+![w:434px Content Placeholder 7](assets/image14.png)
 
-\`\`\`mermaid
-
+````
+```mermaid
 stateDiagram-v2
-
     %%direction TB
 
-<br>
 
     %% Initial and Final States
+    [*] --> Waiting1 : Initial entry
+    Waiting2 --> [*]
 
-    \[\*\] --&gt; Waiting1 : Initial entry
-
-    Waiting2 --&gt; \[\*\]
-
-<br>
 
     %% 1. Definicje Stanów i ich "Akcji" (jako etykiety)
 
     Waiting1 : Display Time (do)
 
     SetTime : Get Number (do)
-
     SetTime : Set Time (exit)
 
-<br>
 
     Operation : Operate Oven (do)
 
     FullPower : Set Power = 600 (do)
 
-<br>
 
     HalfPower : Set Power = 300 (do)
 
-<br>
 
     Enabled : Display 'Ready' (do)
 
-<br>
 
     Disabled : Display 'Waiting' (do)
 
     Waiting2 : Display Time (do)
 
-<br>
 
     %% 2. Definicje Przejść
 
-    Waiting1 --&gt; FullPower : Time
+    Waiting1 --> FullPower : Time
+    FullPower --> SetTime : Time
 
-    FullPower --&gt; SetTime : Time
 
-<br>
+    SetTime --> Operation
+    Operation --> Waiting2
 
-    SetTime --&gt; Operation
 
-    Operation --&gt; Waiting2
+    Waiting1 --> HalfPower : Time
+    HalfPower --> Enabled
 
-<br>
 
-    Waiting1 --&gt; HalfPower : Time
-
-    HalfPower --&gt; Enabled
-
-<br>
-
-    Enabled --&gt; Disabled
-
-    Disabled --&gt; Waiting2
+    Enabled --> Disabled
+    Disabled --> Waiting2
+````
 
 ---
 

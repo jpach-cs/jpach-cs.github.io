@@ -30,7 +30,7 @@ Git
 - Create and log in in GitHub account
 - Please turn of AI
 
-![Content Placeholder 10](assets/image2.png)
+![w:606px Content Placeholder 10](assets/image2.png)
 
 ---
 
@@ -92,13 +92,19 @@ Git
 - The developer must manually decide which parts to keep.
 - After editing and saving, run:
 - to finalize the merge.
-- &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-- your current branch content
-- =======
-- incoming branch content
-- &gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-branch
-- git add &lt;file&gt;
-- git commit
+
+```
+<<<<<<< HEAD
+your current branch content
+=======
+incoming branch content
+>>>>>>> feature-branch
+```
+
+```
+git add <file>
+git commit
+```
 
 ---
 
@@ -117,7 +123,7 @@ In short, branches allow safe and parallel development, merging combines work fr
 
 ---
 
-![Picture 6](assets/image3.png)
+![bg Picture 6](assets/image3.png)
 
 ---
 
@@ -142,12 +148,15 @@ In short, branches allow safe and parallel development, merging combines work fr
 **Example:**
 
 - Here, the - and + at the start of lines indicate removal or addition. --- and +++ just label the files.
-- diff --git a/file.txt b/file.txt
-- --- a/file.txt
-- +++ b/file.txt
-- @@ -1,3 +1,3 @@
-- -Hello world
-- +Hello Git
+
+```
+diff --git a/file.txt b/file.txt
+--- a/file.txt
++++ b/file.txt
+@@ -1,3 +1,3 @@
+-Hello world
++Hello Git
+```
 
 <!-- Index = ID commita?? -->
 
@@ -159,7 +168,10 @@ In short, branches allow safe and parallel development, merging combines work fr
 
 - By default, git diff compares your working directory with the index (staged area).To compare staged changes with the last commit:
 - Shows changes that **are staged for the next commit**, i.e., tracked files that have been modified and added with git add.
-- git diff --staged
+
+```
+git diff --staged
+```
 
 <!-- Index = ID commita?? -->
 
@@ -174,8 +186,14 @@ In short, branches allow safe and parallel development, merging combines work fr
 - Example:
 - Output shows **what changed from commit 3a5f1b2 to commit 9c7e8d0**.
 - Hint: git log --oneline
-- git diff &lt;commit1&gt; &lt;commit2&gt;
-- git diff 3a5f1b2 9c7e8d0
+
+```
+git diff <commit1> <commit2>
+```
+
+```
+git diff 3a5f1b2 9c7e8d0
+```
 
 <!-- Index = ID commita?? -->
 
@@ -190,8 +208,11 @@ In short, branches allow safe and parallel development, merging combines work fr
 - The second commit (B) is considered the “new” version.
 - Lines starting with - were removed from A → B, lines starting with + were added in B compared to A.
 - Example:
-- git diff A B   # shows changes to get from A to B
-- git diff B A   # shows changes to get from B to A (reversed)
+
+```
+git diff A B   # shows changes to get from A to B
+git diff B A   # shows changes to get from B to A (reversed)
+```
 
 <!-- Index = ID commita?? -->
 
@@ -218,10 +239,14 @@ In short, branches allow safe and parallel development, merging combines work fr
 - It is useful when you want to switch branches or work on something else without losing your current changes.
 - Think of it as a “clipboard” for your changes.
 - Basic idea:
-- \# Save current changes to stash
-- git stash
-- \# Apply stashed changes later
-- git stash apply
+
+```
+# Save current changes to stash
+git stash
+
+# Apply stashed changes later
+git stash apply
+```
 
 <!-- Index = ID commita?? -->
 
@@ -248,12 +273,15 @@ In short, branches allow safe and parallel development, merging combines work fr
 
 - Each stash is stored in a stack-like structure.
 - Commands:
-- git stash list    # Show all stashes
-- git stash apply    # Apply the most recent stash
-- git stash apply stash@{2}    # Apply specific stash
-- git stash pop    # Apply and remove the most recent stash
-- git stash drop stash@{1}    # Delete specific stash
-- git stash clear    # Delete all stashes
+
+```
+git stash list	# Show all stashes
+git stash apply	# Apply the most recent stash
+git stash apply stash@{2}	# Apply specific stash
+git stash pop	# Apply and remove the most recent stash
+git stash drop stash@{1}	# Delete specific stash
+git stash clear	# Delete all stashes
+```
 
 <!-- Index = ID commita?? -->
 
@@ -281,7 +309,10 @@ Without careful management, using git stash can create more problems than it sol
 
 - You can add a message for clarity:
 - Helps to remember the purpose of each stash.
-- git stash save "WIP: fixing login bug"
+
+```
+git stash save "WIP: fixing login bug"
+```
 
 <!-- Index = ID commita?? -->
 
@@ -341,17 +372,20 @@ When you run git commit without the -m flag, Git opens your default text editor 
 - You can optionally add a longer description below, separated by a blank line, to explain the change in more detail.
 - The rest of the file may contain comments or instructions from Git (lines starting with #). These can be left as-is or removed.
 - Once you're done, save and close the file. Git will then finalize the commit and return you to the terminal.
-- Add firstFile.txt
-- \# Please enter the commit message for your changes. Lines starting
-- \# with '#' will be ignored, and an empty message aborts the commit.
-- \#
-- \# On branch master
-- \#
-- \# Initial commit
-- \#
-- \# Changes to be committed:
-- \#    new file:   firstFile.txt
-- \#
+
+```
+Add firstFile.txt
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#	new file:   firstFile.txt
+#
+```
 
 ---
 
@@ -365,8 +399,10 @@ This command displays all the files that Git is currently tracking in your repos
 
 Use git ls-files to verify which files are being tracked by Git. If a file doesn’t appear, it’s either untracked or ignored via .gitignore.
 
-- $ git ls-files
-- firstFile.txt
+```
+$ git ls-files
+firstFile.txt
+```
 
 ---
 
@@ -379,14 +415,21 @@ This command displays the complete commit history of the repository. Each entry 
 - Date and time of the commit
 - The full commit message
 - It’s useful for reviewing detailed information about each change made to the project.
-- $ git status
-- On branch master
-- nothing to commit, working tree clean
-- $ git log
-- commit d06aafaf2cd37f5bc7cd4015656e1ae15241c996 (HEAD -&gt; master)
-- Author: Jacob Pach &lt;<jpach@mtech.edu>&gt;
-- Date:   Thu Aug 28 20:09:17 2025 -0600
-- Add firstFile.txt
+
+```
+$ git status
+On branch master
+nothing to commit, working tree clean
+```
+
+```
+$ git log
+commit d06aafaf2cd37f5bc7cd4015656e1ae15241c996 (HEAD -> master)
+Author: Jacob Pach <jpach@mtech.edu>
+Date:   Thu Aug 28 20:09:17 2025 -0600
+
+    Add firstFile.txt
+```
 
 ---
 
@@ -401,8 +444,11 @@ It’s ideal for quickly scanning the history or identifying specific commits wi
 
 Use git log when you need full context, and git log --oneline when you want a quick overview. Both are essential tools for navigating and understanding your project’s history.
 
-- $ git log --oneline
-- d06aafa (HEAD -&gt; master) Add firstFile.txt
+```
+$ git log --oneline
+d06aafa (HEAD -> master) Add firstFile.txt
+
+```
 
 ---
 
@@ -417,9 +463,12 @@ So, if you rename a file manually (e.g., from oldName.txt to newName.txt), Git w
 
 - To properly reflect this change in Git, you should:
 - Git doesn’t track file names — it tracks content. Renaming a file is treated as removing one and adding another. Always stage both the deletion and the new file to keep your history clean and understandable.
-- $  git add oldName.txt
-- $  git add newName.txt
-- $  git commit -m "Renamed file from oldName.txt to newName.txt"
+
+```
+$  git add oldName.txt
+$  git add newName.txt
+$  git commit -m "Renamed file from oldName.txt to newName.txt"
+```
 
 ---
 
@@ -435,9 +484,18 @@ So, if you rename a file manually (e.g., from oldName.txt to newName.txt), Git w
 
 - The command git branch shows a list of all branches in your repository. The currently active branch is marked with an asterisk (\*).
 - When working with a repository that has multiple branches, we can switch between them using two different commands. This is because modern versions of Git introduced standardized naming conventions, but the older commands were kept to ensure backward compatibility and to avoid forcing experienced users to relearn everything from scratch.
-- git branch new\_branch
-- $ git switch second\_branch
-- $ git checkout second\_branch
+
+```
+git branch new_branch
+```
+
+```
+$ git switch second_branch
+```
+
+```
+$ git checkout second_branch
+```
 
 ---
 
@@ -445,33 +503,41 @@ So, if you rename a file manually (e.g., from oldName.txt to newName.txt), Git w
 
 It is worth mentioning that Git stores information about branches in the .git/refs/head directory, where each file represents a local branch and contains the commit hash it points to. The currently active branch is indicated by the .git/HEAD file, which usually contains a reference like ref: refs/heads/main.
 
-- .git
-- +---hooks
-- +---info
-- +---logs
-- +---objects
-- +---refs
-- |   COMMIT\_EDITMSG
-- |   config
-- |   description
-- |   HEAD
-- |   index
-- $ git status
-- On branch master
-- ...
+```
+.git
++---hooks
++---info
++---logs
++---objects
++---refs
+|   COMMIT_EDITMSG
+|   config
+|   description
+|   HEAD
+|   index
+```
+
+```
+$ git status
+On branch master
+...
+```
 
 ---
 
-## Git status &amp; git branch
+## Git status &amp; git branch Depending on the shell or terminal, Git can display additional information in the prompt, such as the current branch, whether all files are tracked, or if there are uncommitted changes. However, to check which branch you are on, you can always use the git status command or git branch without any parameters.
 
-Depending on the shell or terminal, Git can display additional information in the prompt, such as the current branch, whether all files are tracked, or if there are uncommitted changes. However, to check which branch you are on, you can always use the git status command or git branch without any parameters.
+```
+$ git branch
+* master
+  second
+```
 
-- $ git branch
-- \* master
-- second
-- $ git status
-- On branch master
-- ...
+```
+$ git status
+On branch master
+...
+```
 
 ---
 

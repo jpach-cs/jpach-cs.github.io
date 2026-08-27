@@ -13,7 +13,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-![Graphic 3](assets/image2.png)
+![w:277px Graphic 3](assets/image2.png)
 
 ---
 
@@ -35,78 +35,110 @@ title: "CSCI 112  Programming with C"
 
 ## while loop
 
-- while (expression1)
-- statement1;
+```c
+while (expression1)
+	statement1;
+```
 
 A while loop repeatedly executes statement1 based on the logical outcome of expression1 as long as expression1 evaluates to true.
 
-- a value of i is: 0
-- a value of i is: 1
-- a value of i is: 2
+```c
+a value of i is: 0
+a value of i is: 1
+a value of i is: 2
+```
+
 - Result:
-- int main()
-- {
--   int i = 0;
--   while ( i &lt; 3 )
--   {
--     printf("a value of i is: %d\n", i);
--     i++;
--   }
-- }
-- int main()
-- {
--   int i = 0;
--   while ( i &lt; 3 )
--     printf("a value of i is: %d\n", i++);
-- }
+
+```c
+int main()
+{
+  int i = 0;
+  while ( i < 3 )
+  {
+    printf("a value of i is: %d\n", i);
+    i++;
+  }
+}
+```
+
+```c
+int main()
+{
+  int i = 0;
+  while ( i < 3 )
+    printf("a value of i is: %d\n", i++);
+}
+```
+
 - OR
 
 ---
 
 ## for loop
 
-- for (expression1; expression2; expression3)
-- statement1;
+```c
+for (expression1; expression2; expression3)
+	statement1;
+```
+
 - A for loop repeatedly executes statement1 based on the logical outcome of expression2 as long as expression2 evaluates to true.
 - Most commonly expression1 and expression3 are assignments of function calls and expression2 is  a relational expression.
 - Any of the three part can be omitted, although the semicolons must be remain. If expression2 is not present, it is taken as permanently true.
-- a value of i is: 0
-- a value of i is: 1
-- a value of i is: 2
+
+```c
+a value of i is: 0
+a value of i is: 1
+a value of i is: 2
+```
+
 - Result:
-- int main()
-- {
--   for (int i = 0; i &lt; 4; i++ )
--     printf("a value of i is: %d\n", i);
-- }
+
+```c
+int main()
+{
+  for (int i = 0; i < 4; i++ )
+    printf("a value of i is: %d\n", i);
+}
+```
 
 ---
 
 ## The for loop is equivalent to while loop
 
-- expression1;
-- while (expression2)
-- {
-- statement1;
-- expression3;
-- }
-- for (expression1; expression2; expression3)
-- {
-- statement1;
-- }
+```c
+expression1;
+while (expression2)
+{
+	statement1;
+	expression3;
+}
+```
+
+```c
+for (expression1; expression2; expression3)
+{
+	statement1;
+}
+```
 
 ---
 
 ## “Infinity” loop
 
-- while (true)
-- {
-- ;
-- }
-- for (;;)
-- {
-- ;
-- }
+```c
+while (true)
+{
+	;
+}
+```
+
+```c
+for (;;)
+{
+	;
+}
+```
 
 ---
 
@@ -116,16 +148,24 @@ A while loop repeatedly executes statement1 based on the logical outcome of expr
 - break instantly terminates the loop it's in, while continue jumps to the next iteration.
 - When nested, break affects only the immediate loop.
 - break is also applicable in switch statements to exit a specific case
-- int main()
-- {
--   for (int i = 1; i &lt;= 10; i++)
--   {
--     if (i == 5)
--       break;          /\* Breaks the loop      \*/
--     printf("%d ", i); /\* when i is equal to 5 \*/
--   }
-- }
-- 1 2 3 4
+
+```c
+int main()
+{
+  for (int i = 1; i <= 10; i++)
+  {
+    if (i == 5)
+      break;          /* Breaks the loop      */
+    printf("%d ", i); /* when i is equal to 5 */
+  }
+}
+```
+
+```c
+1 2 3 4
+
+```
+
 - Result:
 
 ---
@@ -136,18 +176,26 @@ A while loop repeatedly executes statement1 based on the logical outcome of expr
 - break instantly terminates the loop it's in, while continue jumps to the next iteration.
 - When nested, break affects only the immediate loop.
 - break is also applicable in switch statements to exit a specific case
-- int main()
-- {
--   int i = 0;
--   while (i &lt; 10)
--   {
--     i++;
--     if (i % 2 == 0)
--       continue;       /\* Skips the rest of the    \*/
--     printf("%d ", i); /\* iteration when i is even \*/
--   }
-- }
-- 1 3 5 7 9
+
+```c
+int main()
+{
+  int i = 0;
+  while (i < 10)
+  {
+    i++;
+    if (i % 2 == 0)
+      continue;       /* Skips the rest of the    */
+    printf("%d ", i); /* iteration when i is even */
+  }
+}
+```
+
+```c
+1 3 5 7 9
+
+```
+
 - Result:
 
 ---
@@ -155,47 +203,54 @@ A while loop repeatedly executes statement1 based on the logical outcome of expr
 ## goto statement in loops
 
 - goto provides a convenient way to exit from nested blocks
-- int main()
-- {
--   bool bug = false;
--   for (int i = 0; i &lt; 5; i++)
--   {
--     for (int j = 0; j &lt; 5; j++)
--     {
--       /\* some code \*/
--       /\* ...       \*/
--       if(bug)
--         goto error;
--     }
--   }
--   goto end;
--   error:
--     /\* some code \*/
--     /\* ...       \*/
--     printf("error found");
--   end:
-- }
-- int main()
-- {
--   bool bug = false; int i = 0, j = 0;
--   while ( i &lt; 5)
--   {
--     while ( j &lt; 5)
--     {/\* some code \*/
--      /\* ...       \*/
--       if(bug)
--         goto error;
--       j++;
--     }
--     i++;
--   }
--   goto end;
--   error:
--     /\* some code \*/
--     /\* ...       \*/
--     printf("error found");
--   end:
-- }
+
+```c
+int main()
+{
+  bool bug = false;
+
+  for (int i = 0; i < 5; i++)
+  {
+    for (int j = 0; j < 5; j++)
+    {
+      /* some code */
+      /* ...       */
+      if(bug)
+        goto error;
+    }
+  }
+  goto end;
+  error:
+    /* some code */
+    /* ...       */
+    printf("error found");
+  end:
+}
+```
+
+```c
+int main()
+{
+  bool bug = false; int i = 0, j = 0;
+  while ( i < 5)
+  {
+    while ( j < 5)
+    {/* some code */
+     /* ...       */
+      if(bug)
+        goto error;
+      j++;
+    }
+    i++;
+  }
+  goto end;
+  error:
+    /* some code */
+    /* ...       */
+    printf("error found");
+  end:
+}
+```
 
 ---
 
@@ -203,12 +258,18 @@ A while loop repeatedly executes statement1 based on the logical outcome of expr
 
 - In contrast to function implementations, function prototypes are terminated with a semicolon(;)
 - A minimal prototype must precede the function definition, and it is standard to list function prototypes alphabetically after preprocessor directives within a file
-- return-type function-name (parameter declarations, if any)
-- {
-- statements;             /\* including declarations \*/
-- return expression1;
-- }
-- return-type function-name (only type of parameter declarations, if any);
+
+```c
+return-type function-name (parameter declarations, if any)
+{
+	statements; 			/* including declarations */
+	return expression1;
+}
+```
+
+```c
+return-type function-name (only type of parameter declarations, if any);
+```
 
 ---
 
@@ -216,54 +277,71 @@ A while loop repeatedly executes statement1 based on the logical outcome of expr
 
 - The return type can be any of the data types presented in the previous material, and additionally, void can be used if no value is to be returned.
 - The function name is symbolic\_name.
-- return-type function-name (parameter declarations, if any)
-- {
-- statements;             /\* including declarations \*/
-- return expression1;
-- }
-- return-type function-name (only type of parameter declarations, if any);
+
+```c
+return-type function-name (parameter declarations, if any)
+{
+	statements; 			/* including declarations */
+	return expression1;
+}
+```
+
+```c
+return-type function-name (only type of parameter declarations, if any);
+```
 
 ---
 
 ## Prototype &amp; its Function
 
-- \#include &lt;stdio.h&gt;
-- <br>void myFunction1(void);
-- int  myFunction2(int);
-- int  myFunction3(void);
-- <br>void myFunction1()
-- {
--   printf("Text from myFuntion1\n");
--   return;
-- }
-- int myFunction2(int n)
-- {
--   n++;
--   printf("incremented n from myFuntion2 equals %d\n", n);
--   return 1;
-- }
-- int myFunction3()
-- {
--   int n = 2;
--   printf("n from myFuntion3 equals %d\n", n);
--   /\* the compiler will not return an error if     \*/
--   /\* we omit return, and the function will return \*/
--   /\* an unspecified value                         \*/
-- }
-- int main()
-- {
--   myFunction1();
--   int result = myFunction2(2);
--   printf("result of myFuntion2 equals %d\n", result);
--   result = myFunction3();
--   printf("result of myFuntion3 equals %d\n", result);
--   return 0;
-- }
-- Text from myFuntion1
-- incremented n from myFuntion2 equals 3
-- result of myFuntion2 equals 1
-- n from myFuntion3 equals 2
-- result of myFuntion3 equals 27
+```c
+#include <stdio.h>
+
+void myFunction1(void);
+int  myFunction2(int);
+int  myFunction3(void);
+
+void myFunction1()
+{
+  printf("Text from myFuntion1\n");
+  return;
+}
+int myFunction2(int n)
+{
+  n++;
+  printf("incremented n from myFuntion2 equals %d\n", n);
+  return 1;
+}
+int myFunction3()
+{
+  int n = 2;
+  printf("n from myFuntion3 equals %d\n", n);
+  /* the compiler will not return an error if     */
+  /* we omit return, and the function will return */
+  /* an unspecified value                         */
+}
+```
+
+```c
+int main()
+{
+  myFunction1();
+  int result = myFunction2(2);
+  printf("result of myFuntion2 equals %d\n", result);
+  result = myFunction3();
+  printf("result of myFuntion3 equals %d\n", result);
+  return 0;
+}
+```
+
+```c
+Text from myFuntion1
+incremented n from myFuntion2 equals 3
+result of myFuntion2 equals 1
+n from myFuntion3 equals 2
+result of myFuntion3 equals 27
+```
+
 - Result:
 - Correct exit
 
@@ -289,28 +367,34 @@ global variable    –    declared outside of functions, is accessible from any 
 
 ---
 
-## global vs local
+## global vs local We don't have direct access to a shadowed variable. The only way to access it is through a pointer.
 
-We don't have direct access to a shadowed variable. The only way to access it is through a pointer.
+```c
+#include <stdio.h>
+int x = 5; 				/* global x */
 
-- \#include &lt;stdio.h&gt;
-- int x = 5;                 /\* global x \*/
-- <br>void myFunction1(void);<br>void myFunction1()
-- {
--   printf("x equals %d that is read by function myFunction\n", x);
-- }
-- int main()
-- {
--   int \* pointerGlobalX = &amp;x;
--   myFunction1();
--   int x = 3;              /\* local x \*/
--   printf("x equals %d that is read by function main\n", x);
--   printf("x equals %d that is read by function main\n", \*pointerGlobalX);
--   return 0;
-- }
-- x equals 5 that is read by function myFunction
-- x equals 3 that is read by function main
-- x equals 5 that is read by function main
+void myFunction1(void);
+void myFunction1()
+{
+  printf("x equals %d that is read by function myFunction\n", x);
+}
+int main()
+{
+  int * pointerGlobalX = &x;
+  myFunction1();
+  int x = 3;  			/* local x */
+  printf("x equals %d that is read by function main\n", x);
+  printf("x equals %d that is read by function main\n", *pointerGlobalX);
+  return 0;
+}
+```
+
+```c
+x equals 5 that is read by function myFunction
+x equals 3 that is read by function main
+x equals 5 that is read by function main
+```
+
 - Result:
 
 ---
@@ -351,7 +435,10 @@ We don't have direct access to a shadowed variable. The only way to access it is
 ||&lt;&lt;=, &gt;&gt;=, &amp;=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
-- struct Point { int x; int y; }; int main()<br>{struct Point point = {1,2}, \*ppoint = &amp;point;  int arr\[\] = {1,2}; int x = 5, y =-6; int \* z; float f = 3.0f; /\*code\*/}
+```c
+struct Point { int x; int y; }; int main()
+{struct Point point = {1,2}, *ppoint = &point;  int arr[] = {1,2}; int x = 5, y =-6; int * z; float f = 3.0f; /*code*/}
+```
 
 <!-- perentysys; esiszewitiwy
 Use parentheses to override order of evaluation -->
@@ -383,7 +470,10 @@ Use parentheses to override order of evaluation -->
 ||&lt;&lt;=, &gt;&gt;=, &amp;=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
-- struct Point { int x; int y; }; int main()<br>{struct Point point = {1,2}, \*ppoint = &amp;point;  int arr\[\] = {1,2}; int x = 5, y =-6; int \* z; float f = 3.0f; /\*code\*/}
+```c
+struct Point { int x; int y; }; int main()
+{struct Point point = {1,2}, *ppoint = &point;  int arr[] = {1,2}; int x = 5, y =-6; int * z; float f = 3.0f; /*code*/}
+```
 
 <!-- perentysys; esiszewitiwy
 Use parentheses to override order of evaluation -->
@@ -397,31 +487,30 @@ Use parentheses to override order of evaluation -->
 - **Address of University:**
 - 1300 W Park St, Butte, MT 59701
 
-![Montana Tech | TeenLife](assets/image4.jpeg)
+![w:600px Montana Tech | TeenLife](assets/image4.jpeg)
 
 ---
 
-## Every symbolic name…
+## Every symbolic name… Every symbolic name — whether for a variable, array, function, or label — refers to a specific memory location. Once assigned (declared/initialized), the content at that memory location can change, but the address itself remains fixed for the lifetime of that entity. For example, a variable declared within a block will always occupy the same memory address until the block ends.
 
-Every symbolic name — whether for a variable, array, function, or label — refers to a specific memory location. Once assigned (declared/initialized), the content at that memory location can change, but the address itself remains fixed for the lifetime of that entity. For example, a variable declared within a block will always occupy the same memory address until the block ends.
-
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
-
+```c
+#include <stdio.h>
+int main()
+{
     int y = 5;
-
-    printf("Address of %-10s= %d\n", "y", &amp;y);
-
+    printf("Address of %-10s= %d\n", "y", &y);
     int x = 2;
-
     y++;
+    printf("Address of %-10s= %d\n", "y", &y);
+}
+```
 
-    printf("Address of %-10s= %d\n", "y", &amp;y);
+```c
+Address of y       = 6487800
+Address of y       = 6487800
 
-- }
-- Address of y       = 6487800
-- Address of y       = 6487800
+```
+
 - Result:
 
 ---
@@ -432,44 +521,39 @@ Every symbolic name — whether for a variable, array, function, or label — re
 
 Should be %p
 
-- \#include &lt;stdio.h&gt;
-
+```c
+#include <stdio.h>
 int myFunction(){return 0;}
-
-- int main()
-- {
-
+int main()
+{
     int x;
-
-    int arr1\[7\] = {1, 2, 3, 4, 5, 6, 7};
-
+    int arr1[7] = {1, 2, 3, 4, 5, 6, 7};
     label1: x = 5;                                                 // statement, not a declaration
-
-    printf("Address of %-20s= %d\n", "x", &amp;x);                     // address of local variable x
-
+    printf("Address of %-20s= %d\n", "x", &x);                     // address of local variable x
     printf("Address of %-20s= %d\n", "arr1 (array name)", arr1);   // address of first element of array
+    printf("Address of %-20s= %d\n", "arr1 (array itself)", &arr1);// address of the whole array (the same!)
+    printf("Address of %-20s= %d\n", "function myFunction", &myFunction); // address of function
+    printf("Address of %-20s= %d\n", "label1:", &&label1);         // address of label
+}
+```
 
-    printf("Address of %-20s= %d\n", "arr1 (array itself)", &amp;arr1);// address of the whole array (the same!)
+```c
+Address of x                   = 6487836
+Address of arr1 (array name)   = 6487808
+Address of arr1 (array itself) = 6487808
+Address of function myFunction = 4199493
+Address of label1:             = 4199573
 
-    printf("Address of %-20s= %d\n", "function myFunction", &amp;myFunction); // address of function
+```
 
-    printf("Address of %-20s= %d\n", "label1:", &amp;&amp;label1);         // address of label
-
-- }
-- Address of x                   = 6487836
-- Address of arr1 (array name)   = 6487808
-- Address of arr1 (array itself) = 6487808
-- Address of function myFunction = 4199493
-- Address of label1:             = 4199573
 - Result:
 
+```c
 int myFunction()
-
 {
-
     return 0;
-
 }
+```
 
 ---
 
@@ -505,35 +589,31 @@ arr1\[7\] = {1, 2, 3, 4, 5, 6, 7}; // This is invalid
 
 Should be %p
 
-- \#include &lt;stdio.h&gt;
-
+```c
+#include <stdio.h>
 int myFunction(){return 0;}
-
-- int main()
-- {
-
+int main()
+{
     int x;
-
-    int arr1\[7\] = {1, 2, 3, 4, 5, 6, 7};
-
+    int arr1[7] = {1, 2, 3, 4, 5, 6, 7};
     label1: x = 5;                                                 // statement, not a declaration
-
-    printf("Address of %-20s= %d\n", "x", &amp;x);                     // address of local variable x
-
+    printf("Address of %-20s= %d\n", "x", &x);                     // address of local variable x
     printf("Address of %-20s= %d\n", "arr1 (array name)", arr1);   // address of first element of array
+    printf("Address of %-20s= %d\n", "arr1 (array itself)", &arr1);// address of the whole array (the same!)
+    printf("Address of %-20s= %d\n", "function myFunction", &myFunction); // address of function
+    printf("Address of %-20s= %d\n", "label1:", &&label1);         // address of label
+}
+```
 
-    printf("Address of %-20s= %d\n", "arr1 (array itself)", &amp;arr1);// address of the whole array (the same!)
+```c
+Address of x                   = 6487836
+Address of arr1 (array name)   = 6487808
+Address of arr1 (array itself) = 6487808
+Address of function myFunction = 4199493
+Address of label1:             = 4199573
 
-    printf("Address of %-20s= %d\n", "function myFunction", &amp;myFunction); // address of function
+```
 
-    printf("Address of %-20s= %d\n", "label1:", &amp;&amp;label1);         // address of label
-
-- }
-- Address of x                   = 6487836
-- Address of arr1 (array name)   = 6487808
-- Address of arr1 (array itself) = 6487808
-- Address of function myFunction = 4199493
-- Address of label1:             = 4199573
 - Result:
 
 ---
@@ -544,70 +624,62 @@ int myFunction(){return 0;}
 
 Should be %p
 
-- \#include &lt;stdio.h&gt;
-
+```c
+#include <stdio.h>
 int myFunction(){return 0;}
-
-- int main()
-- {
-
+int main()
+{
     int x;
-
-    int arr1\[7\] = {1, 2, 3, 4, 5, 6, 7};
-
+    int arr1[7] = {1, 2, 3, 4, 5, 6, 7};
     label1: x = 5;                                                  // statement, not a declaration
-
-    printf("Address of %-20s= %d\n", "x", &amp;x);                     // address of local variable x
-
+    printf("Address of %-20s= %d\n", "x", &x);                     // address of local variable x
     printf("Address of %-20s= %p\n", "arr1 (array name)", arr1);   // address of first element of array
+    printf("Address of %-20s= %08x\n", "arr1 (array itself)", &arr1);// address of the whole array (the same!)
+    printf("Address of %-20s= %d\n", "function myFunction", &myFunction); // address of function
+    printf("Address of %-20s= %d\n", "label1:", &&label1);         // address of label
+}
+```
 
-    printf("Address of %-20s= %08x\n", "arr1 (array itself)", &amp;arr1);// address of the whole array (the same!)
+```c
+Address of x                   = 6487836
+Address of arr1 (array name)   = 0062ff00
+Address of arr1 (array itself) = 0062ff00
+Address of function myFunction = 4199493
+Address of label1:             = 4199573
 
-    printf("Address of %-20s= %d\n", "function myFunction", &amp;myFunction); // address of function
+```
 
-    printf("Address of %-20s= %d\n", "label1:", &amp;&amp;label1);         // address of label
-
-- }
-- Address of x                   = 6487836
-- Address of arr1 (array name)   = 0062ff00
-- Address of arr1 (array itself) = 0062ff00
-- Address of function myFunction = 4199493
-- Address of label1:             = 4199573
 - Result:
 
 ---
 
 ## Extended example
 
-- \#include &lt;stdio.h&gt;
-
+```c
+#include <stdio.h>
 int myFunction(){return 0;}
-
-- int main()
-- {
-
+int main()
+{
     int x;
-
-    int arr1\[7\] = {1, 2, 3, 4, 5, 6, 7};
-
+    int arr1[7] = {1, 2, 3, 4, 5, 6, 7};
     label1: x = 5;                                                  // statement, not a declaration
-
-    printf("Address of %-20s= %p\n", "x", &amp;x);                     // address of local variable x
-
+    printf("Address of %-20s= %p\n", "x", &x);                     // address of local variable x
     printf("Address of %-20s= %p\n", "arr1 (array name)", arr1);   // address of first element of array
+    printf("Address of %-20s= %p\n", "arr1 (array itself)", &arr1);// address of the whole array (the same!)
+    printf("Address of %-20s= %p\n", "function myFunction", &myFunction); // address of function
+    printf("Address of %-20s= %p\n", "label1:", &&label1);         // address of label
+}
+```
 
-    printf("Address of %-20s= %p\n", "arr1 (array itself)", &amp;arr1);// address of the whole array (the same!)
+```c
+Address of x                   = 0062ff1c
+Address of arr1 (array name)   = 0062ff00
+Address of arr1 (array itself) = 0062ff00
+Address of function myFunction = 00401445
+Address of label1:             = 00401495
 
-    printf("Address of %-20s= %p\n", "function myFunction", &amp;myFunction); // address of function
+```
 
-    printf("Address of %-20s= %p\n", "label1:", &amp;&amp;label1);         // address of label
-
-- }
-- Address of x                   = 0062ff1c
-- Address of arr1 (array name)   = 0062ff00
-- Address of arr1 (array itself) = 0062ff00
-- Address of function myFunction = 00401445
-- Address of label1:             = 00401495
 - Result:
 
 ---
@@ -665,33 +737,31 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 
 ## Extended example
 
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
-
+```c
+#include <stdio.h>
+int main()
+{
     int x = 5;
-
-    int arr1\[7\] = {9, 8, 7, 6, 5, 4, 3};
-
+    int arr1[7] = {9, 8, 7, 6, 5, 4, 3};
     // Dereferencing the address of x to get its value (same as just x)
+    printf("Value at address of %-20s = %d\n", "x", *&x);
+    // Dereferencing the array name gives the first element's value (arr1[0])
+    printf("Value at address of %-20s = %d\n", "arr1 (array name)", *arr1);
 
-    printf("Value at address of %-20s = %d\n", "x", \*&amp;x);
 
-    // Dereferencing the array name gives the first element's value (arr1\[0\])
+    printf("Value at address of %-20s = %d\n", "arr1 (array name)", *arr1+1 );
+    printf("Value at address of %-20s = %d\n", "arr1 (array name)", *(arr1+1) );
+}
+```
 
-    printf("Value at address of %-20s = %d\n", "arr1 (array name)", \*arr1);
+```c
+Value at address of x                    = 5
+Value at address of arr1 (array name)    = 9
+Value at address of arr1 (array name)    = 10
+Value at address of arr1 (array name)    = 8
 
-<br>
+```
 
-    printf("Value at address of %-20s = %d\n", "arr1 (array name)", \*arr1+1 );
-
-    printf("Value at address of %-20s = %d\n", "arr1 (array name)", \*(arr1+1) );
-
-- }
-- Value at address of x                    = 5
-- Value at address of arr1 (array name)    = 9
-- Value at address of arr1 (array name)    = 10
-- Value at address of arr1 (array name)    = 8
 - Result:
 - Priority!!!
 
@@ -722,7 +792,10 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 ||&lt;&lt;=, &gt;&gt;=, &amp;=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
-- struct Point { int x; int y; }; int main()<br>{struct Point point = {1,2}, \*ppoint = &amp;point;  int arr\[\] = {1,2}; int x = 5, y =-6; int \* z; float f = 3.0f; /\*code\*/}
+```c
+struct Point { int x; int y; }; int main()
+{struct Point point = {1,2}, *ppoint = &point;  int arr[] = {1,2}; int x = 5, y =-6; int * z; float f = 3.0f; /*code*/}
+```
 
 <!-- perentysys; esiszewitiwy
 Use parentheses to override order of evaluation -->
@@ -749,31 +822,46 @@ Use parentheses to override order of evaluation -->
 ||+=||
 |15|,|LR|
 
-- int main()
-- {
--   {
--     int x = 1, y = 2;
--     x += y = 3 + x \* y;
--     printf("%d\n", x);
--   }
--   {
--     int x = 1, y = 2;
--     x += x = y = 3 + x - y;
--     printf("%d\n", x);
--   }
-- }
-- 6
-- 4
+```c
+int main()
+{
+  {
+    int x = 1, y = 2;
+    x += y = 3 + x * y;
+    printf("%d\n", x);
+  }
+  {
+    int x = 1, y = 2;
+    x += x = y = 3 + x - y;
+    printf("%d\n", x);
+  }
+}
+```
+
+```c
+6
+4
+
+
+```
+
 - Result:
-- x += y = 3 + x \* y;            /\* 2 \*/
-- x += y = 3 + 2;                /\* 5 \*/
-- x += y = 5;                /\*y=5\*/
-- x += 5;                    /\*x=6\*/
-- x += x = y = 3 + x - y;         /\* 4 \*/
-- x += x = y = 4 - y;            /\* 2 \*/
-- x += x = y = 2;             /\*y=2\*/
-- x += x = 2;                 /\*x=2\*/
-- x += 2;                     /\*x=4\*/
+
+```c
+x += y = 3 + x * y;			/* 2 */
+x += y = 3 + 2;				/* 5 */
+x += y = 5;				/*y=5*/
+x += 5;					/*x=6*/
+```
+
+```c
+x += x = y = 3 + x - y; 		/* 4 */
+x += x = y = 4 - y;			/* 2 */
+x += x = y = 2; 			/*y=2*/
+x += x = 2; 				/*x=2*/
+x += 2; 					/*x=4*/
+
+```
 
 Left-to-right associativity means that when there are two operators with the same priority, the operator on the left is evaluated first. In right-to-left associativity, the opposite is true.
 
@@ -799,12 +887,17 @@ Left-to-right associativity means that when there are two operators with the sam
 
 - Code
 - Preprocessor
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
-- printf("Hello world\n");
-- return 0;
-- }
+
+```c
+#include <stdio.h>
+
+
+int main()
+{
+	printf("Hello world\n");
+	return 0;
+}
+```
 
 ---
 
@@ -841,97 +934,145 @@ eg.: #include&lt;stdio.h&gt;
 - Macros can be used to conditionally compile parts of the code, for example, depending on whether a certain definition exists.
 - Macros are generally faster than functions but are less safe. Therefore, they should be used with caution.
 - Since macros are substituted before the program runs, they cannot be debugged directly.
-- \#define symbolic\_name replaced\_text
+
+```c
+#define symbolic_name replaced_text
+```
 
 ---
 
 ## Preprocessor directives - macro substitution
 
-\#define symbolic\_name replaced\_text
+```c
+#define symbolic_name replaced_text
+Macros are not terminated with semicolons, unlike regular code statements, making them easily distinguishable.
 
-- Macros are not terminated with semicolons, unlike regular code statements, making them easily distinguishable.
-- Writing macro-defined constants in uppercase is a best practice to emphasize their immutable nature. While the compiler won't complain, these values cannot be changed during runtime and are not accessible for debugging.
-- \#define PI 3.14159
-- \#define some\_text "abcde"
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--     printf( "%s\n", some\_text );
--     printf( "%f\n", PI + 0.5f );
-- }
-- abcde
-- 3.641590
-- Result:
-- \#define PI 3.14159
-- \#define some\_text "abcde"
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--     printf( "%s\n", "abcde" );
--     printf( "%f\n", 3.14159 + 0.5f );
-- }
 
----
 
-## Preprocessor directives - macro substitution
+Writing macro-defined constants in uppercase is a best practice to emphasize their immutable nature. While the compiler won't complain, these values cannot be changed during runtime and are not accessible for debugging.
+```
 
-- \#define symbolic\_name replaced\_text
-- Macros are not terminated with semicolons, unlike regular code statements, making them easily distinguishable.
-- \#define square(y) (y \* y)
-- \#define merge(left, right) left ## right
-- \#define some\_text "abcde"
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--     char \* word1 = "Hello";
--     char \* word2 = "world";
--     int x = 5;
--     printf( "%s\n", some\_text );
--     printf( "%d\n", square(x) );
--     printf( "%s\n", merge(word, 1) );
-- }
-- abcde
-- 25
-- Hello
-- Result:
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--     char \* word1 = "Hello";
--     char \* word2 = "world";
--     int x = 5;
--     printf( "%s\n", "abcde" );
--     printf( "%d\n", (x \* x) );
--     printf( "%s\n", word1 );
-- }
+```c
+#define PI 3.14159
+#define some_text "abcde"
 
----
-
-## Preprocessor directives - macro substitution
-
-- \#define symbolic\_name replaced\_text
-- Macros are not terminated with semicolons, unlike regular code statements, making them easily distinguishable.
-- \#define min(a, b) ( (a) &lt; (b) ? (a) : (b) )
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--     printf("%s\n", min("abc", "cde"));
--     printf("%s\n", min("aac", “aab"));
-- }
-- cde
-- aab
-- Result:
-- \#include &lt;stdio.h&gt;
+#include <stdio.h>
 
 int main()
-
 {
+    printf( "%s\n", some_text );
+    printf( "%f\n", PI + 0.5f );
+}
+```
 
-    printf("%s\n", ( ("abc") &lt; ("cde") ? ("abc") : ("cde") ));
+```c
+abcde
+3.641590
+```
 
-    printf("%s\n", ( ("aac") &lt; ("aab") ? ("aac") : ("aab") ));
+- Result:
+
+```c
+#define PI 3.14159
+#define some_text "abcde"
+
+#include <stdio.h>
+
+int main()
+{
+    printf( "%s\n", "abcde" );
+    printf( "%f\n", 3.14159 + 0.5f );
+}
+```
+
+---
+
+## Preprocessor directives - macro substitution
+
+```c
+#define symbolic_name replaced_text
+```
+
+- Macros are not terminated with semicolons, unlike regular code statements, making them easily distinguishable.
+
+```c
+#define square(y) (y * y)
+#define merge(left, right) left ## right
+#define some_text "abcde"
+
+#include <stdio.h>
+
+int main()
+{
+    char * word1 = "Hello";
+    char * word2 = "world";
+    int x = 5;
+    printf( "%s\n", some_text );
+    printf( "%d\n", square(x) );
+    printf( "%s\n", merge(word, 1) );
+}
+```
+
+```c
+abcde
+25
+Hello
+```
+
+- Result:
+
+```c
+#include <stdio.h>
+int main()
+{
+    char * word1 = "Hello";
+    char * word2 = "world";
+    int x = 5;
+    printf( "%s\n", "abcde" );
+    printf( "%d\n", (x * x) );
+    printf( "%s\n", word1 );
+}
+```
+
+---
+
+## Preprocessor directives - macro substitution
+
+```c
+#define symbolic_name replaced_text
+```
+
+- Macros are not terminated with semicolons, unlike regular code statements, making them easily distinguishable.
+
+```c
+#define min(a, b) ( (a) < (b) ? (a) : (b) )
+
+#include <stdio.h>
+
+int main()
+{
+    printf("%s\n", min("abc", "cde"));
+    printf("%s\n", min("aac", “aab"));
 
 }
+```
+
+```c
+cde
+aab
+
+```
+
+- Result:
+
+```c
+#include <stdio.h>
+int main()
+{
+    printf("%s\n", ( ("abc") < ("cde") ? ("abc") : ("cde") ));
+    printf("%s\n", ( ("aac") < ("aab") ? ("aac") : ("aab") ));
+}
+```
 
 - It works because it's a ternary operator!
 
@@ -939,39 +1080,51 @@ int main()
 
 ## Conditional compilation
 
-- \#if (conditional1)
-- statement1;
-- \#elif (conditional2)
-- statement2;
-- \#else
-- statement3;
-- \#endif
-- \#include &lt;stdio.h&gt;
-- \#define DEBUG 1
-- \#define n 10
-- int main()
-- {
--     int arr\[n\];
--     int i;
--     for (i = 0; i &lt; n; i++)
--     {
--         arr\[i\] = rand() % 100;
--         \#if (DEBUG)   /\* wiersz z if \*/
--             printf("A value of arr\[%d\] =  %d\n", i, arr\[i\]);
--         \#endif
--     }
-- <br>    return 0;
-- }
-- A value of arr\[0\] =  41
-- A value of arr\[1\] =  67
-- A value of arr\[2\] =  34
-- A value of arr\[3\] =  0
-- A value of arr\[4\] =  69
-- A value of arr\[5\] =  24
-- A value of arr\[6\] =  78
-- A value of arr\[7\] =  58
-- A value of arr\[8\] =  62
-- A value of arr\[9\] =  64
+```c
+#if (conditional1)
+	statement1;
+#elif (conditional2)
+	statement2;
+#else
+	statement3;
+#endif
+```
+
+```c
+#include <stdio.h>
+#define DEBUG 1
+#define n 10
+
+int main()
+{
+    int arr[n];
+    int i;
+    for (i = 0; i < n; i++)
+    {
+        arr[i] = rand() % 100;
+        #if (DEBUG)   /* wiersz z if */
+            printf("A value of arr[%d] =  %d\n", i, arr[i]);
+        #endif
+    }
+
+    return 0;
+}
+```
+
+```c
+A value of arr[0] =  41
+A value of arr[1] =  67
+A value of arr[2] =  34
+A value of arr[3] =  0
+A value of arr[4] =  69
+A value of arr[5] =  24
+A value of arr[6] =  78
+A value of arr[7] =  58
+A value of arr[8] =  62
+A value of arr[9] =  64
+
+```
+
 - Result:
 
 ---
@@ -984,24 +1137,34 @@ int main()
 
 \_\_TIME\_\_    file compilation time
 
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--     printf("%s", \_\_TIME\_\_);
--     printf("%s", \_\_FILE\_\_);
--     printf("%s", \_\_DATE\_\_);
-- }
-- 11:24:35
-- C:\Users\Jakub\Desktop\CSCI112\main.c
-- Sep 26 2024
+```c
+#include <stdio.h>
+
+int main()
+{
+    printf("%s", __TIME__);
+    printf("%s", __FILE__);
+    printf("%s", __DATE__);
+}
+```
+
+```c
+11:24:35
+C:\Users\Jakub\Desktop\CSCI112\main.c
+Sep 26 2024
+```
+
 - Result:
 
 ---
 
 ## File inclusion
 
-- Using **&lt;&gt;** (angle brackets)    –    e.g. #include &lt;file\_name.h&gt;
-- Using **""** (double quotes)    –    e.g. #include "file\_name.h"
+```c
+Using <> (angle brackets)	–	e.g. #include <file_name.h>
+Using "" (double quotes)	–	e.g. #include "file_name.h"
+
+```
 
 ---
 
@@ -1084,7 +1247,9 @@ int main()
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
+```c
+Format =  %[flags][width][.precision][modifier]<type>
+```
 
 ---
 
@@ -1106,7 +1271,10 @@ Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
 
 ## Width
 
-- int main()<br>{ int x = 5, y = -6; int \* z; float f = 3.1234f; /\*code\*/ }
+```c
+int main()
+{ int x = 5, y = -6; int * z; float f = 3.1234f; /*code*/ }
+```
 
 |Data|Type||Description|Example|Result|
 |---|---|---|---|---|---|
@@ -1121,7 +1289,10 @@ Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
 
 ## Precision
 
-- int main()<br>{ int x = 5, y = -6; int \* z; float f = 3.1234f; /\*code\*/ }
+```c
+int main()
+{ int x = 5, y = -6; int * z; float f = 3.1234f; /*code*/ }
+```
 
 |Data|Type||Description|Example|Result|
 |---|---|---|---|---|---|
@@ -1147,7 +1318,11 @@ Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
 
 ## Modifies
 
-- int main()<br>{ short int x = 65;  int y = -69000; <br>  float fRealNumber = 3.1234f; double dRealNumber = 3.4e50; /\*code\*/ }
+```c
+int main()
+{ short int x = 65;  int y = -69000;
+  float fRealNumber = 3.1234f; double dRealNumber = 3.4e50; /*code*/ }
+```
 
 |Data|Type||Description|Example|Result|
 |---|---|---|---|---|---|
@@ -1162,30 +1337,36 @@ Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
 
 ## Declaring and initializing arrays
 
-- int main()
-- {
--   int a\[5\];
--   /\* Declare an integer array named a with 5 elements \*/
--   int b\[\] = {1, 2, 3, 4};
--   /\*Declare an integer array named b with 4 elements,
--     initialized with values 1, 2, 3, and 4            \*/
--   int c\[10\] = {9, 8, 7, 6, 5};
--   /\*Declare an integer array named c with 10 elements,
--     the first 5 elements are initialized with values 9, 8, 7, 6, and 5,
--     the remaining elements are initialized to 0                 \*/
--   int d\[100\] = {0};
--   /\*Declare an integer array named d with 100 elements, all initialized to 0\*/
--   int x, y = 2;
--   printf("First element (index 0) of array a equals %d.\n", a\[0\]);
--   /\*Print the value of the first element of array a(undefined value)\*/
--   printf("Second(index 1) element of array b equals %d.\n", b\[1\]);
--   /\*Print the value of the second element of array b (which is 2)\*/
--   printf("Second(index 1) element of array b equals %d.\n", \*(b+1) );
--   /\*Print the value of the second element of array b using pointer arithmetic\*/
--   printf("Sixth(index 5) element of array c equals %d.\n", c\[5\]);
-- }
-- First element (index 0) of array a equals 4201200.
-- Second(index 1) element of array b equals 2.
-- Second(index 1) element of array b equals 2.
-- Sixth(index 5) element of array c equals 0.
+```c
+int main()
+{
+  int a[5];
+  /* Declare an integer array named a with 5 elements */
+  int b[] = {1, 2, 3, 4};
+  /*Declare an integer array named b with 4 elements,
+    initialized with values 1, 2, 3, and 4            */
+  int c[10] = {9, 8, 7, 6, 5};
+  /*Declare an integer array named c with 10 elements,
+    the first 5 elements are initialized with values 9, 8, 7, 6, and 5,
+    the remaining elements are initialized to 0       		  */
+  int d[100] = {0};
+  /*Declare an integer array named d with 100 elements, all initialized to 0*/
+  int x, y = 2;
+  printf("First element (index 0) of array a equals %d.\n", a[0]);
+  /*Print the value of the first element of array a(undefined value)*/
+  printf("Second(index 1) element of array b equals %d.\n", b[1]);
+  /*Print the value of the second element of array b (which is 2)*/
+  printf("Second(index 1) element of array b equals %d.\n", *(b+1) );
+  /*Print the value of the second element of array b using pointer arithmetic*/
+  printf("Sixth(index 5) element of array c equals %d.\n", c[5]);
+}
+```
+
+```c
+First element (index 0) of array a equals 4201200.
+Second(index 1) element of array b equals 2.
+Second(index 1) element of array b equals 2.
+Sixth(index 5) element of array c equals 0.
+```
+
 - Result:

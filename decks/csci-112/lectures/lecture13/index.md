@@ -13,7 +13,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-![Graphic 3](assets/image3.png)
+![w:277px Graphic 3](assets/image3.png)
 
 ---
 
@@ -32,18 +32,27 @@ title: "CSCI 112  Programming with C"
 
 ## Bitwise left shift(&lt;&lt;) and right shift(&gt;&gt;)
 
-- a &gt;&gt; b = 1
-- a &lt;&lt; b = 16
+```c
+a >> b = 1
+a << b = 16
+
+
+```
+
 - Result:
-- int main()
-- {
--     int a = 4;
--     int b = 2;
--     int result = a &gt;&gt; b;
--     printf("a &gt;&gt; b = %d\n", result);
--     result = a &lt;&lt; b;
--     printf("a &lt;&lt; b = %d\n", result);
-- }
+
+```c
+int main()
+{
+    int a = 4;
+    int b = 2;
+    int result = a >> b;
+    printf("a >> b = %d\n", result);
+    result = a << b;
+    printf("a << b = %d\n", result);
+
+}
+```
 
 ---
 
@@ -71,29 +80,36 @@ Syntax:
 
 typedef &lt;type&gt; Symbolic\_name
 
-- \#include &lt;stdio.h&gt;
-- typedef char \* String;
-- typedef char Letter;
-- int strCmp( String one, String two )
-- {
--     int i;
--     for (i = 0; one\[i\] != '\0' &amp;&amp; two\[i\] != '\0'; i++)
--         if(one\[i\] &gt; two\[i\])
--             return 1;
--         else if(one\[i\] &lt; two\[i\])
--             return -1;
--     return 0;
-- }
-- int main(int argc, char \*argv\[\])
-- {
--     String text1 = "Some text\n"; /\* read only! \*/
--     String text2 = "Some text\n";
--     printf( "%d", strCmp(text1, text2) );
--     Letter letter = 'A';
--     printf( "%c", letter );
--     return 0;
-- }
-- 0A
+```c
+#include <stdio.h>
+typedef char * String;
+typedef char Letter;
+int strCmp( String one, String two )
+{
+    int i;
+    for (i = 0; one[i] != '\0' && two[i] != '\0'; i++)
+        if(one[i] > two[i])
+            return 1;
+        else if(one[i] < two[i])
+            return -1;
+    return 0;
+}
+int main(int argc, char *argv[])
+{
+    String text1 = "Some text\n"; /* read only! */
+    String text2 = "Some text\n";
+    printf( "%d", strCmp(text1, text2) );
+    Letter letter = 'A';
+    printf( "%c", letter );
+    return 0;
+}
+```
+
+```c
+0A
+
+```
+
 - Result:
 
 ---
@@ -104,64 +120,82 @@ typedef &lt;type&gt; Symbolic\_name
 
 *Function pointers are used to store the memory address of a function. For a function pointer to be correctly used, the signature of the function it points to must exactly match the signature of the pointer itself. This means the return type and the list of arguments (including their types and order) must be identical.*
 
-- return-type function-name (only type of parameter declarations, if any);
-- return-type (\*function-name-pointer) (only type of parameter declarations, if any);
+```c
+return-type function-name (only type of parameter declarations, if any);
+```
+
+```c
+return-type (*function-name-pointer) (only type of parameter declarations, if any);
+```
 
 ---
 
 ## Function pointer with typdef
 
-- \#include &lt;stdio.h&gt;
-- int add(int, int);
-- int subtract(int, int);
-- <br>int add(int a, int b)
-- {
--   return a + b;
-- }
-- int subtract(int a, int b)
-- {
--   return a - b;
-- }
-- int main()
-- {
--   int x = 5, y = 3;
--   int (\*peration)(int,int);
--   operation = add;
--   int result = operation(x, y);
--   printf("Result of addition: %d\n", result);
--   operation = subtract;
--   result = operation(x, y);
--   printf("Result of subtraction: %d\n", result);
-- <br>  return 0;
-- }
-- Result of addition: 8
-- Result of subtraction: 2
+```c
+#include <stdio.h>
+int add(int, int);
+int subtract(int, int);
+
+int add(int a, int b)
+{
+  return a + b;
+}
+int subtract(int a, int b)
+{
+  return a - b;
+}
+
+int main()
+{
+  int x = 5, y = 3;
+  int (*peration)(int,int);
+  operation = add;
+  int result = operation(x, y);
+  printf("Result of addition: %d\n", result);
+  operation = subtract;
+  result = operation(x, y);
+  printf("Result of subtraction: %d\n", result);
+
+  return 0;
+}
+```
+
+```c
+Result of addition: 8
+Result of subtraction: 2
+```
+
 - Result:
-- \#include &lt;stdio.h&gt;
-- int add(int, int);
-- int subtract(int, int);
-- <br>int add(int a, int b)
-- {
--   return a + b;
-- }
-- int subtract(int a, int b)
-- {
--   return a - b;
-- }
 
-typedef int (\*Operation)(int,int);
+```c
+#include <stdio.h>
+int add(int, int);
+int subtract(int, int);
 
-- int main()
-- {
--   int x = 5, y = 3;
--   Operation operation = add;
--   int result = operation(x, y);
--   printf("Result of addition: %d\n", result);
--   operation = subtract;
--   result = operation(x, y);
--   printf("Result of subtraction: %d\n", result);
-- <br>  return 0;
-- }
+int add(int a, int b)
+{
+  return a + b;
+}
+int subtract(int a, int b)
+{
+  return a - b;
+}
+typedef int (*Operation)(int,int);
+int main()
+{
+  int x = 5, y = 3;
+  Operation operation = add;
+  int result = operation(x, y);
+  printf("Result of addition: %d\n", result);
+  operation = subtract;
+  result = operation(x, y);
+  printf("Result of subtraction: %d\n", result);
+
+  return 0;
+}
+```
+
 - When you use **typedef** with the syntax for a function pointer, you are not creating any pointer.
 - You are simply defining <br>a type alias, which means this type does not exist in main until you actually declare <br>a variable of that type!!!
 
@@ -171,10 +205,14 @@ typedef int (\*Operation)(int,int);
 
 - Structures are user-defined data types that group together variables of different data types.
 - A structure is a collection of one or more variables, possibly of different types, grouped together under single symbolic\_name for convenient handling.
-- struct symbolic\_name1
-- {
-- &lt;statement1&gt;
-- }&lt;symbolic\_name2, ...&gt;;
+
+```c
+struct symbolic_name1
+{
+	<statement1>
+}<symbolic_name2, ...>;
+```
+
 - Syntax:
 - Everything that is in angle brackets &lt;&gt; is optional.
 
@@ -182,47 +220,59 @@ typedef int (\*Operation)(int,int);
 
 ## An example
 
-- \#include &lt;stdio.h&gt;
-- struct MyStruct
-- {
--     int value;
-- }\*p, s; /\* like struct MyStruct  \* sPointer; struct MyStruct myStructure;\*/
-- <br>struct MyStruct  \* sPointer; /\* global pointer \*/
-- struct MyStruct myStructure; /\* global variable \*/
-- <br>struct MyStruct function( struct MyStruct temp )
-- {
--     temp.value += 5;
--     return temp;
-- }
-- int main(int argc, char \*argv\[\])
-- {
--     struct MyStruct localStruct; /\* local variable \*/
--     localStruct.value = 1;
--     struct MyStruct \* localStructPointer; /\* local pointer \*/
--     localStructPointer = &amp;localStruct;
--     printf( "%d\n", localStruct.value );
--     localStructPointer-&gt;value = 2;
--     printf( "%d\n", localStructPointer-&gt;value );
--     printf( "%d\n", (\*localStructPointer).value ); /\*Equivalent to the previous line\*/
--     p = &amp; s;
--     (\*p).value = 2;
--     printf( "%d\n", s.value );
--     printf( "%d\n", p-&gt;value );
-- <br>    printf( "%d\n", myStructure.value );
--     myStructure = function( \*localStructPointer );
--     printf( "%d\n", myStructure.value );
--     return 0;
-- }
-- 1
-- 2
-- 2
-- 2
-- 2
-- 0
-- 7
+```c
+#include <stdio.h>
+struct MyStruct
+{
+    int value;
+}*p, s; /* like struct MyStruct  * sPointer; struct MyStruct myStructure;*/
+
+struct MyStruct  * sPointer; /* global pointer */
+struct MyStruct myStructure; /* global variable */
+
+struct MyStruct function( struct MyStruct temp )
+{
+    temp.value += 5;
+    return temp;
+}
+int main(int argc, char *argv[])
+{
+    struct MyStruct localStruct; /* local variable */
+    localStruct.value = 1;
+    struct MyStruct * localStructPointer; /* local pointer */
+    localStructPointer = &localStruct;
+    printf( "%d\n", localStruct.value );
+    localStructPointer->value = 2;
+    printf( "%d\n", localStructPointer->value );
+    printf( "%d\n", (*localStructPointer).value ); /*Equivalent to the previous line*/
+    p = & s;
+    (*p).value = 2;
+    printf( "%d\n", s.value );
+    printf( "%d\n", p->value );
+
+    printf( "%d\n", myStructure.value );
+    myStructure = function( *localStructPointer );
+    printf( "%d\n", myStructure.value );
+    return 0;
+}
+```
+
+```c
+1
+2
+2
+2
+2
+0
+7
+
+```
+
 - Result:
 
-To access members of a structure, we use the dot operator. When accessing a member through a pointer, we must use the dereferencing operator (\*) followed by the member access operator (.), enclosed in parentheses: (\*symbolic\_name).field. Alternatively, we can use the arrow operator (-&gt;), which is equivalent to symbolic\_name-&gt;field.
+```c
+To access members of a structure, we use the dot operator. When accessing a member through a pointer, we must use the dereferencing operator (*) followed by the member access operator (.), enclosed in parentheses: (*symbolic_name).field. Alternatively, we can use the arrow operator (->), which is equivalent to symbolic_name->field.
+```
 
 ---
 
@@ -250,23 +300,20 @@ We can also **omit the structure tag name** to make it **anonymous**, preventing
 
 - Here, config is the **only instance** of this unnamed structure type.
 
+```c
 struct Point
-
 {
-
     int x, y;
+} p1, *ptr;
+```
 
-} p1, \*ptr;
-
+```c
 struct
-
 {
-
     int id;
-
     float value;
-
 } config;
+```
 
 Alternatively, we can use **typedef** to create an **alias** for a structure type:
 
@@ -274,15 +321,20 @@ Alternatively, we can use **typedef** to create an **alias** for a structure typ
 - The name after the definition (Point) is a type alias, not a variable.
 - This alias does not prevent creating multiple instances — it simply simplifies the syntax.
 
+```c
 typedef struct
-
 {
 
     int x, y;
 
 } Point;
+```
 
-Point symbolic\_name;
+```c
+
+Point symbolic_name;
+
+```
 
 ---
 
@@ -300,43 +352,51 @@ Point symbolic\_name;
 
 ## An example - padding
 
-- \#include &lt;stdio.h&gt;
-- struct Example1
-- {
--     char c;
--     int i;
--     short s;
-- };
-- struct Example2
-- {
--     short s;
--     char c;
--     int i;
-- };<br>int main(int argc, char \*argv\[\])
-- {
--     printf( "Size of a struct Example is = %d\n", sizeof(struct Example1) );
--     printf( "Size of a struct Example is = %d\n", sizeof(struct Example2) );<br>    struct Example1 example1;
--     printf( "Struct Example1:\n" );
--     printf( "Address of variable c = %d\n", &amp;example1.c );
--     printf( "Address of variable i = %d\n", &amp;example1.i );
--     printf( "Address of variable s = %d\n", &amp;example1.s );
--     struct Example2 example2;
--     printf( "Struct Example2:\n" );
--     printf( "Address of variable s = %d\n", &amp;example2.s );
--     printf( "Address of variable c = %d\n", &amp;example2.c );
--     printf( "Address of variable i = %d\n", &amp;example2.i );
--     return 0;
-- }
-- Size of a struct Example is = 12
-- Size of a struct Example is = 8
-- Struct Example1:
-- Address of variable c = 6487828
-- Address of variable i = 6487832
-- Address of variable s = 6487836
-- Struct Example2:
-- Address of variable s = 6487820
-- Address of variable c = 6487822
-- Address of variable i = 6487824
+```c
+#include <stdio.h>
+struct Example1
+{
+    char c;
+    int i;
+    short s;
+};
+struct Example2
+{
+    short s;
+    char c;
+    int i;
+};
+int main(int argc, char *argv[])
+{
+    printf( "Size of a struct Example is = %d\n", sizeof(struct Example1) );
+    printf( "Size of a struct Example is = %d\n", sizeof(struct Example2) );
+    struct Example1 example1;
+    printf( "Struct Example1:\n" );
+    printf( "Address of variable c = %d\n", &example1.c );
+    printf( "Address of variable i = %d\n", &example1.i );
+    printf( "Address of variable s = %d\n", &example1.s );
+    struct Example2 example2;
+    printf( "Struct Example2:\n" );
+    printf( "Address of variable s = %d\n", &example2.s );
+    printf( "Address of variable c = %d\n", &example2.c );
+    printf( "Address of variable i = %d\n", &example2.i );
+    return 0;
+}
+```
+
+```c
+Size of a struct Example is = 12
+Size of a struct Example is = 8
+Struct Example1:
+Address of variable c = 6487828
+Address of variable i = 6487832
+Address of variable s = 6487836
+Struct Example2:
+Address of variable s = 6487820
+Address of variable c = 6487822
+Address of variable i = 6487824
+```
+
 - Result:
 
 ---
@@ -361,16 +421,25 @@ Point symbolic\_name;
 - Purpose:
   - Formats data according to the format specifier and stores the result in a character array.
 - The sprintf function is incredibly useful when you need to create custom strings dynamically. The format specifiers work similarly to printf, allowing you to format numbers, strings, and other data types.
-- \#include &lt;stdio.h&gt;
-- int main(int argc, char \*argv\[\])
-- {
--     char buffer\[50\];
--     int age = 30;
--     sprintf(buffer, "I am %d years old.", age);
--     printf(buffer);
--     return 0;
-- }
-- I am 30 years old.
+
+```c
+#include <stdio.h>
+int main(int argc, char *argv[])
+{
+    char buffer[50];
+    int age = 30;
+    sprintf(buffer, "I am %d years old.", age);
+    printf(buffer);
+
+    return 0;
+}
+```
+
+```c
+I am 30 years old.
+
+```
+
 - Result:
 
 ---
@@ -382,16 +451,25 @@ Point symbolic\_name;
 - Purpose:
   - Reads formatted data from a string into variables.
 - The sscanf is like the opposite of sprintf. It allows you to extract specific pieces of data from a string based on a format specifier. This is particularly useful when parsing data from files or user input.
-- \#include &lt;stdio.h&gt;
-- int main(int argc, char \*argv\[\])
-- {
--     char str\[\] = "My age is 30";
--     int age;
--     sscanf(str, "My age is %d", &amp;age);
--     printf("%d", age);
--     return 0;
-- }
-- 30
+
+```c
+#include <stdio.h>
+int main(int argc, char *argv[])
+{
+    char str[] = "My age is 30";
+    int age;
+    sscanf(str, "My age is %d", &age);
+    printf("%d", age);
+
+    return 0;
+}
+```
+
+```c
+30
+
+```
+
 - Result:
 
 ---
@@ -405,23 +483,33 @@ Point symbolic\_name;
 - gets():
   - This function reads a line of text from stdin and stores it in the specified character array (name in this example).
   - However, gets is unsafe because it doesn't check for buffer overflow; it's recommended to use fgets instead in modern C for safer input handling.
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--     char name\[50\];
-- <br>    /\* Using puts toob display a message \*/
--     puts("Please enter your name:");
-- <br>    /\* Using gets to read a line of text from the user \*/
--     gets(name);
-- <br>    /\* Displaying the input using puts \*/
--     puts("Hello, ");
--     puts(name);
--     return 0;
-- }
-- Please enter your name:
-- Jacob
-- Hello,
-- Jacob
+
+```c
+#include <stdio.h>
+int main()
+{
+    char name[50];
+
+    /* Using puts toob display a message */
+    puts("Please enter your name:");
+
+    /* Using gets to read a line of text from the user */
+    gets(name);
+
+    /* Displaying the input using puts */
+    puts("Hello, ");
+    puts(name);
+    return 0;
+}
+```
+
+```c
+Please enter your name:
+Jacob
+Hello,
+Jacob
+```
+
 - Result:
 
 ---
@@ -435,26 +523,33 @@ Point symbolic\_name;
     - If no conversion is performed or if a conversion error occurs.
   - EOF:
     - If an end-of-file condition is reached before any conversion.
-- \#include &lt;stdio.h&gt;
-- int main(int argc, char \*argv\[\])
-- {
--     char str\[\] = "Age: 30";
--     int age;
--     int result = sscanf(str, "Age: %d", &amp;age);
--     if (result == 1)
--         printf("Read age: %d\n", age);
--     else
--         printf("Error reading age\n");
--     return 0;
-- }
-- 30
+
+```c
+#include <stdio.h>
+int main(int argc, char *argv[])
+{
+    char str[] = "Age: 30";
+    int age;
+    int result = sscanf(str, "Age: %d", &age);
+    if (result == 1)
+        printf("Read age: %d\n", age);
+    else
+        printf("Error reading age\n");
+
+    return 0;
+}
+```
+
+```c
+30
+
+```
+
 - Result:
 
 ---
 
-## Summary
-
-While sprintf and printf are very useful for formatting text, they suffer from a significant drawback: they lack built-in safeguards against buffer overflows. This is because the representation of data, particularly for floating-point numbers %f and integers %d, can be longer with formatting than the allocated memory buffer. Consequently, it's crucial to implement precise formatting for all elements (e.g., %s, %d, %f) to accurately calculate the required character count and ensure that the data fits within the allocated array.
+## Summary While sprintf and printf are very useful for formatting text, they suffer from a significant drawback: they lack built-in safeguards against buffer overflows. This is because the representation of data, particularly for floating-point numbers %f and integers %d, can be longer with formatting than the allocated memory buffer. Consequently, it's crucial to implement precise formatting for all elements (e.g., %s, %d, %f) to accurately calculate the required character count and ensure that the data fits within the allocated array.
 
 ---
 
@@ -498,15 +593,14 @@ When we write programs, we need a way to check if our code works correctly. Ther
 - If the condition in assert is false, the program immediately stops (crashes). Example:
 - Good for debugging, **but not suitable for automated testing**, because once it fails, the program cannot continue.
 
-\#include &lt;assert.h&gt;<br>int divide(int a, int b)
-
+```c
+#include <assert.h>
+int divide(int a, int b)
 {
-
     assert(b != 0);  // program will stop if b == 0
-
     return a / b;
-
 }
+```
 
 ---
 
@@ -540,18 +634,19 @@ assert(a &gt; 0);
 - The program returned exit code 0, which means it ran successfully.
 - A non-zero exit code usually indicates an error or failure.
 
-int main(int argc, char \*argv\[\])
-
+```c
+int main(int argc, char *argv[])
 {
-
     return 0; // cmd/powershell:  echo $LASTEXITCODE
-
 }
+```
 
-- C:&gt;main.exe
-- C:&gt;echo $LASTEXITCODE
-- 0
-- C:&gt;
+```c
+C:>main.exe
+C:>echo $LASTEXITCODE
+0
+C:>
+```
 
 ---
 
@@ -562,17 +657,14 @@ int main(int argc, char \*argv\[\])
 - Unlike assert, Unity Test does not stop the program when a test fails. Instead, it records the failure and continues with other tests.
 - This way we get a summary of all passed and failed tests at the end. Example test with Unity:
 
-\#include "unity.h"
-
-void test\_addition(void)
-
+```c
+#include "unity.h"
+void test_addition(void)
 {
-
-    TEST\_ASSERT\_EQUAL(4, 2 + 2);  // this will pass
-
-    TEST\_ASSERT\_EQUAL(5, 2 + 2);  // this will fail, but program continues
-
+    TEST_ASSERT_EQUAL(4, 2 + 2);  // this will pass
+    TEST_ASSERT_EQUAL(5, 2 + 2);  // this will fail, but program continues
 }
+```
 
 ---
 
@@ -593,23 +685,17 @@ void test\_addition(void)
   - 0 = success
   - non-zero = error
 
-int findElement(int arr\[\], int size, int target)
-
+```c
+int findElement(int arr[], int size, int target)
 {
-
-    for(int i = 0; i &lt; size; i++)
-
+    for(int i = 0; i < size; i++)
     {
-
-        if(arr\[i\] == target)
-
+        if(arr[i] == target)
             return i;  // found, return index
-
     }
-
     return -1;  // not found → error
-
 }
+```
 
 ---
 
@@ -738,15 +824,15 @@ This makes every test independent, safe, and repeatable.
 
 ## Visual Studio / Visual Studio Code
 
-![Debugging diagram](assets/image5.png)
+![w:757px Debugging diagram](assets/image5.png)
 
-![Run menu](assets/image6.png)
+![w:503px Run menu](assets/image6.png)
 
 ---
 
 ## Visual Studio / Visual Studio Code
 
-![breakpoints in overview ruler](assets/image7.png)
+![w:825px breakpoints in overview ruler](assets/image7.png)
 
 - Breakpoints
 
@@ -754,9 +840,9 @@ This makes every test independent, safe, and repeatable.
 
 ## Visual Studio / Visual Studio Code
 
-![Debug Variables](assets/image8.png)
+![w:429px Debug Variables](assets/image8.png)
 
-![Debug Watch](assets/image9.png)
+![w:422px Debug Watch](assets/image9.png)
 
 - Variables
 
@@ -766,7 +852,7 @@ This makes every test independent, safe, and repeatable.
 
 - Call stack
 
-![Picture 5](assets/image10.png)
+![w:737px Picture 5](assets/image10.png)
 
 ---
 

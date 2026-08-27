@@ -24,7 +24,7 @@ GitHub
 - Create and log in in GitHub account
 - Please turn of AI
 
-![Content Placeholder 10](assets/image2.png)
+![w:606px Content Placeholder 10](assets/image2.png)
 
 ---
 
@@ -85,7 +85,10 @@ GitHub
 - Default location: ~/.ssh/id\_ed25519.
 - Add the public key to GitHub:
   - **Settings → SSH and GPG keys → New SSH key**.
-- ssh-keygen -t ed25519 -C "<your_email@example.com>"
+
+```
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
 
 ---
 
@@ -156,7 +159,10 @@ ssh-add c:/Users/YOU/.ssh/id\_ed25519
 
 - When creating new repositories on GitHub, the default branch will be **main**.
 - If your local repo still uses **master**, you can rename it:
-- git branch -m master main
+
+```
+git branch -m master main
+```
 
 ---
 

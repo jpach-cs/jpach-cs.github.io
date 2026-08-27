@@ -24,7 +24,7 @@ title: "CSSI112lec 19"
 
 ---
 
-![Graphic 3](assets/image3.png)
+![w:277px Graphic 3](assets/image3.png)
 
 ---
 
@@ -42,9 +42,7 @@ title: "CSSI112lec 19"
 
 ---
 
-## 1. Character Classification and Conversion (&lt;ctype.h&gt;)
-
-Used for testing and converting characters.
+## 1. Character Classification and Conversion (&lt;ctype.h&gt;) Used for testing and converting characters.
 
 |Function|Description|Example|
 |---|---|---|
@@ -62,9 +60,7 @@ Used for testing and converting characters.
 
 ---
 
-## 2. String Handling (&lt;string.h&gt;)
-
-Used for manipulating null-terminated character arrays.
+## 2. String Handling (&lt;string.h&gt;) Used for manipulating null-terminated character arrays.
 
 |Function|Description|Example|
 |---|---|---|
@@ -81,9 +77,7 @@ Used for manipulating null-terminated character arrays.
 
 ---
 
-## 3. Memory Handling (&lt;string.h&gt;)
-
-Used for working with raw memory blocks.
+## 3. Memory Handling (&lt;string.h&gt;) Used for working with raw memory blocks.
 
 |Function|Description|Example|
 |---|---|---|
@@ -101,18 +95,25 @@ Used for working with raw memory blocks.
 - ...
 - 0061FF14
 - (6,422,292)
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--   int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344;
--   printf("%-4s equals %d.\n", "x", &amp;x);
--   printf("%-4s equals %d.\n", "y", &amp;y);
--   printf("%-4s equals %d.\n", "z", &amp;z);
--   return 0;
-- }
-- x    equals 6422292.
-- y    equals 6422288.
-- z    equals 6422284.
+
+```c
+#include <stdio.h>
+int main()
+{
+  int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344;
+  printf("%-4s equals %d.\n", "x", &x);
+  printf("%-4s equals %d.\n", "y", &y);
+  printf("%-4s equals %d.\n", "z", &z);
+  return 0;
+}
+```
+
+```c
+x    equals 6422292.
+y    equals 6422288.
+z    equals 6422284.
+```
+
 - Result:
 - 0061FF10
 - (6,422,288)
@@ -126,7 +127,11 @@ Used for working with raw memory blocks.
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 
 - 0061FF10
-- (Stack Pointer)
+
+```c
+(Stack Pointer)
+```
+
 - 0061FF18
 
 ---
@@ -136,18 +141,25 @@ Used for working with raw memory blocks.
 - ...
 - 0061FF14
 - (6,422,292)
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--   int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344;
--   printf("%-4s equals %d.\n", "x", &amp;x);
--   printf("%-4s equals %d.\n", "y", &amp;y);
--   printf("%-4s equals %d.\n", "z", &amp;z);
--   return 0;
-- }
-- x    equals 6422292.
-- y    equals 6422288.
-- z    equals 6422284.
+
+```c
+#include <stdio.h>
+int main()
+{
+  int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344;
+  printf("%-4s equals %d.\n", "x", &x);
+  printf("%-4s equals %d.\n", "y", &y);
+  printf("%-4s equals %d.\n", "z", &z);
+  return 0;
+}
+```
+
+```c
+x    equals 6422292.
+y    equals 6422288.
+z    equals 6422284.
+```
+
 - Result:
 - 0061FF10
 - (6,422,288)
@@ -158,7 +170,11 @@ Used for working with raw memory blocks.
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 
 - 0061FF10
-- (Stack Pointer)
+
+```c
+(Stack Pointer)
+```
+
 - 0061FF18
 
 |Address|Value|
@@ -184,8 +200,10 @@ Used for working with raw memory blocks.
 
 ## Take a closer look at this fragment of memory
 
-- int main()
-- {  int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344; return 0;}
+```c
+int main()
+{  int x = 0x12345678, y = 0xAABBCCDD, z = 0x11223344; return 0;}
+```
 
 |Address|Value|
 |---|---|
@@ -215,30 +233,43 @@ Data storage in RAM in Windows systems follows the little-endian standard, which
 - To use dynamic memory allocation functions like malloc, you need to include the stdlib.h library.
 - Malloc and free are always used together.
 - The malloc function does not initialize the values of the allocated memory block; the values remain as they were previously in that memory area.
-- \#include &lt;stdio.h&gt;
-- \#include &lt;stdlib.h&gt;
-- <br>int main()
-- {
--     int stackVariable = 5; // Declare a variable on the stack
--     printf("Address of stackVariable: %p\n", &amp;stackVariable);
-- <br>    // Allocate memory on the heap for an integer
--     int \*heapValue = (int\*) malloc( sizeof(int) \* 1  );  // Size multiplied by the number of elements
--     //Since the malloc function returns a void pointer,
--     //it is recommended to explicitly cast it to the desired type, such as int\*, to avoid ambiguity.
-- <br>    if (heapValue)      //(heapValue != NULL)
--     {
--         \*heapValue = 5; // Assign a value to the allocated memory
--         printf("Address of heapValue: %p\n", heapValue);
--         printf("The value of dynamicVariable is = %d\n", \*heapValue);
--         free(heapValue); // Deallocate the memory - so important!
--     }
--     else
--         printf("Memory allocation failed!\n");
--     return 0;
-- }
-- Address of stackVariable: 0062ff14
-- Address of heapValue: 00c41808
-- The value of dynamicVariable is = 5
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+    int stackVariable = 5; // Declare a variable on the stack
+    printf("Address of stackVariable: %p\n", &stackVariable);
+
+    // Allocate memory on the heap for an integer
+    int *heapValue = (int*) malloc( sizeof(int) * 1  );  // Size multiplied by the number of elements
+    //Since the malloc function returns a void pointer,
+    //it is recommended to explicitly cast it to the desired type, such as int*, to avoid ambiguity.
+
+    if (heapValue)      //(heapValue != NULL)
+    {
+        *heapValue = 5; // Assign a value to the allocated memory
+        printf("Address of heapValue: %p\n", heapValue);
+        printf("The value of dynamicVariable is = %d\n", *heapValue);
+
+        free(heapValue); // Deallocate the memory - so important!
+    }
+    else
+        printf("Memory allocation failed!\n");
+    return 0;
+}
+```
+
+```c
+Address of stackVariable: 0062ff14
+Address of heapValue: 00c41808
+The value of dynamicVariable is = 5
+
+```
+
 - Result:
 - Malloc expects only one argument, the number of bytes to be allocated.
 
@@ -259,7 +290,11 @@ Data storage in RAM in Windows systems follows the little-endian standard, which
 - 0062FF14
 - (6,422,292)
 - FFFFFFFE
-- (4,294,967,295)
+
+```c
+(4,294,967,295)
+```
+
 - ...
 
 |B|B|B|B|B|B|B|
@@ -289,34 +324,48 @@ Data storage in RAM in Windows systems follows the little-endian standard, which
 
 - Malloc does not require static values for allocation.
 - Malloc expects only one argument, the number of bytes to be allocated.
-- \#include &lt;stdio.h&gt;
-- \#include &lt;stdlib.h&gt;
-- <br>int main()
-- {
--     const int n = 3;
--     int m = 3;
--     int stackArray\[n\];
-- <br>    printf("Address of stackArray\[0\]:\t %.8d\n", &amp;stackArray\[0\]);
--     printf("Address of stackArray\[1\]:\t %.8d\n", &amp;stackArray\[1\]);
--     printf("Address of stackArray\[2\]:\t %.8d\n\n", &amp;stackArray\[2\]);
-- <br>    int \*heapArray = (int\*) malloc( sizeof(int) \* m  );
-- <br>    if (heapArray)
--     {
--         printf("Address of heapArray\[0\]:\t %.8d\n", &amp;heapArray\[0\]);
--         printf("Address of heapArray\[1\]:\t %.8d\n", &amp;heapArray\[1\]);
--         printf("Address of heapArray\[2\]:\t %.8d\n\n", &amp;heapArray\[2\]);
--         free(heapArray); // so important!
--     }
--     else
--         printf("Memory allocation failed!\n");
--     return 0;
-- }
-- Address of stackArray\[0\]:        06487768
-- Address of stackArray\[1\]:        06487772
-- Address of stackArray\[2\]:        06487776
-- Address of heapArray\[0\]:         06559344
-- Address of heapArray\[1\]:         06559348
-- Address of heapArray\[2\]:         06559352
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    const int n = 3;
+    int m = 3;
+    int stackArray[n];
+
+    printf("Address of stackArray[0]:\t %.8d\n", &stackArray[0]);
+    printf("Address of stackArray[1]:\t %.8d\n", &stackArray[1]);
+    printf("Address of stackArray[2]:\t %.8d\n\n", &stackArray[2]);
+
+    int *heapArray = (int*) malloc( sizeof(int) * m  );
+
+    if (heapArray)
+    {
+        printf("Address of heapArray[0]:\t %.8d\n", &heapArray[0]);
+        printf("Address of heapArray[1]:\t %.8d\n", &heapArray[1]);
+        printf("Address of heapArray[2]:\t %.8d\n\n", &heapArray[2]);
+
+        free(heapArray); // so important!
+    }
+    else
+        printf("Memory allocation failed!\n");
+    return 0;
+}
+```
+
+```c
+Address of stackArray[0]:        06487768
+Address of stackArray[1]:        06487772
+Address of stackArray[2]:        06487776
+
+Address of heapArray[0]:         06559344
+Address of heapArray[1]:         06559348
+Address of heapArray[2]:         06559352
+
+```
+
 - Result:
 
 ---
@@ -334,70 +383,98 @@ When a program that utilizes dynamically allocated memory crashes and fails to d
 - calloc() is similar to malloc() but additionally initializes the allocated memory to zero.
 - calloc() is slower than malloc() due to this extra operation. However, calloc() is more efficient when you need an array filled with zeros.
 - Both malloc() and calloc() use the free function to deallocate memory.
-- \#include &lt;stdio.h&gt;
-- \#include &lt;stdlib.h&gt;
-- <br>int main()
-- {
--     int n = 3;
--     int \*heapArray1 = (int\*) calloc( n, sizeof(int)   );
--     int \*heapArray2 = (int\*) malloc( sizeof(int) \* n  );
-- <br>    if (heapArray1)
--     {
--         printf("The value of heapArray1\[0\]:\t %.8d\n", heapArray1\[0\]);
--         printf("The value of heapArray1\[1\]:\t %.8d\n", heapArray1\[1\]);
--         printf("The value of heapArray1\[2\]:\t %.8d\n\n", heapArray1\[2\]);
--         free(heapArray1); // so important!
--     }
--     if (heapArray2)
--     {
--         printf("The value of heapArray2\[0\]:\t %.8d\n", heapArray2\[0\]);
--         printf("The value of heapArray2\[1\]:\t %.8d\n", heapArray2\[1\]);
--         printf("The value of heapArray2\[2\]:\t %.8d\n\n", heapArray2\[2\]);
--         free(heapArray2); // so important!
--     }
--     return 0;
-- }
-- The value of heapArray1\[0\]:      00000000
-- The value of heapArray1\[1\]:      00000000
-- The value of heapArray1\[2\]:      00000000
-- The value of heapArray2\[0\]:      -1163005939
-- The value of heapArray2\[1\]:      -1163005939
-- The value of heapArray2\[2\]:      -1163005939
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n = 3;
+    int *heapArray1 = (int*) calloc( n, sizeof(int)   );
+    int *heapArray2 = (int*) malloc( sizeof(int) * n  );
+
+    if (heapArray1)
+    {
+        printf("The value of heapArray1[0]:\t %.8d\n", heapArray1[0]);
+        printf("The value of heapArray1[1]:\t %.8d\n", heapArray1[1]);
+        printf("The value of heapArray1[2]:\t %.8d\n\n", heapArray1[2]);
+        free(heapArray1); // so important!
+    }
+    if (heapArray2)
+    {
+        printf("The value of heapArray2[0]:\t %.8d\n", heapArray2[0]);
+        printf("The value of heapArray2[1]:\t %.8d\n", heapArray2[1]);
+        printf("The value of heapArray2[2]:\t %.8d\n\n", heapArray2[2]);
+
+        free(heapArray2); // so important!
+    }
+    return 0;
+}
+```
+
+```c
+The value of heapArray1[0]:      00000000
+The value of heapArray1[1]:      00000000
+The value of heapArray1[2]:      00000000
+
+The value of heapArray2[0]:      -1163005939
+The value of heapArray2[1]:      -1163005939
+The value of heapArray2[2]:      -1163005939
+
+```
+
 - Result:
 
 ---
 
 ## realloc()
 
-- Data loss: When reducing the size of a block, data located outside the new, smaller block will be lost.
-- Data movement: realloc() may move the entire memory block to a new location, so always update the pointer.
-- Freeing memory: If realloc() is successful, the original block will be automatically freed.
-- void \*realloc(void \*ptr, size\_t new\_size);
-- \#include &lt;stdio.h&gt;
-- \#include &lt;stdlib.h&gt;
-- <br>int main()
-- {
--     int n = 10;
-- <br>    int \*heapArray1 = (int\*)malloc(n \* sizeof(int));
--     // ...
--     // After some time, we want to reduce the size of the array to 5 elements
--     int \*newHeapArray1 = (int\*)realloc(heapArray1, 5 \* sizeof(int));
--     if (newHeapArray1 == NULL)
--     {
--         printf("Handle error: allocation failed\n");
--         free(heapArray1);
--     }
--     else
--     {
--         printf("Successful allocation, update the pointer\n");
--         heapArray1 = newHeapArray1;
--     }
--     //...
-- <br>    if(heapArray1)
--         free(heapArray1);<br><br>    getchar();
--     return 0;
-- }
-- Successful allocation, update the pointer
+```c
+Data loss: When reducing the size of a block, data located outside the new, smaller block will be lost.
+Data movement: realloc() may move the entire memory block to a new location, so always update the pointer.
+Freeing memory: If realloc() is successful, the original block will be automatically freed.
+void *realloc(void *ptr, size_t new_size);
+
+```
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n = 10;
+
+    int *heapArray1 = (int*)malloc(n * sizeof(int));
+    // ...
+    // After some time, we want to reduce the size of the array to 5 elements
+    int *newHeapArray1 = (int*)realloc(heapArray1, 5 * sizeof(int));
+    if (newHeapArray1 == NULL)
+    {
+        printf("Handle error: allocation failed\n");
+        free(heapArray1);
+    }
+    else
+    {
+        printf("Successful allocation, update the pointer\n");
+        heapArray1 = newHeapArray1;
+    }
+    //...
+
+    if(heapArray1)
+        free(heapArray1);
+
+    getchar();
+    return 0;
+}
+```
+
+```c
+Successful allocation, update the pointer
+
+```
+
 - Result:
 
 What does realloc() return?
@@ -469,9 +546,7 @@ Memory fragmentation is a problem that can occur when memory is repeatedly alloc
 
 ---
 
-## 4. Input / Output Functions (&lt;stdio.h&gt;)
-
-Work with files and streams.
+## 4. Input / Output Functions (&lt;stdio.h&gt;) Work with files and streams.
 
 |Function|Description|Example|
 |---|---|---|
@@ -513,52 +588,46 @@ Work with files and streams.
 - stdout and stderr are both used for output, but stderr is not buffered by default <br>— this means error messages appear immediately, even if the program crashes afterward.
 - You can redirect them independently in the command line:
 - You can also explicitly write to these streams:
-- ./program &gt; output.txt       # redirects stdout
-- ./program 2&gt; errors.txt      # redirects stderr
-- ./program &gt; all.txt 2&gt;&amp;1     # redirects both
 
+```c
+./program > output.txt       # redirects stdout
+./program 2> errors.txt      # redirects stderr
+./program > all.txt 2>&1     # redirects both
+```
+
+```c
 fprintf(stdout, "Normal output\n");
-
 fprintf(stderr, "Error message\n");
+```
 
 ---
 
-## fopen()    – Opens a file and returns a FILE\* pointer..<br>fclose()    – Closes an open file. Always close files when done
-
-Typically used for initializing arrays or structs.
+## fopen()    – Opens a file and returns a FILE\* pointer..<br>fclose()    – Closes an open file. Always close files when done Typically used for initializing arrays or structs.
 
 - Hello, file!
 - Result:
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
-    FILE \*fp = fopen("data.txt", "w");
-
+    FILE *fp = fopen("data.txt", "w");
     if (fp == NULL)
-
     {
-
         printf("Failed to open file.\n");
-
         return 1;
-
     }
-
     fprintf(fp, "Hello, file!\n");
-
     fclose(fp);
-
     return 0;
-
 }
+```
 
-- **Header:** &lt;stdio.h&gt;
+```c
+Header: <stdio.h>
+```
 
 ---
 
@@ -567,28 +636,25 @@ int main()
 - In C: Use fflush(file\_pointer) before closing critical files to guarantee data integrity. You are essentially clearing out anything that might be stuck in the buffer right before the file handle is released.
 - In C++: std::endl is equivalent to the sequence of inserting a newline (\n) followed by a flush(). It is convenient, but using a simple \n is faster when immediate flushing is not strictly required.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
-    FILE \*fp = fopen("data.txt", "w");
-
-    /\* ... \*/
-
+    FILE *fp = fopen("data.txt", "w");
+    /* ... */
     fflush(fp);  // Force write to disk now
-
     fclose(fp);
-
     return 0;
-
 }
+```
 
 - fflush(fp)
-- **Header:** &lt;stdio.h&gt;
+
+```c
+Header: <stdio.h>
+```
 
 ---
 
@@ -598,155 +664,149 @@ int main()
 - Setting the Flag: When you call an I/O function (e.g., fread(), fwrite(), fgetc()) and that operation encounters an error—for instance, a disk read error—the system sets the internal error flag for that specific stream (FILE \*).
 - Effect on Operation: Once the flag is set, most subsequent I/O operations on that stream will immediately fail (or return an error) until the flag is reset. This prevents attempts at further operations on a corrupted stream.
 - Resetting: If you determine the error was temporary or you want to reset the stream's state to attempt to continue operations, you use the function clearerr(stream).
-- 0
-- 1
-- 0
+
+```c
+0
+1
+0
+```
+
 - Result:
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;
-
-\#include &lt;stdbool.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
 
 int main()
-
 {
-
-    FILE \*fp = fopen("data.txt", "r");
-
+    FILE *fp = fopen("data.txt", "r");
     if (fp == NULL)
-
     {
-
         printf("Failed to open file.\n");
-
         return 1;
-
     }
-
     bool result = ferror(fp);
-
     printf("%d\n", result);
-
     int x = 5;
-
-    fwrite(&amp;x, 1, 4, fp );
-
+    fwrite(&x, 1, 4, fp );
     result = ferror(fp);
-
     clearerr(fp);
-
     printf("%d\n", result);
-
     result = ferror(fp);
-
     printf("%d\n", result);
-
     fclose(fp);
-
     return 0;
-
 }
+```
 
 - clearerr(fp) / ferror(fp)
-- **Header:** &lt;stdio.h&gt;
+
+```c
+Header: <stdio.h>
+```
 
 ---
 
 ## feof() – Checks if the end of the file has been reached. Returns non-zero (true) if EOF is set
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
-        FILE \*fp = fopen("data.txt", "r");
-
+        FILE *fp = fopen("data.txt", "r");
         while (!feof(fp))
-
         {
-
             int c = fgetc(fp);
-
             if (c == EOF) break;
-
             putchar(c);
-
         }
-
         fclose(fp);
-
     return 0;
-
 }
+```
 
 - feof(fp)
-- **Header:** &lt;stdio.h&gt;
 
-\#define EOF (-1)
+```c
+Header: <stdio.h>
+```
 
-Returned by various functions on end of file condition or error.<br>Expands to:
-
+```c
+#define EOF (-1)
+Returned by various functions on end of file condition or error.
+Expands to:
 (-1)
+```
 
 ---
 
 ## perror() – Prints a human-readable error message related to the last I/O failure
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
-    FILE \*fp = fopen("missing.txt", "r");
-
+    FILE *fp = fopen("missing.txt", "r");
     if (!fp)
-
         perror("Error opening file");
-
     return 0;
-
 }
+```
 
 - perror(msg)
-- **Header:** &lt;stdio.h&gt;
-- Error opening file: No such file or directory
-- Result(stderr):
+
+```c
+Header: <stdio.h>
+```
+
+```c
+Error opening file: No such file or directory
+```
+
+```c
+Result(stderr):
+```
 
 ---
 
 ## freopen() – Reopens an existing stream (e.g., redirect stdin or stdout)
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
     freopen("output.txt", "w", stdout);  // redirect printf() to file
-
     printf("This will be written to output.txt!\n");
-
     fclose(stdout);
-
     return 0;
-
 }
+```
 
 - freopen(…)
-- **Header:** &lt;stdio.h&gt;
-- Result(stdout):
-- This will be written to output.txt!
-- Result(output.txt):
+
+```c
+Header: <stdio.h>
+```
+
+```c
+Result(stdout):
+```
+
+```c
+This will be written to output.txt!
+
+```
+
+```c
+Result(output.txt):
+```
 
 ---
 
@@ -757,57 +817,56 @@ int main()
 - Temporary data
 - Result(temp\*):
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
-    FILE \*temp = tmpfile();
-
+    FILE *temp = tmpfile();
     fprintf(temp, "Temporary data\n");
-
     rewind(temp);
-
     fclose(temp);
-
     return 0;
-
 }
+```
 
 - tmpfile()
-- **Header:** &lt;stdio.h&gt;
+
+```c
+Header: <stdio.h>
+```
+
 - The location where the tmpfile() function creates a temporary file is **not guaranteed to be the current working directory**; instead, it is dependent on the specific **operating system implementation** and current **environmental settings**. This function consistently utilizes the system's **default temporary directory**.
 
 ---
 
 ## tmpnam() – Generates a unique temporary filename (does not create the file)
 
-- Temporary filename: \s3r4.
+```c
+Temporary filename: \s3r4.
+```
+
 - Result(temp\*):
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
-    char name\[L\_tmpnam\];
-
+    char name[L_tmpnam];
     tmpnam(name);
-
     printf("Temporary filename: %s\n", name);
-
     return 0;
-
 }
+```
 
 - tmpnam(char\*)
-- **Header:** &lt;stdio.h&gt;
+
+```c
+Header: <stdio.h>
+```
 
 \#define L\_tmpnam (16)
 
@@ -821,28 +880,25 @@ Expands to:
 
 ## rename()    – Changes a file’s name.<br>remove()    – Deletes a file from disk
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
-    FILE \*fp = fopen("data.txt", "wt");
-
+    FILE *fp = fopen("data.txt", "wt");
     fclose(fp);
-
     rename("data.txt", "final.txt");
-
     remove("final.txt");
-
     return 0;
-
 }
+```
 
 - rename(old, new) /remove(name)
-- **Header:** &lt;stdio.h&gt;
+
+```c
+Header: <stdio.h>
+```
 
 |remove(name)|Deletes file.|remove("old.txt");|
 |---|---|---|
@@ -857,9 +913,7 @@ int main()
 
 ---
 
-## 5. Conversion Functions (&lt;stdlib.h&gt;)
-
-Convert strings to numbers.
+## 5. Conversion Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -872,9 +926,7 @@ Convert strings to numbers.
 
 ---
 
-## 6. Math Functions (&lt;math.h&gt;)
-
-Convert strings to numbers.
+## 6. Math Functions (&lt;math.h&gt;) Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -890,9 +942,7 @@ Convert strings to numbers.
 
 ---
 
-## 7. Utility Functions (&lt;stdlib.h&gt;)
-
-Convert strings to numbers.
+## 7. Utility Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -908,9 +958,7 @@ Convert strings to numbers.
 
 ---
 
-## 8. Diagnostics and Assertions (&lt;assert.h&gt;)
-
-Useful for debugging and safety.
+## 8. Diagnostics and Assertions (&lt;assert.h&gt;) Useful for debugging and safety.
 
 |Function / Macro|Description|Example|
 |---|---|---|
@@ -919,9 +967,7 @@ Useful for debugging and safety.
 
 ---
 
-## 9. Time and Date Functions (&lt;time.h&gt;)
-
-Work with clocks and timestamps.
+## 9. Time and Date Functions (&lt;time.h&gt;) Work with clocks and timestamps.
 
 |Function|Description|Example|
 |---|---|---|
@@ -936,9 +982,7 @@ Work with clocks and timestamps.
 
 ---
 
-## 10. Variable Argument Lists (&lt;stdarg.h&gt;)
-
-For functions that accept a variable number of parameters.
+## 10. Variable Argument Lists (&lt;stdarg.h&gt;) For functions that accept a variable number of parameters.
 
 |Macro|Description|Example|
 |---|---|---|
@@ -948,9 +992,7 @@ For functions that accept a variable number of parameters.
 
 ---
 
-## 1. Character Classification and Conversion (&lt;ctype.h&gt;)
-
-Used for testing and converting characters.
+## 1. Character Classification and Conversion (&lt;ctype.h&gt;) Used for testing and converting characters.
 
 |Function|Description|Example|
 |---|---|---|
@@ -968,9 +1010,7 @@ Used for testing and converting characters.
 
 ---
 
-## Most Common System Libraries in Windows (WinAPI)
-
-These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
+## Most Common System Libraries in Windows (WinAPI) These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
 
 |Library|Description|Typical Functions|
 |---|---|---|
@@ -998,7 +1038,7 @@ These headers are provided with the Windows SDK and are available in compilers s
 - Brian W. Kernighan, Dennis M. Ritchie. C Programming Language, 2nd Edition. Prentice Hall, 1988
 - Seacord, R. C. (2024). Effective C: An Introduction to Professional C Programming. No Starch Press, Inc. (Optional)
 
-![Amazon.com: C Programming Language, 2nd Edition: 8601410794231: Brian W.  Kernighan, Dennis M. Ritchie: Books](assets/image5.jpeg)
+![w:251px Amazon.com: C Programming Language, 2nd Edition: 8601410794231: Brian W.  Kernighan, Dennis M. Ritchie: Books](assets/image5.jpeg)
 
 ![Picture 4](assets/image6.jpeg)
 

@@ -25,29 +25,31 @@ title: "CSCI 232  Data Structures & Algorithms"
 
 ---
 
-![Picture 3](assets/image1.png)
+![w:565px Picture 3](assets/image1.png)
 
 ---
 
-- class TwoWayNode
-- {
-- public:
--     TwoWayNode(int Value, TwoWayNode\* Previous, TwoWayNode\* Next)
--     {
--         this-&gt;Value = Value;
--         this-&gt;Next = Next;
--         this-&gt;Previous = Previous;
--     }
--     TwoWayNode(int Value)
--     {
--         this-&gt;Value = Value;
--         Next = NULL;
--         Previous = NULL;
--     }
--     int Value;
--     TwoWayNode\* Next;
--     TwoWayNode\* Previous;
-- };
+```c
+class TwoWayNode
+{
+public:
+    TwoWayNode(int Value, TwoWayNode* Previous, TwoWayNode* Next)
+    {
+        this->Value = Value;
+        this->Next = Next;
+        this->Previous = Previous;
+    }
+    TwoWayNode(int Value)
+    {
+        this->Value = Value;
+        Next = NULL;
+        Previous = NULL;
+    }
+    int Value;
+    TwoWayNode* Next;
+    TwoWayNode* Previous;
+};
+```
 
 <!-- chooseAndSwapArrayWithLargerFirstElement(&amp;arr1, &amp;arr2); -->
 
@@ -60,57 +62,72 @@ title: "CSCI 232  Data Structures & Algorithms"
 
 ---
 
-- int arrayMax(int A\[\], int n)
-- {
--     int currentMax = A\[0\];
--     for (int i = 1; i &lt; n; i++)
--     {
--         if( currentMax &lt; A\[i\] )
--             currentMax = A\[i\];
--     }
--     return currentMax;
-- }
-- **Algorithm** arrayMax(*A*, *n*):
-- **Input**: An array *A* storing *n* ≥ 1 integers.
-- **Output**: The maximum element in *A*.
-- currentMax ← *A*\[0\]
-- **for** *i* ← 1 **to** *n* - 1 **do**
-  - **if** *currentMax* &lt; A\[*i*\] **then**
-    - *currentMax* ← A\[*i*\]
-- **return** *currentMax*
+```c
+int arrayMax(int A[], int n)
+{
+    int currentMax = A[0];
+    for (int i = 1; i < n; i++)
+    {
+        if( currentMax < A[i] )
+            currentMax = A[i];
+    }
+    return currentMax;
+}
+```
+
+```c
+Algorithm arrayMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	currentMax ← A[0]
+	for i ← 1 to n - 1 do
+	if currentMax < A[i] then
+	currentMax ← A[i]
+	return currentMax
+```
+
 - Searching for the maximum value in an array
 
 <!-- chooseAndSwapArrayWithLargerFirstElement(&amp;arr1, &amp;arr2); -->
 
 ---
 
-- int recursiveMax(int arr\[\], int n)
-- {
--     // Base case:
--     if (n == 1)
--     {
--         return arr\[0\];
--     }
--     return max( recursiveMax(arr, n - 1) , arr\[n - 1\]);
-- }
-- **Algorithm** recursiveMax(*A*, *n*):
-- **Input**: An array *A* storing *n* ≥ 1 integers.
-- **Output**: The maximum element in *A*.
-- **if** *n* = 1 **then**
-- **return** *A*\[0\]
-- **return** *max(* recursiveMax(*A*, n-1*), A\[n-1\] )*
+```c
+int recursiveMax(int arr[], int n)
+{
+    // Base case:
+    if (n == 1)
+    {
+        return arr[0];
+    }
+    return max( recursiveMax(arr, n - 1) , arr[n - 1]);
+}
+```
+
+```c
+Algorithm recursiveMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	if n = 1 then
+		return A[0]
+	return max( recursiveMax(A, n-1), A[n-1] )
+```
+
 - Analyzing recursive algorithms
 
 <!-- chooseAndSwapArrayWithLargerFirstElement(&amp;arr1, &amp;arr2); -->
 
 ---
 
-- **Algorithm** recursiveMax(*A*, *n*):
-- **Input**: An array *A* storing *n* ≥ 1 integers.
-- **Output**: The maximum element in *A*.
-- **if** *n* = 1 **then**
-- **return** *A*\[0\]
-- **return** *max(* recursiveMax(*A*, n-1*), A\[n-1\] )*
+```c
+Algorithm recursiveMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	if n = 1 then
+		return A[0]
+	return max( recursiveMax(A, n-1), A[n-1] )
+```
+
 - Analyzing recursive algorithms
 - Iteration is not the only interesting way of solving a problem. Another useful technique, which is employed by many algorithms, is to use **recursion**.
 - In this technique, we define a procedure **P** that is allowed to make calls to itself as a subroutine, provided those calls to **P**  are for solving subproblems of smaller size. The subroutine calls to **P** on smaller instances are called ***recursive calls***. A recursive procedure should always define a **base case**, which is small enough that the algorithm can solve it directly without using recursion.
@@ -119,12 +136,15 @@ title: "CSCI 232  Data Structures & Algorithms"
 
 ---
 
-- **Algorithm** recursiveMax(*A*, *n*):
-- **Input**: An array *A* storing *n* ≥ 1 integers.
-- **Output**: The maximum element in *A*.
-- **if** *n* = 1 **then**
-- **return** *A*\[0\]
-- **return** *max(* recursiveMax(*A*, n-1*), A\[n-1\] )*
+```c
+Algorithm recursiveMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	if n = 1 then
+		return A[0]
+	return max( recursiveMax(A, n-1), A[n-1] )
+```
+
 - Analyzing recursive algorithms
 - This algorithm first checks if the array contains just a single item, which in this case must be the maximum; hence, in this simple base case we can immediately solve the problem. Otherwise, the algorithm recursively computes the maximum of the first **n-1** elements in the array and then returns the maximum of this value and the last element in the array.
 
@@ -132,12 +152,15 @@ title: "CSCI 232  Data Structures & Algorithms"
 
 ---
 
-- **Algorithm** recursiveMax(*A*, *n*):
-- **Input**: An array *A* storing *n* ≥ 1 integers.
-- **Output**: The maximum element in *A*.
-- **if** *n* = 1 **then**
-- **return** *A*\[0\]
-- **return** *max(* recursiveMax(*A*, n-1*), A\[n-1\] )*
+```c
+Algorithm recursiveMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	if n = 1 then
+		return A[0]
+	return max( recursiveMax(A, n-1), A[n-1] )
+```
+
 - Analyzing recursive algorithms
 - As with this example, recursive algorithms are often quite elegant. Analyzing the running time of a recursive algorithm takes a bit of additional work, however. In particular, to analyze such a running time, we use a **recurrence equation**, which defines mathematical statements that the running time of a recursive algorithm must satisfy. We introduce a function *T(n)* that denotes the running time of the algorithm on an input of size *n*, and we write equations that *T(n)* must satisfy. For example, we can characterize the running time, *T(n)*, of the recursiveMax algorithm as
 
@@ -145,12 +168,15 @@ title: "CSCI 232  Data Structures & Algorithms"
 
 ---
 
-- **Algorithm** recursiveMax(*A*, *n*):
-- **Input**: An array *A* storing *n* ≥ 1 integers.
-- **Output**: The maximum element in *A*.
-- **if** *n* = 1 **then**
-- **return** *A*\[0\]
-- **return** *max(* recursiveMax(*A*, n-1*), A\[n-1\] )*
+```c
+Algorithm recursiveMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	if n = 1 then
+		return A[0]
+	return max( recursiveMax(A, n-1), A[n-1] )
+```
+
 - Analyzing recursive algorithms
 - assuming that we count each comparison, array reference, recursive call, max() calculation, or return as a single primitive operation. Ideally, we would like to characterize a recurrence equation like that above in closed form, where no references to the function T appear on the righthand side. For the recursiveMax algorithm, it isn't too hard to see that a closed form would be ***T(n) = 7(n-1) + 3 = 7n - 4***. In general, determining closed form solutions to recurrence equations can be much more challenging than this, and we study some specific examples of recurrence equations in the future.
 
@@ -173,12 +199,15 @@ title: "CSCI 232  Data Structures & Algorithms"
 
 ## Counting primitive operations
 
-- **Algorithm** recursiveMax(*A*, *n*):
-- **Input**: An array *A* storing *n* ≥ 1 integers.
-- **Output**: The maximum element in *A*.
-- **if** *n* = 1 **then**
-- **return** *A*\[0\]
-- **return** *max(* recursiveMax(*A*, n-1*), A\[n-1\] )*
+```c
+Algorithm recursiveMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	if n = 1 then
+		return A[0]
+	return max( recursiveMax(A, n-1), A[n-1] )
+```
+
 - n is compared with 1 (one primitive operation, comparing).
 - **c1    Assigning a value to a variable**
 - **c2    Calling a method**
@@ -196,12 +225,15 @@ normalnie jest n+1 -->
 
 ## Counting primitive operations
 
-- **Algorithm** recursiveMax(*A*, *n*):
-- **Input**: An array *A* storing *n* ≥ 1 integers.
-- **Output**: The maximum element in *A*.
-- **if** *n* = 1 **then**
-- **return** *A*\[0\]
-- **return** *max(* recursiveMax(*A*, n-1*), A\[n-1\] )*
+```c
+Algorithm recursiveMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	if n = 1 then
+		return A[0]
+	return max( recursiveMax(A, n-1), A[n-1] )
+```
+
 - **Returning** the value of A\[0\] is considered a single primitive operation, but given that **accessing an element of an array by index** is also a primitive operation, we can argue that there are two primitive operations involved: indexing into the array and returning the value.
 - **c1    Assigning a value to a variable**
 - **c2    Calling a method**
@@ -219,12 +251,15 @@ normalnie jest n+1 -->
 
 ## Counting primitive operations
 
-- **Algorithm** recursiveMax(*A*, *n*):
-- **Input**: An array *A* storing *n* ≥ 1 integers.
-- **Output**: The maximum element in *A*.
-- **if** *n* = 1 **then**
-- **return** *A*\[0\]
-- **return** *max(* recursiveMax(*A*, n-1*), A\[n-1\] )*
+```c
+Algorithm recursiveMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	if n = 1 then
+		return A[0]
+	return max( recursiveMax(A, n-1), A[n-1] )
+```
+
 - **c1    Assigning a value to a variable**
 - **c2    Calling a method**
 - **c3    Performing an arithmetic operation**
@@ -242,12 +277,15 @@ normalnie jest n+1 -->
 
 ## Counting primitive operations
 
-- **Algorithm** recursiveMax(*A*, *n*):
-- **Input**: An array *A* storing *n* ≥ 1 integers.
-- **Output**: The maximum element in *A*.
-- **if** *n* = 1 **then**
-- **return** *A*\[0\]
-- **return** *max(* recursiveMax(*A*, n-1*), A\[n-1\] )*
+```c
+Algorithm recursiveMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	if n = 1 then
+		return A[0]
+	return max( recursiveMax(A, n-1), A[n-1] )
+```
+
 - **c1    Assigning a value to a variable**
 - **c2    Calling a method**
 - **c3    Performing an arithmetic operation**
@@ -266,12 +304,15 @@ normalnie jest n+1 -->
 
 ## Counting primitive operations
 
-- **Algorithm** recursiveMax(*A*, *n*):
-- **Input**: An array *A* storing *n* ≥ 1 integers.
-- **Output**: The maximum element in *A*.
-- **if** *n* = 1 **then**
-- **return** *A*\[0\]
-- **return** *max(* recursiveMax(*A*, n-1*), A\[n-1\] )*
+```c
+Algorithm recursiveMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	if n = 1 then
+		return A[0]
+	return max( recursiveMax(A, n-1), A[n-1] )
+```
+
 - **c1    Assigning a value to a variable**
 - **c2    Calling a method**
 - **c3    Performing an arithmetic operation**
@@ -291,12 +332,15 @@ normalnie jest n+1 -->
 
 ## Counting primitive operations
 
-- **Algorithm** recursiveMax(*A*, *n*):
-- **Input**: An array *A* storing *n* ≥ 1 integers.
-- **Output**: The maximum element in *A*.
-- **if** *n* = 1 **then**
-- **return** *A*\[0\]
-- **return** *max(* recursiveMax(*A*, n-1*), A\[n-1\] )*
+```c
+Algorithm recursiveMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	if n = 1 then
+		return A[0]
+	return max( recursiveMax(A, n-1), A[n-1] )
+```
+
 - **c1    Assigning a value to a variable**
 - **c2    Calling a method**
 - **c3    Performing an arithmetic operation**
@@ -317,12 +361,15 @@ normalnie jest n+1 -->
 
 ## Counting primitive operations
 
-- **Algorithm** recursiveMax(*A*, *n*):
-- **Input**: An array *A* storing *n* ≥ 1 integers.
-- **Output**: The maximum element in *A*.
-- **if** *n* = 1 **then**
-- **return** *A*\[0\]
-- **return** *max(* recursiveMax(*A*, n-1*), A\[n-1\] )*
+```c
+Algorithm recursiveMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	if n = 1 then
+		return A[0]
+	return max( recursiveMax(A, n-1), A[n-1] )
+```
+
 - **c1    Assigning a value to a variable**
 - **c2    Calling a method**
 - **c3    Performing an arithmetic operation**
@@ -344,12 +391,15 @@ normalnie jest n+1 -->
 
 ## Counting primitive operations
 
-- **Algorithm** recursiveMax(*A*, *n*):
-- **Input**: An array *A* storing *n* ≥ 1 integers.
-- **Output**: The maximum element in *A*.
-- **if** *n* = 1 **then**
-- **return** *A*\[0\]
-- **return** *max(* recursiveMax(*A*, n-1*), A\[n-1\] )*
+```c
+Algorithm recursiveMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	if n = 1 then
+		return A[0]
+	return max( recursiveMax(A, n-1), A[n-1] )
+```
+
 - **c1    Assigning a value to a variable**
 - **c2    Calling a method**
 - **c3    Performing an arithmetic operation**
@@ -376,27 +426,23 @@ normalnie jest n+1 -->
 
 ---
 
-![Picture 5](assets/image29.png)
+![w:869px Picture 5](assets/image29.png)
 
-![A black and white math problem
-
-Description automatically generated with medium confidence](assets/image32.png)
-
-![A black and white math problem
+![bg A black and white math problem
 
 Description automatically generated with medium confidence](assets/image32.png)
 
 ---
 
-![Picture 5](assets/image29.png)
+![w:869px Picture 5](assets/image29.png)
 
 ---
 
-![Picture 3](assets/image29.png)
+![w:655px Picture 3](assets/image29.png)
 
 ---
 
-![Picture 5](assets/image40.png)
+![w:1057px Picture 5](assets/image40.png)
 
 ---
 
@@ -404,11 +450,11 @@ Description automatically generated with medium confidence](assets/image32.png)
 
 ---
 
-![Picture 8](assets/image42.png)
+![w:634px Picture 8](assets/image42.png)
 
-![Picture 10](assets/image43.png)
+![w:558px Picture 10](assets/image43.png)
 
-![Picture 12](assets/image44.png)
+![w:713px Picture 12](assets/image44.png)
 
 ---
 
@@ -426,9 +472,9 @@ Description automatically generated with medium confidence](assets/image32.png)
 
 ## Θ-notation
 
-![Picture 6](assets/image45.png)
+![w:1056px Picture 6](assets/image45.png)
 
-![Picture 11](assets/image46.png)
+![w:956px Picture 11](assets/image46.png)
 
 <!-- Θ(n²) “theta of n squared”
 Θ(g(n))  theta of g of n
@@ -467,9 +513,9 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ## O &amp; Ω-notation
 
-![Picture 6](assets/image45.png)
+![w:1056px Picture 6](assets/image45.png)
 
-![Picture 3](assets/image47.png)
+![w:960px Picture 3](assets/image47.png)
 
 - For example, the best-case running time of bubble sort is *Ω(n)*, which implies that the running time of bubble sort is *Ω(n)*.
 
@@ -479,9 +525,9 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ## O &amp; Ω-notation
 
-![Picture 6](assets/image45.png)
+![w:1056px Picture 6](assets/image45.png)
 
-![Picture 2](assets/image48.png)
+![w:921px Picture 2](assets/image48.png)
 
 <!-- Θ(n²) “theta of n squared”
 Θ(g(n))  theta of g of n
@@ -494,61 +540,55 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ## Asymptotic notation in equations and inequalities
 
-![Picture 4](assets/image49.png)
-
-![Picture 2](assets/image49.png)
+![w:996px Picture 4](assets/image49.png)
 
 ---
 
 ## Asymptotic notation in equations and inequalities
 
-![Picture 3](assets/image50.png)
+![w:1092px Picture 3](assets/image50.png)
 
 ---
 
 ## Asymptotic notation in equations and inequalities
 
-![Picture 3](assets/image51.png)
-
-![Picture 5](assets/image51.png)
-
-![Picture 6](assets/image51.png)
+![w:861px Picture 3](assets/image51.png)
 
 ---
 
 ## o-notation
 
-![Picture 4](assets/image52.png)
+![w:891px Picture 4](assets/image52.png)
 
-![Picture 6](assets/image53.png)
+![w:890px Picture 6](assets/image53.png)
 
 ---
 
 ## ω-notation
 
-![Picture 7](assets/image54.png)
+![w:884px Picture 7](assets/image54.png)
 
 ---
 
 ## Analogy between the asymptotic comparison of two functions *f* and *g* and the comparison of two real numbers *a* and *b*
 
-![Picture 4](assets/image55.png)
-
-![Picture 2](assets/image55.png)
+![w:1039px Picture 4](assets/image55.png)
 
 ---
 
-- {
--     int n = 5;
--     for (int i = 0; i &lt; n; i++)
--     {
--         /\* code \*/
--     }
--             for (int i = 0; i &lt;= n-1; i++)
--     {
--         /\* code \*/
--     }
-- }
+```c
+{
+    int n = 5;
+    for (int i = 0; i < n; i++)
+    {
+        /* code */
+    }
+            for (int i = 0; i <= n-1; i++)
+    {
+        /* code */
+    }
+}
+```
 
 <!-- chooseAndSwapArrayWithLargerFirstElement(&amp;arr1, &amp;arr2); -->
 
@@ -733,30 +773,33 @@ Algorithms that have the same time complexity for all input cases: For example, 
 ---
 
 - dodawanie dwoch liczb binarnych z podrecznika 2.1-4
-- int \* binadd(int arrA\[\], int arrB\[\], int n)
-- {
--     int \* arrC = (int \*) calloc( sizeof(int) \* (n + 1) );
--     int i, temp;
--     for ( i = 0; i &lt; n; i++)
--     {
--         temp = arrA\[i\] + arrB\[i\] + arrC\[i\];
--         if (temp == 3) //3
--         {
--             arrC\[i\] = 1;
--             arrC\[i + 1\] = 1;
--         }
--         if(temp == 2) //2
--         {
--             arrC\[i\] = 0;
--             arrC\[i + 1\] = 1;
--         }
--         if (temp == 1) //1
--         {
--             arrC\[i\] = 1;
--         }
--     }
--     return arrC;
-- }
+
+```c
+int * binadd(int arrA[], int arrB[], int n)
+{
+    int * arrC = (int *) calloc( sizeof(int) * (n + 1) );
+    int i, temp;
+    for ( i = 0; i < n; i++)
+    {
+        temp = arrA[i] + arrB[i] + arrC[i];
+        if (temp == 3) //3
+        {
+            arrC[i] = 1;
+            arrC[i + 1] = 1;
+        }
+        if(temp == 2) //2
+        {
+            arrC[i] = 0;
+            arrC[i + 1] = 1;
+        }
+        if (temp == 1) //1
+        {
+            arrC[i] = 1;
+        }
+    }
+    return arrC;
+}
+```
 
 ---
 

@@ -26,7 +26,7 @@ Software Security
 - Create and log in in GitHub account
 - Please turn of AI
 
-![Content Placeholder 10](assets/image2.png)
+![w:606px Content Placeholder 10](assets/image2.png)
 
 ---
 
@@ -243,7 +243,11 @@ Lokalnie: lekkie maskowanie (scrambling) + CRC/ HMAC (jeżeli secret pochodzi z 
 
 - This command retrieves the version of the file from the specified commit and places it in your working directory.
 - Other files in the project remain unchanged.
-- git checkout &lt;commit-id&gt; -- path/to/file
+
+```
+git checkout <commit-id> -- path/to/file
+
+```
 
 ---
 
@@ -252,7 +256,11 @@ Lokalnie: lekkie maskowanie (scrambling) + CRC/ HMAC (jeżeli secret pochodzi z 
 **Optional: check differences:**
 
 - Compare the current state of the file (after checkout) with the latest version in the branch to see what has changed.
-- git diff
+
+```
+git diff
+
+```
 
 ---
 
@@ -276,8 +284,11 @@ Lokalnie: lekkie maskowanie (scrambling) + CRC/ HMAC (jeżeli secret pochodzi z 
 
 - Works similarly to git revert, but only affects specific files, not the entire commit.
 - Does not require force push or rewriting history.
-- git add path/to/file
-- git commit -m "Fix broken functionality in &lt;file&gt;"
+
+```
+git add path/to/file
+git commit -m "Fix broken functionality in <file>"
+```
 
 ---
 
@@ -310,9 +321,16 @@ Lokalnie: lekkie maskowanie (scrambling) + CRC/ HMAC (jeżeli secret pochodzi z 
 
 - C' is a new commit that undoes changes from C.
 - Commits D and earlier remain untouched.
-- A --- B --- C --- D  (branch)
+
+```
+A --- B --- C --- D  (branch)
+```
+
 - git revert C
-- A --- B --- C --- D --- C'
+
+```
+A --- B --- C --- D --- C'
+```
 
 ---
 

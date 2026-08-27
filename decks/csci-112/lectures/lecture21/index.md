@@ -21,7 +21,7 @@ title: "CSSI112lec 21"
 
 ---
 
-![Graphic 3](assets/image3.png)
+![w:277px Graphic 3](assets/image3.png)
 
 ---
 
@@ -39,9 +39,7 @@ title: "CSSI112lec 21"
 
 ---
 
-## 1. Character Classification and Conversion (&lt;ctype.h&gt;)
-
-Used for testing and converting characters.
+## 1. Character Classification and Conversion (&lt;ctype.h&gt;) Used for testing and converting characters.
 
 |Function|Description|Example|
 |---|---|---|
@@ -59,9 +57,7 @@ Used for testing and converting characters.
 
 ---
 
-## 2. String Handling (&lt;string.h&gt;)
-
-Used for manipulating null-terminated character arrays.
+## 2. String Handling (&lt;string.h&gt;) Used for manipulating null-terminated character arrays.
 
 |Function|Description|Example|
 |---|---|---|
@@ -78,9 +74,7 @@ Used for manipulating null-terminated character arrays.
 
 ---
 
-## 3. Memory Handling (&lt;string.h&gt;)
-
-Used for working with raw memory blocks.
+## 3. Memory Handling (&lt;string.h&gt;) Used for working with raw memory blocks.
 
 |Function|Description|Example|
 |---|---|---|
@@ -92,9 +86,7 @@ Used for working with raw memory blocks.
 
 ---
 
-## 4. Input / Output Functions (&lt;stdio.h&gt;)
-
-Work with files and streams.
+## 4. Input / Output Functions (&lt;stdio.h&gt;) Work with files and streams.
 
 |Function|Description|Example|
 |---|---|---|
@@ -118,9 +110,7 @@ Work with files and streams.
 
 ---
 
-## 5. Conversion Functions (&lt;stdlib.h&gt;)
-
-Convert strings to numbers.
+## 5. Conversion Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -133,9 +123,7 @@ Convert strings to numbers.
 
 ---
 
-## 6. Math Functions (&lt;math.h&gt;)
-
-Convert strings to numbers.
+## 6. Math Functions (&lt;math.h&gt;) Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -174,9 +162,7 @@ Convert strings to numbers.
 
 ---
 
-## 7. Utility Functions (&lt;stdlib.h&gt;)
-
-Convert strings to numbers.
+## 7. Utility Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -195,29 +181,43 @@ Convert strings to numbers.
 
 - The sequence is the same each program run unless seeded with srand()!
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;stdlib.h&gt;<br>
+```c
+#include <stdio.h>
+#include <stdlib.h>
 
 int main()
-
 {
-
-int r = rand() % 10;   // random number 0–9
-
-printf("%d", r);
-
+	int r = rand() % 10;   // random number 0–9
+	printf("%d", r);
     return 0;
-
 }
+```
 
 - rand()
-- **Header:** &lt;stdlib.h&gt;
-- 5
+
+```c
+Header: <stdlib.h>
+```
+
+```c
+5
+
+```
+
 - Result:
-- 5
+
+```c
+5
+
+```
+
 - Result:
-- 5
+
+```c
+5
+
+```
+
 - Result:
 
 ---
@@ -226,28 +226,29 @@ printf("%d", r);
 
 - The rand() function returns a number in the range of 0 to RAND\_MAX (which is typically 32767). To achieve a desired, custom range, you can use the modulo operator (%) trick.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;stdlib.h&gt;<br>
+```c
+#include <stdio.h>
+#include <stdlib.h>
 
 int main()
-
 {
-
-    int min\_val = 1 ;
-
-    int max\_val = 5;
-
-    int r = (rand() % max\_val) + min\_val ;
-
+    int min_val = 1 ;
+    int max_val = 5;
+    int r = (rand() % max_val) + min_val ;
     printf("%d", r);
-
     return 0;
-
 }
+```
 
-- **Header:** &lt;stdlib.h&gt;
-- 5
+```c
+Header: <stdlib.h>
+```
+
+```c
+5
+
+```
+
 - Result:
 
 ---
@@ -256,35 +257,46 @@ int main()
 
 - Use current time to get different results each run.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;stdlib.h&gt;<br>
+```c
+#include <stdio.h>
+#include <stdlib.h>
 
 int main()
-
 {
-
     srand(time(NULL));
-
-    int min\_val = 1 ;
-
-    int max\_val = 5;
-
-    int r = (rand() % max\_val) + min\_val ;
-
+    int min_val = 1 ;
+    int max_val = 5;
+    int r = (rand() % max_val) + min_val ;
     printf("%d", r);
-
     return 0;
-
 }
+```
 
 - srand(time(NULL));
-- **Header:** &lt; stdlib.h&gt;
-- 2
+
+```c
+Header: < stdlib.h>
+```
+
+```c
+2
+
+```
+
 - Result:
-- 4
+
+```c
+4
+
+```
+
 - Result:
-- 3
+
+```c
+3
+
+```
+
 - Result:
 
 ---
@@ -293,30 +305,26 @@ int main()
 
 - Does **not** call cleanup handlers, destructors, or flush buffers.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;stdlib.h&gt;<br>
+```c
+#include <stdio.h>
+#include <stdlib.h>
 
 int main()
-
 {
-
-    int \* ptr = NULL;
-
+    int * ptr = NULL;
     if (ptr == NULL)
-
     {
-
         abort();
-
     }
-
     return 0;
-
 }
+```
 
 - abort()
-- **Header:** &lt; stdlib.h&gt;
+
+```c
+Header: < stdlib.h>
+```
 
 ---
 
@@ -324,136 +332,98 @@ int main()
 
 - **Calls** all cleanup functions registered with atexit() and flushes stdio buffers.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;stdlib.h&gt;<br>
+```c
+#include <stdio.h>
+#include <stdlib.h>
 
 int main()
-
 {
-
-exit(0);  // success
-
+	exit(0);  // success
 }
+```
 
 - exit(int)
-- **Header:** &lt; stdlib.h&gt;
+
+```c
+Header: < stdlib.h>
+```
 
 ---
 
-## atexit() – Registers a function to be called automatically when the program exits
+## atexit() – Registers a function to be called automatically when the program exits (via return or exit() — but NOT abort()).
 
-(via return or exit() — but NOT abort()).
+```c
+#include <stdio.h>
+#include <stdlib.h>
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;stdlib.h&gt;
-
-<br>FILE \*logFile = NULL;
-
-int \*buffer = NULL;
+FILE *logFile = NULL;
+int *buffer = NULL;
 
 // --- CLEANUP FUNCTIONS ---
-
 void closeLogFile()
-
 {
-
     if (logFile != NULL)
-
     {
-
-        fprintf(logFile, "\[CLEANUP\] Closing log file.\n");
-
+        fprintf(logFile, "[CLEANUP] Closing log file.\n");
         fclose(logFile);
-
         logFile = NULL;
-
     }
-
 }
-
 void freeBuffer()
-
 {
-
     if (buffer != NULL)
-
     {
-
-        printf("\[CLEANUP\] Freeing buffer.\n");
-
+        printf("[CLEANUP] Freeing buffer.\n");
         free(buffer);
-
         buffer = NULL;
-
     }
-
 }
+```
 
 - \*atexit(void (func)(void))
-- **Header:** &lt; stdlib.h&gt;
 
+```c
+Header: < stdlib.h>
+```
+
+```c
 void finalMessage()
-
 {
-
-    printf("\[CLEANUP\] Program exited. Goodbye!\n");
-
+    printf("[CLEANUP] Program exited. Goodbye!\n");
 }
-
 int main()
-
 {
-
     // Register cleanup functions (they run in reverse order)
-
     atexit(finalMessage);
-
     atexit(freeBuffer);
-
     atexit(closeLogFile);
-
     // Allocate something
-
-    buffer = malloc(100 \* sizeof(int));
-
+    buffer = malloc(100 * sizeof(int));
     if (!buffer) {
-
         fprintf(stderr, "Memory allocation failed.\n");
-
-        exit(EXIT\_FAILURE);  // cleanup will still run!
-
+        exit(EXIT_FAILURE);  // cleanup will still run!
     }
-
     // Open log file
-
     logFile = fopen("program.log", "w");
-
     if (!logFile) {
-
         fprintf(stderr, "Failed to open log file.\n");
-
-        exit(EXIT\_FAILURE);  // cleanup will still run!
-
+        exit(EXIT_FAILURE);  // cleanup will still run!
     }
-
-    fprintf(logFile, "\[INFO\] Program started.\n");
-
+    fprintf(logFile, "[INFO] Program started.\n");
     printf("Program is running...\n");
-
     // Try triggering early exit
-
     // exit(0); // Uncomment to test
-
     // Normal return also triggers cleanup
-
     return 0;
-
 }
+```
 
-- \[INFO\] Program started.
-- \[CLEANUP\] Closing log file.
+```c
+[INFO] Program started.
+[CLEANUP] Closing log file.
+
+```
+
 - program.log:
 - In this program we show how the atexit() function works. It allows us to register functions that will be called automatically when the program ends. This is useful because we don’t have to remember to manually close files or free memory — the program will do it for us when it finishes.
 
@@ -467,26 +437,25 @@ During the program’s execution, we open a file and allocate memory. Even if so
 
 - **Platform-dependent**, potentially unsafe. Use only for learning.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;stdlib.h&gt;<br>
+```c
+#include <stdio.h>
+#include <stdlib.h>
 
 int main()
-
 {
-
     printf("%s", "sometext");
-
     system("cls");   // Windows
-
     // system("clear"); // Linux/macOS
-
     return 0;
-
 }
+```
 
 - system(\*char)
-- **Header:** &lt; stdlib.h&gt;
+
+```c
+Header: < stdlib.h>
+```
+
 - &lt;&lt;NONE&gt;&gt;
 - Result:
 
@@ -497,109 +466,79 @@ int main()
 - Binary search works by requiring the array to be **sorted**. Instead of checking every element one by one to determine whether a value appears in the array, we repeatedly **divide the search interval in half**. If the target value is smaller than the middle element, we continue searching in the left half; if it is larger, we search in the right half. This approach dramatically increases efficiency, especially when working with very large datasets.
 - The built-in functions **bsearch()** and **qsort()** rely on **comparator functions**. A comparator is a user-provided function that defines how two elements should be compared. Since these library functions only receive raw pointers to memory, they do not know the actual type of the elements. Therefore, the last parameter of both functions is a pointer to a comparator function that tells them how to compare two values correctly.
 
-\#include &lt;stdio.h&gt;
+```c
+#include <stdio.h>
+#include <stdlib.h>
 
-\#include &lt;stdlib.h&gt;<br>
-
-/\* Comparison function for integers \*/
-
-int cmpInt(const void\* a, const void\* b)
-
+/* Comparison function for integers */
+int cmpInt(const void* a, const void* b)
 {
-
-    int x = \*(const int\*) a;
-
-    int y = \*(const int\*) b;
-
-    if (x &lt; y) return -1;
-
-    if (x &gt; y) return 1;
-
+    int x = *(const int*) a;
+    int y = *(const int*) b;
+    if (x < y) return -1;
+    if (x > y) return 1;
     return 0;
-
 }
-
 int main()
-
 {
-
-    int arr\[\] = { 1, 2, 4, 5, 7, 8, 11 };
-
-    int n = sizeof(arr) / sizeof(arr\[0\]);
-
-    /\* Search for a key \*/
-
+    int arr[] = { 1, 2, 4, 5, 7, 8, 11 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+    /* Search for a key */
     int key = 7;
-
-    int\* found = (int\*) bsearch( &amp;key, arr, n, sizeof(int), cmpInt);
-
+    int* found = (int*) bsearch( &key, arr, n, sizeof(int), cmpInt);
     if (found)
-
     {
-
         int index = (int)(found - arr);   // pointer arithmetic
-
         printf("\nFound %d at index %d.\n", key, index);
-
     }
-
     else
-
         printf("\nValue %d not found in array.\n", key);
-
     return 0;
-
 }
+```
 
 - bsearch(\*void, \*void, int, int, (\*function))
-- **Header:** &lt; stdlib.h&gt;
-- Found 7 at index 4.
+
+```c
+Header: < stdlib.h>
+```
+
+```c
+Found 7 at index 4.
+```
+
 - Result:
 
 ---
 
-## bsearch() – Binary search on a sorted array.<br>Returns pointer to the found element or NULL if not found
+## bsearch() – Binary search on a sorted array.<br>Returns pointer to the found element or NULL if not found In the C language, there are **no built-in comparator functions**. For this reason, you will very often see comparator functions written in a short, generic form—just like in the example. This simplified version works for general types because it receives two const void\* pointers, casts them to the correct type, and then compares the values manually.
 
-In the C language, there are **no built-in comparator functions**. For this reason, you will very often see comparator functions written in a short, generic form—just like in the example. This simplified version works for general types because it receives two const void\* pointers, casts them to the correct type, and then compares the values manually.
-
-int cmpIntAsc(const void\* a, const void\* b)
-
+```c
+int cmpIntAsc(const void* a, const void* b)
 {
-
-    return (\*(int\*)a - \*(int\*)b);
-
+    return (*(int*)a - *(int*)b);
 }
-
-int cmpIntDesc(const void\* a, const void\* b)
-
+int cmpIntDesc(const void* a, const void* b)
 {
-
-    return (\*(int\*)b - \*(int\*)a);
-
+    return (*(int*)b - *(int*)a);
 }
-
-int cmpChar(const void\* a, const void\* b)
-
+int cmpChar(const void* a, const void* b)
 {
-
-    return (\*(unsigned char\*)a - \*(unsigned char\*)b);
-
+    return (*(unsigned char*)a - *(unsigned char*)b);
 }
-
-int cmpFloat(const void\* a, const void\* b)
-
+int cmpFloat(const void* a, const void* b)
 {
-
-    float fa = \*(float\*)a;
-
-    float fb = \*(float\*)b;
-
-    return (fa &gt; fb) - (fa &lt; fb); // correct for floats
-
+    float fa = *(float*)a;
+    float fb = *(float*)b;
+    return (fa > fb) - (fa < fb); // correct for floats
 }
+```
 
 - But…
-- **Header:** &lt; stdlib.h&gt;
+
+```c
+Header: < stdlib.h>
+```
 
 ---
 
@@ -608,66 +547,51 @@ int cmpFloat(const void\* a, const void\* b)
 - **Quicksort** is one of the fastest and most widely used sorting algorithms. It performs significantly better than simpler methods such as insertion sort or bubble sort, especially on large datasets. When using C’s built-in qsort function, you do not need to know the internal implementation of quicksort — you only need to provide a correct comparator function and call qsort with the proper arguments.
 - The built-in functions **bsearch()** and **qsort()** rely on **comparator functions**. A comparator is a user-provided function that defines how two elements should be compared. Since these library functions only receive raw pointers to memory, they do not know the actual type of the elements. Therefore, the last parameter of both functions is a pointer to a comparator function that tells them how to compare two values correctly.
 
-\#include &lt;stdio.h&gt;
+```c
+#include <stdio.h>
+#include <stdlib.h>
 
-\#include &lt;stdlib.h&gt;<br>
-
-/\* Comparison function for integers \*/
-
-int cmpInt(const void\* a, const void\* b)
-
+/* Comparison function for integers */
+int cmpInt(const void* a, const void* b)
 {
-
-    int x = \*(const int\*) a;
-
-    int y = \*(const int\*) b;
-
-    if (x &lt; y) return -1;
-
-    if (x &gt; y) return 1;
-
+    int x = *(const int*) a;
+    int y = *(const int*) b;
+    if (x < y) return -1;
+    if (x > y) return 1;
     return 0;
-
 }
-
 int main()
-
 {
-
-    int arr\[\] = { 42, 7, 13, 99, 5, 18, 2 };
-
-    int n = sizeof(arr) / sizeof(arr\[0\]);
-
+    int arr[] = { 42, 7, 13, 99, 5, 18, 2 };
+    int n = sizeof(arr) / sizeof(arr[0]);
     printf("Original array:\n");
-
-    for (int i = 0; i &lt; n; i++)
-
-        printf("%d ", arr\[i\]);
-
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
     printf("\n");
-
-    /\* Sort array \*/
-
+    /* Sort array */
     qsort(arr, n, sizeof(int), cmpInt);
-
     printf("\nSorted array:\n");
-
-    for (int i = 0; i &lt; n; i++)
-
-        printf("%d ", arr\[i\]);
-
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
     printf("\n");
-
     return 0;
-
 }
+```
 
 - qsort(\*void, int, int, (\*function))
-- **Header:** &lt; stdlib.h&gt;
-- Original array:
-- 42 7 13 99 5 18 2
-- Sorted array:
-- 2 5 7 13 18 42 99
+
+```c
+Header: < stdlib.h>
+```
+
+```c
+Original array:
+42 7 13 99 5 18 2
+
+Sorted array:
+2 5 7 13 18 42 99
+```
+
 - Result:
 
 ---
@@ -676,9 +600,7 @@ int main()
 
 ---
 
-## 8. Diagnostics and Assertions (&lt;assert.h&gt;)
-
-Useful for debugging and safety.
+## 8. Diagnostics and Assertions (&lt;assert.h&gt;) Useful for debugging and safety.
 
 |Function / Macro|Description|Example|
 |---|---|---|
@@ -693,22 +615,23 @@ Useful for debugging and safety.
 - It's crucial to remember that the **assert() macro does not call exit()** upon failure.
 - When an assertion fails, the program prints an error message to stderr and then calls **abort()**.
 
-\#include &lt;assert.h&gt;
+```c
+#include <assert.h>
 
-<br>// code
+// code
 
-void process(int \*ptr)
-
+void process(int *ptr)
 {
-
     assert(ptr != NULL);   // program stops here if ptr is NULL
-
-    printf("Value = %d\n", \*ptr);
-
+    printf("Value = %d\n", *ptr);
 }
+```
 
 - assert(expr)
-- **Header:** &lt;assert.h&gt;
+
+```c
+Header: <assert.h>
+```
 
 ---
 
@@ -716,20 +639,25 @@ void process(int \*ptr)
 
 - They are extremely useful for debugging, logging, and diagnostic messages.
 
-\#include &lt;stdio.h&gt;
+```c
+#include <stdio.h>
 
-<br>int main()
-
+int main()
 {
-
-    printf("This message comes from %s at line %d\n", \_\_FILE\_\_, \_\_LINE\_\_);
-
+    printf("This message comes from %s at line %d\n", __FILE__, __LINE__);
     return 0;
-
 }
+```
 
-- **Header:** &lt;stdio.h&gt;
-- This message comes from src/main.c at line 4
+```c
+Header: <stdio.h>
+```
+
+```c
+This message comes from src/main.c at line 4
+
+```
+
 - Result:
 
 ---
@@ -741,9 +669,7 @@ void process(int \*ptr)
 
 ---
 
-## 9. Time and Date Functions (&lt;time.h&gt;)
-
-Work with clocks and timestamps.
+## 9. Time and Date Functions (&lt;time.h&gt;) Work with clocks and timestamps.
 
 |Function|Description|Example|
 |---|---|---|
@@ -758,9 +684,7 @@ Work with clocks and timestamps.
 
 ---
 
-## 10. Variable Argument Lists (&lt;stdarg.h&gt;)
-
-For functions that accept a variable number of parameters.
+## 10. Variable Argument Lists (&lt;stdarg.h&gt;) For functions that accept a variable number of parameters.
 
 |Macro|Description|Example|
 |---|---|---|
@@ -770,9 +694,7 @@ For functions that accept a variable number of parameters.
 
 ---
 
-## Most Common System Libraries in Windows (WinAPI)
-
-These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
+## Most Common System Libraries in Windows (WinAPI) These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
 
 |Library|Description|Typical Functions|
 |---|---|---|

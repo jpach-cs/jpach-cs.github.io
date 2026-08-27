@@ -21,7 +21,7 @@ title: "CSSI112lec 22"
 
 ---
 
-![Graphic 3](assets/image3.png)
+![w:277px Graphic 3](assets/image3.png)
 
 ---
 
@@ -38,9 +38,7 @@ title: "CSSI112lec 22"
 
 ---
 
-## 1. Character Classification and Conversion (&lt;ctype.h&gt;)
-
-Used for testing and converting characters.
+## 1. Character Classification and Conversion (&lt;ctype.h&gt;) Used for testing and converting characters.
 
 |Function|Description|Example|
 |---|---|---|
@@ -58,9 +56,7 @@ Used for testing and converting characters.
 
 ---
 
-## 2. String Handling (&lt;string.h&gt;)
-
-Used for manipulating null-terminated character arrays.
+## 2. String Handling (&lt;string.h&gt;) Used for manipulating null-terminated character arrays.
 
 |Function|Description|Example|
 |---|---|---|
@@ -77,9 +73,7 @@ Used for manipulating null-terminated character arrays.
 
 ---
 
-## 3. Memory Handling (&lt;string.h&gt;)
-
-Used for working with raw memory blocks.
+## 3. Memory Handling (&lt;string.h&gt;) Used for working with raw memory blocks.
 
 |Function|Description|Example|
 |---|---|---|
@@ -91,9 +85,7 @@ Used for working with raw memory blocks.
 
 ---
 
-## 4. Input / Output Functions (&lt;stdio.h&gt;)
-
-Work with files and streams.
+## 4. Input / Output Functions (&lt;stdio.h&gt;) Work with files and streams.
 
 |Function|Description|Example|
 |---|---|---|
@@ -117,9 +109,7 @@ Work with files and streams.
 
 ---
 
-## 5. Conversion Functions (&lt;stdlib.h&gt;)
-
-Convert strings to numbers.
+## 5. Conversion Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -132,9 +122,7 @@ Convert strings to numbers.
 
 ---
 
-## 6. Math Functions (&lt;math.h&gt;)
-
-Convert strings to numbers.
+## 6. Math Functions (&lt;math.h&gt;) Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -150,9 +138,7 @@ Convert strings to numbers.
 
 ---
 
-## 7. Utility Functions (&lt;stdlib.h&gt;)
-
-Convert strings to numbers.
+## 7. Utility Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -167,9 +153,7 @@ Convert strings to numbers.
 
 ---
 
-## 8. Diagnostics and Assertions (&lt;assert.h&gt;)
-
-Useful for debugging and safety.
+## 8. Diagnostics and Assertions (&lt;assert.h&gt;) Useful for debugging and safety.
 
 |Function / Macro|Description|Example|
 |---|---|---|
@@ -201,9 +185,7 @@ Useful for debugging and safety.
 
 ---
 
-## 9. Time and Date Functions (&lt;time.h&gt;)
-
-Work with clocks and timestamps.
+## 9. Time and Date Functions (&lt;time.h&gt;) Work with clocks and timestamps.
 
 |Function|Description|Example|
 |---|---|---|
@@ -222,44 +204,43 @@ Work with clocks and timestamps.
 
 - (seconds since January 1, 1970 — Unix epoch).
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;time.h&gt;<br>
+```c
+#include <stdio.h>
+#include <time.h>
 
 int main()
-
 {
-
-    time\_t now = time(NULL);
+    time_t now = time(NULL);
 
     printf("Now = %ld\n", now);
-
     return 0;
-
 }
+```
 
 - time()
-- **Header:** &lt;time.h&gt;
 
-\#include &lt;stdio.h&gt;
+```c
+Header: <time.h>
+```
 
-\#include &lt;time.h&gt;<br>
+```c
+#include <stdio.h>
+#include <time.h>
 
 int main()
-
 {
-
-    time\_t now;
-
-    time(&amp;now);
-
+    time_t now;
+    time(&now);
     printf("Now = %ld\n", now);
-
     return 0;
-
 }
+```
 
-- Now = 1763952307
+```c
+Now = 1763952307
+
+```
+
 - Result:
 
 ---
@@ -314,7 +295,11 @@ We cannot look at it and immediately know the year, month, day, or even the hour
 
 Doing this manually is error-prone and extremely complicated. Because of this, C provides functions that can convert raw seconds into a structured, human-readable calendar form.
 
-- Now = 1763952307
+```c
+Now = 1763952307
+
+```
+
 - Result:
 
 ---
@@ -323,42 +308,45 @@ Doing this manually is error-prone and extremely complicated. Because of this, C
 
 - 1900?
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;time.h&gt;<br>
+```c
+#include <stdio.h>
+#include <time.h>
 
 int main()
-
 {
-
-    time\_t now;
-
-    time(&amp;now);
-
-    struct tm\* info = localtime(&amp;now);
-
-    printf("Year: %d\n", info-&gt;tm\_year + 1900);
-
+    time_t now;
+    time(&now);
+    struct tm* info = localtime(&now);
+    printf("Year: %d\n", info->tm_year + 1900);
     return 0;
-
 }
+```
 
 - localtime(time\_t \*)
-- **Header:** &lt;time.h&gt;
-- Year: 2025
+
+```c
+Header: <time.h>
+```
+
+```c
+Year: 2025
+
+```
+
 - Result:
 
-**localtime**() transforms time\_t into a **struct tm**, which contains:
-
-- int tm\_sec;
-- int tm\_min;
-- int tm\_hour;
-- int tm\_mday;
-- int tm\_mon;
-- int tm\_year;
-- int tm\_wday;
-- int tm\_yday;
-- int tm\_isdst;
+```c
+localtime() transforms time_t into a struct tm, which contains:
+int tm_sec;
+int tm_min;
+int tm_hour;
+int tm_mday;
+int tm_mon;
+int tm_year;
+int tm_wday;
+int tm_yday;
+int tm_isdst;
+```
 
 ---
 
@@ -396,27 +384,19 @@ The field tm\_sec may legally have the value 60.
 
 This happens because of the leap second — occasionally astronomers add one extra second to keep atomic time aligned with Earth's rotation.
 
+```c
 struct tm {
-
-    int tm\_sec;   // seconds after the minute — \[0, 60\]
-
-    int tm\_min;   // minutes after the hour — \[0, 59\]
-
-    int tm\_hour;  // hours since midnight — \[0, 23\]
-
-    int tm\_mday;  // day of the month — \[1, 31\]
-
-    int tm\_mon;   // months since January — \[0, 11\]
-
-    int tm\_year;  // years since 1900
-
-    int tm\_wday;  // days since Sunday — \[0, 6\]
-
-    int tm\_yday;  // days since January 1 — \[0, 365\]
-
-    int tm\_isdst; // Daylight Saving Time flag
-
+    int tm_sec;   // seconds after the minute — [0, 60]
+    int tm_min;   // minutes after the hour — [0, 59]
+    int tm_hour;  // hours since midnight — [0, 23]
+    int tm_mday;  // day of the month — [1, 31]
+    int tm_mon;   // months since January — [0, 11]
+    int tm_year;  // years since 1900
+    int tm_wday;  // days since Sunday — [0, 6]
+    int tm_yday;  // days since January 1 — [0, 365]
+    int tm_isdst; // Daylight Saving Time flag
 };
+```
 
 - Most fields are zero-based, meaning they start from 0:
   - tm\_sec    — 0–59 normally, 60 during a leap second
@@ -433,51 +413,40 @@ struct tm {
 
 ## struct tm
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;time.h&gt;<br>
+```c
+#include <stdio.h>
+#include <time.h>
 
 int main()
-
 {
-
-    time\_t now;
-
-    time(&amp;now);
-
-    struct tm\* info = localtime(&amp;now);
-
-    printf("Sec: %d\n", info-&gt;tm\_sec );
-
-    printf("Min: %d\n", info-&gt;tm\_min );
-
-    printf("Hour: %d\n", info-&gt;tm\_hour );
-
-    printf("Day: %d\n", info-&gt;tm\_mday );
-
-    printf("Month: %d\n", info-&gt;tm\_mon );
-
-    printf("Year: %d\n", info-&gt;tm\_year + 1900 );
-
-    printf("Day of the week: %d\n", info-&gt;tm\_wday);
-
-    printf("Day of the year: %d\n", info-&gt;tm\_yday);
-
-    printf("Daylight Saving Time flag: %d\n", info-&gt;tm\_isdst);
-
+    time_t now;
+    time(&now);
+    struct tm* info = localtime(&now);
+    printf("Sec: %d\n", info->tm_sec );
+    printf("Min: %d\n", info->tm_min );
+    printf("Hour: %d\n", info->tm_hour );
+    printf("Day: %d\n", info->tm_mday );
+    printf("Month: %d\n", info->tm_mon );
+    printf("Year: %d\n", info->tm_year + 1900 );
+    printf("Day of the week: %d\n", info->tm_wday);
+    printf("Day of the year: %d\n", info->tm_yday);
+    printf("Daylight Saving Time flag: %d\n", info->tm_isdst);
     return 0;
-
 }
+```
 
-- Sec: 57
-- Min: 7
-- Hour: 21
-- Day: 23
-- Month: 10
-- Year: 2025
-- Day of the week: 0
-- Day of the year: 326
-- Daylight Saving Time flag: 0
+```c
+Sec: 57
+Min: 7
+Hour: 21
+Day: 23
+Month: 10
+Year: 2025
+Day of the week: 0
+Day of the year: 326
+Daylight Saving Time flag: 0
+```
+
 - Result:
 
 ---
@@ -486,40 +455,42 @@ int main()
 
 - Used for measuring **CPU time**, not real time.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;time.h&gt;<br>
+```c
+#include <stdio.h>
+#include <time.h>
 
 int main()
-
 {
-
-    clock\_t start = clock();
-
+    clock_t start = clock();
     // ... some work ...
-
-    for (int i = 0; i &lt; \_\_INT32\_MAX\_\_; i++) 1;
-
-    clock\_t end = clock();
-
-    double cpu\_time = (double)(end - start) / CLOCKS\_PER\_SEC;
-
-    printf("CPU time = %f seconds\n", cpu\_time);
-
+    for (int i = 0; i < __INT32_MAX__; i++) 1;
+    clock_t end = clock();
+    double cpu_time = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("CPU time = %f seconds\n", cpu_time);
     return 0;
-
 }
+```
 
 - clock()
-- **Header:** &lt;time.h&gt;
-- CPU time = 0.895000 seconds
+
+```c
+Header: <time.h>
+```
+
+```c
+CPU time = 0.895000 seconds
+
+```
+
 - Result:
 
-\#define CLOCKS\_PER\_SEC ((clock\_t)(1000))
-
-Number of clock ticks per second. A clock tick is the unit by which<br>processor time is measured and is returned by 'clock'.<br>Expands to:
-
-((clock\_t)(1000))
+```c
+#define CLOCKS_PER_SEC ((clock_t)(1000))
+Number of clock ticks per second. A clock tick is the unit by which
+processor time is measured and is returned by 'clock'.
+Expands to:
+((clock_t)(1000))
+```
 
 ---
 
@@ -576,37 +547,35 @@ Number of clock ticks per second. A clock tick is the unit by which<br>processor
 - Measuring Wall-Clock Time Differences: It is ideal for measuring real-world time intervals (wall-clock time) between two points (e.g., the start and end of some operation).
 - Lack of CPU Time Precision: It should not be used for measuring CPU time or for micro-profiling, as it is based on the time\_t type, which typically only has second-level precision.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;time.h&gt;<br>
+```c
+#include <stdio.h>
+#include <time.h>
 
 int main()
-
 {
-
-    time\_t now;
-
-    time(&amp;now);
-
-    time\_t start, stop;
-
+    time_t now;
+    time(&now);
+    time_t start, stop;
     start = time(NULL);
-
-    for (int i = 0; i &lt; \_\_INT32\_MAX\_\_; i++) 1;  // ... some work ...
-
+    for (int i = 0; i < __INT32_MAX__; i++) 1;  // ... some work ...
     stop = time(NULL);
-
-    double real\_time = difftime(stop, start);
-
-    printf("Real time = %f seconds\n", real\_time);
-
+    double real_time = difftime(stop, start);
+    printf("Real time = %f seconds\n", real_time);
     return 0;
-
 }
+```
 
 - difftime(int, int)
-- **Header:** &lt;time.h&gt;
-- Real time = 1.000000 seconds
+
+```c
+Header: <time.h>
+```
+
+```c
+Real time = 1.000000 seconds
+
+```
+
 - Result:
 
 ---
@@ -615,33 +584,34 @@ int main()
 
 - Also automatically normalizes values (e.g., month = 13 → next year).
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;time.h&gt;<br>
+```c
+#include <stdio.h>
+#include <time.h>
 
 int main()
-
 {
-
     struct tm tmval = {0};
+    tmval.tm_year = 2025 - 1900;
+    tmval.tm_mon  = 11;  // November
+    tmval.tm_mday = 24;
 
-    tmval.tm\_year = 2025 - 1900;
-
-    tmval.tm\_mon  = 11;  // November
-
-    tmval.tm\_mday = 24;
-
-    time\_t t = mktime(&amp;tmval);
-
+    time_t t = mktime(&tmval);
     printf("Epoch time = %ld\n", t);
-
     return 0;
-
 }
+```
 
 - mktime(\*tm)
-- **Header:** &lt;time.h&gt;
-- Epoch time = 1766559600
+
+```c
+Header: <time.h>
+```
+
+```c
+Epoch time = 1766559600
+
+```
+
 - Result:
 
 ---
@@ -650,33 +620,34 @@ int main()
 
 - Returns a static string (NOT thread safe).
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;time.h&gt;<br>
+```c
+#include <stdio.h>
+#include <time.h>
 
 int main()
-
 {
-
     struct tm tmval = {0};
+    tmval.tm_year = 2025 - 1900;
+    tmval.tm_mon  = 11;  // November
+    tmval.tm_mday = 24;
 
-    tmval.tm\_year = 2025 - 1900;
 
-    tmval.tm\_mon  = 11;  // November
-
-    tmval.tm\_mday = 24;
-
-<br>
-
-    printf("%s", asctime(&amp;tmval));
-
+    printf("%s", asctime(&tmval));
     return 0;
-
 }
+```
 
 - asctime(\*tm)
-- **Header:** &lt;time.h&gt;
-- Sun Dec 24 00:00:00 2025
+
+```c
+Header: <time.h>
+```
+
+```c
+Sun Dec 24 00:00:00 2025
+
+```
+
 - Result:
 
 ---
@@ -685,33 +656,33 @@ int main()
 
 - (similar to asctime, also not thread-safe).
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;time.h&gt;<br>
+```c
+#include <stdio.h>
+#include <time.h>
 
 int main()
-
 {
-
     struct tm tmval = {0};
+    tmval.tm_year = 2025 - 1900;
+    tmval.tm_mon  = 11;  // November
+    tmval.tm_mday = 24;
 
-    tmval.tm\_year = 2025 - 1900;
 
-    tmval.tm\_mon  = 11;  // November
-
-    tmval.tm\_mday = 24;
-
-<br>
-
-    printf("%s", asctime(&amp;tmval));
-
+    printf("%s", asctime(&tmval));
     return 0;
-
 }
+```
 
 - ctime(\*t)
-- **Header:** &lt;time.h&gt;
-- Now: Sun Nov 23 21:55:04 2025
+
+```c
+Header: <time.h>
+```
+
+```c
+Now: Sun Nov 23 21:55:04 2025
+```
+
 - Result:
 
 ---
@@ -720,35 +691,34 @@ int main()
 
 - (similar to asctime, also not thread-safe).
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;time.h&gt;<br>
+```c
+#include <stdio.h>
+#include <time.h>
 
 int main()
-
 {
-
-    char buf\[64\];
-
-    struct tm \*info;
-
-    time\_t now;<br>
+    char buf[64];
+    struct tm *info;
+    time_t now;
 
     now = time(NULL);
-
-    info = localtime(&amp;now);
-
+    info = localtime(&now);
     strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S", info);
-
     printf("Formatted date = %s\n", buf);
-
     return 0;
-
 }
+```
 
 - strftime(buf, n, fmt, \*tm)
-- **Header:** &lt;time.h&gt;
-- Formatted date = 2025-11-23 21:58:37
+
+```c
+Header: <time.h>
+```
+
+```c
+Formatted date = 2025-11-23 21:58:37
+```
+
 - Result:
 
 ---
@@ -757,9 +727,7 @@ int main()
 
 ---
 
-## 10. Variable Argument Lists (&lt;stdarg.h&gt;)
-
-For functions that accept a variable number of parameters.
+## 10. Variable Argument Lists (&lt;stdarg.h&gt;) For functions that accept a variable number of parameters.
 
 |Macro|Description|Example|
 |---|---|---|
@@ -827,49 +795,43 @@ Therefore, the programmer must provide enough **context** for the function to de
 - each va\_arg(args, int) retrieves one integer.
 - va\_end finishes the process.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;time.h&gt;<br>
+```c
+#include <stdio.h>
+#include <time.h>
 
 int main()
-
 {
-
-    printf("%d\n", sum\_ints(4, 10, 20, 30, 40));
-
-// prints 100
-
+    printf("%d\n", sum_ints(4, 10, 20, 30, 40));
+	// prints 100
     return 0;
-
 }
+```
 
-- **Header:** &lt;stdarg.h&gt;
-- 100
+```c
+Header: <stdarg.h>
+```
+
+```c
+100
+
+```
+
 - Result:
 
-int sum\_ints(int count, ...)
-
+```c
+int sum_ints(int count, ...)
 {
-
-    va\_list args;
-
-    va\_start(args, count);
-
+    va_list args;
+    va_start(args, count);
     int sum = 0;
-
-    for (int i = 0; i &lt; count; i++)
-
+    for (int i = 0; i < count; i++)
     {
-
-        sum += va\_arg(args, int);
-
+        sum += va_arg(args, int);
     }
-
-    va\_end(args);
-
+    va_end(args);
     return sum;
-
 }
+```
 
 ---
 
@@ -884,51 +846,35 @@ Because C does not know the types of the variable arguments, the programmer must
 - Passing complex structs by value is unsafe
 - Using the wrong type in va\_arg → undefined behavior
 - Cannot be used to inspect arguments at runtime (no reflection)
-- **Header:** &lt;stdarg.h&gt;
 
-void print\_values(int count, ...)
+```c
+Header: <stdarg.h>
+```
 
+```c
+void print_values(int count, ...)
 {
-
-    va\_list args;
-
-    va\_start(args, count);
-
-    for (int i = 0; i &lt; count; i++)
-
+    va_list args;
+    va_start(args, count);
+    for (int i = 0; i < count; i++)
     {
-
-        int type = va\_arg(args, int);   // read a type code first
-
+        int type = va_arg(args, int);   // read a type code first
         if (type == 0)
-
         {
-
-            printf("int: %d\n", va\_arg(args, int));
-
+            printf("int: %d\n", va_arg(args, int));
         }
-
         else if (type == 1)
-
         {
-
-            printf("double: %f\n", va\_arg(args, double));
-
+            printf("double: %f\n", va_arg(args, double));
         }
-
         else if (type == 2)
-
         {
-
-            printf("string: %s\n", va\_arg(args, char\*));
-
+            printf("string: %s\n", va_arg(args, char*));
         }
-
     }
-
-    va\_end(args);
-
+    va_end(args);
 }
+```
 
 ---
 
@@ -939,9 +885,7 @@ void print\_values(int count, ...)
 
 ---
 
-## Most Common System Libraries in Windows (WinAPI)
-
-These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
+## Most Common System Libraries in Windows (WinAPI) These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
 
 |Library|Description|Typical Functions|
 |---|---|---|

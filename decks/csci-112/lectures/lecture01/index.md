@@ -13,7 +13,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-![Graphic 3](assets/image2.png)
+![w:277px Graphic 3](assets/image2.png)
 
 ---
 
@@ -76,9 +76,7 @@ This course provides a comprehensive introduction to structured programming usin
 
 ---
 
-## …a few words
-
-This course is designed for students in Computer Science (CS), Software Engineering (SE), and Electronics programs. No prior programming experience is required — only basic computer literacy, such as using a web browser, email, and navigating the MS Windows environment.
+## …a few words This course is designed for students in Computer Science (CS), Software Engineering (SE), and Electronics programs. No prior programming experience is required — only basic computer literacy, such as using a web browser, email, and navigating the MS Windows environment.
 
 <!-- This course is designed for students in **Computer Science (CS)**, **Software Engineering (SE)**, and **Electronics** programs. No prior programming experience is required — only basic computer literacy, such as using a web browser, email, and navigating the **MS Windows** environment.
 The course covers the following topics:
@@ -101,7 +99,7 @@ The course is taught with a strong emphasis on **practical understanding** of 
 - Brian W. Kernighan, Dennis M. Ritchie. C Programming Language, 2nd Edition. Prentice Hall, 1988
 - Seacord, R. C. (2024). Effective C: An Introduction to Professional C Programming. No Starch Press, Inc. (Optional)
 
-![Amazon.com: C Programming Language, 2nd Edition: 8601410794231: Brian W.  Kernighan, Dennis M. Ritchie: Books](assets/image4.jpeg)
+![w:251px Amazon.com: C Programming Language, 2nd Edition: 8601410794231: Brian W.  Kernighan, Dennis M. Ritchie: Books](assets/image4.jpeg)
 
 ![Picture 4](assets/image5.jpeg)
 
@@ -183,9 +181,7 @@ You are encouraged to work in teams and use many resources including books and t
 
 ---
 
-## Syllabus<br>Declaration of authorship
-
-*I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the importance the consequences of plagiarism.*
+## Syllabus<br>Declaration of authorship *I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the importance the consequences of plagiarism.*
 
 ---
 
@@ -223,7 +219,7 @@ Lecture &amp; Laboratory:
 
 ## Meaning of words
 
-![Picture 9](assets/image6.png)
+![w:402px Picture 9](assets/image6.png)
 
 - Sometimes, when we look at the same thing, we see entirely different things. Therefore, to avoid misunderstandings, I will spend a considerable amount of time clarifying the nuances associated with translating the meanings of the concepts we will be using in our classes.
 - All the material presented in this course will be of practical use.
@@ -244,25 +240,25 @@ You'll see shortly.
 
 ## Highlands College (new Campus)
 
-![Picture 2](assets/image7.jpeg)
+![w:809px Picture 2](assets/image7.jpeg)
 
 ---
 
 ## Old Campus
 
-![Montana Tech Main Hall](assets/image8.jpeg)
+![w:636px Montana Tech Main Hall](assets/image8.jpeg)
 
-![Picture 2](assets/image9.jpeg)
+![w:463px Picture 2](assets/image9.jpeg)
 
 ---
 
 ## Highlands College &amp; Old Campus
 
-![Picture 2](assets/image10.jpeg)
+![w:438px Picture 2](assets/image10.jpeg)
 
-![Montana Tech Main Hall](assets/image8.jpeg)
+![w:140px Montana Tech Main Hall](assets/image8.jpeg)
 
-![Museum Building Doors](assets/image11.jpeg)
+![w:434px Museum Building Doors](assets/image11.jpeg)
 
 - Doors
 
@@ -270,13 +266,11 @@ You'll see shortly.
 
 ## Highlands College &amp; Old Campus
 
-![Picture 2](assets/image12.jpeg)
+![w:389px Picture 2](assets/image12.jpeg)
 
-![Picture 2](assets/image13.jpeg)
+![w:389px Picture 2](assets/image13.jpeg)
 
-![Montana Tech Main Hall](assets/image8.jpeg)
-
-![Montana Tech Main Hall](assets/image8.jpeg)
+![w:813px Montana Tech Main Hall](assets/image8.jpeg)
 
 - Windows
 
@@ -284,15 +278,13 @@ You'll see shortly.
 
 ## Old, but gold
 
-![Picture 2](assets/image9.jpeg)
+![w:455px Picture 2](assets/image9.jpeg)
 
-![Montana Tech Campus Library/Museum](assets/image14.jpeg)
+![w:522px Montana Tech Campus Library/Museum](assets/image14.jpeg)
 
 ---
 
-## Conclusions
-
-These doors and those doors serve their purpose, these windows and those windows serve their purpose, and those buildings and these buildings also serve their purpose. However, do you see the difference? The museum building has stood for 100 years and will stand for another 200. In my class, I want to show you the art, everything I have learned from over two decades of studying computer architecture and all the programming languages I have mastered. If your goal is to write correct code, great, just like the new campus building, I will teach you. If you want to understand the nuances, the reasons why certain mechanisms were designed in a certain way, and you are thirsty for knowledge, I will give you everything I have, because I am here for you, student, but ...<br>*It takes blood, sweat, and tears.*
+## Conclusions These doors and those doors serve their purpose, these windows and those windows serve their purpose, and those buildings and these buildings also serve their purpose. However, do you see the difference? The museum building has stood for 100 years and will stand for another 200. In my class, I want to show you the art, everything I have learned from over two decades of studying computer architecture and all the programming languages I have mastered. If your goal is to write correct code, great, just like the new campus building, I will teach you. If you want to understand the nuances, the reasons why certain mechanisms were designed in a certain way, and you are thirsty for knowledge, I will give you everything I have, because I am here for you, student, but ...<br>*It takes blood, sweat, and tears.*
 
 ---
 
@@ -305,9 +297,7 @@ Think of a compiler as a translator who translates an entire book from one langu
 
 ---
 
-## History of C
-
-Similarly, in music, we first learn to read sheet music, and only after mastering the basics can we investigate  into the history and evolution of musical notation. In this course, we'll follow a similar approach. We'll start by learning how to write code in C, and we'll save the history of the C language for later, once you have gained significant experience. Then, we can explore the origins of certain language constructs.
+## History of C Similarly, in music, we first learn to read sheet music, and only after mastering the basics can we investigate  into the history and evolution of musical notation. In this course, we'll follow a similar approach. We'll start by learning how to write code in C, and we'll save the history of the C language for later, once you have gained significant experience. Then, we can explore the origins of certain language constructs.
 
 <!-- Sinusoidalnosc zwiazana z typami i ich brak w przodku C -->
 
@@ -340,7 +330,7 @@ Similarly, in music, we first learn to read sheet music, and only after masterin
 - The highest symbol of a positional numeral system usually has the value one less than the value of the radix of that numeral system. The standard positional numeral systems differ from one another only in the base they use.
 - The radix is an integer that is greater than 1, since a radix of zero would not have any digits, and a radix of 1 would only have the zero digit.
 
-![Picture 2](assets/image15.png)
+![w:238px Picture 2](assets/image15.png)
 
 <!-- For example, for the decimal system the radix (and base) is ten, because it uses the ten digits from 0 through 9. When a number "hits" 9, the next number will not be another different symbol, but a "1" followed by a "0". In binary, the radix is two, since after it hits "1", instead of "2" or another written symbol, it jumps straight to "10", followed by "11" and "100". -->
 
@@ -348,7 +338,7 @@ Similarly, in music, we first learn to read sheet music, and only after masterin
 
 ## Binary numeral system
 
-![Picture 2](assets/image15.png)
+![w:238px Picture 2](assets/image15.png)
 
 <!-- Why do we start from position zero, not one? Because any number raised to the power of zero always equals one!
 2 raised to the power of 3 is 8.
@@ -478,13 +468,13 @@ Everything else is a combination or interpretation based on these two fundamenta
 - Visual Studio Code
 - Visual Studio
 
-![Visual Studio Code logo thumbnail](assets/image16.png)
+![w:194px Visual Studio Code logo thumbnail](assets/image16.png)
 
-![Visual Studio logo icon](assets/image17.png)
+![w:194px Visual Studio logo icon](assets/image17.png)
 
-![codeblocks](assets/image18.png)
+![w:182px codeblocks](assets/image18.png)
 
-![Ink 2](assets/image22.png)
+![w:401px Ink 2](assets/image22.png)
 
 ---
 
@@ -492,16 +482,18 @@ Everything else is a combination or interpretation based on these two fundamenta
 
 - Code
 - Preprocessor
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
 
-char string\[12\] = "Hello world";
+```c
+#include <stdio.h>
 
-printf("%s", string);
 
-- return 0;
-- }
+int main()
+{
+	char string[12] = "Hello world";
+	printf("%s", string);
+	return 0;
+}
+```
 
 ---
 
@@ -511,17 +503,25 @@ printf("%s", string);
 - Next, we have the main function defined, which returns an integer value. The {} brackets start and end the body of the main function.
 - The printf function displays the string "Hello world" on the console.
 - The printf function does not move the cursor to the next line, so it is necessary to add the newline character '\n'.
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
 
-char string\[12\] = "Hello world";
+```c
+#include <stdio.h>
 
-printf("%s", string);
+int main()
+{
+	char string[12] = "Hello world";
+	printf("%s", string);
+	return 0;
+}
+```
 
-- return 0;
-- }
-- Hello world
+```c
+Hello world
+
+
+
+```
+
 - Result:
 
 ---
@@ -531,17 +531,25 @@ printf("%s", string);
 - Text preceded by # is a preprocessor section, the first line gives access to standard input and output functions, this is a header.
 - Next, we have the main function defined, which returns an integer value. The {} brackets start and end the body of the main function.
 - The printf function displays the string "Hello world" on the console.
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
 
-char string\[12\] = "Hello world";
+```c
+#include <stdio.h>
 
-printf("%s", string);
+int main()
+{
+	char string[12] = "Hello world";
+	printf("%s", string);
+	return 0;
+}
+```
 
-- return 0;
-- }
-- Hello world
+```c
+Hello world
+
+
+
+```
+
 - Result:
 
 ---
@@ -556,9 +564,13 @@ printf() is a function and has two sides:
 - Right side string – data to insert:
   - This is the variable or value that printf() will “plug in” where %s is. In this example, printf() reads all the characters of the string from the first to the last.
 
-char string\[12\] = "Hello world";
+```c
+
+char string[12] = "Hello world";
 
 printf("%s", string);
+
+```
 
 ---
 
@@ -566,22 +578,25 @@ printf("%s", string);
 
 - In the C programming language statements for the compiler (interpreter in Python) is separated by a semicolon ;. Therefore, in C, you can write an entire program on one line...
 
-\#include &lt;stdio.h&gt; int main(){char string\[12\] = "Hello world"; printf("%s", string); return 0;}
+```c
+#include <stdio.h> int main(){char string[12] = "Hello world"; printf("%s", string); return 0;}
+```
 
 ---
 
 ## Indentation &amp; parentheses
 
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
+```c
+#include <stdio.h>
 
-char string\[12\] = "Hello world";
+int main()
+{
+	char string[12] = "Hello world";
+	printf("%s", string);
+	return 0;
+}
+```
 
-printf("%s", string);
-
-- return 0;
-- }
 - Proper indentation is essential for making C code readable,
 - Formatting is mandatory in Python, but not required here – We are talking about the compiler, because in our classes formatting is mandatory in order to get a positive grade at all.
 - opening bracket
@@ -593,43 +608,51 @@ printf("%s", string);
 ## Indentation &amp; parentheses
 
 - but...
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
 
-char string\[12\] = "Hello world";
+```c
+#include <stdio.h>
 
-printf("%s", string);
+int main()
+{
+	char string[12] = "Hello world";
+	printf("%s", string);
+	return 0;
+}
+```
 
-- return 0;
-- }
-- \#include &lt;stdio.h&gt;
-- int main(){
+```c
+#include <stdio.h>
 
-char string\[12\] = "Hello world";
-
-printf("%s", string);
-
-- return 0;
-- }
+int main(){
+	char string[12] = "Hello world";
+	printf("%s", string);
+	return 0;
+}
+```
 
 ---
 
 ## Comments
 
-- int main()
-- {
+```c
+int main()
+{
 
-  char string\[12\] = /\* inline comment \*/  "Hello world";
+  char string[12] = /* inline comment */  "Hello world";
 
-  printf("%s", string);  /\* comment behind the line \*/
+  printf("%s", string);  /* comment behind the line */
 
--   /\* a comment
--   composed of
--   a few lines \*/
--     return 0; // single-line comments
-- }
-- /\* comment \*/ &amp; // comment
+  /* a comment
+  composed of
+  a few lines */
+
+    return 0; // single-line comments
+}
+```
+
+```c
+/* comment */ & // comment
+```
 
 ---
 

@@ -62,21 +62,33 @@ title: "Data Structures & Algorithms"
 
 ## Navigating the Command Line: Windows vs. Linux<br>Slide 1: Opening the Command Prompt - Example
 
+```c
 jacob@raspberrypi:~ $ pwd
-
 /home/jacob
-
 jacob@raspberrypi:~ $
 
-Microsoft Windows \[Version 10.0.22631.4602\]
 
+
+
+
+
+
+
+```
+
+```c
+Microsoft Windows [Version 10.0.22631.4602]
 (c) Microsoft Corporation. All rights reserved.
 
-C:\Users\Jacob&gt; whoami
-
+C:\Users\Jacob> whoami
 notebooki7\Jacob
+C:\Users\Jacob>
 
-C:\Users\Jacob&gt;
+
+
+
+
+```
 
 - From the Start menu:
   - Click the Start button in the lower left corner of the screen.
@@ -109,9 +121,17 @@ The command prompt in different operating systems displays various information, 
 - Most often presents the username and hostname (device name).
 - Example: user@computer:~$ Purpose: Informs about the currently logged-in user and the machine they are working on.
 
-C:\Users\Jacob&gt;
+```c
+ C:\Users\Jacob>
 
-jacob@raspberrypi:~ $
+
+```
+
+```c
+ jacob@raspberrypi:~ $
+
+
+```
 
 ---
 
@@ -137,53 +157,53 @@ jacob@raspberrypi:~ $
 
 - dir:    Lists files and directories in the current directory.
 
+```c
 jacob@raspberrypi:~ $ ls
-
 Bookshelf  Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
-
 jacob@raspberrypi:~ $ dir
-
 Bookshelf  Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
-
 jacob@raspberrypi:~ $
 
-C:\Users\Jacob&gt;dir
 
-12/19/2024  12:14 PM    &lt;DIR&gt;          .
 
-09/05/2023  09:06 AM    &lt;DIR&gt;          ..
 
-10/05/2022  11:55 PM    &lt;DIR&gt;          Contacts
 
-01/04/2025  08:29 AM    &lt;DIR&gt;          Desktop
 
-09/07/2024  08:51 AM    &lt;DIR&gt;          Documents
 
-01/03/2025  05:47 PM    &lt;DIR&gt;          Downloads
 
-10/05/2022  11:55 PM    &lt;DIR&gt;          Favorites
 
-10/05/2022  11:55 PM    &lt;DIR&gt;          Links
 
-07/16/2023  07:09 AM    &lt;DIR&gt;          Music
 
-12/06/2024  02:21 PM    &lt;DIR&gt;          Pictures
 
-12/19/2024  11:34 AM    &lt;DIR&gt;          Videos
 
-4 File(s)            818 bytes
 
-42 Dir(s)  62,825,164,800 bytes free
 
-C:\Users\Jacob&gt;ls
+```
 
+```c
+C:\Users\Jacob>dir
+12/19/2024  12:14 PM    <DIR>          .
+09/05/2023  09:06 AM    <DIR>          ..
+10/05/2022  11:55 PM    <DIR>          Contacts
+01/04/2025  08:29 AM    <DIR>          Desktop
+09/07/2024  08:51 AM    <DIR>          Documents
+01/03/2025  05:47 PM    <DIR>          Downloads
+10/05/2022  11:55 PM    <DIR>          Favorites
+10/05/2022  11:55 PM    <DIR>          Links
+07/16/2023  07:09 AM    <DIR>          Music
+12/06/2024  02:21 PM    <DIR>          Pictures
+12/19/2024  11:34 AM    <DIR>          Videos
+               4 File(s)            818 bytes
+              42 Dir(s)  62,825,164,800 bytes free
+C:\Users\Jacob>ls
 ls
-
 'ls' is not recognized as an internal or external command,
-
 operable program or batch file.
+C:\Users\Jacob>
 
-C:\Users\Jacob&gt;
+
+
+```
 
 - ls:    Lists files and directories in the current directory.
 
@@ -196,35 +216,39 @@ C:\Users\Jacob&gt;
 - cd:    Changes the current directory.
 - cd..:    Moves up one directory level.
 
+```c
 jacob@raspberrypi:~ $ cd Desktop
-
 jacob@raspberrypi:~/Desktop $ cd ..
-
 jacob@raspberrypi:~ $ cd Desktop
-
 jacob@raspberrypi:~/Desktop $ cd..
-
 -bash: cd..: command not found
-
 jacob@raspberrypi:~/Desktop $cd /
-
 jacob@raspberrypi:/ $ pwd
-
 /
-
 jacob@raspberrypi:/ $
 
-C:\Users\Jacob&gt;cd Desktop
 
-C:\Users\Jacob\Desktop&gt;cd..
 
-C:\Users\Jacob&gt;cd Desktop
 
-C:\Users\Jacob\Desktop&gt;cd ..
 
-C:\Users\Jacob&gt;cd /
+```
 
-C:\&gt;
+```c
+C:\Users\Jacob>cd Desktop
+C:\Users\Jacob\Desktop>cd..
+C:\Users\Jacob>cd Desktop
+C:\Users\Jacob\Desktop>cd ..
+C:\Users\Jacob>cd /
+C:\>
+
+
+
+
+
+
+
+
+```
 
 - cd:    Changes the current directory.
 - cd ..:    Moves up one directory level.
@@ -311,37 +335,35 @@ C:\&gt;
 
 - echo: Displays a message on the screen.
 
+```c
 jacob@raspberrypi:~ $ echo Hello World!
-
 Hello World!
-
 jacob@raspberrypi:~ $ echo "Hello World!"
-
 Hello World!
-
 jacob@raspberrypi:~ $echo
 
 jacob@raspberrypi:~ $echo.
-
 -bash: echo.: command not found
-
 jacob@raspberrypi:~ $
 
-C:\Users\Jacob&gt;echo Hello World!
 
+
+```
+
+```c
+C:\Users\Jacob>echo Hello World!
 Hello World!
-
-C:\Users\Jacob&gt; echo "Hello World!"
-
+C:\Users\Jacob> echo "Hello World!"
 "Hello World!"
+C:\Users\Jacob>echo.
 
-C:\Users\Jacob&gt;echo.
-
-C:\Users\Jacob&gt;echo
-
+C:\Users\Jacob>echo
 ECHO is on.
+C:\Users\Jacob>
 
-C:\Users\Jacob&gt;
+
+
+```
 
 - echo: Displays a message on the screen.
 
@@ -365,15 +387,27 @@ C:\Users\Jacob&gt;
 - The simplest way to create a new file.
 - Redirection works similarly in both systems, using the &gt; symbol to overwrite a file and &gt;&gt; to append to a file.
 
-jacob@raspberrypi:~ echo Hello world! &gt; myfile.txt
-
+```c
+jacob@raspberrypi:~ echo Hello world! > myfile.txt
 jacob@raspberrypi:~ $
 
-C:\Users\Jacob&gt;echo Hello world! &gt; myfile.txt
 
-C:\Users\Jacob&gt;
 
+```
+
+```c
+C:\Users\Jacob>echo Hello world! > myfile.txt
+C:\Users\Jacob>
+
+
+
+```
+
+```c
 Hello world!
+
+
+```
 
 myfile.txt
 
@@ -401,63 +435,66 @@ myfile.txt
 - rm:    Removes files or directories.
 - mkdir:    Makes a new directory.
 
+```c
 jacob@raspberrypi:~ $ mkdir Folder
-
 jacob@raspberrypi:~ $ ls
-
 Bookshelf  Desktop  Documents  Downloads  Folder  Music  Pictures  Public  Templates  Videos
 
+
+
+```
+
+```c
 jacob@raspberrypi:~ $ cd Folder
-
-jacob@raspberrypi:~/Folder $ echo &gt; empty.txt
-
+jacob@raspberrypi:~/Folder $ echo > empty.txt
 jacob@raspberrypi:~/Folder $ cp empty.txt copyEmpty.txt
+```
 
+```c
 jacob@raspberrypi:~/Folder $ ls
-
 copyEmpty.txt  empty.txt
 
+
+
+
+
+```
+
+```c
 jacob@raspberrypi:~/Folder $ rm copyEmpty.txt
-
 jacob@raspberrypi:~/Folder $
+```
 
-C:\Users\Jacob&gt;md Folder
-
-C:\Users\Jacob&gt;dir
-
+```c
+C:\Users\Jacob>md Folder
+C:\Users\Jacob>dir
 ...
-
-01/04/2025  10:06 AM    &lt;DIR&gt;          Folder
-
-10/05/2022  11:55 PM    &lt;DIR&gt;          Links
-
-07/16/2023  07:09 AM    &lt;DIR&gt;          Music
-
+01/04/2025  10:06 AM    <DIR>          Folder
+10/05/2022  11:55 PM    <DIR>          Links
+07/16/2023  07:09 AM    <DIR>          Music
 ...
+```
 
-C:\Users\Jacob&gt; cd Folder
+```c
+C:\Users\Jacob> cd Folder
+C:\Users\Jacob\Folder> echo. > empty.txt
+C:\Users\Jacob\Folder> copy empty.txt copyEmpty.txt
+```
 
-C:\Users\Jacob\Folder&gt; echo. &gt; empty.txt
-
-C:\Users\Jacob\Folder&gt; copy empty.txt copyEmpty.txt
-
-C:\Users\Jacob\Folder&gt; dir
-
+```c
+C:\Users\Jacob\Folder> dir
 ...
-
-01/04/2025  12:22 PM    &lt;DIR&gt;          .
-
-01/04/2025  10:08 AM    &lt;DIR&gt;          ..
-
+01/04/2025  12:22 PM    <DIR>          .
+01/04/2025  10:08 AM    <DIR>          ..
 01/04/2025  12:19 PM                 3 copyEmpty.txt
-
 01/04/2025  12:19 PM                 3 empty.txt
-
 ...
+```
 
-C:\Users\Jacob\Folder&gt; del copyEmpty.txt
-
-C:\Users\Jacob\Folder&gt;
+```c
+C:\Users\Jacob\Folder> del copyEmpty.txt
+C:\Users\Jacob\Folder>
+```
 
 ---
 
@@ -476,57 +513,48 @@ C:\Users\Jacob\Folder&gt;
 
 - To run a compiled program, you usually just type the program name, followed by the .exe extension: program\_name.exe.
 
+```c
 jacob@raspberrypi:~ $cd /
-
 jacob@raspberrypi:/ $ cd /usr/bin
+jacob@raspberrypi:/usr/bin $ ./ping www.google.com
 
-jacob@raspberrypi:/usr/bin $ ./ping [www.google.com](http://www.google.com/)
-
-PING <www.google.com> (172.217.14.228) 56(84) bytes of data.
-
-64 bytes from sea30s02-in-f4.1e100.net (172.217.14.228): icmp\_seq=1 ttl=115 time=16.2 ms
-
-64 bytes from sea30s02-in-f4.1e100.net (172.217.14.228): icmp\_seq=2 ttl=115 time=16.0 ms
-
-64 bytes from sea30s02-in-f4.1e100.net (172.217.14.228): icmp\_seq=3 ttl=115 time=16.1 ms
-
-64 bytes from sea30s02-in-f4.1e100.net (172.217.14.228): icmp\_seq=4 ttl=115 time=16.0 ms
-
-64 bytes from sea30s02-in-f4.1e100.net (172.217.14.228): icmp\_seq=5 ttl=115 time=16.0 ms
-
+PING www.google.com (172.217.14.228) 56(84) bytes of data.
+64 bytes from sea30s02-in-f4.1e100.net (172.217.14.228): icmp_seq=1 ttl=115 time=16.2 ms
+64 bytes from sea30s02-in-f4.1e100.net (172.217.14.228): icmp_seq=2 ttl=115 time=16.0 ms
+64 bytes from sea30s02-in-f4.1e100.net (172.217.14.228): icmp_seq=3 ttl=115 time=16.1 ms
+64 bytes from sea30s02-in-f4.1e100.net (172.217.14.228): icmp_seq=4 ttl=115 time=16.0 ms
+64 bytes from sea30s02-in-f4.1e100.net (172.217.14.228): icmp_seq=5 ttl=115 time=16.0 ms
 ^C
-
---- <www.google.com> ping statistics ---
-
+--- www.google.com ping statistics ---
 5 packets transmitted, 5 received, 0% packet loss, time 4006ms
-
 rtt min/avg/max/mdev = 16.013/16.068/16.192/0.069 ms
 
 jacob@raspberrypi:/usr/bin $
+```
 
-C:\Users\Jacob&gt;cd C:\Windows\System32
+```c
+C:\Users\Jacob>cd C:\Windows\System32
+C:\Windows\System32>ping.exe www.google.com
 
-C:\Windows\System32&gt;ping.exe <www.google.com>
-
-Pinging <www.google.com> \[172.217.14.228\] with 32 bytes of data:
-
+Pinging www.google.com [172.217.14.228] with 32 bytes of data:
 Reply from 172.217.14.228: bytes=32 time=16ms TTL=113
-
 Reply from 172.217.14.228: bytes=32 time=16ms TTL=113
-
 Reply from 172.217.14.228: bytes=32 time=16ms TTL=113
-
 Reply from 172.217.14.228: bytes=32 time=16ms TTL=113
 
 Ping statistics for 172.217.14.228:
-
-Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
-
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
 Approximate round trip times in milli-seconds:
+    Minimum = 16ms, Maximum = 16ms, Average = 16ms
 
-Minimum = 16ms, Maximum = 16ms, Average = 16ms
+C:\Windows\System32>
 
-C:\Windows\System32&gt;
+
+
+
+
+
+```
 
 - To run a compiled program, you typically use the following syntax: ./program\_name.
 
@@ -561,13 +589,11 @@ rename                            mv
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 8: Basic Text Editing
+## Navigating the Command Line: Windows vs. Linux<br>Slide 8: Basic Text Editing Windows: notepad/notepad++:         Linux: nano:
 
-Windows: notepad/notepad++:         Linux: nano:
+![w:486px Picture 2](assets/image27.png)
 
-![Picture 2](assets/image27.png)
-
-![Picture 3](assets/image28.png)
+![w:444px Picture 3](assets/image28.png)
 
 ---
 
@@ -586,57 +612,46 @@ An IP address is like a unique mailing address for every device connected to the
 
 - ipconfig
 
+```c
 jacob@raspberrypi:~ $ ip addr
-
-1: lo: &lt;LOOPBACK,UP,LOWER\_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-
-link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-
-inet 127.0.0.1/8 scope host lo
-
-valid\_lft forever preferred\_lft forever
-
-inet6 ::1/128 scope host
-
-valid\_lft forever preferred\_lft forever
-
-2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER\_UP&gt; mtu 1500 qdisc pfifo\_fast state UP group default qlen 1000
-
-link/ether b8:27:eb:dc:64:a3 brd ff:ff:ff:ff:ff:ff
-
-inet 10.38.32.256/24 brd 10.38.32.255 scope global dynamic noprefixroute eth0
-
-valid\_lft 525094sec preferred\_lft 438694sec
-
-inet6 fe80::d8c5:56d0:e193:bd13/64 scope link
-
-valid\_lft forever preferred\_lft forever
-
-3: wlan0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc pfifo\_fast state DOWN group default qlen 1000
-
-link/ether b8:27:eb:89:31:f6 brd ff:ff:ff:ff:ff:ff
-
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether b8:27:eb:dc:64:a3 brd ff:ff:ff:ff:ff:ff
+    inet 10.38.32.256/24 brd 10.38.32.255 scope global dynamic noprefixroute eth0
+       valid_lft 525094sec preferred_lft 438694sec
+    inet6 fe80::d8c5:56d0:e193:bd13/64 scope link
+       valid_lft forever preferred_lft forever
+3: wlan0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+    link/ether b8:27:eb:89:31:f6 brd ff:ff:ff:ff:ff:ff
 jacob@raspberrypi:~
+```
 
-C:\Users\Jacob&gt;ipconfig
-
+```c
+C:\Users\Jacob>ipconfig
 ...
-
 Ethernet adapter Ethernet 4:
 
-Connection-specific DNS Suffix  . : butte.campus
-
-Link-local IPv6 Address . . . . . : fe80::813a:b45d:4cd4:63fb%26
-
-IPv4 Address. . . . . . . . . . . : 10.38.32.232
-
-Subnet Mask . . . . . . . . . . . : 255.255.255.0
-
-Default Gateway . . . . . . . . . : 10.38.32.254
-
+   Connection-specific DNS Suffix  . : butte.campus
+   Link-local IPv6 Address . . . . . : fe80::813a:b45d:4cd4:63fb%26
+   IPv4 Address. . . . . . . . . . . : 10.38.32.232
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 10.38.32.254
 ...
+C:\Users\Jacob>
 
-C:\Users\Jacob&gt;
+
+
+
+
+
+
+
+```
 
 - ip addr
 
@@ -646,9 +661,7 @@ C:\Users\Jacob&gt;
 
 ---
 
-## … a few words about a compiler
-
-During this semester, we will work with multiple programming languages and tools. We will start by refreshing our knowledge of the C language (the ancestor of C++, C#, Java, etc.), and then focus primarily on Python. Therefore, it is necessary to review compiler concepts, including GCC, one of the most popular C compilers.
+## … a few words about a compiler During this semester, we will work with multiple programming languages and tools. We will start by refreshing our knowledge of the C language (the ancestor of C++, C#, Java, etc.), and then focus primarily on Python. Therefore, it is necessary to review compiler concepts, including GCC, one of the most popular C compilers.
 
 ---
 
@@ -659,9 +672,7 @@ During this semester, we will work with multiple programming languages and tools
 
 ---
 
-## Compiler vs Interpreter
-
-Think of a compiler as a translator who translates an entire book from one language to another before you start reading it. An interpreter, on the other hand, is a translator who translates each sentence as you read it. A compiler translates the entire program at once, while an interpreter translates it line by line.
+## Compiler vs Interpreter Think of a compiler as a translator who translates an entire book from one language to another before you start reading it. An interpreter, on the other hand, is a translator who translates each sentence as you read it. A compiler translates the entire program at once, while an interpreter translates it line by line.
 
 ---
 
@@ -769,9 +780,9 @@ These steps are essential for transforming your C code into an executable progra
   - Click Environment Variables.
   - Edit the PATH variable
 
-![Picture 7](assets/image29.png)
+![w:319px Picture 7](assets/image29.png)
 
-![Picture 11](assets/image30.png)
+![w:337px Picture 11](assets/image30.png)
 
 ---
 
@@ -786,7 +797,7 @@ These steps are essential for transforming your C code into an executable progra
   - Click Environment Variables.
   - Edit the PATH variable
 
-![Picture 9](assets/image31.png)
+![w:548px Picture 9](assets/image31.png)
 
 ---
 
@@ -800,15 +811,15 @@ These steps are essential for transforming your C code into an executable progra
   - Apply and close
 - Click OK on all dialogs to apply changes.
 
-![Picture 9](assets/image32.png)
+![w:518px Picture 9](assets/image32.png)
 
 ---
 
 ## MinGW
 
-![Content Placeholder 4](assets/image33.png)
+![w:501px Content Placeholder 4](assets/image33.png)
 
-![Picture 7](assets/image34.png)
+![w:649px Picture 7](assets/image34.png)
 
 ---
 
@@ -833,17 +844,23 @@ These steps are essential for transforming your C code into an executable progra
 - Compile main.c into an object file main.o:
 - Link the object file main.o into an executable main.exe:
 
+```c
 gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
+```
 
-\# 1) Compile main.c into an object file main.o (no linking).
+```c
+# 1) Compile main.c into an object file main.o (no linking).
+#    Includes debug symbols (-g), enables most warnings (-Wall), uses the C99 standard (-std=c99),
+#    and enforces strict standard conformance (-pedantic).
+```
 
-\#    Includes debug symbols (-g), enables most warnings (-Wall), uses the C99 standard (-std=c99),
-
-\#    and enforces strict standard conformance (-pedantic).
-
+```c
 gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
+```
 
-\# 2) Link the object file into an executable named main.exe.
+```c
+# 2) Link the object file into an executable named main.exe.
+```
 
 ---
 
@@ -901,11 +918,14 @@ These steps are essential for transforming your C code into an executable progra
 
 - Compile and link in one step (from main.c directly to main.exe):
 
+```c
 gcc -g -Wall -std=c99 -pedantic main.c -o main.exe
+```
 
-\# 3) Compile and link in one step: from main.c directly to main.exe,
-
-\#    with the same diagnostic/standard flags as in step 1.
+```c
+# 3) Compile and link in one step: from main.c directly to main.exe,
+#    with the same diagnostic/standard flags as in step 1.
+```
 
 ---
 
@@ -935,19 +955,17 @@ An IDE combines many tools essential for a programmer's work, such as:
 - Visual Studio Code
 - Visual Studio
 
-![Visual Studio Code logo thumbnail](assets/image35.png)
+![w:194px Visual Studio Code logo thumbnail](assets/image35.png)
 
-![Visual Studio logo icon](assets/image36.png)
+![w:194px Visual Studio logo icon](assets/image36.png)
 
-![codeblocks](assets/image37.png)
+![w:182px codeblocks](assets/image37.png)
 
-![Ink 13](assets/image70.png)
+![w:401px Ink 13](assets/image70.png)
 
 ---
 
-## Visual Studio Code – a few facts
-
-VS Code is not a full-fledged IDE but rather a code editor. However, it is often considered an IDE because it includes a built-in file manager, and its extension system allows you to easily add features such as a debugger, compiler, or interpreter.
+## Visual Studio Code – a few facts VS Code is not a full-fledged IDE but rather a code editor. However, it is often considered an IDE because it includes a built-in file manager, and its extension system allows you to easily add features such as a debugger, compiler, or interpreter.
 
 ---
 
@@ -968,13 +986,13 @@ VS Code is not a full-fledged IDE but rather a code editor. However, it is often
 - The highest symbol of a positional numeral system usually has the value one less than the value of the radix of that numeral system. The standard positional numeral systems differ from one another only in the base they use.
 - The radix is an integer that is greater than 1, since a radix of zero would not have any digits, and a radix of 1 would only have the zero digit.
 
-![Picture 2](assets/image38.png)
+![w:238px Picture 2](assets/image38.png)
 
 ---
 
 ## Binary numeral system
 
-![Picture 5](assets/image38.png)
+![w:238px Picture 5](assets/image38.png)
 
 ---
 
@@ -1086,7 +1104,7 @@ Everything else is a combination or interpretation based on these two fundamenta
 
 1300 W Park St, Butte, MT 59701
 
-![Montana Tech | TeenLife](assets/image39.jpeg)
+![w:600px Montana Tech | TeenLife](assets/image39.jpeg)
 
 ---
 
@@ -1099,23 +1117,22 @@ Everything else is a combination or interpretation based on these two fundamenta
 
 1300 W Park St, Butte, MT 59701
 
-![Montana Tech | TeenLife](assets/image39.jpeg)
+![w:600px Montana Tech | TeenLife](assets/image39.jpeg)
 
 ---
 
 ## What is a name of variable?
 
+```c
 int main()
-
 {
+  char* text = "Hello world\n";
 
-  char\* text = "Hello world\n";
+  printf(text);
 
-<br>  printf(text);
-
-<br>    return 0;
-
+    return 0;
 }
+```
 
 In C:
 
@@ -1131,17 +1148,16 @@ In C:
 - a variable name is a **symbolic name**, and when translating the code, the compiler will replace the variable name with the memory location of the data associate
 - every **symbolic name** is an alias for a memory location (address) except for preprocessor instructions
 
+```c
 int main()
-
 {
+  char* text = "Hello world\n";
 
-  char\* text = "Hello world\n";
+  printf(text);
 
-<br>  printf(text);
-
-<br>    return 0;
-
+    return 0;
 }
+```
 
 ---
 
@@ -1178,9 +1194,9 @@ Regardless of the specific coding style, it's common practice to start variable 
 
 Constants, which are values that don't change, are usually written in all uppercase letters, such as MAX\_VALUE
 
-![Camel outline](assets/image40.png)
+![w:96px Camel outline](assets/image40.png)
 
-![Snake outline](assets/image42.png)
+![w:96px Snake outline](assets/image42.png)
 
 ---
 
@@ -1202,103 +1218,85 @@ Constants, which are values that don't change, are usually written in all upperc
 
 ## Declaring and initializing variables
 
+```c
 int main()
-
 {
+  int p;        /* Declaration of variable p with a size of 4 bytes */
+  int q, r, s;  /* Simultaneous declaration of variables q, r, s using "," */
+  q = 2;        /* Assignment of value to variable q - initialization */
+  r = q = s;    /* Assignment of values to q and s based on r */
+  int t = 3;    /* Declaration and initialization on the same line */
 
-  int p;        /\* Declaration of variable p with a size of 4 bytes \*/
+  char v;       /* Variable v of integer type with a size of 1 byte */
+  short int w;  /* Variable w of integer type with a size of 2 bytes */
+  long int x;   /* Variable x of integer type with a size of 4 bytes */
+  short y;      /* Shorthand declaration for short int */
+  long z;       /* Shorthand declaration for long int */
 
-  int q, r, s;  /\* Simultaneous declaration of variables q, r, s using "," \*/
-
-  q = 2;        /\* Assignment of value to variable q - initialization \*/
-
-  r = q = s;    /\* Assignment of values to q and s based on r \*/
-
-  int t = 3;    /\* Declaration and initialization on the same line \*/
-
-<br>  char v;       /\* Variable v of integer type with a size of 1 byte \*/
-
-  short int w;  /\* Variable w of integer type with a size of 2 bytes \*/
-
-  long int x;   /\* Variable x of integer type with a size of 4 bytes \*/
-
-  short y;      /\* Shorthand declaration for short int \*/
-
-  long z;       /\* Shorthand declaration for long int \*/
-
-<br>  float  a = 3.16f;    /\* Variable a of floating-point type with a size of 4 bytes \*/
-
-  double b = a \* 3.0; /\* Variable b of floating-point type with a size of 8 bytes \*/
-
-  /\* Note: short float, long float, and short double do not exist in C \*/
-
-  long double d;      /\* Variable d of floating-point type with a size of 12 bytes \*/
-
+  float  a = 3.16f;    /* Variable a of floating-point type with a size of 4 bytes */
+  double b = a * 3.0; /* Variable b of floating-point type with a size of 8 bytes */
+  /* Note: short float, long float, and short double do not exist in C */
+  long double d;      /* Variable d of floating-point type with a size of 12 bytes */
 }
+```
 
 ---
 
 ## Declaring and initializing variables
 
+```c
 int main()
-
 {
+  int p;        /* Declaration of variable p with a size of 4 bytes */
+  int q, r, s;  /* Simultaneous declaration of variables q, r, s using "," */
+  q = 2;        /* Assignment of value to variable q - initialization */
+  r = q = s;    /* Assignment of values to q and s based on r */
+  int t = 3;    /* Declaration and initialization on the same line */
 
-  int p;        /\* Declaration of variable p with a size of 4 bytes \*/
+  return 0;
+}
+```
 
-  int q, r, s;  /\* Simultaneous declaration of variables q, r, s using "," \*/
-
-  q = 2;        /\* Assignment of value to variable q - initialization \*/
-
-  r = q = s;    /\* Assignment of values to q and s based on r \*/
-
-  int t = 3;    /\* Declaration and initialization on the same line \*/
-
-  return 0;<br>}
-
+```c
 int == long int
+```
 
 ---
 
 ## Declaring and initializing variables
 
+```c
 int main()
-
 {
+  char v;              /* Variable v of integer type with a size of 1 byte */
+  short int w;         /* Variable w of integer type with a size of 2 bytes */
+  long int x;          /* Variable x of integer type with a size of 4 bytes */
+  short y;             /* Shorthand declaration for short int */
+  long z;              /* Shorthand declaration for long int */
 
-  char v;              /\* Variable v of integer type with a size of 1 byte \*/
+  return 0;
+}
+```
 
-  short int w;         /\* Variable w of integer type with a size of 2 bytes \*/
-
-  long int x;          /\* Variable x of integer type with a size of 4 bytes \*/
-
-  short y;             /\* Shorthand declaration for short int \*/
-
-  long z;              /\* Shorthand declaration for long int \*/
-
-  return 0;<br>}
-
+```c
 short == short int
 
 long  == long int == int
+```
 
 ---
 
 ## Declaring and initializing variables
 
+```c
 int main()
-
 {
-
-  float  a = 3.16f;    /\* Variable a of floating-point type with a size of 4 bytes \*/
-
-  double b = a \* 3.0;  /\* Variable b of floating-point type with a size of 8 bytes \*/
-
-                   /\* Note: short float, long float, and short double do not exist in C \*/
-
-  long double d;       /\* Variable d of floating-point type with a size of 12 bytes \*/
-
+  float  a = 3.16f;    /* Variable a of floating-point type with a size of 4 bytes */
+  double b = a * 3.0;  /* Variable b of floating-point type with a size of 8 bytes */
+  				 /* Note: short float, long float, and short double do not exist in C */
+  long double d;       /* Variable d of floating-point type with a size of 12 bytes */
 }
+```
 
 ---
 
@@ -1314,9 +1312,7 @@ int main()
 
 ---
 
-## Two words about floating-point representation
-
-Operations on real numbers are recorded with only a certain degree of precision, and therefore there is a very high probability that the result of (a + b – c) will not be the same as (a - c + b) ! This means that using real numbers requires careful consideration.
+## Two words about floating-point representation Operations on real numbers are recorded with only a certain degree of precision, and therefore there is a very high probability that the result of (a + b – c) will not be the same as (a - c + b) ! This means that using real numbers requires careful consideration.
 
 <!-- but more on that in another course - namely, computer architecture. -->
 
@@ -1328,27 +1324,20 @@ Operations on real numbers are recorded with only a certain degree of precision,
 - We can create a pointer to **any** data type using the \* operator between the existing data type and the symbolic name. Unary Operator &amp; returns memory locations
 - A pointer in C is a reference to a specific memory location
 
+```c
 int main()
-
 {
+  short int p;        /* Declaration of variable p with a size of 2 bytes */
+  short int * q = &p; /* Declaration and initialization of pointer q with a size of 4 bytes
+                         (even though it points to short int) */
+  float*r;            /* Declaration of pointer r to float  */
+  char* s;            /* Declaration of pointer s to char  */
+  int t, *v;          /* Declaration of variable t and pointer v */
+  short int* w, z;    /* Declaration of pointer w to short int and variable z */
 
-  short int p;        /\* Declaration of variable p with a size of 2 bytes \*/
-
-  short int \* q = &amp;p; /\* Declaration and initialization of pointer q with a size of 4 bytes
-
-                         (even though it points to short int) \*/
-
-  float\*r;            /\* Declaration of pointer r to float  \*/
-
-  char\* s;            /\* Declaration of pointer s to char  \*/
-
-  int t, \*v;          /\* Declaration of variable t and pointer v \*/
-
-  short int\* w, z;    /\* Declaration of pointer w to short int and variable z \*/
-
- <br>/\*"Note that the variable type is determined by the position of the asterisk ('\*') in the    declaration. Only the variable directly following the asterisk is considered a pointer. \*/
-
+/*"Note that the variable type is determined by the position of the asterisk ('*') in the    declaration. Only the variable directly following the asterisk is considered a pointer. */
 }
+```
 
 <!-- The size of a pointer is 4 bytes on 32-bit platforms
 asterisk -->
@@ -1407,11 +1396,17 @@ int a\[10\];
 - If you omit the size but provide initial values, the compiler counts them and creates an array of that size.
 - If you specify the size but don't initialize all elements, the remaining ones will have indeterminate, unpredictable values.
 
-&lt;type&gt; symbolic\_name\[size\];
+```c
+<type> symbolic_name[size];
+```
 
-&lt;type&gt; symbolic\_name\[\] = {value1, value2, value3};
+```c
+<type> symbolic_name[] = {value1, value2, value3};
+```
 
-&lt;type&gt; symbolic\_name\[size\] = {value1, value2};
+```c
+<type> symbolic_name[size] = {value1, value2};
+```
 
 ---
 
@@ -1420,89 +1415,68 @@ int a\[10\];
 - Code
 - Preprocessor
 
-\#include &lt;stdio.h&gt;
+```c
+#include <stdio.h>
+
 
 int main()
-
 {
-
-char string\[12\] = "Hello world";
-
-printf("%s", string);
-
-return 0;
-
+	char string[12] = "Hello world";
+	printf("%s", string);
+	return 0;
 }
+```
 
 ---
 
 ## Hello World
 
-\#include &lt;stdio.h&gt;
+```c
+#include <stdio.h>
+
 
 int main()
-
 {
-
-char string\[12\] = "Hello world";
-
-printf("%s", string);
-
-return 0;
-
+	char string[12] = "Hello world";
+	printf("%s", string);
+	return 0;
 }
+```
 
 ---
 
 ## Example of an array
 
+```c
 int main()
-
 {
-
-    char string0\[12\] = "Hello world";
-
-    char string1\[\]   = "Hello world";
-
-    char string2\[12\] = { 72, 101, 108 ,108, 111, 32, 87, 111, 114, 108, 100, 0 };
-
-    char string3\[\]   = { 72, 101, 108 ,108, 111, 32, 87, 111, 114, 108, 100, 0 };
-
-    char string4\[12\] = { 'H', 'e', 'l' , 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '\0' };
-
-    char string5\[\]   = { 'H', 'e', 'l' , 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '\0’ };
-
-    char string6\[12\]   = { 'H', 101, 'l' , 108, 'o', ' ', 'w', 'o', 'r', 'l', 'd’, 0 };
-
+    char string0[12] = "Hello world";
+    char string1[]   = "Hello world";
+    char string2[12] = { 72, 101, 108 ,108, 111, 32, 87, 111, 114, 108, 100, 0 };
+    char string3[]   = { 72, 101, 108 ,108, 111, 32, 87, 111, 114, 108, 100, 0 };
+    char string4[12] = { 'H', 'e', 'l' , 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '\0' };
+    char string5[]   = { 'H', 'e', 'l' , 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '\0’ };
+    char string6[12]   = { 'H', 101, 'l' , 108, 'o', ' ', 'w', 'o', 'r', 'l', 'd’, 0 };
     printf("%s\n", string0);
-
     printf("%s\n", string1);
-
     printf("%s\n", string2);
-
     printf("%s\n", string3);
-
     printf("%s\n", string4);
-
     printf("%s\n", string5);
-
-    printf("%s\n", string6);<br>    return 0;
-
+    printf("%s\n", string6);
+    return 0;
 }
+```
 
+```c
 Hello World
-
 Hello World
-
 Hello World
-
 Hello World
-
 Hello World
-
 Hello World
-
 Hello World
+```
 
 Result:
 
@@ -1514,27 +1488,37 @@ Result:
 - If you omit the size but provide initial values, the compiler counts them and creates an array of that size.
 - If you specify the size but don't initialize all elements, the remaining ones will have indeterminate, unpredictable values.
 
-&lt;type&gt; symbolic\_name\[size\];
+```c
+<type> symbolic_name[size];
+```
 
-&lt;type&gt; symbolic\_name\[\] = {value1, value2, value3};
+```c
+<type> symbolic_name[] = {value1, value2, value3};
+```
 
-&lt;type&gt; symbolic\_name\[size\] = {value1, value2};
+```c
+<type> symbolic_name[size] = {value1, value2};
+```
 
 ---
 
 ## Question: How do we know which letter goes with which number?
 
+```c
 int main()
-
 {
-
-  char text\[\] = { 72, 101, 108 ,108, 111, 32, 87, 111, 114, 108, 100, 10, 13, 0 };
-
-  printf("%s", text); <br>  return 0;
-
+  char text[] = { 72, 101, 108 ,108, 111, 32, 87, 111, 114, 108, 100, 10, 13, 0 };
+  printf("%s", text);
+  return 0;
 }
+```
 
+```c
 Hello World
+
+
+
+```
 
 Result:
 
@@ -1550,73 +1534,42 @@ American Standard Code for Information Interchange
 - \t equals 11
 - White\_Space equals 32
 
+```c
  Val Char                            Val  Char     Val  Char     Val  Char
-
 ---------                            ---------     ---------     ----------
-
-  0  NUL (null)                      32  SPACE     64  @         96  \`
-
+  0  NUL (null)                      32  SPACE     64  @         96  `
   1  SOH (start of heading)          33  !         65  A         97  a
-
   2  STX (start of text)             34  "         66  B         98  b
-
   3  ETX (end of text)               35  #         67  C         99  c
-
   4  EOT (end of transmission)       36  $         68  D        100  d
-
   5  ENQ (enquiry)                   37  %         69  E        101  e
-
-  6  ACK (acknowledge)               38  &amp;         70  F        102  f
-
+  6  ACK (acknowledge)               38  &         70  F        102  f
   7  BEL (bell)                      39  '         71  G        103  g
-
   8  BS  (backspace)                 40  (         72  H        104  h
-
   9  TAB (horizontal tab)            41  )         73  I        105  i
-
- 10  LF  (NL line feed, new line)    42  \*         74  J        106  j
-
+ 10  LF  (NL line feed, new line)    42  *         74  J        106  j
  11  VT  (vertical tab)              43  +         75  K        107  k
-
  12  FF  (NP form feed, new page)    44  ,         76  L        108  l
-
  13  CR  (carriage return)           45  -         77  M        109  m
-
  14  SO  (shift out)                 46  .         78  N        110  n
-
  15  SI  (shift in)                  47  /         79  O        111  o
-
  16  DLE (data link escape)          48  0         80  P        112  p
-
  17  DC1 (device control 1)          49  1         81  Q        113  q
-
  18  DC2 (device control 2)          50  2         82  R        114  r
-
  19  DC3 (device control 3)          51  3         83  S        115  s
-
  20  DC4 (device control 4)          52  4         84  T        116  t
-
  21  NAK (negative acknowledge)      53  5         85  U        117  u
-
  22  SYN (synchronous idle)          54  6         86  V        118  v
-
  23  ETB (end of trans. block)       55  7         87  W        119  w
-
  24  CAN (cancel)                    56  8         88  X        120  x
-
  25  EM  (end of medium)             57  9         89  Y        121  y
-
  26  SUB (substitute)                58  :         90  Z        122  z
-
- 27  ESC (escape)                    59  ;         91  \[        123  {
-
- 28  FS  (file separator)            60  &lt;         92  \        124  |
-
- 29  GS  (group separator)           61  =         93  \]        125  }
-
- 30  RS  (record separator)          62  &gt;         94  ^        126  ~
-
- 31  US  (unit separator)            63  ?         95  \_        127  DEL
+ 27  ESC (escape)                    59  ;         91  [        123  {
+ 28  FS  (file separator)            60  <         92  \        124  |
+ 29  GS  (group separator)           61  =         93  ]        125  }
+ 30  RS  (record separator)          62  >         94  ^        126  ~
+ 31  US  (unit separator)            63  ?         95  _        127  DEL
+```
 
 <!-- ASCII: abbreviated from American Standard Code for Information Interchange, is a character encoding standard for electronic communication. ASCII codes represent text in computers, telecommunications equipment, and other devices. Because of technical limitations of computer systems at the time it was invented, ASCII has just 128 code points, of which only 95 are printable characters, which severely limited its scope. Modern computer systems have evolved to use Unicode, which has millions of code points, but the first 128 of these are the same as the ASCII set.
 '5' has the int value 53 if we write '5'-'0' it evaluates to 53-48, or the int 5 if we write char c = 'B'+32; then c stores 'b' -->
@@ -1630,11 +1583,17 @@ American Standard Code for Information Interchange
 - Three dimensions:
 - etc.
 
-&lt;type&gt; symbolic\_name\[size\];
+```c
+<type> symbolic_name[size];
+```
 
-&lt;type&gt; symbolic\_name\[size1\]\[size2\];
+```c
+<type> symbolic_name[size1][size2];
+```
 
-&lt;type&gt; symbolic\_name\[size1\]\[size2\]\[size3\];
+```c
+<type> symbolic_name[size1][size2][size3];
+```
 
 ---
 
@@ -1656,57 +1615,39 @@ American Standard Code for Information Interchange
 
 ## Every line of code in C can have its own label
 
+```c
 int main()
-
 {
-
-label1:  int x = /\* inline comment \*/ 5;
-
+label1:  int x = /* inline comment */ 5;
 label2:
-
-label3:  char string\[12\] = "Hello world"; /\* comment behind the line \*/
-
+label3:  char string[12] = "Hello world"; /* comment behind the line */
 label4:  printf("%s", string);
-
-label5:  /\* a comment
-
-composed of
-
-a few lines \*/
-
+label5:  /* a comment
+		composed of
+		a few lines */
 label7:
-
 label8:    return 0;
-
 }
+```
 
 ---
 
 ## Every line of code in C can have its own label
 
+```c
 int main()
-
 {
-
-label1:  int x = /\* inline comment \*/ 5;
-
+label1:  int x = /* inline comment */ 5;
 label2:
-
-label3:  char string\[12\] = "Hello world"; /\* comment behind the line \*/
-
+label3:  char string[12] = "Hello world"; /* comment behind the line */
 label4:  printf("%s", string);
-
-label5:  /\* a comment
-
-composed of
-
-a few lines \*/
-
+label5:  /* a comment
+		composed of
+		a few lines */
 label7:
-
 label8:    return 0;
-
 }
+```
 
 ---
 
@@ -1758,15 +1699,11 @@ Now that you've visualized this sequence, we can reiterate that the essence of m
 
 ---
 
-## One more time
-
-When we present the stack as a pile of plates or cards, it's actually quite misleading. In reality, the stack is a one-dimensional, continuous memory area that we can reference with byte-level accuracy through addresses. While it's true that the push and pop operations can parallel the idea of stacking or removing plates or cards, the mistake lies in assuming you can place an entire array, which could be quite large. In this case, the metaphor hinders understanding rather than helping. There's also no issue with placing a whole array on the stack and later retrieving just a portion of it rather than the entire thing.
+## One more time When we present the stack as a pile of plates or cards, it's actually quite misleading. In reality, the stack is a one-dimensional, continuous memory area that we can reference with byte-level accuracy through addresses. While it's true that the push and pop operations can parallel the idea of stacking or removing plates or cards, the mistake lies in assuming you can place an entire array, which could be quite large. In this case, the metaphor hinders understanding rather than helping. There's also no issue with placing a whole array on the stack and later retrieving just a portion of it rather than the entire thing.
 
 ---
 
-## An address of memory
-
-This is a great place to explain the concept of a memory address. Imagine RAM as a long sequence of bits. Each variable occupies a specific location in this sequence, and the address indicates exactly where it is. For the computer to know how much space to allocate for data, we need to determine the size of arrays beforehand. This is why the size of an array must be known before the program is run. The heap is another area of memory that allows for more flexible memory management.
+## An address of memory This is a great place to explain the concept of a memory address. Imagine RAM as a long sequence of bits. Each variable occupies a specific location in this sequence, and the address indicates exactly where it is. For the computer to know how much space to allocate for data, we need to determine the size of arrays beforehand. This is why the size of an array must be known before the program is run. The heap is another area of memory that allows for more flexible memory management.
 
 ---
 
@@ -1785,58 +1722,72 @@ This is a great place to explain the concept of a memory address. Imagine RAM as
 
 ---
 
-## Function arguments
-
-Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
+## Function arguments Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
 
 ---
 
-## by the Value
+## by the Value Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
 
-Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
+```c
+5
+5
 
-- 5
-- 5
+```
+
 - Result:
-- \#include &lt;stdio.h&gt;
-- <br>void byTheValue(int);
-- <br>void byTheValue(int value)
-- {
--     value++;
--     return;
-- }
-- int main()
-- {
--     int x = 5;
--     printf("%d\n", x);
--     byTheValue(x);
--     printf("%d\n", x);
--   return 0;
-- }
+
+```c
+#include <stdio.h>
+
+void byTheValue(int);
+
+void byTheValue(int value)
+{
+    value++;
+    return;
+}
+
+int main()
+{
+    int x = 5;
+    printf("%d\n", x);
+    byTheValue(x);
+    printf("%d\n", x);
+  return 0;
+}
+```
 
 ---
 
-## by the Reference
+## by the Reference Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
 
-Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
+```c
+#include <stdio.h>
 
-- \#include &lt;stdio.h&gt;
-- <br>void byTheReference(int\*);
-- <br>void byTheReference(int\* ref)
-- {
--     (\*ref)++;
--     return;
-- }
-- int main()
-- {
--     int x = 5;
--     printf("%d\n", x);
--     byTheReference(&amp;x);
--     printf("%d\n", x);
--   return 0;
-- }
-- 5
-- 6
+void byTheReference(int*);
+
+void byTheReference(int* ref)
+{
+    (*ref)++;
+    return;
+}
+
+int main()
+{
+    int x = 5;
+    printf("%d\n", x);
+    byTheReference(&x);
+    printf("%d\n", x);
+  return 0;
+}
+```
+
+```c
+5
+6
+
+```
+
 - Result:
 
 ---

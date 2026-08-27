@@ -13,7 +13,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-![Graphic 3](assets/image2.png)
+![w:277px Graphic 3](assets/image2.png)
 
 ---
 
@@ -32,33 +32,31 @@ title: "CSCI 112  Programming with C"
 
 ## Extended example
 
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
-
+```c
+#include <stdio.h>
+int main()
+{
     int x = 5;
-
-    int arr1\[7\] = {9, 8, 7, 6, 5, 4, 3};
-
+    int arr1[7] = {9, 8, 7, 6, 5, 4, 3};
     // Dereferencing the address of x to get its value (same as just x)
+    printf("Value at address of %-20s = %d\n", "x", *&x);
+    // Dereferencing the array name gives the first element's value (arr1[0])
+    printf("Value at address of %-20s = %d\n", "arr1 (array name)", *arr1);
 
-    printf("Value at address of %-20s = %d\n", "x", \*&amp;x);
 
-    // Dereferencing the array name gives the first element's value (arr1\[0\])
+    printf("Value at address of %-20s = %d\n", "arr1 (array name)", *arr1+1 );
+    printf("Value at address of %-20s = %d\n", "arr1 (array name)", *(arr1+1) );
+}
+```
 
-    printf("Value at address of %-20s = %d\n", "arr1 (array name)", \*arr1);
+```c
+Value at address of x                    = 5
+Value at address of arr1 (array name)    = 9
+Value at address of arr1 (array name)    = 10
+Value at address of arr1 (array name)    = 8
 
-<br>
+```
 
-    printf("Value at address of %-20s = %d\n", "arr1 (array name)", \*arr1+1 );
-
-    printf("Value at address of %-20s = %d\n", "arr1 (array name)", \*(arr1+1) );
-
-- }
-- Value at address of x                    = 5
-- Value at address of arr1 (array name)    = 9
-- Value at address of arr1 (array name)    = 10
-- Value at address of arr1 (array name)    = 8
 - Result:
 - Priority!!!
 
@@ -80,31 +78,46 @@ title: "CSCI 112  Programming with C"
 ||+=||
 |15|,|LR|
 
-- int main()
-- {
--   {
--     int x = 1, y = 2;
--     x += y = 3 + x \* y;
--     printf("%d\n", x);
--   }
--   {
--     int x = 1, y = 2;
--     x += x = y = 3 + x - y;
--     printf("%d\n", x);
--   }
-- }
-- 6
-- 4
+```c
+int main()
+{
+  {
+    int x = 1, y = 2;
+    x += y = 3 + x * y;
+    printf("%d\n", x);
+  }
+  {
+    int x = 1, y = 2;
+    x += x = y = 3 + x - y;
+    printf("%d\n", x);
+  }
+}
+```
+
+```c
+6
+4
+
+
+```
+
 - Result:
-- x += y = 3 + x \* y;            /\* 2 \*/
-- x += y = 3 + 2;                /\* 5 \*/
-- x += y = 5;                /\*y=5\*/
-- x += 5;                    /\*x=6\*/
-- x += x = y = 3 + x - y;         /\* 4 \*/
-- x += x = y = 4 - y;            /\* 2 \*/
-- x += x = y = 2;             /\*y=2\*/
-- x += x = 2;                 /\*x=2\*/
-- x += 2;                     /\*x=4\*/
+
+```c
+x += y = 3 + x * y;			/* 2 */
+x += y = 3 + 2;				/* 5 */
+x += y = 5;				/*y=5*/
+x += 5;					/*x=6*/
+```
+
+```c
+x += x = y = 3 + x - y; 		/* 4 */
+x += x = y = 4 - y;			/* 2 */
+x += x = y = 2; 			/*y=2*/
+x += x = 2; 				/*x=2*/
+x += 2; 					/*x=4*/
+
+```
 
 Left-to-right associativity means that when there are two operators with the same priority, the operator on the left is evaluated first. In right-to-left associativity, the opposite is true.
 
@@ -146,91 +159,136 @@ eg.: #include&lt;stdio.h&gt;
 
 ## Preprocessor directives - macro substitution
 
-\#define symbolic\_name replaced\_text
+```c
+#define symbolic_name replaced_text
+Macros are not terminated with semicolons, unlike regular code statements, making them easily distinguishable.
 
-- Macros are not terminated with semicolons, unlike regular code statements, making them easily distinguishable.
-- Writing macro-defined constants in uppercase is a best practice to emphasize their immutable nature. While the compiler won't complain, these values cannot be changed during runtime and are not accessible for debugging.
-- \#define PI 3.14159
-- \#define some\_text "abcde"
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--     printf( "%s\n", some\_text );
--     printf( "%f\n", PI + 0.5f );
-- }
-- abcde
-- 3.641590
-- Result:
-- \#define PI 3.14159
-- \#define some\_text "abcde"
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--     printf( "%s\n", "abcde" );
--     printf( "%f\n", 3.14159 + 0.5f );
-- }
 
----
 
-## Preprocessor directives - macro substitution
+Writing macro-defined constants in uppercase is a best practice to emphasize their immutable nature. While the compiler won't complain, these values cannot be changed during runtime and are not accessible for debugging.
+```
 
-- \#define symbolic\_name replaced\_text
-- Macros are not terminated with semicolons, unlike regular code statements, making them easily distinguishable.
-- \#define square(y) (y \* y)
-- \#define merge(left, right) left ## right
-- \#define some\_text "abcde"
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--     char \* word1 = "Hello";
--     char \* word2 = "world";
--     int x = 5;
--     printf( "%s\n", some\_text );
--     printf( "%d\n", square(x) );
--     printf( "%s\n", merge(word, 1) );
-- }
-- abcde
-- 25
-- Hello
-- Result:
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--     char \* word1 = "Hello";
--     char \* word2 = "world";
--     int x = 5;
--     printf( "%s\n", "abcde" );
--     printf( "%d\n", (x \* x) );
--     printf( "%s\n", word1 );
-- }
+```c
+#define PI 3.14159
+#define some_text "abcde"
 
----
-
-## Preprocessor directives - macro substitution
-
-- \#define symbolic\_name replaced\_text
-- Macros are not terminated with semicolons, unlike regular code statements, making them easily distinguishable.
-- \#define min(a, b) ( (a) &lt; (b) ? (a) : (b) )
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--     printf("%s\n", min("abc", "cde"));
--     printf("%s\n", min("aac", “aab"));
-- }
-- cde
-- aab
-- Result:
-- \#include &lt;stdio.h&gt;
+#include <stdio.h>
 
 int main()
-
 {
+    printf( "%s\n", some_text );
+    printf( "%f\n", PI + 0.5f );
+}
+```
 
-    printf("%s\n", ( ("abc") &lt; ("cde") ? ("abc") : ("cde") ));
+```c
+abcde
+3.641590
+```
 
-    printf("%s\n", ( ("aac") &lt; ("aab") ? ("aac") : ("aab") ));
+- Result:
+
+```c
+#define PI 3.14159
+#define some_text "abcde"
+
+#include <stdio.h>
+
+int main()
+{
+    printf( "%s\n", "abcde" );
+    printf( "%f\n", 3.14159 + 0.5f );
+}
+```
+
+---
+
+## Preprocessor directives - macro substitution
+
+```c
+#define symbolic_name replaced_text
+```
+
+- Macros are not terminated with semicolons, unlike regular code statements, making them easily distinguishable.
+
+```c
+#define square(y) (y * y)
+#define merge(left, right) left ## right
+#define some_text "abcde"
+
+#include <stdio.h>
+
+int main()
+{
+    char * word1 = "Hello";
+    char * word2 = "world";
+    int x = 5;
+    printf( "%s\n", some_text );
+    printf( "%d\n", square(x) );
+    printf( "%s\n", merge(word, 1) );
+}
+```
+
+```c
+abcde
+25
+Hello
+```
+
+- Result:
+
+```c
+#include <stdio.h>
+int main()
+{
+    char * word1 = "Hello";
+    char * word2 = "world";
+    int x = 5;
+    printf( "%s\n", "abcde" );
+    printf( "%d\n", (x * x) );
+    printf( "%s\n", word1 );
+}
+```
+
+---
+
+## Preprocessor directives - macro substitution
+
+```c
+#define symbolic_name replaced_text
+```
+
+- Macros are not terminated with semicolons, unlike regular code statements, making them easily distinguishable.
+
+```c
+#define min(a, b) ( (a) < (b) ? (a) : (b) )
+
+#include <stdio.h>
+
+int main()
+{
+    printf("%s\n", min("abc", "cde"));
+    printf("%s\n", min("aac", “aab"));
 
 }
+```
+
+```c
+cde
+aab
+
+```
+
+- Result:
+
+```c
+#include <stdio.h>
+int main()
+{
+    printf("%s\n", ( ("abc") < ("cde") ? ("abc") : ("cde") ));
+    printf("%s\n", ( ("aac") < ("aab") ? ("aac") : ("aab") ));
+}
+```
 
 - It works because it's a ternary operator!
 
@@ -238,39 +296,51 @@ int main()
 
 ## Conditional compilation
 
-- \#if (conditional1)
-- statement1;
-- \#elif (conditional2)
-- statement2;
-- \#else
-- statement3;
-- \#endif
-- \#include &lt;stdio.h&gt;
-- \#define DEBUG 1
-- \#define n 10
-- int main()
-- {
--     int arr\[n\];
--     int i;
--     for (i = 0; i &lt; n; i++)
--     {
--         arr\[i\] = rand() % 100;
--         \#if (DEBUG)   /\* wiersz z if \*/
--             printf("A value of arr\[%d\] =  %d\n", i, arr\[i\]);
--         \#endif
--     }
-- <br>    return 0;
-- }
-- A value of arr\[0\] =  41
-- A value of arr\[1\] =  67
-- A value of arr\[2\] =  34
-- A value of arr\[3\] =  0
-- A value of arr\[4\] =  69
-- A value of arr\[5\] =  24
-- A value of arr\[6\] =  78
-- A value of arr\[7\] =  58
-- A value of arr\[8\] =  62
-- A value of arr\[9\] =  64
+```c
+#if (conditional1)
+	statement1;
+#elif (conditional2)
+	statement2;
+#else
+	statement3;
+#endif
+```
+
+```c
+#include <stdio.h>
+#define DEBUG 1
+#define n 10
+
+int main()
+{
+    int arr[n];
+    int i;
+    for (i = 0; i < n; i++)
+    {
+        arr[i] = rand() % 100;
+        #if (DEBUG)   /* wiersz z if */
+            printf("A value of arr[%d] =  %d\n", i, arr[i]);
+        #endif
+    }
+
+    return 0;
+}
+```
+
+```c
+A value of arr[0] =  41
+A value of arr[1] =  67
+A value of arr[2] =  34
+A value of arr[3] =  0
+A value of arr[4] =  69
+A value of arr[5] =  24
+A value of arr[6] =  78
+A value of arr[7] =  58
+A value of arr[8] =  62
+A value of arr[9] =  64
+
+```
+
 - Result:
 
 ---
@@ -283,24 +353,34 @@ int main()
 
 \_\_TIME\_\_    file compilation time
 
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--     printf("%s", \_\_TIME\_\_);
--     printf("%s", \_\_FILE\_\_);
--     printf("%s", \_\_DATE\_\_);
-- }
-- 11:24:35
-- C:\Users\Jakub\Desktop\CSCI112\main.c
-- Sep 26 2024
+```c
+#include <stdio.h>
+
+int main()
+{
+    printf("%s", __TIME__);
+    printf("%s", __FILE__);
+    printf("%s", __DATE__);
+}
+```
+
+```c
+11:24:35
+C:\Users\Jakub\Desktop\CSCI112\main.c
+Sep 26 2024
+```
+
 - Result:
 
 ---
 
 ## File inclusion
 
-- Using **&lt;&gt;** (angle brackets)    –    e.g. #include &lt;file\_name.h&gt;
-- Using **""** (double quotes)    –    e.g. #include "file\_name.h"
+```c
+Using <> (angle brackets)	–	e.g. #include <file_name.h>
+Using "" (double quotes)	–	e.g. #include "file_name.h"
+
+```
 
 ---
 
@@ -352,18 +432,31 @@ int main()
 
 - The important difference between printf and scanf is that scanf requires its arguments to be location in memory.
 - The ampersand operator &amp; is a unary operator that returns the memory address, which is the location in memory where a variable is stored.
-- int main()
-- {
--   int x = 5;                      /\* Declaration of variable x and assigning its value 5 \*/
--   printf("Enter x value : ");         /\* there is no end of line character here! \*/
--   scanf("%d", &amp;x);                 /\* To get a pointer (memory address) \*/
--   printf("Value of x = %d\n", x);     /\* we use a &amp; before the variable name p \*/
-- }
-- Enter x value : 1
-- Value of x = 1
+
+```c
+int main()
+{
+  int x = 5;          			/* Declaration of variable x and assigning its value 5 */
+  printf("Enter x value : "); 		/* there is no end of line character here! */
+  scanf("%d", &x);     			/* To get a pointer (memory address) */
+  printf("Value of x = %d\n", x); 	/* we use a & before the variable name p */
+}
+```
+
+```c
+Enter x value : 1
+Value of x = 1
+```
+
 - Result:
-- int printf (char format\[\],  arg1,  arg2 ,...);
-- int scanf  (char format\[\], \*arg1, \*arg2 ,...);
+
+```c
+int printf (char format[],  arg1,  arg2 ,...);
+```
+
+```c
+int scanf  (char format[], *arg1, *arg2 ,...);
+```
 
 ---
 
@@ -371,19 +464,32 @@ int main()
 
 - The important difference between printf and scanf is that scanf requires its arguments to be location in memory.
 - The ampersand operator &amp; is a unary operator that returns the memory address, which is the location in memory where a variable is stored.
-- int main()
-- {
--   int x = 5;                      /\* Declaration of variable x and assigning its value 5 \*/
--   printf("Enter x value : ");         /\* there is no end of line character here! \*/
--   scanf("%d", &amp;x);                 /\* To get a pointer (memory address) \*/
-- while (getchar() != '\n’);
--   printf("Value of x = %d\n", x);     /\* we use a &amp; before the variable name p \*/
-- }
-- Enter x value : 1
-- Value of x = 1
+
+```c
+int main()
+{
+  int x = 5;          			/* Declaration of variable x and assigning its value 5 */
+  printf("Enter x value : "); 		/* there is no end of line character here! */
+  scanf("%d", &x);     			/* To get a pointer (memory address) */
+  while (getchar() != '\n’);
+  printf("Value of x = %d\n", x); 	/* we use a & before the variable name p */
+}
+```
+
+```c
+Enter x value : 1
+Value of x = 1
+```
+
 - Result:
-- int printf (char format\[\],  arg1,  arg2 ,...);
-- int scanf  (char format\[\], \*arg1, \*arg2 ,...);
+
+```c
+int printf (char format[],  arg1,  arg2 ,...);
+```
+
+```c
+int scanf  (char format[], *arg1, *arg2 ,...);
+```
 
 ---
 
@@ -417,21 +523,30 @@ int main()
 ## Huge problems… undefined behavior
 
 - Do not increment (decrement) a variable in an expression if you need to use the original value of the variable later!
-- int main()
-- {
--   {
--     int x = 1, y;
--     y = x + 2 + ++x;
--     printf("%d\n", y);
--   }
--   {
--     int x = 1, y;
--     y = x + ++x;
--     printf("%d\n", y);
--   }
-- }
-- 5
-- 4
+
+```c
+int main()
+{
+  {
+    int x = 1, y;
+    y = x + 2 + ++x;
+    printf("%d\n", y);
+  }
+  {
+    int x = 1, y;
+    y = x + ++x;
+    printf("%d\n", y);
+  }
+}
+```
+
+```c
+5
+4
+
+
+```
+
 - Result:
 - When modifying and using a variable multiple times within the same expression, it may lead to undefined behavior!
 
@@ -447,7 +562,9 @@ int main()
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
+```c
+Format =  %[flags][width][.precision][modifier]<type>
+```
 
 ---
 
@@ -469,7 +586,10 @@ Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
 
 ## Width
 
-- int main()<br>{ int x = 5, y = -6; int \* z; float f = 3.1234f; /\*code\*/ }
+```c
+int main()
+{ int x = 5, y = -6; int * z; float f = 3.1234f; /*code*/ }
+```
 
 |Data|Type||Description|Example|Result|
 |---|---|---|---|---|---|
@@ -484,7 +604,10 @@ Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
 
 ## Precision
 
-- int main()<br>{ int x = 5, y = -6; int \* z; float f = 3.1234f; /\*code\*/ }
+```c
+int main()
+{ int x = 5, y = -6; int * z; float f = 3.1234f; /*code*/ }
+```
 
 |Data|Type||Description|Example|Result|
 |---|---|---|---|---|---|
@@ -510,7 +633,11 @@ Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
 
 ## Modifies
 
-- int main()<br>{ short int x = 65;  int y = -69000; <br>  float fRealNumber = 3.1234f; double dRealNumber = 3.4e50; /\*code\*/ }
+```c
+int main()
+{ short int x = 65;  int y = -69000;
+  float fRealNumber = 3.1234f; double dRealNumber = 3.4e50; /*code*/ }
+```
 
 |Data|Type||Description|Example|Result|
 |---|---|---|---|---|---|
@@ -525,32 +652,38 @@ Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
 
 ## Declaring and initializing arrays
 
-- int main()
-- {
--   int a\[5\];
--   /\* Declare an integer array named a with 5 elements \*/
--   int b\[\] = {1, 2, 3, 4};
--   /\*Declare an integer array named b with 4 elements,
--     initialized with values 1, 2, 3, and 4            \*/
--   int c\[10\] = {9, 8, 7, 6, 5};
--   /\*Declare an integer array named c with 10 elements,
--     the first 5 elements are initialized with values 9, 8, 7, 6, and 5,
--     the remaining elements are initialized to 0                 \*/
--   int d\[100\] = {0};
--   /\*Declare an integer array named d with 100 elements, all initialized to 0\*/
--   int x, y = 2;
--   printf("First element (index 0) of array a equals %d.\n", a\[0\]);
--   /\*Print the value of the first element of array a(undefined value)\*/
--   printf("Second(index 1) element of array b equals %d.\n", b\[1\]);
--   /\*Print the value of the second element of array b (which is 2)\*/
--   printf("Second(index 1) element of array b equals %d.\n", \*(b+1) );
--   /\*Print the value of the second element of array b using pointer arithmetic\*/
--   printf("Sixth(index 5) element of array c equals %d.\n", c\[5\]);
-- }
-- First element (index 0) of array a equals 4201200.
-- Second(index 1) element of array b equals 2.
-- Second(index 1) element of array b equals 2.
-- Sixth(index 5) element of array c equals 0.
+```c
+int main()
+{
+  int a[5];
+  /* Declare an integer array named a with 5 elements */
+  int b[] = {1, 2, 3, 4};
+  /*Declare an integer array named b with 4 elements,
+    initialized with values 1, 2, 3, and 4            */
+  int c[10] = {9, 8, 7, 6, 5};
+  /*Declare an integer array named c with 10 elements,
+    the first 5 elements are initialized with values 9, 8, 7, 6, and 5,
+    the remaining elements are initialized to 0       		  */
+  int d[100] = {0};
+  /*Declare an integer array named d with 100 elements, all initialized to 0*/
+  int x, y = 2;
+  printf("First element (index 0) of array a equals %d.\n", a[0]);
+  /*Print the value of the first element of array a(undefined value)*/
+  printf("Second(index 1) element of array b equals %d.\n", b[1]);
+  /*Print the value of the second element of array b (which is 2)*/
+  printf("Second(index 1) element of array b equals %d.\n", *(b+1) );
+  /*Print the value of the second element of array b using pointer arithmetic*/
+  printf("Sixth(index 5) element of array c equals %d.\n", c[5]);
+}
+```
+
+```c
+First element (index 0) of array a equals 4201200.
+Second(index 1) element of array b equals 2.
+Second(index 1) element of array b equals 2.
+Sixth(index 5) element of array c equals 0.
+```
+
 - Result:
 
 ---
@@ -625,31 +758,44 @@ This applies to **local variables, global variables, and function parameters** (
 
 ## Some examples
 
-- int main()
-- {
--   int x = 5, y = 7;
--   int \* p = &amp;x;
--   printf("y equals %d.\n\n",  y );
-- <br>  printf("&amp;y\t\tequals %d.\n", &amp;y );
--   printf("\*(&amp;y)\t\tequals %d.\n", \*(&amp;y) );
--   printf("&amp;(\*(&amp;y))\tequals %d.\n", &amp;(\*(&amp;y)) );
--   printf("&amp;\*&amp;y\t\tequals %d.\n", &amp;\*&amp;y );
--   printf("\*&amp;\*&amp;y\t\tequals %d.\n\n", \*&amp;\*&amp;y );
-- <br>  printf("&amp;x\t\tequals %d.\n", &amp;x );
--   printf("p\t\tequals %d.\n", p );
--   printf("&amp;p\t\tequals %d.\n", &amp;p );
--   printf("\*p\t\tequals %d.\n\n", \*p );
-- <br>  return 0; <br>}
-- y equals 7.
-- &amp;y              equals 6422292.
-- \*(&amp;y)           equals 7.
-- &amp;(\*(&amp;y))        equals 6422292.
-- &amp;\*&amp;y            equals 6422292.
-- \*&amp;\*&amp;y           equals 7.
-- &amp;x              equals 6422296.
-- p               equals 6422296.
-- &amp;p              equals 6422288.
-- \*p              equals 5.
+```c
+int main()
+{
+  int x = 5, y = 7;
+  int * p = &x;
+  printf("y equals %d.\n\n",  y );
+
+  printf("&y\t\tequals %d.\n", &y );
+  printf("*(&y)\t\tequals %d.\n", *(&y) );
+  printf("&(*(&y))\tequals %d.\n", &(*(&y)) );
+  printf("&*&y\t\tequals %d.\n", &*&y );
+  printf("*&*&y\t\tequals %d.\n\n", *&*&y );
+
+  printf("&x\t\tequals %d.\n", &x );
+  printf("p\t\tequals %d.\n", p );
+  printf("&p\t\tequals %d.\n", &p );
+  printf("*p\t\tequals %d.\n\n", *p );
+
+  return 0;
+}
+```
+
+```c
+y equals 7.
+
+&y              equals 6422292.
+*(&y)           equals 7.
+&(*(&y))        equals 6422292.
+&*&y            equals 6422292.
+*&*&y           equals 7.
+
+&x              equals 6422296.
+p               equals 6422296.
+&p              equals 6422288.
+*p              equals 5.
+
+```
+
 - Result:
 
 ||Memory Addresses and Values|||
@@ -685,81 +831,112 @@ This applies to **local variables, global variables, and function parameters** (
 
 ---
 
-## Function arguments
-
-Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
+## Function arguments Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
 
 ---
 
 ## by the Value
 
 - Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
-- 5
-- 5
+
+```c
+5
+5
+
+```
+
 - Result:
-- \#include &lt;stdio.h&gt;
-- <br>void byTheValue(int);
-- <br>void byTheValue(int x)
-- {
--     x++;
--     return;
-- }
-- int main()
-- {
--     int x = 5;
--     printf("%d\n", x);
--     byTheValue(x);
--     printf("%d\n", x);
--   return 0;
-- }
+
+```c
+#include <stdio.h>
+
+void byTheValue(int);
+
+void byTheValue(int x)
+{
+    x++;
+    return;
+}
+
+int main()
+{
+    int x = 5;
+    printf("%d\n", x);
+    byTheValue(x);
+    printf("%d\n", x);
+  return 0;
+}
+```
 
 ---
 
 ## by the Value
 
 - Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
-- 5
-- 5
+
+```c
+5
+5
+
+```
+
 - Result:
-- \#include &lt;stdio.h&gt;
-- <br>void byTheValue(int);
-- <br>void byTheValue(int value)
-- {
--     value++;
--     return;
-- }
-- int main()
-- {
--     int x = 5;
--     printf("%d\n", x);
--     byTheValue(x);
--     printf("%d\n", x);
--   return 0;
-- }
+
+```c
+#include <stdio.h>
+
+void byTheValue(int);
+
+void byTheValue(int value)
+{
+    value++;
+    return;
+}
+
+int main()
+{
+    int x = 5;
+    printf("%d\n", x);
+    byTheValue(x);
+    printf("%d\n", x);
+  return 0;
+}
+```
 
 ---
 
 ## by the Reference
 
 - Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
-- 5
-- 6
+
+```c
+5
+6
+
+```
+
 - Result:
-- \#include &lt;stdio.h&gt;
-- <br>void byTheReference(int\*);
-- <br>void byTheReference(int\* ref)
-- {
--     (\*ref)++;
--     return;
-- }
-- int main()
-- {
--     int x = 5;
--     printf("%d\n", x);
--     byTheReference(&amp;x);
--     printf("%d\n", x);
--   return 0;
-- }
+
+```c
+#include <stdio.h>
+
+void byTheReference(int*);
+
+void byTheReference(int* ref)
+{
+    (*ref)++;
+    return;
+}
+
+int main()
+{
+    int x = 5;
+    printf("%d\n", x);
+    byTheReference(&x);
+    printf("%d\n", x);
+  return 0;
+}
+```
 
 ---
 
@@ -773,14 +950,22 @@ Function arguments are always **copies** of our variables, and **not** the same 
 
 This statement reserves space in memory for 10 integers and creates an 'unchanging address of memory' that points to the beginning of this array.
 
-- int main()
-- {
--   int a\[\] = {1, 2, 3, 4, 5, 6, 7};
--   printf("%-4s equals %d.\n", "a", a);
--   /\*a equals'unchanging address of memory’\*/
--   return 0;
-- }
-- a    equals 6422272.
+```c
+int main()
+{
+  int a[] = {1, 2, 3, 4, 5, 6, 7};
+  printf("%-4s equals %d.\n", "a", a);
+  /*a equals'unchanging address of memory’*/
+  return 0;
+}
+```
+
+```c
+a    equals 6422272.
+
+
+```
+
 - Result:
 
 ![Ink 17](assets/image140.png)
@@ -791,34 +976,21 @@ This statement reserves space in memory for 10 integers and creates an 'unchangi
 
 ## Relations between pointers and arrays
 
-- int main()
-- {
--   int a\[\] = {1, 2, 3, 4, 5, 6, 7};
--   printf("%-4s equals %d.\n","a", a);
--   printf("%-4s equals %d.\n","&amp;a", &amp;a);
--   printf("%-4s equals %d.\n","\*a", \*a);
--   return 0;
-- }
-- a    equals 6422272.
-- ?
-- Result:
+```c
+int main()
+{
+  int a[] = {1, 2, 3, 4, 5, 6, 7};
+  printf("%-4s equals %d.\n","a", a);
+  printf("%-4s equals %d.\n","&a", &a);
+  printf("%-4s equals %d.\n","*a", *a);
+  return 0;
+}
+```
 
----
-
-## Relations between pointers and arrays
-
-- int main()
-- {
--   int a\[\] = {1, 2, 3, 4, 5, 6, 7};
--   printf("%-4s equals %d.\n","a", a);
--   printf("%-4s equals %d.\n","&amp;a", &amp;a);
--   printf("%-4s equals %d.\n","\*a", \*a);
--   return 0;
-- }
-- a    equals 6422272.
-- &amp;a   equals 6422272.
-
+```c
+a    equals 6422272.
 ?
+```
 
 - Result:
 
@@ -826,51 +998,87 @@ This statement reserves space in memory for 10 integers and creates an 'unchangi
 
 ## Relations between pointers and arrays
 
-- int main()
-- {
--   int a\[\] = {1, 2, 3, 4, 5, 6, 7};
--   printf("%-4s equals %d.\n","a", a);
--   printf("%-4s equals %d.\n","&amp;a", &amp;a);
--   printf("%-4s equals %d.\n","\*a", \*a);
--   return 0;
-- }
-- a    equals 6422272.
-- &amp;a   equals 6422272.
-- \*a   equals 1.
+```c
+int main()
+{
+  int a[] = {1, 2, 3, 4, 5, 6, 7};
+  printf("%-4s equals %d.\n","a", a);
+  printf("%-4s equals %d.\n","&a", &a);
+  printf("%-4s equals %d.\n","*a", *a);
+  return 0;
+}
+```
+
+```c
+a    equals 6422272.
+&a   equals 6422272.
+?
+```
+
 - Result:
 
 ---
 
 ## Relations between pointers and arrays
 
-**So, what does it mean?**
+```c
+int main()
+{
+  int a[] = {1, 2, 3, 4, 5, 6, 7};
+  printf("%-4s equals %d.\n","a", a);
+  printf("%-4s equals %d.\n","&a", &a);
+  printf("%-4s equals %d.\n","*a", *a);
+  return 0;
+}
+```
 
-- int main()
-- {
--   int x = 5, y = 7, z = 9;
--   int \* pointer = &amp;y;
--   printf("%-4s equals %d.\n", "x", &amp;x);
--   printf("%-4s equals %d.\n", "y", &amp;y);
--   printf("%-4s equals %d.\n", "z", &amp;z);
--   printf("%-4s equals %d.\n", "pointer", pointer);
--   printf("%-4s equals %d.\n", "pointer\*", \*pointer);
--   printf("%-4s equals %d.\n", "pointer\[1\]", pointer\[1\]);
--   return 0;
-- }
-- x    equals 6422292.
-- y    equals 6422288.
-- z    equals 6422284.
-- pointer equals 6422288.
-- pointer\* equals 7.
-- pointer\[1\] equals 5.
+```c
+a    equals 6422272.
+&a   equals 6422272.
+*a   equals 1.
+```
+
+- Result:
+
+---
+
+## Relations between pointers and arrays **So, what does it mean?**
+
+```c
+int main()
+{
+  int x = 5, y = 7, z = 9;
+  int * pointer = &y;
+  printf("%-4s equals %d.\n", "x", &x);
+  printf("%-4s equals %d.\n", "y", &y);
+  printf("%-4s equals %d.\n", "z", &z);
+  printf("%-4s equals %d.\n", "pointer", pointer);
+  printf("%-4s equals %d.\n", "pointer*", *pointer);
+  printf("%-4s equals %d.\n", "pointer[1]", pointer[1]);
+  return 0;
+}
+```
+
+```c
+x    equals 6422292.
+y    equals 6422288.
+z    equals 6422284.
+pointer equals 6422288.
+pointer* equals 7.
+pointer[1] equals 5.
+```
+
 - Result:
 
 ---
 
 ## So, what does it mean?
 
-- int a\[10\];
-- a\[i\] == \*(a+i)        &amp;a\[i\] == &amp;\*(a+i) == a+i
+```c
+int a[10];
+
+a[i] == *(a+i)		&a[i] == &*(a+i) == a+i
+```
 
 When performing arithmetic operations on pointers, the array index is automatically multiplied by the size of the data type pointed to by the pointer.
 
@@ -913,7 +1121,10 @@ For example, if the array stores char values, the index is multiplied by 1, and 
 ||&lt;&lt;=, &gt;&gt;=, &amp;=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
-- struct Point { int x; int y; }; int main()<br>{struct Point point = {1,2}, \*ppoint = &amp;point;  int arr\[\] = {1,2}; int x = 5, y =-6; int \* z; float f = 3.0f; /\*code\*/}
+```c
+struct Point { int x; int y; }; int main()
+{struct Point point = {1,2}, *ppoint = &point;  int arr[] = {1,2}; int x = 5, y =-6; int * z; float f = 3.0f; /*code*/}
+```
 
 <!-- perentysys; esiszewitiwy
 Use parentheses to override order of evaluation -->
@@ -943,35 +1154,46 @@ Square brackets are often mistakenly interpreted as an indication that we are wo
 
 ## const keyword in Pointer
 
-- int main()
-- {
--   int x = 5, y = 7, z = 9;
--   int const \* const pointerX = &amp;x; /\* Both the pointer and the pointed-to value are constant \*/
--   /\* pointerX = &amp;y; WRONG! \*/
--   /\* \*pointerX = 1; WRONG! \*/
--   int const \*  pointerY = &amp;y; /\* The pointed-to value is constant, but the pointer can be reassigned \*/
--   /\* \*pointerY = 1; WRONG! \*/
--   pointerY = &amp;z;
--   int  \* const pointerZ = &amp;z; /\* The pointer is constant, but the pointed-to value can be changed \*/
--   \*pointerZ = 1;
--   /\* pointerZ = &amp;x; WRONG! \*/
--   printf("x = %d, y = %d, z = %d\n", x, y, z );
--   return 0;
-- }
-- x = 5, y = 7, z = 1
+```c
+int main()
+{
+  int x = 5, y = 7, z = 9;
+  int const * const pointerX = &x; /* Both the pointer and the pointed-to value are constant */
+  /* pointerX = &y; WRONG! */
+  /* *pointerX = 1; WRONG! */
+  int const *  pointerY = &y; /* The pointed-to value is constant, but the pointer can be reassigned */
+  /* *pointerY = 1; WRONG! */
+  pointerY = &z;
+  int  * const pointerZ = &z; /* The pointer is constant, but the pointed-to value can be changed */
+  *pointerZ = 1;
+  /* pointerZ = &x; WRONG! */
+  printf("x = %d, y = %d, z = %d\n", x, y, z );
+  return 0;
+}
+```
+
+```c
+x = 5, y = 7, z = 1
+
+
+```
+
 - Result:
 
 ---
 
 ## const keyword in Array
 
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--   int const a\[\] = {1, 2, 3, 4, 5, 6, 7};
--   /\* a\[1\]=a\[0\]; WRONG! \*/
--   return 0;
-- }
+```c
+#include <stdio.h>
+int main()
+{
+  int const a[] = {1, 2, 3, 4, 5, 6, 7};
+  /* a[1]=a[0]; WRONG! */
+  return 0;
+}
+```
+
 - The most similar thing to the symbolic\_name of an array in C is a pointer with the const keyword placed **after** the asterisk, as this prevents changes to what the pointer points to.
 - However, it is important to remember that there is still a small difference. Specifically, the &amp; operator on a static pointer will return the address of the pointer itself, whereas for the symbolic\_name of an array, it will return the address of the first element.
 
@@ -981,55 +1203,47 @@ Square brackets are often mistakenly interpreted as an indication that we are wo
 
 There are no restrictions on passing an array as a function parameter. However, there's a common misconception: when we write int arr\[\], it may seem like the entire array is copied and we get access to an identical copy. This is not true. The square bracket syntax is primarily a hint for the programmer, as the compiler internally treats it as int const \*arr.
 
-- 1
-- 2
-- 3
-- 4
-- 5
-- 6
-- 7
+```c
+1
+2
+3
+4
+5
+6
+7
+
+```
+
 - Result:
-- \#include &lt;stdio.h&gt;
 
-void byTheReference(int arr\[\], int n);
-
-void byTheReference(int arr\[\], int n)
-
+```c
+#include <stdio.h>
+void byTheReference(int arr[], int n);
+void byTheReference(int arr[], int n)
 {
-
-    for (int i = 0; i &lt; n; i++)
-
-        printf("%d\n", arr\[i\]);
-
+    for (int i = 0; i < n; i++)
+        printf("%d\n", arr[i]);
 }
-
 int main()
-
 {
-
-    int a\[\] = {1, 2, 3, 4, 5, 6, 7};
-
+    int a[] = {1, 2, 3, 4, 5, 6, 7};
     byTheReference(a, 7);
 
     getchar();
-
     return 0; //return r
-
 }
+```
 
-- \#include &lt;stdio.h&gt;
+```c
+#include <stdio.h>
 
-<br>void byTheReference(int const \* arr, int n);
-
-void byTheReference(int const \* arr, int n)
-
+void byTheReference(int const * arr, int n);
+void byTheReference(int const * arr, int n)
 {
-
-    for (int i = 0; i &lt; n; i++)
-
-        printf("%d\n", arr\[i\]);
-
+    for (int i = 0; i < n; i++)
+        printf("%d\n", arr[i]);
 }
+```
 
 <!-- define s\[n\] na \*(s + n) -->
 
@@ -1044,43 +1258,56 @@ void byTheReference(int const \* arr, int n)
 
 ## Some examples
 
-- int main()
-- {
--   int x = 5, y = 7;
--   int \* p = &amp;x;
--   int \*\* pp = &amp;p;   /\* pointer to pointer\*/
--   y = \*\*pp;
--   printf("y equals %d.\n\n",  y );
-- <br>  printf("&amp;y\t\tequals %d.\n", &amp;y );
--   printf("\*(&amp;y)\t\tequals %d.\n", \*(&amp;y) );
--   printf("&amp;(\*(&amp;y))\tequals %d.\n", &amp;(\*(&amp;y)) );
--   printf("&amp;\*&amp;y\t\tequals %d.\n", &amp;\*&amp;y );
--   printf("\*&amp;\*&amp;y\t\tequals %d.\n\n", \*&amp;\*&amp;y );
-- <br>  printf("&amp;x\t\tequals %d.\n", &amp;x );
--   printf("p\t\tequals %d.\n", p );
--   printf("&amp;p\t\tequals %d.\n", &amp;p );
--   printf("\*p\t\tequals %d.\n\n", \*p );
-- <br>  printf("pp\t\tequals %d.\n", pp );
--   printf("&amp;pp\t\tequals %d.\n", &amp;pp );
--   printf("\*pp\t\tequals %d.\n", \*pp );
--   printf("\*&amp;\*pp\t\tequals %d.\n", \*&amp;\*pp );
--   printf("\*\*pp\t\tequals %d.\n", \*\*pp );
--   return 0; <br>}
-- y equals 5.
-- &amp;y              equals 6422292.
-- \*(&amp;y)           equals 7.
-- &amp;(\*(&amp;y))        equals 6422292.
-- &amp;\*&amp;y            equals 6422292.
-- \*&amp;\*&amp;y           equals 7.
-- &amp;x              equals 6422296.
-- p               equals 6422296.
-- &amp;p              equals 6422288.
-- \*p              equals 5.
-- pp              equals 6422288.
-- &amp;pp             equals 6422284.
-- \*pp             equals 6422296.
-- \*&amp;\*pp           equals 6422296.
-- \*\*pp            equals 5.
+```c
+int main()
+{
+  int x = 5, y = 7;
+  int * p = &x;
+  int ** pp = &p;   /* pointer to pointer*/
+  y = **pp;
+  printf("y equals %d.\n\n",  y );
+
+  printf("&y\t\tequals %d.\n", &y );
+  printf("*(&y)\t\tequals %d.\n", *(&y) );
+  printf("&(*(&y))\tequals %d.\n", &(*(&y)) );
+  printf("&*&y\t\tequals %d.\n", &*&y );
+  printf("*&*&y\t\tequals %d.\n\n", *&*&y );
+
+  printf("&x\t\tequals %d.\n", &x );
+  printf("p\t\tequals %d.\n", p );
+  printf("&p\t\tequals %d.\n", &p );
+  printf("*p\t\tequals %d.\n\n", *p );
+
+  printf("pp\t\tequals %d.\n", pp );
+  printf("&pp\t\tequals %d.\n", &pp );
+  printf("*pp\t\tequals %d.\n", *pp );
+  printf("*&*pp\t\tequals %d.\n", *&*pp );
+  printf("**pp\t\tequals %d.\n", **pp );
+  return 0;
+}
+```
+
+```c
+y equals 5.
+
+&y              equals 6422292.
+*(&y)           equals 7.
+&(*(&y))        equals 6422292.
+&*&y            equals 6422292.
+*&*&y           equals 7.
+
+&x              equals 6422296.
+p               equals 6422296.
+&p              equals 6422288.
+*p              equals 5.
+
+pp              equals 6422288.
+&pp             equals 6422284.
+*pp             equals 6422296.
+*&*pp           equals 6422296.
+**pp            equals 5.
+```
+
 - Result:
 
 ||Memory Addresses and Values|||

@@ -13,7 +13,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-![Graphic 3](assets/image2.png)
+![w:277px Graphic 3](assets/image2.png)
 
 ---
 
@@ -59,7 +59,9 @@ The values of array will be undefined, meaning they can hold any random value.
 - If you omit the size but provide initial values, the compiler counts them and creates an array of that size.
 - If you specify the size but don't initialize all elements, the remaining ones will have indeterminate, unpredictable values.
 
-&lt;type&gt; symbolic\_name\[size\];
+```c
+<type> symbolic_name[size];
+```
 
 - &lt;type&gt; symbolic\_name\[\] = {value1, value2, value3};
 - &lt;type&gt; symbolic\_name\[size\] = {value1, value2};
@@ -68,45 +70,37 @@ The values of array will be undefined, meaning they can hold any random value.
 
 ## Example of an array
 
-- int main()
-- {
-
-    char string0\[12\] = "Hello world";
-
-    char string1\[\]   = "Hello world";
-
-    char string2\[12\] = { 72, 101, 108 ,108, 111, 32, 87, 111, 114, 108, 100, 0 };
-
-    char string3\[\]   = { 72, 101, 108 ,108, 111, 32, 87, 111, 114, 108, 100, 0 };
-
-    char string4\[12\] = { 'H', 'e', 'l' , 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '\0' };
-
-    char string5\[\]   = { 'H', 'e', 'l' , 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '\0’ };
-
-    char string6\[12\]   = { 'H', 101, 'l' , 108, 'o', ' ', 'w', 'o', 'r', 'l', 'd’, 0 };
-
+```c
+int main()
+{
+    char string0[12] = "Hello world";
+    char string1[]   = "Hello world";
+    char string2[12] = { 72, 101, 108 ,108, 111, 32, 87, 111, 114, 108, 100, 0 };
+    char string3[]   = { 72, 101, 108 ,108, 111, 32, 87, 111, 114, 108, 100, 0 };
+    char string4[12] = { 'H', 'e', 'l' , 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '\0' };
+    char string5[]   = { 'H', 'e', 'l' , 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '\0’ };
+    char string6[12]   = { 'H', 101, 'l' , 108, 'o', ' ', 'w', 'o', 'r', 'l', 'd’, 0 };
     printf("%s\n", string0);
-
     printf("%s\n", string1);
-
     printf("%s\n", string2);
-
     printf("%s\n", string3);
-
     printf("%s\n", string4);
-
     printf("%s\n", string5);
+    printf("%s\n", string6);
+    return 0;
+}
+```
 
-    printf("%s\n", string6);<br>    return 0;
+```c
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+```
 
-- }
-- Hello World
-- Hello World
-- Hello World
-- Hello World
-- Hello World
-- Hello World
-- Hello World
 - Result:
 
 ---
@@ -117,7 +111,9 @@ The values of array will be undefined, meaning they can hold any random value.
 - If you omit the size but provide initial values, the compiler counts them and creates an array of that size.
 - If you specify the size but don't initialize all elements, the remaining ones will have indeterminate, unpredictable values.
 
-&lt;type&gt; symbolic\_name\[size\];
+```c
+<type> symbolic_name[size];
+```
 
 - &lt;type&gt; symbolic\_name\[\] = {value1, value2, value3};
 - &lt;type&gt; symbolic\_name\[size\] = {value1, value2};
@@ -126,12 +122,22 @@ The values of array will be undefined, meaning they can hold any random value.
 
 ## Question: How do we know which letter goes with which number?
 
-- int main()
-- {
--   char text\[\] = { 72, 101, 108 ,108, 111, 32, 87, 111, 114, 108, 100, 10, 13, 0 };
--   printf("%s", text); <br>  return 0;
-- }
-- Hello World
+```c
+int main()
+{
+  char text[] = { 72, 101, 108 ,108, 111, 32, 87, 111, 114, 108, 100, 10, 13, 0 };
+  printf("%s", text);
+  return 0;
+}
+```
+
+```c
+Hello World
+
+
+
+```
+
 - Result:
 
 ---
@@ -145,40 +151,43 @@ American Standard Code for Information Interchange
 - \n equals 10, 13 (n\ + \r)
 - \t equals 11
 - White\_Space equals 32
--  Val Char                            Val  Char     Val  Char     Val  Char
-- ---------                            ---------     ---------     ----------
--   0  NUL (null)                      32  SPACE     64  @         96  \`
--   1  SOH (start of heading)          33  !         65  A         97  a
--   2  STX (start of text)             34  "         66  B         98  b
--   3  ETX (end of text)               35  #         67  C         99  c
--   4  EOT (end of transmission)       36  $         68  D        100  d
--   5  ENQ (enquiry)                   37  %         69  E        101  e
--   6  ACK (acknowledge)               38  &amp;         70  F        102  f
--   7  BEL (bell)                      39  '         71  G        103  g
--   8  BS  (backspace)                 40  (         72  H        104  h
--   9  TAB (horizontal tab)            41  )         73  I        105  i
--  10  LF  (NL line feed, new line)    42  \*         74  J        106  j
--  11  VT  (vertical tab)              43  +         75  K        107  k
--  12  FF  (NP form feed, new page)    44  ,         76  L        108  l
--  13  CR  (carriage return)           45  -         77  M        109  m
--  14  SO  (shift out)                 46  .         78  N        110  n
--  15  SI  (shift in)                  47  /         79  O        111  o
--  16  DLE (data link escape)          48  0         80  P        112  p
--  17  DC1 (device control 1)          49  1         81  Q        113  q
--  18  DC2 (device control 2)          50  2         82  R        114  r
--  19  DC3 (device control 3)          51  3         83  S        115  s
--  20  DC4 (device control 4)          52  4         84  T        116  t
--  21  NAK (negative acknowledge)      53  5         85  U        117  u
--  22  SYN (synchronous idle)          54  6         86  V        118  v
--  23  ETB (end of trans. block)       55  7         87  W        119  w
--  24  CAN (cancel)                    56  8         88  X        120  x
--  25  EM  (end of medium)             57  9         89  Y        121  y
--  26  SUB (substitute)                58  :         90  Z        122  z
--  27  ESC (escape)                    59  ;         91  \[        123  {
--  28  FS  (file separator)            60  &lt;         92  \        124  |
--  29  GS  (group separator)           61  =         93  \]        125  }
--  30  RS  (record separator)          62  &gt;         94  ^        126  ~
--  31  US  (unit separator)            63  ?         95  \_        127  DEL
+
+```c
+ Val Char                            Val  Char     Val  Char     Val  Char
+---------                            ---------     ---------     ----------
+  0  NUL (null)                      32  SPACE     64  @         96  `
+  1  SOH (start of heading)          33  !         65  A         97  a
+  2  STX (start of text)             34  "         66  B         98  b
+  3  ETX (end of text)               35  #         67  C         99  c
+  4  EOT (end of transmission)       36  $         68  D        100  d
+  5  ENQ (enquiry)                   37  %         69  E        101  e
+  6  ACK (acknowledge)               38  &         70  F        102  f
+  7  BEL (bell)                      39  '         71  G        103  g
+  8  BS  (backspace)                 40  (         72  H        104  h
+  9  TAB (horizontal tab)            41  )         73  I        105  i
+ 10  LF  (NL line feed, new line)    42  *         74  J        106  j
+ 11  VT  (vertical tab)              43  +         75  K        107  k
+ 12  FF  (NP form feed, new page)    44  ,         76  L        108  l
+ 13  CR  (carriage return)           45  -         77  M        109  m
+ 14  SO  (shift out)                 46  .         78  N        110  n
+ 15  SI  (shift in)                  47  /         79  O        111  o
+ 16  DLE (data link escape)          48  0         80  P        112  p
+ 17  DC1 (device control 1)          49  1         81  Q        113  q
+ 18  DC2 (device control 2)          50  2         82  R        114  r
+ 19  DC3 (device control 3)          51  3         83  S        115  s
+ 20  DC4 (device control 4)          52  4         84  T        116  t
+ 21  NAK (negative acknowledge)      53  5         85  U        117  u
+ 22  SYN (synchronous idle)          54  6         86  V        118  v
+ 23  ETB (end of trans. block)       55  7         87  W        119  w
+ 24  CAN (cancel)                    56  8         88  X        120  x
+ 25  EM  (end of medium)             57  9         89  Y        121  y
+ 26  SUB (substitute)                58  :         90  Z        122  z
+ 27  ESC (escape)                    59  ;         91  [        123  {
+ 28  FS  (file separator)            60  <         92  \        124  |
+ 29  GS  (group separator)           61  =         93  ]        125  }
+ 30  RS  (record separator)          62  >         94  ^        126  ~
+ 31  US  (unit separator)            63  ?         95  _        127  DEL
+```
 
 <!-- ASCII: abbreviated from American Standard Code for Information Interchange, is a character encoding standard for electronic communication. ASCII codes represent text in computers, telecommunications equipment, and other devices. Because of technical limitations of computer systems at the time it was invented, ASCII has just 128 code points, of which only 95 are printable characters, which severely limited its scope. Modern computer systems have evolved to use Unicode, which has millions of code points, but the first 128 of these are the same as the ASCII set.
 '5' has the int value 53 if we write '5'-'0' it evaluates to 53-48, or the int 5 if we write char c = 'B'+32; then c stores 'b' -->
@@ -192,11 +201,17 @@ American Standard Code for Information Interchange
 - Three dimensions:
 - etc.
 
-&lt;type&gt; symbolic\_name\[size\];
+```c
+<type> symbolic_name[size];
+```
 
-&lt;type&gt; symbolic\_name\[size1\]\[size2\];
+```c
+<type> symbolic_name[size1][size2];
+```
 
-&lt;type&gt; symbolic\_name\[size1\]\[size2\]\[size3\];
+```c
+<type> symbolic_name[size1][size2][size3];
+```
 
 ---
 
@@ -216,9 +231,13 @@ American Standard Code for Information Interchange
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
-- int main()<br>{
-- int x = 5, y = -6; int \* z; float f = 3.0f;                 /\*code\*/
-- }
+```c
+int main()
+{
+	int x = 5, y = -6; int * z; float f = 3.0f; 				/*code*/
+}
+```
+
 - Basic operators
 
 <!-- perentysys; esiszewitiwy
@@ -230,9 +249,7 @@ Use parentheses to override order of evaluation -->
 
 ---
 
-## Two words about floating-point representation
-
-Operations on real numbers are recorded with only a certain degree of precision, and therefore there is a very high probability that the result of (a + b – c) will not be the same as (a - c + b) ! This means that using real numbers requires careful consideration.
+## Two words about floating-point representation Operations on real numbers are recorded with only a certain degree of precision, and therefore there is a very high probability that the result of (a + b – c) will not be the same as (a - c + b) ! This means that using real numbers requires careful consideration.
 
 <!-- but more on that in another course - namely, computer architecture. -->
 
@@ -257,31 +274,32 @@ The purpose:
 
 ## Explicit Casting
 
-- int main()
-- {
-
+```c
+int main()
+{
     int   a = 5;
-
     float b = 8.2f;
 
-<br>    int   c = (int)b + a;
-
+    int   c = (int)b + a;
     float d = b + (float)a;
 
-  return 0;
-
+    return 0;
 }
+```
 
-- 1
-- 2
-- 3
-- 4
-- 5
-- 6
-- 7
-- 8
-- 9
-- 10
+```c
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+
 - 5
 - 8.19999981
 - 13.1999998
@@ -319,15 +337,18 @@ asterisk -->
   - unary    (e. g. -, ++),
   - binary    (e. g. +, -, \*, /),
   - ternary    (?:)
-- int main()
-- {
--   int i = 1;
--   i = -i;                 /\* unary -                           \*/
--   i++;                 /\* unary ++                          \*/
--   i = i + 1; i = i - 1;     /\* binary +, -                      \*/
-- i = i \* 1; i = i / 1;      /\* binary \*, /                      \*/
--   i ? (i &gt; 0) : 1 ; 0;     /\* ternary conditional                  \*/
-- }
+
+```c
+int main()
+{
+  int i = 1;
+  i = -i;				 /* unary -  						 */
+  i++;				 /* unary ++ 						 */
+  i = i + 1; i = i - 1;	 /* binary +, - 					 */
+  i = i * 1; i = i / 1; 	 /* binary *, / 					 */
+  i ? (i > 0) : 1 ; 0;	 /* ternary conditional 				 */
+}
+```
 
 ---
 
@@ -347,9 +368,13 @@ asterisk -->
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
-- int main()<br>{
-- int x = 5, y = -6; int \* z; float f = 3.0f;                 /\*code\*/
-- }
+```c
+int main()
+{
+	int x = 5, y = -6; int * z; float f = 3.0f; 				/*code*/
+}
+```
+
 - Basic operators
 
 <!-- perentysys; esiszewitiwy
@@ -373,9 +398,13 @@ Use parentheses to override order of evaluation -->
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
-- int main()<br>{
-- int x = 5, y = -6; int \* z; float f = 3.0f;                 /\*code\*/
-- }
+```c
+int main()
+{
+	int x = 5, y = -6; int * z; float f = 3.0f; 				/*code*/
+}
+```
+
 - Basic operators
 
 <!-- perentysys; esiszewitiwy
@@ -399,57 +428,54 @@ Use parentheses to override order of evaluation -->
 
 ## Example - division
 
+```c
 // Declarations
-
 int x = 5, y = 3;
-
 float a = 5.0, b = 3.0;
 
-<br>printf("%s\n", "Integers:");
-
+printf("%s\n", "Integers:");
 printf("x = %d\n", x);
-
 printf("y = %d\n", y);
 
-<br>printf("%s\n","Floats:");
-
+printf("%s\n","Floats:");
 printf("a = %f\n", a);
-
 printf("b = %f\n", b);
 
-<br>printf("Integer / Integer:\n");
-
+printf("Integer / Integer:\n");
 printf("x / y = %d\n", x / y); // integer division
 
-<br>printf("\nInteger / Float:\n");
-
+printf("\nInteger / Float:\n");
 printf("x / b = %f\n", x / b); // x promoted to float
-
 printf("x / b with %%d = %d (wrong!)\n", x / b); // incorrect, prints garbage
 
-<br>printf("\nFloat / Integer:\n");
-
+printf("\nFloat / Integer:\n");
 printf("a / y = %f\n", a / y); // y promoted to float
 
-<br>printf("\nFloat / Float:\n");
-
+printf("\nFloat / Float:\n");
 printf("a / b = %f\n", a / b); // normal float division
+```
 
-- Integers:
-- x = 5
-- y = 3
-- Floats:
-- a = 5.000000
-- b = 3.000000
-- Integer / Integer:
-- x / y = 1
-- Integer / Float:
-- x / b = 1.666667
-- x / b with %d = -1431655765 (wrong!)
-- Float / Integer:
-- a / y = 1.666667
-- Float / Float:
-- a / b = 1.666667
+```c
+Integers:
+x = 5
+y = 3
+Floats:
+a = 5.000000
+b = 3.000000
+Integer / Integer:
+x / y = 1
+
+Integer / Float:
+x / b = 1.666667
+x / b with %d = -1431655765 (wrong!)
+
+Float / Integer:
+a / y = 1.666667
+
+Float / Float:
+a / b = 1.666667
+```
+
 - Result:
 
 ---
@@ -470,9 +496,13 @@ printf("a / b = %f\n", a / b); // normal float division
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
-- int main()<br>{
-- int x = 5, y = -6; int \* z; float f = 3.0f;                 /\*code\*/
-- }
+```c
+int main()
+{
+	int x = 5, y = -6; int * z; float f = 3.0f; 				/*code*/
+}
+```
+
 - Increment (++) &amp; decrement (--) operator &amp; Assignment by sum
 
 <!-- perentysys; esiszewitiwy
@@ -485,27 +515,47 @@ Use parentheses to override order of evaluation -->
 - Prefix increment ++ and decrement -- operators increase (decrease) the operand's value first, then use the new value.
 - Postfix increment ++ and decrement -- operators use the operand's current value first, then increase (decrease) the operand's value.
 - Assignment by sum refers to the process of assigning a value to a variable using the addition operator + or the addition assignment operator += to combine the assigned value with the existing value of the variable.
-- int main()
-- {
--   int i = 1, j = 2;
--   j++;
--   i = j++;
--   i = ++j;
--   i += j;
--   i = j = 2 + j;
-- }
-- int main()
-- {
--   int i = 1, j = 2;
--   j = j + 1;
--   i = j;
--   j = j + 1;
--   j = j + 1;
--  i = j;
--   i = i + j;
--   j = 2 + j;
--   i = j;
-- }
+
+```c
+int main()
+{
+  int i = 1, j = 2;
+
+  j++;
+
+  i = j++;
+
+
+  i = ++j;
+
+
+  i += j;
+
+  i = j = 2 + j;
+
+}
+```
+
+```c
+int main()
+{
+  int i = 1, j = 2;
+
+  j = j + 1;
+
+  i = j;
+  j = j + 1;
+
+  j = j + 1;
+  i = j;
+
+  i = i + j;
+
+  j = 2 + j;
+  i = j;
+}
+```
+
 - \*In Python we don’t have something like that.
 
 <!-- tu skonczylem, poprawilem blad tabilcy c -->
@@ -532,9 +582,13 @@ Use parentheses to override order of evaluation -->
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
-- int main()<br>{
-- int x = 5, y = -6; int \* z; float f = 3.0f;                 /\*code\*/
-- }
+```c
+int main()
+{
+	int x = 5, y = -6; int * z; float f = 3.0f; 				/*code*/
+}
+```
+
 - Relational &amp; logical operators &lt;, &lt;=, &gt;, &gt;=, ==, !=, &amp;&amp;, ||
 
 <!-- Use parentheses to override order of evaluation -->
@@ -546,19 +600,29 @@ Use parentheses to override order of evaluation -->
 - Relational and logical operators return 1 for a true condition and 0 for a false condition. The result type of these operators is int (integer).
 - In if and while statements, the C language considers the logical value of the conditional expression. This means that any value other than 0 (including positive, negative, characters, pointers, etc.) will be treated as true, while the value 0 will be treated as false.
 - The bool type is not a built-in type because it is not essential for basic programming operations. However, to use the bool type, we need to include the &lt;stdbool.h&gt; header file.
-- \#include &lt;stdio.h&gt;
-- \#include &lt;stdbool.h&gt;
-- int main()
-- {
--   bool is\_true  = true;
--   bool is\_false = false;
--   bool result = is\_true &amp;&amp; is\_false;
--   printf("%d\n", result);
--   result = 3 &gt; 1;
--   printf("%d\n", result);
-- }
-- 0
-- 1
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main()
+{
+  bool is_true  = true;
+  bool is_false = false;
+  bool result = is_true && is_false;
+  printf("%d\n", result);
+  result = 3 > 1;
+  printf("%d\n", result);
+}
+```
+
+```c
+0
+1
+
+
+```
+
 - Result:
 
 ---
@@ -579,9 +643,13 @@ Use parentheses to override order of evaluation -->
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
-- int main()<br>{
-- int x = 5, y = -6; int \* z; float f = 3.0f;                 /\*code\*/
-- }
+```c
+int main()
+{
+	int x = 5, y = -6; int * z; float f = 3.0f; 				/*code*/
+}
+```
+
 - Basic operators
 
 <!-- Use parentheses to override order of evaluation -->
@@ -632,12 +700,15 @@ An **expression**, on the other hand, is a combination of variables, constants, 
 
 - A single semicolon ; in C language is a statement called a null statement or empty statement.
 - A semicolons ; are used to terminate statements
-- int main()
-- {
--     ;                                       /\*  Empty statement    \*/
-- printf("Hello world!\n");            /\*  Second statement   \*/
-- printf("Hello"); printf(" world!\n");    /\*  3rd &amp; 4th statement in one line \*/
-- }
+
+```c
+int main()
+{
+    ;   									/*  Empty statement    */
+	printf("Hello world!\n");			/*  Second statement   */
+	printf("Hello"); printf(" world!\n");	/*  3rd & 4th statement in one line */
+}
+```
 
 <!-- In C programming, a **single line ending with a semicolon** (;) is typically referred to as an **empty statement** or **null statement**. It's a statement that doesn't perform any operation and has no effect on the program's execution. -->
 
@@ -677,24 +748,30 @@ Przypisanie jest rownoczesnie statement I -->
 
 ## Blocks &amp; complex(compound) statements
 
-- int main()
-- {
--     char\* text = "Hello world\n";
--     printf(text);
--     {
--       char\* text = "Bye world\n";
--       printf(text);
--       {
--         char\* text = "Aloha world\n";
--         printf(text);
--       }
--     }
--     printf(text);
-- }
-- Hello world
-- Bye world
-- Aloha world
-- Hello world
+```c
+int main()
+{
+    char* text = "Hello world\n";
+    printf(text);
+    {
+      char* text = "Bye world\n";
+      printf(text);
+      {
+        char* text = "Aloha world\n";
+        printf(text);
+      }
+    }
+    printf(text);
+}
+```
+
+```c
+Hello world
+Bye world
+Aloha world
+Hello world
+```
+
 - Result:
 
 ---
@@ -765,17 +842,23 @@ sq(3)
 
 - In the C language, every assignment after assigning a value to a variable (pointer, label), since it is also an expression, will generate a value again, which will be ignored by the compiler at the end
 - We can use the underscore \_ discard in C, but you need to declare the variable beforehand. It's a great mechanism that improves the readability of the programmer's intent.
-- int main()
-- {
--   int x, y, \_;
--   \_ = x = y = 5;
-- }
-- \_ = x = y = 5;
-- \_ = x = (5);
-- \_ = x = 5;
-- \_ = (5);
-- \_ = 5;
-- (5)
+
+```c
+int main()
+{
+  int x, y, _;
+  _ = x = y = 5;
+}
+```
+
+```c
+_ = x = y = 5;
+_ = x = (5);
+_ = x = 5;
+_ = (5);
+_ = 5;
+(5)
+```
 
 <!-- Use parentheses to override order of evaluation -->
 

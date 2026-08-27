@@ -45,7 +45,7 @@ title: "Data Structures & Algorithms"
 
 ## Binary logarithm
 
-![Picture 5](assets/image6.png)
+![w:509px Picture 5](assets/image6.png)
 
 <!-- log base 2 of x
 x to the power of y
@@ -196,7 +196,7 @@ Four to the power n divided by two to the power 2n simplifies to two to the powe
 
 ## Θ-notation
 
-![Picture 6](assets/image17.png)
+![w:1056px Picture 6](assets/image17.png)
 
 <!-- Θ(n²) “theta of n squared”    Θ(g(n))  theta of g of n     c₁ “c sub one ; c one”    c₁g(n) c one times g of n    f(n) “F OF N”
 A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1 and c2 such that it can be “sandwiched” between c₁g(n)  and c2g(n) , for sufficiently large n. Because Θ(g(n)) is a set, we could write “f .n/ 2 ‚.g.n//” to indicate that f .n/ is a member of ‚.g.n//. Instead, we will usually write “f .n/ D ‚.g.n//” to express the same notion. You might be confused because we abuse equality in this way, but we shall see later in this section that doing so has its advantages -->
@@ -205,9 +205,9 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ## Θ-notation
 
-![Picture 6](assets/image17.png)
+![w:1056px Picture 6](assets/image17.png)
 
-![Picture 11](assets/image18.png)
+![w:956px Picture 11](assets/image18.png)
 
 <!-- Θ(n²) “theta of n squared”    Θ(g(n))  theta of g of n     c₁ “c sub one ; c one”    c₁g(n) c one times g of n    f(n) “F OF N”
 A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1 and c2 such that it can be “sandwiched” between c₁g(n)  and c2g(n) , for sufficiently large n. Because Θ(g(n)) is a set, we could write “f .n/ 2 ‚.g.n//” to indicate that f .n/ is a member of ‚.g.n//. Instead, we will usually write “f .n/ D ‚.g.n//” to express the same notion. You might be confused because we abuse equality in this way, but we shall see later in this section that doing so has its advantages -->
@@ -216,9 +216,9 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ## Θ-notation
 
-![Picture 6](assets/image17.png)
+![w:1056px Picture 6](assets/image17.png)
 
-![Picture 3](assets/image19.png)
+![w:1011px Picture 3](assets/image19.png)
 
 - a)
 
@@ -229,9 +229,9 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ## Θ-notation
 
-![Picture 6](assets/image17.png)
+![w:1056px Picture 6](assets/image17.png)
 
-![Picture 4](assets/image20.png)
+![w:1011px Picture 4](assets/image20.png)
 
 <!-- Function **f of n is an element of Big Theta of g of n**.
 Θ(n²) “theta of n squared”    Θ(g(n))  theta of g of n     c₁ “c sub one ; c one”    c₁g(n) c one times g of n    f(n) “F OF N” -->
@@ -240,11 +240,11 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ## O-notation
 
-![Picture 6](assets/image17.png)
+![w:1056px Picture 6](assets/image17.png)
 
 - b)
 
-![Picture 4](assets/image21.png)
+![w:1001px Picture 4](assets/image21.png)
 
 <!-- Θ(n²) “theta of n squared”    Θ(g(n))  theta of g of n     c₁ “c sub one ; c one”    c₁g(n) c one times g of n    f(n) “F OF N” -->
 
@@ -252,11 +252,11 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ## O-notation
 
-![Picture 6](assets/image17.png)
+![w:1056px Picture 6](assets/image17.png)
 
 - b)
 
-![Picture 8](assets/image22.png)
+![w:1000px Picture 8](assets/image22.png)
 
 <!-- Θ(n²) “theta of n squared”    Θ(g(n))  theta of g of n     c₁ “c sub one ; c one”    c₁g(n) c one times g of n    f(n) “F OF N” -->
 
@@ -270,11 +270,11 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ## Ω-notation
 
-![Picture 6](assets/image17.png)
+![w:1056px Picture 6](assets/image17.png)
 
 - c)
 
-![Picture 4](assets/image23.png)
+![w:933px Picture 4](assets/image23.png)
 
 <!-- Θ(n²) “theta of n squared”
 Θ(g(n))  theta of g of n
@@ -287,11 +287,11 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ## Ω-notation
 
-![Picture 6](assets/image17.png)
+![w:1056px Picture 6](assets/image17.png)
 
 - c)
 
-![Picture 3](assets/image24.png)
+![w:1011px Picture 3](assets/image24.png)
 
 <!-- Θ(n²) “theta of n squared”    Θ(g(n))  theta of g of n     c₁ “c sub one ; c one”    c₁g(n) c one times g of n    f(n) “F OF N” -->
 
@@ -313,9 +313,7 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## Efficiency – an example
-
-By using an algorithm whose running time grows more slowly, even with a poor compiler, computer **B** runs more than 17 times faster than computer **A**! The advantage of merge sort is even more pronounced when we sort 100 million numbers: where insertion sort takes more than 23 days, merge sort takes under four hours. In general, as the problem size increases, so does the relative advantage of merge sort.
+## Efficiency – an example By using an algorithm whose running time grows more slowly, even with a poor compiler, computer **B** runs more than 17 times faster than computer **A**! The advantage of merge sort is even more pronounced when we sort 100 million numbers: where insertion sort takes more than 23 days, merge sort takes under four hours. In general, as the problem size increases, so does the relative advantage of merge sort.
 
 <!-- For a concrete example -->
 

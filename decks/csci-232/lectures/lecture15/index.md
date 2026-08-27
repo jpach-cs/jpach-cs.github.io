@@ -25,29 +25,31 @@ title: "CSCI 232  Data Structures & Algorithms"
 
 ---
 
-![Picture 3](assets/image1.png)
+![w:565px Picture 3](assets/image1.png)
 
 ---
 
-- class TwoWayNode
-- {
-- public:
--     TwoWayNode(int Value, TwoWayNode\* Previous, TwoWayNode\* Next)
--     {
--         this-&gt;Value = Value;
--         this-&gt;Next = Next;
--         this-&gt;Previous = Previous;
--     }
--     TwoWayNode(int Value)
--     {
--         this-&gt;Value = Value;
--         Next = NULL;
--         Previous = NULL;
--     }
--     int Value;
--     TwoWayNode\* Next;
--     TwoWayNode\* Previous;
-- };
+```c
+class TwoWayNode
+{
+public:
+    TwoWayNode(int Value, TwoWayNode* Previous, TwoWayNode* Next)
+    {
+        this->Value = Value;
+        this->Next = Next;
+        this->Previous = Previous;
+    }
+    TwoWayNode(int Value)
+    {
+        this->Value = Value;
+        Next = NULL;
+        Previous = NULL;
+    }
+    int Value;
+    TwoWayNode* Next;
+    TwoWayNode* Previous;
+};
+```
 
 <!-- chooseAndSwapArrayWithLargerFirstElement(&amp;arr1, &amp;arr2); -->
 
@@ -56,14 +58,18 @@ title: "CSCI 232  Data Structures & Algorithms"
 ## arrayMax
 
 - To summarize, the number of primitive operations t(n) (or  T(n)) executed by algorithm arrayMax is at least:
-- **Algorithm** arrayMax(*A*, *n*):
-- **Input**: An array *A* storing *n* ≥ 1 integers.
-- **Output**: The maximum element in *A*.
-- currentMax ← *A*\[0\]
-- **for** *i* ← 1 **to** *n* - 1 **do**
-  - **if** *currentMax* &lt; A\[*i*\] **then**
-    - *currentMax* ← A\[*i*\]
-- **return** *currentMax*
+
+```c
+Algorithm arrayMax(A, n):
+	Input: An array A storing n ≥ 1 integers.
+	Output: The maximum element in A.
+	currentMax ← A[0]
+	for i ← 1 to n - 1 do
+	if currentMax < A[i] then
+	currentMax ← A[i]
+	return currentMax
+```
+
 - and at most:
 - The best case (t(n) = 5n) occurs when A\[0\] is the maximum element, so that variable currentMax is never reassigned. The worst case (t(n) = 7n-2) occurs when the elements are sorted in increasing order, so that variable currentMax is reassigned at each iteration of the for loop.
 
@@ -95,15 +101,15 @@ normalnie jest n+1 -->
 
 ## Example
 
-![Picture 4](assets/image3.png)
+![w:1223px Picture 4](assets/image3.png)
 
-![Picture 5](assets/image4.png)
+![w:347px Picture 5](assets/image4.png)
 
 ---
 
 ## Example
 
-![Picture 7](assets/image4.png)
+![w:347px Picture 7](assets/image4.png)
 
 ---
 
@@ -118,101 +124,101 @@ normalnie jest n+1 -->
 
 ## Theorem
 
-![Content Placeholder 4](assets/image9.png)
+![w:1189px Content Placeholder 4](assets/image9.png)
 
 ---
 
 ## Example
 
-![Picture 3](assets/image10.png)
+![w:588px Picture 3](assets/image10.png)
 
-![Picture 7](assets/image11.png)
-
----
-
-## Example
-
-![Picture 4](assets/image12.png)
+![w:818px Picture 7](assets/image11.png)
 
 ---
 
 ## Example
 
-![Picture 3](assets/image13.png)
+![w:1099px Picture 4](assets/image12.png)
 
-![Picture 6](assets/image16.png)
+---
+
+## Example
+
+![w:749px Picture 3](assets/image13.png)
+
+![w:1012px Picture 6](assets/image16.png)
 
 ---
 
 ## Theorem – 8 rules!
 
-![Content Placeholder 6](assets/image17.png)
+![w:1092px Content Placeholder 6](assets/image17.png)
 
 ---
 
 ## Analogy between the asymptotic comparison of two functions *f* and *g* and the comparison of two real numbers *a* and *b*
 
-![Picture 6](assets/image18.png)
+![w:511px Picture 6](assets/image18.png)
 
 ---
 
 ## 1/8 rule
 
-![Picture 4](assets/image19.png)
+![w:1020px Picture 4](assets/image19.png)
 
 ---
 
 ## 2/8 rule
 
-![Picture 3](assets/image24.png)
+![w:1006px Picture 3](assets/image24.png)
 
 ---
 
 ## 3/8 rule
 
-![Picture 4](assets/image31.png)
+![w:1025px Picture 4](assets/image31.png)
 
 ---
 
 ## 4/8 rule
 
-![Picture 4](assets/image36.png)
+![w:1057px Picture 4](assets/image36.png)
 
 ---
 
 ## 5/8 rule
 
-![Picture 4](assets/image40.png)
+![w:1139px Picture 4](assets/image40.png)
 
 ---
 
 ## 6/8 rule
 
-![Picture 6](assets/image42.png)
+![w:1141px Picture 6](assets/image42.png)
 
 ---
 
 ## 7/8 rule
 
-![Picture 4](assets/image43.png)
+![w:1138px Picture 4](assets/image43.png)
 
 ---
 
 ## 8/8 rule
 
-![Picture 4](assets/image44.png)
+![w:1151px Picture 4](assets/image44.png)
 
 ---
 
 ## Terminology for classes of functions
 
-![Content Placeholder 4](assets/image45.png)
+![w:774px Content Placeholder 4](assets/image45.png)
 
 ---
 
 ## Using the big-Oh notation
 
-![Content Placeholder 4](assets/image46.png)
+![w:1110px Content Placeholder 4](assets/image46.png)
 
 ---
 
@@ -230,9 +236,9 @@ normalnie jest n+1 -->
 
 ## Θ-notation
 
-![Picture 6](assets/image4.png)
+![w:1056px Picture 6](assets/image4.png)
 
-![Picture 11](assets/image47.png)
+![w:956px Picture 11](assets/image47.png)
 
 <!-- Θ(n²) “theta of n squared”
 Θ(g(n))  theta of g of n
@@ -271,9 +277,9 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ## O &amp; Ω-notation
 
-![Picture 6](assets/image4.png)
+![w:1056px Picture 6](assets/image4.png)
 
-![Picture 3](assets/image48.png)
+![w:960px Picture 3](assets/image48.png)
 
 - For example, the best-case running time of bubble sort is *Ω(n)*, which implies that the running time of bubble sort is *Ω(n)*.
 
@@ -283,9 +289,9 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ## O &amp; Ω-notation
 
-![Picture 6](assets/image4.png)
+![w:1056px Picture 6](assets/image4.png)
 
-![Picture 2](assets/image49.png)
+![w:921px Picture 2](assets/image49.png)
 
 <!-- Θ(n²) “theta of n squared”
 Θ(g(n))  theta of g of n
@@ -298,61 +304,55 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ## Asymptotic notation in equations and inequalities
 
-![Picture 4](assets/image50.png)
-
-![Picture 2](assets/image50.png)
+![w:996px Picture 4](assets/image50.png)
 
 ---
 
 ## Asymptotic notation in equations and inequalities
 
-![Picture 3](assets/image51.png)
+![w:1092px Picture 3](assets/image51.png)
 
 ---
 
 ## Asymptotic notation in equations and inequalities
 
-![Picture 3](assets/image52.png)
-
-![Picture 5](assets/image52.png)
-
-![Picture 6](assets/image52.png)
+![w:861px Picture 3](assets/image52.png)
 
 ---
 
 ## o-notation
 
-![Picture 4](assets/image53.png)
+![w:891px Picture 4](assets/image53.png)
 
-![Picture 6](assets/image54.png)
+![w:890px Picture 6](assets/image54.png)
 
 ---
 
 ## ω-notation
 
-![Picture 7](assets/image55.png)
+![w:884px Picture 7](assets/image55.png)
 
 ---
 
 ## Analogy between the asymptotic comparison of two functions *f* and *g* and the comparison of two real numbers *a* and *b*
 
-![Picture 4](assets/image18.png)
-
-![Picture 2](assets/image18.png)
+![w:1039px Picture 4](assets/image18.png)
 
 ---
 
-- {
--     int n = 5;
--     for (int i = 0; i &lt; n; i++)
--     {
--         /\* code \*/
--     }
--             for (int i = 0; i &lt;= n-1; i++)
--     {
--         /\* code \*/
--     }
-- }
+```c
+{
+    int n = 5;
+    for (int i = 0; i < n; i++)
+    {
+        /* code */
+    }
+            for (int i = 0; i <= n-1; i++)
+    {
+        /* code */
+    }
+}
+```
 
 <!-- chooseAndSwapArrayWithLargerFirstElement(&amp;arr1, &amp;arr2); -->
 
@@ -537,30 +537,33 @@ Algorithms that have the same time complexity for all input cases: For example, 
 ---
 
 - dodawanie dwoch liczb binarnych z podrecznika 2.1-4
-- int \* binadd(int arrA\[\], int arrB\[\], int n)
-- {
--     int \* arrC = (int \*) calloc( sizeof(int) \* (n + 1) );
--     int i, temp;
--     for ( i = 0; i &lt; n; i++)
--     {
--         temp = arrA\[i\] + arrB\[i\] + arrC\[i\];
--         if (temp == 3) //3
--         {
--             arrC\[i\] = 1;
--             arrC\[i + 1\] = 1;
--         }
--         if(temp == 2) //2
--         {
--             arrC\[i\] = 0;
--             arrC\[i + 1\] = 1;
--         }
--         if (temp == 1) //1
--         {
--             arrC\[i\] = 1;
--         }
--     }
--     return arrC;
-- }
+
+```c
+int * binadd(int arrA[], int arrB[], int n)
+{
+    int * arrC = (int *) calloc( sizeof(int) * (n + 1) );
+    int i, temp;
+    for ( i = 0; i < n; i++)
+    {
+        temp = arrA[i] + arrB[i] + arrC[i];
+        if (temp == 3) //3
+        {
+            arrC[i] = 1;
+            arrC[i + 1] = 1;
+        }
+        if(temp == 2) //2
+        {
+            arrC[i] = 0;
+            arrC[i + 1] = 1;
+        }
+        if (temp == 1) //1
+        {
+            arrC[i] = 1;
+        }
+    }
+    return arrC;
+}
+```
 
 ---
 

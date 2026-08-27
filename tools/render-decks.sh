@@ -38,17 +38,11 @@ find "$SRC_ROOT" -type f -name 'index.md' | while IFS= read -r src; do
     if [ -d "$2" ]; then mkdir -p "$dest"; else cp "$2" "$dest"; fi
   ' _ "$out_dir" {} "$deck_dir" \;
 
-  # Shared theme assets the theme's CSS custom properties point at. These are
-  # copied into the deck's own output directory because the theme's url()
-  # references are relative to the rendered index.html, not to theme.css
-  # itself (see CONTRIBUTING.md for why that path resolution rule matters).
-  cp assets/marp/logo.svg assets/marp/mt.svg assets/marp/picax.svg "$out_dir/"
-
   # Called directly (bypassing the image's docker-entrypoint, which drops to
   # the unprivileged "marp" user via gosu) so file ownership always matches
   # whatever user is running this script - root during the Dockerfile build,
   # or the bind-mounted host user under `docker compose run marp`.
   echo "Rendering $src -> $out_dir"
-  node /home/marp/.cli/marp-cli.js --theme-set "$THEME" --html "$src" -o "$out_dir/index.html"
-  node /home/marp/.cli/marp-cli.js --theme-set "$THEME" --pdf --allow-local-files "$src" -o "$out_dir/index.pdf"
+  node /home/marp/.cli/marp-cli.js --theme-set "$THEME" --html "$src" -o "$out_dir/index.html" < /dev/null
+  node /home/marp/.cli/marp-cli.js --theme-set "$THEME" --pdf --allow-local-files "$src" -o "$out_dir/index.pdf" < /dev/null
 done

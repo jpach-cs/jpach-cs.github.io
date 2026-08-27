@@ -13,7 +13,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-![Graphic 3](assets/image3.png)
+![w:277px Graphic 3](assets/image3.png)
 
 ---
 
@@ -35,315 +35,215 @@ title: "CSCI 112  Programming with C"
 - Separate logic, tests, and headers for clarity.
 - Unity is a lightweight, header-based testing framework — ideal for C projects.
 - This structure allows easy maintenance and clear organization.
-- C project/
-- │
-- ├── code.c              ← function implementations
-- ├── code.h              ← function declarations and globals
-- │
-- ├── main.c              ← main program entry point
-- │
-- ├── tests.c             ← unit tests implementation
-- ├── tests.h             ← declaration for test runner
-- │
-- ├── unity.c / unity.h   ← Unity testing framework
-- │
-- └── Makefile            ← build automation
+
+```c
+C project/
+│
+├── code.c              ← function implementations
+├── code.h              ← function declarations and globals
+│
+├── main.c              ← main program entry point
+│
+├── tests.c             ← unit tests implementation
+├── tests.h             ← declaration for test runner
+│
+├── unity.c / unity.h   ← Unity testing framework
+│
+└── Makefile            ← build automation
+```
 
 ---
 
 ## main.c
 
+```c
 //#define clearBuffer() while (getchar() != '\n');
-
-\#include &lt;stdio.h&gt;
-
-\#include &lt;stdlib.h&gt;
-
-\#include &lt;stdbool.h&gt;
-
-\#include &lt;string.h&gt;
-
-\#include "tests.h"
-
-\#include "code.h"
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
+#include "tests.h"
+#include "code.h"
 // ----------------- MAIN PROGRAM -----------------
-
-int main(int argc, char \*argv\[\])
-
+int main(int argc, char *argv[])
 {
-
-    int failed\_tests = 0;
-
-    if (argc &gt; 1)
-
+    int failed_tests = 0;
+    if (argc > 1)
     {
-
-        if (strcmp(argv\[1\], "--test") == 0)
-
-            failed\_tests = run\_unity\_tests();
-
-        else if (strcmp(argv\[1\], "--author") == 0)
-
-            printf(AUTHOR\_NAME);
-
-        else if (strcmp(argv\[1\], "--authorship") == 0)
-
-            printf(AUTHOR\_AUTHORSHIP);
-
-        else if (strcmp(argv\[1\], "--help") == 0)
-
+        if (strcmp(argv[1], "--test") == 0)
+            failed_tests = run_unity_tests();
+        else if (strcmp(argv[1], "--author") == 0)
+            printf(AUTHOR_NAME);
+        else if (strcmp(argv[1], "--authorship") == 0)
+            printf(AUTHOR_AUTHORSHIP);
+        else if (strcmp(argv[1], "--help") == 0)
             printf("\n  --test\...\n\n");
-
     }
-
     else
-
     {
-
         printf("Wrong parameter. Use --help to see available options.\n");
-
         return 1;
-
     }
-
-    //failed\_tests = run\_unity\_tests();
-
+    //failed_tests = run_unity_tests();
     getchar(); // pause before exit (Windows)
-
-    return failed\_tests; // cmd/powershell: echo $LASTEXITCODE
-
+    return failed_tests; // cmd/powershell: echo $LASTEXITCODE
 }
+```
 
 ---
 
 ## code.h
 
+```c
 // code.h
-
-\#ifndef CODE\_H // include guard prevents multiple inclusion
-
-\#define CODE\_H<br>
+#ifndef CODE_H // include guard prevents multiple inclusion
+#define CODE_H
 
 // comments
-
-extern char \* AUTHOR\_NAME;
-
-extern char \* AUTHOR\_AUTHORSHIP;<br>
+extern char * AUTHOR_NAME;
+extern char * AUTHOR_AUTHORSHIP;
 
 // ----------------- DATA STRUCTURES -----------------
-
-// Declaration of a simple test struct<br>
+// Declaration of a simple test struct
 
 struct TestStruct
-
 {
-
     int var;
-
 };
-
 // ----------------- GLOBAL VARIABLES -----------------
-
 // Note: use of globals is generally discouraged but okay for small demos
-
 int a;      // test variable 'a'
+int * p;    // pointer used in tests
 
-int \* p;    // pointer used in tests<br><br>
 
 // ----------------- FUNCTION PROTOTYPES -----------------
-
 int multiply(int x, int y);    // multiplies two integers
+int addOne(int * pointer);     // increments value pointed to by pointer
 
-int addOne(int \* pointer);     // increments value pointed to by pointer<br><br><br>
 
-\#endif
+
+#endif
+
+
+```
 
 ---
 
 ## code.c
 
-char \* AUTHOR\_NAME = (char \*) "Jakub Pach";
-
-char \* AUTHOR\_AUTHORSHIP = (char \*) "I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the seriousness and implications of plagiarism.";
+```c
+char * AUTHOR_NAME = (char *) "Jakub Pach";
+char * AUTHOR_AUTHORSHIP = (char *) "I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the seriousness and implications of plagiarism.";
 
 // --------- FUNCTION IMPLEMENTATIONS ------------
+#include <stdio.h>
 
-\#include &lt;stdio.h&gt;<br>
-
-int addOne(int \* pointer)
-
+int addOne(int * pointer)
 {
-
     // check pointer validity and positive value
-
-    if(!(\*pointer &gt;= 0))
-
+    if(!(*pointer >= 0))
     {
-
-        fprintf(stderr, "Error: (\*pointer) has to be greater or equal zero!\n");
-
+        fprintf(stderr, "Error: (*pointer) has to be greater or equal zero!\n");
         return -1;   // special error value
-
     }
-
-    (\*pointer)++;
-
-    return \*pointer;
-
-}<br>
+    (*pointer)++;
+    return *pointer;
+}
 
 int multiply(int x, int y)
-
 {
-
-    return x \* y;
-
+    return x * y;
 }
+```
 
 ---
 
 ## tests.h
 
+```c
 // tests.h
+#ifndef TESTS_H
+#define TESTS_H
 
-\#ifndef TESTS\_H
-
-\#define TESTS\_H
-
-<br>
 
 // prototype for running all Unity tests
+int run_unity_tests(void);
 
-int run\_unity\_tests(void);
 
-<br>
+#endif // TESTS_H
 
-\#endif // TESTS\_H
 
-<br>
+```
 
 ---
 
 ## tests.c
 
-//#include &lt;assert.h&gt;   // commented out, not needed
-
-\#include "code.h"
-
-\#include "tests.h"
-
-\#include "unity.h"
-
+```c
+//#include <assert.h>   // commented out, not needed
+#include "code.h"
+#include "tests.h"
+#include "unity.h"
 int result; // global variable for test results
-
 // ----------------- UNITY SETUP / TEARDOWN -----------------
-
 void setUp()
-
 {
-
     a = 4;
-
-    p = (int\*) malloc(sizeof(int));
-
-    \*p = 5;
-
+    p = (int*) malloc(sizeof(int));
+    *p = 5;
     result = 0;
-
 }
-
 void tearDown()
-
 {
-
     free(p);
-
     result = 0;
-
 }
-
 // ----------------- TEST FUNCTIONS -----------------
-
-void test\_multiply\_basic()
-
+void test_multiply_basic()
 {
-
-    result = multiply(a, \*p);
-
-    TEST\_ASSERT\_EQUAL(20, result);
-
+    result = multiply(a, *p);
+    TEST_ASSERT_EQUAL(20, result);
 }
-
-void test\_multiply\_with\_zero()
-
+void test_multiply_with_zero()
 {
-
-    \*p = 0;
-
-    result = multiply(a, \*p);
-
-    TEST\_ASSERT\_EQUAL(0, result);
-
+    *p = 0;
+    result = multiply(a, *p);
+    TEST_ASSERT_EQUAL(0, result);
 }
-
-void test\_multiply\_negative()
-
+void test_multiply_negative()
 {
-
-    \*p = -3;
-
-    result = multiply(a, \*p);
-
-    TEST\_ASSERT\_EQUAL(-12, result);
-
+    *p = -3;
+    result = multiply(a, *p);
+    TEST_ASSERT_EQUAL(-12, result);
 }
+```
 
-void test\_addOne\_basic()
-
+```c
+void test_addOne_basic()
 {
-
     result = addOne(p);
-
-    TEST\_ASSERT\_EQUAL(6, result);
-
+    TEST_ASSERT_EQUAL(6, result);
 }
-
-void test\_addOne\_negative()
-
+void test_addOne_negative()
 {
-
-    \*p = -3;
-
+    *p = -3;
     result = addOne(p);
-
-    TEST\_ASSERT\_EQUAL(-1, result); // tests proper error handling
-
+    TEST_ASSERT_EQUAL(-1, result); // tests proper error handling
 }
-
 // ----------------- RUN ALL TESTS -----------------
-
-int run\_unity\_tests(void)
-
+int run_unity_tests(void)
 {
-
-    UNITY\_BEGIN();
-
-    RUN\_TEST(test\_multiply\_basic);
-
-    RUN\_TEST(test\_multiply\_with\_zero);
-
-    RUN\_TEST(test\_multiply\_negative);
-
-    RUN\_TEST(test\_addOne\_basic);
-
-    RUN\_TEST(test\_addOne\_negative);
-
-    return UNITY\_END();
-
+    UNITY_BEGIN();
+    RUN_TEST(test_multiply_basic);
+    RUN_TEST(test_multiply_with_zero);
+    RUN_TEST(test_multiply_negative);
+    RUN_TEST(test_addOne_basic);
+    RUN_TEST(test_addOne_negative);
+    return UNITY_END();
 }
 
-<br>
+
+```
 
 ---
 
@@ -352,39 +252,28 @@ int run\_unity\_tests(void)
 - code.h declares the interface.
 - code.c contains the implementation.
 
+```c
 int multiply(int x, int y);    // multiplies two integers
+int addOne(int * pointer);     // increments value pointed to by pointer
+```
 
-int addOne(int \* pointer);     // increments value pointed to by pointer
-
-int addOne(int \* pointer)
-
+```c
+int addOne(int * pointer)
 {
-
     // check pointer validity and positive value
-
-    if(!(\*pointer &gt;= 0))
-
+    if(!(*pointer >= 0))
     {
-
-        fprintf(stderr, "Error: (\*pointer) has to be greater or equal zero!\n");
-
+        fprintf(stderr, "Error: (*pointer) has to be greater or equal zero!\n");
         return -1;   // special error value
-
     }
-
-    (\*pointer)++;
-
-    return \*pointer;
-
+    (*pointer)++;
+    return *pointer;
 }
-
 int multiply(int x, int y)
-
 {
-
-    return x \* y;
-
+    return x * y;
 }
+```
 
 - addOne() checks input validity → demonstrates defensive programming.Simple, testable logic → perfect for unit testing.
 - The Logic Module
@@ -400,51 +289,31 @@ int multiply(int x, int y)
   - test mode (verification)
 - Demonstrates separation of logic and testing.
 
-int main(int argc, char \*argv\[\])
-
+```c
+int main(int argc, char *argv[])
 {
-
-    int failed\_tests = 0;
-
-    if (argc &gt; 1)
-
+    int failed_tests = 0;
+    if (argc > 1)
     {
-
-        if (strcmp(argv\[1\], "--test") == 0)
-
-            failed\_tests = run\_unity\_tests();
-
-        else if (strcmp(argv\[1\], "--author") == 0)
-
-            printf(AUTHOR\_NAME);
-
-        else if (strcmp(argv\[1\], "--authorship") == 0)
-
-            printf(AUTHOR\_AUTHORSHIP);
-
-        else if (strcmp(argv\[1\], "--help") == 0)
-
+        if (strcmp(argv[1], "--test") == 0)
+            failed_tests = run_unity_tests();
+        else if (strcmp(argv[1], "--author") == 0)
+            printf(AUTHOR_NAME);
+        else if (strcmp(argv[1], "--authorship") == 0)
+            printf(AUTHOR_AUTHORSHIP);
+        else if (strcmp(argv[1], "--help") == 0)
             printf("\n  --test\...\n\n");
-
     }
-
     else
-
     {
-
         printf("Wrong parameter. Use --help to see available options.\n");
-
         return 1;
-
     }
-
-    //failed\_tests = run\_unity\_tests();
-
+    //failed_tests = run_unity_tests();
     getchar(); // pause before exit (Windows)
-
-    return failed\_tests; // cmd/powershell: echo $LASTEXITCODE
-
+    return failed_tests; // cmd/powershell: echo $LASTEXITCODE
 }
+```
 
 - The Main Program and Command Interface
 
@@ -457,39 +326,25 @@ int main(int argc, char \*argv\[\])
 - Assertion = a condition that must be true for the test to pass.
 - Failures are automatically reported by Unity.
 
-void test\_multiply\_basic()
-
+```c
+void test_multiply_basic()
 {
-
-    result = multiply(a, \*p);
-
-    TEST\_ASSERT\_EQUAL(20, result);
-
+    result = multiply(a, *p);
+    TEST_ASSERT_EQUAL(20, result);
 }
-
-void test\_multiply\_with\_zero()
-
+void test_multiply_with_zero()
 {
-
-    \*p = 0;
-
-    result = multiply(a, \*p);
-
-    TEST\_ASSERT\_EQUAL(0, result);
-
+    *p = 0;
+    result = multiply(a, *p);
+    TEST_ASSERT_EQUAL(0, result);
 }
-
-void test\_multiply\_negative()
-
+void test_multiply_negative()
 {
-
-    \*p = -3;
-
-    result = multiply(a, \*p);
-
-    TEST\_ASSERT\_EQUAL(-12, result);
-
+    *p = -3;
+    result = multiply(a, *p);
+    TEST_ASSERT_EQUAL(-12, result);
 }
+```
 
 ---
 
@@ -501,29 +356,20 @@ void test\_multiply\_negative()
 - Mimics a controlled test environment.
 - Preparing and Cleaning the Test Environment
 
+```c
 void setUp()
-
 {
-
     a = 4;
-
-    p = (int\*) malloc(sizeof(int));
-
-    \*p = 5;
-
+    p = (int*) malloc(sizeof(int));
+    *p = 5;
     result = 0;
-
 }
-
 void tearDown()
-
 {
-
     free(p);
-
     result = 0;
-
 }
+```
 
 ---
 
@@ -533,8 +379,13 @@ void tearDown()
 
 *Function pointers are used to store the memory address of a function. For a function pointer to be correctly used, the signature of the function it points to must exactly match the signature of the pointer itself. This means the return type and the list of arguments (including their types and order) must be identical.*
 
-- return-type function-name (only type of parameter declarations, if any);
-- return-type (\*function-name-pointer) (only type of parameter declarations, if any);
+```c
+return-type function-name (only type of parameter declarations, if any);
+```
+
+```c
+return-type (*function-name-pointer) (only type of parameter declarations, if any);
+```
 
 ---
 
@@ -544,61 +395,46 @@ void tearDown()
 - Unity reports all results in a readable format.
 - Helps trace logical errors quickly and accurately.
 
-void test\_addOne\_basic()
-
+```c
+void test_addOne_basic()
 {
-
     result = addOne(p);
-
-    TEST\_ASSERT\_EQUAL(6, result);
-
+    TEST_ASSERT_EQUAL(6, result);
 }
-
-void test\_addOne\_negative()
-
+void test_addOne_negative()
 {
-
-    \*p = -3;
-
+    *p = -3;
     result = addOne(p);
-
-    TEST\_ASSERT\_EQUAL(-1, result); // tests proper error handling
-
+    TEST_ASSERT_EQUAL(-1, result); // tests proper error handling
 }
-
 // ----------------- RUN ALL TESTS -----------------
-
-int run\_unity\_tests(void)
-
+int run_unity_tests(void)
 {
-
-    UNITY\_BEGIN();
-
-    RUN\_TEST(test\_multiply\_basic);
-
-    RUN\_TEST(test\_multiply\_with\_zero);
-
-    RUN\_TEST(test\_multiply\_negative);
-
-    RUN\_TEST(test\_addOne\_basic);
-
-    RUN\_TEST(test\_addOne\_negative);
-
-    return UNITY\_END();
-
+    UNITY_BEGIN();
+    RUN_TEST(test_multiply_basic);
+    RUN_TEST(test_multiply_with_zero);
+    RUN_TEST(test_multiply_negative);
+    RUN_TEST(test_addOne_basic);
+    RUN_TEST(test_addOne_negative);
+    return UNITY_END();
 }
 
-<br>
 
-- tests.c:53:test\_multiply\_basic:PASS
-- tests.c:54:test\_multiply\_with\_zero:PASS
-- tests.c:55:test\_multiply\_negative:PASS
-- tests.c:56:test\_addOne\_basic:PASS
-- Error: (\*pointer) has to be greater or equal zero!
-- tests.c:57:test\_addOne\_negative:PASS
-- \-----------------------
-- 5 Tests 0 Failures 0 Ignored
-- OK
+```
+
+```c
+tests.c:53:test_multiply_basic:PASS
+tests.c:54:test_multiply_with_zero:PASS
+tests.c:55:test_multiply_negative:PASS
+tests.c:56:test_addOne_basic:PASS
+Error: (*pointer) has to be greater or equal zero!
+tests.c:57:test_addOne_negative:PASS
+
+-----------------------
+5 Tests 0 Failures 0 Ignored
+OK
+```
+
 - Result:
 
 ---
@@ -642,16 +478,25 @@ return failed\_tests;
 - Purpose:
   - Formats data according to the format specifier and stores the result in a character array.
 - The sprintf function is incredibly useful when you need to create custom strings dynamically. The format specifiers work similarly to printf, allowing you to format numbers, strings, and other data types.
-- \#include &lt;stdio.h&gt;
-- int main(int argc, char \*argv\[\])
-- {
--     char buffer\[50\];
--     int age = 30;
--     sprintf(buffer, "I am %d years old.", age);
--     printf(buffer);
--     return 0;
-- }
-- I am 30 years old.
+
+```c
+#include <stdio.h>
+int main(int argc, char *argv[])
+{
+    char buffer[50];
+    int age = 30;
+    sprintf(buffer, "I am %d years old.", age);
+    printf(buffer);
+
+    return 0;
+}
+```
+
+```c
+I am 30 years old.
+
+```
+
 - Result:
 
 ---
@@ -663,16 +508,25 @@ return failed\_tests;
 - Purpose:
   - Reads formatted data from a string into variables.
 - The sscanf is like the opposite of sprintf. It allows you to extract specific pieces of data from a string based on a format specifier. This is particularly useful when parsing data from files or user input.
-- \#include &lt;stdio.h&gt;
-- int main(int argc, char \*argv\[\])
-- {
--     char str\[\] = "My age is 30";
--     int age;
--     sscanf(str, "My age is %d", &amp;age);
--     printf("%d", age);
--     return 0;
-- }
-- 30
+
+```c
+#include <stdio.h>
+int main(int argc, char *argv[])
+{
+    char str[] = "My age is 30";
+    int age;
+    sscanf(str, "My age is %d", &age);
+    printf("%d", age);
+
+    return 0;
+}
+```
+
+```c
+30
+
+```
+
 - Result:
 
 ---
@@ -686,80 +540,103 @@ return failed\_tests;
 - gets():
   - This function reads a line of text from stdin and stores it in the specified character array (name in this example).
   - However, gets is unsafe because it doesn't check for buffer overflow; it's recommended to use fgets instead in modern C for safer input handling.
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--     char name\[50\];
-- <br>    /\* Using puts toob display a message \*/
--     puts("Please enter your name:");
-- <br>    /\* Using gets to read a line of text from the user \*/
--     gets(name);
-- <br>    /\* Displaying the input using puts \*/
--     puts("Hello, ");
--     puts(name);
--     return 0;
-- }
-- Please enter your name:
-- Jacob
-- Hello,
-- Jacob
+
+```c
+#include <stdio.h>
+int main()
+{
+    char name[50];
+
+    /* Using puts toob display a message */
+    puts("Please enter your name:");
+
+    /* Using gets to read a line of text from the user */
+    gets(name);
+
+    /* Displaying the input using puts */
+    puts("Hello, ");
+    puts(name);
+    return 0;
+}
+```
+
+```c
+Please enter your name:
+Jacob
+Hello,
+Jacob
+```
+
 - Result:
 
 ---
 
 ## Function pointer with typdef
 
-- \#include &lt;stdio.h&gt;
-- int add(int, int);
-- int subtract(int, int);
-- <br>int add(int a, int b)
-- {
--   return a + b;
-- }
-- int subtract(int a, int b)
-- {
--   return a - b;
-- }
-- int main()
-- {
--   int x = 5, y = 3;
--   int (\*peration)(int,int);
--   operation = add;
--   int result = operation(x, y);
--   printf("Result of addition: %d\n", result);
--   operation = subtract;
--   result = operation(x, y);
--   printf("Result of subtraction: %d\n", result);
-- <br>  return 0;
-- }
-- Result of addition: 8
-- Result of subtraction: 2
+```c
+#include <stdio.h>
+int add(int, int);
+int subtract(int, int);
+
+int add(int a, int b)
+{
+  return a + b;
+}
+int subtract(int a, int b)
+{
+  return a - b;
+}
+
+int main()
+{
+  int x = 5, y = 3;
+  int (*peration)(int,int);
+  operation = add;
+  int result = operation(x, y);
+  printf("Result of addition: %d\n", result);
+  operation = subtract;
+  result = operation(x, y);
+  printf("Result of subtraction: %d\n", result);
+
+  return 0;
+}
+```
+
+```c
+Result of addition: 8
+Result of subtraction: 2
+```
+
 - Result:
-- \#include &lt;stdio.h&gt;
-- int add(int, int);
-- int subtract(int, int);
-- <br>int add(int a, int b)
-- {
--   return a + b;
-- }
-- int subtract(int a, int b)
-- {
--   return a - b;
-- }
 
-typedef int (\*Operation)(int,int);
+```c
+#include <stdio.h>
+int add(int, int);
+int subtract(int, int);
 
-- int main()
-- {
--   int x = 5, y = 3;
--   Operation operation = add;
--   int result = operation(x, y);
--   printf("Result of addition: %d\n", result);
--   operation = subtract;
--   result = operation(x, y);
--   printf("Result of subtraction: %d\n", result);
-- <br>  return 0;
-- }
+int add(int a, int b)
+{
+  return a + b;
+}
+int subtract(int a, int b)
+{
+  return a - b;
+}
+typedef int (*Operation)(int,int);
+int main()
+{
+  int x = 5, y = 3;
+  Operation operation = add;
+  int result = operation(x, y);
+  printf("Result of addition: %d\n", result);
+  operation = subtract;
+  result = operation(x, y);
+  printf("Result of subtraction: %d\n", result);
+
+  return 0;
+}
+```
+
 - When you use **typedef** with the syntax for a function pointer, you are not creating any pointer.
 - You are simply defining <br>a type alias, which means this type does not exist in main until you actually declare <br>a variable of that type!!!
 
@@ -770,18 +647,19 @@ typedef int (\*Operation)(int,int);
 - The program returned exit code 0, which means it ran successfully.
 - A non-zero exit code usually indicates an error or failure.
 
-int main(int argc, char \*argv\[\])
-
+```c
+int main(int argc, char *argv[])
 {
-
     return 0; // cmd/powershell:  echo $LASTEXITCODE
-
 }
+```
 
-- C:&gt;main.exe
-- C:&gt;echo $LASTEXITCODE
-- 0
-- C:&gt;
+```c
+C:>main.exe
+C:>echo $LASTEXITCODE
+0
+C:>
+```
 
 ---
 
@@ -795,23 +673,17 @@ int main(int argc, char \*argv\[\])
   - 0 = success
   - non-zero = error
 
-int findElement(int arr\[\], int size, int target)
-
+```c
+int findElement(int arr[], int size, int target)
 {
-
-    for(int i = 0; i &lt; size; i++)
-
+    for(int i = 0; i < size; i++)
     {
-
-        if(arr\[i\] == target)
-
+        if(arr[i] == target)
             return i;  // found, return index
-
     }
-
     return -1;  // not found → error
-
 }
+```
 
 ---
 
@@ -833,17 +705,14 @@ Unit tests are automated checks of small parts of a program (such as functions o
 - Unlike assert, Unity Test does not stop the program when a test fails. Instead, it records the failure and continues with other tests.
 - This way we get a summary of all passed and failed tests at the end. Example test with Unity:
 
-\#include "unity.h"
-
-void test\_addition(void)
-
+```c
+#include "unity.h"
+void test_addition(void)
 {
-
-    TEST\_ASSERT\_EQUAL(4, 2 + 2);  // this will pass
-
-    TEST\_ASSERT\_EQUAL(5, 2 + 2);  // this will fail, but program continues
-
+    TEST_ASSERT_EQUAL(4, 2 + 2);  // this will pass
+    TEST_ASSERT_EQUAL(5, 2 + 2);  // this will fail, but program continues
 }
+```
 
 ---
 
@@ -945,15 +814,15 @@ This makes every test independent, safe, and repeatable.
 
 ## Visual Studio / Visual Studio Code
 
-![Debugging diagram](assets/image5.png)
+![w:757px Debugging diagram](assets/image5.png)
 
-![Run menu](assets/image6.png)
+![w:503px Run menu](assets/image6.png)
 
 ---
 
 ## Visual Studio / Visual Studio Code
 
-![breakpoints in overview ruler](assets/image7.png)
+![w:825px breakpoints in overview ruler](assets/image7.png)
 
 - Breakpoints
 
@@ -961,9 +830,9 @@ This makes every test independent, safe, and repeatable.
 
 ## Visual Studio / Visual Studio Code
 
-![Debug Variables](assets/image8.png)
+![w:429px Debug Variables](assets/image8.png)
 
-![Debug Watch](assets/image9.png)
+![w:422px Debug Watch](assets/image9.png)
 
 - Variables
 
@@ -973,7 +842,7 @@ This makes every test independent, safe, and repeatable.
 
 - Call stack
 
-![Picture 5](assets/image10.png)
+![w:737px Picture 5](assets/image10.png)
 
 ---
 

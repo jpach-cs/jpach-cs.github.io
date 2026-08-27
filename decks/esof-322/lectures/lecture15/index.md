@@ -40,7 +40,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ## Plan-driven and agile development
 
-![3.2 PlanBasedAgile.eps](assets/image2.emf)
+![w:802px 3.2 PlanBasedAgile.eps](assets/image2.emf)
 <!-- pptx2marp: image2.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -114,7 +114,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ## The extreme programming release cycle
 
-![3.3-XP-ReleaseCycle.eps](assets/image3.emf)
+![w:918px 3.3-XP-ReleaseCycle.eps](assets/image3.emf)
 <!-- pptx2marp: image3.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -175,14 +175,14 @@ title: "Chapter 3 – Agile Software Development"
 
 ## A ‘prescribing medication’ story
 
-![3.5 StoryCard.eps](assets/image4.emf)
+![w:835px 3.5 StoryCard.eps](assets/image4.emf)
 <!-- pptx2marp: image4.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
 ## Examples of task cards for prescribing medication
 
-![3.6 TaskCards.eps](assets/image5.emf)
+![w:898px 3.6 TaskCards.eps](assets/image5.emf)
 <!-- pptx2marp: image5.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -246,7 +246,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ## Test case description for dose checking
 
-![3.7 DoseChecking.eps](assets/image6.emf)
+![w:1041px 3.7 DoseChecking.eps](assets/image6.emf)
 <!-- pptx2marp: image6.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -308,7 +308,7 @@ title: "Chapter 3 – Agile Software Development"
   - Instead of imposing rigid roles and procedures, it allows the team to decide how best to achieve their goals.
   - Thus, the name “Scrum” was used symbolically to reflect the spirit of collaboration and iterative progress.
 
-![undefined](assets/image7.jpeg)
+![w:361px undefined](assets/image7.jpeg)
 
 ---
 
@@ -350,7 +350,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ## Scrum sprint cycle
 
-![3.9 Scrum sprint cycle.eps](assets/image8.emf)
+![w:1142px 3.9 Scrum sprint cycle.eps](assets/image8.emf)
 <!-- pptx2marp: image8.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -392,7 +392,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ## Distributed Scrum
 
-![3.10 Distributed Scrum.eps](assets/image9.emf)
+![w:1074px 3.10 Distributed Scrum.eps](assets/image9.emf)
 <!-- pptx2marp: image9.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -495,7 +495,7 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ## Agile and plan-based factors
 
-![3.12 Agile-plan-based-factors.eps](assets/image10.emf)
+![w:1186px 3.12 Agile-plan-based-factors.eps](assets/image10.emf)
 <!-- pptx2marp: image10.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -551,14 +551,14 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ## Factors in large systems
 
-![3.13 Factors in large systems.eps](assets/image11.emf)
+![w:1001px 3.13 Factors in large systems.eps](assets/image11.emf)
 <!-- pptx2marp: image11.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
 ## IBM’s agility at scale model
 
-![3.14 IBM's agility at scale model.eps](assets/image12.emf)
+![w:1014px 3.14 IBM's agility at scale model.eps](assets/image12.emf)
 <!-- pptx2marp: image12.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -607,7 +607,7 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-![Picture 7](assets/image13.png)
+![w:1152px Picture 7](assets/image13.png)
 
 ---
 

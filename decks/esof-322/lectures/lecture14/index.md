@@ -467,7 +467,7 @@ Operating on large collections of data is at the core of Computer Science. In th
 
 ## Insulin pump hardware architecture
 
-![1.4 InsulinPumpHW.eps](assets/image2.emf)
+![w:561px 1.4 InsulinPumpHW.eps](assets/image2.emf)
 <!-- pptx2marp: image2.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- An insulin pump is a medical system that simulates the operation of the pancreas (an internal organ). The software controlling this system is an embedded system that collects information from a sensor and controls a pump that delivers a controlled dose of insulin to a user. People who suffer from diabetes use the system. Diabetes is a relatively common condition in which the human pancreas is unable to produce sufficient quantities of a hormone called insulin. Insulin metabolizes glucose (sugar) in the blood. The con ventional treatment of diabetes involves regular injections of genetically engineered insulin. Diabetics measure their blood sugar levels periodically using an external meter and then estimate the dose of insulin they should inject. The problem is that the level of insulin required does not just depend on the blood glucose level but also on the time of the last insulin injection. Irregular checking can lead to very low levels of blood glucose (if there is too much insulin) or very high levels of blood sugar (if there is too little insulin). Low blood glucose is, in the short term, a more serious condition as it can result in temporary brain malfunctioning and, ultimately, unconsciousness and death. In the long term, however, continual high levels of blood glucose can lead to eye damage, kidney damage, and heart problems. Advances in developing miniaturized sensors have meant that it is now possible to develop automated insulin delivery systems. These systems monitor blood sugar levels and deliver an appropriate dose of insulin when required. Insulin delivery systems like this one are now available and are used by patients who find it difficult to control their insulin levels. In future, it may be possible for diabetics to have such systems permanently attached to their bodies. A software-controlled insulin delivery system uses a microsensor embedded in the patient to measure some blood parameter that is proportional to the sugar level. This is then sent to the pump controller. This controller computes the sugar level and the amount of insulin that is needed. It then sends signals to a miniaturized pump to deliver the insulin via a permanently attached needle.
@@ -478,7 +478,7 @@ The insulin pump delivers one unit of insulin in response to a single pulse from
 
 ## Activity model of the insulin pump
 
-![1.5 InsulinPumpActDiag.eps](assets/image3.emf)
+![w:686px 1.5 InsulinPumpActDiag.eps](assets/image3.emf)
 <!-- pptx2marp: image3.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- That Figure is a Unified Modeling Language (UML) activity model that illustrates how the software transforms an input blood sugar level to a sequence of commands that drive the insulin pump.
@@ -523,7 +523,7 @@ Clearly, this is a safety-critical system. If the pump fails to operate or does 
 
 ## The organization of the Mentcare system
 
-![1.6 MHC-PMS.eps](assets/image4.emf)
+![w:532px 1.6 MHC-PMS.eps](assets/image4.emf)
 <!-- pptx2marp: image4.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -559,7 +559,7 @@ Clearly, this is a safety-critical system. If the pump fails to operate or does 
 
 ## The weather station’s environment
 
-![1.7 WeatherStationEnv.eps](assets/image5.emf)
+![w:542px 1.7 WeatherStationEnv.eps](assets/image5.emf)
 <!-- pptx2marp: image5.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -609,7 +609,7 @@ Clearly, this is a safety-critical system. If the pump fails to operate or does 
 
 ## iLearn architecture
 
-![1.8 iLearn architecture.eps](assets/image6.emf)
+![w:616px 1.8 iLearn architecture.eps](assets/image6.emf)
 <!-- pptx2marp: image6.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -755,7 +755,7 @@ Clearly, this is a safety-critical system. If the pump fails to operate or does 
 
 ## Incremental development <br>
 
-![2.2 Incremental-dev.eps](assets/image7.emf)
+![w:789px 2.2 Incremental-dev.eps](assets/image7.emf)
 <!-- pptx2marp: image7.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -807,7 +807,7 @@ Clearly, this is a safety-critical system. If the pump fails to operate or does 
 
 ## Reuse-oriented software engineering
 
-![2.3 Reuse oriented SE.eps](assets/image8.emf)
+![w:923px 2.3 Reuse oriented SE.eps](assets/image8.emf)
 <!-- pptx2marp: image8.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -859,7 +859,7 @@ Tools may be combined within a framework called an Interactive Development Envir
 
 ## The requirements engineering process<br>
 
-![2.4 RE-process.eps](assets/image9.emf)
+![w:666px 2.4 RE-process.eps](assets/image9.emf)
 <!-- pptx2marp: image9.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -896,7 +896,7 @@ In agile methods, requirements specification is not a separate activity but is s
 
 ## A general model of the design process
 
-![2.5 Design-process.eps](assets/image10.emf)
+![w:652px 2.5 Design-process.eps](assets/image10.emf)
 <!-- pptx2marp: image10.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -936,7 +936,7 @@ In agile methods, requirements specification is not a separate activity but is s
 
 ## Stages of testing
 
-![2.6 Testing-process.eps](assets/image11.emf)
+![w:659px 2.6 Testing-process.eps](assets/image11.emf)
 <!-- pptx2marp: image11.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -955,7 +955,7 @@ In agile methods, requirements specification is not a separate activity but is s
 
 ## Testing phases in a plan-driven software process (V-model)
 
-![2.7 Testing-phases.eps](assets/image12.emf)
+![w:908px 2.7 Testing-phases.eps](assets/image12.emf)
 <!-- pptx2marp: image12.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -970,7 +970,7 @@ In agile methods, requirements specification is not a separate activity but is s
 
 ## System evolution
 
-![2.8 System evolution.eps](assets/image13.emf)
+![w:794px 2.8 System evolution.eps](assets/image13.emf)
 <!-- pptx2marp: image13.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -1033,7 +1033,7 @@ In agile methods, requirements specification is not a separate activity but is s
 
 ## The process of prototype development
 
-![2.9 PrototypeProcess.eps](assets/image14.emf)
+![w:801px 2.9 PrototypeProcess.eps](assets/image14.emf)
 <!-- pptx2marp: image14.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -1081,7 +1081,7 @@ In agile methods, requirements specification is not a separate activity but is s
 
 ## Incremental delivery
 
-![2.10 Incremental-delivery.eps](assets/image15.emf)
+![w:858px 2.10 Incremental-delivery.eps](assets/image15.emf)
 <!-- pptx2marp: image15.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -1126,7 +1126,7 @@ In agile methods, requirements specification is not a separate activity but is s
 
 ## The process improvement cycle
 
-![26.3 Process improvement.eps](assets/image16.emf)
+![w:512px 26.3 Process improvement.eps](assets/image16.emf)
 <!-- pptx2marp: image16.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -1164,7 +1164,7 @@ In agile methods, requirements specification is not a separate activity but is s
 
 ## Capability maturity levels
 
-![26.10 StagesCMMI.eps](assets/image17.emf)
+![w:701px 26.10 StagesCMMI.eps](assets/image17.emf)
 <!-- pptx2marp: image17.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---

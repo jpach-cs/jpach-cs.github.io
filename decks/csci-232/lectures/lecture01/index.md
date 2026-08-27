@@ -75,9 +75,9 @@ Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein. Introd
 
 **or fourth edit**ion, it does not matter.
 
-![Picture 5](assets/image4.png)
+![w:258px Picture 5](assets/image4.png)
 
-![Introduction to Algorithms by Thomas H. Cormen - ISBN 9780262046305](assets/image5.gif)
+![w:154px Introduction to Algorithms by Thomas H. Cormen - ISBN 9780262046305](assets/image5.gif)
 
 ---
 
@@ -105,43 +105,33 @@ The final grade will be calculated as a weighted average of the scores obtained 
 
 ---
 
-## Syllabus<br>Declaration of authorship
-
-*I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the importance the consequences of plagiarism.*
+## Syllabus<br>Declaration of authorship *I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the importance the consequences of plagiarism.*
 
 ---
 
 ## Syllabus<br>Comments
 
-**Comments:**
-
-- There must be 4 lines of comments at the top of each source file. This heading should include your name, the class and semester, and the assignment number, and required statement. Source file without this comment gets **zero points**.
-
-**Template:**
-
-/\*
-
+```c
+Comments:
+There must be 4 lines of comments at the top of each source file. This heading should include your name, the class and semester, and the assignment number, and required statement. Source file without this comment gets zero points.
+Template:
+/*
 Jakub Leszek Pach
-
 CSCI 232 Fall 2025
-
 Programming Assignment #1
-
 I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the importance the consequences of plagiarism.
+*/
 
-\*/
+```
 
-/\*
-
+```c
+/*
 Jakub Leszek Pach
-
 CSCI 255 Spring 2025
-
 Programming Assignment #1
-
 I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the importance the consequences of plagiarism.
-
-\*/
+*/
+```
 
 ---
 
@@ -157,13 +147,13 @@ I acknowledge that I have worked on this assignment independently, except where 
 - Visual Studio Code
 - Visual Studio
 
-![Visual Studio Code logo thumbnail](assets/image6.png)
+![w:194px Visual Studio Code logo thumbnail](assets/image6.png)
 
-![Visual Studio logo icon](assets/image7.png)
+![w:194px Visual Studio logo icon](assets/image7.png)
 
-![codeblocks](assets/image8.png)
+![w:182px codeblocks](assets/image8.png)
 
-![Ink 13](assets/image70.png)
+![w:401px Ink 13](assets/image70.png)
 
 ---
 

@@ -31,7 +31,7 @@ title: "Software Engineering"
   - **Edges (connections)** — showing the relationships and flow between nodes.
 - Flowcharts in Mermaid are compliant with **ANSI** and **ISO 5807:2019** standards. In UML terminology, this type corresponds to **Activity Diagrams**.
 
-![undefined](assets/image2.png)
+![w:265px undefined](assets/image2.png)
 
 ---
 
@@ -49,37 +49,37 @@ title: "Software Engineering"
 |On-page connector|Pairs of labeled connectors replace long or confusing lines on a flowchart page. Represented by a small circle with a letter inside.|
 |Off-page connector|A labeled connector for use when the target is on another page. Represented as a home plate-shaped pentagon.|
 
-![Picture 5](assets/image3.png)
+![w:100px Picture 5](assets/image3.png)
 
-![A black and white photo frame
+![w:66px A black and white photo frame
 
 AI-generated content may be incorrect.](assets/image4.png)
 
-![A black and white rectangle
+![w:66px A black and white rectangle
 
 AI-generated content may be incorrect.](assets/image5.png)
 
-![A white diamond on a black background
+![w:67px A white diamond on a black background
 
 AI-generated content may be incorrect.](assets/image6.png)
 
-![A black and white rectangle
+![w:78px A black and white rectangle
 
 AI-generated content may be incorrect.](assets/image7.png)
 
-![A black and white rectangle
+![w:100px A black and white rectangle
 
 AI-generated content may be incorrect.](assets/image8.png)
 
-![A black and white rectangle
+![w:66px A black and white rectangle
 
 AI-generated content may be incorrect.](assets/image9.png)
 
-![A white circle in the dark
+![w:50px A white circle in the dark
 
 AI-generated content may be incorrect.](assets/image10.png)
 
-![A black and white logo
+![w:39px A black and white logo
 
 AI-generated content may be incorrect.](assets/image11.png)
 
@@ -107,7 +107,7 @@ AI-generated content may be incorrect.](assets/image11.png)
 
 ---
 
-![Picture 6](assets/image12.png)
+![w:1280px Picture 6](assets/image12.png)
 
 ---
 
@@ -230,47 +230,34 @@ mmdc -i input.mmd -o output.svg
 
 ## Recommended Practice: IDs and Separate Connections
 
-\`\`\`mermaid
-
+````
+```mermaid
 graph TD
+A[Start] --> B{Is data valid?}
+B -- Yes --> C[Process data]
+B -- No --> D[Show error]
+C ==> E([End])
+D -. Retry .-> A
+````
 
-A\[Start\] --&gt; B{Is data valid?}
+![w:324px Picture 13](assets/image13.png)
 
-B -- Yes --&gt; C\[Process data\]
-
-B -- No --&gt; D\[Show error\]
-
-C ==&gt; E(\[End\])
-
-D -. Retry .-&gt; A
-
-![Picture 13](assets/image13.png)
-
-\`\`\`mermaid
-
+````
+```mermaid
 graph TD
-
-A\[Start\]
-
+A[Start]
 B{Is data valid?}
+C[Process data]
+D[Show error]
+E([End])
 
-C\[Process data\]
 
-D\[Show error\]
-
-E(\[End\])
-
-<br>
-
-A --&gt; B
-
-B -- Yes --&gt; C
-
-B -- No --&gt; D
-
-C ==&gt; E
-
-D -. Retry .-&gt; A
+A --> B
+B -- Yes --> C
+B -- No --> D
+C ==> E
+D -. Retry .-> A
+````
 
 - Although Mermaid allows defining nodes and connections in one line
 - (e.g. A\[Start\] --&gt; B\[Process\]), it is often clearer to **separate definitions**:
@@ -295,17 +282,23 @@ D -. Retry .-&gt; A
 - Mermaid allows you to modify the **global diagram style** using an **initialization directive**, for example:
 - The init directive is written in JSON format. You can customize fonts, colors, background, and more.
 - It is also possible to style **individual nodes** using the style command:
-- %%{init: {'themeVariables': { 'fontFamily': 'Arial', 'fontSize': '16px'}}}%%
-- graph TD
-- A\[Start\] --&gt; B\[Process\]
-- B --&gt; C\[End\]
-- graph TD
-- A\[Start\] --&gt; B\[Process\]
-- style B fill:#f9f,stroke:#333,stroke-width:2px
+
+```
+%%{init: {'themeVariables': { 'fontFamily': 'Arial', 'fontSize': '16px'}}}%%
+graph TD
+A[Start] --> B[Process]
+B --> C[End]
+```
+
+```
+graph TD
+A[Start] --> B[Process]
+style B fill:#f9f,stroke:#333,stroke-width:2px
+```
 
 ---
 
-![Picture 6](assets/image14.png)
+![w:833px Picture 6](assets/image14.png)
 
 ---
 

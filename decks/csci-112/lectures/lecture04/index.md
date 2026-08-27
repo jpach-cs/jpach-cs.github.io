@@ -13,7 +13,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-![Graphic 3](assets/image2.png)
+![w:277px Graphic 3](assets/image2.png)
 
 ---
 
@@ -40,15 +40,18 @@ title: "CSCI 112  Programming with C"
   - unary    (e. g. -, ++),
   - binary    (e. g. +, -, \*, /),
   - ternary    (?:)
-- int main()
-- {
--   int i = 1;
--   i = -i;                 /\* unary -                           \*/
--   i++;                 /\* unary ++                          \*/
--   i = i + 1; i = i - 1;     /\* binary +, -                      \*/
-- i = i \* 1; i = i / 1;      /\* binary \*, /                      \*/
--   i ? (i &gt; 0) : 1 ; 0;     /\* ternary conditional                  \*/
-- }
+
+```c
+int main()
+{
+  int i = 1;
+  i = -i;				 /* unary -  						 */
+  i++;				 /* unary ++ 						 */
+  i = i + 1; i = i - 1;	 /* binary +, - 					 */
+  i = i * 1; i = i / 1; 	 /* binary *, / 					 */
+  i ? (i > 0) : 1 ; 0;	 /* ternary conditional 				 */
+}
+```
 
 ---
 
@@ -61,57 +64,54 @@ title: "CSCI 112  Programming with C"
 
 ## Example - division
 
+```c
 // Declarations
-
 int x = 5, y = 3;
-
 float a = 5.0, b = 3.0;
 
-<br>printf("%s\n", "Integers:");
-
+printf("%s\n", "Integers:");
 printf("x = %d\n", x);
-
 printf("y = %d\n", y);
 
-<br>printf("%s\n","Floats:");
-
+printf("%s\n","Floats:");
 printf("a = %f\n", a);
-
 printf("b = %f\n", b);
 
-<br>printf("Integer / Integer:\n");
-
+printf("Integer / Integer:\n");
 printf("x / y = %d\n", x / y); // integer division
 
-<br>printf("\nInteger / Float:\n");
-
+printf("\nInteger / Float:\n");
 printf("x / b = %f\n", x / b); // x promoted to float
-
 printf("x / b with %%d = %d (wrong!)\n", x / b); // incorrect, prints garbage
 
-<br>printf("\nFloat / Integer:\n");
-
+printf("\nFloat / Integer:\n");
 printf("a / y = %f\n", a / y); // y promoted to float
 
-<br>printf("\nFloat / Float:\n");
-
+printf("\nFloat / Float:\n");
 printf("a / b = %f\n", a / b); // normal float division
+```
 
-- Integers:
-- x = 5
-- y = 3
-- Floats:
-- a = 5.000000
-- b = 3.000000
-- Integer / Integer:
-- x / y = 1
-- Integer / Float:
-- x / b = 1.666667
-- x / b with %d = -1431655765 (wrong!)
-- Float / Integer:
-- a / y = 1.666667
-- Float / Float:
-- a / b = 1.666667
+```c
+Integers:
+x = 5
+y = 3
+Floats:
+a = 5.000000
+b = 3.000000
+Integer / Integer:
+x / y = 1
+
+Integer / Float:
+x / b = 1.666667
+x / b with %d = -1431655765 (wrong!)
+
+Float / Integer:
+a / y = 1.666667
+
+Float / Float:
+a / b = 1.666667
+```
+
 - Result:
 
 ---
@@ -121,27 +121,47 @@ printf("a / b = %f\n", a / b); // normal float division
 - Prefix increment ++ and decrement -- operators increase (decrease) the operand's value first, then use the new value.
 - Postfix increment ++ and decrement -- operators use the operand's current value first, then increase (decrease) the operand's value.
 - Assignment by sum refers to the process of assigning a value to a variable using the addition operator + or the addition assignment operator += to combine the assigned value with the existing value of the variable.
-- int main()
-- {
--   int i = 1, j = 2;
--   j++;
--   i = j++;
--   i = ++j;
--   i += j;
--   i = j = 2 + j;
-- }
-- int main()
-- {
--   int i = 1, j = 2;
--   j = j + 1;
--   i = j;
--   j = j + 1;
--   j = j + 1;
--  i = j;
--   i = i + j;
--   j = 2 + j;
--   i = j;
-- }
+
+```c
+int main()
+{
+  int i = 1, j = 2;
+
+  j++;
+
+  i = j++;
+
+
+  i = ++j;
+
+
+  i += j;
+
+  i = j = 2 + j;
+
+}
+```
+
+```c
+int main()
+{
+  int i = 1, j = 2;
+
+  j = j + 1;
+
+  i = j;
+  j = j + 1;
+
+  j = j + 1;
+  i = j;
+
+  i = i + j;
+
+  j = 2 + j;
+  i = j;
+}
+```
+
 - \*In Python we don’t have something like that.
 
 <!-- tu skonczylem, poprawilem blad tabilcy c -->
@@ -153,19 +173,29 @@ printf("a / b = %f\n", a / b); // normal float division
 - Relational and logical operators return 1 for a true condition and 0 for a false condition. The result type of these operators is int (integer).
 - In if and while statements, the C language considers the logical value of the conditional expression. This means that any value other than 0 (including positive, negative, characters, pointers, etc.) will be treated as true, while the value 0 will be treated as false.
 - The bool type is not a built-in type because it is not essential for basic programming operations. However, to use the bool type, we need to include the &lt;stdbool.h&gt; header file.
-- \#include &lt;stdio.h&gt;
-- \#include &lt;stdbool.h&gt;
-- int main()
-- {
--   bool is\_true  = true;
--   bool is\_false = false;
--   bool result = is\_true &amp;&amp; is\_false;
--   printf("%d\n", result);
--   result = 3 &gt; 1;
--   printf("%d\n", result);
-- }
-- 0
-- 1
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main()
+{
+  bool is_true  = true;
+  bool is_false = false;
+  bool result = is_true && is_false;
+  printf("%d\n", result);
+  result = 3 > 1;
+  printf("%d\n", result);
+}
+```
+
+```c
+0
+1
+
+
+```
+
 - Result:
 
 ---
@@ -174,12 +204,15 @@ printf("a / b = %f\n", a / b); // normal float division
 
 - A single semicolon ; in C language is a statement called a null statement or empty statement.
 - A semicolons ; are used to terminate statements
-- int main()
-- {
--     ;                                       /\*  Empty statement    \*/
-- printf("Hello world!\n");            /\*  Second statement   \*/
-- printf("Hello"); printf(" world!\n");    /\*  3rd &amp; 4th statement in one line \*/
-- }
+
+```c
+int main()
+{
+    ;   									/*  Empty statement    */
+	printf("Hello world!\n");			/*  Second statement   */
+	printf("Hello"); printf(" world!\n");	/*  3rd & 4th statement in one line */
+}
+```
 
 <!-- In C programming, a **single line ending with a semicolon** (;) is typically referred to as an **empty statement** or **null statement**. It's a statement that doesn't perform any operation and has no effect on the program's execution. -->
 
@@ -206,24 +239,30 @@ Przypisanie jest rownoczesnie statement I -->
 
 ## Blocks &amp; complex(compound) statements
 
-- int main()
-- {
--     char\* text = "Hello world\n";
--     printf(text);
--     {
--       char\* text = "Bye world\n";
--       printf(text);
--       {
--         char\* text = "Aloha world\n";
--         printf(text);
--       }
--     }
--     printf(text);
-- }
-- Hello world
-- Bye world
-- Aloha world
-- Hello world
+```c
+int main()
+{
+    char* text = "Hello world\n";
+    printf(text);
+    {
+      char* text = "Bye world\n";
+      printf(text);
+      {
+        char* text = "Aloha world\n";
+        printf(text);
+      }
+    }
+    printf(text);
+}
+```
+
+```c
+Hello world
+Bye world
+Aloha world
+Hello world
+```
+
 - Result:
 
 ---
@@ -287,7 +326,7 @@ Przypisanie jest rownoczesnie statement I -->
 ||Negation<br>("the opposite")|NOT|¬x|
 ||Exclusive OR|XOR|x ⊻ y|
 
-![Picture 3](assets/image4.png)
+![w:226px Picture 3](assets/image4.png)
 
 - **\*Watch out!** The conjunction symbol ^ from logic is **XOR** in C, not AND!
 
@@ -304,7 +343,7 @@ Przypisanie jest rownoczesnie statement I -->
 |1|0|0|
 |1|1|1|
 
-![Picture 2](assets/image5.png)
+![w:386px Picture 2](assets/image5.png)
 
 ---
 
@@ -319,7 +358,7 @@ Przypisanie jest rownoczesnie statement I -->
 
 <br>
 
-![Picture 2](assets/image6.png)
+![w:380px Picture 2](assets/image6.png)
 
 ---
 
@@ -332,7 +371,7 @@ Przypisanie jest rownoczesnie statement I -->
 |0|1|
 |1|0|
 
-![Picture 2](assets/image7.png)
+![w:380px Picture 2](assets/image7.png)
 
 ---
 
@@ -347,7 +386,7 @@ Przypisanie jest rownoczesnie statement I -->
 |1|0|1|
 |1|1|0|
 
-![Picture 2](assets/image8.png)
+![w:385px Picture 2](assets/image8.png)
 
 ---
 
@@ -361,43 +400,34 @@ Przypisanie jest rownoczesnie statement I -->
 - Array indices in C start from 0.
 - Make sure the index is within the declared size (here 0–2).
 - Each element in the array is stored contiguously in memory.
-- x = 5
-- y = 10
+
+```c
+x = 5
+y = 10
+
+```
+
 - Result:
 
-\#include &lt;stdio.h&gt;
-
+```c
+#include <stdio.h>
 int main()
-
 {
-
     // Declare an array of 3 integers
-
-    int tab\[3\];
-
+    int tab[3];
     // Store values into the array
-
-    tab\[0\] = 5;   // put 5 into the first element
-
-    tab\[1\] = 10;  // put 10 into the second element
-
-    tab\[2\] = 15;  // put 15 into the third element
-
+    tab[0] = 5;   // put 5 into the first element
+    tab[1] = 10;  // put 10 into the second element
+    tab[2] = 15;  // put 15 into the third element
     // Retrieve values from the array
-
-    int x = tab\[0\];  // read the first element into variable x
-
-    int y = tab\[1\];  // read the second element into variable y
-
+    int x = tab[0];  // read the first element into variable x
+    int y = tab[1];  // read the second element into variable y
     // Display the values
-
-    printf("x = %d\n", tab\[0\]);  // prints 5
-
-    printf("y = %d\n", tab\[1\]);  // prints 10
-
+    printf("x = %d\n", tab[0]);  // prints 5
+    printf("y = %d\n", tab[1]);  // prints 10
     return 0;
-
 }
+```
 
 ---
 
@@ -417,9 +447,13 @@ int main()
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
-- int main()<br>{
-- int x = 5, y = -6; int \* z; float f = 3.0f;                 /\*code\*/
-- }
+```c
+int main()
+{
+	int x = 5, y = -6; int * z; float f = 3.0f; 				/*code*/
+}
+```
+
 - Basic operators
 
 <!-- perentysys; esiszewitiwy
@@ -446,59 +480,44 @@ In the second case (logical operators), remember that any non-zero value (includ
 
 ## Logical vs Bitwise Operators
 
+```c
 unsigned int x = 6;             // 00000000 00000000 00000000 0000 0110 (binary)
-
 unsigned int y = 3;             // 00000000 00000000 00000000 0000 0011 (binary)
-
 //Bitwise AND, OR, NOT, XOR
-
-// AND &amp;
-
-printf("%u\n", x &amp; y);          // (00000000 00000000 00000000 0000 0010) = 2
-
+// AND &
+printf("%u\n", x & y);          // (00000000 00000000 00000000 0000 0010) = 2
 // OR  |
-
 printf("%u\n", x | y);          // (00000000 00000000 00000000 0000 0111)  = 7
-
 // NOT ~ (flips all bits)
-
 printf("%u\n", ~x);             // (11111111 11111111 11111111 1111 1001) = 4 294 967 289
-
 // XOR ^
-
 printf("%u\n", x ^ y);          // (00000000 00000000 00000000 0000 0101) = 5
-
 //Logical AND, OR, NOT, XOR
-
-// AND &amp;
-
-printf("%d\n", x &amp;&amp; y);         // (00000000 00000000 00000000 0000 0001) = 1 (true)
-
+// AND &
+printf("%d\n", x && y);         // (00000000 00000000 00000000 0000 0001) = 1 (true)
 // OR  |
-
 printf("%d\n", x || y);         // (00000000 00000000 00000000 0000 0001) = 1 (true)
-
 // NOT !
-
 printf("%d\n", !x);             // (00000000 00000000 00000000 0000 0000) = 0 (false)
+// XOR doesn't exist but =  (a || b) && !(a && b);
+printf("%d\n", (x || y) && !(x && y));
+                                // (00000000 00000000 00000000 0000 0000) = 0 (false)
 
-// XOR doesn't exist but =  (a || b) &amp;&amp; !(a &amp;&amp; b);
+printf("%d\n", -1 && -2);       // (00000000 00000000 00000000 0000 0001) = 1 (true)
+```
 
-printf("%d\n", (x || y) &amp;&amp; !(x &amp;&amp; y));
+```c
+2
+7
+4294967289
+5
+1
+1
+0
+0
+1
+```
 
-                                // (00000000 00000000 00000000 0000 0000) = 0 (false)<br>
-
-printf("%d\n", -1 &amp;&amp; -2);       // (00000000 00000000 00000000 0000 0001) = 1 (true)
-
-- 2
-- 7
-- 4294967289
-- 5
-- 1
-- 1
-- 0
-- 0
-- 1
 - Result:
 
 ---
@@ -533,39 +552,33 @@ The sizeof operator returns the size of a type(requires parentheses) or variable
 - It is a unary operator, just like a cast, and has the same precedence level.
 - It is easy to mistake sizeof for a function, but it is not — it is evaluated at compile time.
 
+```c
     long long x;
-
     printf("%d\n", sizeof(x));
-
     printf("%d\n", sizeof x );
-
     printf("%d\n", sizeof(long long));
-
     short y;
-
     printf("%d\n", sizeof(y));
-
     printf("%d\n", sizeof y );
-
     printf("%d\n", sizeof(short) );
-
     float z;
-
     printf("%d\n", sizeof(z));
-
     printf("%d\n", sizeof z );
-
     printf("%d\n", sizeof(float) );
+```
 
-- 8
-- 8
-- 8
-- 2
-- 2
-- 2
-- 4
-- 4
-- 4
+```c
+8
+8
+8
+2
+2
+2
+4
+4
+4
+```
+
 - Result:
 
 ---
@@ -583,53 +596,43 @@ The sizeof operator returns the size of a type(requires parentheses) or variable
 
 ## limits.h &amp; float.h
 
-printf("CHAR\_MIN           = %d\n", CHAR\_MIN);
-
-printf("CHAR\_MAX           = %d\n", CHAR\_MAX);
-
-printf("UCHAR\_MAX          = %u\n", UCHAR\_MAX);
-
+```c
+printf("CHAR_MIN           = %d\n", CHAR_MIN);
+printf("CHAR_MAX           = %d\n", CHAR_MAX);
+printf("UCHAR_MAX          = %u\n", UCHAR_MAX);
 // short
-
-printf("SHRT\_MIN           = %d\n", SHRT\_MIN);
-
-printf("SHRT\_MAX           = %d\n", SHRT\_MAX);
-
-printf("USHRT\_MAX          = %u\n", USHRT\_MAX);
-
+printf("SHRT_MIN           = %d\n", SHRT_MIN);
+printf("SHRT_MAX           = %d\n", SHRT_MAX);
+printf("USHRT_MAX          = %u\n", USHRT_MAX);
 // int
-
-printf("INT\_MIN            = %d\n", INT\_MIN);
-
-printf("INT\_MAX            = %d\n", INT\_MAX);
-
-printf("UINT\_MAX           = %u\n", UINT\_MAX);
-
+printf("INT_MIN            = %d\n", INT_MIN);
+printf("INT_MAX            = %d\n", INT_MAX);
+printf("UINT_MAX           = %u\n", UINT_MAX);
 //float
+printf("FLT_SMALLEST       = %e\n", FLT_MIN);
+printf("FLT_MIN            = %f\n", -FLT_MAX);
+printf("FLT_MAX            = %f\n", FLT_MAX);
+printf("FLT_MAX            = %e\n", FLT_MAX);
+```
 
-printf("FLT\_SMALLEST       = %e\n", FLT\_MIN);
+```c
+CHAR_MIN           = -128
+CHAR_MAX           = 127
+UCHAR_MAX          = 255
+SHRT_MIN           = -32768
+SHRT_MAX           = 32767
+USHRT_MAX          = 65535
+INT_MIN            = -2147483648
+INT_MAX            = 2147483647
+UINT_MAX           = 4294967295
+FLT_SMALLEST       = 1.175494e-038
+FLT_MIN            =
+-340282346638528859811704183484516925440.000000
+FLT_MAX            =
+ 340282346638528859811704183484516925440.000000
+FLT_MAX            = 3.402823e+038
+```
 
-printf("FLT\_MIN            = %f\n", -FLT\_MAX);
-
-printf("FLT\_MAX            = %f\n", FLT\_MAX);
-
-printf("FLT\_MAX            = %e\n", FLT\_MAX);
-
-- CHAR\_MIN           = -128
-- CHAR\_MAX           = 127
-- UCHAR\_MAX          = 255
-- SHRT\_MIN           = -32768
-- SHRT\_MAX           = 32767
-- USHRT\_MAX          = 65535
-- INT\_MIN            = -2147483648
-- INT\_MAX            = 2147483647
-- UINT\_MAX           = 4294967295
-- FLT\_SMALLEST       = 1.175494e-038
-- FLT\_MIN            =
-- -340282346638528859811704183484516925440.000000
-- FLT\_MAX            =
-- 340282346638528859811704183484516925440.000000
-- FLT\_MAX            = 3.402823e+038
 - Result:
 
 ---
@@ -657,7 +660,9 @@ In C, it **is not** easy to explain how these functions work internally without 
 
 To better understand how input works, we will first use the **getche()** function from the Windows-only 'conio.h' library. After that, we will move on to getchar() and finally to scanf().
 
-- Getche() - (get\[ \]char\[acter with echo\])
+```c
+Getche() - (get[ ]char[acter with echo])
+```
 
 ---
 
@@ -678,68 +683,68 @@ To better understand how input works, we will first use the **getche()** functio
 
 ## putchar() &amp; getche() without '\n'
 
-- int putchar(int);
-  - putchar(c) puts the character c on the standard output.
-  - it returns the character printed or EOF on error(-1).
-- int getche(void);
-  - returns the next character from standard input.
-  - it returns EOF on error.
+```c
+int putchar(int);
+putchar(c) puts the character c on the standard output.
+it returns the character printed or EOF on error(-1).
+int getche(void);
+returns the next character from standard input.
+it returns EOF on error.
+```
+
 - aaBB
 - Result:
-- int main()
-- {
 
+```c
+int main()
+{
     char character;
-
     character = getche();   // Read a single key from the keyboard and immediately display it (echo)
-
     putchar(character);     // Display the value of 'character' using putchar (prints the same key again)
 
-<br>    character = getche();   // Read another single key (char is enough, automatic casting occurs)
-
+    character = getche();   // Read another single key (char is enough, automatic casting occurs)
     putchar(character);     // Display the second key pressed
-
-- }
+}
+```
 
 ---
 
 ## putchar() &amp; getche()
 
-- int putchar(int);
-  - putchar(c) puts the character c on the standard output.
-  - it returns the character printed or EOF on error(-1).
-- int getche(void);
-  - returns the next character from standard input.
-  - it returns EOF on error.
-- a
-- a
-- B
-- B
+```c
+int putchar(int);
+putchar(c) puts the character c on the standard output.
+it returns the character printed or EOF on error(-1).
+int getche(void);
+returns the next character from standard input.
+it returns EOF on error.
+```
+
+```c
+a
+a
+B
+B
+```
+
 - Result:
-- int main()
-- {
 
+```c
+int main()
+{
     char character;
-
     character = getche();   // Read a single key from the keyboard and immediately display it (echo)
-
     printf("%s", "\n");     // Print newline (CRLF) to move to the next line for clarity
-
     putchar(character);     // Display the value of 'character' using putchar (prints the same key again)
-
     printf("%s", "\n");     // Print another newline to separate outputs
 
-<br>
 
     character = getche();   // Read another single key (char is enough, automatic casting occurs)
-
     printf("%s", "\n");     // Print newline to move to next line
-
     putchar(character);     // Display the second key pressed
-
     printf("%s", "\n");     // Final newline for clean output
-
-- }
+}
+```
 
 ---
 
@@ -762,21 +767,31 @@ To better understand how input works, we will first use the **getche()** functio
 
 - The format requires a string enclosed in double quotes ("&lt;string&gt;").
 - If we want to display the contents of our variables, such as int types, we must use the % symbol followed by the type. This allows displaying a value from memory interpreted as the given type and after we must provide the name of the variable that will be read. Each instance of %&lt;type&gt; will allow us to display the contents of one variable.
-- int main()
-- {
--   int x = 5;
--   int y = 7;
--   printf ("%s\n", "Hello world\n");
--   printf("%d\n", x);
--   printf("Value of x = %d, and value of y = %d\n", x, y);
--   printf("%d %d\n", x, y, x, x);
-- }
-- Hello world
-- 5
-- Value of x = 5, and value of y = 7
-- 5 7
+
+```c
+int main()
+{
+  int x = 5;
+  int y = 7;
+  printf ("%s\n", "Hello world\n");
+  printf("%d\n", x);
+  printf("Value of x = %d, and value of y = %d\n", x, y);
+  printf("%d %d\n", x, y, x, x);
+}
+```
+
+```c
+Hello world
+5
+Value of x = 5, and value of y = 7
+5 7
+```
+
 - Result:
-- int printf (char format\[\], arg1, arg2 ,...);
+
+```c
+int printf (char format[], arg1, arg2 ,...);
+```
 
 <!-- While printf resembles Python's print function, and Python can utilize C-style formatting, the reverse is not true. This concept can be illustrated by the relationship between a square and a rectangle. -->
 
@@ -797,7 +812,10 @@ To better understand how input works, we will first use the **getche()** functio
 
 ---
 
-- printf(char format\[\],  arg1,  arg2 ,...) <br>scanf (char format\[\], \*arg1, \*arg2 ,...)
+```c
+printf(char format[],  arg1,  arg2 ,...)
+scanf (char format[], *arg1, *arg2 ,...)
+```
 
 ---
 
@@ -825,7 +843,9 @@ Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
+```c
+Format =  %[flags][width][.precision][modifier]<type>
+```
 
 ---
 
@@ -881,10 +901,13 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 |floating-point number|f|float|float|printf("%f\n", fRealNumber);<br>    printf("%f\n", dRealNumber);|3.000000<br>33999999999999998856806021345479952957440.000000|
 ||lf|long float <br>(double)|double|fRealNumber = dRealNumber; <br>    printf("%lf\n", fRealNumber);<br>    printf("%lf\n", dRealNumber);|inf<br>33999999999999998856806021345479952957440.000000|
 
-- int main()<br>{
-- unsigned int x = 65;  int y = -6; char letter ='a'; char \* text = "Some Text";
-- float fRealNumber = 3.0f; double dRealNumber = 3.4e40;
-- }
+```c
+int main()
+{
+  unsigned int x = 65;  int y = -6; char letter ='a'; char * text = "Some Text";
+  float fRealNumber = 3.0f; double dRealNumber = 3.4e40;
+}
+```
 
 ---
 
@@ -907,13 +930,18 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
+```c
+Format =  %[flags][width][.precision][modifier]<type>
+```
 
 ---
 
 ## Width
 
-- int main()<br>{ int x = 5, y = -6; int \* z; float f = 3.1234f; /\*code\*/ }
+```c
+int main()
+{ int x = 5, y = -6; int * z; float f = 3.1234f; /*code*/ }
+```
 
 |Data|Type||Description|Example|Result|
 |---|---|---|---|---|---|
@@ -936,13 +964,18 @@ Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
+```c
+Format =  %[flags][width][.precision][modifier]<type>
+```
 
 ---
 
 ## Precision
 
-- int main()<br>{ int x = 5, y = -6; int \* z; float f = 3.1234f; /\*code\*/ }
+```c
+int main()
+{ int x = 5, y = -6; int * z; float f = 3.1234f; /*code*/ }
+```
 
 |Data|Type||Description|Example|Result|
 |---|---|---|---|---|---|
@@ -957,7 +990,10 @@ Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
 
 ## Precision
 
-- int main()<br>{ int x = 5, y = -6; int \* z; float f = 3.1234f; /\*code\*/ }
+```c
+int main()
+{ int x = 5, y = -6; int * z; float f = 3.1234f; /*code*/ }
+```
 
 |Data|Type||Description|Example|Result|
 |---|---|---|---|---|---|
@@ -980,7 +1016,9 @@ Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
+```c
+Format =  %[flags][width][.precision][modifier]<type>
+```
 
 ---
 
@@ -997,7 +1035,10 @@ Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
 
 ## Flag "+"
 
-- int main()<br>{unsigned int x = 65, y = -6; int \* z; float f = 3.1234f; /\*code\*/ }
+```c
+int main()
+{unsigned int x = 65, y = -6; int * z; float f = 3.1234f; /*code*/ }
+```
 
 |Data|Type||Description|Example|Result|
 |---|---|---|---|---|---|
@@ -1012,7 +1053,10 @@ Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
 
 ## Flag "-"
 
-- int main()<br>{unsigned int x = 65, y = -6; int \* z; float f = 3.1234f; /\*code\*/ }
+```c
+int main()
+{unsigned int x = 65, y = -6; int * z; float f = 3.1234f; /*code*/ }
+```
 
 |Data|Type||Description|Example|Result|
 |---|---|---|---|---|---|
@@ -1029,7 +1073,10 @@ Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
 
 ## Flag "0"
 
-- int main()<br>{unsigned int x = 65, y = -6; int \* z; float f = 3.1234f; /\*code\*/ }
+```c
+int main()
+{unsigned int x = 65, y = -6; int * z; float f = 3.1234f; /*code*/ }
+```
 
 |Data|Type||Description|Example|Result|
 |---|---|---|---|---|---|
@@ -1061,13 +1108,19 @@ Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
+```c
+Format =  %[flags][width][.precision][modifier]<type>
+```
 
 ---
 
 ## Modifies
 
-- int main()<br>{ short int x = 65;  int y = -69000; <br>  float fRealNumber = 3.1234f; double dRealNumber = 3.4e50; /\*code\*/ }
+```c
+int main()
+{ short int x = 65;  int y = -69000;
+  float fRealNumber = 3.1234f; double dRealNumber = 3.4e50; /*code*/ }
+```
 
 |Data|Type||Description|Example|Result|
 |---|---|---|---|---|---|
@@ -1090,7 +1143,9 @@ Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
+```c
+Format =  %[flags][width][.precision][modifier]<type>
+```
 
 ---
 
@@ -1125,35 +1180,41 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 
 ## Declaring and initializing arrays
 
-- int main()
-- {
--   int a\[5\];
--   /\* Declare an integer array named a with 5 elements \*/
--   int b\[\] = {1, 2, 3, 4};
--   /\*Declare an integer array named b with 4 elements,
--     initialized with values 1, 2, 3, and 4            \*/
--   int c\[10\] = {9, 8, 7, 6, 5};
--   /\*Declare an integer array named c with 10 elements,
--     the first 5 elements are initialized with values 9, 8, 7, 6, and 5,
--     the remaining elements are initialized to 0                 \*/
--   int d\[100\] = {0};
--   /\*Declare an integer array named d with 100 elements, all initialized to 0\*/
--   int x, y = 2;
--   printf("First element (index 0) of array a equals %d.\n", a\[0\]);
--   /\*Print the value of the first element of array a(undefined value)\*/
--   printf("Second(index 1) element of array b equals %d.\n", b\[1\]);
--   /\*Print the value of the second element of array b (which is 2)\*/
--   printf("Second(index 1) element of array b equals %d.\n", \*(b+1) );
--   /\*Print the value of the second element of array b using pointer arithmetic\*/
--   printf("Sixth(index 5) element of array c equals %d.\n", c\[5\]);
--   /\*Print the value of the sixth element of array c (which is 0)\*/
--   x = b\[0\];   /\*Assign the value of the first element of array b (which is 1) to variable x\*/
--   a\[1\] = y;   /\*Assign the value of variable y (which is 2) to the second element of array a\*/
-- }
-- First element (index 0) of array a equals 4201200.
-- Second(index 1) element of array b equals 2.
-- Second(index 1) element of array b equals 2.
-- Sixth(index 5) element of array c equals 0.
+```c
+int main()
+{
+  int a[5];
+  /* Declare an integer array named a with 5 elements */
+  int b[] = {1, 2, 3, 4};
+  /*Declare an integer array named b with 4 elements,
+    initialized with values 1, 2, 3, and 4            */
+  int c[10] = {9, 8, 7, 6, 5};
+  /*Declare an integer array named c with 10 elements,
+    the first 5 elements are initialized with values 9, 8, 7, 6, and 5,
+    the remaining elements are initialized to 0       		  */
+  int d[100] = {0};
+  /*Declare an integer array named d with 100 elements, all initialized to 0*/
+  int x, y = 2;
+  printf("First element (index 0) of array a equals %d.\n", a[0]);
+  /*Print the value of the first element of array a(undefined value)*/
+  printf("Second(index 1) element of array b equals %d.\n", b[1]);
+  /*Print the value of the second element of array b (which is 2)*/
+  printf("Second(index 1) element of array b equals %d.\n", *(b+1) );
+  /*Print the value of the second element of array b using pointer arithmetic*/
+  printf("Sixth(index 5) element of array c equals %d.\n", c[5]);
+  /*Print the value of the sixth element of array c (which is 0)*/
+  x = b[0];   /*Assign the value of the first element of array b (which is 1) to variable x*/
+  a[1] = y;   /*Assign the value of variable y (which is 2) to the second element of array a*/
+}
+```
+
+```c
+First element (index 0) of array a equals 4201200.
+Second(index 1) element of array b equals 2.
+Second(index 1) element of array b equals 2.
+Sixth(index 5) element of array c equals 0.
+```
+
 - Result:
 
 ---
@@ -1161,31 +1222,43 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 ## Basics of
 
 - The important difference between printf and scanf is that scanf requires its arguments to be pointers (location in memory) .
-- int main()
-- {
--   int x = 5;                      /\* Declaration of variable x and assigning its value 5 \*/
--   int \* p;                      /\* Declaration of pointer p \*/
--   p = &amp;x;                       /\* Assigning the address value of the p variable to the pointer p \*/
--   printf("Enter x value : ");         /\* there is no end of line character here! \*/
--   scanf("%d", &amp;x);                 /\* To get a pointer (memory address) \*/
--   printf("Value of x = %d\n", x);     /\* we use a &amp; before the variable name p \*/
--   printf("Enter x value again : ");
--   scanf("%d", p);                     /\*scanf does not work the same as in python, \*/
--   printf("Value of x = %d\n", x);   /\*you have to use printf and scanf separately \*/
-- }
-- Enter x value : 1
-- Value of x = 1
-- Enter x value again : 2
-- Value of x = 2
+
+```c
+int main()
+{
+  int x = 5;          			/* Declaration of variable x and assigning its value 5 */
+  int * p;      				/* Declaration of pointer p */
+  p = &x;       				/* Assigning the address value of the p variable to the pointer p */
+  printf("Enter x value : "); 		/* there is no end of line character here! */
+  scanf("%d", &x);     			/* To get a pointer (memory address) */
+  printf("Value of x = %d\n", x); 	/* we use a & before the variable name p */
+  printf("Enter x value again : ");
+  scanf("%d", p);             		/*scanf does not work the same as in python, */
+  printf("Value of x = %d\n", x);   /*you have to use printf and scanf separately */
+}
+```
+
+```c
+Enter x value : 1
+Value of x = 1
+Enter x value again : 2
+Value of x = 2
+```
+
 - Result:
-- int printf (char format\[\],  arg1,  arg2 ,...);
-- int scanf  (char format\[\], \*arg1, \*arg2 ,...);
+
+```c
+int printf (char format[],  arg1,  arg2 ,...);
+```
+
+```c
+int scanf  (char format[], *arg1, *arg2 ,...);
+```
+
 - The ampersand operator &amp; is a unary operator that returns the memory address, which is the location in memory where a variable is stored.
 
 <!-- This line is where the magic happens. It assigns the address of the variable x to the pointer pointer. The &amp; symbol is the "address-of" operator. So, pointer now holds the memory location where the value 5 for x is stored. -->
 
 ---
 
-## Notice
-
-Recently, during my lab work, I made a mistake. It wasn't the development environment's fault, but mine. It was related to the scanf function. Because I'm currently working with Python, C, C++, C#, and MATLAB, I mixed up the behavior of the scanf function. You need to know that the scanf function has one drawback: it doesn't clear the buffer of characters entered from the keyboard. This means that after pressing Enter to confirm the data entered from the keyboard, our variable also contains the Enter character, which is that extra line you asked me to use to clear the buffer. To understand its operation, you need to understand today's new material.
+## Notice Recently, during my lab work, I made a mistake. It wasn't the development environment's fault, but mine. It was related to the scanf function. Because I'm currently working with Python, C, C++, C#, and MATLAB, I mixed up the behavior of the scanf function. You need to know that the scanf function has one drawback: it doesn't clear the buffer of characters entered from the keyboard. This means that after pressing Enter to confirm the data entered from the keyboard, our variable also contains the Enter character, which is that extra line you asked me to use to clear the buffer. To understand its operation, you need to understand today's new material.

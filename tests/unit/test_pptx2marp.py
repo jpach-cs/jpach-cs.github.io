@@ -18,6 +18,7 @@ from xml.etree import ElementTree as ET
 import pytest
 
 import pptx2marp
+import pptx2marp_images
 from pptx_builder import (
     XMLNS,
     build_pptx,
@@ -429,29 +430,33 @@ def test_handle_sp_drops_whitespace_only_bold_placeholder_bullet():
 # --- pictures and media ----------------------------------------------------------------
 
 
-def make_ctx(data: bytes, relationships: dict, slide_index: int = 1) -> pptx2marp.SlideContext:
-    '''Build a SlideContext over in-memory deck bytes.'''
+def make_ctx(data: bytes, relationships: dict, slide_index: int = 1, **deck_overrides) -> pptx2marp.SlideContext:
+    '''
+    Build a SlideContext over in-memory deck bytes. `deck_overrides` may set any of
+    DeckContext's own keyword fields (code_lang, slide_width_emu, slide_height_emu).
+    '''
     archive, names = open_deck(data)
-    return pptx2marp.SlideContext(archive=archive, names=names, relationships=relationships,
-                                  registry=pptx2marp.MediaRegistry(), warnings=[], slide_index=slide_index)
+    deck = pptx2marp.DeckContext(archive=archive, names=names, registry=pptx2marp.MediaRegistry(),
+                                 warnings=[], **deck_overrides)
+    return deck.for_slide(relationships, slide_index)
 
 
 def test_handle_pic_resolves_alt_and_media():
     '''Handle pic resolves alt and media.'''
     context = make_ctx(build_pptx({'ppt/media/a.png': PNG}), {'rId1': ('image', 'ppt/media/a.png')})
-    assert pptx2marp.handle_pic(parse(pic(embed='rId1', descr='A [b] (c)')), context) == \
+    assert pptx2marp_images.handle_pic(parse(pic(embed='rId1', descr='A [b] (c)')), context) == \
         ('A b c', 'ppt/media/a.png')
-    assert pptx2marp.handle_pic(parse(pic(embed='rId1', name='')), context) == ('image', 'ppt/media/a.png')
+    assert pptx2marp_images.handle_pic(parse(pic(embed='rId1', name='')), context) == ('image', 'ppt/media/a.png')
 
 
 def test_handle_pic_unresolved_linked_and_missing_blip():
     '''Handle pic unresolved linked and missing blip.'''
     context = make_ctx(build_pptx({}), {'rId2': ('image', 'https://x.test/a.png')})
-    assert pptx2marp.handle_pic(parse(pic(embed='rId9')), context) is None
-    assert pptx2marp.handle_pic(parse(pic(link='rId2')), context) is None
-    assert pptx2marp.handle_pic(parse(pic(link='rId9')), context) is None
-    assert pptx2marp.handle_pic(parse(pic()), context) is None
-    assert pptx2marp.handle_pic(parse(pic_without_blip()), context) is None
+    assert pptx2marp_images.handle_pic(parse(pic(embed='rId9')), context) is None
+    assert pptx2marp_images.handle_pic(parse(pic(link='rId2')), context) is None
+    assert pptx2marp_images.handle_pic(parse(pic(link='rId9')), context) is None
+    assert pptx2marp_images.handle_pic(parse(pic()), context) is None
+    assert pptx2marp_images.handle_pic(parse(pic_without_blip()), context) is None
     assert context.warnings == [
         'slide 1: image relationship rId9 could not be resolved',
         'slide 1: linked (non-embedded) image skipped: https://x.test/a.png',
@@ -477,12 +482,12 @@ def test_render_image_shape_flags_non_web_formats():
     data = build_pptx({'ppt/media/a.emf': b'emf', 'ppt/media/b.png': PNG})
     context = make_ctx(data, {'rId1': ('image', 'ppt/media/a.emf'), 'rId2': ('image', 'ppt/media/b.png'),
                               'rId3': ('image', 'ppt/media/missing.png')})
-    emf = pptx2marp.render_image_shape(parse(pic(embed='rId1')), context)
+    emf = pptx2marp_images.render_image_shape(parse(pic(embed='rId1')), context)
     assert emf is not None
     assert emf.startswith('![Picture](assets/a.emf)\n<!-- pptx2marp: a.emf is a EMF file')
-    assert pptx2marp.render_image_shape(parse(pic(embed='rId2')), context) == '![Picture](assets/b.png)'
-    assert pptx2marp.render_image_shape(parse(pic(embed='rId3')), context) is None
-    assert pptx2marp.render_image_shape(parse(pic()), context) is None
+    assert pptx2marp_images.render_image_shape(parse(pic(embed='rId2')), context) == '![Picture](assets/b.png)'
+    assert pptx2marp_images.render_image_shape(parse(pic(embed='rId3')), context) is None
+    assert pptx2marp_images.render_image_shape(parse(pic()), context) is None
     assert 'slide 1: non-web image format kept as-is: a.emf' in context.warnings
 
 
@@ -647,7 +652,7 @@ def test_convert_deck_end_to_end(tmp_path):
     assert result.markdown == (
         '---\nmarp: true\ntheme: pach\npaginate: true\ntitle: "Deck: \\"Title\\""\n---\n\n'
         '# Deck: "Title"\n\n*Author*\n\n---\n\n'
-        '## Second\n\n- point\n\n![Picture](assets/img.png)\n\n![Picture](assets/img.png)\n\n'
+        '## Second\n\n- point\n\n![Picture](assets/img.png)\n\n'
         '<!-- hint -->\n'
     )
 
@@ -836,14 +841,14 @@ def test_handle_pic_without_cnvpr_uses_default_alt():
     '''Handle pic without cnvpr uses default alt.'''
     context = make_ctx(build_pptx({'ppt/media/a.png': PNG}), {'rId1': ('image', 'ppt/media/a.png')})
     shape = parse('<p:pic><p:blipFill><a:blip r:embed="rId1"/></p:blipFill></p:pic>')
-    assert pptx2marp.handle_pic(shape, context) == ('image', 'ppt/media/a.png')
+    assert pptx2marp_images.handle_pic(shape, context) == ('image', 'ppt/media/a.png')
 
 
 def test_render_image_shape_when_registry_cannot_read(monkeypatch):
     '''Render image shape when registry cannot read.'''
     context = make_ctx(build_pptx({'ppt/media/a.png': PNG}), {'rId1': ('image', 'ppt/media/a.png')})
     monkeypatch.setattr(context.registry, 'register', lambda *_: None)
-    assert pptx2marp.render_image_shape(parse(pic(embed='rId1')), context) is None
+    assert pptx2marp_images.render_image_shape(parse(pic(embed='rId1')), context) is None
 
 
 def test_render_graphic_frame_diagram_with_text():

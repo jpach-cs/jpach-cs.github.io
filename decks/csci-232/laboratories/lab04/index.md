@@ -58,13 +58,12 @@ title: "Data Structures & Algorithms"
 - Use a double pointer (Node \*\*head) when you want to modify the global list pointer.
 - Or return a pointer to the head node, checking for NULL after the function call.
 
-// Example: function returns the new head
-
-struct Node \*addFront(struct Node \*head, int value);
-
-// Example: function modifies the head using double pointer
-
-int addFront(struct Node \*\*head, int value);
+```c
+	// Example: function returns the new head
+	struct Node *addFront(struct Node *head, int value);
+	// Example: function modifies the head using double pointer
+	int addFront(struct Node **head, int value);
+```
 
 ---
 
@@ -80,13 +79,12 @@ int addFront(struct Node \*\*head, int value);
 - Simply assign the return value: head = addFront(head, 10);
 - Always check for NULL before overwriting or dereferencing.
 
+```c
 if (head != NULL)
-
 {
-
     head = addFront(head, 5);
-
 }
+```
 
 ---
 
@@ -97,17 +95,14 @@ if (head != NULL)
   - If you dereference an invalid pointer → **Segmentation fault**.
 - With double pointers, the outer pointer can exist while the inner one (\*head) may still be NULL.
 
+```c
 if (head == NULL)
-
 {
-
     printf("List is empty.\n");
-
     return;
-
 }
-
-printf("First element: %d\n", head-&gt;value);
+printf("First element: %d\n", head->value);
+```
 
 ---
 
@@ -121,11 +116,13 @@ printf("First element: %d\n", head-&gt;value);
 
 - malloc() / calloc() / realloc().
 
+```c
+
 struct Node n;     // Stack allocation – DO NOT free()
-
-struct Node \*p = malloc(sizeof(struct Node)); // Heap allocation – must free()
-
+struct Node *p = malloc(sizeof(struct Node)); // Heap allocation – must free()
 free(p);
+
+```
 
 ---
 
@@ -155,17 +152,14 @@ free(p);
 
 - Always free the nodes themselves, not the pointer variable.
 
+```c
 while (head != NULL)
-
 {
-
-    struct Node \*temp = head;
-
-    head = head-&gt;next;
-
+    struct Node *temp = head;
+    head = head->next;
     free(temp);
-
 }
+```
 
 ---
 
@@ -175,9 +169,13 @@ while (head != NULL)
 - instead of:
 - This helps beginners understand pointer chaining more clearly.
 
-(current-&gt;next)-&gt;next
+```c
+(current->next)->next
+```
 
-current-&gt;next-&gt;next
+```c
+current->next->next
+```
 
 ---
 
@@ -187,31 +185,27 @@ current-&gt;next-&gt;next
 - After understanding this, using \*\* directly becomes intuitive.
 - Double pointers are more powerful and flexible, especially for insertion and deletion operations at the head of the list.
 
-struct Node \*tempPointer = \*headPointer;
+```c
+struct Node *tempPointer = *headPointer;
+tempPointer->next = newNode;
 
-tempPointer-&gt;next = newNode;<br>
+```
 
 ---
 
 ## X. printIntArrayBackward
 
-void printIntArrayBackward(int \*arr, int N)
-
+```c
+void printIntArrayBackward(int *arr, int N)
 {
-
     while (N)
-
     {
-
-        printf("%d ", arr\[--N\]);
-
+        printf("%d ", arr[--N]);
     }
-
     printf("\n");
-
     return;
-
 }
+```
 
 ---
 
@@ -225,7 +219,11 @@ void printIntArrayBackward(int \*arr, int N)
 
 - The head is a pointer to the first node, not the node itself.
 
-struct Node \*head = NULL;  // head is a pointer, not a Node
+```c
+
+	struct Node *head = NULL;  // head is a pointer, not a Node
+
+```
 
 ---
 
@@ -233,9 +231,12 @@ struct Node \*head = NULL;  // head is a pointer, not a Node
 
 - If you have a pointer to a struct, use -&gt;. If you have a struct object, use ..
 
-    node-&gt;value;   // pointer to struct
+```c
 
+    node->value;   // pointer to struct
     node.value;    // struct object
+
+```
 
 ---
 
@@ -243,17 +244,26 @@ struct Node \*head = NULL;  // head is a pointer, not a Node
 
 - Don’t create a node as a local variable if it needs to persist.
 
-    struct Node \*newNode = malloc(sizeof(struct Node));
+```c
+
+    struct Node *newNode = malloc(sizeof(struct Node));
+
+```
 
 ---
 
 ## 4. Always check the result of malloc()
 
 - Never assume memory was successfully allocated.
-  - if (newNode == NULL)
-  - {
-  -     // handle allocation failure
-  - }
+
+```c
+
+if (newNode == NULL)
+{
+    // handle allocation failure
+}
+
+```
 
 ---
 
@@ -261,7 +271,11 @@ struct Node \*head = NULL;  // head is a pointer, not a Node
 
 - To change the head inside a function, you need its address.
 
-void insertAtBeginning(struct Node \*\*head, int value);
+```c
+
+	void insertAtBeginning(struct Node **head, int value);
+
+```
 
 ---
 
@@ -269,7 +283,11 @@ void insertAtBeginning(struct Node \*\*head, int value);
 
 - Every malloc() should have a corresponding free().
 
-free(node);
+```c
+
+	free(node);
+
+```
 
 ---
 
@@ -277,13 +295,12 @@ free(node);
 
 - Always check before accessing pointer contents.
 
+```c
     if (node != NULL)
-
     {
-
-        printf("%d\n", node-&gt;value);
-
+        printf("%d\n", node->value);
     }
+```
 
 ---
 
@@ -297,9 +314,10 @@ free(node);
 
 - It only copies the address — both pointers refer to the same memory.
 
-    Node \*a = head;
-
-    Node \*b = a;  // both point to the same node
+```c
+    Node *a = head;
+    Node *b = a;  // both point to the same node
+```
 
 ---
 
@@ -326,31 +344,24 @@ free(node);
 
 **Important**: The caller must check the return value before overwriting the original head — otherwise, the list may be lost.
 
+```c
 // Usage:
-
 head = insertAtBeginning(head, newNode);
-
 if (head == NULL)
-
 {
-
     // handle error
-
 }
+```
 
-struct Node \* insertAtBeginning(struct Node \*head, struct Node \*newNode)
-
+```c
+struct Node * insertAtBeginning(struct Node *head, struct Node *newNode)
 {
-
     if (newNode == NULL)
-
         return NULL;
-
-    newNode-&gt;next = head;
-
+    newNode->next = head;
     return newNode;
-
 }
+```
 
 ---
 
@@ -364,31 +375,24 @@ struct Node \* insertAtBeginning(struct Node \*head, struct Node \*newNode)
 - You rarely need \*\*head — use -&gt; to access fields safely.
 - The function returns an int status code: 0 for success, -1 for failure.
 
+```c
 // Usage:
-
-if (insertAtBeginning(&amp;head, newNode) != 0)
-
+if (insertAtBeginning(&head, newNode) != 0)
 {
-
     // handle error
-
 }
+```
 
-int insertAtBeginning(struct Node \*\*head, struct Node \*newNode)
-
+```c
+int insertAtBeginning(struct Node **head, struct Node *newNode)
 {
-
     if (head == NULL || newNode == NULL)
-
         return -1;
-
-    newNode-&gt;next = \*head;
-
-    \*head = newNode;
-
+    newNode->next = *head;
+    *head = newNode;
     return 0;
-
 }
+```
 
 ---
 
@@ -408,527 +412,323 @@ int insertAtBeginning(struct Node \*\*head, struct Node \*newNode)
 
 ---
 
+```c
 struct Node
-
 {
-
     int value;
-
-    struct Node \*next;
-
+    struct Node *next;
 };
 
-<br>
 
-struct Node \*CreateNode(int value)
-
+struct Node *CreateNode(int value)
 {
-
-    struct Node \*newNode = (struct Node \*)malloc(sizeof(struct Node));
-
+    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
     if (!newNode)
-
         return NULL;
 
-<br>
 
-    newNode-&gt;value = value;
-
-    newNode-&gt;next = NULL;
+    newNode->value = value;
+    newNode->next = NULL;
 
     return newNode;
-
 }
+```
 
 ---
 
-int printList(struct Node \*headPointer) // or void
-
+```c
+int printList(struct Node *headPointer) // or void
 {
-
     // guards
-
     if (headPointer == NULL)
-
         return -1;
 
-<br>
 
     int repeat = 1;
-
     while (repeat)
-
     {
-
         if (headPointer) // not NULL
-
         {
-
-            printf("%d\n", headPointer-&gt;value);
-
-            headPointer = headPointer-&gt;next;
-
+            printf("%d\n", headPointer->value);
+            headPointer = headPointer->next;
         }
-
         else
-
         {
-
             repeat = 0;
-
         }
-
     }
-
     return 0;
-
 }
+```
 
 ---
 
-int printList2(struct Node \*headPointer) // or void
-
+```c
+int printList2(struct Node *headPointer) // or void
 {
-
     // guards
-
     if (headPointer == NULL)
-
         return -1;
 
-<br>
 
     while (headPointer) // headPointer != NULL
-
     {
-
-        printf("%d\n", headPointer-&gt;value);
-
-        headPointer = headPointer-&gt;next;
-
+        printf("%d\n", headPointer->value);
+        headPointer = headPointer->next;
     }
-
     return 0;
-
 }
+```
 
 ---
 
-int addFirst(struct Node \*\*headPointer, struct Node \*newNode)
-
+```c
+int addFirst(struct Node **headPointer, struct Node *newNode)
 {
-
     // guards
-
     if (newNode == NULL) // nothing to do
-
     {
-
         printf("Error: nothing to add!\n");
-
         return -1;
-
     }
-
     if (headPointer == NULL) // list doesn't exist
-
     {
-
         printf("Error: head is NULL! The list does not exist!\n");
-
         return -1;
-
     }
-
-    if (\*headPointer) // list is NOT empty
-
+    if (*headPointer) // list is NOT empty
     {
-
-        newNode-&gt;next = \*headPointer;
-
+        newNode->next = *headPointer;
     }
+    *headPointer = newNode;
 
-    \*headPointer = newNode;
-
-<br>
 
     return 0;
-
 }
+```
 
 ---
 
-struct Node \*addFirst2(struct Node \*headPointer, struct Node \*newNode)
-
+```c
+struct Node *addFirst2(struct Node *headPointer, struct Node *newNode)
 {
-
     // guards
-
     if (newNode == NULL) // nothing to do
-
     {
-
         printf("Error: nothing to add!\n");
-
         return headPointer;
-
     }
 
-<br>
 
     if (headPointer) // list exists
-
     {
-
-        newNode-&gt;next = headPointer;
-
+        newNode->next = headPointer;
     }
-
     return newNode;
-
 }
+```
 
 ---
 
-int addLast(struct Node \*\*headPointer, struct Node \*newNode)
-
+```c
+int addLast(struct Node **headPointer, struct Node *newNode)
 {
-
     // guards
-
     if (newNode == NULL) // nothing to do
-
     {
-
         printf("Error: nothing to add!\n");
-
         return -1;
-
     }
-
     if (headPointer == NULL) // list doesn't exist
-
     {
-
         printf("Error: head is NULL! The list does not exist!\n");
-
         return -1;
-
     }
-
-    if (\*headPointer) // list is NOT empty
-
+    if (*headPointer) // list is NOT empty
     {
+        struct Node *tempPointer = *headPointer;
 
-        struct Node \*tempPointer = \*headPointer;
 
-<br>
-
-        while (tempPointer-&gt;next) // tempPointer-&gt;next != NULL
-
+        while (tempPointer->next) // tempPointer->next != NULL
         {
-
-            tempPointer = tempPointer-&gt;next; // move to last item
-
+            tempPointer = tempPointer->next; // move to last item
         }
-
-        tempPointer-&gt;next = newNode;
-
+        tempPointer->next = newNode;
     }
-
     else
-
     {
-
-        \*headPointer = newNode;
-
+        *headPointer = newNode;
     }
-
-    newNode-&gt;next = NULL; // good practice
-
+    newNode->next = NULL; // good practice
     return 0;
-
 }
+```
 
 ---
 
-int addLast2(struct Node \*\*headPointer, struct Node \*newNode)
-
+```c
+int addLast2(struct Node **headPointer, struct Node *newNode)
 {
-
     // guards
-
     if (newNode == NULL)
-
     {
-
         printf("Error: nothing to add!\n");
-
         return -1;
-
     }
-
     if (headPointer == NULL)
-
     {
-
         printf("Error: head is NULL! The list does not exist!\n");
-
         return -1;
-
     }
-
-    if (\*headPointer)
-
+    if (*headPointer)
     {
-
-        while ((\*headPointer)-&gt;next)
-
+        while ((*headPointer)->next)
         {
-
-            headPointer = &amp;(\*headPointer)-&gt;next; // move to last item
-
+            headPointer = &(*headPointer)->next; // move to last item
         }
-
-        (\*headPointer)-&gt;next = newNode;
-
+        (*headPointer)->next = newNode;
     }
-
     else
-
     {
-
-        \*headPointer = newNode;
-
+        *headPointer = newNode;
     }
-
-    newNode-&gt;next = NULL; // good practice
-
+    newNode->next = NULL; // good practice
     return 0;
-
 }
+```
 
 ---
 
-int addLast3(struct Node \*\*headPointer, struct Node \*newNode)
-
+```c
+int addLast3(struct Node **headPointer, struct Node *newNode)
 {
-
     // guards
-
     if (newNode == NULL)
-
     {
-
         printf("Error: nothing to add!\n");
-
         return -1;
-
     }
-
     if (headPointer == NULL)
-
     {
-
         printf("Error: head is NULL! The list does not exist!\n");
-
         return -1;
-
     }
-
-    if (\*headPointer)
-
+    if (*headPointer)
     {
-
-        while (\*headPointer)
-
+        while (*headPointer)
         {
-
-            headPointer = &amp;(\*headPointer)-&gt;next; // move to last item
-
+            headPointer = &(*headPointer)->next; // move to last item
         }
-
-        \*headPointer = newNode;
-
+        *headPointer = newNode;
     }
-
-    newNode-&gt;next = NULL; // good practice
-
+    newNode->next = NULL; // good practice
     return 0;
-
 }
+```
 
 ---
 
-struct Node \*addLastP(struct Node \*headPointer, struct Node \*newNode)
-
+```c
+struct Node *addLastP(struct Node *headPointer, struct Node *newNode)
 {
-
     // guards
-
     if (newNode == NULL)
-
     {
-
         printf("Error: nothing to add!\n");
-
         return NULL;
-
     }
-
     if (headPointer == NULL) // list is empty
-
     {
-
         headPointer = newNode;
-
         return headPointer;
-
     }
-
     if (headPointer)
-
     {
-
-        struct Node \*current = headPointer;
-
-        while (current-&gt;next)
-
+        struct Node *current = headPointer;
+        while (current->next)
         {
-
-            current = current-&gt;next; // move to last item
-
+            current = current->next; // move to last item
         }
-
-        current-&gt;next = newNode;
-
+        current->next = newNode;
     }
-
-    newNode-&gt;next = NULL; // good practice
-
+    newNode->next = NULL; // good practice
     return headPointer;
-
 }
+```
 
 ---
 
-int DeleteValue(struct Node \*\*headPointer, int value)
-
+```c
+int DeleteValue(struct Node **headPointer, int value)
 {
-
     // guards
-
     if (headPointer == NULL)
-
     {
-
         printf("Error: headPointer is NULL! The list does not exist!\n");
-
         return -1;
-
     }
-
-    if (\*headPointer == NULL)
-
+    if (*headPointer == NULL)
     {
-
         printf("Error: the list is empty!\n");
-
         return -1;
-
     }
-
     // check if first node needs to be removed
-
-    if ((\*headPointer)-&gt;value == value)
-
+    if ((*headPointer)->value == value)
     {
-
-        struct Node \*current = \*headPointer;
-
-        \*headPointer = (\*headPointer)-&gt;next;
-
+        struct Node *current = *headPointer;
+        *headPointer = (*headPointer)->next;
         //free(current); // if allocated dynamically
-
     }
-
     else
-
     {
-
-        struct Node \*current = \*headPointer;
-
-        while (current-&gt;next != NULL &amp;&amp; (current-&gt;next)-&gt;value != value)
-
+        struct Node *current = *headPointer;
+        while (current->next != NULL && (current->next)->value != value)
         {
-
-            current = current-&gt;next;
-
+            current = current->next;
         }
-
-        if (current-&gt;next == NULL)
-
+        if (current->next == NULL)
         {
-
             printf("Warning: value %d not found in list.\n", value);
-
             return 0; // not found
-
         }
-
-        struct Node \*toDelete = current-&gt;next;
-
-        current-&gt;next = (current-&gt;next)-&gt;next;
-
+        struct Node *toDelete = current->next;
+        current->next = (current->next)->next;
         //free(toDelete);
-
         //toDelete = NULL;
-
     }
-
     return 1;
-
 }
+```
 
 ---
 
+```c
     // unconnected sorted list on the stack
-
-    struct Node nodeArr\[n\];
-
+    struct Node nodeArr[n];
     {
-
         int i = 0;
-
-        for (; i &lt; n - 1; i++)
-
+        for (; i < n - 1; i++)
         {
-
-            nodeArr\[i\].value = i;
-
-            nodeArr\[i\].next = NULL;
-
+            nodeArr[i].value = i;
+            nodeArr[i].next = NULL;
         }
-
-        nodeArr\[n - 1\].next = NULL;
-
-        nodeArr\[n - 1\].value = i;
-
+        nodeArr[n - 1].next = NULL;
+        nodeArr[n - 1].value = i;
     }
-
-    head = &amp;nodeArr\[0\];
-
----
-
-![Picture 2](assets/image4.png)
-
-![Picture 5](assets/image5.png)
+    head = &nodeArr[0];
+```
 
 ---
 
-![Picture 5](assets/image5.png)
+![w:845px Picture 2](assets/image4.png)
 
-![Picture 3](assets/image6.png)
+![w:377px Picture 5](assets/image5.png)
+
+---
+
+![w:377px Picture 5](assets/image5.png)
+
+![w:653px Picture 3](assets/image6.png)
 
 ---
 

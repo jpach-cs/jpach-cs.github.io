@@ -33,35 +33,38 @@ title: "CSCI 232  Data Structures & Algorithms"
 
 ## Tree
 
-- C:\Users\Jakub&gt;tree C:\jpac\Dos
-- Folder PATH listing for volume Windows
-- Volume serial number is D096-8BC8
-- C:\JPAC\DOS
-- ├───Classes
-- ├───DEBUG
-- │   ├───a86
-- │   ├───AFD
-- │   ├───insight
-- │   │   ├───doc
-- │   │   ├───src
-- │   │   │   └───data
-- │   │   └───tools
-- │   ├───TD
-- │   └───WD
-- ├───edit
-- ├───Hex
-- │   ├───Biew
-- │   │   ├───skn
-- │   │   ├───syntax
-- │   │   └───xlt
-- │   │       └───russian
-- │   └───Uhex
-- ├───nasm
-- │   └───rdoff
-- └───nc
-- C:\Users\Jakub&gt;
+```c
+C:\Users\Jakub>tree C:\jpac\Dos
+Folder PATH listing for volume Windows
+Volume serial number is D096-8BC8
+C:\JPAC\DOS
+├───Classes
+├───DEBUG
+│   ├───a86
+│   ├───AFD
+│   ├───insight
+│   │   ├───doc
+│   │   ├───src
+│   │   │   └───data
+│   │   └───tools
+│   ├───TD
+│   └───WD
+├───edit
+├───Hex
+│   ├───Biew
+│   │   ├───skn
+│   │   ├───syntax
+│   │   └───xlt
+│   │       └───russian
+│   └───Uhex
+├───nasm
+│   └───rdoff
+└───nc
 
-![Picture 5](assets/image1.png)
+C:\Users\Jakub>
+```
+
+![w:576px Picture 5](assets/image1.png)
 
 - A tree representing a portion of a file system.
 
@@ -69,7 +72,7 @@ title: "CSCI 232  Data Structures & Algorithms"
 
 ## Tree
 
-![Content Placeholder 4](assets/image2.png)
+![w:1151px Content Placeholder 4](assets/image2.png)
 
 ---
 
@@ -77,7 +80,7 @@ title: "CSCI 232  Data Structures & Algorithms"
 
 - A structured document, such as a book, is hierarchically organized as a tree whose internal nodes are chapters, sections, and subsections, and whose external nodes are paragraphs, tables, figures, the bibliography, and so on. We could in fact consider expanding the tree further to show paragraphs consisting of sentences, sentences consisting of words, and words consisting of characters. In any case, such a tree is an example of an ordered tree, because there is a well-defined ordering among the children of each node.
 
-![Picture 5](assets/image3.png)
+![w:540px Picture 5](assets/image3.png)
 
 ---
 
@@ -125,19 +128,21 @@ title: "CSCI 232  Data Structures & Algorithms"
 
 ---
 
-- class TreeNode
-- {
-- public:
--     TreeNode(int Value)
--     {
--         this-&gt;Value = Value;
--         Left = nullptr;
--         Right = nullptr;
--     }
--     int Value;
--     TreeNode\* Left;
--     TreeNode\* Right;
-- };
+```c
+class TreeNode
+{
+public:
+    TreeNode(int Value)
+    {
+        this->Value = Value;
+        Left = nullptr;
+        Right = nullptr;
+    }
+    int Value;
+    TreeNode* Left;
+    TreeNode* Right;
+};
+```
 
 <!-- chooseAndSwapArrayWithLargerFirstElement(&amp;arr1, &amp;arr2); -->
 

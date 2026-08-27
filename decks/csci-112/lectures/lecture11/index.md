@@ -13,7 +13,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-![Graphic 3](assets/image2.png)
+![w:277px Graphic 3](assets/image2.png)
 
 ---
 
@@ -34,50 +34,66 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Subtracting two pointers
+## Subtracting two pointers The result of subtracting two pointers is the difference in their array indices, not the actual difference in their memory locations
 
-The result of subtracting two pointers is the difference in their array indices, not the actual difference in their memory locations
+```c
+#include <stdio.h>
 
-- \#include &lt;stdio.h&gt;
-- int strlen(char \* string)
-- {
--   char \*pointer = string;
--   while(\*pointer != '\0') /\* or NULL or 0 or FALSE \*/
--     pointer++;
--   return pointer - string;
-- }
-- int main()
-- {
--   char \* text = "Hello world!";
--   printf("Length of \[%s\] equals %d\n", text, strlen(text));
--   return 0;
-- }
-- Length of \[Hello world!\] equals 12
+int strlen(char * string)
+{
+  char *pointer = string;
+  while(*pointer != '\0') /* or NULL or 0 or FALSE */
+    pointer++;
+  return pointer - string;
+}
+
+int main()
+{
+  char * text = "Hello world!";
+  printf("Length of [%s] equals %d\n", text, strlen(text));
+  return 0;
+}
+```
+
+```c
+Length of [Hello world!] equals 12
+
+
+```
+
 - Result:
 
 ---
 
-## Comparing two pointers
+## Comparing two pointers Comparing pointers to strings in C can be significantly optimized, especially when there's a high probability that two strings are identical and point to the same memory location
 
-Comparing pointers to strings in C can be significantly optimized, especially when there's a high probability that two strings are identical and point to the same memory location
+```c
+#include <stdio.h>
 
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--   char \*str1 = "Hello";
--   char \*str2 = str1;
--   if (str1 == str2)
--         printf("Str1 and str2 point to the same string\n");
--   else
--   { // If addresses are different, then compare the content
--     if (strcmp(str1, str2) == 0)
--         printf("Str1 and str2 have the same content\n");
--     else
--         printf("Str1 and str2 are different\n");
--   }
--   return 0;
-- }
-- Str1 and str2 point to the same string
+int main()
+{
+  char *str1 = "Hello";
+  char *str2 = str1;
+
+  if (str1 == str2)
+        printf("Str1 and str2 point to the same string\n");
+  else
+  { // If addresses are different, then compare the content
+    if (strcmp(str1, str2) == 0)
+        printf("Str1 and str2 have the same content\n");
+    else
+        printf("Str1 and str2 are different\n");
+  }
+  return 0;
+}
+```
+
+```c
+Str1 and str2 point to the same string
+
+
+```
+
 - Result:
 
 <!-- Jesli mamy dwa element tej samej tablicy, i chcemy znalezc element srodkowy tej tablicy mozemy odjac od siebie adresy I uzyskamy od tego element srodkowy -->
@@ -88,124 +104,130 @@ Comparing pointers to strings in C can be significantly optimized, especially wh
 
 - Array elements are pushed onto the stack in reverse order to ensure that element addresses increase.
 - If we compare two elements of an array using two pointers, and we don't know which one is closer to the beginning and which one is closer to the end, the one with the higher address value will be closer to the end, and the one with the lower address value will be closer to the beginning of the array.
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--   int x = 5, y = 7, z = 9;
--   int b\[\]= { 1, 2, 3, 4 };
--   char text\[\] = "hello";
--   char \*l1 = &amp;text\[2\] , \*l2 = &amp;text\[3\];
-- <br>  printf("%d.\n", &amp;x);
--   printf("%d.\n", &amp;y);
--   printf("%d.\n\n", &amp;z);
--   printf("%d.\n", &amp;b\[3\]);
--   printf("%d.\n", &amp;b\[2\]);
--   printf("%d.\n", &amp;b\[1\]);
--   printf("%d.\n\n", &amp;b\[0\]);
-- <br>  printf("%d.\n", &amp;text\[3\]);
--   printf("%d.\n", &amp;text\[2\]);
--   printf("%d.\n", &amp;text\[1\]);
--   printf("%d.\n\n", &amp;text\[0\]);
-- <br>  if(l1 &lt; l2)
--     printf("l1 is closer to the beginning\n");
--   else
--     printf("l2 is closer to the beginning\n");
--   return 0;
-- }
-- 6422292\.
-- 6422288\.
-- 6422284\.
-- 6422280\.
-- 6422276\.
-- 6422272\.
-- 6422268\.
-- 6422265\.
-- 6422264\.
-- 6422263\.
-- 6422262\.
-- l1 is closer to the beginning
+
+```c
+#include <stdio.h>
+int main()
+{
+  int x = 5, y = 7, z = 9;
+  int b[]= { 1, 2, 3, 4 };
+  char text[] = "hello";
+  char *l1 = &text[2] , *l2 = &text[3];
+
+  printf("%d.\n", &x);
+  printf("%d.\n", &y);
+  printf("%d.\n\n", &z);
+
+  printf("%d.\n", &b[3]);
+  printf("%d.\n", &b[2]);
+  printf("%d.\n", &b[1]);
+  printf("%d.\n\n", &b[0]);
+
+  printf("%d.\n", &text[3]);
+  printf("%d.\n", &text[2]);
+  printf("%d.\n", &text[1]);
+  printf("%d.\n\n", &text[0]);
+
+  if(l1 < l2)
+    printf("l1 is closer to the beginning\n");
+  else
+    printf("l2 is closer to the beginning\n");
+  return 0;
+}
+```
+
+```c
+6422292.
+6422288.
+6422284.
+
+6422280.
+6422276.
+6422272.
+6422268.
+
+6422265.
+6422264.
+6422263.
+6422262.
+
+l1 is closer to the beginning
+```
+
 - Result:
 
 <!-- Jesli mamy dwa element tej samej tablicy, i chcemy znalezc element srodkowy tej tablicy mozemy odjac od siebie adresy I uzyskamy od tego element srodkowy -->
 
 ---
 
-## Assigning or comparing to zero (NULL = ‘\0’)
+## Assigning or comparing to zero (NULL = ‘\0’) Trying to use a null pointer will crash the program.
 
-Trying to use a null pointer will crash the program.
+```c
+#include <stdio.h>
+int main()
+{
+  char * a[10] = {NULL};
 
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--   char \* a\[10\] = {NULL};
-- <br>  a\[0\] = "Words";
--   a\[1\] = "of";
--   a\[2\] = "different";
--   a\[3\] = "lengths";
-- <br>  int i;
--   for ( i = 0; i &lt; 10; i++ )
--     if(a\[i\])
--       printf("%s ", a\[i\]);
--   return 0;
-- }
-- Words of different lengths
+  a[0] = "Words";
+  a[1] = "of";
+  a[2] = "different";
+  a[3] = "lengths";
+
+  int i;
+  for ( i = 0; i < 10; i++ )
+    if(a[i])
+      printf("%s ", a[i]);
+  return 0;
+}
+```
+
+```c
+Words of different lengths
+
+```
+
 - Result:
 
 ---
 
 ## Scanf -Basic Types and Width Specifier
 
-- \#include &lt;stdio.h&gt;
+```c
+#include <stdio.h>
+#define clearBuffer() while (getchar() != '\n');
 
-\#define clearBuffer() while (getchar() != '\n');
-
-- int main()
-- {
-
+int main()
+{
     int age;
-
     char firstInitial;
-
     float weight;
-
     printf("1. Basic Reads and Width:\n");
-
     // %2d - Limits the read to the first 2 digits. If the user enters "255", only 25 is read.
-
     printf("Enter Age (2 digits max, e.g., 35): ");
-
-    scanf("%2d", &amp;age);
-
+    scanf("%2d", &age);
     clearBuffer();
-
     // %c - Reads a single character.
-
     // NOTE: The space before %c is CRITICAL! It instructs scanf to skip leading whitespace,
-
     // including any leftover '\n' from the previous input.
-
     printf("Enter First Initial: ");
-
-    scanf(" %c", &amp;firstInitial);
-
+    scanf(" %c", &firstInitial);
     clearBuffer();
-
     // %f - Reads a floating-point number.
-
     printf("Enter Weight (e.g., 75.5): ");
-
-    scanf("%f", &amp;weight);
-
+    scanf("%f", &weight);
     clearBuffer();
-
     printf("Results: Age: %d, Initial: %c, Weight: %.1f\n", age, firstInitial, weight);
+}
+```
 
-- }
-- 1\. Basic Reads and Width:
-- Enter Age (2 digits max, e.g., 35): 2222222
-- Enter First Initial: a
-- Enter Weight (e.g., 75.5): 76.2
-- Results: Age: 22, Initial: a, Weight: 76.2
+```c
+1. Basic Reads and Width:
+Enter Age (2 digits max, e.g., 35): 2222222
+Enter First Initial: a
+Enter Weight (e.g., 75.5): 76.2
+Results: Age: 22, Initial: a, Weight: 76.2
+```
+
 - Result:
 - This exercise focuses on the fundamental type specifiers (%d, %c, %f) and introduces the **width** modifier (%2d).
 
@@ -215,61 +237,52 @@ Trying to use a null pointer will crash the program.
 
 ## Scanf -Length Modifiers (h and l)
 
-- \#include &lt;stdio.h&gt;
+```c
+#include <stdio.h>
+#define clearBuffer() while (getchar() != '\n');
 
-\#define clearBuffer() while (getchar() != '\n');
-
-- int main()
-- {
-
+int main()
+{
     int age;
-
     char firstInitial;
-
     float weight;
-
     printf("1. Basic Reads and Width:\n");
-
     // %2d - Limits the read to the first 2 digits. If the user enters "255", only 25 is read.
-
     printf("Enter Age (2 digits max, e.g., 35): ");
-
-    scanf("%2d", &amp;age);
-
+    scanf("%2d", &age);
     clearBuffer();
-
     // %c - Reads a single character.
-
     // NOTE: The space before %c is CRITICAL! It instructs scanf to skip leading whitespace,
-
     // including any leftover '\n' from the previous input.
-
     printf("Enter First Initial: ");
-
-    scanf(" %c", &amp;firstInitial);
-
+    scanf(" %c", &firstInitial);
     clearBuffer();
-
     // %f - Reads a floating-point number.
-
     printf("Enter Weight (e.g., 75.5): ");
-
-    scanf("%f", &amp;weight);
-
+    scanf("%f", &weight);
     clearBuffer();
-
     printf("Results: Age: %d, Initial: %c, Weight: %.1f\n", age, firstInitial, weight);
+}
+```
 
-- }
-- 2\. Length Modifiers (long/short):
-- Enter a small integer (short): 25
-- Enter a large integer (long): 66000
-- Results: Short: 25, Long: 66000
+```c
+2. Length Modifiers (long/short):
+Enter a small integer (short): 25
+Enter a large integer (long): 66000
+
+Results: Short: 25, Long: 66000
+```
+
 - Result:
-- 2\. Length Modifiers (long/short):
-- Enter a small integer (short): 67 000
-- Enter a large integer (long): 1
-- Results: Short: 67, Long: 1
+
+```c
+2. Length Modifiers (long/short):
+Enter a small integer (short): 67 000
+Enter a large integer (long): 1
+
+Results: Short: 67, Long: 1
+```
+
 - Result:
 - This exercise demonstrates the length modifiers for integers: **h** (for short) and **l** (for long). These are essential for matching the format specifier to the variable type.
 
@@ -279,26 +292,23 @@ Trying to use a null pointer will crash the program.
 
 ## Scanf - Common Errors 1 and Pitfalls
 
-- \#include &lt;stdio.h&gt;
+```c
+#include <stdio.h>
+#define clearBuffer() while (getchar() != '\n');
 
-\#define clearBuffer() while (getchar() != '\n');
-
-- int main()
-- {
-
+int main()
+{
     printf("\n3. ERROR: Using '\\n' in the scanf format string.\n");
-
     printf("Enter a value (You will have to press Enter a second time):\n");
 
-    // BAD PRACTICE: scanf("%d\n", &amp;val);
-
-    scanf("%d\n", &amp;val);
+    // BAD PRACTICE: scanf("%d\n", &val);
+    scanf("%d\n", &val);
 
     // The program hangs here, waiting for more non-whitespace input to satisfy the '\n' specifier.
-
     printf("Thank you. The value read is: %d\n", val);
+}
+```
 
-- }
 - A frequent beginner mistake is adding \n to the format string, confusing it with printf. **Never use \n in a scanf format string!** It forces the program to wait for non-whitespace input, confusing the user.
 
 <!-- Jesli mamy dwa element tej samej tablicy, i chcemy znalezc element srodkowy tej tablicy mozemy odjac od siebie adresy I uzyskamy od tego element srodkowy -->
@@ -307,36 +317,28 @@ Trying to use a null pointer will crash the program.
 
 ## Scanf - Common Errors 2 and Pitfalls
 
-- \#include &lt;stdio.h&gt;
+```c
+#include <stdio.h>
+#define clearBuffer() while (getchar() != '\n');
 
-\#define clearBuffer() while (getchar() != '\n');
-
-- int main()
-- {
-
+int main()
+{
     int num;
-
     char character;
-
     printf("\n4. ERROR: Demonstrating the Buffer Problem (No clearBuffer()).\n");
-
     printf("Enter a number: ");
-
-    scanf("%d", &amp;num);
-
-    // NO clearBuffer() -&gt; The '\n' from the Enter key remains in the buffer.
-
+    scanf("%d", &num);
+    // NO clearBuffer() -> The '\n' from the Enter key remains in the buffer.
     printf("Enter a character (watch what happens): ");
-
     // This scanf("%c") immediately reads the leftover '\n' as the intended character.
-
-    scanf("%c", &amp;character);
+    scanf("%c", &character);
 
     printf("\nResult: The character read was: '%c' (It should have been your input, but was the newline)\n", character);
 
-<br>
 
-- }
+}
+```
+
 - This highlights why **clearBuffer()** is necessary, especially before reading a character (%c).
 
 <!-- Jesli mamy dwa element tej samej tablicy, i chcemy znalezc element srodkowy tej tablicy mozemy odjac od siebie adresy I uzyskamy od tego element srodkowy -->
@@ -345,33 +347,32 @@ Trying to use a null pointer will crash the program.
 
 ## Scanf - Best Practice: Reading Multiple Variables
 
-- \#include &lt;stdio.h&gt;
+```c
+#include <stdio.h>
+#define clearBuffer() while (getchar() != '\n');
 
-\#define clearBuffer() while (getchar() != '\n');
-
-- int main()
-- {
-
+int main()
+{
     int day, month, year;
-
     printf("\n5. BEST PRACTICE: Reading multiple variables with one scanf call.\n");
-
     printf("Enter the date in DD MM YYYY format (separated by spaces/Enter): ");
 
     // scanf automatically skips whitespace between %d specifiers.
-
-    // The user can type: 15 \[space\] 12 \[Enter\] 2023 \[Enter\]
-
-    scanf("%d %d %d", &amp;day, &amp;month, &amp;year);
-
+    // The user can type: 15 [space] 12 [Enter] 2023 [Enter]
+    scanf("%d %d %d", &day, &month, &year);
     clearBuffer(); // Clear the buffer only once at the end.
-
     printf("\nResult: Date: %d-%d-%d\n", year, month, day);
 
-- }
-- 5\. BEST PRACTICE: Reading multiple variables with one scanf call.
-- Enter the date in DD MM YYYY format (separated by spaces/Enter): 2 08 1988
-- Result: Date: 1988-8-2
+}
+```
+
+```c
+5. BEST PRACTICE: Reading multiple variables with one scanf call.
+Enter the date in DD MM YYYY format (separated by spaces/Enter): 2 08 1988
+
+Result: Date: 1988-8-2
+```
+
 - Result:
 
 <!-- Jesli mamy dwa element tej samej tablicy, i chcemy znalezc element srodkowy tej tablicy mozemy odjac od siebie adresy I uzyskamy od tego element srodkowy -->
@@ -394,37 +395,45 @@ Trying to use a null pointer will crash the program.
 
 ---
 
-## Review
+## Review Trying to use a null pointer will crash the program.
 
-Trying to use a null pointer will crash the program.
+```c
+#include <stdio.h>
+int main()
+{
+  char * a[10] = {NULL};
 
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
--   char \* a\[10\] = {NULL};
-- <br>  a\[0\] = "Words";
--   a\[1\] = "of";
--   a\[2\] = "different";
--   a\[3\] = "lengths";
-- <br>  int i;
--   for ( i = 0; i &lt; 10; i++ )
--     if(a\[i\])
--       printf("%s ", a\[i\]);
--   return 0;
-- }
-- Words of different lengths
+  a[0] = "Words";
+  a[1] = "of";
+  a[2] = "different";
+  a[3] = "lengths";
+
+  int i;
+  for ( i = 0; i < 10; i++ )
+    if(a[i])
+      printf("%s ", a[i]);
+  return 0;
+}
+```
+
+```c
+Words of different lengths
+
+```
+
 - Result:
 
 ---
 
 ## Command-Line Arguments
 
+```c
 Command-line arguments are values passed to a program when it is executed from the terminal/command prompt. Allows users to provide input to the program without the need for user interaction during execution.
-
-- argc:    Argument count, the number of command-line arguments passed <br>    (including the program's name).
-- argv\[\]:    Argument vector, an array of strings (character pointers) representing the     arguments.
-
-Syntax:    int main(int argc, char \*argv\[\])
+argc:	Argument count, the number of command-line arguments passed
+	(including the program's name).
+argv[]:	Argument vector, an array of strings (character pointers) representing the 	arguments.
+ Syntax:	int main(int argc, char *argv[])
+```
 
 ---
 
@@ -443,39 +452,63 @@ argc:    Always greater than or equal to 1 (the first argument is the program’
 
 ## Examples
 
-- \#include &lt;stdio.h&gt;
-- int main(int argc, char \*argv\[\])
-- {
--     if(argc &gt; 1)
--         printf("%s\n", argv\[1\] );
--     return 0;
-- }
-- C:\...\C&gt;main.exe text
-- text
+```c
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+    if(argc > 1)
+        printf("%s\n", argv[1] );
+    return 0;
+}
+```
+
+```c
+C:\...\C>main.exe text
+text
+```
+
 - one argument
-- \#include &lt;stdio.h&gt;
-- int main(int argc, char \*argv\[\])
-- {
--     if(argc &gt; 2)
--     {
--         printf("%s\n", argv\[1\] );
--         printf("%s\n", argv\[2\] );
--     }
--     return 0;
-- }
-- C:\...\C&gt;main.exe text1 text2
-- text1
-- text2
+
+```c
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+    if(argc > 2)
+    {
+        printf("%s\n", argv[1] );
+        printf("%s\n", argv[2] );
+    }
+    return 0;
+}
+```
+
+```c
+C:\...\C>main.exe text1 text2
+text1
+text2
+
+```
+
 - two arguments
-- \#include &lt;stdio.h&gt;
-- int main(int argc, char \*argv\[\])
-- {
--     if(argc &gt; 1)
--         printf("%s\n", argv\[1\] );
--     return 0;
-- }
-- C:\...\C&gt;main.exe "text1 text2"
-- text1 text2
+
+```c
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+    if(argc > 1)
+        printf("%s\n", argv[1] );
+    return 0;
+}
+```
+
+```c
+C:\...\C>main.exe "text1 text2"
+text1 text2
+```
+
 - one argument
 - consisting of several words
 
@@ -483,32 +516,47 @@ argc:    Always greater than or equal to 1 (the first argument is the program’
 
 ## Examples
 
-- \#include &lt;stdio.h&gt;
-- int main(int argc, char \*argv\[\])
-- {
--     int i;
--     for (i = 1; i &lt; argc; i++)
--         printf("Argument %d: %s\n", i, argv\[i\]);
--     return 0;
-- }
-- C:\...\C&gt;main.exe text1 text2
-- Argument 1: tex1
-- Argument 2: text2
-- \#include &lt;stdio.h&gt;
-- \#include &lt;stdlib.h&gt;
-- int main(int argc, char \*argv\[\])
-- {
--     if (argc == 3)
--     {
--         int num1 = atoi(argv\[1\]);
--         int num2 = atoi(argv\[2\]);
--         int sum = num1 + num2;
--         printf("Sum: %d\n", sum);
--     }
--     return 0;
-- }
-- C:\...\C&gt;main.exe 1 2
-- Sum: 3
+```c
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+    int i;
+    for (i = 1; i < argc; i++)
+        printf("Argument %d: %s\n", i, argv[i]);
+    return 0;
+}
+```
+
+```c
+C:\...\C>main.exe text1 text2
+Argument 1: tex1
+Argument 2: text2
+```
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+    if (argc == 3)
+    {
+        int num1 = atoi(argv[1]);
+        int num2 = atoi(argv[2]);
+        int sum = num1 + num2;
+        printf("Sum: %d\n", sum);
+    }
+    return 0;
+}
+```
+
+```c
+C:\...\C>main.exe 1 2
+Sum: 3
+
+```
+
 - The name of the atoi() function is an acronym for ASCII to int. This function converts a string into an integer.
 - To use it, the #include &lt;stdlib.h&gt; header must be imported.
 
@@ -547,31 +595,48 @@ To make functions defined in other files visible in a file, it is sufficient to 
 
 - All files are in the same folder
 - It's worth noting that header file names and implementation file names don't have to be identical, although this convention is often used to improve project readability
-- <br>int sum(int, int);
-- int difference(int, int);
 
-\#include "funs.h"
+```c
 
-- int sum(int a, int b)
-- {
--   return a + b;
-- }
-- int difference(int a, int b)
-- {
--   return a - b;
-- }
-- \#include &lt;stdio.h&gt;
-- \#include "funs.h"
-- int main()
-- {
--  int x = 5, y = 3;
--  printf("Sum of %d and %d equals %d\n", x, y, sum(x, y));
--  return 0;
-- }
+int sum(int, int);
+int difference(int, int);
+```
+
+```c
+#include "funs.h"
+
+int sum(int a, int b)
+{
+  return a + b;
+}
+int difference(int a, int b)
+{
+  return a - b;
+}
+```
+
+```c
+#include <stdio.h>
+#include "funs.h"
+
+int main()
+{
+ int x = 5, y = 3;
+ printf("Sum of %d and %d equals %d\n", x, y, sum(x, y));
+ return 0;
+}
+```
+
 - File: funs.h
 - File: funs.c
 - File: main.c
-- Sum of 5 and 3 equals 8
+
+```c
+Sum of 5 and 3 equals 8
+
+
+```
+
 - Result:
 
 ---
@@ -579,54 +644,66 @@ To make functions defined in other files visible in a file, it is sufficient to 
 ## Review - preprocessor directive - #ifndef
 
 - Checks if a macro is not defined.
-- \#include &lt;stdio.h&gt;
-- <br>#ifndef MAX\_SIZE
-- \#define MAX\_SIZE 100
-- \#endif
-- <br>int main()
-- {
--     printf("MAX\_SIZE is %d\n", MAX\_SIZE);
--     return 0;
-- }
-- MAX\_SIZE is 100
+
+```c
+#include <stdio.h>
+
+#ifndef MAX_SIZE
+#define MAX_SIZE 100
+#endif
+
+int main()
+{
+    printf("MAX_SIZE is %d\n", MAX_SIZE);
+    return 0;
+}
+```
+
+```c
+MAX_SIZE is 100
+
+```
+
 - Result:
 
 ---
 
-## Example
+## Example Every source file that includes a header will have its contents inserted during compilation. If multiple files include the same header that contains definitions, the linker will report multiple definition errors because the same code is compiled more than once. To prevent this, header files should use include guards (#ifndef, #define, #endif)
 
-Every source file that includes a header will have its contents inserted during compilation. If multiple files include the same header that contains definitions, the linker will report multiple definition errors because the same code is compiled more than once. To prevent this, header files should use include guards (#ifndef, #define, #endif)
+```c
 
-- <br>int sum(int, int);
-- int difference(int, int);
+int sum(int, int);
+int difference(int, int);
+```
+
 - File: funs.h
-- \#include &lt;stdio.h&gt;
-- <br>#ifndef MAX\_SIZE
-- \#define MAX\_SIZE 100
-- \#endif
-- <br>int main()
-- {
--     printf("MAX\_SIZE is %d\n", MAX\_SIZE);
--     return 0;
-- }
 
+```c
+#include <stdio.h>
+
+#ifndef MAX_SIZE
+#define MAX_SIZE 100
+#endif
+
+int main()
+{
+    printf("MAX_SIZE is %d\n", MAX_SIZE);
+    return 0;
+}
+```
+
+```c
 //func.h
-
-\#ifndef FUNC\_H
-
-\#define FUNC\_H
-
+#ifndef FUNC_H
+#define FUNC_H
   int sum(int, int);
-
   int difference(int, int);
-
-\#endif
+#endif
+```
 
 ---
 
-## Summary
-
-*Of all the directives regarding compilation and makefiles, the* #ifndef *directive seems to be the most commonly used, as it prevents the same file from being included more than once in the final output. As can easily be seen, many different files can use the same library.*
+## Summary *Of all the directives regarding compilation and makefiles, the* #ifndef *directive seems to be the most commonly used, as it prevents the same file from being included more than once in the final output. As can easily be seen, many different files can use the same library.*
 
 ---
 
@@ -635,40 +712,50 @@ Every source file that includes a header will have its contents inserted during 
 - All files are in the same folder
 - It's worth noting that header file names and implementation file names don't have to be identical, although this convention is often used to improve project readability
 
+```c
 //func.h
-
-\#ifndef FUNC\_H
-
-\#define FUNC\_H
-
+#ifndef FUNC_H
+#define FUNC_H
   int sum(int, int);
-
   int difference(int, int);
+#endif
+```
 
-\#endif
+```c
+#include "funs.h"
 
-\#include "funs.h"
+int sum(int a, int b)
+{
+  return a + b;
+}
+int difference(int a, int b)
+{
+  return a - b;
+}
+```
 
-- int sum(int a, int b)
-- {
--   return a + b;
-- }
-- int difference(int a, int b)
-- {
--   return a - b;
-- }
-- \#include &lt;stdio.h&gt;
-- \#include "funs.h"
-- int main()
-- {
--  int x = 5, y = 3;
--  printf("Sum of %d and %d equals %d\n", x, y, sum(x, y));
--  return 0;
-- }
+```c
+#include <stdio.h>
+#include "funs.h"
+
+int main()
+{
+ int x = 5, y = 3;
+ printf("Sum of %d and %d equals %d\n", x, y, sum(x, y));
+ return 0;
+}
+```
+
 - File: funs.h
 - File: funs.c
 - File: main.c
-- Sum of 5 and 3 equals 8
+
+```c
+Sum of 5 and 3 equals 8
+
+
+```
+
 - Result:
 
 ---
@@ -684,41 +771,52 @@ Every source file that includes a header will have its contents inserted during 
 
 ## extern keyword
 
+```c
 //func.h
-
-\#ifndef FUNC\_H
-
-\#define FUNC\_H
-
+#ifndef FUNC_H
+#define FUNC_H
   int sum(int, int);
-
   int difference(int, int);
+#endif
+```
 
-\#endif
+```c
+#include "funs.h"
+extern int x, y;
 
-\#include "funs.h"
+int sum()
+{
+  return x + y;
+}
+int difference()
+{
+  return x - y;
+}
+```
 
-- extern int x, y;
-- int sum()
-- {
--   return x + y;
-- }
-- int difference()
-- {
--   return x - y;
-- }
-- \#include &lt;stdio.h&gt;
-- \#include "funs.h“
-- int x = 5, y = 3;
-- int main()
-- {
--  printf("Sum of %d and %d equals %d\n", x, y, sum());
--  return 0;
-- }
+```c
+#include <stdio.h>
+#include "funs.h“
+
+int x = 5, y = 3;
+
+int main()
+{
+ printf("Sum of %d and %d equals %d\n", x, y, sum());
+ return 0;
+}
+```
+
 - File: funs.h
 - File: funs.c
 - File: main.c
-- Sum of 5 and 3 equals 8
+
+```c
+Sum of 5 and 3 equals 8
+
+
+```
+
 - Result:
 
 ---
@@ -729,41 +827,52 @@ Every source file that includes a header will have its contents inserted during 
 
 ## static keyword
 
+```c
 //func.h
-
-\#ifndef FUNC\_H
-
-\#define FUNC\_H
-
+#ifndef FUNC_H
+#define FUNC_H
   int sum(int, int);
-
   int difference(int, int);
+#endif
+```
 
-\#endif
+```c
+#include "funs.h"
+static int x = 4, y = 2;
 
-\#include "funs.h"
+int sum()
+{
+  return x + y;
+}
+int difference()
+{
+  return x - y;
+}
+```
 
-- static int x = 4, y = 2;
-- int sum()
-- {
--   return x + y;
-- }
-- int difference()
-- {
--   return x - y;
-- }
-- \#include &lt;stdio.h&gt;
-- \#include "funs.h“
-- static int x = 5, y = 3;
-- int main()
-- {
--  printf("Sum of %d and %d equals %d\n", x, y, sum());
--  return 0;
-- }
+```c
+#include <stdio.h>
+#include "funs.h“
+
+static int x = 5, y = 3;
+
+int main()
+{
+ printf("Sum of %d and %d equals %d\n", x, y, sum());
+ return 0;
+}
+```
+
 - File: funs.h
 - File: funs.c
 - File: main.c
-- Sum of 5 and 3 equals 6
+
+```c
+Sum of 5 and 3 equals 6
+
+
+```
+
 - Result:
 
 ---
@@ -783,43 +892,60 @@ Every source file that includes a header will have its contents inserted during 
 
 ## static keyword
 
-- \#include &lt;stdio.h&gt;
-- void ticketSale(void);
-- int main()
-- {
--   ticketSale();
--   ticketSale();
--   ticketSale();
--   return 0;
-- }
-- void ticketSale()
-- {
--   static int x = 0; /\* initialization at the beginning \*/
--   x++;    /\*of the program, not during block execution \*/
--   printf("There are currently %d tickets sold.\n", x);
-- }
-- There are currently 1 tickets sold.
-- There are currently 1 tickets sold.
-- There are currently 1 tickets sold.
+```c
+#include <stdio.h>
+
+void ticketSale(void);
+
+int main()
+{
+  ticketSale();
+  ticketSale();
+  ticketSale();
+  return 0;
+}
+void ticketSale()
+{
+  static int x = 0; /* initialization at the beginning */
+  x++;    /*of the program, not during block execution */
+  printf("There are currently %d tickets sold.\n", x);
+}
+```
+
+```c
+There are currently 1 tickets sold.
+There are currently 1 tickets sold.
+There are currently 1 tickets sold.
+```
+
 - Result:
-- \#include &lt;stdio.h&gt;
-- void ticketSale(void);
-- int main()
-- {
--   ticketSale();
--   ticketSale();
--   ticketSale();
--   return 0;
-- }
-- void ticketSale()
-- {
--   int x = 0;
--   x++;
--   printf("There are currently %d tickets sold.\n", x);
-- }
-- There are currently 1 tickets sold.
-- There are currently 2 tickets sold.
-- There are currently 3 tickets sold.
+
+```c
+#include <stdio.h>
+
+void ticketSale(void);
+
+int main()
+{
+  ticketSale();
+  ticketSale();
+  ticketSale();
+  return 0;
+}
+void ticketSale()
+{
+  int x = 0;
+  x++;
+  printf("There are currently %d tickets sold.\n", x);
+}
+```
+
+```c
+There are currently 1 tickets sold.
+There are currently 2 tickets sold.
+There are currently 3 tickets sold.
+```
+
 - Result:
 
 ---
@@ -876,19 +1002,17 @@ C files are regular text files (txt), differing only by their extension, as they
 - Create a new folder,
 - create a file named main.c inside it and fill it with the simplest possible code.
 
+```c
 // main.c
-
-\#include&lt;stdio.h&gt;
+#include<stdio.h>
 
 int main()
-
 {
-
   printf("%s\n", "Hello, world!");
 
   return 0;
-
 }
+```
 
 ---
 
@@ -897,17 +1021,23 @@ int main()
 - Compile main.c into an object file main.o:
 - Link the object file main.o into an executable main.exe:
 
+```c
 gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
+```
 
-\# 1) Compile main.c into an object file main.o (no linking).
+```c
+# 1) Compile main.c into an object file main.o (no linking).
+#    Includes debug symbols (-g), enables most warnings (-Wall), uses the C99 standard (-std=c99),
+#    and enforces strict standard conformance (-pedantic).
+```
 
-\#    Includes debug symbols (-g), enables most warnings (-Wall), uses the C99 standard (-std=c99),
-
-\#    and enforces strict standard conformance (-pedantic).
-
+```c
 gcc -g main.o -o main.exe
+```
 
-\# 2) Link the object file into an executable named main.exe.
+```c
+# 2) Link the object file into an executable named main.exe.
+```
 
 ---
 
@@ -940,11 +1070,14 @@ These steps are essential for transforming your C code into an executable progra
 
 - Compile and link in one step (from main.c directly to main.exe):
 
+```c
 gcc -g -Wall -std=c99 -pedantic main.c -o main.exe
+```
 
-\# 3) Compile and link in one step: from main.c directly to main.exe,
-
-\#    with the same diagnostic/standard flags as in step 1.
+```c
+# 3) Compile and link in one step: from main.c directly to main.exe,
+#    with the same diagnostic/standard flags as in step 1.
+```
 
 ---
 
@@ -1014,33 +1147,28 @@ TARGET: DEPENDENCIES
 
 ## An example of makefile
 
+```c
 CC = gcc
-
 CFLAGS = -g -Wall -Wextra -std=c99 -pedantic
-
 OBJS = main.o unity.o
-
-TARGET = main.exe<br>
+TARGET = main.exe
 
 .PHONY: all clean
 
-all: $(TARGET)<br>
+all: $(TARGET)
 
 $(TARGET): $(OBJS)
-
-    $(CC) $(OBJS) -o $(TARGET)<br>
+    $(CC) $(OBJS) -o $(TARGET)
 
 main.o: main.c unity.h
-
-    $(CC) $(CFLAGS) -c main.c -o main.o<br>
+    $(CC) $(CFLAGS) -c main.c -o main.o
 
 unity.o: unity.c unity.h
-
-    $(CC) $(CFLAGS) -c unity.c -o unity.o<br>
+    $(CC) $(CFLAGS) -c unity.c -o unity.o
 
 clean:
-
-    del /f \*.o $(TARGET)  # Windows
+    del /f *.o $(TARGET)  # Windows
+```
 
 Key Components:
 
@@ -1060,43 +1188,56 @@ Key Components:
 
 ## Some examples
 
-- int main()
-- {
--   int x = 5, y = 7;
--   int \* p = &amp;x;
--   int \*\* pp = &amp;p;   /\* pointer to pointer\*/
--   y = \*\*pp;
--   printf("y equals %d.\n\n",  y );
-- <br>  printf("&amp;y\t\tequals %d.\n", &amp;y );
--   printf("\*(&amp;y)\t\tequals %d.\n", \*(&amp;y) );
--   printf("&amp;(\*(&amp;y))\tequals %d.\n", &amp;(\*(&amp;y)) );
--   printf("&amp;\*&amp;y\t\tequals %d.\n", &amp;\*&amp;y );
--   printf("\*&amp;\*&amp;y\t\tequals %d.\n\n", \*&amp;\*&amp;y );
-- <br>  printf("&amp;x\t\tequals %d.\n", &amp;x );
--   printf("p\t\tequals %d.\n", p );
--   printf("&amp;p\t\tequals %d.\n", &amp;p );
--   printf("\*p\t\tequals %d.\n\n", \*p );
-- <br>  printf("pp\t\tequals %d.\n", pp );
--   printf("&amp;pp\t\tequals %d.\n", &amp;pp );
--   printf("\*pp\t\tequals %d.\n", \*pp );
--   printf("\*&amp;\*pp\t\tequals %d.\n", \*&amp;\*pp );
--   printf("\*\*pp\t\tequals %d.\n", \*\*pp );
--   return 0; <br>}
-- y equals 5.
-- &amp;y              equals 6422292.
-- \*(&amp;y)           equals 7.
-- &amp;(\*(&amp;y))        equals 6422292.
-- &amp;\*&amp;y            equals 6422292.
-- \*&amp;\*&amp;y           equals 7.
-- &amp;x              equals 6422296.
-- p               equals 6422296.
-- &amp;p              equals 6422288.
-- \*p              equals 5.
-- pp              equals 6422288.
-- &amp;pp             equals 6422284.
-- \*pp             equals 6422296.
-- \*&amp;\*pp           equals 6422296.
-- \*\*pp            equals 5.
+```c
+int main()
+{
+  int x = 5, y = 7;
+  int * p = &x;
+  int ** pp = &p;   /* pointer to pointer*/
+  y = **pp;
+  printf("y equals %d.\n\n",  y );
+
+  printf("&y\t\tequals %d.\n", &y );
+  printf("*(&y)\t\tequals %d.\n", *(&y) );
+  printf("&(*(&y))\tequals %d.\n", &(*(&y)) );
+  printf("&*&y\t\tequals %d.\n", &*&y );
+  printf("*&*&y\t\tequals %d.\n\n", *&*&y );
+
+  printf("&x\t\tequals %d.\n", &x );
+  printf("p\t\tequals %d.\n", p );
+  printf("&p\t\tequals %d.\n", &p );
+  printf("*p\t\tequals %d.\n\n", *p );
+
+  printf("pp\t\tequals %d.\n", pp );
+  printf("&pp\t\tequals %d.\n", &pp );
+  printf("*pp\t\tequals %d.\n", *pp );
+  printf("*&*pp\t\tequals %d.\n", *&*pp );
+  printf("**pp\t\tequals %d.\n", **pp );
+  return 0;
+}
+```
+
+```c
+y equals 5.
+
+&y              equals 6422292.
+*(&y)           equals 7.
+&(*(&y))        equals 6422292.
+&*&y            equals 6422292.
+*&*&y           equals 7.
+
+&x              equals 6422296.
+p               equals 6422296.
+&p              equals 6422288.
+*p              equals 5.
+
+pp              equals 6422288.
+&pp             equals 6422284.
+*pp             equals 6422296.
+*&*pp           equals 6422296.
+**pp            equals 5.
+```
+
 - Result:
 
 ||Memory Addresses and Values|||

@@ -39,11 +39,9 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## Meaning of words
+## Meaning of words Sometimes, when we look at the same thing, we see entirely different things. Therefore, to avoid misunderstandings, I will spend a considerable amount of time clarifying the nuances associated with translating the meanings of the concepts we will be using in our classes.
 
-Sometimes, when we look at the same thing, we see entirely different things. Therefore, to avoid misunderstandings, I will spend a considerable amount of time clarifying the nuances associated with translating the meanings of the concepts we will be using in our classes.
-
-![Picture 1](assets/image4.png)
+![w:402px Picture 1](assets/image4.png)
 
 ---
 
@@ -143,15 +141,11 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 
 ---
 
-## Pseudocode resembles a programming language like Pascal\*
-
-When the C language was being born, Pascal was already a popular language. It contributed significantly—or even profoundly—to the world of programming, but it did not stand the test of time. Languages derived from C eventually replaced it entirely. Today, Python is the most popular language for describing programming concepts due to its simplicity, so pseudocode will be a mixture of natural language and a specific programming language.
+## Pseudocode resembles a programming language like Pascal\* When the C language was being born, Pascal was already a popular language. It contributed significantly—or even profoundly—to the world of programming, but it did not stand the test of time. Languages derived from C eventually replaced it entirely. Today, Python is the most popular language for describing programming concepts due to its simplicity, so pseudocode will be a mixture of natural language and a specific programming language.
 
 ---
 
-## Flowchart
-
-A flowchart is a graphical representation of an algorithm. It uses shapes to represent different types of operations and arrows to indicate the flow of control between them.
+## Flowchart A flowchart is a graphical representation of an algorithm. It uses shapes to represent different types of operations and arrows to indicate the flow of control between them.
 
 Use tape
 
@@ -212,13 +206,12 @@ these are basic symbols
 
 for loop, representing the following code:
 
-for ( i = 0; i &lt; n; i++)
-
+```c
+for ( i = 0; i < n; i++)
 {
-
-printf("\*");
-
+	printf("*");
 }
+```
 
 start
 
@@ -315,7 +308,7 @@ rather than implementation details.
 
 For more complex algorithms, a bullet point list may be insufficient.
 
-![Picture 4](assets/image4.png)
+![w:146px Picture 4](assets/image4.png)
 
 ---
 
@@ -369,11 +362,7 @@ Bubble sort is a simple sorting algorithm that works by repeatedly stepping thro
     - Set swapped = true to indicate that a change was made.
 - The process continues until a full pass occurs with no swaps (array is sorted).
 
-![A diagram of a diagram
-
-AI-generated content may be incorrect.](assets/image6.png)
-
-![A diagram of a diagram
+![w:433px A diagram of a diagram
 
 AI-generated content may be incorrect.](assets/image6.png)
 
@@ -393,11 +382,7 @@ AI-generated content may be incorrect.](assets/image6.png)
     - Set swapped = true to indicate that a change was made.
 - The process continues until a full pass occurs with no swaps (array is sorted).
 
-![A diagram of a diagram
-
-AI-generated content may be incorrect.](assets/image6.png)
-
-![A diagram of a diagram
+![w:387px A diagram of a diagram
 
 AI-generated content may be incorrect.](assets/image6.png)
 
@@ -412,145 +397,91 @@ AI-generated content may be incorrect.](assets/image6.png)
 
 ## C
 
-void simplyBubbleSort(int arr\[\], int n)
-
+```c
+void simplyBubbleSort(int arr[], int n)
 {
-
     bool swapped = true;
-
     while (swapped)
-
     {
-
         swapped = false;
-
-        for (int i = 0; i &lt; n - 1; i++)
-
+        for (int i = 0; i < n - 1; i++)
         {
-
-            if (arr\[i\] &gt; arr\[i + 1\])
-
+            if (arr[i] > arr[i + 1])
             {
-
-                int temp = arr\[i + 1\];
-
-                arr\[i + 1\] = arr\[i\];
-
-                arr\[i\] = temp;
-
+                int temp = arr[i + 1];
+                arr[i + 1] = arr[i];
+                arr[i] = temp;
                 swapped = true;
-
             }
-
         }
-
     }
-
 }
+```
 
 ---
 
 ## C/C++
 
-void bubbleSort(int arr\[\], int n)
-
+```c
+void bubbleSort(int arr[], int n)
 {
-
     int temp;
-
     int i = 0;
-
     char swapped = 1;
-
     while (swapped)
-
     {
-
         swapped = 0;
-
-        for (i = 0; i &lt; n - 1; i++)
-
+        for (i = 0; i < n - 1; i++)
         {
-
-            if (arr\[i\] &gt; arr\[i + 1\])
-
+            if (arr[i] > arr[i + 1])
             {
-
-                temp = arr\[i + 1\];
-
-                arr\[i + 1\] = arr\[i\];
-
-                arr\[i\] = temp;
-
+                temp = arr[i + 1];
+                arr[i + 1] = arr[i];
+                arr[i] = temp;
                 swapped = 1;
-
             }
-
         }
-
         //if (swapped == 0)
-
         //    break;
-
     }
-
 }
+```
 
 ---
 
 ## C/C++
 
-void bubbleSort(int arr\[\], int n)
-
+```c
+void bubbleSort(int arr[], int n)
 {
-
     int temp;
-
     int i = 0;
-
     char swapped = 1;
-
     while (swapped)
-
     {
-
         swapped = 0;
-
-        for (i = 0; i &lt; n - 1; i++)
-
+        for (i = 0; i < n - 1; i++)
         {
-
-            if (arr\[i\] &gt; arr\[i + 1\])
-
+            if (arr[i] > arr[i + 1])
             {
-
-                swap(&amp;arr\[i\], &amp;arr\[i + 1\]);
-
+                swap(&arr[i], &arr[i + 1]);
                 swapped = 1;
-
             }
-
         }
-
         if (swapped == 0)
-
             break;
-
     }
-
 }
+```
 
-void swap(int\* xPointer, int\* yPointer)
-
+```c
+void swap(int* xPointer, int* yPointer)
 {
-
-    int temp =  \*xPointer;
-
-    \*xPointer = \*yPointer;
-
-    \*yPointer = temp;
-
+    int temp =  *xPointer;
+    *xPointer = *yPointer;
+    *yPointer = temp;
 }
+```
 
 ---
 
@@ -580,8 +511,6 @@ void swap(int\* xPointer, int\* yPointer)
 
 ---
 
-## Efficiency – an example
-
-By using an algorithm whose running time grows more slowly, even with a poor compiler, computer **B** runs more than 17 times faster than computer **A**! The advantage of merge sort is even more pronounced when we sort 100 million numbers: where insertion sort takes more than 23 days, merge sort takes under four hours. In general, as the problem size increases, so does the relative advantage of merge sort.
+## Efficiency – an example By using an algorithm whose running time grows more slowly, even with a poor compiler, computer **B** runs more than 17 times faster than computer **A**! The advantage of merge sort is even more pronounced when we sort 100 million numbers: where insertion sort takes more than 23 days, merge sort takes under four hours. In general, as the problem size increases, so does the relative advantage of merge sort.
 
 <!-- For a concrete example -->

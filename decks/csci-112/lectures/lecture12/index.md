@@ -13,7 +13,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-![Graphic 3](assets/image2.png)
+![w:277px Graphic 3](assets/image2.png)
 
 ---
 
@@ -47,39 +47,63 @@ argc:    Always greater than or equal to 1 (the first argument is the program’
 
 ## Examples
 
-- \#include &lt;stdio.h&gt;
-- int main(int argc, char \*argv\[\])
-- {
--     if(argc &gt; 1)
--         printf("%s\n", argv\[1\] );
--     return 0;
-- }
-- C:\...\C&gt;main.exe text
-- text
+```c
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+    if(argc > 1)
+        printf("%s\n", argv[1] );
+    return 0;
+}
+```
+
+```c
+C:\...\C>main.exe text
+text
+```
+
 - one argument
-- \#include &lt;stdio.h&gt;
-- int main(int argc, char \*argv\[\])
-- {
--     if(argc &gt; 2)
--     {
--         printf("%s\n", argv\[1\] );
--         printf("%s\n", argv\[2\] );
--     }
--     return 0;
-- }
-- C:\...\C&gt;main.exe text1 text2
-- text1
-- text2
+
+```c
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+    if(argc > 2)
+    {
+        printf("%s\n", argv[1] );
+        printf("%s\n", argv[2] );
+    }
+    return 0;
+}
+```
+
+```c
+C:\...\C>main.exe text1 text2
+text1
+text2
+
+```
+
 - two arguments
-- \#include &lt;stdio.h&gt;
-- int main(int argc, char \*argv\[\])
-- {
--     if(argc &gt; 1)
--         printf("%s\n", argv\[1\] );
--     return 0;
-- }
-- C:\...\C&gt;main.exe "text1 text2"
-- text1 text2
+
+```c
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+    if(argc > 1)
+        printf("%s\n", argv[1] );
+    return 0;
+}
+```
+
+```c
+C:\...\C>main.exe "text1 text2"
+text1 text2
+```
+
 - one argument
 - consisting of several words
 
@@ -87,32 +111,47 @@ argc:    Always greater than or equal to 1 (the first argument is the program’
 
 ## Examples
 
-- \#include &lt;stdio.h&gt;
-- int main(int argc, char \*argv\[\])
-- {
--     int i;
--     for (i = 1; i &lt; argc; i++)
--         printf("Argument %d: %s\n", i, argv\[i\]);
--     return 0;
-- }
-- C:\...\C&gt;main.exe text1 text2
-- Argument 1: tex1
-- Argument 2: text2
-- \#include &lt;stdio.h&gt;
-- \#include &lt;stdlib.h&gt;
-- int main(int argc, char \*argv\[\])
-- {
--     if (argc == 3)
--     {
--         int num1 = atoi(argv\[1\]);
--         int num2 = atoi(argv\[2\]);
--         int sum = num1 + num2;
--         printf("Sum: %d\n", sum);
--     }
--     return 0;
-- }
-- C:\...\C&gt;main.exe 1 2
-- Sum: 3
+```c
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+    int i;
+    for (i = 1; i < argc; i++)
+        printf("Argument %d: %s\n", i, argv[i]);
+    return 0;
+}
+```
+
+```c
+C:\...\C>main.exe text1 text2
+Argument 1: tex1
+Argument 2: text2
+```
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+    if (argc == 3)
+    {
+        int num1 = atoi(argv[1]);
+        int num2 = atoi(argv[2]);
+        int sum = num1 + num2;
+        printf("Sum: %d\n", sum);
+    }
+    return 0;
+}
+```
+
+```c
+C:\...\C>main.exe 1 2
+Sum: 3
+
+```
+
 - The name of the atoi() function is an acronym for ASCII to int. This function converts a string into an integer.
 - To use it, the #include &lt;stdlib.h&gt; header must be imported.
 
@@ -138,31 +177,48 @@ To make functions defined in other files visible in a file, it is sufficient to 
 
 - All files are in the same folder
 - It's worth noting that header file names and implementation file names don't have to be identical, although this convention is often used to improve project readability
-- <br>int sum(int, int);
-- int difference(int, int);
 
-\#include "funs.h"
+```c
 
-- int sum(int a, int b)
-- {
--   return a + b;
-- }
-- int difference(int a, int b)
-- {
--   return a - b;
-- }
-- \#include &lt;stdio.h&gt;
-- \#include "funs.h"
-- int main()
-- {
--  int x = 5, y = 3;
--  printf("Sum of %d and %d equals %d\n", x, y, sum(x, y));
--  return 0;
-- }
+int sum(int, int);
+int difference(int, int);
+```
+
+```c
+#include "funs.h"
+
+int sum(int a, int b)
+{
+  return a + b;
+}
+int difference(int a, int b)
+{
+  return a - b;
+}
+```
+
+```c
+#include <stdio.h>
+#include "funs.h"
+
+int main()
+{
+ int x = 5, y = 3;
+ printf("Sum of %d and %d equals %d\n", x, y, sum(x, y));
+ return 0;
+}
+```
+
 - File: funs.h
 - File: funs.c
 - File: main.c
-- Sum of 5 and 3 equals 8
+
+```c
+Sum of 5 and 3 equals 8
+
+
+```
+
 - Result:
 
 ---
@@ -170,54 +226,66 @@ To make functions defined in other files visible in a file, it is sufficient to 
 ## Review - preprocessor directive - #ifndef
 
 - Checks if a macro is not defined.
-- \#include &lt;stdio.h&gt;
-- <br>#ifndef MAX\_SIZE
-- \#define MAX\_SIZE 100
-- \#endif
-- <br>int main()
-- {
--     printf("MAX\_SIZE is %d\n", MAX\_SIZE);
--     return 0;
-- }
-- MAX\_SIZE is 100
+
+```c
+#include <stdio.h>
+
+#ifndef MAX_SIZE
+#define MAX_SIZE 100
+#endif
+
+int main()
+{
+    printf("MAX_SIZE is %d\n", MAX_SIZE);
+    return 0;
+}
+```
+
+```c
+MAX_SIZE is 100
+
+```
+
 - Result:
 
 ---
 
-## Example
+## Example Every source file that includes a header will have its contents inserted during compilation. If multiple files include the same header that contains definitions, the linker will report multiple definition errors because the same code is compiled more than once. To prevent this, header files should use include guards (#ifndef, #define, #endif)
 
-Every source file that includes a header will have its contents inserted during compilation. If multiple files include the same header that contains definitions, the linker will report multiple definition errors because the same code is compiled more than once. To prevent this, header files should use include guards (#ifndef, #define, #endif)
+```c
 
-- <br>int sum(int, int);
-- int difference(int, int);
+int sum(int, int);
+int difference(int, int);
+```
+
 - File: funs.h
-- \#include &lt;stdio.h&gt;
-- <br>#ifndef MAX\_SIZE
-- \#define MAX\_SIZE 100
-- \#endif
-- <br>int main()
-- {
--     printf("MAX\_SIZE is %d\n", MAX\_SIZE);
--     return 0;
-- }
 
+```c
+#include <stdio.h>
+
+#ifndef MAX_SIZE
+#define MAX_SIZE 100
+#endif
+
+int main()
+{
+    printf("MAX_SIZE is %d\n", MAX_SIZE);
+    return 0;
+}
+```
+
+```c
 //func.h
-
-\#ifndef FUNC\_H
-
-\#define FUNC\_H
-
+#ifndef FUNC_H
+#define FUNC_H
   int sum(int, int);
-
   int difference(int, int);
-
-\#endif
+#endif
+```
 
 ---
 
-## Summary
-
-*Of all the directives regarding compilation and makefiles, the* #ifndef *directive seems to be the most commonly used, as it prevents the same file from being included more than once in the final output. As can easily be seen, many different files can use the same library.*
+## Summary *Of all the directives regarding compilation and makefiles, the* #ifndef *directive seems to be the most commonly used, as it prevents the same file from being included more than once in the final output. As can easily be seen, many different files can use the same library.*
 
 ---
 
@@ -226,40 +294,50 @@ Every source file that includes a header will have its contents inserted during 
 - All files are in the same folder
 - It's worth noting that header file names and implementation file names don't have to be identical, although this convention is often used to improve project readability
 
+```c
 //func.h
-
-\#ifndef FUNC\_H
-
-\#define FUNC\_H
-
+#ifndef FUNC_H
+#define FUNC_H
   int sum(int, int);
-
   int difference(int, int);
+#endif
+```
 
-\#endif
+```c
+#include "funs.h"
 
-\#include "funs.h"
+int sum(int a, int b)
+{
+  return a + b;
+}
+int difference(int a, int b)
+{
+  return a - b;
+}
+```
 
-- int sum(int a, int b)
-- {
--   return a + b;
-- }
-- int difference(int a, int b)
-- {
--   return a - b;
-- }
-- \#include &lt;stdio.h&gt;
-- \#include "funs.h"
-- int main()
-- {
--  int x = 5, y = 3;
--  printf("Sum of %d and %d equals %d\n", x, y, sum(x, y));
--  return 0;
-- }
+```c
+#include <stdio.h>
+#include "funs.h"
+
+int main()
+{
+ int x = 5, y = 3;
+ printf("Sum of %d and %d equals %d\n", x, y, sum(x, y));
+ return 0;
+}
+```
+
 - File: funs.h
 - File: funs.c
 - File: main.c
-- Sum of 5 and 3 equals 8
+
+```c
+Sum of 5 and 3 equals 8
+
+
+```
+
 - Result:
 
 ---
@@ -275,82 +353,104 @@ Every source file that includes a header will have its contents inserted during 
 
 ## extern keyword
 
+```c
 //func.h
-
-\#ifndef FUNC\_H
-
-\#define FUNC\_H
-
+#ifndef FUNC_H
+#define FUNC_H
   int sum(int, int);
-
   int difference(int, int);
+#endif
+```
 
-\#endif
+```c
+#include "funs.h"
+extern int x, y;
 
-\#include "funs.h"
+int sum()
+{
+  return x + y;
+}
+int difference()
+{
+  return x - y;
+}
+```
 
-- extern int x, y;
-- int sum()
-- {
--   return x + y;
-- }
-- int difference()
-- {
--   return x - y;
-- }
-- \#include &lt;stdio.h&gt;
-- \#include "funs.h“
-- int x = 5, y = 3;
-- int main()
-- {
--  printf("Sum of %d and %d equals %d\n", x, y, sum());
--  return 0;
-- }
+```c
+#include <stdio.h>
+#include "funs.h“
+
+int x = 5, y = 3;
+
+int main()
+{
+ printf("Sum of %d and %d equals %d\n", x, y, sum());
+ return 0;
+}
+```
+
 - File: funs.h
 - File: funs.c
 - File: main.c
-- Sum of 5 and 3 equals 8
+
+```c
+Sum of 5 and 3 equals 8
+
+
+```
+
 - Result:
 
 ---
 
 ## static keyword
 
+```c
 //func.h
-
-\#ifndef FUNC\_H
-
-\#define FUNC\_H
-
+#ifndef FUNC_H
+#define FUNC_H
   int sum(int, int);
-
   int difference(int, int);
+#endif
+```
 
-\#endif
+```c
+#include "funs.h"
+static int x = 4, y = 2;
 
-\#include "funs.h"
+int sum()
+{
+  return x + y;
+}
+int difference()
+{
+  return x - y;
+}
+```
 
-- static int x = 4, y = 2;
-- int sum()
-- {
--   return x + y;
-- }
-- int difference()
-- {
--   return x - y;
-- }
-- \#include &lt;stdio.h&gt;
-- \#include "funs.h“
-- static int x = 5, y = 3;
-- int main()
-- {
--  printf("Sum of %d and %d equals %d\n", x, y, sum());
--  return 0;
-- }
+```c
+#include <stdio.h>
+#include "funs.h“
+
+static int x = 5, y = 3;
+
+int main()
+{
+ printf("Sum of %d and %d equals %d\n", x, y, sum());
+ return 0;
+}
+```
+
 - File: funs.h
 - File: funs.c
 - File: main.c
-- Sum of 5 and 3 equals 6
+
+```c
+Sum of 5 and 3 equals 6
+
+
+```
+
 - Result:
 
 ---
@@ -370,43 +470,60 @@ Every source file that includes a header will have its contents inserted during 
 
 ## static keyword
 
-- \#include &lt;stdio.h&gt;
-- void ticketSale(void);
-- int main()
-- {
--   ticketSale();
--   ticketSale();
--   ticketSale();
--   return 0;
-- }
-- void ticketSale()
-- {
--   static int x = 0; /\* initialization at the beginning \*/
--   x++;    /\*of the program, not during block execution \*/
--   printf("There are currently %d tickets sold.\n", x);
-- }
-- There are currently 1 tickets sold.
-- There are currently 1 tickets sold.
-- There are currently 1 tickets sold.
+```c
+#include <stdio.h>
+
+void ticketSale(void);
+
+int main()
+{
+  ticketSale();
+  ticketSale();
+  ticketSale();
+  return 0;
+}
+void ticketSale()
+{
+  static int x = 0; /* initialization at the beginning */
+  x++;    /*of the program, not during block execution */
+  printf("There are currently %d tickets sold.\n", x);
+}
+```
+
+```c
+There are currently 1 tickets sold.
+There are currently 1 tickets sold.
+There are currently 1 tickets sold.
+```
+
 - Result:
-- \#include &lt;stdio.h&gt;
-- void ticketSale(void);
-- int main()
-- {
--   ticketSale();
--   ticketSale();
--   ticketSale();
--   return 0;
-- }
-- void ticketSale()
-- {
--   int x = 0;
--   x++;
--   printf("There are currently %d tickets sold.\n", x);
-- }
-- There are currently 1 tickets sold.
-- There are currently 2 tickets sold.
-- There are currently 3 tickets sold.
+
+```c
+#include <stdio.h>
+
+void ticketSale(void);
+
+int main()
+{
+  ticketSale();
+  ticketSale();
+  ticketSale();
+  return 0;
+}
+void ticketSale()
+{
+  int x = 0;
+  x++;
+  printf("There are currently %d tickets sold.\n", x);
+}
+```
+
+```c
+There are currently 1 tickets sold.
+There are currently 2 tickets sold.
+There are currently 3 tickets sold.
+```
+
 - Result:
 
 ---
@@ -416,17 +533,23 @@ Every source file that includes a header will have its contents inserted during 
 - Compile main.c into an object file main.o:
 - Link the object file main.o into an executable main.exe:
 
+```c
 gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
+```
 
-\# 1) Compile main.c into an object file main.o (no linking).
+```c
+# 1) Compile main.c into an object file main.o (no linking).
+#    Includes debug symbols (-g), enables most warnings (-Wall), uses the C99 standard (-std=c99),
+#    and enforces strict standard conformance (-pedantic).
+```
 
-\#    Includes debug symbols (-g), enables most warnings (-Wall), uses the C99 standard (-std=c99),
-
-\#    and enforces strict standard conformance (-pedantic).
-
+```c
 gcc -g main.o -o main.exe
+```
 
-\# 2) Link the object file into an executable named main.exe.
+```c
+# 2) Link the object file into an executable named main.exe.
+```
 
 ---
 
@@ -459,11 +582,14 @@ These steps are essential for transforming your C code into an executable progra
 
 - Compile and link in one step (from main.c directly to main.exe):
 
+```c
 gcc -g -Wall -std=c99 -pedantic main.c -o main.exe
+```
 
-\# 3) Compile and link in one step: from main.c directly to main.exe,
-
-\#    with the same diagnostic/standard flags as in step 1.
+```c
+# 3) Compile and link in one step: from main.c directly to main.exe,
+#    with the same diagnostic/standard flags as in step 1.
+```
 
 ---
 
@@ -515,33 +641,28 @@ These steps are essential for transforming your C code into an executable progra
 
 ## An example of makefile
 
+```c
 CC = gcc
-
 CFLAGS = -g -Wall -Wextra -std=c99 -pedantic
-
 OBJS = main.o unity.o
-
-TARGET = main.exe<br>
+TARGET = main.exe
 
 .PHONY: all clean
 
-all: $(TARGET)<br>
+all: $(TARGET)
 
 $(TARGET): $(OBJS)
-
-    $(CC) $(OBJS) -o $(TARGET)<br>
+    $(CC) $(OBJS) -o $(TARGET)
 
 main.o: main.c unity.h
-
-    $(CC) $(CFLAGS) -c main.c -o main.o<br>
+    $(CC) $(CFLAGS) -c main.c -o main.o
 
 unity.o: unity.c unity.h
-
-    $(CC) $(CFLAGS) -c unity.c -o unity.o<br>
+    $(CC) $(CFLAGS) -c unity.c -o unity.o
 
 clean:
-
-    del /f \*.o $(TARGET)  # Windows
+    del /f *.o $(TARGET)  # Windows
+```
 
 Key Components:
 
@@ -554,43 +675,56 @@ Key Components:
 
 ## Some examples
 
-- int main()
-- {
--   int x = 5, y = 7;
--   int \* p = &amp;x;
--   int \*\* pp = &amp;p;   /\* pointer to pointer\*/
--   y = \*\*pp;
--   printf("y equals %d.\n\n",  y );
-- <br>  printf("&amp;y\t\tequals %d.\n", &amp;y );
--   printf("\*(&amp;y)\t\tequals %d.\n", \*(&amp;y) );
--   printf("&amp;(\*(&amp;y))\tequals %d.\n", &amp;(\*(&amp;y)) );
--   printf("&amp;\*&amp;y\t\tequals %d.\n", &amp;\*&amp;y );
--   printf("\*&amp;\*&amp;y\t\tequals %d.\n\n", \*&amp;\*&amp;y );
-- <br>  printf("&amp;x\t\tequals %d.\n", &amp;x );
--   printf("p\t\tequals %d.\n", p );
--   printf("&amp;p\t\tequals %d.\n", &amp;p );
--   printf("\*p\t\tequals %d.\n\n", \*p );
-- <br>  printf("pp\t\tequals %d.\n", pp );
--   printf("&amp;pp\t\tequals %d.\n", &amp;pp );
--   printf("\*pp\t\tequals %d.\n", \*pp );
--   printf("\*&amp;\*pp\t\tequals %d.\n", \*&amp;\*pp );
--   printf("\*\*pp\t\tequals %d.\n", \*\*pp );
--   return 0; <br>}
-- y equals 5.
-- &amp;y              equals 6422292.
-- \*(&amp;y)           equals 7.
-- &amp;(\*(&amp;y))        equals 6422292.
-- &amp;\*&amp;y            equals 6422292.
-- \*&amp;\*&amp;y           equals 7.
-- &amp;x              equals 6422296.
-- p               equals 6422296.
-- &amp;p              equals 6422288.
-- \*p              equals 5.
-- pp              equals 6422288.
-- &amp;pp             equals 6422284.
-- \*pp             equals 6422296.
-- \*&amp;\*pp           equals 6422296.
-- \*\*pp            equals 5.
+```c
+int main()
+{
+  int x = 5, y = 7;
+  int * p = &x;
+  int ** pp = &p;   /* pointer to pointer*/
+  y = **pp;
+  printf("y equals %d.\n\n",  y );
+
+  printf("&y\t\tequals %d.\n", &y );
+  printf("*(&y)\t\tequals %d.\n", *(&y) );
+  printf("&(*(&y))\tequals %d.\n", &(*(&y)) );
+  printf("&*&y\t\tequals %d.\n", &*&y );
+  printf("*&*&y\t\tequals %d.\n\n", *&*&y );
+
+  printf("&x\t\tequals %d.\n", &x );
+  printf("p\t\tequals %d.\n", p );
+  printf("&p\t\tequals %d.\n", &p );
+  printf("*p\t\tequals %d.\n\n", *p );
+
+  printf("pp\t\tequals %d.\n", pp );
+  printf("&pp\t\tequals %d.\n", &pp );
+  printf("*pp\t\tequals %d.\n", *pp );
+  printf("*&*pp\t\tequals %d.\n", *&*pp );
+  printf("**pp\t\tequals %d.\n", **pp );
+  return 0;
+}
+```
+
+```c
+y equals 5.
+
+&y              equals 6422292.
+*(&y)           equals 7.
+&(*(&y))        equals 6422292.
+&*&y            equals 6422292.
+*&*&y           equals 7.
+
+&x              equals 6422296.
+p               equals 6422296.
+&p              equals 6422288.
+*p              equals 5.
+
+pp              equals 6422288.
+&pp             equals 6422284.
+*pp             equals 6422296.
+*&*pp           equals 6422296.
+**pp            equals 5.
+```
+
 - Result:
 
 ||Memory Addresses and Values|||
@@ -648,7 +782,10 @@ Key Components:
 ||&lt;&lt;=, &gt;&gt;=, &amp;=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
-- struct Point { int x; int y; }; int main()<br>{struct Point point = {1,2}, \*ppoint = &amp;point;  int arr\[\] = {1,2}; int x = 5, y =-6; int \* z; float f = 3.0f; /\*code\*/}
+```c
+struct Point { int x; int y; }; int main()
+{struct Point point = {1,2}, *ppoint = &point;  int arr[] = {1,2}; int x = 5, y =-6; int * z; float f = 3.0f; /*code*/}
+```
 
 <!-- perentysys; esiszewitiwy
 Use parentheses to override order of evaluation -->
@@ -657,21 +794,31 @@ Use parentheses to override order of evaluation -->
 
 ## Bitwise AND, OR, XOR
 
-- a | b = 13
-- a &amp; b = 4
-- a ^ b = 9
+```c
+a | b = 13
+a & b = 4
+a ^ b = 9
+
+```
+
 - Result:
-- int main()
-- {
--     int a = 4;
--     int b = 13;
--     int result = a | b;
--     printf("a | b = %d\n", result);
--     result = a &amp; b;
--     printf("a &amp; b = %d\n", result);
--     result = a ^ b;
--     printf("a ^ b = %d\n", result);
-- }
+
+```c
+int main()
+{
+    int a = 4;
+    int b = 13;
+    int result = a | b;
+    printf("a | b = %d\n", result);
+    result = a & b;
+    printf("a & b = %d\n", result);
+    result = a ^ b;
+    printf("a ^ b = %d\n", result);
+
+
+}
+```
+
 - How does work?
 
 ---
@@ -753,7 +900,10 @@ Use parentheses to override order of evaluation -->
 ||&lt;&lt;=, &gt;&gt;=, &amp;=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
-- struct Point { int x; int y; }; int main()<br>{struct Point point = {1,2}, \*ppoint = &amp;point;  int arr\[\] = {1,2}; int x = 5, y =-6; int \* z; float f = 3.0f; /\*code\*/}
+```c
+struct Point { int x; int y; }; int main()
+{struct Point point = {1,2}, *ppoint = &point;  int arr[] = {1,2}; int x = 5, y =-6; int * z; float f = 3.0f; /*code*/}
+```
 
 <!-- perentysys; esiszewitiwy
 Use parentheses to override order of evaluation -->
@@ -762,18 +912,28 @@ Use parentheses to override order of evaluation -->
 
 ## Bitwise left shift(&lt;&lt;) and right shift(&gt;&gt;)
 
-- a &gt;&gt; b = ?
-- a &lt;&lt; b = ?
+```c
+a >> b = ?
+a << b = ?
+
+
+```
+
 - Result:
-- int main()
-- {
--     int a = 4;
--     int b = 2;
--     int result = a &gt;&gt; b;
--     printf("a &gt;&gt; b = %d\n", result);
--     result = a &lt;&lt; b;
--     printf("a &lt;&lt; b = %d\n", result);
-- }
+
+```c
+int main()
+{
+    int a = 4;
+    int b = 2;
+    int result = a >> b;
+    printf("a >> b = %d\n", result);
+    result = a << b;
+    printf("a << b = %d\n", result);
+
+}
+```
+
 - How does work?
 
 ---
@@ -816,18 +976,27 @@ Use parentheses to override order of evaluation -->
 
 ## Bitwise left shift(&lt;&lt;) and right shift(&gt;&gt;)
 
-- a &gt;&gt; b = 1
-- a &lt;&lt; b = 16
+```c
+a >> b = 1
+a << b = 16
+
+
+```
+
 - Result:
-- int main()
-- {
--     int a = 4;
--     int b = 2;
--     int result = a &gt;&gt; b;
--     printf("a &gt;&gt; b = %d\n", result);
--     result = a &lt;&lt; b;
--     printf("a &lt;&lt; b = %d\n", result);
-- }
+
+```c
+int main()
+{
+    int a = 4;
+    int b = 2;
+    int result = a >> b;
+    printf("a >> b = %d\n", result);
+    result = a << b;
+    printf("a << b = %d\n", result);
+
+}
+```
 
 ---
 
@@ -859,29 +1028,36 @@ Syntax:
 
 typedef &lt;type&gt; Symbolic\_name
 
-- \#include &lt;stdio.h&gt;
-- typedef char \* String;
-- typedef char Letter;
-- int strCmp( String one, String two )
-- {
--     int i;
--     for (i = 0; one\[i\] != '\0' &amp;&amp; two\[i\] != '\0'; i++)
--         if(one\[i\] &gt; two\[i\])
--             return 1;
--         else if(one\[i\] &lt; two\[i\])
--             return -1;
--     return 0;
-- }
-- int main(int argc, char \*argv\[\])
-- {
--     String text1 = "Some text\n"; /\* read only! \*/
--     String text2 = "Some text\n";
--     printf( "%d", strCmp(text1, text2) );
--     Letter letter = 'A';
--     printf( "%c", letter );
--     return 0;
-- }
-- 0A
+```c
+#include <stdio.h>
+typedef char * String;
+typedef char Letter;
+int strCmp( String one, String two )
+{
+    int i;
+    for (i = 0; one[i] != '\0' && two[i] != '\0'; i++)
+        if(one[i] > two[i])
+            return 1;
+        else if(one[i] < two[i])
+            return -1;
+    return 0;
+}
+int main(int argc, char *argv[])
+{
+    String text1 = "Some text\n"; /* read only! */
+    String text2 = "Some text\n";
+    printf( "%d", strCmp(text1, text2) );
+    Letter letter = 'A';
+    printf( "%c", letter );
+    return 0;
+}
+```
+
+```c
+0A
+
+```
+
 - Result:
 
 ---
@@ -906,96 +1082,124 @@ Although the concept of a signature officially emerged in the context of methods
 
 *Function pointers are used to store the memory address of a function. For a function pointer to be correctly used, the signature of the function it points to must exactly match the signature of the pointer itself. This means the return type and the list of arguments (including their types and order) must be identical.*
 
-- return-type function-name (only type of parameter declarations, if any);
-- return-type (\*function-name-pointer) (only type of parameter declarations, if any);
+```c
+return-type function-name (only type of parameter declarations, if any);
+```
+
+```c
+return-type (*function-name-pointer) (only type of parameter declarations, if any);
+```
 
 ---
 
 ## Function pointer
 
-- \#include &lt;stdio.h&gt;
-- int add(int, int); /\* Function prototypes (declarations)\*/
-- int subtract(int, int);
-- <br>int add(int a, int b) /\* Function definitions \*/
-- {
--   return a + b;
-- }
-- int subtract(int a, int b)
-- {
--   return a - b;
-- }
-- int main()
-- {
--   int x = 5, y = 3;
--   int (\*operation)(int, int);    /\* Declare a function pointer that can point to functions  \*/
--                                            /\* taking two integers and returning an integer  \*/
--   operation = add;               /\* Assign the address of the 'add' function to the pointer \*/
--   int result = operation(x, y); /\* Call the function through the pointer \*/
--   printf("Result of addition: %d\n", result);
--   operation = subtract;
--   result = operation(x, y);
--   printf("Result of subtraction: %d\n", result);
-- <br>  return 0;
-- }
-- Result of addition: 8
-- Result of subtraction: 2
+```c
+#include <stdio.h>
+int add(int, int); /* Function prototypes (declarations)*/
+int subtract(int, int);
+
+int add(int a, int b) /* Function definitions */
+{
+  return a + b;
+}
+int subtract(int a, int b)
+{
+  return a - b;
+}
+
+int main()
+{
+  int x = 5, y = 3;
+  int (*operation)(int, int);    /* Declare a function pointer that can point to functions  */
+                                           /* taking two integers and returning an integer  */
+  operation = add;               /* Assign the address of the 'add' function to the pointer */
+  int result = operation(x, y); /* Call the function through the pointer */
+  printf("Result of addition: %d\n", result);
+
+  operation = subtract;
+  result = operation(x, y);
+  printf("Result of subtraction: %d\n", result);
+
+  return 0;
+}
+```
+
+```c
+Result of addition: 8
+Result of subtraction: 2
+```
+
 - Result:
 
 ---
 
 ## Function pointer with typdef
 
-- \#include &lt;stdio.h&gt;
-- int add(int, int);
-- int subtract(int, int);
-- <br>int add(int a, int b)
-- {
--   return a + b;
-- }
-- int subtract(int a, int b)
-- {
--   return a - b;
-- }
-- int main()
-- {
--   int x = 5, y = 3;
--   int (\*peration)(int,int);
--   operation = add;
--   int result = operation(x, y);
--   printf("Result of addition: %d\n", result);
--   operation = subtract;
--   result = operation(x, y);
--   printf("Result of subtraction: %d\n", result);
-- <br>  return 0;
-- }
-- Result of addition: 8
-- Result of subtraction: 2
+```c
+#include <stdio.h>
+int add(int, int);
+int subtract(int, int);
+
+int add(int a, int b)
+{
+  return a + b;
+}
+int subtract(int a, int b)
+{
+  return a - b;
+}
+
+int main()
+{
+  int x = 5, y = 3;
+  int (*peration)(int,int);
+  operation = add;
+  int result = operation(x, y);
+  printf("Result of addition: %d\n", result);
+  operation = subtract;
+  result = operation(x, y);
+  printf("Result of subtraction: %d\n", result);
+
+  return 0;
+}
+```
+
+```c
+Result of addition: 8
+Result of subtraction: 2
+```
+
 - Result:
-- \#include &lt;stdio.h&gt;
-- int add(int, int);
-- int subtract(int, int);
-- <br>int add(int a, int b)
-- {
--   return a + b;
-- }
-- int subtract(int a, int b)
-- {
--   return a - b;
-- }
 
-typedef int (\*Operation)(int,int);
+```c
+#include <stdio.h>
+int add(int, int);
+int subtract(int, int);
 
-- int main()
-- {
--   int x = 5, y = 3;
--   Operation operation = add;
--   int result = operation(x, y);
--   printf("Result of addition: %d\n", result);
--   operation = subtract;
--   result = operation(x, y);
--   printf("Result of subtraction: %d\n", result);
-- <br>  return 0;
-- }
+int add(int a, int b)
+{
+  return a + b;
+}
+int subtract(int a, int b)
+{
+  return a - b;
+}
+typedef int (*Operation)(int,int);
+int main()
+{
+  int x = 5, y = 3;
+  Operation operation = add;
+  int result = operation(x, y);
+  printf("Result of addition: %d\n", result);
+  operation = subtract;
+  result = operation(x, y);
+  printf("Result of subtraction: %d\n", result);
+
+  return 0;
+}
+```
+
 - When you use **typedef** with the syntax for a function pointer, you are not creating any pointer.
 - You are simply defining <br>a type alias, which means this type does not exist in main until you actually declare <br>a variable of that type!!!
 
@@ -1009,10 +1213,14 @@ typedef int (\*Operation)(int,int);
 
 - Structures are user-defined data types that group together variables of different data types.
 - A structure is a collection of one or more variables, possibly of different types, grouped together under single symbolic\_name for convenient handling.
-- struct symbolic\_name1
-- {
-- &lt;statement1&gt;
-- }&lt;symbolic\_name2, ...&gt;;
+
+```c
+struct symbolic_name1
+{
+	<statement1>
+}<symbolic_name2, ...>;
+```
+
 - Syntax:
 - Everything that is in angle brackets &lt;&gt; is optional.
 
@@ -1020,47 +1228,59 @@ typedef int (\*Operation)(int,int);
 
 ## An example
 
-- \#include &lt;stdio.h&gt;
-- struct MyStruct
-- {
--     int value;
-- }\*p, s; /\* like struct MyStruct  \* sPointer; struct MyStruct myStructure;\*/
-- <br>struct MyStruct  \* sPointer; /\* global pointer \*/
-- struct MyStruct myStructure; /\* global variable \*/
-- <br>struct MyStruct function( struct MyStruct temp )
-- {
--     temp.value += 5;
--     return temp;
-- }
-- int main(int argc, char \*argv\[\])
-- {
--     struct MyStruct localStruct; /\* local variable \*/
--     localStruct.value = 1;
--     struct MyStruct \* localStructPointer; /\* local pointer \*/
--     localStructPointer = &amp;localStruct;
--     printf( "%d\n", localStruct.value );
--     localStructPointer-&gt;value = 2;
--     printf( "%d\n", localStructPointer-&gt;value );
--     printf( "%d\n", (\*localStructPointer).value ); /\*Equivalent to the previous line\*/
--     p = &amp; s;
--     (\*p).value = 2;
--     printf( "%d\n", s.value );
--     printf( "%d\n", p-&gt;value );
-- <br>    printf( "%d\n", myStructure.value );
--     myStructure = function( \*localStructPointer );
--     printf( "%d\n", myStructure.value );
--     return 0;
-- }
-- 1
-- 2
-- 2
-- 2
-- 2
-- 0
-- 7
+```c
+#include <stdio.h>
+struct MyStruct
+{
+    int value;
+}*p, s; /* like struct MyStruct  * sPointer; struct MyStruct myStructure;*/
+
+struct MyStruct  * sPointer; /* global pointer */
+struct MyStruct myStructure; /* global variable */
+
+struct MyStruct function( struct MyStruct temp )
+{
+    temp.value += 5;
+    return temp;
+}
+int main(int argc, char *argv[])
+{
+    struct MyStruct localStruct; /* local variable */
+    localStruct.value = 1;
+    struct MyStruct * localStructPointer; /* local pointer */
+    localStructPointer = &localStruct;
+    printf( "%d\n", localStruct.value );
+    localStructPointer->value = 2;
+    printf( "%d\n", localStructPointer->value );
+    printf( "%d\n", (*localStructPointer).value ); /*Equivalent to the previous line*/
+    p = & s;
+    (*p).value = 2;
+    printf( "%d\n", s.value );
+    printf( "%d\n", p->value );
+
+    printf( "%d\n", myStructure.value );
+    myStructure = function( *localStructPointer );
+    printf( "%d\n", myStructure.value );
+    return 0;
+}
+```
+
+```c
+1
+2
+2
+2
+2
+0
+7
+
+```
+
 - Result:
 
-To access members of a structure, we use the dot operator. When accessing a member through a pointer, we must use the dereferencing operator (\*) followed by the member access operator (.), enclosed in parentheses: (\*symbolic\_name).field. Alternatively, we can use the arrow operator (-&gt;), which is equivalent to symbolic\_name-&gt;field.
+```c
+To access members of a structure, we use the dot operator. When accessing a member through a pointer, we must use the dereferencing operator (*) followed by the member access operator (.), enclosed in parentheses: (*symbolic_name).field. Alternatively, we can use the arrow operator (->), which is equivalent to symbolic_name->field.
+```
 
 ---
 
@@ -1089,7 +1309,10 @@ To access members of a structure, we use the dot operator. When accessing a memb
 ||&lt;&lt;=, &gt;&gt;=, &amp;=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
-- struct Point { int x; int y; }; int main()<br>{struct Point point = {1,2}, \*ppoint = &amp;point;  int arr\[\] = {1,2}; int x = 5, y =-6; int \* z; float f = 3.0f; /\*code\*/}
+```c
+struct Point { int x; int y; }; int main()
+{struct Point point = {1,2}, *ppoint = &point;  int arr[] = {1,2}; int x = 5, y =-6; int * z; float f = 3.0f; /*code*/}
+```
 
 <!-- perentysys; esiszewitiwy
 Use parentheses to override order of evaluation -->
@@ -1121,7 +1344,10 @@ Use parentheses to override order of evaluation -->
 ||&lt;&lt;=, &gt;&gt;=, &amp;=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
-- struct Point { int x; int y; }; int main()<br>{struct Point point = {1,2}, \*ppoint = &amp;point;  int arr\[\] = {1,2}; int x = 5, y =-6; int \* z; float f = 3.0f; /\*code\*/}
+```c
+struct Point { int x; int y; }; int main()
+{struct Point point = {1,2}, *ppoint = &point;  int arr[] = {1,2}; int x = 5, y =-6; int * z; float f = 3.0f; /*code*/}
+```
 
 <!-- perentysys; esiszewitiwy
 Use parentheses to override order of evaluation -->
@@ -1152,23 +1378,20 @@ We can also **omit the structure tag name** to make it **anonymous**, preventing
 
 - Here, config is the **only instance** of this unnamed structure type.
 
+```c
 struct Point
-
 {
-
     int x, y;
+} p1, *ptr;
+```
 
-} p1, \*ptr;
-
+```c
 struct
-
 {
-
     int id;
-
     float value;
-
 } config;
+```
 
 ---
 
@@ -1180,15 +1403,20 @@ Alternatively, we can use **typedef** to create an **alias** for a structure typ
 - The name after the definition (Point) is a type alias, not a variable.
 - This alias does not prevent creating multiple instances — it simply simplifies the syntax.
 
+```c
 typedef struct
-
 {
 
     int x, y;
 
 } Point;
+```
 
-Point symbolic\_name;
+```c
+
+Point symbolic_name;
+
+```
 
 ---
 
@@ -1220,43 +1448,51 @@ Point symbolic\_name;
 
 ## An example - padding
 
-- \#include &lt;stdio.h&gt;
-- struct Example1
-- {
--     char c;
--     int i;
--     short s;
-- };
-- struct Example2
-- {
--     short s;
--     char c;
--     int i;
-- };<br>int main(int argc, char \*argv\[\])
-- {
--     printf( "Size of a struct Example is = %d\n", sizeof(struct Example1) );
--     printf( "Size of a struct Example is = %d\n", sizeof(struct Example2) );<br>    struct Example1 example1;
--     printf( "Struct Example1:\n" );
--     printf( "Address of variable c = %d\n", &amp;example1.c );
--     printf( "Address of variable i = %d\n", &amp;example1.i );
--     printf( "Address of variable s = %d\n", &amp;example1.s );
--     struct Example2 example2;
--     printf( "Struct Example2:\n" );
--     printf( "Address of variable s = %d\n", &amp;example2.s );
--     printf( "Address of variable c = %d\n", &amp;example2.c );
--     printf( "Address of variable i = %d\n", &amp;example2.i );
--     return 0;
-- }
-- Size of a struct Example is = 12
-- Size of a struct Example is = 8
-- Struct Example1:
-- Address of variable c = 6487828
-- Address of variable i = 6487832
-- Address of variable s = 6487836
-- Struct Example2:
-- Address of variable s = 6487820
-- Address of variable c = 6487822
-- Address of variable i = 6487824
+```c
+#include <stdio.h>
+struct Example1
+{
+    char c;
+    int i;
+    short s;
+};
+struct Example2
+{
+    short s;
+    char c;
+    int i;
+};
+int main(int argc, char *argv[])
+{
+    printf( "Size of a struct Example is = %d\n", sizeof(struct Example1) );
+    printf( "Size of a struct Example is = %d\n", sizeof(struct Example2) );
+    struct Example1 example1;
+    printf( "Struct Example1:\n" );
+    printf( "Address of variable c = %d\n", &example1.c );
+    printf( "Address of variable i = %d\n", &example1.i );
+    printf( "Address of variable s = %d\n", &example1.s );
+    struct Example2 example2;
+    printf( "Struct Example2:\n" );
+    printf( "Address of variable s = %d\n", &example2.s );
+    printf( "Address of variable c = %d\n", &example2.c );
+    printf( "Address of variable i = %d\n", &example2.i );
+    return 0;
+}
+```
+
+```c
+Size of a struct Example is = 12
+Size of a struct Example is = 8
+Struct Example1:
+Address of variable c = 6487828
+Address of variable i = 6487832
+Address of variable s = 6487836
+Struct Example2:
+Address of variable s = 6487820
+Address of variable c = 6487822
+Address of variable i = 6487824
+```
+
 - Result:
 
 ---

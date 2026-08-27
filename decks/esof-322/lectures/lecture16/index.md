@@ -54,14 +54,14 @@ title: "Chapter 4 – Requirements Engineering"
 
 ## User and system requirements
 
-![4.1 UserSysReqs.eps](assets/image2.emf)
+![w:877px 4.1 UserSysReqs.eps](assets/image2.emf)
 <!-- pptx2marp: image2.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
 ## Readers of different types of requirements specification
 
-![4.2 ReqReaders.eps](assets/image3.emf)
+![w:914px 4.2 ReqReaders.eps](assets/image3.emf)
 <!-- pptx2marp: image3.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -220,7 +220,7 @@ A medical staff member specifying a search requirement may expect “search” t
 
 ## Types of nonfunctional requirement
 
-![4.3 Non-functionalReq.eps](assets/image4.emf)
+![w:968px 4.3 Non-functionalReq.eps](assets/image4.emf)
 <!-- pptx2marp: image4.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -288,9 +288,7 @@ A medical staff member specifying a search requirement may expect “search” t
 
 ---
 
-## Card readers example
-
-In practice, customers for a system often find it difficult to translate their goals into measurable requirements. For some goals, such as maintainability, there are no sim ple metrics that can be used. In other cases, even when quantitative specification is possible, customers may not be able to relate their needs to these specifications. They don’t understand what some number defining the reliability (for example) means in terms of their everyday experience with computer systems. Furthermore, the cost of objectively verifying measurable, non-functional requirements can be very high, and the customers paying for the system may not think these costs are justified. Non-functional requirements often conflict and interact with other functional or non-functional requirements. For example, the identification requirement in Figure 4.4 requires a card reader to be installed with each computer that connects to the system. However, there may be another requirement that requests mobile access to the system from doctors’ or nurses’ tablets or smartphones. These are not normally equipped with card readers so, in these circumstances, some alternative identification method may have to be supported. It is difficult to separate functional and non-functional requirements in the requirements document. If the non-functional requirements are stated separately from the functional requirements, the relationships between them may be hard to understand. However, you should, ideally, highlight requirements that are clearly related to emergent system properties, such as performance or reliability. You can do this by putting them in a separate section of the requirements document or by distin guishing them, in some way, from other system requirements.
+## Card readers example In practice, customers for a system often find it difficult to translate their goals into measurable requirements. For some goals, such as maintainability, there are no sim ple metrics that can be used. In other cases, even when quantitative specification is possible, customers may not be able to relate their needs to these specifications. They don’t understand what some number defining the reliability (for example) means in terms of their everyday experience with computer systems. Furthermore, the cost of objectively verifying measurable, non-functional requirements can be very high, and the customers paying for the system may not think these costs are justified. Non-functional requirements often conflict and interact with other functional or non-functional requirements. For example, the identification requirement in Figure 4.4 requires a card reader to be installed with each computer that connects to the system. However, there may be another requirement that requests mobile access to the system from doctors’ or nurses’ tablets or smartphones. These are not normally equipped with card readers so, in these circumstances, some alternative identification method may have to be supported. It is difficult to separate functional and non-functional requirements in the requirements document. If the non-functional requirements are stated separately from the functional requirements, the relationships between them may be hard to understand. However, you should, ideally, highlight requirements that are clearly related to emergent system properties, such as performance or reliability. You can do this by putting them in a separate section of the requirements document or by distin guishing them, in some way, from other system requirements.
 
 ---
 
@@ -316,7 +314,7 @@ In practice, customers for a system often find it difficult to translate their g
 
 ## A spiral view of the requirements engineering process
 
-![4.12 ReqEngSpiral.eps](assets/image5.emf)
+![w:771px 4.12 ReqEngSpiral.eps](assets/image5.emf)
 <!-- pptx2marp: image5.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- Early in the process, most effort will be spent on understanding high-level business and non-functional requirements, and the user requirements for the system. Later in the process, in the outer rings of the spiral, more effort will be devoted to eliciting and understanding the non-functional requirements and more detailed system requirements. This spiral model accommodates approaches to development where the require ments are developed to different levels of detail. The number of iterations around the spiral can vary so that the spiral can be exited after some or all of the user require ments have been elicited. Agile development can be used instead of prototyping so that the requirements and the system implementation are developed together. In virtually all systems, requirements change. The people involved develop a bet ter understanding of what they want the software to do; the organization buying the system changes; and modifications are made to the system’s hardware, software, and organizational environment. Changes have to be managed to understand the impact on other requirements and the cost and system implications of making the change. -->
@@ -366,7 +364,7 @@ In practice, customers for a system often find it difficult to translate their g
 
 ## The requirements elicitation and analysis process
 
-![4.13 RequirementsElicitation.eps](assets/image6.emf)
+![w:833px 4.13 RequirementsElicitation.eps](assets/image6.emf)
 <!-- pptx2marp: image6.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -545,9 +543,7 @@ In both cases, Microsoft attempted to **change the "ethos" (customs, habits, cha
 
 ---
 
-## Summary
-
-Ethnography doesn't say never change the interface or never innovate. Rather, it says: **"Deeply understand how people** ***truly*** **work and what their** ***deep-seated habits*** **are before introducing fundamental changes."** Ignoring this leads to failures, like Windows 8, while carefully managing change and demonstrating clear benefits can lead to success, as in the case of the Ribbon.
+## Summary Ethnography doesn't say never change the interface or never innovate. Rather, it says: **"Deeply understand how people** ***truly*** **work and what their** ***deep-seated habits*** **are before introducing fundamental changes."** Ignoring this leads to failures, like Windows 8, while carefully managing change and demonstrating clear benefits can lead to success, as in the case of the Ribbon.
 
 ---
 
@@ -589,7 +585,7 @@ Ethnography is effective for understanding existing processes but cannot identif
 
 ## Ethnography and prototyping for requirements analysis
 
-![4.16 Ethno-prototyping.eps](assets/image7.emf)
+![w:1035px 4.16 Ethno-prototyping.eps](assets/image7.emf)
 <!-- pptx2marp: image7.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -652,9 +648,7 @@ Ethnography is effective for understanding existing processes but cannot identif
 
 ---
 
-## System requirements
-
-System requirements are expanded versions of the user requirements that soft ware engineers use as the starting point for the system design. They add detail and explain how the system should provide the user requirements. They may be used as part of the contract for the implementation of the system and should therefore be a complete and detailed specification of the whole system.
+## System requirements System requirements are expanded versions of the user requirements that soft ware engineers use as the starting point for the system design. They add detail and explain how the system should provide the user requirements. They may be used as part of the contract for the implementation of the system and should therefore be a complete and detailed specification of the whole system.
 
 ---
 
@@ -807,29 +801,29 @@ It refers to something that has a distinct existence, regardless of whether it i
 
 ## A structured specification of a requirement for an insulin pump
 
-<!-- pptx2marp: unsupported embedded object on slide 93 (http://schemas.openxmlformats.org/presentationml/2006/ole) -->
+![w:541px Object 2](assets/image8.png)
 
-<!-- pptx2marp: unsupported embedded object on slide 93 (http://schemas.openxmlformats.org/presentationml/2006/ole) -->
-
----
-
-## A structured specification of a requirement for an insulin pump
-
-<!-- pptx2marp: unsupported embedded object on slide 94 (http://schemas.openxmlformats.org/presentationml/2006/ole) -->
-
-<!-- pptx2marp: unsupported embedded object on slide 94 (http://schemas.openxmlformats.org/presentationml/2006/ole) -->
+![w:541px Object 2](assets/image9.png)
 
 ---
 
 ## A structured specification of a requirement for an insulin pump
 
-<!-- pptx2marp: unsupported embedded object on slide 95 (http://schemas.openxmlformats.org/presentationml/2006/ole) -->
+![w:541px Object 2](assets/image8.png)
+
+![w:541px Object 2](assets/image9.png)
 
 ---
 
 ## A structured specification of a requirement for an insulin pump
 
-<!-- pptx2marp: unsupported embedded object on slide 96 (http://schemas.openxmlformats.org/presentationml/2006/ole) -->
+![w:1152px Object 2](assets/image8.png)
+
+---
+
+## A structured specification of a requirement for an insulin pump
+
+![w:914px Object 2](assets/image9.png)
 
 ---
 
@@ -868,14 +862,14 @@ The Robertsons (Robertson and Robertson 2013), in their book on the VOLERE requi
 
 ## Use cases for the Mentcare system
 
-![4.15 UseCases.eps](assets/image10.emf)
+![w:918px 4.15 UseCases.eps](assets/image10.emf)
 <!-- pptx2marp: image10.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
 ## Use cases for the Mentcare system
 
-![4.15 UseCases.eps](assets/image10.emf)
+![w:918px 4.15 UseCases.eps](assets/image10.emf)
 <!-- pptx2marp: image10.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -906,7 +900,7 @@ I discuss use cases fur ther in Chapter 5, which shows how they are used alongsi
 
 ## Users of a requirements document
 
-![4.6 ReqDocUsers.eps](assets/image11.emf)
+![w:533px 4.6 ReqDocUsers.eps](assets/image11.emf)
 <!-- pptx2marp: image11.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -1103,7 +1097,7 @@ A requirements review is a process in which a group of people from the system cu
 
 ## Requirements evolution
 
-![4.17 ReqEvolution.eps](assets/image12.emf)
+![w:701px 4.17 ReqEvolution.eps](assets/image12.emf)
 <!-- pptx2marp: image12.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -1149,7 +1143,7 @@ Some requirements are more susceptible to change than others. Enduring requireme
 
 ## Requirements change management
 
-![4.18 ReqChangeMan.eps](assets/image13.emf)
+![w:1213px 4.18 ReqChangeMan.eps](assets/image13.emf)
 <!-- pptx2marp: image13.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---

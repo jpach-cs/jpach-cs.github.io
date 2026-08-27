@@ -59,15 +59,13 @@ title: "CSCI 232  Data Structures & Algorithms"
 - \- T(n) = c₁ + 2c₃ + c₇
 - \- O(1), Θ(1), Ω(1)
 
+```c
 int sumThree(int a, int b, int c)
-
 {
-
     int result = a + b + c;
-
     return result;
-
 }
+```
 
 |S.|Description|
 |---|---|
@@ -86,23 +84,17 @@ int sumThree(int a, int b, int c)
 
 ## Algorithm 2: Linear Time
 
-int sumArray(int A\[\], int n)
-
+```c
+int sumArray(int A[], int n)
 {
-
     int sum = 0;
-
-    for (int i = 0; i &lt; n; i++)
-
+    for (int i = 0; i < n; i++)
     {
-
-        sum += A\[i\];
-
+        sum += A[i];
     }
-
     return sum;
-
 }
+```
 
 - T(n)=c1​+c1​+(n+1)c4​+n(c1​+c3​)+n(c1​+c3​+c5​)+c7 =
 - T(n)=(3n+3)c​+2nc​+nc​+(n+1)c​+c​​= 7nc\*5c = 7n + 5
@@ -133,25 +125,18 @@ int sumArray(int A\[\], int n)
 
 ## Algorithm 3: Quadratic Time
 
-void printPairs(int A\[\], int n)
-
+```c
+void printPairs(int A[], int n)
 {
-
-    for (int i = 0; i &lt; n; i++)
-
+    for (int i = 0; i < n; i++)
     {
-
-        for (int j = 0; j &lt; n; j++)
-
+        for (int j = 0; j < n; j++)
         {
-
-            printf("%d, %d\n", A\[i\], A\[j\]);
-
+            printf("%d, %d\n", A[i], A[j]);
         }
-
     }
-
 }
+```
 
 T(n)=c1​+(n+1)c4​+n(c1​+c3​)+n\[c1​+(n+1)c4​+n(c1​+c3​)+ n(c2+2(c5))\]
 
@@ -182,37 +167,24 @@ T(n)=c1​+(n+1)c4​+n(c1​+c3​)+n\[c1​+(n+1)c4​+n(c1​+c3​)+ n(c2+2(
 
 ## Algorithm 4: Logarithmic Time
 
-int binarySearch(int A\[\], int n, int key)
-
+```c
+int binarySearch(int A[], int n, int key)
 {
-
     int left = 0, right = n - 1;
-
-    while (left &lt;= right)
-
+    while (left <= right)
     {
-
         int mid = (left + right) / 2;
-
-        if (A\[mid\] == key)
-
+        if (A[mid] == key)
             return mid;
-
         else
-
-            if (A\[mid\] &lt; key)
-
+            if (A[mid] < key)
                 left = mid + 1;
-
             else
-
                 right = mid - 1;
-
     }
-
     return -1;
-
 }
+```
 
 T(n)=(2c1​+c3​)+(k+1)c4​+k\[(c1​+2c3​)+(c5​+c4​)+(c5​+c4​+c1​+c3​)\]+c7​
 
@@ -244,25 +216,18 @@ Notice how the structure of the algorithm guarantees efficiency — we don’t s
 
 ## Algorithm 5: Linearithmic Time
 
-void mergeSort(int arr\[\], int left, int right)
-
+```c
+void mergeSort(int arr[], int left, int right)
 {
-
-    if (left &lt; right)
-
+    if (left < right)
     {
-
         int mid = (left + right) / 2;
-
         mergeSort(arr, left, mid);
-
         mergeSort(arr, mid + 1, right);
-
         merge(arr, left, mid, right);
-
     }
-
 }
+```
 
 |S.|Description|
 |---|---|
@@ -321,15 +286,13 @@ RodzajWartość**Best case**Θ(n log n)**Average case**Θ(n log n)**Worst case**
 
 ## Algorithm 6: Exponential Time
 
+```c
 int fib(int n)
-
 {
-
-    if (n &lt;= 1) return n;
-
+    if (n <= 1) return n;
     return fib(n - 1) + fib(n - 2);
-
 }
+```
 
 |S.|Description|
 |---|---|
@@ -389,39 +352,44 @@ OperacjaLiczbaPorównanie n &lt;= 11 (c4)Odejmowanie n-11 (c3)Odejmowanie n-21 (
 
 ## Pseudocode
 
-- **Algorithm** mergeSort (A, l, r)
-- **Input**: An array *A* with indices                 ranging from 𝑙 to 𝑟 storing *n* ≥             1 integers.
-  - **if** l &lt; r
-    - m ← ⌊(l+r)/2⌋
-    - mergeSort(A, l, m)
-    - mergeSort(A, m+1, r)
-    - merge(A, l, m, r)
-- merge(A, l, m, r)
-- n1 = m - l + 1
-- n2 = r - m
-- let L be a new array of size n1
-- let R be a new array of size n2
-- **for** i ← 0 to n1 – 1
-- L\[i\] ← A\[l + i\]
-- **for** j ← 0 to n2 – 1
-- R\[j\] ← A\[m + 1 + j\]
-- i ← 0, j ← 0, k ← l
-- **while** i &lt; n1 and j &lt; n2
-- **if** L\[i\] &lt;= R\[j\]
-- A\[k\] ← L\[i\]
-- i ← i + 1
-- **else**
-- A\[k\] ← R\[j\]
-- j ← j + 1
-- k ← k + 1
-- **while** i &lt; n1
-- A\[k\] ← L\[i\]
-- i ← i + 1
-- k ← k + 1
-- **while** j &lt; n2
-- A\[k\] ← R\[j\]
-- j ← j + 1
-- k ← k + 1
+```c
+Algorithm mergeSort (A, l, r)
+	Input: An array A with indices 				ranging from 𝑙 to 𝑟 storing n ≥ 			1 integers.
+if l < r
+m ← ⌊(l+r)/2⌋
+mergeSort(A, l, m)
+mergeSort(A, m+1, r)
+merge(A, l, m, r)
+```
+
+```c
+merge(A, l, m, r)
+	n1 = m - l + 1
+	n2 = r - m
+let L be a new array of size n1
+let R be a new array of size n2
+	for i ← 0 to n1 – 1
+		L[i] ← A[l + i]
+	for j ← 0 to n2 – 1
+	   R[j] ← A[m + 1 + j]
+		i ← 0, j ← 0, k ← l
+	while i < n1 and j < n2
+		if L[i] <= R[j]
+			A[k] ← L[i]
+			i ← i + 1
+		else
+			A[k] ← R[j]
+			j ← j + 1
+			k ← k + 1
+		while i < n1
+			A[k] ← L[i]
+			i ← i + 1
+		    k ← k + 1
+		while j < n2
+			A[k] ← R[j]
+			j ← j + 1
+			k ← k + 1
+```
 
 ---
 

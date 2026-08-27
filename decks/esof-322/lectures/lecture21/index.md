@@ -80,26 +80,24 @@ In simple words, it’s a **map of the system’s architecture** — what entiti
 
 - All class diagrams must start with this directive.
 - For vsc
-- \`\`\`mermaid
-- classDiagram
 
-\`\`\`mermaid
-
+````
+```mermaid
 classDiagram
+````
 
+````
+```mermaid
+classDiagram
 class ClassName {
-
     +publicAttribute : Type
-
     -privateAttribute : Type
-
-    \#protectedAttribute : Type
-
+    #protectedAttribute : Type
     +methodName(param: Type) : ReturnType
-
 }
+````
 
-![Picture 9](assets/image2.png)
+![w:354px Picture 9](assets/image2.png)
 
 - Mermaid often enforces a strict, single-line syntax for certain block definitions (like a node's label or flow control). **If the opening brace or bracket of a structure is placed on a new line, Mermaid's parser will typically throw an error.**
 
@@ -120,71 +118,52 @@ Unlike the **Graph** (Flowchart) diagram, you cannot change the rendering direct
 - In **Class Diagrams**, methods (functions defined within the object) are recognized and distinguished from fields (attributes) by the **parentheses** (()) following the name.
 - While Mermaid has no problem mixing fields and methods in any order, **good practice dictates defining methods separately from fields for better readability and adherence to UML conventions.**
 
-\`\`\`mermaid
-
+````
+```mermaid
 classDiagram
-
 class ClassName {
-
     +publicAttribute : Type
-
     -privateAttribute : Type
-
-    \#protectedAttribute : Type
-
+    #protectedAttribute : Type
     +methodName(param: Type) : ReturnType
-
 }
+````
 
-![Picture 9](assets/image2.png)
+![w:354px Picture 9](assets/image2.png)
 
 ---
 
 ## Example of error from GPT/Gemini
 
-\`\`\`mermaid
-
+````
+```mermaid
 classDiagram
-
     class SystemUser{
-
-        \- username : string    %% Field
-
-        \# passwordHash : string %% Field
-
-        \+ checkPassword()      %% Method (recognized by parentheses)
-
-        \- logActivity()        %% Method
-
+        - username : string    %% Field
+        # passwordHash : string %% Field
+        + checkPassword()      %% Method (recognized by parentheses)
+        - logActivity()        %% Method
     }
+````
 
-\`\`\`mermaid
-
+````
+```mermaid
 classDiagram
-
     class SystemUser{
-
-        \- username : string
-
-%% Field
-
-        \# passwordHash : string
-
-%% Field
-
-        \+ checkPassword()
-
-%% Method (recognized by parentheses)
-
-        \- logActivity()
-
-%% Method
-
+        - username : string
+		%% Field
+        # passwordHash : string
+		%% Field
+        + checkPassword()
+		%% Method (recognized by parentheses)
+        - logActivity()
+		%% Method
     }
+````
 
-![Picture 8](assets/image3.png)
+![w:459px Picture 8](assets/image3.png)
 
-![Picture 10](assets/image4.png)
+![w:242px Picture 10](assets/image4.png)
 
 ---
 
@@ -203,17 +182,15 @@ classDiagram
 
 ## Example
 
-![Picture 7](assets/image5.png)
+![w:261px Picture 7](assets/image5.png)
 
-\`\`\`mermaid
-
+````
+```mermaid
 classDiagram
-
-Car &lt;|-- ElectricCar
-
+Car <|-- ElectricCar
 Car o-- Engine
-
-Driver --&gt; Car
+Driver --> Car
+````
 
 |Relationship|Mermaid Syntax|Meaning|
 |---|---|---|
@@ -228,53 +205,33 @@ Driver --&gt; Car
 
 ## Example: A Simple UML Model
 
-![Content Placeholder 6](assets/image6.png)
+![w:355px Content Placeholder 6](assets/image6.png)
 
-\`\`\`mermaid
-
+````
+```mermaid
 classDiagram
-
 class Vehicle {
-
     +brand : string
-
     +model : string
-
     +start() void
-
     +stop() void
-
 }
-
 class Car {
-
     +doors : int
-
     +drive() void
-
 }
-
 class Engine {
-
     +power : int
-
     +type : string
-
 }
-
 class Driver {
-
     +name : string
-
     +licenseID : string
-
 }
-
-Vehicle &lt;|-- Car
-
-Car \*-- Engine
-
-Driver --&gt; Car
+Vehicle <|-- Car
+Car *-- Engine
+Driver --> Car
+````
 
 This example includes:
 
@@ -286,37 +243,25 @@ This example includes:
 
 ## Notes
 
-\`\`\`mermaid
-
+````
+```mermaid
 classDiagram
-
 class Vehicle {
-
     +brand : string
-
     +model : string
-
     +start() void
-
     +stop() void
-
 }
-
 class Car {
-
     +doors : int
-
     +drive() void
-
 }
-
-Vehicle &lt;|-- Car
-
+Vehicle <|-- Car
 note for Vehicle "This is a simple comment for Vehicle class"
-
 note "This is a simple comment"
+````
 
-![Picture 7](assets/image7.png)
+![w:516px Picture 7](assets/image7.png)
 
 ---
 

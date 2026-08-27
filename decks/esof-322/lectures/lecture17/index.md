@@ -178,7 +178,7 @@ In this chapter, I use diagrams defined in the Unified Modeling Language (UML), 
 
 ## The context of the Mentcare system
 
-![5.1 Mentcare context.eps](assets/image2.emf)
+![w:790px 5.1 Mentcare context.eps](assets/image2.emf)
 <!-- pptx2marp: image2.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 - double angle brackets - chevrons - «...»
@@ -187,7 +187,7 @@ In this chapter, I use diagrams defined in the Unified Modeling Language (UML), 
 
 ## The context of the Mentcare system
 
-![5.1 Mentcare context.eps](assets/image2.emf)
+![w:790px 5.1 Mentcare context.eps](assets/image2.emf)
 <!-- pptx2marp: image2.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 - double angle brackets - chevrons - «...»
@@ -206,7 +206,7 @@ In this chapter, I use diagrams defined in the Unified Modeling Language (UML), 
 
 ## Process model of involuntary detention
 
-![5.2 Detention Process.eps](assets/image3.emf)
+![w:1166px 5.2 Detention Process.eps](assets/image3.emf)
 <!-- pptx2marp: image3.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- Arrows represent the flow of work from one activity to another, and a solid bar indicates activity coordination.
@@ -244,7 +244,7 @@ However, patients who are suicidal and are a danger to themselves may be admitte
 
 - A use case in the Mentcare system
 
-![5.3 UseCase.eps](assets/image4.emf)
+![w:1048px 5.3 UseCase.eps](assets/image4.emf)
 <!-- pptx2marp: image4.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- Figure 5.3 shows a use case from the Mentcare system that represents the task of uploading data from the Mentcare system to a more general patient record system. This more general system maintains summary data about a patient rather than data about each consultation, which is recorded in the Mentcare system. Notice that there are two actors in this use case—the operator who is transferring the data and the patient record system. The stick figure notation was originally devel oped to cover human interaction, but it is also used to represent other external sys tems and hardware. Formally, use case diagrams should use lines without arrows as arrows in the UML indicate the direction of flow of messages. Obviously, in a use case, messages pass in both directions. However, the arrows in Figure 5.3 are used informally to indicate that the medical receptionist initiates the transaction and data is transferred to the patient record system. -->
@@ -268,7 +268,7 @@ However, patients who are suicidal and are a danger to themselves may be admitte
 
 ## Use cases in the Mentcare system involving the role ‘Medical Receptionist’
 
-![5.5 RecepUseCases.eps](assets/image5.emf)
+![w:623px 5.5 RecepUseCases.eps](assets/image5.emf)
 <!-- pptx2marp: image5.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- For example, Figure 5.5 shows all of the use cases in the Mentcare system in which the actor “Medical Receptionist” is involved. Each of these should be accompanied by a more detailed description. The UML includes a number of constructs for sharing all or part of a use case in other use case diagrams. While these constructs can sometimes be helpful for system designers, Author say: “my experience is that many people, especially end-users, find them difficult to understand.” For this reason, these constructs are not described here. -->
@@ -286,7 +286,7 @@ However, patients who are suicidal and are a danger to themselves may be admitte
 
 ## Sequence diagram for View patient information
 
-![5.6 ViewInfo Seq Diag.eps](assets/image6.emf)
+![w:868px 5.6 ViewInfo Seq Diag.eps](assets/image6.emf)
 <!-- pptx2marp: image6.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- This diagram models the interactions involved in the View patient information use case, where a medical receptionist can see some patient information. The objects and actors involved are listed along the top of the diagram, with a dotted line drawn vertically from these. Annotated arrows indicate interactions between objects. The rectangle on the dotted lines indicates the lifeline of the object concerned (i.e., the time that object instance is involved in the computation). You read the sequence of interactions from top to bottom. The annotations on the arrows indicate the calls to the objects, their parameters, and the return values. This example also shows the notation used to denote alternatives. A box named alt is used with the conditions indicated in square brackets, with alternative interaction options separated by a dotted line. You can read this Figure as follows:
@@ -299,7 +299,7 @@ If authorized, the patient information is returned and is displayed on a form on
 
 ## Sequence diagram for Transfer Data
 
-![5.7 Transfer Data.eps](assets/image7.emf)
+![w:838px 5.7 Transfer Data.eps](assets/image7.emf)
 <!-- pptx2marp: image7.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- that Figure is a further example of a sequence diagram from the same system that illustrates two additional features. These are the direct communication between the actors in the system and the creation of objects as part of a sequence of operations. In this example, an object of type Summary is created to hold the summary data that is to be uploaded to a national PRS (patient records system). You can read this diagram as follows:
@@ -345,7 +345,7 @@ Unless you are using sequence diagrams for code generation or detailed docu ment
 
 ## UML classes and association
 
-![5.8 ClassAssoc.eps](assets/image8.emf)
+![w:744px 5.8 ClassAssoc.eps](assets/image8.emf)
 <!-- pptx2marp: image8.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- Class diagrams in the UML can be expressed at different levels of detail. When you are developing a model, the first stage is usually to look at the world, identify the essential objects, and represent these as classes.
@@ -356,7 +356,7 @@ For example, in that Figure is a simple class diagram showing two classes, Patie
 
 ## Classes and associations in the MHC-PMS
 
-![5.9 MHCPMS-classes.eps](assets/image9.emf)
+![w:935px 5.9 MHCPMS-classes.eps](assets/image9.emf)
 <!-- pptx2marp: image9.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- At this stage, you do not need to say what the association is.
@@ -369,7 +369,7 @@ At this level of detail, class diagrams look like semantic data models. Semantic
 
 ## The Consultation class
 
-![5.10 Consultation Class.eps](assets/image10.emf)
+![w:372px 5.10 Consultation Class.eps](assets/image10.emf)
 <!-- pptx2marp: image10.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- In the UML, you show attributes and operations by extending the simple rectangle that represents a class. I illustrate this in that Figure that shows an object representing a consultation between doctor and patient:
@@ -403,7 +403,7 @@ In the example shown in Figure 5.10, it is assumed that doctors record voice not
 
 ## A generalization hierarchy
 
-![5.11 GeneralizationHierarchy.eps](assets/image11.emf)
+![w:629px 5.11 GeneralizationHierarchy.eps](assets/image11.emf)
 <!-- pptx2marp: image11.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- The generalization is shown as an arrowhead pointing up to the more general class. This indicates that general practitioners and hospital doctors can be generalized as doctors and that there are three types of Hospital Doctor: those who have just graduated from medical school and have to be supervised (Trainee Doctor); those who can work unsupervised as part of a consultant’s team (Registered Doctor); and consultants, who are senior doctors with full decision making responsibilities.
@@ -413,7 +413,7 @@ In a generalization, the attributes and operations associated with higher-level 
 
 ## A generalization hierarchy with added detail
 
-![5.12 GeneralisationDetail.eps](assets/image12.emf)
+![w:641px 5.12 GeneralisationDetail.eps](assets/image12.emf)
 <!-- pptx2marp: image12.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
@@ -427,7 +427,7 @@ In a generalization, the attributes and operations associated with higher-level 
 
 ## The aggregation association
 
-![5.13 Aggregation.eps](assets/image13.emf)
+![w:588px 5.13 Aggregation.eps](assets/image13.emf)
 <!-- pptx2marp: image13.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- That Figure shows that a patient record is an aggregate of Patient and an indefinite number of Consultations. That is, the record maintains personal patient information as well as an individual record for each consultation with a doctor. -->
@@ -465,7 +465,7 @@ Data-flow diagrams (DFDs) are system models that show a functional perspective w
 
 ## An activity model of the insulin pump’s operation
 
-![5.14 PumpDFD.eps](assets/image14.emf)
+![w:1010px 5.14 PumpDFD.eps](assets/image14.emf)
 <!-- pptx2marp: image14.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 - **the activity diagram type**
@@ -485,7 +485,7 @@ Key Takeaways:
 - Rounded rectangles (Activities) represent actions (methods/functions) or logical steps in a process, but they do not necessarily correspond 1:1 to methods(functions) in code. They describe what happens in each phase of the system’s behavior.
 - Rectangles (Object Nodes) represent input/output data – such as structures (struct, class, dict, record) or objects passed between activities.
 
-![5.14 PumpDFD.eps](assets/image14.emf)
+![w:470px 5.14 PumpDFD.eps](assets/image14.emf)
 <!-- pptx2marp: image14.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- Data-driven models were among the first graphical software models. In the 1970s, structured design methods used data-flow diagrams (DFDs) as a way to illustrate the processing steps in a system.
@@ -497,7 +497,7 @@ Data-flow diagrams can be represented in the UML using the activity diagram type
 
 ## Order processing
 
-![5.15 OrderSeq.eps](assets/image15.emf)
+![w:1035px 5.15 OrderSeq.eps](assets/image15.emf)
 <!-- pptx2marp: image15.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 - UML sequence diagrams
@@ -523,7 +523,7 @@ Data-flow diagrams can be represented in the UML using the activity diagram type
 
 ## State diagram of a microwave oven
 
-![5.16 MWOvenStateDiag.eps](assets/image16.emf)
+![w:992px 5.16 MWOvenStateDiag.eps](assets/image16.emf)
 <!-- pptx2marp: image16.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- I use an example of control software for a very simple microwave oven to illustrate event-driven modeling. Real microwave ovens are much more complex than this system, but the simplified system is easier to understand. This simple oven has a switch to select full or half power, a numeric keypad to input the cooking time, a start/stop button, and an alphanumeric display.
@@ -545,7 +545,7 @@ This superstate looks like a single state on a high-level model but is then expa
 
 ## Microwave oven operation
 
-![5.18 Operate-state-mc.eps](assets/image17.emf)
+![w:707px 5.18 Operate-state-mc.eps](assets/image17.emf)
 <!-- pptx2marp: image17.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- One way to do this is by using the notion of a “superstate” that encapsulates a number of separate states. This is a superstate that can be expanded, as shown in that Figure.
@@ -653,7 +653,7 @@ This means that from a model (e.g., UML, SysML, or another abstract system descr
 
 ## MDA transformations
 
-![5.19 MDA-Transformations.eps](assets/image18.emf)
+![w:950px 5.19 MDA-Transformations.eps](assets/image18.emf)
 <!-- pptx2marp: image18.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- This diagram also shows a final level of automatic transformation where a transformation is applied to the PSM to generate the executable code that will run on the designated software platform. Therefore, in principle at least, executable software can be generated from a high-level system model. In practice, completely automated translation of models to code is rarely possi ble. The translation of high-level CIM to PIM models remains a research problem, and for production systems, human intervention, illustrated using a stick figure in Figure 5.19, is normally required. A particularly difficult problem for automated model transformation is the need to link the concepts used in different CIMS. For example, the concept of a role in a security CIM that includes role-driven access control may have to be mapped onto the concept of a staff member in a hospital CIM. Only a person who understands both security and the hospital environment can make this mapping.
@@ -663,7 +663,7 @@ The translation of platform-independent to platform-specific models is a simpler
 
 ## Multiple platform-specific models
 
-![5.20 Multiple PSMs.eps](assets/image19.emf)
+![w:996px 5.20 Multiple PSMs.eps](assets/image19.emf)
 <!-- pptx2marp: image19.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 <!-- Although MDA support tools include platform-specific translators, these sometimes only offer partial support for translating PIMS to PSMs. The execution environment for a system is more than the standard execution platform, such as J2EE or Java. It also includes other application systems, specific application libraries that may be created for a company, external services, and user interface libraries. These vary from one company to another, so off-the-shelf tool support is not available that takes these into account. Therefore, when MDA is introduced into an organization, special-purpose translators may have to be created to make use of the facilities available in the local environment. This is one reason why many companies have been reluctant to take on model-driven approaches to development. They do not want to develop or maintain their own tools or to rely on small software companies, who may go out of business, for tool development. Without these specialist tools, model-based development requires additional manual coding which reduces the cost-effectiveness of this approach. -->

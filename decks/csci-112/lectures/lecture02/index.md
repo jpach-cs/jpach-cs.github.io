@@ -13,7 +13,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-![Graphic 3](assets/image2.png)
+![w:277px Graphic 3](assets/image2.png)
 
 ---
 
@@ -42,7 +42,7 @@ title: "CSCI 112  Programming with C"
 
 ## Binary numeral system
 
-![Picture 2](assets/image4.png)
+![w:238px Picture 2](assets/image4.png)
 
 <!-- Why do we start from position zero, not one? Because any number raised to the power of zero always equals one!
 2 raised to the power of 3 is 8.
@@ -121,13 +121,13 @@ least significant bit
 - Visual Studio Code
 - Visual Studio
 
-![Visual Studio Code logo thumbnail](assets/image5.png)
+![w:194px Visual Studio Code logo thumbnail](assets/image5.png)
 
-![Visual Studio logo icon](assets/image6.png)
+![w:194px Visual Studio logo icon](assets/image6.png)
 
-![codeblocks](assets/image7.png)
+![w:182px codeblocks](assets/image7.png)
 
-![Ink 2](assets/image22.png)
+![w:401px Ink 2](assets/image22.png)
 
 ---
 
@@ -135,16 +135,18 @@ least significant bit
 
 - Code
 - Preprocessor
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
 
-char string\[12\] = "Hello world";
+```c
+#include <stdio.h>
 
-printf("%s", string);
 
-- return 0;
-- }
+int main()
+{
+	char string[12] = "Hello world";
+	printf("%s", string);
+	return 0;
+}
+```
 
 ---
 
@@ -154,17 +156,25 @@ printf("%s", string);
 - Next, we have the main function defined, which returns an integer value. The {} brackets start and end the body of the main function.
 - The printf function displays the string "Hello world" on the console.
 - The printf function does not move the cursor to the next line, so it is necessary to add the newline character '\n'.
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
 
-char string\[12\] = "Hello world";
+```c
+#include <stdio.h>
 
-printf("%s", string);
+int main()
+{
+	char string[12] = "Hello world";
+	printf("%s", string);
+	return 0;
+}
+```
 
-- return 0;
-- }
-- Hello world
+```c
+Hello world
+
+
+
+```
+
 - Result:
 
 ---
@@ -174,17 +184,25 @@ printf("%s", string);
 - Text preceded by # is a preprocessor section, the first line gives access to standard input and output functions, this is a header.
 - Next, we have the main function defined, which returns an integer value. The {} brackets start and end the body of the main function.
 - The printf function displays the string "Hello world" on the console.
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
 
-char string\[12\] = "Hello world";
+```c
+#include <stdio.h>
 
-printf("%s", string);
+int main()
+{
+	char string[12] = "Hello world";
+	printf("%s", string);
+	return 0;
+}
+```
 
-- return 0;
-- }
-- Hello world
+```c
+Hello world
+
+
+
+```
+
 - Result:
 
 ---
@@ -199,9 +217,13 @@ printf() is a function and has two sides:
 - Right side string – data to insert:
   - This is the variable or value that printf() will “plug in” where %s is. In this example, printf() reads all the characters of the string from the first to the last.
 
-char string\[12\] = "Hello world";
+```c
+
+char string[12] = "Hello world";
 
 printf("%s", string);
+
+```
 
 ---
 
@@ -209,22 +231,25 @@ printf("%s", string);
 
 - In the C programming language statements for the compiler (interpreter in Python) is separated by a semicolon ;. Therefore, in C, you can write an entire program on one line...
 
-\#include &lt;stdio.h&gt; int main(){char string\[12\] = "Hello world"; printf("%s", string); return 0;}
+```c
+#include <stdio.h> int main(){char string[12] = "Hello world"; printf("%s", string); return 0;}
+```
 
 ---
 
 ## Indentation &amp; parentheses
 
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
+```c
+#include <stdio.h>
 
-char string\[12\] = "Hello world";
+int main()
+{
+	char string[12] = "Hello world";
+	printf("%s", string);
+	return 0;
+}
+```
 
-printf("%s", string);
-
-- return 0;
-- }
 - Proper indentation is essential for making C code readable,
 - Formatting is mandatory in Python, but not required here – We are talking about the compiler, because in our classes formatting is mandatory in order to get a positive grade at all.
 - opening bracket
@@ -236,43 +261,51 @@ printf("%s", string);
 ## Indentation &amp; parentheses
 
 - but...
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
 
-char string\[12\] = "Hello world";
+```c
+#include <stdio.h>
 
-printf("%s", string);
+int main()
+{
+	char string[12] = "Hello world";
+	printf("%s", string);
+	return 0;
+}
+```
 
-- return 0;
-- }
-- \#include &lt;stdio.h&gt;
-- int main(){
+```c
+#include <stdio.h>
 
-char string\[12\] = "Hello world";
-
-printf("%s", string);
-
-- return 0;
-- }
+int main(){
+	char string[12] = "Hello world";
+	printf("%s", string);
+	return 0;
+}
+```
 
 ---
 
 ## Comments
 
-- int main()
-- {
+```c
+int main()
+{
 
-  char string\[12\] = /\* inline comment \*/  "Hello world";
+  char string[12] = /* inline comment */  "Hello world";
 
-  printf("%s", string);  /\* comment behind the line \*/
+  printf("%s", string);  /* comment behind the line */
 
--   /\* a comment
--   composed of
--   a few lines \*/
--     return 0; // single-line comments
-- }
-- /\* comment \*/ &amp; // comment
+  /* a comment
+  composed of
+  a few lines */
+
+    return 0; // single-line comments
+}
+```
+
+```c
+/* comment */ & // comment
+```
 
 ---
 
@@ -285,7 +318,7 @@ printf("%s", string);
 - **Address of University:**
 - 1300 W Park St, Butte, MT 59701
 
-![Montana Tech | TeenLife](assets/image8.jpeg)
+![w:600px Montana Tech | TeenLife](assets/image8.jpeg)
 
 ---
 
@@ -296,18 +329,22 @@ printf("%s", string);
 - **Address of University:**
 - 1300 W Park St, Butte, MT 59701
 
-![Montana Tech | TeenLife](assets/image8.jpeg)
+![w:600px Montana Tech | TeenLife](assets/image8.jpeg)
 
 ---
 
 ## What is a name of variable?
 
-- int main()
-- {
--   char\* text = "Hello world\n";
-- <br>  printf(text);
-- <br>    return 0;
-- }
+```c
+int main()
+{
+  char* text = "Hello world\n";
+
+  printf(text);
+
+    return 0;
+}
+```
 
 In C:
 
@@ -322,12 +359,17 @@ In C:
 
 - a variable name is a **symbolic name**, and when translating the code, the compiler will replace the variable name with the memory location of the data associate
 - every **symbolic name** is an alias for a memory location (address) except for preprocessor instructions
-- int main()
-- {
--   char\* text = "Hello world\n";
-- <br>  printf(text);
-- <br>    return 0;
-- }
+
+```c
+int main()
+{
+  char* text = "Hello world\n";
+
+  printf(text);
+
+    return 0;
+}
+```
 
 ---
 
@@ -363,9 +405,9 @@ Regardless of the specific coding style, it's common practice to start variable 
 
 Constants, which are values that don't change, are usually written in all uppercase letters, such as MAX\_VALUE
 
-![Camel outline](assets/image9.png)
+![w:96px Camel outline](assets/image9.png)
 
-![Snake outline](assets/image11.png)
+![w:96px Snake outline](assets/image11.png)
 
 ---
 
@@ -385,64 +427,85 @@ Constants, which are values that don't change, are usually written in all upperc
 
 ## Declaring and initializing variables
 
-- int main()
-- {
--   int p;        /\* Declaration of variable p with a size of 4 bytes \*/
--   int q, r, s;  /\* Simultaneous declaration of variables q, r, s using "," \*/
--   q = 2;        /\* Assignment of value to variable q - initialization \*/
--   r = q = s;    /\* Assignment of values to q and s based on r \*/
--   int t = 3;    /\* Declaration and initialization on the same line \*/
-- <br>  char v;       /\* Variable v of integer type with a size of 1 byte \*/
--   short int w;  /\* Variable w of integer type with a size of 2 bytes \*/
--   long int x;   /\* Variable x of integer type with a size of 4 bytes \*/
--   short y;      /\* Shorthand declaration for short int \*/
--   long z;       /\* Shorthand declaration for long int \*/
-- <br>  float  a = 3.16f;    /\* Variable a of floating-point type with a size of 4 bytes \*/
--   double b = a \* 3.0; /\* Variable b of floating-point type with a size of 8 bytes \*/
--   /\* Note: short float, long float, and short double do not exist in C \*/
--   long double d;      /\* Variable d of floating-point type with a size of 12 bytes \*/
-- }
+```c
+int main()
+{
+  int p;        /* Declaration of variable p with a size of 4 bytes */
+  int q, r, s;  /* Simultaneous declaration of variables q, r, s using "," */
+  q = 2;        /* Assignment of value to variable q - initialization */
+  r = q = s;    /* Assignment of values to q and s based on r */
+  int t = 3;    /* Declaration and initialization on the same line */
+
+  char v;       /* Variable v of integer type with a size of 1 byte */
+  short int w;  /* Variable w of integer type with a size of 2 bytes */
+  long int x;   /* Variable x of integer type with a size of 4 bytes */
+  short y;      /* Shorthand declaration for short int */
+  long z;       /* Shorthand declaration for long int */
+
+  float  a = 3.16f;    /* Variable a of floating-point type with a size of 4 bytes */
+  double b = a * 3.0; /* Variable b of floating-point type with a size of 8 bytes */
+  /* Note: short float, long float, and short double do not exist in C */
+  long double d;      /* Variable d of floating-point type with a size of 12 bytes */
+}
+```
 
 ---
 
 ## Declaring and initializing variables
 
-- int main()
-- {
--   int p;        /\* Declaration of variable p with a size of 4 bytes \*/
--   int q, r, s;  /\* Simultaneous declaration of variables q, r, s using "," \*/
--   q = 2;        /\* Assignment of value to variable q - initialization \*/
--   r = q = s;    /\* Assignment of values to q and s based on r \*/
--   int t = 3;    /\* Declaration and initialization on the same line \*/
--   return 0;<br>}
-- int == long int
+```c
+int main()
+{
+  int p;        /* Declaration of variable p with a size of 4 bytes */
+  int q, r, s;  /* Simultaneous declaration of variables q, r, s using "," */
+  q = 2;        /* Assignment of value to variable q - initialization */
+  r = q = s;    /* Assignment of values to q and s based on r */
+  int t = 3;    /* Declaration and initialization on the same line */
+
+  return 0;
+}
+```
+
+```c
+int == long int
+```
 
 ---
 
 ## Declaring and initializing variables
 
-- int main()
-- {
--   char v;              /\* Variable v of integer type with a size of 1 byte \*/
--   short int w;         /\* Variable w of integer type with a size of 2 bytes \*/
--   long int x;          /\* Variable x of integer type with a size of 4 bytes \*/
--   short y;             /\* Shorthand declaration for short int \*/
--   long z;              /\* Shorthand declaration for long int \*/
--   return 0;<br>}
-- short == short int
-- long  == long int == int
+```c
+int main()
+{
+  char v;              /* Variable v of integer type with a size of 1 byte */
+  short int w;         /* Variable w of integer type with a size of 2 bytes */
+  long int x;          /* Variable x of integer type with a size of 4 bytes */
+  short y;             /* Shorthand declaration for short int */
+  long z;              /* Shorthand declaration for long int */
+
+  return 0;
+}
+```
+
+```c
+short == short int
+
+long  == long int == int
+```
 
 ---
 
 ## Declaring and initializing variables
 
-- int main()
-- {
--   float  a = 3.16f;    /\* Variable a of floating-point type with a size of 4 bytes \*/
--   double b = a \* 3.0;  /\* Variable b of floating-point type with a size of 8 bytes \*/
--                    /\* Note: short float, long float, and short double do not exist in C \*/
--   long double d;       /\* Variable d of floating-point type with a size of 12 bytes \*/
-- }
+```c
+int main()
+{
+  float  a = 3.16f;    /* Variable a of floating-point type with a size of 4 bytes */
+  double b = a * 3.0;  /* Variable b of floating-point type with a size of 8 bytes */
+  				 /* Note: short float, long float, and short double do not exist in C */
+  long double d;       /* Variable d of floating-point type with a size of 12 bytes */
+}
+```
 
 ---
 
@@ -457,9 +520,7 @@ Constants, which are values that don't change, are usually written in all upperc
 
 ---
 
-## Two words about floating-point representation
-
-Operations on real numbers are recorded with only a certain degree of precision, and therefore there is a very high probability that the result of (a + b – c) will not be the same as (a - c + b) ! This means that using real numbers requires careful consideration.
+## Two words about floating-point representation Operations on real numbers are recorded with only a certain degree of precision, and therefore there is a very high probability that the result of (a + b – c) will not be the same as (a - c + b) ! This means that using real numbers requires careful consideration.
 
 <!-- but more on that in another course - namely, computer architecture. -->
 
@@ -470,17 +531,21 @@ Operations on real numbers are recorded with only a certain degree of precision,
 - **POINTERS ARE TREATED AS FIRST-CLASS DATA TYPES**
 - We can create a pointer to **any** data type using the \* operator between the existing data type and the symbolic name. Unary Operator &amp; returns memory locations
 - A pointer in C is a reference to a specific memory location
-- int main()
-- {
--   short int p;        /\* Declaration of variable p with a size of 2 bytes \*/
--   short int \* q = &amp;p; /\* Declaration and initialization of pointer q with a size of 4 bytes
--                          (even though it points to short int) \*/
--   float\*r;            /\* Declaration of pointer r to float  \*/
--   char\* s;            /\* Declaration of pointer s to char  \*/
--   int t, \*v;          /\* Declaration of variable t and pointer v \*/
--   short int\* w, z;    /\* Declaration of pointer w to short int and variable z \*/
--  <br>/\*"Note that the variable type is determined by the position of the asterisk ('\*') in the    declaration. Only the variable directly following the asterisk is considered a pointer. \*/
-- }
+
+```c
+int main()
+{
+  short int p;        /* Declaration of variable p with a size of 2 bytes */
+  short int * q = &p; /* Declaration and initialization of pointer q with a size of 4 bytes
+                         (even though it points to short int) */
+  float*r;            /* Declaration of pointer r to float  */
+  char* s;            /* Declaration of pointer s to char  */
+  int t, *v;          /* Declaration of variable t and pointer v */
+  short int* w, z;    /* Declaration of pointer w to short int and variable z */
+
+/*"Note that the variable type is determined by the position of the asterisk ('*') in the    declaration. Only the variable directly following the asterisk is considered a pointer. */
+}
+```
 
 <!-- The size of a pointer is 4 bytes on 32-bit platforms
 asterisk -->
@@ -536,7 +601,9 @@ The values of array will be undefined, meaning they can hold any random value.
 - If you omit the size but provide initial values, the compiler counts them and creates an array of that size.
 - If you specify the size but don't initialize all elements, the remaining ones will have indeterminate, unpredictable values.
 
-&lt;type&gt; symbolic\_name\[size\];
+```c
+<type> symbolic_name[size];
+```
 
 - &lt;type&gt; symbolic\_name\[\] = {value1, value2, value3};
 - &lt;type&gt; symbolic\_name\[size\] = {value1, value2};
@@ -547,75 +614,70 @@ The values of array will be undefined, meaning they can hold any random value.
 
 - Code
 - Preprocessor
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
 
-char string\[12\] = "Hello world";
+```c
+#include <stdio.h>
 
-printf("%s", string);
 
-- return 0;
-- }
+int main()
+{
+	char string[12] = "Hello world";
+	printf("%s", string);
+	return 0;
+}
+```
 
 ---
 
 ## Hello World
 
-- \#include &lt;stdio.h&gt;
-- int main()
-- {
+```c
+#include <stdio.h>
 
-char string\[12\] = "Hello world";
 
-printf("%s", string);
-
-- return 0;
-- }
+int main()
+{
+	char string[12] = "Hello world";
+	printf("%s", string);
+	return 0;
+}
+```
 
 ---
 
 ## Example of an array
 
-- int main()
-- {
-
-    char string0\[12\] = "Hello world";
-
-    char string1\[\]   = "Hello world";
-
-    char string2\[12\] = { 72, 101, 108 ,108, 111, 32, 87, 111, 114, 108, 100, 0 };
-
-    char string3\[\]   = { 72, 101, 108 ,108, 111, 32, 87, 111, 114, 108, 100, 0 };
-
-    char string4\[12\] = { 'H', 'e', 'l' , 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '\0' };
-
-    char string5\[\]   = { 'H', 'e', 'l' , 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '\0’ };
-
-    char string6\[12\]   = { 'H', 101, 'l' , 108, 'o', ' ', 'w', 'o', 'r', 'l', 'd’, 0 };
-
+```c
+int main()
+{
+    char string0[12] = "Hello world";
+    char string1[]   = "Hello world";
+    char string2[12] = { 72, 101, 108 ,108, 111, 32, 87, 111, 114, 108, 100, 0 };
+    char string3[]   = { 72, 101, 108 ,108, 111, 32, 87, 111, 114, 108, 100, 0 };
+    char string4[12] = { 'H', 'e', 'l' , 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '\0' };
+    char string5[]   = { 'H', 'e', 'l' , 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '\0’ };
+    char string6[12]   = { 'H', 101, 'l' , 108, 'o', ' ', 'w', 'o', 'r', 'l', 'd’, 0 };
     printf("%s\n", string0);
-
     printf("%s\n", string1);
-
     printf("%s\n", string2);
-
     printf("%s\n", string3);
-
     printf("%s\n", string4);
-
     printf("%s\n", string5);
+    printf("%s\n", string6);
+    return 0;
+}
+```
 
-    printf("%s\n", string6);<br>    return 0;
+```c
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+```
 
-- }
-- Hello World
-- Hello World
-- Hello World
-- Hello World
-- Hello World
-- Hello World
-- Hello World
 - Result:
 
 ---
@@ -626,7 +688,9 @@ printf("%s", string);
 - If you omit the size but provide initial values, the compiler counts them and creates an array of that size.
 - If you specify the size but don't initialize all elements, the remaining ones will have indeterminate, unpredictable values.
 
-&lt;type&gt; symbolic\_name\[size\];
+```c
+<type> symbolic_name[size];
+```
 
 - &lt;type&gt; symbolic\_name\[\] = {value1, value2, value3};
 - &lt;type&gt; symbolic\_name\[size\] = {value1, value2};
@@ -635,12 +699,22 @@ printf("%s", string);
 
 ## Question: How do we know which letter goes with which number?
 
-- int main()
-- {
--   char text\[\] = { 72, 101, 108 ,108, 111, 32, 87, 111, 114, 108, 100, 10, 13, 0 };
--   printf("%s", text); <br>  return 0;
-- }
-- Hello World
+```c
+int main()
+{
+  char text[] = { 72, 101, 108 ,108, 111, 32, 87, 111, 114, 108, 100, 10, 13, 0 };
+  printf("%s", text);
+  return 0;
+}
+```
+
+```c
+Hello World
+
+
+
+```
+
 - Result:
 
 ---
@@ -654,40 +728,43 @@ American Standard Code for Information Interchange
 - \n equals 10, 13 (n\ + \r)
 - \t equals 11
 - White\_Space equals 32
--  Val Char                            Val  Char     Val  Char     Val  Char
-- ---------                            ---------     ---------     ----------
--   0  NUL (null)                      32  SPACE     64  @         96  \`
--   1  SOH (start of heading)          33  !         65  A         97  a
--   2  STX (start of text)             34  "         66  B         98  b
--   3  ETX (end of text)               35  #         67  C         99  c
--   4  EOT (end of transmission)       36  $         68  D        100  d
--   5  ENQ (enquiry)                   37  %         69  E        101  e
--   6  ACK (acknowledge)               38  &amp;         70  F        102  f
--   7  BEL (bell)                      39  '         71  G        103  g
--   8  BS  (backspace)                 40  (         72  H        104  h
--   9  TAB (horizontal tab)            41  )         73  I        105  i
--  10  LF  (NL line feed, new line)    42  \*         74  J        106  j
--  11  VT  (vertical tab)              43  +         75  K        107  k
--  12  FF  (NP form feed, new page)    44  ,         76  L        108  l
--  13  CR  (carriage return)           45  -         77  M        109  m
--  14  SO  (shift out)                 46  .         78  N        110  n
--  15  SI  (shift in)                  47  /         79  O        111  o
--  16  DLE (data link escape)          48  0         80  P        112  p
--  17  DC1 (device control 1)          49  1         81  Q        113  q
--  18  DC2 (device control 2)          50  2         82  R        114  r
--  19  DC3 (device control 3)          51  3         83  S        115  s
--  20  DC4 (device control 4)          52  4         84  T        116  t
--  21  NAK (negative acknowledge)      53  5         85  U        117  u
--  22  SYN (synchronous idle)          54  6         86  V        118  v
--  23  ETB (end of trans. block)       55  7         87  W        119  w
--  24  CAN (cancel)                    56  8         88  X        120  x
--  25  EM  (end of medium)             57  9         89  Y        121  y
--  26  SUB (substitute)                58  :         90  Z        122  z
--  27  ESC (escape)                    59  ;         91  \[        123  {
--  28  FS  (file separator)            60  &lt;         92  \        124  |
--  29  GS  (group separator)           61  =         93  \]        125  }
--  30  RS  (record separator)          62  &gt;         94  ^        126  ~
--  31  US  (unit separator)            63  ?         95  \_        127  DEL
+
+```c
+ Val Char                            Val  Char     Val  Char     Val  Char
+---------                            ---------     ---------     ----------
+  0  NUL (null)                      32  SPACE     64  @         96  `
+  1  SOH (start of heading)          33  !         65  A         97  a
+  2  STX (start of text)             34  "         66  B         98  b
+  3  ETX (end of text)               35  #         67  C         99  c
+  4  EOT (end of transmission)       36  $         68  D        100  d
+  5  ENQ (enquiry)                   37  %         69  E        101  e
+  6  ACK (acknowledge)               38  &         70  F        102  f
+  7  BEL (bell)                      39  '         71  G        103  g
+  8  BS  (backspace)                 40  (         72  H        104  h
+  9  TAB (horizontal tab)            41  )         73  I        105  i
+ 10  LF  (NL line feed, new line)    42  *         74  J        106  j
+ 11  VT  (vertical tab)              43  +         75  K        107  k
+ 12  FF  (NP form feed, new page)    44  ,         76  L        108  l
+ 13  CR  (carriage return)           45  -         77  M        109  m
+ 14  SO  (shift out)                 46  .         78  N        110  n
+ 15  SI  (shift in)                  47  /         79  O        111  o
+ 16  DLE (data link escape)          48  0         80  P        112  p
+ 17  DC1 (device control 1)          49  1         81  Q        113  q
+ 18  DC2 (device control 2)          50  2         82  R        114  r
+ 19  DC3 (device control 3)          51  3         83  S        115  s
+ 20  DC4 (device control 4)          52  4         84  T        116  t
+ 21  NAK (negative acknowledge)      53  5         85  U        117  u
+ 22  SYN (synchronous idle)          54  6         86  V        118  v
+ 23  ETB (end of trans. block)       55  7         87  W        119  w
+ 24  CAN (cancel)                    56  8         88  X        120  x
+ 25  EM  (end of medium)             57  9         89  Y        121  y
+ 26  SUB (substitute)                58  :         90  Z        122  z
+ 27  ESC (escape)                    59  ;         91  [        123  {
+ 28  FS  (file separator)            60  <         92  \        124  |
+ 29  GS  (group separator)           61  =         93  ]        125  }
+ 30  RS  (record separator)          62  >         94  ^        126  ~
+ 31  US  (unit separator)            63  ?         95  _        127  DEL
+```
 
 <!-- ASCII: abbreviated from American Standard Code for Information Interchange, is a character encoding standard for electronic communication. ASCII codes represent text in computers, telecommunications equipment, and other devices. Because of technical limitations of computer systems at the time it was invented, ASCII has just 128 code points, of which only 95 are printable characters, which severely limited its scope. Modern computer systems have evolved to use Unicode, which has millions of code points, but the first 128 of these are the same as the ASCII set.
 '5' has the int value 53 if we write '5'-'0' it evaluates to 53-48, or the int 5 if we write char c = 'B'+32; then c stores 'b' -->
@@ -701,11 +778,17 @@ American Standard Code for Information Interchange
 - Three dimensions:
 - etc.
 
-&lt;type&gt; symbolic\_name\[size\];
+```c
+<type> symbolic_name[size];
+```
 
-&lt;type&gt; symbolic\_name\[size1\]\[size2\];
+```c
+<type> symbolic_name[size1][size2];
+```
 
-&lt;type&gt; symbolic\_name\[size1\]\[size2\]\[size3\];
+```c
+<type> symbolic_name[size1][size2][size3];
+```
 
 ---
 
@@ -725,41 +808,39 @@ American Standard Code for Information Interchange
 
 ## Every line of code in C can have its own label
 
-- int main()
-- {
-- label1:  int x = /\* inline comment \*/ 5;
-- label2:
-
-label3:  char string\[12\] = "Hello world"; /\* comment behind the line \*/
-
+```c
+int main()
+{
+label1:  int x = /* inline comment */ 5;
+label2:
+label3:  char string[12] = "Hello world"; /* comment behind the line */
 label4:  printf("%s", string);
-
-- label5:  /\* a comment
-- composed of
-- a few lines \*/
-- label7:
-- label8:    return 0;
-- }
+label5:  /* a comment
+		composed of
+		a few lines */
+label7:
+label8:    return 0;
+}
+```
 
 ---
 
 ## Every line of code in C can have its own label
 
-- int main()
-- {
-- label1:  int x = /\* inline comment \*/ 5;
-- label2:
-
-label3:  char string\[12\] = "Hello world"; /\* comment behind the line \*/
-
+```c
+int main()
+{
+label1:  int x = /* inline comment */ 5;
+label2:
+label3:  char string[12] = "Hello world"; /* comment behind the line */
 label4:  printf("%s", string);
-
-- label5:  /\* a comment
-- composed of
-- a few lines \*/
-- label7:
-- label8:    return 0;
-- }
+label5:  /* a comment
+		composed of
+		a few lines */
+label7:
+label8:    return 0;
+}
+```
 
 ---
 
@@ -792,7 +873,10 @@ label4:  printf("%s", string);
 ||&lt;&lt;=, &gt;&gt;=, &amp;=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
-- struct Point { int x; int y; }; int main()<br>{struct Point point = {1,2}, \*ppoint = &amp;point;  int arr\[\] = {1,2}; int x = 5, y =-6; int \* z; float f = 3.0f; /\*code\*/}
+```c
+struct Point { int x; int y; }; int main()
+{struct Point point = {1,2}, *ppoint = &point;  int arr[] = {1,2}; int x = 5, y =-6; int * z; float f = 3.0f; /*code*/}
+```
 
 <!-- perentysys; esiszewitiwy
 Use parentheses to override order of evaluation -->
@@ -815,9 +899,13 @@ Use parentheses to override order of evaluation -->
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
-- int main()<br>{
-- int x = 5, y = -6; int \* z; float f = 3.0f;                 /\*code\*/
-- }
+```c
+int main()
+{
+	int x = 5, y = -6; int * z; float f = 3.0f; 				/*code*/
+}
+```
+
 - Basic operators
 
 <!-- perentysys; esiszewitiwy
@@ -829,37 +917,34 @@ Use parentheses to override order of evaluation -->
 
 ---
 
-## Casting
+## Casting Although the int and float types in C are the same length, a much larger number can be stored in a float type than in an int. This is due to a different way of encoding the bits. As a result, when it comes to casting, float is treated as a larger type than int. Therefore, if an int appears in an expression with a float, the int is always first cast to float, and only then is the result computed.
 
-Although the int and float types in C are the same length, a much larger number can be stored in a float type than in an int. This is due to a different way of encoding the bits. As a result, when it comes to casting, float is treated as a larger type than int. Therefore, if an int appears in an expression with a float, the int is always first cast to float, and only then is the result computed.
-
-- int main()
-- {
-
+```c
+int main()
+{
     int   a = 5;
-
     float b = 8.2f;
-
-// The expression 'b + a' promotes 'a' to float automatically,<br>    int   c = b + a;            // so the addition is done in floating-point.
-
-//The float result is implicitly converted back to int (truncation).
-
+						// The expression 'b + a' promotes 'a' to float automatically,
+    int   c = b + a;			// so the addition is done in floating-point.
+						   //The float result is implicitly converted back to int (truncation).
     float d = b + a;
-
     return 0;
-
 }
+```
 
-- 1
-- 2
-- 3
-- 4
-- 5
-- 6
-- 7
-- 8
-- 9
-- 10
+```c
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+
 - 5
 - 8.19999981
 - 13.1999998
@@ -870,9 +955,7 @@ asterisk -->
 
 ---
 
-## Two words about floating-point representation
-
-Operations on real numbers are recorded with only a certain degree of precision, and therefore there is a very high probability that the result of (a + b – c) will not be the same as (a - c + b) ! This means that using real numbers requires careful consideration.
+## Two words about floating-point representation Operations on real numbers are recorded with only a certain degree of precision, and therefore there is a very high probability that the result of (a + b – c) will not be the same as (a - c + b) ! This means that using real numbers requires careful consideration.
 
 <!-- but more on that in another course - namely, computer architecture. -->
 
@@ -897,31 +980,32 @@ The purpose:
 
 ## Explicit Casting
 
-- int main()
-- {
-
+```c
+int main()
+{
     int   a = 5;
-
     float b = 8.2f;
 
-<br>    int   c = (int)b + a;
-
+    int   c = (int)b + a;
     float d = b + (float)a;
 
-  return 0;
-
+    return 0;
 }
+```
 
-- 1
-- 2
-- 3
-- 4
-- 5
-- 6
-- 7
-- 8
-- 9
-- 10
+```c
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+
 - 5
 - 8.19999981
 - 13.1999998
@@ -950,60 +1034,63 @@ asterisk -->
 
 ## What’s the difference?
 
-- int main()
-- {
-
+```c
+int main()
+{
     int   a = 5;
-
     float b = 8.2f;
 
-<br>    int   c = b + a;
-
+    int   c = b + a;
     float d = b + a;
 
 return 0;
-
 }
+```
 
-- 1
-- 2
-- 3
-- 4
-- 5
-- 6
-- 7
-- 8
-- 9
-- 10
+```c
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+
 - 5
 - 8.19999981
 - 13.1999998
 - 13
-- int main()
-- {
 
+```c
+int main()
+{
     int   a = 5;
-
     float b = 8.2f;
 
-<br>    int   c = (int)b + a;
-
+    int   c = (int)b + a;
     float d = b + (float)a;
 
-  return 0;
-
+    return 0;
 }
+```
 
-- 1
-- 2
-- 3
-- 4
-- 5
-- 6
-- 7
-- 8
-- 9
-- 10
+```c
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+
 - 5
 - 8.19999981
 - 13.1999998

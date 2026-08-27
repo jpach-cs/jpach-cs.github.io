@@ -109,30 +109,35 @@ The Mechanism:
 
 ## Insertion sort
 
-- void insertionSort(int arr\[\], int n)
-- {
--     int i, key, j;
--     for (i = 1; i &lt; n; i++)
--     {
--         key = arr\[i\];
--         j = i - 1;
--         while (j &gt;= 0 &amp;&amp; arr\[j\] &gt; key)
--         {
--             arr\[j + 1\] = arr\[j\];
--             j = j - 1;
--         }
--         arr\[j + 1\] = key;
--     }
-- }
-- **Algorithm** insertionSort (*A*, *n*):
-- **Input**: An array *A* storing *n* ≥ 1 integers.
-- **for** *i* ← 1 **to** *n* - 1 **do**
-  - key ← A\[*i*\]
-  - *j* ← *j* – 1
-  - **while** *j* ≥ 0 and A\[*j*\] &gt; key **do**
-  - A\[*j* + 1\] ← A\[*j*\]
-  - *j* ← *j* – 1
-  - A\[j + 1\] ← key
+```c
+void insertionSort(int arr[], int n)
+{
+    int i, key, j;
+    for (i = 1; i < n; i++)
+    {
+        key = arr[i];
+        j = i - 1;
+        while (j >= 0 && arr[j] > key)
+        {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
+    }
+}
+```
+
+```c
+Algorithm insertionSort (A, n):
+	Input: An array A storing n ≥ 1 integers.
+	for i ← 1 to n - 1 do
+	key ← A[i]
+	j ← j – 1
+	while j ≥ 0 and A[j] > key do
+		A[j + 1] ← A[j]
+		j ← j – 1
+	A[j + 1] ← key
+```
 
 ---
 
@@ -172,8 +177,6 @@ The Mechanism:
 
 ---
 
-## Efficiency – an example
-
-By using an algorithm whose running time grows more slowly, even with a poor compiler, computer **B** runs more than 17 times faster than computer **A**! The advantage of merge sort is even more pronounced when we sort 100 million numbers: where insertion sort takes more than 23 days, merge sort takes under four hours. In general, as the problem size increases, so does the relative advantage of merge sort.
+## Efficiency – an example By using an algorithm whose running time grows more slowly, even with a poor compiler, computer **B** runs more than 17 times faster than computer **A**! The advantage of merge sort is even more pronounced when we sort 100 million numbers: where insertion sort takes more than 23 days, merge sort takes under four hours. In general, as the problem size increases, so does the relative advantage of merge sort.
 
 <!-- For a concrete example -->

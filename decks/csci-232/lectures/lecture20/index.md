@@ -29,50 +29,42 @@ title: "CSCI 232  Data Structures & Algorithms"
 
 ## Review
 
+```c
     //complex operators
-
     x += y;  // same as x = x + y; //Add and assign
-
     x -= y;  // same as x = x - y; //Subtract and assign
-
-    x \*= y;  // same as x = x \* y; //Multiply and assign
-
+    x *= y;  // same as x = x * y; //Multiply and assign
     x /= y;  // same as x = x / y; //Divide and assign
-
     x %= y;  // same as x = x % y; //Modulus and assign
-
-    x &amp;= y;  // same as x = x &amp; y; //Bitwise AND and assign
-
+    x &= y;  // same as x = x & y; //Bitwise AND and assign
     x |= y;  // same as x = x | y; //Bitwise OR and assign
-
     x ^= y;  // same as x = x ^ y; //Bitwise XOR and assign
-
-    x &lt;&lt;= 2;  // same as x = x &lt;&lt; 2; //Left shift and assign
-
-    x &gt;&gt;= 2;  // same as x = x &gt;&gt; 2; //Right shift and assign
-
+    x <<= 2;  // same as x = x << 2; //Left shift and assign
+    x >>= 2;  // same as x = x >> 2; //Right shift and assign
     x++; //x = x + 1; //Increase the value by 1.
-
     x--; //x = x - 1; //Decrease the value by 1.
 
-    //arr\[i\]  ≡  \*(arr + i);
+```
 
-    //arr\[i\]\[j\] ≡ \*(\*(arr + i) + j);
+```c
+    //arr[i]  ≡  *(arr + i);
+    //arr[i][j] ≡ *(*(arr + i) + j);
+```
 
 - According to our notes, to remain consistent, we will assume that accessing an array corresponds to one primitive instruction per dimension, and we will stick to this convention — even though accessing an index actually involves adding an offset and performing a dereference, which should count as two operations, we simplify our calculations.
 
 ---
 
-![Picture 6](assets/image1.png)
+![w:511px Picture 6](assets/image1.png)
 
 - 𝑇(𝑛) = 𝑛2     → O(n³) or O(n2)
 - 𝑇(𝑛) = 𝑛2    → Ω(n) or Ω(n2)
 - 𝑇(𝑛) = 𝑛2    → o(n³) or o(n4)
 - 𝑇(𝑛) = 𝑛2    → ω(n) or ω(n log n)
 
-![Content Placeholder 4](assets/image2.png)
+![w:498px Content Placeholder 4](assets/image2.png)
 
-![Picture 14](assets/image3.png)
+![w:660px Picture 14](assets/image3.png)
 
 Each one example illustrates the proper relationship for the given asymptotic class. The only clarification worth adding is that while both O(n³) and O(n²) are formally true, O(n²) is the tighter (more precise) bound.
 
@@ -82,23 +74,17 @@ Each one example illustrates the proper relationship for the given asymptotic cl
 
 ## Algorithm 2: Linear Time
 
-int sumArray(int A\[\], int n)
-
+```c
+int sumArray(int A[], int n)
 {
-
     int sum = 0;
-
-    for (int i = 0; i &lt; n; i++)
-
+    for (int i = 0; i < n; i++)
     {
-
-        sum += A\[i\];
-
+        sum += A[i];
     }
-
     return sum;
-
 }
+```
 
 - T(n)=c1​+c1​+(n+1)c4​+n(c1​+c3​)+n(c1​+c3​+c5​)+c7=6nc\*4c = 6n + 4
 - \- \*O(n), Θ(n), Ω(n)
@@ -128,23 +114,17 @@ int sumArray(int A\[\], int n)
 
 ## Algorithm 2: Linear Time
 
-int sumArray(int A\[\], int n)
-
+```c
+int sumArray(int A[], int n)
 {
-
     int sum = 0;
-
-    for (int i = 0; i &lt; n; i++)
-
+    for (int i = 0; i < n; i++)
     {
-
-        sum += A\[i\];
-
+        sum += A[i];
     }
-
     return sum;
-
 }
+```
 
 T(n)=c1​+c1​+(n+1)c4​+n(c1​+c3​)+n(c1​+c3​+c5​)+c7 =
 
@@ -191,23 +171,17 @@ c7    Returning from a method.
 
 ## Algorithm 2: Linear Time
 
-int sumArray(int A\[\], int n)
-
+```c
+int sumArray(int A[], int n)
 {
-
     int sum = 0;
-
-    for (int i = 0; i &lt; n; i++)
-
+    for (int i = 0; i < n; i++)
     {
-
-        sum += A\[i\];
-
+        sum += A[i];
     }
-
     return sum;
-
 }
+```
 
 T(n)=2n+2+2n+n+1+n+1 = 6n + 4
 

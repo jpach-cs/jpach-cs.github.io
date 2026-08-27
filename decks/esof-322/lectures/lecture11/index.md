@@ -102,19 +102,17 @@ C files are regular text files (txt), differing only by their extension, as they
 - Create a new folder,
 - create a file named main.c inside it and fill it with the simplest possible code.
 
+```
 // main.c
-
-\#include&lt;stdio.h&gt;
+#include<stdio.h>
 
 int main()
-
 {
-
   printf("%s\n", "Hello, world!");
 
   return 0;
-
 }
+```
 
 ---
 
@@ -123,17 +121,23 @@ int main()
 - Compile main.c into an object file main.o:
 - Link the object file main.o into an executable main.exe:
 
+```
 gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
+```
 
-\# 1) Compile main.c into an object file main.o (no linking).
+```
+# 1) Compile main.c into an object file main.o (no linking).
+#    Includes debug symbols (-g), enables most warnings (-Wall), uses the C99 standard (-std=c99),
+#    and enforces strict standard conformance (-pedantic).
+```
 
-\#    Includes debug symbols (-g), enables most warnings (-Wall), uses the C99 standard (-std=c99),
+```
+gcc -g main.o -o main.exe
+```
 
-\#    and enforces strict standard conformance (-pedantic).
-
-- gcc -g main.o -o main.exe
-
-\# 2) Link the object file into an executable named main.exe.
+```
+# 2) Link the object file into an executable named main.exe.
+```
 
 ---
 
@@ -166,11 +170,14 @@ These steps are essential for transforming your C code into an executable progra
 
 - Compile and link in one step (from main.c directly to main.exe):
 
+```
 gcc -g -Wall -std=c99 -pedantic main.c -o main.exe
+```
 
-\# 3) Compile and link in one step: from main.c directly to main.exe,
-
-\#    with the same diagnostic/standard flags as in step 1.
+```
+# 3) Compile and link in one step: from main.c directly to main.exe,
+#    with the same diagnostic/standard flags as in step 1.
+```
 
 ---
 
@@ -220,10 +227,13 @@ A **Makefile** is just a text file with rules. Each rule has **four key parts**:
 - **Recipe** – one or more shell commands (written exactly as if you typed them in the terminal).
   - Each command **must start with a tab**.
   - Commands run one by one. If one fails (non-zero exit code), make stops.
-- *target* … : *prerequisites* …
-- *recipe*
-- …
-- …
+
+```
+target … : prerequisites …
+        recipe
+        …
+        …
+```
 
 ---
 
@@ -233,15 +243,19 @@ A **Makefile** is just a text file with rules. Each rule has **four key parts**:
 - And run in cmd: "mingw32-make"
 - The first command **compiles** the source code into an **object file**,
 - The second command **links** the object file to produce the final **.exe executable**
-- *target* … : *prerequisites* …
-- *recipe*
-- …
-- …
 
-*build:* #The comment preceded by a hashmark
+```
+target … : prerequisites …
+        recipe
+        …
+        …
+```
 
-- *gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o*
-- *gcc -g main.o -o main.exe*
+```
+build: #The comment preceded by a hashmark
+	gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
+	gcc -g main.o -o main.exe
+```
 
 ---
 
@@ -252,10 +266,12 @@ A **Makefile** is just a text file with rules. Each rule has **four key parts**:
 
 Without any parameters, **make** will only execute the first target. Our first target is linking, so it will create the **.exe** file from the **.o** file. If we wanted to build the **.obj** (object file) alone, we would have to call that target as a program parameter: **'mingw32-make build\_obj'**, followed by either **'mingw32-make'** or **'mingw32-make build\_exe'**.
 
-- *build\_exe:*
-- *gcc -g main.o -o main.exe*
-- *build\_obj:*
-- *gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o*
+```
+build_exe:
+	gcc -g main.o -o main.exe
+build_obj:
+	gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
+```
 
 ---
 
@@ -268,10 +284,12 @@ We can also modify the Makefile where **'build\_obj' is a dependency of our 'bui
 
 Consequently, we can then run **make** without any parameters, as it will find the dependencies and execute the entire compilation process.
 
-- *build\_exe: build\_obj*
-- *gcc -g main.o -o main.exe*
-- *build\_obj:*
-- *gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o*
+```
+build_exe: build_obj
+	gcc -g main.o -o main.exe
+build_obj:
+	gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
+```
 
 ---
 
@@ -279,45 +297,35 @@ Consequently, we can then run **make** without any parameters, as it will find t
 
 - Modify and create files:
 
+```
 // main.c
-
-\#include&lt;stdio.h&gt;
-
-\#include "other.h"<br>
+#include<stdio.h>
+#include "other.h"
 
 int main()
-
 {
-
-  extern\_function();
-
+  extern_function();
   return 0;
-
 }
+```
 
+```
 // other.c
-
-\#include &lt;stdio.h&gt;
-
-\#include "other.h"
-
-void extern\_function()
-
+#include <stdio.h>
+#include "other.h"
+void extern_function()
 {
-
-    printf("text from extern\_function - other.c\n");
-
+    printf("text from extern_function - other.c\n");
 }
+```
 
+```
 // other.h
-
-\#ifndef \_OTHER
-
-\#define \_OTHER
-
-void extern\_function();
-
-\#endif  //\_OTHER
+#ifndef _OTHER
+#define _OTHER
+void extern_function();
+#endif  //_OTHER
+```
 
 ---
 
@@ -325,9 +333,18 @@ void extern\_function();
 
 - Compiling:
 - Linking:
-- gcc -g -Wall -std=c99 -pedantic -c other.c -o other.o
-- gcc -g main.o other.o -o main.exe
-- gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
+
+```
+gcc -g -Wall -std=c99 -pedantic -c other.c -o other.o
+```
+
+```
+gcc -g main.o other.o -o main.exe
+```
+
+```
+gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
+```
 
 ---
 
@@ -350,26 +367,27 @@ The key distinction: Headers are dependencies in the Makefile, but not arguments
 
 ---
 
-## makefile
+## makefile From just three command-line calls, we can create a **Makefile** that automates the exact same functionality. However, at this stage, our Makefile is essentially no different from a simple **batch script** (or a .bat file). Every single time we invoke **make**, the entire compilation process is executed from start to finish, regardless of whether any files have actually changed.
 
-From just three command-line calls, we can create a **Makefile** that automates the exact same functionality. However, at this stage, our Makefile is essentially no different from a simple **batch script** (or a .bat file). Every single time we invoke **make**, the entire compilation process is executed from start to finish, regardless of whether any files have actually changed.
+```
+# makefile
+build_exe: build_obj
+	gcc -g main.o other.o -o main.exe
+build_obj:
+	gcc -g -Wall -std=c99 -pedantic -c other.c -o other.o
+	gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 
-\# makefile
+```
 
-- build\_exe: build\_obj
-- gcc -g main.o other.o -o main.exe
-- build\_obj:
-- gcc -g -Wall -std=c99 -pedantic -c other.c -o other.o
-- gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
-- gcc -g -Wall -std=c99 -pedantic -c other.c -o other.o
-- gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
-- gcc -g main.o other.o -o main.exe
+```
+gcc -g -Wall -std=c99 -pedantic -c other.c -o other.o
+gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
+gcc -g main.o other.o -o main.exe
+```
 
 ---
 
-## makefile
-
-This happens because both of our current targets are essentially **artificial targets** (or **PHONY targets**). Their dependencies don't rely on the existence of any files; they simply establish that one target requires the execution of the other. The line defining this—\*\*.PHONY: target1 target2...\*\*—should be placed before the first occurrence of the first target. By doing this, **make** will not attempt to search for files with the same name as the target.
+## makefile This happens because both of our current targets are essentially **artificial targets** (or **PHONY targets**). Their dependencies don't rely on the existence of any files; they simply establish that one target requires the execution of the other. The line defining this—\*\*.PHONY: target1 target2...\*\*—should be placed before the first occurrence of the first target. By doing this, **make** will not attempt to search for files with the same name as the target.
 
 \# makefile
 
@@ -379,9 +397,12 @@ This happens because both of our current targets are essentially **artificial ta
 - build\_obj:
 - gcc -g -Wall -std=c99 -pedantic -c other.c -o other.o
 - gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
-- gcc -g -Wall -std=c99 -pedantic -c other.c -o other.o
-- gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
-- gcc -g main.o other.o -o main.exe
+
+```
+gcc -g -Wall -std=c99 -pedantic -c other.c -o other.o
+gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
+gcc -g main.o other.o -o main.exe
+```
 
 ---
 
@@ -405,35 +426,27 @@ If a target is **not listed** in the **.PHONY** directive, make treats the targe
 
 ---
 
-## Why This Still Matters
-
-While computational power is high today, this timestamp logic is still crucial, especially in very large projects. There is no reason to recompile every single part of a huge system if only a few small source files have changed. **This selective rebuilding is the core reason we use make—it saves enormous amounts of time and makes the build process efficient.**
+## Why This Still Matters While computational power is high today, this timestamp logic is still crucial, especially in very large projects. There is no reason to recompile every single part of a huge system if only a few small source files have changed. **This selective rebuilding is the core reason we use make—it saves enormous amounts of time and makes the build process efficient.**
 
 ---
 
-## Fully Functional Makefile: A Summary
+## Fully Functional Makefile: A Summary At this point, we have a **complete and functional Makefile**. If we run it without any parameters, **make** will automatically build the final executable, main.exe.
 
-At this point, we have a **complete and functional Makefile**. If we run it without any parameters, **make** will automatically build the final executable, main.exe.
-
+```
 .PHONY: clean
 
-<br>main.exe: main.o other.o
-
+main.exe: main.o other.o
     gcc -g main.o other.o -o main.exe
 
 main.o: main.c  # we dont have the main.h
-
     gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 
-<br>other.o: other.h other.c
-
+other.o: other.h other.c
     gcc -g -Wall -std=c99 -pedantic -c other.c -o other.o
-
 clean:
-
     del main.o
-
-del other.o
+    del other.o
+```
 
 ---
 
@@ -444,25 +457,18 @@ Make achieves this by generating a **dependency tree** and determining the corre
 - The final executable (main.exe) depends on both object files: main.o and other.o.
 - These object files, in turn, have their own prerequisites: main.o depends only on its source code, main.c, while **other.o depends on both its source file (other.c) AND its header file (other.h)**. This last dependency is crucial, ensuring that if the header is modified, other.o will be recompiled.
 
+```
 .PHONY: clean
-
 main.exe: main.o other.o
-
     gcc -g main.o other.o -o main.exe
-
 main.o: main.c  # we dont have the main.h
-
     gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
-
 other.o: other.h other.c
-
     gcc -g -Wall -std=c99 -pedantic -c other.c -o other.o
-
 clean:
-
     del main.o
-
-del other.o
+    del other.o
+```
 
 ---
 
@@ -472,25 +478,18 @@ del other.o
 - Crucially, we only listed clean in the **.PHONY** directive because it's the only truly artificial target. All other targets (main.exe, main.o, other.o) are meant to be treated as actual file names, allowing **make** to use its smart timestamp logic.
 - Note that while we needed to list other.h as a dependency for other.o, we **did not** need to define a separate target for it, as headers are only inputs, never outputs.
 
+```
 .PHONY: clean
-
 main.exe: main.o other.o
-
     gcc -g main.o other.o -o main.exe
-
 main.o: main.c  # we dont have the main.h
-
     gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
-
 other.o: other.h other.c
-
     gcc -g -Wall -std=c99 -pedantic -c other.c -o other.o
-
 clean:
-
     del main.o
-
-del other.o
+    del other.o
+```
 
 ---
 
@@ -504,9 +503,11 @@ When we execute these commands sequentially in the command prompt (CMD):
 
 This final message confirms that **make** has checked all dependencies and creation dates for every file. It found that the current version of main.exe is the newest one, meaning there is no need for **make** to perform any actions or recompilation.
 
-- mingw32-make clean
-- mingw32-make
-- mingw32-make
+```
+mingw32-make clean
+mingw32-make
+mingw32-make
+```
 
 ---
 
@@ -521,55 +522,41 @@ This final message confirms that **make** has checked all dependencies and creat
 
 ## extension
 
+```
 .PHONY: clean
 
-<br>main.exe: main.o other.o
-
+main.exe: main.o other.o
     gcc -g main.o other.o -o main.exe
 
 main.o: main.c  # we dont have the main.h
-
     gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 
-<br>other.o: other.h other.c
-
+other.o: other.h other.c
     gcc -g -Wall -std=c99 -pedantic -c other.c -o other.o
-
 clean:
-
     del main.o
+    del other.o
+```
 
-del other.o
-
+```
 CC     := gcc
-
 CFLAGS := -g -Wall -std=c99 -pedantic # compiler flags
-
-LFLAG  := -g # linker flag<br>
+LFLAG  := -g # linker flag
 
 TARGET := main.exe
-
 OBJS   := main.o other.o
-
 .PHONY: all clean
 
 all: $(TARGET)
-
 $(TARGET): $(OBJS)
-
     $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
-
 main.o: main.c  # we dont have the main.h
-
     $(CC) $(CFLAGS) -c main.c -o main.o
-
 other.o: other.h other.c
-
     $(CC) $(CFLAGS) -c other.c -o other.o
-
 clean:
-
     del $(OBJS)
+```
 
 ---
 
@@ -578,35 +565,25 @@ clean:
 - Our script is clearly becoming much smarter and more automated. As you can easily observe, **make** inserts the values of our variables wherever we reference them. The commonly accepted **default name for the main build target is all**, which we've defined as a **PHONY** target dependent on our actual **$(TARGET)** variable.
 - However, it's essential to remember that this current Makefile is designed exclusively for the **Windows CMD** environment. If we tried to run the clean target in a Linux/Unix environment (such as **Bash**), it would fail because the command **del** is not recognized there.
 
+```
 CC     := gcc
-
 CFLAGS := -g -Wall -std=c99 -pedantic # compiler flags
-
-LFLAG  := -g # linker flag<br>
+LFLAG  := -g # linker flag
 
 TARGET := main.exe
-
 OBJS   := main.o other.o
-
 .PHONY: all clean
 
 all: $(TARGET)
-
 $(TARGET): $(OBJS)
-
     $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
-
 main.o: main.c  # we dont have the main.h
-
     $(CC) $(CFLAGS) -c main.c -o main.o
-
 other.o: other.h other.c
-
     $(CC) $(CFLAGS) -c other.c -o other.o
-
 clean:
-
     del $(OBJS)
+```
 
 ---
 
@@ -622,165 +599,125 @@ When running mingw32-make on Windows:
 
 Therefore, by using a simple conditional statement to check the **length** or the **presence of the absolute path delimiters** (like drive letters and slashes) in the $(SHELL) variable, we can reliably distinguish between the "native" Windows environment and the Unix-like Git Bash environment, allowing us to select the appropriate commands for our recipes
 
-- ifeq ($(SHELL),sh.exe) # without any space!
-
-    DETECTED\_SHELL = cmd/powershell
-
+```
+ifeq ($(SHELL),sh.exe) # without any space!
+    DETECTED_SHELL = cmd/powershell
 else
-
-    DETECTED\_SHELL = bash
-
+    DETECTED_SHELL = bash
 endif
+```
 
+```
 check-shell:
-
     echo $(SHELL)
+    echo Detected: $(DETECTED_SHELL)
+```
 
-    echo Detected: $(DETECTED\_SHELL)
-
+```
 $ mingw32-make check-shell
-
 SHELL=C:/Program Files/Git/usr/bin/sh.exe
-
 Detected: bash
+```
 
-C:\..&gt; mingw32-make check-shell
-
+```
+C:\..> mingw32-make check-shell
 SHELL=sh.exe
-
 Detected: cmd/powershell
+```
 
 ---
 
 ## extension
 
+```
 CC     := gcc
-
 CFLAGS := -g -Wall -std=c99 -pedantic # compiler flags
+LFLAG  := -g # linker flag
+TARGET := main.exe
+OBJS   := main.o other.o
+RM := -rm -f
+ifeq ($(SHELL),sh.exe) # without any space!
+    # cmd/powershell
+    DETECTED_SHELL := cmd/powershell
+    RM := del
+else
+    # bash
+    DETECTED_SHELL := bash
+endif
+.PHONY: all clean check-shell
+... # all
+clean:
+    $(RM) $(OBJS)
+check-shell:
+    @echo SHELL=$(SHELL)
+    @echo Detected: $(DETECTED_SHELL)
+```
 
+```
+CC     := gcc
+CFLAGS := -g -Wall -std=c99 -pedantic # compiler flags
 LFLAG  := -g # linker flag
 
 TARGET := main.exe
-
 OBJS   := main.o other.o
 
 RM := -rm -f
 
 ifeq ($(SHELL),sh.exe) # without any space!
-
-    \# cmd/powershell
-
-    DETECTED\_SHELL := cmd/powershell
-
+    # cmd/powershell
     RM := del
-
-else
-
-    \# bash
-
-    DETECTED\_SHELL := bash
-
 endif
 
-.PHONY: all clean check-shell
+.PHONY: all clean
 
-... # all
-
-clean:
-
-    $(RM) $(OBJS)
-
-check-shell:
-
-    @echo SHELL=$(SHELL)
-
-    @echo Detected: $(DETECTED\_SHELL)
-
-CC     := gcc
-
-CFLAGS := -g -Wall -std=c99 -pedantic # compiler flags
-
-LFLAG  := -g # linker flag<br>
-
-TARGET := main.exe
-
-OBJS   := main.o other.o<br>
-
-RM := -rm -f <br>
-
-ifeq ($(SHELL),sh.exe) # without any space!
-
-    \# cmd/powershell
-
-    RM := del
-
-endif<br>
-
-.PHONY: all clean<br>
-
-all: $(TARGET)<br>
+all: $(TARGET)
 
 $(TARGET): $(OBJS)
-
-    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)<br>
+    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
 main.o: main.c  # we dont have the main.h
-
-    $(CC) $(CFLAGS) -c main.c -o main.o<br>
+    $(CC) $(CFLAGS) -c main.c -o main.o
 
 other.o: other.h other.c
-
     $(CC) $(CFLAGS) -c other.c -o other.o
-
 clean:
-
     $(RM) $(OBJS)
+```
 
 ---
 
-## Summary
+## Summary **Make** offers capabilities far beyond what we've covered so far. This has been merely an introduction to its core principles. We can leverage **Make's conditional logic** to build a fully **automated compilation process** that is aware of the operating environment. Crucially, this includes the ability to dynamically detect the specific shell running on a **Windows system** (be it CMD, PowerShell, or Git Bash) and override the **RM variable** to ensure the correct file deletion command (del or rm) is used, thereby guaranteeing project portability
 
-**Make** offers capabilities far beyond what we've covered so far. This has been merely an introduction to its core principles. We can leverage **Make's conditional logic** to build a fully **automated compilation process** that is aware of the operating environment. Crucially, this includes the ability to dynamically detect the specific shell running on a **Windows system** (be it CMD, PowerShell, or Git Bash) and override the **RM variable** to ensure the correct file deletion command (del or rm) is used, thereby guaranteeing project portability
-
+```
 CC     := gcc
-
 CFLAGS := -g -Wall -std=c99 -pedantic # compiler flags
-
-LFLAG  := -g # linker flag<br>
+LFLAG  := -g # linker flag
 
 TARGET := main.exe
+OBJS   := main.o other.o
 
-OBJS   := main.o other.o<br>
-
-RM := -rm -f <br>
+RM := -rm -f
 
 ifeq ($(SHELL),sh.exe) # without any space!
-
-    \# cmd/powershell
-
+    # cmd/powershell
     RM := del
+endif
 
-endif<br>
+.PHONY: all clean
 
-.PHONY: all clean<br>
-
-all: $(TARGET)<br>
+all: $(TARGET)
 
 $(TARGET): $(OBJS)
-
-    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)<br>
+    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
 main.o: main.c  # we dont have the main.h
-
-    $(CC) $(CFLAGS) -c main.c -o main.o<br>
+    $(CC) $(CFLAGS) -c main.c -o main.o
 
 other.o: other.h other.c
-
     $(CC) $(CFLAGS) -c other.c -o other.o
-
 clean:
-
     $(RM) $(OBJS)
+```
 
 ---
 

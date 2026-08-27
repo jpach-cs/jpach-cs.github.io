@@ -99,116 +99,89 @@ Each diagram starts at the top (first message) and proceeds downward in time.<br
 
 - All class diagrams must start with this directive.
 - For vsc
-- \`\`\`mermaid
-- sequenceDiagram
 
-\`\`\`mermaid
-
+````
+```mermaid
 sequenceDiagram
+````
 
+````
+```mermaid
+sequenceDiagram
     actor User
+    participant System
 
-    participant System<br>
-
-    User-&gt;&gt;System: login(username, password)
-
-    System--&gt;&gt;User: authentication result
+    User->>System: login(username, password)
+    System-->>User: authentication result
+````
 
 Unlike the **Graph** (Flowchart) diagram, you cannot change the rendering direction for a **sequence Diagram**.
 
-![Picture 8](assets/image2.png)
+![w:375px Picture 8](assets/image2.png)
 
 ---
 
-## Mermaid Class Diagram Syntax
+## Mermaid Class Diagram Syntax Sequence diagrams ignore whitespace between actors, objects, and other elements. This means you can freely add tabs and spaces to improve readability.
 
-Sequence diagrams ignore whitespace between actors, objects, and other elements. This means you can freely add tabs and spaces to improve readability.
-
-\`\`\`mermaid
-
+````
+```mermaid
 sequenceDiagram
-
     actor User
-
     participant Frontend
-
     participant Backend
-
     participant Database
 
-    User-&gt;&gt;Frontend: click "Login"
+    User->>Frontend: click "Login"
+    Frontend->>Backend: send credentials
+    Backend->>Database: query user
+    Database-->>Backend: user found
+    Backend-->>Frontend: success token
+    Frontend-->>User: show dashboard
+````
 
-    Frontend-&gt;&gt;Backend: send credentials
-
-    Backend-&gt;&gt;Database: query user
-
-    Database--&gt;&gt;Backend: user found
-
-    Backend--&gt;&gt;Frontend: success token
-
-    Frontend--&gt;&gt;User: show dashboard
-
-\`\`\`mermaid
-
+````
+```mermaid
 sequenceDiagram
-
     actor       User
-
     participant Frontend
-
     participant Backend
+    participant Database
 
-    participant Database<br>
+    User        ->>     Frontend    : click "Login"
+    Frontend    ->>     Backend     : send credentials
+    Backend     ->>     Database    : query user
+    Database    -->>    Backend     : user found
+    Backend     -->>    Frontend    : success token
+    Frontend    -->>    User        : show dashboard
+````
 
-    User        -&gt;&gt;     Frontend    : click "Login"
+![w:437px Picture 10](assets/image3.png)
 
-    Frontend    -&gt;&gt;     Backend     : send credentials
-
-    Backend     -&gt;&gt;     Database    : query user
-
-    Database    --&gt;&gt;    Backend     : user found
-
-    Backend     --&gt;&gt;    Frontend    : success token
-
-    Frontend    --&gt;&gt;    User        : show dashboard
-
-![Picture 10](assets/image3.png)
-
-![Picture 14](assets/image4.png)
+![w:586px Picture 14](assets/image4.png)
 
 ---
 
 ## Another example
 
-\`\`\`mermaid
-
+````
+```mermaid
 sequenceDiagram
-
     participant Client
-
     participant Server
-
     participant Database
 
-<br>
 
-    Client-&gt;&gt;Server: Request data
-
+    Client->>Server: Request data
     alt Data available
-
-        Server-&gt;&gt;Database: Query data
-
-        Database--&gt;&gt;Server: Result set
-
-        Server--&gt;&gt;Client: Return data
-
+        Server->>Database: Query data
+        Database-->>Server: Result set
+        Server-->>Client: Return data
     else Data missing
-
-        Server--&gt;&gt;Client: Error message
-
+        Server-->>Client: Error message
     end
+````
 
-![Picture 7](assets/image5.png)
+![w:581px Picture 7](assets/image5.png)
 
 ---
 

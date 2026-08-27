@@ -47,18 +47,23 @@ title: "Data Structures & Algorithms"
 - Operations:
   - push(x) → add to the top
   - pop() → remove from the top
-- Stack (LIFO):
-- +-----+
-- |  D  | &lt;- Top (newest element)
-- +-----+
-- |  C  |
-- +-----+
-- |  B  |
-- +-----+
-- |  A  | &lt;- Bottom (oldest element)
-- +-----+
-- push(E) =&gt; E goes on top
-- pop()   =&gt; removes D from the top
+
+```c
+Stack (LIFO):
+
+   +-----+
+   |  D  | <- Top (newest element)
+   +-----+
+   |  C  |
+   +-----+
+   |  B  |
+   +-----+
+   |  A  | <- Bottom (oldest element)
+   +-----+
+
+push(E) => E goes on top
+pop()   => removes D from the top
+```
 
 ---
 
@@ -74,12 +79,17 @@ title: "Data Structures & Algorithms"
 - Operations:
   - enqueue(x) → add to the rear
   - dequeue() → remove from the front
-- Queue (FIFO):
-- Front -&gt; +-----+     +-----+     +-----+     +-----+ &lt;- Rear
-- |  A  | --&gt; |  B  | --&gt; |  C  | --&gt; |  D  |
-- +-----+     +-----+     +-----+     +-----+
-- enqueue(E) =&gt; E goes to the rear
-- dequeue()  =&gt; removes A from the front
+
+```c
+Queue (FIFO):
+
+Front -> +-----+     +-----+     +-----+     +-----+ <- Rear
+         |  A  | --> |  B  | --> |  C  | --> |  D  |
+         +-----+     +-----+     +-----+     +-----+
+
+enqueue(E) => E goes to the rear
+dequeue()  => removes A from the front
+```
 
 ---
 

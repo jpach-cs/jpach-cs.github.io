@@ -21,7 +21,7 @@ title: "CSSI112lec 20"
 
 ---
 
-![Graphic 3](assets/image3.png)
+![w:277px Graphic 3](assets/image3.png)
 
 ---
 
@@ -38,9 +38,7 @@ title: "CSSI112lec 20"
 
 ---
 
-## 1. Character Classification and Conversion (&lt;ctype.h&gt;)
-
-Used for testing and converting characters.
+## 1. Character Classification and Conversion (&lt;ctype.h&gt;) Used for testing and converting characters.
 
 |Function|Description|Example|
 |---|---|---|
@@ -58,9 +56,7 @@ Used for testing and converting characters.
 
 ---
 
-## 2. String Handling (&lt;string.h&gt;)
-
-Used for manipulating null-terminated character arrays.
+## 2. String Handling (&lt;string.h&gt;) Used for manipulating null-terminated character arrays.
 
 |Function|Description|Example|
 |---|---|---|
@@ -77,9 +73,7 @@ Used for manipulating null-terminated character arrays.
 
 ---
 
-## 3. Memory Handling (&lt;string.h&gt;)
-
-Used for working with raw memory blocks.
+## 3. Memory Handling (&lt;string.h&gt;) Used for working with raw memory blocks.
 
 |Function|Description|Example|
 |---|---|---|
@@ -91,9 +85,7 @@ Used for working with raw memory blocks.
 
 ---
 
-## 4. Input / Output Functions (&lt;stdio.h&gt;)
-
-Work with files and streams.
+## 4. Input / Output Functions (&lt;stdio.h&gt;) Work with files and streams.
 
 |Function|Description|Example|
 |---|---|---|
@@ -136,9 +128,7 @@ Work with files and streams.
 
 ---
 
-## 5. Conversion Functions (&lt;stdlib.h&gt;)
-
-Convert strings to numbers.
+## 5. Conversion Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -159,33 +149,33 @@ Convert strings to numbers.
 
 - **Use case:** Reading an integer from user input or command-line argument.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
-    char input\[\] = "42";
-
+    char input[] = "42";
     int age = atoi(input);
-
-    if (age &gt; 0)
-
+    if (age > 0)
         printf("You entered age: %d\n", age);
-
     else
-
         printf("Invalid number.\n");
-
     return 0;
-
 }
+```
 
 - atoi(char\*)
-- **Header:** &lt;stdlib.h&gt;
-- You entered age: 42
+
+```c
+Header: <stdlib.h>
+```
+
+```c
+You entered age: 42
+
+```
+
 - Result:
 
 ---
@@ -194,29 +184,32 @@ int main()
 
 - **Use case:** Converting numeric strings representing file sizes or IDs that may exceed int range.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
+    char file_size_str[] = "1048576";  // 1 MB in bytes
+    long file_size = atol(file_size_str);
 
-    char file\_size\_str\[\] = "1048576";  // 1 MB in bytes
 
-    long file\_size = atol(file\_size\_str);
-
-<br>
-
-    printf("File size: %ld bytes\n", file\_size);
-
+    printf("File size: %ld bytes\n", file_size);
     return 0;
-
 }
+```
 
 - atol(char\*)
-- **Header:** &lt;stdlib.h&gt;
-- File size: 1048576 bytes
+
+```c
+Header: <stdlib.h>
+```
+
+```c
+File size: 1048576 bytes
+
+```
+
 - Result:
 
 ---
@@ -225,29 +218,32 @@ int main()
 
 - **Use case:** Reading floating-point values such as temperature, weight, or price from text.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
+    char temperature_str[] = "36.6";
+    double temperature = atof(temperature_str);
 
-    char temperature\_str\[\] = "36.6";
-
-    double temperature = atof(temperature\_str);
-
-<br>
 
     printf("Body temperature: %.1f°C\n", temperature);
-
     return 0;
-
 }
+```
 
 - atof(char\*)
-- **Header:** &lt;stdlib.h&gt;
-- Body temperature: 36.6°C
+
+```c
+Header: <stdlib.h>
+```
+
+```c
+Body temperature: 36.6°C
+
+```
+
 - Result:
 
 ---
@@ -256,35 +252,33 @@ int main()
 
 - **Use case:** Converting hexadecimal, octal, or binary strings into numbers, with validation.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
-    char hex\_str\[\] = "1A3F";
-
-    char \*endptr;
-
-    long number = strtol(hex\_str, &amp;endptr, 16);  // base 16 (hex)
-
-    if (\*endptr == '\0')
-
-        printf("Hex %s = %ld in decimal\n", hex\_str, number);
-
+    char hex_str[] = "1A3F";
+    char *endptr;
+    long number = strtol(hex_str, &endptr, 16);  // base 16 (hex)
+    if (*endptr == '\0')
+        printf("Hex %s = %ld in decimal\n", hex_str, number);
     else
-
         printf("Invalid character found: %s\n", endptr);
-
     return 0;
-
 }
+```
 
 - strtol(char\*)
-- **Header:** &lt;stdlib.h&gt;
-- Hex 1A3F = 6719 in decimal
+
+```c
+Header: <stdlib.h>
+```
+
+```c
+Hex 1A3F = 6719 in decimal
+```
+
 - Result:
 
 ---
@@ -293,35 +287,33 @@ int main()
 
 - **Use case:** Safely parsing large positive numbers such as IDs or counters.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
-    char id\_str\[\] = "4294967295";  // Max 32-bit unsigned value
-
-    char \*endptr;
-
-    unsigned long id = strtoul(id\_str, &amp;endptr, 10);
-
-    if (\*endptr == '\0')
-
+    char id_str[] = "4294967295";  // Max 32-bit unsigned value
+    char *endptr;
+    unsigned long id = strtoul(id_str, &endptr, 10);
+    if (*endptr == '\0')
         printf("Parsed ID: %lu\n", id);
-
     else
-
         printf("Invalid input: %s\n", endptr);
-
     return 0;
-
 }
+```
 
 - strtoul(char\*)
-- **Header:** &lt;stdlib.h&gt;
-- Parsed ID: 4294967295
+
+```c
+Header: <stdlib.h>
+```
+
+```c
+Parsed ID: 4294967295
+```
+
 - Result:
 
 ---
@@ -330,34 +322,34 @@ int main()
 
 - **Use case:** Parsing decimal values that may contain additional characters (like currency symbols or units).
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
-char price\_str\[\] = "199.99USD";
-
-    char \*endptr;
-
-    double price = strtod(price\_str, &amp;endptr);
-
+char price_str[] = "199.99USD";
+    char *endptr;
+    double price = strtod(price_str, &endptr);
     printf("Price: $%.2f\n", price);
-
     printf("Remaining text: %s\n", endptr);
 
-<br>
 
     return 0;
-
 }
+```
 
 - strtod(char\*)
-- **Header:** &lt;stdlib.h&gt;
-- Price: $199.99
-- Remaining text: USD
+
+```c
+Header: <stdlib.h>
+```
+
+```c
+Price: $199.99
+Remaining text: USD
+```
+
 - Result:
 
 ---
@@ -379,9 +371,7 @@ char price\_str\[\] = "199.99USD";
 
 ---
 
-## 6. Math Functions (&lt;math.h&gt;)
-
-Convert strings to numbers.
+## 6. Math Functions (&lt;math.h&gt;) Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -401,25 +391,28 @@ Convert strings to numbers.
 
 - Used to display a difference that should always be positive (e.g., temperature, distance, or balance).
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
     int temperatureDiff = -7;
-
     printf("The absolute temperature difference is %d°C\n", abs(temperatureDiff));
-
     return 0;
-
 }
+```
 
 - abs(int)
-- **Header:** &lt;math.h&gt;
-- The absolute temperature difference is 7°C
+
+```c
+Header: <math.h>
+```
+
+```c
+The absolute temperature difference is 7°C
+```
+
 - Result:
 
 ---
@@ -428,25 +421,29 @@ int main()
 
 - Useful for large integer calculations, such as bank transactions or file sizes.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
     long balanceChange = -150000L;
-
     printf("Account adjusted by %ld units.\n", labs(balanceChange));
-
     return 0;
-
 }
+```
 
 - labs(long int)
-- **Header:** &lt;math.h&gt;
-- Account adjusted by 150000 units.
+
+```c
+Header: <math.h>
+```
+
+```c
+Account adjusted by 150000 units.
+
+```
+
 - Result:
 
 ---
@@ -455,27 +452,30 @@ int main()
 
 - Used to compute geometric values or perform normalization in vector calculations.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
     double area = 49.0;
-
     double side = sqrt(area);
-
     printf("Square side length: %.2f\n", side);
-
     return 0;
-
 }
+```
 
 - sqrt(double)
-- **Header:** &lt;math.h&gt;
-- Square side length: 7.00
+
+```c
+Header: <math.h>
+```
+
+```c
+Square side length: 7.00
+
+```
+
 - Result:
 
 ---
@@ -484,33 +484,34 @@ int main()
 
 - Useful for financial growth models, compound interest, or physics formulas.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
     double principal = 1000.0;
-
     double rate = 0.05;
-
     int years = 3;
 
-<br>
 
-    double futureValue = principal \* pow(1 + rate, years);
-
+    double futureValue = principal * pow(1 + rate, years);
     printf("Future value after %d years: $%.2f\n", years, futureValue);
-
     return 0;
-
 }
+```
 
 - pow(double, double)
-- **Header:** &lt;math.h&gt;
-- Future value after 3 years: $1157.63
+
+```c
+Header: <math.h>
+```
+
+```c
+Future value after 3 years: $1157.63
+
+```
+
 - Result:
 
 ---
@@ -519,25 +520,29 @@ int main()
 
 - Used in graphics, physics simulations, and robotics for motion calculations.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
     double angle = 3.14159 / 6; // 30 degrees in radians
-
     printf("sin(30°) = %.2f, cos(30°) = %.2f\n", sin(angle), cos(angle));
-
     return 0;
-
 }
+```
 
 - sin/cos(double)
-- **Header:** &lt;math.h&gt;
-- sin(30°) = 0.50, cos(30°) = 0.87
+
+```c
+Header: <math.h>
+```
+
+```c
+sin(30°) = 0.50, cos(30°) = 0.87
+
+```
+
 - Result:
 
 ---
@@ -546,61 +551,62 @@ int main()
 
 - Useful in pricing, measurement rounding, or converting floating-point results to integers.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
     double price = 12.45;
-
-    printf("Ceil: %.0f, Floor: %.0f, Rounded: %.0f\n", ceil(price), floor(price),     round(price));
-
+    printf("Ceil: %.0f, Floor: %.0f, Rounded: %.0f\n", ceil(price), floor(price), 	round(price));
     return 0;
-
 }
+```
 
 - ceil/floor/round(double)
-- **Header:** &lt;math.h&gt;
-- Ceil: 13, Floor: 12, Rounded: 12
+
+```c
+Header: <math.h>
+```
+
+```c
+Ceil: 13, Floor: 12, Rounded: 12
+
+```
+
 - Result:
 
 ---
 
 ## But! - Integer rounding operations
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
     int a = 17; // Numerator (e.g., items to process)
-
     int b = 5;  // Denominator (e.g., batch size)
-
     // Standard integer division (floor): 17 / 5 = 3
-
-    int floor\_result = a / b;
-
+    int floor_result = a / b;
     // Integer division (ceiling): (17 + 5 - 1) / 5 = 21 / 5 = 4
-
-    int ceil\_result = (a + b - 1) / b;
-
+    int ceil_result = (a + b - 1) / b;
     // Result: 4 (because 17/5 = 3.4, and the ceiling is 4)
-
-    printf("Ceil: %d, Floor: %d\n", ceil\_result, floor\_result);
-
+    printf("Ceil: %d, Floor: %d\n", ceil_result, floor_result);
     return 0;
-
 }
+```
 
-- **Header:** &lt;math.h&gt;
-- Ceil: 4, Floor: 3
+```c
+Header: <math.h>
+```
+
+```c
+Ceil: 4, Floor: 3
+
+```
+
 - Result:
 
 ---
@@ -609,25 +615,29 @@ int main()
 
 - Used to find time or distance remainders that aren’t divisible evenly.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
     double price = 12.45;
-
-    printf("Ceil: %.0f, Floor: %.0f, Rounded: %.0f\n", ceil(price), floor(price),     round(price));
-
+    printf("Ceil: %.0f, Floor: %.0f, Rounded: %.0f\n", ceil(price), floor(price), 	round(price));
     return 0;
-
 }
+```
 
 - fmod(double, double)
-- **Header:** &lt;math.h&gt;
-- Remaining hours after full shifts: 1.5
+
+```c
+Header: <math.h>
+```
+
+```c
+Remaining hours after full shifts: 1.5
+
+```
+
 - Result:
 
 ---
@@ -636,25 +646,29 @@ int main()
 
 - Used in geometry, physics, or computer graphics to calculate distances.
 
-\#include &lt;stdio.h&gt;
-
-\#include &lt;string.h&gt;<br>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main()
-
 {
-
     double x = 3.0, y = 4.0;
-
     printf("Distance from origin: %.2f\n", hypot(x, y));
-
     return 0;
-
 }
+```
 
 - hypot(double, double)
-- **Header:** &lt;math.h&gt;
-- Distance from origin: 5.00
+
+```c
+Header: <math.h>
+```
+
+```c
+Distance from origin: 5.00
+
+```
+
 - Result:
 
 ---
@@ -666,9 +680,7 @@ int main()
 
 ---
 
-## 7. Utility Functions (&lt;stdlib.h&gt;)
-
-Convert strings to numbers.
+## 7. Utility Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -684,9 +696,7 @@ Convert strings to numbers.
 
 ---
 
-## 8. Diagnostics and Assertions (&lt;assert.h&gt;)
-
-Useful for debugging and safety.
+## 8. Diagnostics and Assertions (&lt;assert.h&gt;) Useful for debugging and safety.
 
 |Function / Macro|Description|Example|
 |---|---|---|
@@ -695,9 +705,7 @@ Useful for debugging and safety.
 
 ---
 
-## 9. Time and Date Functions (&lt;time.h&gt;)
-
-Work with clocks and timestamps.
+## 9. Time and Date Functions (&lt;time.h&gt;) Work with clocks and timestamps.
 
 |Function|Description|Example|
 |---|---|---|
@@ -712,9 +720,7 @@ Work with clocks and timestamps.
 
 ---
 
-## 10. Variable Argument Lists (&lt;stdarg.h&gt;)
-
-For functions that accept a variable number of parameters.
+## 10. Variable Argument Lists (&lt;stdarg.h&gt;) For functions that accept a variable number of parameters.
 
 |Macro|Description|Example|
 |---|---|---|
@@ -724,9 +730,7 @@ For functions that accept a variable number of parameters.
 
 ---
 
-## 1. Character Classification and Conversion (&lt;ctype.h&gt;)
-
-Used for testing and converting characters.
+## 1. Character Classification and Conversion (&lt;ctype.h&gt;) Used for testing and converting characters.
 
 |Function|Description|Example|
 |---|---|---|
@@ -744,9 +748,7 @@ Used for testing and converting characters.
 
 ---
 
-## Most Common System Libraries in Windows (WinAPI)
-
-These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
+## Most Common System Libraries in Windows (WinAPI) These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
 
 |Library|Description|Typical Functions|
 |---|---|---|
@@ -774,7 +776,7 @@ These headers are provided with the Windows SDK and are available in compilers s
 - Brian W. Kernighan, Dennis M. Ritchie. C Programming Language, 2nd Edition. Prentice Hall, 1988
 - Seacord, R. C. (2024). Effective C: An Introduction to Professional C Programming. No Starch Press, Inc. (Optional)
 
-![Amazon.com: C Programming Language, 2nd Edition: 8601410794231: Brian W.  Kernighan, Dennis M. Ritchie: Books](assets/image5.jpeg)
+![w:251px Amazon.com: C Programming Language, 2nd Edition: 8601410794231: Brian W.  Kernighan, Dennis M. Ritchie: Books](assets/image5.jpeg)
 
 ![Picture 4](assets/image6.jpeg)
 
