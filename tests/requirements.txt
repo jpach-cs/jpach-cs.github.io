@@ -3,7 +3,8 @@
 #   pip install -r tests/requirements.txt
 #
 # Layer 0 (tests/unit) needs pytest and pytest-cov; pylint and pyright check tools/ and tests/.
-# Layer 1 (tests/content) needs only pytest -- everything else is stdlib. It
+# Layer 1 (tests/content) needs pytest and PyYAML (to read _data/decks.yml in
+# test_deck_catalog.py); everything else is stdlib. It
 # additionally shells out to the `pdftotext` binary (poppler-utils), which is
 # a system package, not a pip package: `apt-get install -y poppler-utils` on
 # Debian/Ubuntu CI runners, `brew install poppler` on macOS. Content checks
@@ -15,6 +16,7 @@
 # status-code checks; see tests/e2e/crawler.py for why).
 pytest==9.1.1
 pytest-cov==7.1.0
+PyYAML==6.0.3
 pylint==4.0.5
 pyright==1.1.409
 selenium==4.44.0

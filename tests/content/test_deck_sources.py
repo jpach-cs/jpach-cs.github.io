@@ -14,15 +14,11 @@ nothing generated here to validate.
 from __future__ import annotations
 
 import re
-import shutil
-import subprocess
 from pathlib import Path
 
 import pytest
 
-from repo import REPO_ROOT, TEACHING_ROOT
-
-GIT_AVAILABLE = shutil.which('git') is not None
+from repo import GIT_AVAILABLE, REPO_ROOT, TEACHING_ROOT, tracked_files
 
 # Matches the leading '---\n ... \n---\n' YAML front matter block a Marp deck
 # opens with, capturing everything between the fences.
@@ -41,22 +37,6 @@ ASSET_REFERENCE_PATTERN = re.compile(r'\(assets/([^)\s]+)\)')
 def discover_deck_sources() -> list[Path]:
     '''Return every Marp deck source under teaching/, sorted for stable test IDs.'''
     return sorted(TEACHING_ROOT.rglob('slides.md'))
-
-
-def tracked_files() -> set[str]:
-    '''
-    Return every path `git` currently tracks in the index, as POSIX paths
-    relative to the repo root. Used to tell a committed legacy `index.html`
-    apart from one that is merely present on disk as fresh build output.
-    '''
-    result = subprocess.run(
-        ['git', 'ls-files'],
-        cwd=REPO_ROOT,
-        capture_output=True,
-        check=True,
-        text=True,
-    )
-    return set(result.stdout.splitlines())
 
 
 DECK_SOURCES = discover_deck_sources()

@@ -8,6 +8,8 @@ No network access, no Docker, no built site required.
 
 from __future__ import annotations
 
+import shutil
+import subprocess
 from pathlib import Path
 
 
@@ -28,3 +30,23 @@ def find_repo_root() -> Path:
 
 REPO_ROOT = find_repo_root()
 TEACHING_ROOT = REPO_ROOT / 'teaching'
+
+# Whether `git` is on PATH. Checks that need the index skip themselves without
+# it, so the suite still runs from an exported tarball.
+GIT_AVAILABLE = shutil.which('git') is not None
+
+
+def tracked_files() -> set[str]:
+    '''
+    Return every path `git` currently tracks in the index, as POSIX paths
+    relative to the repo root. Used to tell content committed to the repo
+    apart from build output that merely happens to be present on disk.
+    '''
+    result = subprocess.run(
+        ['git', 'ls-files'],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        check=True,
+        text=True,
+    )
+    return set(result.stdout.splitlines())
