@@ -21,9 +21,9 @@ exclude:
   - Dockerfile
   - docker-compose.yml
   - tests/
-  - decks/
   - CONTRIBUTING.md
   - pyproject.toml
   - package.json
   - package-lock.json
   - tools/
+  - teaching/**/slides.md

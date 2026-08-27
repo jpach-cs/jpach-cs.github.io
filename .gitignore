@@ -1,8 +1,9 @@
 jpach-cs.github.io.code-workspace
 
 # Marp decks render at build time (see CONTRIBUTING.md); only their markdown
-# source under decks/ is tracked. This does not affect PDFs already committed
-# under teaching/ from before the render pipeline existed - see CONTRIBUTING.md.
+# source at teaching/**/slides.md is tracked. This does not affect PDFs
+# already committed under teaching/ from before the render pipeline existed -
+# see CONTRIBUTING.md.
 teaching/**/*.pdf
 
 # Python cache from running tests/ (pytest, poppler pdftotext helpers).

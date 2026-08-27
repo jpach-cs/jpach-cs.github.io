@@ -33,6 +33,9 @@ tests/
                                  (c) no "??" placeholder outlines
     test_markdown_branding.py   bonus: syllabus.md/schedule.md branding (see below)
     test_index_links.py         (d) every index.md local link resolves
+    test_deck_sources.py        (j) every teaching/**/slides.md is valid Marp source
+                                 (k) every asset a slides.md references exists
+                                 (l) no directory has both slides.md and a committed index.html
   e2e/                      Layer 2 -- Selenium against the running site
     conftest.py             base_url / browser_base_url / driver / visit fixtures
     crawler.py              same-origin link+image crawler (requests-based)
@@ -97,6 +100,9 @@ and `test_index_links.py` do not need it at all.
 | (b) Lecture decks are branded for their own course | `test_deck_branding.py` | See below |
 | (c) No placeholder "??" outline | `test_deck_branding.py` | See below |
 | (d) Every local link in `teaching/**/index.md` resolves | `test_index_links.py` | **Fails** -- see below |
+| (j) Every `teaching/**/slides.md` opens with `marp: true` front matter | `test_deck_sources.py` | Passes |
+| (k) Every `assets/...` a `slides.md` references exists | `test_deck_sources.py` | Passes |
+| (l) No directory has both a `slides.md` source and a committed `index.html` | `test_deck_sources.py` | Passes |
 | bonus: syllabus/schedule markdown branding | `test_markdown_branding.py` | See below |
 
 Detail on each row above, keyed by check letter:

@@ -16,7 +16,7 @@ services:
       timeout: 3s
       retries: 10
 
-  # Renders decks/**/index.md into HTML and PDF under teaching/, without the
+  # Renders teaching/**/slides.md into HTML and PDF in place, without the
   # rest of the Jekyll build. Bind-mounts the repo so output lands on the
   # host for authoring: `docker compose run --rm marp`. Not started by
   # `docker compose up`; the "web" image renders decks on its own as part of
@@ -26,7 +26,6 @@ services:
       context: .
       target: marp-render
     entrypoint: ["/bin/sh", "tools/render-decks.sh"]
-    command: ["teaching"]
     volumes:
       - .:/home/marp/app
     profiles:

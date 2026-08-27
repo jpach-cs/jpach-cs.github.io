@@ -6,9 +6,18 @@ build time - the markdown is the source of truth, not the rendered files.
 
 ## Authoring a slide deck
 
-1. Create `decks/<same path as the deck lives under teaching/>/index.md`. For
-   example, the source for `teaching/csci-232/lectures/lecture03/` lives at
-   `decks/csci-232/lectures/lecture03/index.md`.
+1. Create `teaching/<path>/slides.md`, right next to where the deck is
+   served. For example, the source for `teaching/csci-232/lectures/lecture03/`
+   lives at `teaching/csci-232/lectures/lecture03/slides.md`.
+
+   The source file is named `slides.md`, not `index.md`: Marp front matter
+   and Jekyll front matter are both YAML between `---` fences, so a
+   `marp: true` file named `index.md` would also look like a valid Jekyll
+   page. Jekyll would try to render it with the site's default layout,
+   producing a second, wrong page at the same URL as the real deck (the
+   Marp-rendered `index.html`). `_config.yml`'s `exclude:` also excludes
+   `teaching/**/slides.md` from the Jekyll build as a second line of
+   defense.
 2. Give it Marp front matter and use the shared theme:
 
    ```markdown
@@ -24,24 +33,22 @@ build time - the markdown is the source of truth, not the rendered files.
    Slide content here.
    ```
 
-3. Put any images the deck uses next to `index.md` (or in an `assets/`
-   subfolder beside it) and reference them with a relative path, e.g.
-   `![diagram](assets/diagram.png)`. Everything in the deck's folder except
-   `index.md` itself is copied over to the rendered output automatically.
+3. Put any images the deck uses next to `slides.md`, in an `assets/`
+   subfolder, and reference them with a relative path, e.g.
+   `![diagram](assets/diagram.png)`.
 4. Render it:
 
    ```sh
    docker compose run --rm marp
    ```
 
-   This renders every deck under `decks/` into matching HTML and PDF under
-   `teaching/`, using the shared theme, and writes them straight onto your
-   working tree (no container-only output to dig out).
-5. Commit `decks/<path>/index.md` and any images it needs. Do **not** commit
-   the generated `teaching/<path>/index.html` for a migrated deck going
-   forward, per "Generated output and .gitignore" below - the transition plan
-   for the files that are *already* committed is still an open question (see
-   that section).
+   This renders every deck at `teaching/**/slides.md` into `index.html` and
+   `index.pdf` in the same directory as its source, using the shared theme,
+   and writes them straight onto your working tree (no container-only output
+   to dig out).
+5. Commit `teaching/<path>/slides.md` and its `assets/` folder. Do **not**
+   commit the generated `teaching/<path>/index.html` or `index.pdf` - see
+   "Generated output and committed legacy content" below.
 6. Preview the whole site the normal way:
 
    ```sh
@@ -49,28 +56,6 @@ build time - the markdown is the source of truth, not the rendered files.
    ```
 
    (Port 8080/8081 may already be in use locally; 8083 is free.)
-
-There's a working example at `decks/pipeline-smoketest/index.md` if you want
-to see a minimal deck end to end - it's a build smoke test, not real course
-content, and can be deleted once you're comfortable with the workflow.
-
-## Why `decks/` is separate from `teaching/`
-
-`teaching/` is what Jekyll and GitHub Pages serve. `decks/` is Marp source
-only and is excluded from the Jekyll build entirely (see `exclude:` in
-`_config.yml`). Two reasons it isn't just `index.md` sitting directly in
-`teaching/<path>/` next to the rendered output:
-
-- Marp front matter and Jekyll front matter are both YAML between `---`
-  fences. A `decks/.../index.md` with `marp: true` in it would also look like
-  a valid Jekyll page if it sat inside `teaching/`, and Jekyll would try to
-  render it with the site's default layout - producing a second, wrong page
-  at the same URL as the real deck.
-- It keeps authoring source from ever being one accidental Jekyll config
-  change away from overwriting rendered output, in either direction.
-
-The render stage writes generated HTML/PDF into `teaching/<same path>/`,
-mirroring `decks/`, so URLs don't change.
 
 ## The shared theme
 
@@ -100,39 +85,53 @@ theme is fully self-contained, `tools/render-decks.sh` has nothing asset-related
 to copy, and there's exactly one authored copy of each image, living only in
 `theme.css`.
 
-## Generated output and `.gitignore`
+## Generated output and committed legacy content
 
-Going forward, `teaching/**/*.pdf` is gitignored - PDFs are Marp render
-output, not something to hand-edit or diff in review.
+Every deck directory under `teaching/` is in exactly one of two states:
 
-**This does not touch the roughly 18 PDFs already committed under
-`teaching/`** (one per existing lecture, lab, and assignment deck). Ignoring
-a pattern in Git has no effect on files that are already tracked; they stay
-in the repository and `git status` will not flag them. What changes is that
-*new* PDFs generated by the render pipeline won't accidentally get staged.
+- **Source (current)**: `slides.md` + an `assets/` folder. `index.html` and
+  `index.pdf` next to them are Marp build output - regenerate them with
+  `docker compose run --rm marp`, don't hand-edit them, and don't commit
+  them. `teaching/**/*.pdf` is gitignored for this reason; `index.html` isn't
+  (`.gitignore` can't express "ignore this file only in directories that
+  also have a `slides.md`"), so nothing stops `git add` from picking one up
+  by accident - check `git status` before committing a deck.
+- **Committed legacy (no source yet)**: just `index.html` and `index.pdf`,
+  with no `slides.md`. The markdown source for these was never written -
+  only the rendered output exists. These 15 directories are still in this
+  state:
 
-**Open question, not decided here:** should those ~18 already-committed
-PDFs (and their `index.html` siblings) be migrated to `decks/*/index.md` and
-untracked, or left as committed legacy content indefinitely? Two things make
-this more than a cleanup task:
+  - `csci-112/assignments/ass01`
+  - `csci-112/laboratories/lab01`
+  - `csci-112/laboratories/lab02`
+  - `csci-112/lectures/lecture01-intro`
+  - `csci-232/lectures/lecture01-intro`
+  - `csci-232/lectures/lecture02`
+  - `csci-446/assignments/ass01`
+  - `csci-446/laboratories/lab01`
+  - `csci-446/laboratories/lab02`
+  - `csci-446/lectures/lecture01-intro`
+  - `csci-446/lectures/lecture02`
+  - `esof-322/assignments/ass01`
+  - `esof-322/laboratories/lab01`
+  - `esof-322/laboratories/lab02`
+  - `esof-322/lectures/lecture01-intro`
 
-- The markdown source for those decks doesn't exist anywhere - only the
-  rendered HTML/PDF do. Migrating a deck means reconstructing its markdown
-  from the rendered output (lossy - speaker intent, incremental builds, and
-  any authoring shortcuts are gone), not a mechanical move.
-- This repository is `jpach-cs.github.io` - it deploys as a GitHub Pages
-  site, and native GitHub Pages runs Jekyll only. It does not run this
-  repo's Dockerfile or Marp. If a deck's `index.html`/`index.pdf` are ever
-  removed from Git in favor of `decks/*/index.md` alone, the live site will
-  have nothing to serve at that URL unless the render step also runs
-  somewhere before deploy (a GitHub Actions workflow that commits or
-  publishes the rendered output, or switching the deployed artifact to this
-  Dockerfile's nginx stage instead of native Pages). That deploy question is
-  out of scope here and belongs to whoever owns the migration.
+  Migrating one of these means reconstructing its markdown from the rendered
+  output (lossy - speaker intent, incremental builds, and any authoring
+  shortcuts are gone), not a mechanical move. Until someone does that for a
+  given directory, leave its `index.html`/`index.pdf` alone and committed.
 
-Until that's decided, treat committed `index.html`/`index.pdf` under
-`teaching/` as legacy and leave them alone; only add new decks through
-`decks/`.
+  This repository is `jpach-cs.github.io` - native GitHub Pages runs Jekyll
+  only and does not run this repo's Dockerfile or Marp, so it can't render a
+  `slides.md` on its own. That's what the `deploy` job in
+  `.github/workflows/ci.yml` is for: on push to `main` it builds the same
+  Dockerfile used locally (Marp render, then Jekyll) and publishes the
+  result via GitHub Actions, so `index.html`/`index.pdf` for a source-backed
+  deck never need to be committed to be live. That job only takes effect
+  once the repository's Pages source is set to "GitHub Actions" (Settings >
+  Pages > Build and deployment); until then, native Pages keeps publishing
+  from `main` directly and won't render a deck that only has `slides.md`.
 
 ## Local development
 
