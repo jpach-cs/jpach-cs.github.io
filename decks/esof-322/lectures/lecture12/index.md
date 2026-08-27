@@ -1,0 +1,525 @@
+---
+marp: true
+theme: pach
+paginate: true
+title: "Software Engineering"
+---
+
+# Software Engineering
+
+*Lecture 12*
+
+---
+
+## Today’s Agenda
+
+- continuation of the makefile
+
+---
+
+- Do tego makefile można dzielic na moduly, gdzie pliki o rozszrzeniu .mk będą modulami makefile za pomocą include jak w C
+- *prerequisites* mogą być oddzielane  &amp; oznacza budowę asynchroniczna rownolegla, przyspiesza działanie make, jeśli istnieje wiele zaleznosci to można kazda z nich robic rownolegle bo sa niezależne – opcja profesionalna dla gigantycznych projektów
+- make.RECIPEPREFIX – można zmienić tab na cos innego
+
+---
+
+# continuation of
+
+*the makefile*
+
+---
+
+## Last time
+
+CC     := gcc
+
+CFLAGS := -g -Wall -std=c99 -pedantic # compiler flags
+
+LFLAG  := -g # linker flag<br>
+
+TARGET := main.exe
+
+OBJS   := main.o other.o<br>
+
+RM := -rm -f <br>
+
+ifeq ($(SHELL),sh.exe) # without any space!
+
+    \# cmd/powershell
+
+    RM := del
+
+endif<br>
+
+.PHONY: all clean<br>
+
+all: $(TARGET)<br>
+
+$(TARGET): $(OBJS)
+
+    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)<br>
+
+main.o: main.c  # we dont have the main.h
+
+    $(CC) $(CFLAGS) -c main.c -o main.o<br>
+
+other.o: other.h other.c
+
+    $(CC) $(CFLAGS) -c other.c -o other.o
+
+clean:
+
+    $(RM) $(OBJS)
+
+---
+
+## extension
+
+CC     := gcc
+
+CFLAGS := -g -Wall -std=c99 -pedantic # compiler flags
+
+LFLAG  := -g # linker flag<br>
+
+TARGET := main.exe
+
+OBJS   := main.o other.o<br>
+
+RM := -rm -f <br>
+
+ifeq ($(SHELL),sh.exe) # without any space!
+
+    \# cmd/powershell
+
+    RM := del
+
+endif<br>
+
+.PHONY: all clean<br>
+
+all: $(TARGET)<br>
+
+$(TARGET): $(OBJS)
+
+    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)<br>
+
+main.o: main.c  # we dont have the main.h
+
+    $(CC) $(CFLAGS) -c main.c -o main.o<br>
+
+other.o: other.h other.c
+
+    $(CC) $(CFLAGS) -c other.c -o other.o
+
+clean:
+
+    $(RM) $(OBJS)
+
+INC\_DIR :=inc#include for headers
+
+<br>CC     := gcc
+
+CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC\_DIR) # compiler flags
+
+LFLAG  := -g # linker flag
+
+TARGET := main.exe #$(SCR\_DIR)/main.exe
+
+OBJS   := main.o other.o
+
+RM := -rm -f
+
+<br>.PHONY: all clean
+
+<br>all: $(TARGET)
+
+<br>
+
+$(TARGET): $(OBJS)
+
+    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+
+<br>main.o: main.c
+
+    $(CC) $(CFLAGS) -c main.c -o main.o
+
+<br>other.o: $(INC\_DIR)/other.h other.c
+
+    $(CC) $(CFLAGS) -c other.c -o other.o
+
+<br>clean:
+
+    $(RM) $(OBJS)
+
+---
+
+## Splitting a Project into Directories with Makefile
+
+**Path separator in Makefiles**
+
+- Make (originally from Linux) uses / instead of \ for paths.
+- On Windows, cmd does not understand / in commands like
+  - RM := del $(OBJ\_DIR)\\\*.o
+  - while Bash (MinGW/Git Bash) does.
+- In theory, you could define a SEP variable and substitute everywhere depending on the shell — but in practice this is **not worth it**.
+
+**Convention:** Always write Makefiles for **Bash**, even on Windows (MinGW/Git includes Bash by default).
+
+---
+
+## Splitting a Project into Directories with Makefile
+
+**Backslash problem:**
+
+- A single \ in Make is treated as a line continuation symbol.
+- To insert a literal backslash in a command or path, you must write \\.
+
+**Directory variables:**
+
+- Usual naming convention: UPPERCASE with underscores (snake\_case), treated like constants:
+  - OBJ\_DIR := obj
+  - BIN\_DIR := bin
+  - SRC\_DIR := src
+- Usage inside rules:
+  - $(BIN\_DIR)/main.exe
+
+---
+
+## Splitting a Project into Directories with Makefile
+
+**Header files and -I option**
+
+- GCC automatically searches for headers in the **same directory** as the source file being compiled.
+- If your headers are in a separate folder (e.g., include/), you must tell the compiler:
+  - -I $(INC\_DIR)
+
+---
+
+## extension
+
+CC     := gcc
+
+CFLAGS := -g -Wall -std=c99 -pedantic # compiler flags
+
+LFLAG  := -g # linker flag<br>
+
+TARGET := main.exe
+
+OBJS   := main.o other.o<br>
+
+RM := -rm -f <br>
+
+ifeq ($(SHELL),sh.exe) # without any space!
+
+    \# cmd/powershell
+
+    RM := del
+
+endif<br>
+
+.PHONY: all clean<br>
+
+all: $(TARGET)<br>
+
+$(TARGET): $(OBJS)
+
+    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)<br>
+
+main.o: main.c  # we dont have the main.h
+
+    $(CC) $(CFLAGS) -c main.c -o main.o<br>
+
+other.o: other.h other.c
+
+    $(CC) $(CFLAGS) -c other.c -o other.o
+
+clean:
+
+    $(RM) $(OBJS)
+
+INC\_DIR :=inc#include for headers
+
+<br>CC     := gcc
+
+CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC\_DIR) # compiler flags
+
+LFLAG  := -g # linker flag
+
+TARGET := main.exe #$(SCR\_DIR)/main.exe
+
+OBJS   := main.o other.o
+
+RM := -rm -f
+
+<br>.PHONY: all clean
+
+<br>all: $(TARGET)
+
+<br>
+
+$(TARGET): $(OBJS)
+
+    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+
+<br>main.o: main.c
+
+    $(CC) $(CFLAGS) -c main.c -o main.o
+
+<br>other.o: $(INC\_DIR)/other.h other.c
+
+    $(CC) $(CFLAGS) -c other.c -o other.o
+
+<br>clean:
+
+    $(RM) $(OBJS)
+
+---
+
+## Adding a Dedicated inc/ Directory for Headers
+
+In this example, we moved other.h into a new inc/ directory. Unlike bin/ or obj/, this directory does **not** need to be created by the Makefile, because it is already part of the repository structure — headers are expected to live there.
+
+Three important changes were required to make compilation work:
+
+- **Define INC\_DIR**
+- **Add the -I flag to the compiler options** so GCC knows where to look for headers:
+- **Update dependencies for other.o** to point explicitly to the header in
+
+With these adjustments, the compiler will correctly find other.h in the inc/ directory, and the build process completes successfully.
+
+INC\_DIR :=inc#include for headers
+
+<br>CC     := gcc
+
+CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC\_DIR) # compiler flags
+
+LFLAG  := -g # linker flag
+
+TARGET := main.exe #$(SCR\_DIR)/main.exe
+
+OBJS   := main.o other.o
+
+RM := -rm -f
+
+<br>.PHONY: all clean
+
+<br>all: $(TARGET)
+
+<br>
+
+$(TARGET): $(OBJS)
+
+    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+
+<br>main.o: main.c
+
+    $(CC) $(CFLAGS) -c main.c -o main.o
+
+<br>other.o: $(INC\_DIR)/other.h other.c
+
+    $(CC) $(CFLAGS) -c other.c -o other.o
+
+<br>clean:
+
+    $(RM) $(OBJS)
+
+---
+
+## Make is extremely sensitive to spaces
+
+For example, if you write
+
+- INC\_DIR :=inc#include for headers
+
+everything works fine. But if you accidentally insert a space before the comment, like this:
+
+- INC\_DIR :=inc #include for headers
+
+then make will fail with an error such as:
+
+- mingw32-make: \*\*\* No rule to make target '/other.h', needed by 'other.o'.  Stop.
+
+One way to avoid this issue is to always place the # for comments **immediately after the declaration, with no spaces in between**. This guarantees there are no stray whitespace characters that could break the Makefile
+
+INC\_DIR :=inc#include for headers
+
+<br>CC     := gcc
+
+CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC\_DIR) # compiler flags
+
+LFLAG  := -g # linker flag
+
+TARGET := main.exe #$(SCR\_DIR)/main.exe
+
+OBJS   := main.o other.o
+
+RM := -rm -f
+
+<br>.PHONY: all clean
+
+<br>all: $(TARGET)
+
+<br>
+
+$(TARGET): $(OBJS)
+
+    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+
+<br>main.o: main.c
+
+    $(CC) $(CFLAGS) -c main.c -o main.o
+
+<br>other.o: $(INC\_DIR)/other.h other.c
+
+    $(CC) $(CFLAGS) -c other.c -o other.o
+
+<br>clean:
+
+    $(RM) $(OBJS)
+
+---
+
+## extension
+
+INC\_DIR :=inc#include for headers
+
+BIN\_DIR :=bin# \*.exe
+
+CC     := gcc
+
+CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC\_DIR) # compiler flags
+
+LFLAG  := -g # linker flag<br>
+
+TARGET := $(BIN\_DIR)/main.exe #$(SCR\_DIR)/main.exe
+
+OBJS   := main.o other.o
+
+RM := -rm -f <br>
+
+.PHONY: all clean check-shell<br>
+
+all: $(TARGET)<br>
+
+$(TARGET): $(OBJS) | $(BIN\_DIR) #order-only prerequisite
+
+    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+
+main.o: main.c
+
+    $(CC) $(CFLAGS) -c main.c -o main.o
+
+other.o: $(INC\_DIR)/other.h other.c
+
+    $(CC) $(CFLAGS) -c other.c -o other.o<br>
+
+$(BIN\_DIR):
+
+    mkdir $(BIN\_DIR)<br>
+
+clean:
+
+    $(RM) $(OBJS)
+
+INC\_DIR :=inc#include for headers
+
+<br>CC     := gcc
+
+CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC\_DIR)
+
+LFLAG  := -g # linker flag
+
+TARGET := main.exe #$(SCR\_DIR)/main.exe
+
+OBJS   := main.o other.o
+
+RM := -rm -f
+
+<br>.PHONY: all clean
+
+<br>all: $(TARGET)
+
+<br>
+
+$(TARGET): $(OBJS)
+
+    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+
+<br>main.o: main.c
+
+    $(CC) $(CFLAGS) -c main.c -o main.o
+
+<br>other.o: $(INC\_DIR)/other.h other.c
+
+    $(CC) $(CFLAGS) -c other.c -o other.o
+
+<br>clean:
+
+    $(RM) $(OBJS)
+
+---
+
+## Adding a Dedicated bin/
+
+The compilation output (main.exe) is now placed inside the bin directory, which will **not be tracked in the repository**. This is recorded in .gitignore, so when cloning the repository locally, the bin folder will not be present.
+
+- The mkdir command is used to create the bin directory. Note that in Windows cmd, there is **no -p parameter**, so GPT’s suggestion was incorrect.
+- To avoid errors if the directory already exists and to prevent make from stopping, the **order-only prerequisite operator |** is used. This tells make to check if the target exists (file or directory). If it exists, make does nothing; if it doesn’t, it runs the recipe exactly once. This is precisely what is needed for our scenario.
+
+Modifications include:
+
+- Adding a variable for the bin directory (BIN\_DIR).
+- Extending the TARGET variable to include the directory path, so we **don’t have to modify the actual target recipe later**.
+- Adding a dedicated $(BIN\_DIR) target. **Note:** this is **not a phony target**, because we want make to check for the existence of the directory.
+
+These changes ensure that the build artifacts are separated from the source code and repository, and that make handles the directory creation safely and efficiently.
+
+INC\_DIR :=inc#include for headers
+
+BIN\_DIR :=bin# \*.exe
+
+CC     := gcc
+
+CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC\_DIR) # compiler flags
+
+LFLAG  := -g # linker flag<br>
+
+TARGET := $(BIN\_DIR)/main.exe #$(SCR\_DIR)/main.exe
+
+OBJS   := main.o other.o
+
+RM := -rm -f <br>
+
+.PHONY: all clean check-shell<br>
+
+all: $(TARGET)<br>
+
+$(TARGET): $(OBJS) | $(BIN\_DIR) #order-only prerequisite
+
+    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+
+main.o: main.c
+
+    $(CC) $(CFLAGS) -c main.c -o main.o
+
+other.o: $(INC\_DIR)/other.h other.c
+
+    $(CC) $(CFLAGS) -c other.c -o other.o<br>
+
+$(BIN\_DIR):
+
+    mkdir $(BIN\_DIR)<br>
+
+clean:
+
+    $(RM) $(OBJS)
+
+---
+
+- echo %ERRORLEVEL%
+
+---
+
+# Thank
+
+*You!*

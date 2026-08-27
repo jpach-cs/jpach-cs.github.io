@@ -1,8 +1,8 @@
 title: Jacob L. Pach
-#logo
+# logo
 show_downloads: false
 theme: jekyll-theme-hacker
-#devlopr-jekyll
+# devlopr-jekyll
 description: jpach@mtech.edu
 
 # Files that support local development but are not part of the published site.
@@ -21,4 +21,9 @@ exclude:
   - Dockerfile
   - docker-compose.yml
   - tests/
+  - decks/
   - CONTRIBUTING.md
+  - pyproject.toml
+  - package.json
+  - package-lock.json
+  - tools/

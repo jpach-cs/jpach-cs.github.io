@@ -9,3 +9,25 @@ services:
       - "${WEB_PORT:-8080}:80"
     volumes: []
     restart: unless-stopped
+    healthcheck:
+      # nginx:alpine ships busybox wget; `docker compose up --wait` blocks on this.
+      test: ["CMD", "wget", "-qO-", "http://localhost/"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  # Renders decks/**/index.md into HTML and PDF under teaching/, without the
+  # rest of the Jekyll build. Bind-mounts the repo so output lands on the
+  # host for authoring: `docker compose run --rm marp`. Not started by
+  # `docker compose up`; the "web" image renders decks on its own as part of
+  # its build (see the "marp-render" stage in Dockerfile).
+  marp:
+    build:
+      context: .
+      target: marp-render
+    entrypoint: ["/bin/sh", "tools/render-decks.sh"]
+    command: ["teaching"]
+    volumes:
+      - .:/home/marp/app
+    profiles:
+      - tools

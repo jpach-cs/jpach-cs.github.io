@@ -1,0 +1,1191 @@
+---
+marp: true
+theme: pach
+paginate: true
+title: "CSCI 112  Programming with C"
+---
+
+# CSCI 112<br><br>Programming with C
+
+- Lecture 8
+- Dr. Jakub L. Pach
+- Fall 2025
+
+---
+
+![Graphic 3](assets/image2.png)
+
+---
+
+## Outline
+
+- Review
+- Operators
+  - &amp; address-of
+  - \* Indirection (dereference)
+- Left-to-right &amp; right-to-left associativity
+- Preprocessor
+- Buffered input
+
+---
+
+# Review
+
+---
+
+## while loop
+
+- while (expression1)
+- statement1;
+
+A while loop repeatedly executes statement1 based on the logical outcome of expression1 as long as expression1 evaluates to true.
+
+- a value of i is: 0
+- a value of i is: 1
+- a value of i is: 2
+- Result:
+- int main()
+- {
+-   int i = 0;
+-   while ( i &lt; 3 )
+-   {
+-     printf("a value of i is: %d\n", i);
+-     i++;
+-   }
+- }
+- int main()
+- {
+-   int i = 0;
+-   while ( i &lt; 3 )
+-     printf("a value of i is: %d\n", i++);
+- }
+- OR
+
+---
+
+## for loop
+
+- for (expression1; expression2; expression3)
+- statement1;
+- A for loop repeatedly executes statement1 based on the logical outcome of expression2 as long as expression2 evaluates to true.
+- Most commonly expression1 and expression3 are assignments of function calls and expression2 is  a relational expression.
+- Any of the three part can be omitted, although the semicolons must be remain. If expression2 is not present, it is taken as permanently true.
+- a value of i is: 0
+- a value of i is: 1
+- a value of i is: 2
+- Result:
+- int main()
+- {
+-   for (int i = 0; i &lt; 4; i++ )
+-     printf("a value of i is: %d\n", i);
+- }
+
+---
+
+## The for loop is equivalent to while loop
+
+- expression1;
+- while (expression2)
+- {
+- statement1;
+- expression3;
+- }
+- for (expression1; expression2; expression3)
+- {
+- statement1;
+- }
+
+---
+
+## “Infinity” loop
+
+- while (true)
+- {
+- ;
+- }
+- for (;;)
+- {
+- ;
+- }
+
+---
+
+## break &amp; continue keywords
+
+- break and continue offer distinct ways to control loop flow.
+- break instantly terminates the loop it's in, while continue jumps to the next iteration.
+- When nested, break affects only the immediate loop.
+- break is also applicable in switch statements to exit a specific case
+- int main()
+- {
+-   for (int i = 1; i &lt;= 10; i++)
+-   {
+-     if (i == 5)
+-       break;          /\* Breaks the loop      \*/
+-     printf("%d ", i); /\* when i is equal to 5 \*/
+-   }
+- }
+- 1 2 3 4
+- Result:
+
+---
+
+## break &amp; continue keywords
+
+- break and continue offer distinct ways to control loop flow.
+- break instantly terminates the loop it's in, while continue jumps to the next iteration.
+- When nested, break affects only the immediate loop.
+- break is also applicable in switch statements to exit a specific case
+- int main()
+- {
+-   int i = 0;
+-   while (i &lt; 10)
+-   {
+-     i++;
+-     if (i % 2 == 0)
+-       continue;       /\* Skips the rest of the    \*/
+-     printf("%d ", i); /\* iteration when i is even \*/
+-   }
+- }
+- 1 3 5 7 9
+- Result:
+
+---
+
+## goto statement in loops
+
+- goto provides a convenient way to exit from nested blocks
+- int main()
+- {
+-   bool bug = false;
+-   for (int i = 0; i &lt; 5; i++)
+-   {
+-     for (int j = 0; j &lt; 5; j++)
+-     {
+-       /\* some code \*/
+-       /\* ...       \*/
+-       if(bug)
+-         goto error;
+-     }
+-   }
+-   goto end;
+-   error:
+-     /\* some code \*/
+-     /\* ...       \*/
+-     printf("error found");
+-   end:
+- }
+- int main()
+- {
+-   bool bug = false; int i = 0, j = 0;
+-   while ( i &lt; 5)
+-   {
+-     while ( j &lt; 5)
+-     {/\* some code \*/
+-      /\* ...       \*/
+-       if(bug)
+-         goto error;
+-       j++;
+-     }
+-     i++;
+-   }
+-   goto end;
+-   error:
+-     /\* some code \*/
+-     /\* ...       \*/
+-     printf("error found");
+-   end:
+- }
+
+---
+
+## Prototype &amp; its Function
+
+- In contrast to function implementations, function prototypes are terminated with a semicolon(;)
+- A minimal prototype must precede the function definition, and it is standard to list function prototypes alphabetically after preprocessor directives within a file
+- return-type function-name (parameter declarations, if any)
+- {
+- statements;             /\* including declarations \*/
+- return expression1;
+- }
+- return-type function-name (only type of parameter declarations, if any);
+
+---
+
+## Prototype &amp; its Function
+
+- The return type can be any of the data types presented in the previous material, and additionally, void can be used if no value is to be returned.
+- The function name is symbolic\_name.
+- return-type function-name (parameter declarations, if any)
+- {
+- statements;             /\* including declarations \*/
+- return expression1;
+- }
+- return-type function-name (only type of parameter declarations, if any);
+
+---
+
+## Prototype &amp; its Function
+
+- \#include &lt;stdio.h&gt;
+- <br>void myFunction1(void);
+- int  myFunction2(int);
+- int  myFunction3(void);
+- <br>void myFunction1()
+- {
+-   printf("Text from myFuntion1\n");
+-   return;
+- }
+- int myFunction2(int n)
+- {
+-   n++;
+-   printf("incremented n from myFuntion2 equals %d\n", n);
+-   return 1;
+- }
+- int myFunction3()
+- {
+-   int n = 2;
+-   printf("n from myFuntion3 equals %d\n", n);
+-   /\* the compiler will not return an error if     \*/
+-   /\* we omit return, and the function will return \*/
+-   /\* an unspecified value                         \*/
+- }
+- int main()
+- {
+-   myFunction1();
+-   int result = myFunction2(2);
+-   printf("result of myFuntion2 equals %d\n", result);
+-   result = myFunction3();
+-   printf("result of myFuntion3 equals %d\n", result);
+-   return 0;
+- }
+- Text from myFuntion1
+- incremented n from myFuntion2 equals 3
+- result of myFuntion2 equals 1
+- n from myFuntion3 equals 2
+- result of myFuntion3 equals 27
+- Result:
+- Correct exit
+
+<!-- Green comment! -->
+
+---
+
+## Variables
+
+- variable scope    –    the region in which a variable is valid;
+
+any variable must be declared before its first use;
+
+- Variables:
+
+– local (automatic)
+
+– global
+
+local variable    –    is only accessible within the block where it is defined. Once the         block ends, access to the local variable is lost.
+
+global variable    –    declared outside of functions, is accessible from any point in the         program below its declaration.
+
+---
+
+## global vs local
+
+We don't have direct access to a shadowed variable. The only way to access it is through a pointer.
+
+- \#include &lt;stdio.h&gt;
+- int x = 5;                 /\* global x \*/
+- <br>void myFunction1(void);<br>void myFunction1()
+- {
+-   printf("x equals %d that is read by function myFunction\n", x);
+- }
+- int main()
+- {
+-   int \* pointerGlobalX = &amp;x;
+-   myFunction1();
+-   int x = 3;              /\* local x \*/
+-   printf("x equals %d that is read by function main\n", x);
+-   printf("x equals %d that is read by function main\n", \*pointerGlobalX);
+-   return 0;
+- }
+- x equals 5 that is read by function myFunction
+- x equals 3 that is read by function main
+- x equals 5 that is read by function main
+- Result:
+
+---
+
+## Summary - variable scope
+
+- Global variables are accessible throughout a program, but they can be temporarily hidden by a local variable declared within a nested block, such as a function, for loop, while loop, or even an if statement.
+- This is known as "variable shadowing," and within the local variable's scope, any reference to that variable name will refer to the local one. The global variable remains inaccessible until the local variable's block is exited and the local variable is released from memory. At that point, access to the global variable is restored.
+
+---
+
+# Operator &amp; address-of
+
+---
+
+|Priority / Operator||Description|Associativity|Example|Result|
+|---|---|---|---|---|---|
+|1|(), \[\]|Parentheses; Array subscript|Left-to-right|arr\[0\] \* (x + y)|1|
+||.|Structure and union member access||point.x|1|
+||-&gt;|Structure and union member access through pointer||ppoint-&gt;x|1|
+|2|++, --|Prefix &amp; postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
+||+, -, !, ~|(Unary) plus and minus; Logical NOT and bitwise NOT||y =-y; y =+y; !x; ~;x|6, -6,0, -6|
+||\*, &amp; , &amp;&amp;|Indirection (dereference); Address-of; Address-of labels||z = &amp;x; \*z;|6422276; 5|
+||(type), sizeof|Cast, Size-of||(int)3.0f; sizeof(x);|3, 4|
+|3|\*, /, %|Multiplication, division, and remainder|Left-to-right|6/2 % 2|1|
+|4|+, -|Addition and subtraction||1 + 2; 3 - 1|3, 2|
+|5|&lt;&lt;,  &gt;&gt;|Bitwise left shift and right shift||4 &lt;&lt; 1; 4 &gt;&gt; 2|8, 1|
+|6|&lt;, &lt;=, &gt;, &gt;=|For relational operators &lt;, &gt; and ≤, ≥ respectively||x&lt;y; x&lt;=y; x&gt;y; x&gt;=y|1, 1, 0 ,0|
+|7|==, !=|For relational = and ≠ respectively||x == y, x != 1|1, 0|
+|8|&amp;|Bitwise AND||7 &amp; 3|3|
+|9|^|Bitwise XOR (exclusive or)||255 ^ 0|255|
+|10|\||Bitwise OR (inclusive or)||7 \| 3|7|
+|11|&amp;&amp;|Logical AND||1 &amp;&amp; 0|0|
+|12|\|\||Logical OR||1 \|\| 0|1|
+|13|?:|Ternary conditional|Right-to-left|x  = (x &gt; y) ? y : x;|-6|
+|14|=|Simple assignment||x  = y;|-6|
+||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
+||&lt;&lt;=, &gt;&gt;=, &amp;=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
+|15|,|Comma|Left-to-right|x = 3, y = 1;|3|
+
+- struct Point { int x; int y; }; int main()<br>{struct Point point = {1,2}, \*ppoint = &amp;point;  int arr\[\] = {1,2}; int x = 5, y =-6; int \* z; float f = 3.0f; /\*code\*/}
+
+<!-- perentysys; esiszewitiwy
+Use parentheses to override order of evaluation -->
+
+---
+
+|Priority / Operator||Description|Associativity|Example|Result|
+|---|---|---|---|---|---|
+|1|(), \[\]|Parentheses; Array subscript|Left-to-right|arr\[0\] \* (x + y)|1|
+||.|Structure and union member access||point.x|1|
+||-&gt;|Structure and union member access through pointer||ppoint-&gt;x|1|
+|2|++, --|Prefix &amp; postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
+||+, -, !, ~|(Unary) plus and minus; Logical NOT and bitwise NOT||y =-y; y =+y; !x; ~;x|6, -6,0, -6|
+||\*, &amp; , &amp;&amp;|Indirection (dereference); **Address-of; Address-of labels**||z = &amp;x; \*z;|6422276; 5|
+||(type), sizeof|Cast, Size-of||(int)3.0f; sizeof(x);|3, 4|
+|3|\*, /, %|Multiplication, division, and remainder|Left-to-right|6/2 % 2|1|
+|4|+, -|Addition and subtraction||1 + 2; 3 - 1|3, 2|
+|5|&lt;&lt;,  &gt;&gt;|Bitwise left shift and right shift||4 &lt;&lt; 1; 4 &gt;&gt; 2|8, 1|
+|6|&lt;, &lt;=, &gt;, &gt;=|For relational operators &lt;, &gt; and ≤, ≥ respectively||x&lt;y; x&lt;=y; x&gt;y; x&gt;=y|1, 1, 0 ,0|
+|7|==, !=|For relational = and ≠ respectively||x == y, x != 1|1, 0|
+|8|&amp;|Bitwise AND||7 &amp; 3|3|
+|9|^|Bitwise XOR (exclusive or)||255 ^ 0|255|
+|10|\||Bitwise OR (inclusive or)||7 \| 3|7|
+|11|&amp;&amp;|Logical AND||1 &amp;&amp; 0|0|
+|12|\|\||Logical OR||1 \|\| 0|1|
+|13|?:|Ternary conditional|Right-to-left|x  = (x &gt; y) ? y : x;|-6|
+|14|=|Simple assignment||x  = y;|-6|
+||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
+||&lt;&lt;=, &gt;&gt;=, &amp;=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
+|15|,|Comma|Left-to-right|x = 3, y = 1;|3|
+
+- struct Point { int x; int y; }; int main()<br>{struct Point point = {1,2}, \*ppoint = &amp;point;  int arr\[\] = {1,2}; int x = 5, y =-6; int \* z; float f = 3.0f; /\*code\*/}
+
+<!-- perentysys; esiszewitiwy
+Use parentheses to override order of evaluation -->
+
+---
+
+## What is an address?
+
+- Address is an identifier <br>(symbolic name) of location
+- **A place to locate what we refer to**
+- **Address of University:**
+- 1300 W Park St, Butte, MT 59701
+
+![Montana Tech | TeenLife](assets/image4.jpeg)
+
+---
+
+## Every symbolic name…
+
+Every symbolic name — whether for a variable, array, function, or label — refers to a specific memory location. Once assigned (declared/initialized), the content at that memory location can change, but the address itself remains fixed for the lifetime of that entity. For example, a variable declared within a block will always occupy the same memory address until the block ends.
+
+- \#include &lt;stdio.h&gt;
+- int main()
+- {
+
+    int y = 5;
+
+    printf("Address of %-10s= %d\n", "y", &amp;y);
+
+    int x = 2;
+
+    y++;
+
+    printf("Address of %-10s= %d\n", "y", &amp;y);
+
+- }
+- Address of y       = 6487800
+- Address of y       = 6487800
+- Result:
+
+---
+
+## Extended example
+
+- Warning…
+
+Should be %p
+
+- \#include &lt;stdio.h&gt;
+
+int myFunction(){return 0;}
+
+- int main()
+- {
+
+    int x;
+
+    int arr1\[7\] = {1, 2, 3, 4, 5, 6, 7};
+
+    label1: x = 5;                                                 // statement, not a declaration
+
+    printf("Address of %-20s= %d\n", "x", &amp;x);                     // address of local variable x
+
+    printf("Address of %-20s= %d\n", "arr1 (array name)", arr1);   // address of first element of array
+
+    printf("Address of %-20s= %d\n", "arr1 (array itself)", &amp;arr1);// address of the whole array (the same!)
+
+    printf("Address of %-20s= %d\n", "function myFunction", &amp;myFunction); // address of function
+
+    printf("Address of %-20s= %d\n", "label1:", &amp;&amp;label1);         // address of label
+
+- }
+- Address of x                   = 6487836
+- Address of arr1 (array name)   = 6487808
+- Address of arr1 (array itself) = 6487808
+- Address of function myFunction = 4199493
+- Address of label1:             = 4199573
+- Result:
+
+int myFunction()
+
+{
+
+    return 0;
+
+}
+
+---
+
+## Extended example - description
+
+- When a variable, a symbolic name, is declared, it is allocated a static location in RAM. Its value can be changed, but for its entire lifetime, it cannot be deleted or moved. It will always refer to the same specific memory cell. For example, with int x = 5;, we can change its value later, like x = 3;, but the address &amp;x will always point to the same memory location.
+- The same principle applies to arrays. That is why we must initialize an array in a single line, like int arr1\[7\] = {1, 2, 3, 4, 5, 6, 7};.
+
+---
+
+## Extended example - description
+
+- We cannot declare and then initialize it on separate lines, such as:
+
+int arr1\[7\];
+
+arr1\[7\] = {1, 2, 3, 4, 5, 6, 7}; // This is invalid
+
+- The first line is a shorthand for the compiler. The compiler, before the code is actually executed, performs a loop-like operation to initialize the array, assigning each value to its corresponding memory location. Because of this, initialization cannot be split into two separate steps.
+
+---
+
+## Extended example - description
+
+- The symbolic name of an array represents a fixed memory address — specifically, the location where the array begins in memory. You can think of it as a label that always refers to the same starting point of the array.
+- This address is read-only: once the array is declared, you cannot change where it begins. The name of the array and the address of its first element are essentially the same in expressions. Because the array name itself stands for a memory location, you can't reassign it to refer to a different place in memory.
+
+---
+
+## Extended example
+
+- Warning…
+
+Should be %p
+
+- \#include &lt;stdio.h&gt;
+
+int myFunction(){return 0;}
+
+- int main()
+- {
+
+    int x;
+
+    int arr1\[7\] = {1, 2, 3, 4, 5, 6, 7};
+
+    label1: x = 5;                                                 // statement, not a declaration
+
+    printf("Address of %-20s= %d\n", "x", &amp;x);                     // address of local variable x
+
+    printf("Address of %-20s= %d\n", "arr1 (array name)", arr1);   // address of first element of array
+
+    printf("Address of %-20s= %d\n", "arr1 (array itself)", &amp;arr1);// address of the whole array (the same!)
+
+    printf("Address of %-20s= %d\n", "function myFunction", &amp;myFunction); // address of function
+
+    printf("Address of %-20s= %d\n", "label1:", &amp;&amp;label1);         // address of label
+
+- }
+- Address of x                   = 6487836
+- Address of arr1 (array name)   = 6487808
+- Address of arr1 (array itself) = 6487808
+- Address of function myFunction = 4199493
+- Address of label1:             = 4199573
+- Result:
+
+---
+
+## Extended example
+
+- Warning…
+
+Should be %p
+
+- \#include &lt;stdio.h&gt;
+
+int myFunction(){return 0;}
+
+- int main()
+- {
+
+    int x;
+
+    int arr1\[7\] = {1, 2, 3, 4, 5, 6, 7};
+
+    label1: x = 5;                                                  // statement, not a declaration
+
+    printf("Address of %-20s= %d\n", "x", &amp;x);                     // address of local variable x
+
+    printf("Address of %-20s= %p\n", "arr1 (array name)", arr1);   // address of first element of array
+
+    printf("Address of %-20s= %08x\n", "arr1 (array itself)", &amp;arr1);// address of the whole array (the same!)
+
+    printf("Address of %-20s= %d\n", "function myFunction", &amp;myFunction); // address of function
+
+    printf("Address of %-20s= %d\n", "label1:", &amp;&amp;label1);         // address of label
+
+- }
+- Address of x                   = 6487836
+- Address of arr1 (array name)   = 0062ff00
+- Address of arr1 (array itself) = 0062ff00
+- Address of function myFunction = 4199493
+- Address of label1:             = 4199573
+- Result:
+
+---
+
+## Extended example
+
+- \#include &lt;stdio.h&gt;
+
+int myFunction(){return 0;}
+
+- int main()
+- {
+
+    int x;
+
+    int arr1\[7\] = {1, 2, 3, 4, 5, 6, 7};
+
+    label1: x = 5;                                                  // statement, not a declaration
+
+    printf("Address of %-20s= %p\n", "x", &amp;x);                     // address of local variable x
+
+    printf("Address of %-20s= %p\n", "arr1 (array name)", arr1);   // address of first element of array
+
+    printf("Address of %-20s= %p\n", "arr1 (array itself)", &amp;arr1);// address of the whole array (the same!)
+
+    printf("Address of %-20s= %p\n", "function myFunction", &amp;myFunction); // address of function
+
+    printf("Address of %-20s= %p\n", "label1:", &amp;&amp;label1);         // address of label
+
+- }
+- Address of x                   = 0062ff1c
+- Address of arr1 (array name)   = 0062ff00
+- Address of arr1 (array itself) = 0062ff00
+- Address of function myFunction = 00401445
+- Address of label1:             = 00401495
+- Result:
+
+---
+
+|Type &amp; Specifier||Origin|Argument type||Description||
+|---|---|---|---|---|---|---|
+||||**printf**|**scanf**|**printf**|**scanf**|
+|integer|d|decimal|int|int \*|signed decimal notation||
+||u|unsigned decimal|int|unsigned int \*|unsigned decimal notation||
+||c|character|int|char \*|one unsigned character|characters are placed within the indicated memory if the specified width is greater than 1; Without ‘\0’|
+||i|integer|int|int \*|signed decimal notation (also accepts octal and hexadecimal)||
+||o|octal|int|int \*|octal notation (with leading 0)||
+||x, X|hex|int|int \*|hexadecimal notation (with or without leading 0x or 0X)||
+|string|s|string|char \*|char \*|characters from the string are printed until a ‘\0’!|string **of non-white space**; at the end will be added ‘\0’|
+||\[…\]|specific string|N/A|char \*|N/A|Matches the longest non-empty string input characters from the set between brackets; A ‘\0’ is added.|
+||\[^…\]|negated specific string|N/A|char \*|N/A|as above, but only excluding the characters|
+|floating-point number|f|float|float|float \*|single precision floating-point number notation||
+||lf|long float <br>(double)|double|double \*|double precision floating-point number notation||
+||e, E|engineer notation|double|float \*<br>double \*|scientific notation (single or double precision floating-point number)||
+||g, G|general floating-point representation|float double|float \*<br>double \*|scientific notation (single or double precision floating-point number) <br>or single or double precision floating-point number||
+|pointer|p|pointer|(any)  void \*|N/A|integer value of the pointer|N/A|
+|special|n|number of input characters|N/A|int \*|N/A|Writes into the argument the number of characters read so far by this call|
+||%|literal %|%|N/A|Prints a literal percent sign (%)|N/A|
+
+<!-- To know something like the back of one's hand. – miec to w malym palcu
+To be able to explain something in their sleep – odpowiedziec o 4 and ranem -->
+
+---
+
+## Extended example - description
+
+- When printf receives an address using the &amp; operator, it prints the address of a 32-bit <br>(or platform-dependent) integer. To display addresses correctly without compiler warnings, the %p format specifier should be used, which is specifically designed for pointer values.
+- Once a variable is declared within a block, the compiler has already reserved a specific memory location for it. Redeclaring the same variable name in the same scope is illegal because that memory is already allocated and associated with the original symbolic name. It would cause a compile-time error.
+
+---
+
+## Operator &amp; address-of
+
+- The single ampersand symbol, &amp;, is a unary operator used to get the **memory address** of a variable. Think of it as asking, "Where in the computer's memory is this variable physically located?"
+- When you use &amp; before a variable's name (symbolic name), the operator returns the exact location of that variable in memory. This location is just a number that tells you where the variable's data is stored.
+
+---
+
+# Operator \* Indirection (dereference)
+
+---
+
+## Operator \* Indirection (dereference)
+
+- The asterisk symbol, \*, is a unary operator used to access the actual value stored at a specific location in memory. Think of it as asking, "What is stored at this address?"
+- When you use \* before something that represents a memory location — for example, a result you got using the &amp; operator — the \* operator lets you look inside that location and see the value stored there.
+- This operation **only** makes semantic sense when applied to variables and arrays — that is, to objects that occupy space in memory and hold meaningful data. It does not apply to labels, which are used for program control flow and do not have a retrievable memory location, nor to functions, which are executed rather than accessed for stored values.
+
+---
+
+## Extended example
+
+- \#include &lt;stdio.h&gt;
+- int main()
+- {
+
+    int x = 5;
+
+    int arr1\[7\] = {9, 8, 7, 6, 5, 4, 3};
+
+    // Dereferencing the address of x to get its value (same as just x)
+
+    printf("Value at address of %-20s = %d\n", "x", \*&amp;x);
+
+    // Dereferencing the array name gives the first element's value (arr1\[0\])
+
+    printf("Value at address of %-20s = %d\n", "arr1 (array name)", \*arr1);
+
+<br>
+
+    printf("Value at address of %-20s = %d\n", "arr1 (array name)", \*arr1+1 );
+
+    printf("Value at address of %-20s = %d\n", "arr1 (array name)", \*(arr1+1) );
+
+- }
+- Value at address of x                    = 5
+- Value at address of arr1 (array name)    = 9
+- Value at address of arr1 (array name)    = 10
+- Value at address of arr1 (array name)    = 8
+- Result:
+- Priority!!!
+
+---
+
+|Priority / Operator||Description|Associativity|Example|Result|
+|---|---|---|---|---|---|
+|1|(), \[\]|Parentheses; Array subscript|Left-to-right|arr\[0\] \* (x + y)|1|
+||.|Structure and union member access||point.x|1|
+||-&gt;|Structure and union member access through pointer||ppoint-&gt;x|1|
+|2|++, --|Prefix &amp; postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
+||+, -, !, ~|(Unary) plus and minus; Logical NOT and bitwise NOT||y =-y; y =+y; !x; ~;x|6, -6,0, -6|
+||\*, &amp; , &amp;&amp;|Indirection (dereference); Address-of; Address-of labels||z = &amp;x; \*z;|6422276; 5|
+||(type), sizeof|Cast, Size-of||(int)3.0f; sizeof(x);|3, 4|
+|3|\*, /, %|Multiplication, division, and remainder|Left-to-right|6/2 % 2|1|
+|4|+, -|Addition and subtraction||1 + 2; 3 - 1|3, 2|
+|5|&lt;&lt;,  &gt;&gt;|Bitwise left shift and right shift||4 &lt;&lt; 1; 4 &gt;&gt; 2|8, 1|
+|6|&lt;, &lt;=, &gt;, &gt;=|For relational operators &lt;, &gt; and ≤, ≥ respectively||x&lt;y; x&lt;=y; x&gt;y; x&gt;=y|1, 1, 0 ,0|
+|7|==, !=|For relational = and ≠ respectively||x == y, x != 1|1, 0|
+|8|&amp;|Bitwise AND||7 &amp; 3|3|
+|9|^|Bitwise XOR (exclusive or)||255 ^ 0|255|
+|10|\||Bitwise OR (inclusive or)||7 \| 3|7|
+|11|&amp;&amp;|Logical AND||1 &amp;&amp; 0|0|
+|12|\|\||Logical OR||1 \|\| 0|1|
+|13|?:|Ternary conditional|Right-to-left|x  = (x &gt; y) ? y : x;|-6|
+|14|=|Simple assignment||x  = y;|-6|
+||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
+||&lt;&lt;=, &gt;&gt;=, &amp;=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
+|15|,|Comma|Left-to-right|x = 3, y = 1;|3|
+
+- struct Point { int x; int y; }; int main()<br>{struct Point point = {1,2}, \*ppoint = &amp;point;  int arr\[\] = {1,2}; int x = 5, y =-6; int \* z; float f = 3.0f; /\*code\*/}
+
+<!-- perentysys; esiszewitiwy
+Use parentheses to override order of evaluation -->
+
+---
+
+# Left-to-right &amp; right-to-left associativity
+
+---
+
+## Left-to-right &amp; right-to-left associativity
+
+|Priority||Ass.|
+|---|---|---|
+|1|()|LR|
+|2|++, --|RL|
+||\*, &amp;||
+||(type)||
+|3|\*, /, %|LR|
+|4|+, -||
+|6|&lt;, &lt;=,||
+|7|==, !=||
+|14|=|RL|
+||+=||
+|15|,|LR|
+
+- int main()
+- {
+-   {
+-     int x = 1, y = 2;
+-     x += y = 3 + x \* y;
+-     printf("%d\n", x);
+-   }
+-   {
+-     int x = 1, y = 2;
+-     x += x = y = 3 + x - y;
+-     printf("%d\n", x);
+-   }
+- }
+- 6
+- 4
+- Result:
+- x += y = 3 + x \* y;            /\* 2 \*/
+- x += y = 3 + 2;                /\* 5 \*/
+- x += y = 5;                /\*y=5\*/
+- x += 5;                    /\*x=6\*/
+- x += x = y = 3 + x - y;         /\* 4 \*/
+- x += x = y = 4 - y;            /\* 2 \*/
+- x += x = y = 2;             /\*y=2\*/
+- x += x = 2;                 /\*x=2\*/
+- x += 2;                     /\*x=4\*/
+
+Left-to-right associativity means that when there are two operators with the same priority, the operator on the left is evaluated first. In right-to-left associativity, the opposite is true.
+
+- LR
+- RL
+
+---
+
+## Summary for associativity and \*&amp;
+
+- The associativity of the \* and &amp; operators is right-to-left (R–L), similar to assignment, but unlike arithmetic or logical operations, which we’re more familiar with.
+- This means that using them together — like in \*&amp;x — works correctly: first, the address of x is obtained, and then the value stored at that address is retrieved.
+- You could say that \*&amp; cancels itself out, and logically that’s true. However, it’s a relatively costly operation: instead of directly accessing the value, the program first computes the address from the symbolic name, and then accesses the value from that location.
+- The compiler may optimize this during compilation and simplify it to just x, but relying on such optimizations is considered poor practice. It reflects a lack of foundational understanding — similar to blindly trusting automatic type casting.
+
+---
+
+# Preprocessor
+
+---
+
+## Hello World
+
+- Code
+- Preprocessor
+- \#include &lt;stdio.h&gt;
+- int main()
+- {
+- printf("Hello world\n");
+- return 0;
+- }
+
+---
+
+## The Pre-processor
+
+The C Preprocessor runs before the C program is compiled properly. It is a separate program from the compiler programs and, in theory, could be used on any file not just C source files. Its main uses are macro substitution, file inclusion and conditional compilation.
+
+Each source file will normally have a few preprocessor commands, these are, strictly speaking, not part of the C language itself, though they are associated with the language. The preprocessor commands each start with a # and must either fit on a single source line or must be extended with the use of a - at the end of each line to be continued.
+
+eg.: #include&lt;stdio.h&gt;
+
+---
+
+## The C compiler process has four main phases
+
+- **Preprocessing**: The preprocessor modifies the source code by performing:
+  - **Macro substitution**
+  - **File inclusion**
+  - **Conditional compilation**
+- **Compilation**: The compiler translates the preprocessed code into assembly code. This phase includes lexical analysis, parsing, and code generation, along with an optional optimization step.
+- **Assembly**: The assembler translates the assembly code into machine code to create an object file.
+- **Linking**: The linker combines all object files and libraries into a single executable program.
+
+---
+
+# Macro
+
+---
+
+## Preprocessor directives - macro substitution
+
+- A macro is a symbolic name that represents a sequence of tokens. It's like creating a shorthand that expands to a longer expression whenever it's encountered in the code.
+- Macros allow us to define constants whose values cannot be changed during program execution.
+- Macros can be used to conditionally compile parts of the code, for example, depending on whether a certain definition exists.
+- Macros are generally faster than functions but are less safe. Therefore, they should be used with caution.
+- Since macros are substituted before the program runs, they cannot be debugged directly.
+- \#define symbolic\_name replaced\_text
+
+---
+
+## Preprocessor directives - macro substitution
+
+\#define symbolic\_name replaced\_text
+
+- Macros are not terminated with semicolons, unlike regular code statements, making them easily distinguishable.
+- Writing macro-defined constants in uppercase is a best practice to emphasize their immutable nature. While the compiler won't complain, these values cannot be changed during runtime and are not accessible for debugging.
+- \#define PI 3.14159
+- \#define some\_text "abcde"
+- \#include &lt;stdio.h&gt;
+- int main()
+- {
+-     printf( "%s\n", some\_text );
+-     printf( "%f\n", PI + 0.5f );
+- }
+- abcde
+- 3.641590
+- Result:
+- \#define PI 3.14159
+- \#define some\_text "abcde"
+- \#include &lt;stdio.h&gt;
+- int main()
+- {
+-     printf( "%s\n", "abcde" );
+-     printf( "%f\n", 3.14159 + 0.5f );
+- }
+
+---
+
+## Preprocessor directives - macro substitution
+
+- \#define symbolic\_name replaced\_text
+- Macros are not terminated with semicolons, unlike regular code statements, making them easily distinguishable.
+- \#define square(y) (y \* y)
+- \#define merge(left, right) left ## right
+- \#define some\_text "abcde"
+- \#include &lt;stdio.h&gt;
+- int main()
+- {
+-     char \* word1 = "Hello";
+-     char \* word2 = "world";
+-     int x = 5;
+-     printf( "%s\n", some\_text );
+-     printf( "%d\n", square(x) );
+-     printf( "%s\n", merge(word, 1) );
+- }
+- abcde
+- 25
+- Hello
+- Result:
+- \#include &lt;stdio.h&gt;
+- int main()
+- {
+-     char \* word1 = "Hello";
+-     char \* word2 = "world";
+-     int x = 5;
+-     printf( "%s\n", "abcde" );
+-     printf( "%d\n", (x \* x) );
+-     printf( "%s\n", word1 );
+- }
+
+---
+
+## Preprocessor directives - macro substitution
+
+- \#define symbolic\_name replaced\_text
+- Macros are not terminated with semicolons, unlike regular code statements, making them easily distinguishable.
+- \#define min(a, b) ( (a) &lt; (b) ? (a) : (b) )
+- \#include &lt;stdio.h&gt;
+- int main()
+- {
+-     printf("%s\n", min("abc", "cde"));
+-     printf("%s\n", min("aac", “aab"));
+- }
+- cde
+- aab
+- Result:
+- \#include &lt;stdio.h&gt;
+
+int main()
+
+{
+
+    printf("%s\n", ( ("abc") &lt; ("cde") ? ("abc") : ("cde") ));
+
+    printf("%s\n", ( ("aac") &lt; ("aab") ? ("aac") : ("aab") ));
+
+}
+
+- It works because it's a ternary operator!
+
+---
+
+## Conditional compilation
+
+- \#if (conditional1)
+- statement1;
+- \#elif (conditional2)
+- statement2;
+- \#else
+- statement3;
+- \#endif
+- \#include &lt;stdio.h&gt;
+- \#define DEBUG 1
+- \#define n 10
+- int main()
+- {
+-     int arr\[n\];
+-     int i;
+-     for (i = 0; i &lt; n; i++)
+-     {
+-         arr\[i\] = rand() % 100;
+-         \#if (DEBUG)   /\* wiersz z if \*/
+-             printf("A value of arr\[%d\] =  %d\n", i, arr\[i\]);
+-         \#endif
+-     }
+- <br>    return 0;
+- }
+- A value of arr\[0\] =  41
+- A value of arr\[1\] =  67
+- A value of arr\[2\] =  34
+- A value of arr\[3\] =  0
+- A value of arr\[4\] =  69
+- A value of arr\[5\] =  24
+- A value of arr\[6\] =  78
+- A value of arr\[7\] =  58
+- A value of arr\[8\] =  62
+- A value of arr\[9\] =  64
+- Result:
+
+---
+
+## Built-in constants in C - examples
+
+\_\_FILE\_\_    name of the file being compiled
+
+\_\_DATE\_\_    file compilation date
+
+\_\_TIME\_\_    file compilation time
+
+- \#include &lt;stdio.h&gt;
+- int main()
+- {
+-     printf("%s", \_\_TIME\_\_);
+-     printf("%s", \_\_FILE\_\_);
+-     printf("%s", \_\_DATE\_\_);
+- }
+- 11:24:35
+- C:\Users\Jakub\Desktop\CSCI112\main.c
+- Sep 26 2024
+- Result:
+
+---
+
+## File inclusion
+
+- Using **&lt;&gt;** (angle brackets)    –    e.g. #include &lt;file\_name.h&gt;
+- Using **""** (double quotes)    –    e.g. #include "file\_name.h"
+
+---
+
+## File inclusion - &lt;&gt; (angle brackets)
+
+- Using Standard library search:
+  - When you use angle brackets, the compiler searches for the file in the standard system directories where the compiler expects to find header files for the standard C library.
+- System-wide:
+  - This is commonly used to include standard library (build-in) headers like &lt;stdio.h&gt;, &lt;time.h&gt;, etc.
+
+---
+
+## File inclusion - "" (double quotes)
+
+- Local search:
+  - When you use double quotes around a filename in an #include directive, the compiler first searches for the file in the same directory as the current file.
+- Project-specific:
+  - This is useful for including header files that are specific to your current project and are located in the same directory or a subdirectory.
+
+---
+
+## Summary: How the C Preprocessor Works
+
+- The preprocessor works like a “Find and Replace” tool in a text editor — it searches for specific strings (like constant names) and **replaces them with defined values** before the actual compilation begins. This means you cannot debug constants or change their values during runtime, because the source code has already been transformed — as if you manually replaced every occurrence of the name with its value.
+- **Conditional compilation** allows the program to check whether a constant has been defined (#ifdef, #ifndef) and **include or skip parts of the code** accordingly. This is useful for writing code that adapts to different configurations, platforms, or versions.
+
+---
+
+# Buffered input
+
+---
+
+## Fundamental Functions for Input and Output
+
+- Data Output for Screen:
+  - putchar\*    -    (put\[ \]char\[acter\]):    Displays a single character on the screen.
+  - printf    -    (print\[\]f\[ormatted\]):    Displays a formatted string of characters.
+- Data Input from Keyboard:
+  - getchar\*    -    (get\[ \]char\[acter\]):    Retrieves a single character from the keyboard.
+  - scanf    -    (scan\[ \]f\[ormatted):    Reads a formatted string of characters from the keyboard.
+- C doesn't handle input/output on its own. You need a library called &lt;stdio.h&gt;.
+- \*You can use putchar and getchar like normal functions,
+- but they are not standard C functions but rather preprocessor macros.
+
+<!-- \*#include &lt;stdio.h&gt; -->
+
+---
+
+## Getchar() &amp; scanf()
+
+- Using getche() allows you to read a character from the keyboard **without waiting for the Enter key**. This has consequences: without more advanced logic, the user cannot correct mistakes. For example, pressing Backspace doesn't erase the previous character — it's just another ASCII code. To handle this properly, you'd need to implement logic that detects Backspace and reverts the previous input.
+- To simplify user interaction, the system uses an **input buffer**. Keystrokes are stored in this buffer before being passed to the program. This solves some problems, but introduces others: when waiting for Enter to confirm input, remember that Enter is actually **two ASCII characters** — CR (Carriage Return, 13) and LF (Line Feed, 10). As a result, one of these characters may remain in the buffer, causing the next call to getchar() or scanf() to behave incorrectly — it might read leftover input.
+
+---
+
+## Getchar() &amp; scanf()
+
+- To avoid this, you should **clear the input buffer** before reading new data. Since standard functions don’t do this automatically, the simplest solution is to define a macro:
+
+\#define clearBuffer() while (getchar() != '\n’);
+
+- and call clearBuffer() after each keyboard input operation.
+
+---
+
+# Thank you
+
+- Jakub Leszek Pach
+- <jpach@mtech.edu>
+
+---
+
+## printf and scanf format specification
+
+- Optional:
+  - Flags    -    modifiers that alter the formatting or scanning behavior.
+  - Width    -    specifies the minimum width of the output field <br>        or the maximum number of characters to be scanned.
+  - Precision    -    controls the precision of floating-point numbers <br>        or the maximum number of characters to be scanned for strings.
+  - Modifier    -    indicates the data type size (e.g., long, short).
+- Required:
+  - Type    -    specifies the data type of the variable to be formatted or scanned.
+
+Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
+
+---
+
+## Basic types
+
+|Type &amp; Specifier||Origin|Argument type||Description||
+|---|---|---|---|---|---|---|
+||||**printf**|**scanf**|**printf**|**scanf**|
+|integer|d|decimal|int|int \*|signed decimal notation||
+||u|unsigned decimal|int|unsigned int \*|unsigned decimal notation||
+||c|character|int|char \*|one unsigned character||
+|string|s|string|char \*|char \*|characters from the string are printed until a ‘\0’!|string **of non-white space**; at the end will be added ‘\0’!|
+|floating-point number|f|float|float|float \*|single precision floating-point number notation||
+||lf|long float <br>(double)|double|double \*|double precision floating-point number notation||
+
+<!-- Każdy lancuch znakowy w C jest o jeden większy od deklarowanej treści, bo na końcu jest jeszcze dopisywany znak końca \0 -->
+
+---
+
+## Width
+
+- int main()<br>{ int x = 5, y = -6; int \* z; float f = 3.1234f; /\*code\*/ }
+
+|Data|Type||Description|Example|Result|
+|---|---|---|---|---|---|
+|Numbers|integer|d|The width value for number (text) representation reserves at least as many characters as are needed to represent that number(text) in ASCII characters (digits). <br>If the width is smaller than the number’s (text’s) representation, the entire number (text) will be displayed. <br>If the width is greater than the number’s (text’s)  representation, extra spaces will be added on the left side.|printf("%1d\n", y);<br>printf("%4d\n", y);|-6<br>   -6|
+|||u||||
+|||c||printf("%c\n", letter);<br>printf("%1c\n", letter);|a|
+||floating-point number|f||printf("%3f\n", fRealNumber);<br>printf("%9f\n", fRealNumber);|3.123400<br> 3.123400|
+|||lf||||
+|Text|string|s||printf("%3s\n", text);<br>printf("%10s\n", text);|Some Text<br> Some Text|
+
+---
+
+## Precision
+
+- int main()<br>{ int x = 5, y = -6; int \* z; float f = 3.1234f; /\*code\*/ }
+
+|Data|Type||Description|Example|Result|
+|---|---|---|---|---|---|
+|Numbers|integer|d|precision works the same as width — it reserves a minimum field size. If the precision is greater than the ASCII character representation of the number, leading zeros are added to the left. Precision does not truncate the number! It always displays the full value.|printf("%.1d\n", x); <br>printf("%.5d\n", x);|65<br>00065|
+|||u||||
+|||c||||
+||floating-point number|f|precision determines the number of digits after the decimal point that are displayed. If the number has more decimal places than specified by the precision, it will be truncated.|printf("%.6f\n", fRealNumber); <br>printf("%.2f\n", fRealNumber);<br>printf("%.0f\n", fRealNumber);|3.123400<br>3.12<br>3|
+|||lf||||
+|Text|string|s|precision determines the precise number of characters to be extracted from the string. Any characters beyond the specified precision will be discarded.|printf("%.1s\n", text);<br>printf("%.5s\n", text);<br>printf("%.20s\n", text);|S<br>Some<br>Some Text|
+
+---
+
+## Flags
+
+- \+ : Always display the sign of a number, even if it's positive.
+- \- : Left-justify the output within the given field width.
+- 0 : Pad the field with zeros instead of spaces.
+- \# : Use an alternative form for the conversion specifier.
+
+<!-- **# flag:** Use an alternative form for the conversion specifier. For example, it adds a leading zero for octal numbers or a 0x or 0X prefix for hexadecimal numbers. -->
+
+---
+
+## Modifies
+
+- int main()<br>{ short int x = 65;  int y = -69000; <br>  float fRealNumber = 3.1234f; double dRealNumber = 3.4e50; /\*code\*/ }
+
+|Data|Type||Description|Example|Result|
+|---|---|---|---|---|---|
+|Numbers|integer|d|Modifier, h and l specify how many bytes should be formatted as a variable. Therefore, if we use short (h - 2 bytes) on a normal int (long - 32 bit), we will get an incorrect result because printf will take only 16 bits and build a number representation from it.|printf("%0hd\n", x);<br>printf("%0hd\n", y);<br>printf("%0ld\n", x);<br>printf("%0ld\n", y);|65<br>-3464<br>65<br>-69000|
+|||u||||
+|||c||||
+||floating-point number|f|Since there's no such thing as hf (as hf is simply f), the compiler ignores h, and l represents a double. As you can see, there's no lf type, only f with the l modifier.|printf("%0hf\n", fRealNumber);<br>printf("%0lf\n", fRealNumber);<br>printf("%0hf\n", dRealNumber);<br>printf("%0lf\n", dRealNumber);|3.123400<br>3.123400<br>33999999...<br>339999999999999984402842591433794782958910267457536.000000|
+|||lf||||
+|Text|string|s|None|None|None|
+
+---
+
+## Declaring and initializing arrays
+
+- int main()
+- {
+-   int a\[5\];
+-   /\* Declare an integer array named a with 5 elements \*/
+-   int b\[\] = {1, 2, 3, 4};
+-   /\*Declare an integer array named b with 4 elements,
+-     initialized with values 1, 2, 3, and 4            \*/
+-   int c\[10\] = {9, 8, 7, 6, 5};
+-   /\*Declare an integer array named c with 10 elements,
+-     the first 5 elements are initialized with values 9, 8, 7, 6, and 5,
+-     the remaining elements are initialized to 0                 \*/
+-   int d\[100\] = {0};
+-   /\*Declare an integer array named d with 100 elements, all initialized to 0\*/
+-   int x, y = 2;
+-   printf("First element (index 0) of array a equals %d.\n", a\[0\]);
+-   /\*Print the value of the first element of array a(undefined value)\*/
+-   printf("Second(index 1) element of array b equals %d.\n", b\[1\]);
+-   /\*Print the value of the second element of array b (which is 2)\*/
+-   printf("Second(index 1) element of array b equals %d.\n", \*(b+1) );
+-   /\*Print the value of the second element of array b using pointer arithmetic\*/
+-   printf("Sixth(index 5) element of array c equals %d.\n", c\[5\]);
+- }
+- First element (index 0) of array a equals 4201200.
+- Second(index 1) element of array b equals 2.
+- Second(index 1) element of array b equals 2.
+- Sixth(index 5) element of array c equals 0.
+- Result:

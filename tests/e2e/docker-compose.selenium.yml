@@ -1,0 +1,28 @@
+# Standalone Selenium Grid used only by the Layer 2 (end-to-end) test suite.
+#
+# This is intentionally separate from the site's own docker-compose.yml (which
+# other agents own) -- it starts nothing but a browser. The site itself must
+# already be running (see tests/README.md), reachable from inside this
+# container via host.docker.internal, which is why `extra_hosts` is set below.
+# `host-gateway` is the portable spelling: Docker Desktop maps it for you,
+# and on Linux (including GitHub Actions runners, Docker Engine 20.10+) it
+# resolves to the host's gateway IP.
+#
+# Usage:
+#   docker compose -f tests/e2e/docker-compose.selenium.yml up -d
+#   E2E_BASE_URL=http://host.docker.internal:8082 python3 -m pytest tests/e2e
+#   docker compose -f tests/e2e/docker-compose.selenium.yml down
+
+services:
+  chrome:
+    image: selenium/standalone-chrome:latest
+    ports:
+      - "4444:4444"
+    shm_size: "2g"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4444/wd/hub/status"]
+      interval: 5s
+      timeout: 5s
+      retries: 20

@@ -1,0 +1,21 @@
+# Python dependencies for tests/. Nothing here needs installing on a machine
+# that already has these (this repo's dev host did); CI should run:
+#   pip install -r tests/requirements.txt
+#
+# Layer 0 (tests/unit) needs pytest and pytest-cov; pylint and pyright check tools/ and tests/.
+# Layer 1 (tests/content) needs only pytest -- everything else is stdlib. It
+# additionally shells out to the `pdftotext` binary (poppler-utils), which is
+# a system package, not a pip package: `apt-get install -y poppler-utils` on
+# Debian/Ubuntu CI runners, `brew install poppler` on macOS. Content checks
+# that need it are skipped (not failed) if it is missing.
+#
+# Layer 2 (tests/e2e) additionally needs `selenium` (talks to the
+# selenium/standalone-chrome container over the remote WebDriver protocol --
+# no local browser or driver binary required) and `requests` (used for
+# status-code checks; see tests/e2e/crawler.py for why).
+pytest==9.1.1
+pytest-cov==7.1.0
+pylint==4.0.5
+pyright==1.1.409
+selenium==4.44.0
+requests==2.34.2
