@@ -18,7 +18,9 @@ from xml.etree import ElementTree as ET
 import pytest
 
 import pptx2marp
+from pptx2marp import SlideParts
 import pptx2marp_images
+import pptx2marp_slides
 from pptx_builder import (
     XMLNS,
     build_pptx,
@@ -319,7 +321,7 @@ def test_iter_shapes_flattens_groups_and_alternate_content():
         '<p:nvGrpSpPr/>'
         '</p:spTree>'
     )
-    tags = [shape.tag for shape in pptx2marp.iter_shapes(ET.fromstring(xml))]
+    tags = [shape.tag for shape in pptx2marp_slides.iter_shapes(ET.fromstring(xml))]
     assert tags == [pptx2marp.P_SP, pptx2marp.P_PIC, pptx2marp.P_CXNSP, pptx2marp.P_GRAPHICFRAME]
 
 
@@ -366,30 +368,15 @@ def test_render_diagram_reads_data_part():
 # --- <p:sp> handling -------------------------------------------------------------------
 
 
-@pytest.mark.parametrize('title, expected', [
-    ('Introduction:', 'Introduction'),
-    ('Wrap-up...', 'Wrap-up'),
-    ('Section 1, Part 2,', 'Section 1, Part 2'),
-    ('Still Interested?', 'Still Interested?'),
-    ('Great job!', 'Great job!'),
-    (':;.,', ':;.,'),
-])
-def test_strip_title_punctuation(title, expected):
-    '''Strip title punctuation.'''
-    assert pptx2marp.strip_title_punctuation(title) == expected
-
-
-def test_strip_title_punctuation_preserves_html_entity_semicolons():
-    '''Strip title punctuation preserves html entity semicolons.'''
-    assert pptx2marp.strip_title_punctuation('Salt &amp;') == 'Salt &amp;'
-
-
 def test_handle_sp_title_subtitle_and_metadata():
     '''Handle sp title subtitle and metadata.'''
     assert pptx2marp.handle_sp(parse(shape_xml(para(run('T <1>')), ph_type='ctrTitle')), {}) == \
         ('title', 'T &lt;1&gt;', 'ctrTitle', 'T <1>')
     assert pptx2marp.handle_sp(parse(shape_xml(para(run('Sub')), ph_type='subTitle')), {}) == \
         ('subtitle', 'Sub', 'subTitle', None)
+    # A title is the author's words; trailing punctuation is kept, not linted away.
+    assert pptx2marp.handle_sp(parse(shape_xml(para(run('In 136, we covered:')), ph_type='title')), {}) == \
+        ('title', 'In 136, we covered:', 'title', 'In 136, we covered:')
     assert pptx2marp.handle_sp(parse(shape_xml(para(run('')), ph_type='title')), {}) is None
     assert pptx2marp.handle_sp(parse(shape_xml(para(run('')), ph_type='subTitle')), {}) is None
     assert pptx2marp.handle_sp(parse(shape_xml(para(run('3')), ph_type='sldNum')), {}) is None
@@ -562,22 +549,22 @@ def test_normalize_list_indentation_resets_at_non_list_blocks():
 
 def test_assemble_slide():
     '''Assemble slide.'''
-    markdown, char_count, empty = pptx2marp.assemble_slide(1, ('Title', 'ctrTitle'), 'Sub', ['- a'], 'note')
+    markdown, char_count, empty = pptx2marp.assemble_slide(1, SlideParts(('Title', 'ctrTitle'), 'Sub', ['- a'], 'note'))
     assert markdown == "<!-- _class: lead -->\n\n# Title\n\n## Sub\n\n- a\n\n<!-- note -->"
     assert char_count == (
         len('<!-- _class: lead -->') + len('# Title') + len('## Sub') + len('- a') + len('<!-- note -->')
     )
     assert not empty
     # Every slide title is an h1; only the deck's opening slide takes the lead class.
-    markdown, _, empty = pptx2marp.assemble_slide(2, ('Title', 'title'), None, [], None)
+    markdown, _, empty = pptx2marp.assemble_slide(2, SlideParts(('Title', 'title'), None, [], None))
     assert markdown == '# Title' and not empty
-    markdown, _, _ = pptx2marp.assemble_slide(2, ('Title', 'ctrTitle'), None, [], None)
+    markdown, _, _ = pptx2marp.assemble_slide(2, SlideParts(('Title', 'ctrTitle'), None, [], None))
     assert markdown == '# Title'
-    markdown, _, empty = pptx2marp.assemble_slide(3, (None, None), None, [], None)
+    markdown, _, empty = pptx2marp.assemble_slide(3, SlideParts((None, None), None, [], None))
     assert markdown == '<!-- pptx2marp: slide 3 has no extractable text or images -->'
     assert empty
     markdown, _, _ = pptx2marp.assemble_slide(
-        4, (None, None), None, ['- a', '- b', '![x](y)'], None,
+        4, SlideParts((None, None), None, ['- a', '- b', '![x](y)'], None),
     )
     assert markdown == '- a\n- b\n\n![x](y)'
 
@@ -586,6 +573,81 @@ def test_front_matter():
     '''Front matter.'''
     assert pptx2marp.front_matter('A: b', 'gaia') == \
         '---\nmarp: true\ntheme: gaia\npaginate: true\ntitle: "A: b"\n---'
+    assert pptx2marp.front_matter('T', 'pach', footer='CSCI 232 | J. L. Pach') == \
+        '---\nmarp: true\ntheme: pach\npaginate: true\nfooter: "CSCI 232 | J. L. Pach"\ntitle: "T"\n---'
+
+
+MATH_CHOICE = (
+    '<mc:AlternateContent><mc:Choice Requires="a14">'
+    + shape_xml(para(run('Input: a sequence of '), '<a14:m xmlns:a14="urn:x"><m:oMath '
+                'xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">'
+                '<m:r><m:t>n</m:t></m:r></m:oMath></a14:m>'))
+    + '</mc:Choice><mc:Fallback><p:sp><p:nvSpPr><p:cNvPr id="9" name="Rendered box"/>'
+    '<p:cNvSpPr/><p:nvPr/></p:nvSpPr><p:spPr><a:xfrm><a:off x="0" y="0"/>'
+    '<a:ext cx="4572000" cy="1143000"/></a:xfrm><a:blipFill><a:blip r:embed="rId1"/></a:blipFill>'
+    '</p:spPr><p:txBody><a:bodyPr/><a:p><a:r><a:t> </a:t></a:r></a:p></p:txBody></p:sp>'
+    '</mc:Fallback></mc:AlternateContent>'
+)
+PLAIN_CHOICE = (
+    '<mc:AlternateContent><mc:Choice Requires="a14">'
+    + shape_xml(para(run('Only in the choice')))
+    + '</mc:Choice><mc:Fallback>' + shape_xml(para(run(' '))) + '</mc:Fallback></mc:AlternateContent>'
+)
+
+
+def test_alternate_content_with_math_renders_the_fallback_picture(tmp_path):
+    '''A text box with equations is published as Office's rendering of it, not dropped.'''
+    slides = [slide_xml(shape_xml(para(run('Algorithm')), ph_type='title'), MATH_CHOICE)]
+    slide_rels = {1: rels_xml([('rId1', 'image', '../media/math.png')])}
+    result = convert(tmp_path, simple_deck(slides, {'ppt/media/math.png': PNG}, slide_rels))
+    assert result.ok
+    assert '![w:480px Rendered box](assets/math.png)' in result.markdown
+    assert 'Input' not in result.markdown
+
+
+def test_alternate_content_without_math_renders_the_choice_text():
+    '''When the fallback is an empty shape, the Choice's text is what gets rendered.'''
+    root = ET.fromstring(slide_xml(PLAIN_CHOICE))
+    shapes = list(pptx2marp_slides.iter_shapes(root.find(f'{pptx2marp.P_CSLD}/{pptx2marp.P_SPTREE}')))
+    assert len(shapes) == 1
+    assert [t.text for t in shapes[0].iter(pptx2marp.A_T)] == ['Only in the choice']
+
+
+def test_raw_code_paragraph_text_indents_by_level():
+    '''Pseudocode written as nested paragraphs keeps its indentation.'''
+    assert pptx2marp.raw_code_paragraph_text(parse(para(run('if n = 0 then'), lvl=0))) == 'if n = 0 then'
+    assert pptx2marp.raw_code_paragraph_text(parse(para(run('factorial := 1'), lvl=2))) == \
+        '        factorial := 1'
+
+
+def test_autofit_scale_and_fit_class():
+    '''PowerPoint's autofit shrink factor becomes a fit-NN class on the slide.'''
+    root = ET.fromstring(slide_xml(
+        '<p:sp><p:txBody><a:bodyPr><a:normAutofit fontScale="77500" lnSpcReduction="20000"/></a:bodyPr>'
+        + para(run('x')) + '</p:txBody></p:sp>',
+        '<p:sp><p:txBody><a:bodyPr><a:normAutofit fontScale="92500"/></a:bodyPr>' + para(run('y'))
+        + '</p:txBody></p:sp>'))
+    assert pptx2marp.autofit_scale(root) == 77
+    assert pptx2marp.autofit_scale(ET.fromstring(slide_xml())) == 100
+    markdown, _, _ = pptx2marp.assemble_slide(4, SlideParts(('T', 'title'), None, ['- a'], None), fit_scale=77)
+    assert markdown.startswith('<!-- _class: fit-70 -->\n\n# T')
+    markdown, _, _ = pptx2marp.assemble_slide(1, SlideParts(('T', 'ctrTitle'), None, [], None), fit_scale=25)
+    assert markdown.startswith('<!-- _class: lead fit-30 -->')
+
+
+def test_convert_deck_skips_hidden_slides(tmp_path):
+    '''A slide hidden in PowerPoint is not published, and is counted and reported.'''
+    slides = [
+        slide_xml(shape_xml(para(run('Shown')), ph_type='title')),
+        slide_xml(shape_xml(para(run('Note to self')), ph_type='title'), hidden=True),
+        slide_xml(shape_xml(para(run('Also shown')), ph_type='title')),
+    ]
+    result = convert(tmp_path, simple_deck(slides))
+    assert result.ok
+    assert result.stats.slides == 3 and result.stats.hidden == 1
+    assert 'Note to self' not in result.markdown
+    assert result.markdown.count('\n---\n') == 2  # front matter close + one separator
+    assert result.warnings == ['slide 2: hidden in PowerPoint, skipped']
 
 
 # --- notes -----------------------------------------------------------------------------
@@ -743,7 +805,7 @@ def test_write_deck(tmp_path):
     '''Write deck.'''
     result = pptx2marp.DeckResult(markdown='# hi\n', media={'a.png': PNG})
     pptx2marp.write_deck(result, tmp_path / 'out')
-    assert (tmp_path / 'out' / 'index.md').read_text() == '# hi\n'
+    assert (tmp_path / 'out' / 'slides.md').read_text() == '# hi\n'
     assert (tmp_path / 'out' / 'assets' / 'a.png').read_bytes() == PNG
     pptx2marp.write_deck(pptx2marp.DeckResult(markdown='x'), tmp_path / 'noassets')
     assert not (tmp_path / 'noassets' / 'assets').exists()
@@ -800,7 +862,7 @@ def test_main_writes_output_and_exits_zero(tmp_path, caplog):
     out = tmp_path / 'out'
     with caplog.at_level(logging.DEBUG, logger='pptx2marp'):
         assert pptx2marp.main([str(src.parent), '--out', str(out), '--verbose']) == 0
-    assert (out / 'deck' / 'index.md').read_text().startswith('---\nmarp: true')
+    assert (out / 'deck' / 'slides.md').read_text().startswith('---\nmarp: true')
     assert any(r.levelno == logging.DEBUG and 'converting' in r.getMessage() for r in caplog.records)
 
 
@@ -817,7 +879,7 @@ def test_main_returns_one_when_a_deck_fails(tmp_path):
     write_pptx(tmp_path / 'in/good.pptx', simple_deck([slide_xml()]))
     write_pptx(tmp_path / 'in/bad.pptx', b'garbage')
     assert pptx2marp.main([str(tmp_path / 'in'), '--out', str(tmp_path / 'out')]) == 1
-    assert (tmp_path / 'out/good/index.md').exists()
+    assert (tmp_path / 'out/good/slides.md').exists()
     assert not (tmp_path / 'out/bad').exists()
 
 

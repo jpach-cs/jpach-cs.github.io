@@ -596,4 +596,4 @@ def test_main_code_lang_option_threads_to_convert_deck(tmp_path):
     src = write_pptx(tmp_path / 'in/deck.pptx', simple_deck(slides))
     out = tmp_path / 'out'
     assert pptx2marp.main([str(src), '--out', str(out), '--code-lang', 'python']) == 0
-    assert '```python\nx = 1\ny = 2\n```' in (out / 'index.md').read_text()
+    assert '```python\nx = 1\ny = 2\n```' in (out / 'slides.md').read_text()

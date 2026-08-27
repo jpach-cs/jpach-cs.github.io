@@ -20,9 +20,6 @@ _BARE_EMAIL_PATTERN = r'[\w.+-]+@[\w-]+(?:\.[\w-]+)+'
 BARE_URL_OR_EMAIL_RE = re.compile(f'{_BARE_URL_PATTERN}|{_BARE_EMAIL_PATTERN}')
 _URL_TRAILING_PUNCTUATION = '.,;:!?"\')'
 
-# Trailing chars stripped from a slide title (MD026); `?`/`!` are left as deliberate.
-_TITLE_TRAILING_PUNCTUATION = ':;.,'
-_HTML_ENTITY_SUFFIX_RE = re.compile(r'&(#x?[0-9a-fA-F]+|[a-zA-Z][a-zA-Z0-9]*);$')
 
 # IDE/editor fonts a pasted code screenshot or paste-as-text box is set in; compared
 # case-insensitively against a run's <a:latin typeface="...">.
@@ -167,17 +164,6 @@ def wrap_emphasis(text: str, bold: bool, italic: bool) -> str:
     trail = text[len(text.rstrip()):]
     marker = '***' if bold and italic else ('**' if bold else '*')
     return f'{lead}{marker}{stripped}{marker}{trail}'
-
-
-def strip_title_punctuation(text: str) -> str:
-    '''
-    Strip trailing `:;.,` from a slide title (MD026), leaving a deliberate `?`/`!`
-    alone. Never touches an HTML entity's trailing `;` (e.g. `&amp;`), or empties a title.
-    '''
-    if _HTML_ENTITY_SUFFIX_RE.search(text):
-        return text
-    stripped = text.rstrip(_TITLE_TRAILING_PUNCTUATION).rstrip()
-    return stripped or text
 
 
 def strip_trailing_whitespace(markdown: str) -> str:

@@ -8,7 +8,7 @@ Usage:
     python3 tools/pptx2marp.py path/to/deck.pptx --out out/deck
     python3 tools/pptx2marp.py path/to/decks/ --out out/decks [--dry-run] [--theme gaia]
 
-For a single file, the output directory holds `index.md` and an `assets/` folder. For a
+For a single file, the output directory holds `slides.md` and an `assets/` folder. For a
 directory, every `.pptx` found recursively converts into its own subdirectory under
 --out, mirroring the input tree (extension stripped).
 '''
@@ -23,9 +23,11 @@ import sys
 import zipfile
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import NamedTuple
 from xml.etree import ElementTree as ET
 
 import pptx2marp_images
+from pptx2marp_slides import autofit_scale, iter_shapes_with_group_flag
 from pptx2marp_text import (
     DEFAULT_SLIDE_HEIGHT_EMU,
     DEFAULT_SLIDE_WIDTH_EMU,
@@ -38,7 +40,6 @@ from pptx2marp_text import (
     protect_leading_marker,
     render_code_fence,
     safe_comment_text,
-    strip_title_punctuation,
     strip_trailing_whitespace,
     wrap_emphasis,
     yaml_scalar,
@@ -72,11 +73,11 @@ def _qns(prefix: str, tags: str) -> list:
  P_CSLD, P_SPTREE, P_SLDIDLST, P_XFRM) = _qns(
     'p', 'sp pic graphicFrame cxnSp grpSp nvSpPr nvPr ph txBody cSld spTree sldIdLst xfrm')
 
-MC_ALTERNATECONTENT, MC_FALLBACK, MC_CHOICE = _qns('mc', 'AlternateContent Fallback Choice')
 
 (A_P, A_R, A_T, A_BR, A_FLD, A_RPR, A_PPR, A_BUNONE, A_HLINKCLICK, A_TBL, A_TR, A_TC, A_TXBODY,
- A_GRAPHIC, A_GRAPHICDATA, A_LATIN) = _qns(
-    'a', 'p r t br fld rPr pPr buNone hlinkClick tbl tr tc txBody graphic graphicData latin')
+ A_GRAPHIC, A_GRAPHICDATA, A_LATIN, A_BLIPFILL) = _qns(
+    'a', 'p r t br fld rPr pPr buNone hlinkClick tbl tr tc txBody graphic graphicData latin blipFill')
+P_SPPR = qn('p', 'spPr')
 
 (DGM_RELIDS,) = _qns('dgm', 'relIds')
 R_ID, R_DM = _qns('r', 'id dm')
@@ -255,39 +256,6 @@ def get_placeholder_type(shape):
     return placeholder.get('type', 'body')
 
 
-def iter_shapes_with_group_flag(container, in_group: bool = False):
-    '''
-    Like `iter_shapes`, but also yields whether each shape is nested inside a <p:grpSp>
-    group: a group has its own <a:xfrm> with a chOff/chExt child coordinate space, so a
-    picture's own <a:xfrm> inside one is not directly in slide coordinates. Composing the
-    group's transform chain (recursively, for nested groups, with rotation) is more than
-    this converter attempts - callers instead use this flag to skip that picture's size
-    and warn instead of emitting a wrong one.
-    '''
-    for child in container:
-        tag = child.tag
-        if tag == MC_ALTERNATECONTENT:
-            branch = child.find(MC_FALLBACK)
-            if branch is None:
-                branch = child.find(MC_CHOICE)
-            if branch is not None:
-                yield from iter_shapes_with_group_flag(branch, in_group)
-        elif tag == P_GRPSP:
-            yield from iter_shapes_with_group_flag(child, True)
-        elif tag in (P_SP, P_PIC, P_GRAPHICFRAME, P_CXNSP):
-            yield child, in_group
-
-
-def iter_shapes(container):
-    '''
-    Yield the content-bearing shapes (<p:sp>, <p:pic>, <p:graphicFrame>, <p:cxnSp>)
-    inside `container` in document order, flattening <p:grpSp> groups and
-    <mc:AlternateContent> (preferring Fallback, guaranteed schema-plain OOXML).
-    '''
-    for shape, _in_group in iter_shapes_with_group_flag(container):
-        yield shape
-
-
 def render_table(table_el, relationships: dict) -> str:
     '''
     Render an <a:tbl> as a GitHub-flavored Markdown pipe table, in the MD060 "tight"
@@ -347,9 +315,13 @@ def raw_code_paragraph_text(paragraph) -> str:
     '''
     Extract one code-shape paragraph's text verbatim (no escaping, tabs and leading
     whitespace preserved), with <a:br/> becoming a real newline within the paragraph -
-    the caller joins paragraphs themselves with another newline.
+    the caller joins paragraphs themselves with another newline. A paragraph's
+    PowerPoint indent level (<a:pPr lvl="N">) is the indentation of pseudocode
+    written as nested paragraphs, so it becomes four spaces per level.
     '''
-    parts = []
+    ppr = paragraph.find(A_PPR)
+    level = int(ppr.get('lvl', '0')) if ppr is not None else 0
+    parts = ['    ' * level]
     for child in paragraph:
         if child.tag in (A_R, A_FLD):
             text_el = child.find(A_T)
@@ -422,8 +394,10 @@ def handle_sp(shape, slide_rels: dict, code_lang: str = ''):
     paragraphs = txbody.findall(A_P)
 
     if ph_type in ('title', 'ctrTitle'):
+        # The title is kept verbatim, trailing colon and all: a deck's titles are
+        # the author's words, and a lint rule about heading punctuation (MD026)
+        # is configured off for decks rather than allowed to rewrite them.
         text = ' '.join(render_paragraph(paragraph, slide_rels) for paragraph in paragraphs).strip()
-        text = strip_title_punctuation(text)
         raw = ' '.join(raw_paragraph_text(paragraph) for paragraph in paragraphs).strip()
         return ('title', text, ph_type, raw) if text else None
 
@@ -448,6 +422,7 @@ class DeckStats:
     text, used to flag decks that "converted" without producing any content.
     '''
     slides: int = 0
+    hidden: int = 0
     images: int = 0
     text_chars: int = 0
 
@@ -583,6 +558,11 @@ def render_shape(shape, context: SlideContext, body_blocks: list, in_group: bool
     keeps only the first of each per slide.
     '''
     tag = shape.tag
+    if tag == P_SP and shape.find(f'{P_SPPR}/{A_BLIPFILL}') is not None:
+        # A picture-filled shape: the rendered form of a text box with equations
+        # (see pick_alternate_branch), or a plain shape used as a picture frame.
+        pptx2marp_images.render_picture(shape, context, in_group, body_blocks)
+        return None
     if tag == P_SP:
         handled = handle_sp(shape, context.relationships, context.code_lang)
         if handled is None:
@@ -600,14 +580,33 @@ def render_shape(shape, context: SlideContext, body_blocks: list, in_group: bool
     return None
 
 
-def assemble_slide(slide_index, title, subtitle, body_blocks, notes_text):
+class SlideParts(NamedTuple):
+    '''What collect_slide_content found on a slide, ready for assemble_slide.'''
+    title: tuple            # (title_text, title_kind)
+    subtitle: str | None
+    body_blocks: list
+    notes_text: str | None
+
+
+def assemble_slide(slide_index, parts: SlideParts, fit_scale: int = 100):
     '''
     Join one slide's title, subtitle, body blocks, and speaker notes into its final
     Markdown text, returning (markdown, character_count, is_empty); is_empty is True
-    when only a placeholder comment was emitted.
+    when only a placeholder comment was emitted. `fit_scale` is the smallest
+    autofit percentage PowerPoint applied to a text box on the slide (100 when it
+    applied none), see `autofit_scale`.
     '''
-    title_text, title_kind = title
+    (title_text, title_kind), subtitle, body_blocks, notes_text = parts
     pieces = []
+    classes = []
+    if title_text and title_kind == 'ctrTitle' and slide_index == 1:
+        classes.append('lead')
+    if fit_scale < 100:
+        # The theme's `fit-NN` classes scale the body type by the same factor
+        # PowerPoint's autofit did, so the slide fits here as it fit there.
+        classes.append(f'fit-{max(fit_scale // 10 * 10, 30)}')
+    if classes:
+        pieces.append(f'<!-- _class: {" ".join(classes)} -->')
     if title_text:
         # In the shared theme, h1 *is* the slide-title style: an absolutely
         # positioned title bar with the accent rule drawn by `h1::before`. h2 is
@@ -616,8 +615,6 @@ def assemble_slide(slide_index, title, subtitle, body_blocks, notes_text):
         # teaching/csci-232/lectures/lecture01-intro/, which uses h1 on every
         # slide. What the deck's opening slide additionally gets is the theme's
         # `lead` class, which recentres the title instead of parking it in the bar.
-        if title_kind == 'ctrTitle' and slide_index == 1:
-            pieces.append('<!-- _class: lead -->')
         pieces.append(f'# {title_text}')
     if subtitle:
         # A PowerPoint subtitle placeholder is a heading, not emphasised body
@@ -674,7 +671,9 @@ def render_slide(deck: DeckContext, slide_part: str, slide_index: int):
     title, subtitle, body_blocks = collect_slide_content(shape_tree, deck.for_slide(slide_rels, slide_index))
     notes_text = get_notes(deck.archive, slide_rels, deck.names)
     markdown, char_count, is_empty = assemble_slide(
-        slide_index, title[:2], subtitle, body_blocks, notes_text
+        slide_index,
+        SlideParts(title[:2], subtitle if isinstance(subtitle, str) else None, body_blocks, notes_text),
+        autofit_scale(slide_root),
     )
     if is_empty:
         deck.warnings.append(f'slide {slide_index}: no extractable text or images')
@@ -757,12 +756,15 @@ def collect_slide_content(shape_tree, context: SlideContext):
     return title, subtitle, body_blocks
 
 
-def convert_deck(pptx_path: Path, theme: str = 'default', code_lang: str = '') -> DeckResult:
+def convert_deck(
+    pptx_path: Path, theme: str = 'default', code_lang: str = '', footer: str = ''
+) -> DeckResult:
     '''
     Convert a single .pptx file into a DeckResult holding its Markdown and deduplicated
     media bytes. Never raises - failures are captured so a batch run can continue.
     `code_lang` is the language hint written after the opening fence of every code block
-    detected in this deck (see `handle_sp`); pass '' for no hint.
+    detected in this deck (see `handle_sp`); pass '' for no hint. `footer` is the text
+    of the Marp `footer:` directive, shown on every content slide; pass '' for none.
     '''
     result = DeckResult(source=pptx_path)
     try:
@@ -779,7 +781,7 @@ def convert_deck(pptx_path: Path, theme: str = 'default', code_lang: str = '') -
         if deck_title is None:
             deck_title = pptx_path.stem.replace('_', ' ').replace('-', ' ')
         body = '\n\n---\n\n'.join(slide_blocks)
-        markdown = f'{front_matter(deck_title, theme)}\n\n{body}\n'
+        markdown = f'{front_matter(deck_title, theme, footer)}\n\n{body}\n'
         result.markdown = strip_trailing_whitespace(markdown)
         return result
     except (zipfile.BadZipFile, OSError) as exc:
@@ -804,6 +806,13 @@ def render_all_slides(deck: DeckContext, slide_parts: list, result: DeckResult):
     deck_title = None
     slide_blocks = []
     for slide_index, slide_part in enumerate(slide_parts, start=1):
+        if is_hidden_slide(deck, slide_part):
+            # A slide the author hid in PowerPoint (`<p:sld show="0">`) is not
+            # shown when the deck is presented, so it is not published here
+            # either; these are typically notes-to-self or superseded slides.
+            result.stats.hidden += 1
+            deck.warnings.append(f'slide {slide_index}: hidden in PowerPoint, skipped')
+            continue
         markdown, title_raw, char_count = render_slide(deck, slide_part, slide_index)
         slide_blocks.append(markdown)
         result.stats.text_chars += char_count
@@ -812,13 +821,23 @@ def render_all_slides(deck: DeckContext, slide_parts: list, result: DeckResult):
     return slide_blocks, deck_title
 
 
-def front_matter(title: str, theme: str) -> str:
+def is_hidden_slide(deck: DeckContext, slide_part: str) -> bool:
+    '''True when the slide part's root carries `show="0"`, PowerPoint's hidden flag.'''
+    try:
+        return ET.fromstring(deck.archive.read(slide_part)).get('show') == '0'
+    except (ET.ParseError, KeyError):
+        return False  # render_slide reports the parse failure itself
+
+
+def front_matter(title: str, theme: str, footer: str = '') -> str:
     '''The Marp YAML front-matter block for a deck.'''
+    footer_line = f'footer: {yaml_scalar(footer)}\n' if footer else ''
     return (
         '---\n'
         'marp: true\n'
         f'theme: {theme}\n'
         'paginate: true\n'
+        f'{footer_line}'
         f'title: {yaml_scalar(title)}\n'
         '---'
     )
@@ -858,9 +877,9 @@ def get_notes(archive: zipfile.ZipFile, slide_rels: dict, names: set):
 
 
 def write_deck(result: DeckResult, target_dir: Path) -> None:
-    '''Write a converted deck's index.md and assets/ folder to disk.'''
+    '''Write a converted deck's slides.md and assets/ folder to disk.'''
     target_dir.mkdir(parents=True, exist_ok=True)
-    (target_dir / 'index.md').write_text(result.markdown, encoding='utf-8')
+    (target_dir / 'slides.md').write_text(result.markdown, encoding='utf-8')
     if result.media:
         assets_dir = target_dir / 'assets'
         assets_dir.mkdir(parents=True, exist_ok=True)
@@ -939,6 +958,10 @@ def main(argv=None) -> int:
         '--dry-run', action='store_true', help='Report what would be produced without writing files'
     )
     parser.add_argument(
+        '--footer', default='',
+        help='Text for the Marp footer directive, e.g. "CSCI 232 | Algorithms & Data Structures | J. L. Pach"'
+    )
+    parser.add_argument(
         '--code-lang', default='',
         help='Language hint written after the opening fence of every detected code block (default: none)'
     )
@@ -959,7 +982,7 @@ def main(argv=None) -> int:
     summary = []
     for pptx_path, target_dir in jobs:
         LOG.debug('converting %s', pptx_path)
-        result = convert_deck(pptx_path, theme=args.theme, code_lang=args.code_lang)
+        result = convert_deck(pptx_path, theme=args.theme, code_lang=args.code_lang, footer=args.footer)
         if result.ok and not args.dry_run:
             write_deck(result, target_dir)
         summary.append((pptx_path, target_dir, result))

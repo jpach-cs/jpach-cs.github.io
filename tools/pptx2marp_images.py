@@ -43,9 +43,22 @@ def _qn(prefix: str, tag: str) -> str:
 P_PIC, P_BLIPFILL, P_NVPICPR, P_CNVPR, P_SPPR, P_SLDSZ = (
     _qn('p', tag) for tag in ('pic', 'blipFill', 'nvPicPr', 'cNvPr', 'spPr', 'sldSz')
 )
-A_BLIP, A_XFRM, A_EXT, A_SRCRECT = (
-    _qn('a', tag) for tag in ('blip', 'xfrm', 'ext', 'srcRect')
+A_BLIP, A_XFRM, A_EXT, A_SRCRECT, A_BLIPFILL = (
+    _qn('a', tag) for tag in ('blip', 'xfrm', 'ext', 'srcRect', 'blipFill')
 )
+P_NVSPPR = _qn('p', 'nvSpPr')
+
+
+def blip_fill_of(shape):
+    '''
+    The <a:blipFill> of a picture, wherever the shape keeps it: a <p:pic> holds it as
+    <p:blipFill>; a picture-filled <p:sp> (Office's fallback rendering of a text box
+    with equations) holds it inside <p:spPr>. None when the shape has no picture.
+    '''
+    fill = shape.find(P_BLIPFILL)
+    if fill is None:
+        fill = shape.find(f'{P_SPPR}/{A_BLIPFILL}')
+    return fill
 R_EMBED, R_LINK = (_qn('r', tag) for tag in ('embed', 'link'))
 
 IMAGE_EXTS = {'.png', '.gif', '.svg', '.jpg', '.jpeg'}
@@ -56,8 +69,11 @@ def handle_pic(picture_el, context: 'SlideContext'):
     Render one <p:pic> shape into an image reference, returning
     (alt_text, package_media_path) or None if it could not be resolved.
     '''
-    blip = picture_el.find(f'{P_BLIPFILL}/{A_BLIP}')
+    fill = blip_fill_of(picture_el)
+    blip = fill.find(A_BLIP) if fill is not None else None
     cnv_pr = picture_el.find(f'{P_NVPICPR}/{P_CNVPR}')
+    if cnv_pr is None:
+        cnv_pr = picture_el.find(f'{P_NVSPPR}/{P_CNVPR}')
     alt = ''
     if cnv_pr is not None:
         alt = cnv_pr.get('descr') or cnv_pr.get('name') or ''
@@ -97,7 +113,8 @@ def get_picture_extent(picture_el) -> tuple[int, int] | None:
 def get_src_rect(picture_el) -> tuple[int, int, int, int] | None:
     '''Return a <p:pic>'s <a:srcRect> crop as (left, top, right, bottom) percentages in
     thousandths of a percent, or None if the picture is not cropped.'''
-    src_rect = picture_el.find(f'{P_BLIPFILL}/{A_SRCRECT}')
+    fill = blip_fill_of(picture_el)
+    src_rect = fill.find(A_SRCRECT) if fill is not None else None
     if src_rect is None:
         return None
     try:

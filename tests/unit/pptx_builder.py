@@ -175,12 +175,14 @@ def diagram(dm_rel_id: str) -> str:
     )
 
 
-def slide_xml(*shapes: str, sptree: bool = True) -> str:
+def slide_xml(*shapes: str, sptree: bool = True, hidden: bool = False) -> str:
     '''
-    A complete slide part wrapping the given shapes in <p:cSld><p:spTree>.
+    A complete slide part wrapping the given shapes in <p:cSld><p:spTree>. `hidden`
+    sets PowerPoint's `show="0"` flag on the slide root.
     '''
     tree = f'<p:spTree>{"".join(shapes)}</p:spTree>' if sptree else ''
-    return f'<?xml version="1.0"?><p:sld {XMLNS}><p:cSld>{tree}</p:cSld></p:sld>'
+    show = ' show="0"' if hidden else ''
+    return f'<?xml version="1.0"?><p:sld {XMLNS}{show}><p:cSld>{tree}</p:cSld></p:sld>'
 
 
 def notes_xml(*paragraphs: str, body: bool = True, txbody: bool = True) -> str:
