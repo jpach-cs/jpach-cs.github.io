@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
@@ -23,18 +24,7 @@ Git
 
 ---
 
-# Gitlens?
-
-extension
-
----
-
-- Create and log in in GitHub account
-- Please turn of AI
-
-![w:606px Content Placeholder 10](assets/image2.png)
-
----
+<!-- _class: fit-80 -->
 
 # Git Rebase vs. Merge
 
@@ -62,6 +52,8 @@ A---B---C---D---M  (main)
 ```
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Git Rebase vs. Merge
 
@@ -243,6 +235,8 @@ git checkout -- filename  # Discard changes
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Accidentally adding files that should not be tracked
 
 - **Situation:** You accidentally ran git add . and added files that should be ignored, e.g., compiled objects in obj/.
@@ -330,6 +324,8 @@ git commit -m "WIP“
 ```
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Common mistakes
 

@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "Data Structures & Algorithms"
 ---
 
@@ -10,21 +11,6 @@ title: "Data Structures & Algorithms"
 # Data Structures &amp; Algorithms
 
 ## Lecture 10
----
-
-# In 136, we covered
-
-- Objects and classes, Abstract Data Types – lots of coverage.  I required class and header files in most assignments
-- Time and Space complexity – a discussion was included in each exercise.  Good coverage of constant time, linear, n2, n3, with loops and nested loops.  Didn’t do any of the math.
-- Arrays and 2D arrays, and “2D” vectors, along with Big-O and execution time tests with larger structures.  Students had a LOT of coverage
-- Linked List and Sorted Linked List – students had to write their own class/header files and driver for each
-- Stack and Queue – students were given .h files, had to write the class and member functions and driver
-- Maze using stack and queue in Python – students were given classes, had to write DFS and BFS with much assistance and examples
-- Lecture coverage of memory allocation, memory usage, static variables, compilation, memory leaks, dangling pointers, comparison of C and C++, binary search, examples of object-oriented programming and ADT’s in C++, Python, Java
-- Parameter passing, command line arguments, scope – good coverage
-- Pointers – medium coverage, mostly with parameter passing.  We didn’t use them in any useful way.
-- Recursion – weak coverage
-- Visual Studio – all the time
 
 ---
 
@@ -39,6 +25,8 @@ title: "Data Structures & Algorithms"
 # Makefile
 
 ---
+
+<!-- _class: fit-50 -->
 
 # What is Make - ? (mingw32-make.exe)
 
@@ -57,12 +45,16 @@ title: "Data Structures & Algorithms"
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Compiler vs Interpreter
 
 - A compiler takes the entire source code and translates it into a machine code file, often called an executable. This executable file contains instructions that the computer's processor can directly execute. Once compiled, the program can run independently without the need for the original source code or a compiler.
 - An interpreter translates the source code line by line as the program is running. It doesn't create a separate executable file. Instead, it uses a virtual machine to execute the translated code. The virtual machine provides an environment that mimics a real computer, allowing the program to run even if the underlying hardware architecture is different
 
 ---
+
+<!-- _class: fit-90 -->
 
 # How does a C program executes?
 
@@ -88,6 +80,8 @@ The loader loads the executable program into memory (RAM) so that it can be exec
 These steps are essential for transforming your C code into an executable program that can be run on a computer.
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Compilers
 
@@ -151,6 +145,8 @@ gcc -g main.o -o main.exe
 
 ---
 
+<!-- _class: fit-90 -->
+
 # How does a C program executes?
 
 - C code
@@ -191,6 +187,8 @@ gcc -g -Wall -std=c99 -pedantic main.c -o main.exe
 
 ---
 
+<!-- _class: fit-90 -->
+
 # How does a C program executes?
 
 - C code
@@ -216,6 +214,8 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
+<!-- _class: fit-70 -->
+
 # About flags
 
 - The -g flag tells the compiler to include debugging information in the output. Without it, setting breakpoints in the compiled file would not be possible. This flag should be disabled in the final compilation of the application after the development process is complete.
@@ -223,6 +223,8 @@ These steps are essential for transforming your C code into an executable progra
 - Therefore, if the compilation process is split into two stages — compilation and linking — only the -g flag should be repeated during linking.
 
 ---
+
+<!-- _class: fit-50 -->
 
 # What Does a Make Rule Look Like
 
@@ -247,6 +249,8 @@ target … : prerequisites …
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Simplest makefile
 
 - Create a file "Makefile "
@@ -269,6 +273,8 @@ build: #The comment preceded by a hashmark
 
 ---
 
+<!-- _class: fit-60 -->
+
 # Simplest makefile
 
 - Modify to:
@@ -284,6 +290,8 @@ build_obj:
 ```
 
 ---
+
+<!-- _class: fit-60 -->
 
 # Simplest makefile
 
@@ -358,6 +366,8 @@ gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 
 ---
 
+<!-- _class: fit-40 -->
+
 # Headers and the Compilation Process – Key Rules
 
 - **Including the same header more than once**
@@ -376,6 +386,8 @@ gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 The key distinction: Headers are dependencies in the Makefile, but not arguments for the compiler. That’s something students often confuse, so it’s worth stressing early.
 
 ---
+
+<!-- _class: fit-50 -->
 
 # makefile
 
@@ -399,6 +411,8 @@ gcc -g main.o other.o -o main.exe
 
 ---
 
+<!-- _class: fit-50 -->
+
 # makefile
 
 This happens because both of our current targets are essentially **artificial targets** (or **PHONY targets**). Their dependencies don't rely on the existence of any files; they simply establish that one target requires the execution of the other. The line defining this—**.PHONY: target1 target2...**—should be placed before the first occurrence of the first target. By doing this, **make** will not attempt to search for files with the same name as the target.
@@ -421,6 +435,8 @@ gcc -g main.o other.o -o main.exe
 
 ---
 
+<!-- _class: fit-70 -->
+
 # The Nature of Make Targets
 
 Targets in a Makefile can fall into several categories:
@@ -430,6 +446,8 @@ Targets in a Makefile can fall into several categories:
 - **Both:** A target can often be both a symbolic step *and* a file name, depending on the context.
 
 ---
+
+<!-- _class: fit-70 -->
 
 # How Make Treats Targets (The Decision-Making Process)
 
@@ -441,11 +459,15 @@ If a target is **not listed** in the **.PHONY** directive, make treats the targe
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Why This Still Matters
 
 While computational power is high today, this timestamp logic is still crucial, especially in very large projects. There is no reason to recompile every single part of a huge system if only a few small source files have changed. **This selective rebuilding is the core reason we use make—it saves enormous amounts of time and makes the build process efficient.**
 
 ---
+
+<!-- _class: fit-50 -->
 
 # Fully Functional Makefile: A Summary
 
@@ -469,6 +491,8 @@ clean:
 
 ---
 
+<!-- _class: fit-50 -->
+
 # Fully Functional Makefile: A Summary
 
 Make achieves this by generating a **dependency tree** and determining the correct order of execution. We've defined this order as follows:
@@ -491,6 +515,8 @@ clean:
 
 ---
 
+<!-- _class: fit-40 -->
+
 # Fully Functional Makefile: A Summary
 
 - We also successfully created a **symbolic target, clean**, for removing temporary object files generated during compilation. This target will **not** be executed automatically; we must explicitly call it by name: make clean.
@@ -512,6 +538,8 @@ clean:
 
 ---
 
+<!-- _class: fit-50 -->
+
 # Modify and Run
 
 When we execute these commands sequentially in the command prompt (CMD):
@@ -529,6 +557,8 @@ mingw32-make
 ```
 
 ---
+
+<!-- _class: fit-40 -->
 
 # Variables and Assignment in Makefiles
 
@@ -579,6 +609,8 @@ clean:
 
 ---
 
+<!-- _class: fit-50 -->
+
 # extension
 
 - Our script is clearly becoming much smarter and more automated. As you can easily observe, **make** inserts the values of our variables wherever we reference them. The commonly accepted **default name for the main build target is all**, which we've defined as a **PHONY** target dependent on our actual **$(TARGET)** variable.
@@ -605,6 +637,8 @@ clean:
 ```
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Conditional Shell Detection in Make
 
@@ -847,6 +881,8 @@ clean:
 
 ---
 
+<!-- _class: fit-60 -->
+
 # Splitting a Project into Directories with Makefile
 
 **Path separator in Makefiles**
@@ -860,6 +896,8 @@ clean:
 **Convention:** Always write Makefiles for **Bash**, even on Windows (MinGW/Git includes Bash by default).
 
 ---
+
+<!-- _class: fit-50 -->
 
 # Splitting a Project into Directories with Makefile
 
@@ -878,6 +916,8 @@ clean:
   - $(BIN\_DIR)/main.exe
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Splitting a Project into Directories with Makefile
 
@@ -955,6 +995,8 @@ clean:
 
 ---
 
+<!-- _class: fit-40 -->
+
 # Adding a Dedicated inc/ Directory for Headers
 
 In this example, we moved other.h into a new inc/ directory. Unlike bin/ or obj/, this directory does **not** need to be created by the Makefile, because it is already part of the repository structure — headers are expected to live there.
@@ -1000,7 +1042,9 @@ clean:
 
 ---
 
-# Make is extremely sensitive to spaces
+<!-- _class: fit-40 -->
+
+# Make is extremely sensitive to spaces.
 
 For example, if you write
 
@@ -1122,6 +1166,8 @@ clean:
 
 ---
 
+<!-- _class: fit-30 -->
+
 # Adding a Dedicated bin/
 
 The compilation output (main.exe) is now placed inside the bin directory, which will **not be tracked in the repository**. This is recorded in .gitignore, so when cloning the repository locally, the bin folder will not be present.
@@ -1178,27 +1224,3 @@ clean:
 <!-- _class: caption-slide -->
 
 # Thank You
-
----
-
-# Algorithm notation systems
-
----
-
-# Efficiency – an example
-
-<!-- For a concrete example -->
-
----
-
-# Efficiency – an example
-
-<!-- For a concrete example -->
-
----
-
-# Efficiency – an example
-
-By using an algorithm whose running time grows more slowly, even with a poor compiler, computer **B** runs more than 17 times faster than computer **A**! The advantage of merge sort is even more pronounced when we sort 100 million numbers: where insertion sort takes more than 23 days, merge sort takes under four hours. In general, as the problem size increases, so does the relative advantage of merge sort.
-
-<!-- For a concrete example -->

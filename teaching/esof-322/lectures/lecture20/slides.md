@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
@@ -10,6 +11,7 @@ title: "Software Engineering"
 # Software Engineering
 
 ## Lecture 20
+
 ---
 
 # Today’s Agenda
@@ -22,6 +24,8 @@ title: "Software Engineering"
 # Flowchart
 
 ---
+
+<!-- _class: fit-80 -->
 
 # What is a Flowchart?
 
@@ -95,6 +99,8 @@ title: "Software Engineering"
 ![w:1280px Picture 6](assets/image12.png)
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Exporting Diagrams to PNG or SVG
 
@@ -206,7 +212,7 @@ Otherwise, the CLI will not process the file correctly.
 
 ---
 
-# Arrows can be styled in several ways
+# Arrows can be styled in several ways:
 
 |Symbol|Type|Description|
 |---|---|---|
@@ -291,6 +297,8 @@ style B fill:#f9f,stroke:#333,stroke-width:2px
 ![w:833px Picture 6](assets/image14.png)
 
 ---
+
+<!-- _class: fit-60 -->
 
 # Practical Lesson: Dealing with Special Characters and Vague Errors
 

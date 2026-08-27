@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "Data Structures & Algorithms"
 ---
 
@@ -10,21 +11,6 @@ title: "Data Structures & Algorithms"
 # Data Structures &amp; Algorithms
 
 ## Lecture 11
----
-
-# In 136, we covered
-
-- Objects and classes, Abstract Data Types – lots of coverage.  I required class and header files in most assignments
-- Time and Space complexity – a discussion was included in each exercise.  Good coverage of constant time, linear, n2, n3, with loops and nested loops.  Didn’t do any of the math.
-- Arrays and 2D arrays, and “2D” vectors, along with Big-O and execution time tests with larger structures.  Students had a LOT of coverage
-- Linked List and Sorted Linked List – students had to write their own class/header files and driver for each
-- Stack and Queue – students were given .h files, had to write the class and member functions and driver
-- Maze using stack and queue in Python – students were given classes, had to write DFS and BFS with much assistance and examples
-- Lecture coverage of memory allocation, memory usage, static variables, compilation, memory leaks, dangling pointers, comparison of C and C++, binary search, examples of object-oriented programming and ADT’s in C++, Python, Java
-- Parameter passing, command line arguments, scope – good coverage
-- Pointers – medium coverage, mostly with parameter passing.  We didn’t use them in any useful way.
-- Recursion – weak coverage
-- Visual Studio – all the time
 
 ---
 
@@ -46,6 +32,12 @@ title: "Data Structures & Algorithms"
 
 ![w:509px Picture 5](assets/image6.png)
 
+![w:597px Content Placeholder 2](assets/image4.png)
+
+![w:501px Content Placeholder 2](assets/image5.png)
+
+![w:375px TextBox 2](assets/image7.png)
+
 <!-- log base 2 of x
 x to the power of y
 x raised to the power of y
@@ -55,7 +47,11 @@ y is the **function value** -->
 
 ---
 
+<!-- _class: fit-40 -->
+
 # Logarithmic and Exponential Rules (The Fundamentals)
+
+![Content Placeholder 2](assets/image8.png)
 
 <!-- **The Product Rule:** The logarithm of a product of two numbers, a and c, is equal to the **sum** of the logarithms of those numbers.
 **The Quotient Rule:** The logarithm of a quotient (a division) is equal to the **difference** between the logarithms of the numerator (a) and the denominator (c).
@@ -68,7 +64,13 @@ y is the **function value** -->
 
 ---
 
+<!-- _class: fit-40 -->
+
 # Examples
+
+![w:1211px Content Placeholder 2](assets/image9.png)
+
+![w:582px Content Placeholder 2](assets/image10.png)
 
 <!-- The logarithm of  equals one plus log n plus log log n. //The logarithm of two times n times log n equals one plus log n plus log log n.<br>Here, we use the rule that the log of a product equals the sum of logs.<br>Since when the base is 2, we replace it with 1.<br>Remember that in computer science, if the base is not written, we usually assume it’s base 2.
 The logarithm of n divided by 2 equals log n minus log 2, which is log n minus one.<br>Again, we assume base 2, so .
@@ -103,6 +105,10 @@ Four to the power n divided by two to the power 2n simplifies to two to the powe
 - Any continuous function on a closed interval can be approximated uniformly by a polynomial to any desired degree of accuracy.
 - In other words, we can find a polynomial that will 'draw' the graph of our function as closely as we want on that interval.
 
+![w:525px TextBox 5](assets/image50.png)
+
+![w:581px TextBox 6](assets/image60.png)
+
 <!-- According to the **Weierstrass** approximation theorem, -->
 
 ---
@@ -116,6 +122,8 @@ Four to the power n divided by two to the power 2n simplifies to two to the powe
 - **f(x)**
 - The slope (gradient) of a linear function is directly influenced by the coefficient of the x-term.
 - The greater the absolute value of slope, the steeper the graph of the function will be.
+
+![w:315px TextBox 4](assets/image70.png)
 
 ---
 
@@ -136,6 +144,10 @@ Four to the power n divided by two to the power 2n simplifies to two to the powe
 - 5
 - **f(x)**
 - As the coefficient increases, the rate of growth of the values will accelerate.
+
+![w:463px TextBox 3](assets/image80.png)
+
+![w:609px TextBox 4](assets/image90.png)
 
 ---
 
@@ -163,11 +175,19 @@ Four to the power n divided by two to the power 2n simplifies to two to the powe
 - 5
 - **f(x)**
 
+![w:956px TextBox 314](assets/image12.png)
+
+![w:68px TextBox 316](assets/image13.png)
+
+![w:63px TextBox 317](assets/image14.png)
+
 ---
 
 # Asymptotic notation
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Asymptotic notation
 
@@ -177,11 +197,19 @@ Four to the power n divided by two to the power 2n simplifies to two to the powe
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Asymptotic notation
+
+![Content Placeholder 2](assets/image15.png)
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Asymptotic notation
+
+![Content Placeholder 2](assets/image16.png)
 
 <!-- Big Theta of g of n equals the set of functions f of n such that there exist positive constants c one, c two, and n zero, such that zero is less than or equal to c one times g of n, which is less than or equal to f of n, which is less than or equal to c two times g of n, for all n greater than or equal to n zero. -->
 
@@ -194,6 +222,8 @@ Four to the power n divided by two to the power 2n simplifies to two to the powe
 # Θ-notation
 
 ![w:1056px Picture 6](assets/image17.png)
+
+![w:956px Picture 11](assets/image18.png)
 
 <!-- Θ(n²) “theta of n squared”    Θ(g(n))  theta of g of n     c₁ “c sub one ; c one”    c₁g(n) c one times g of n    f(n) “F OF N”
 A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1 and c2 such that it can be “sandwiched” between c₁g(n)  and c2g(n) , for sufficiently large n. Because Θ(g(n)) is a set, we could write “f .n/ 2 ‚.g.n//” to indicate that f .n/ is a member of ‚.g.n//. Instead, we will usually write “f .n/ D ‚.g.n//” to express the same notion. You might be confused because we abuse equality in this way, but we shall see later in this section that doing so has its advantages -->
@@ -296,19 +326,27 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-# Efficiency – an example
+<!-- _class: fit-70 -->
+
+# Efficiency – an example.
+
+![Content Placeholder 2](assets/image71.png)
 
 <!-- For a concrete example -->
 
 ---
 
-# Efficiency – an example
+<!-- _class: fit-70 -->
+
+# Efficiency – an example.
+
+![Content Placeholder 2](assets/image81.png)
 
 <!-- For a concrete example -->
 
 ---
 
-# Efficiency – an example
+# Efficiency – an example.
 
 By using an algorithm whose running time grows more slowly, even with a poor compiler, computer **B** runs more than 17 times faster than computer **A**! The advantage of merge sort is even more pronounced when we sort 100 million numbers: where insertion sort takes more than 23 days, merge sort takes under four hours. In general, as the problem size increases, so does the relative advantage of merge sort.
 
@@ -323,7 +361,3 @@ By using an algorithm whose running time grows more slowly, even with a poor com
 <!-- _class: caption-slide -->
 
 # Thank You
-
----
-
-# Algorithm notation systems

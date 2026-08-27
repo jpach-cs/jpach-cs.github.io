@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
@@ -12,10 +13,6 @@ title: "CSCI 112  Programming with C"
 - Lecture 5
 - Dr. Jakub L. Pach
 - Fall 2025
-
----
-
-![w:277px Graphic 3](assets/image2.png)
 
 ---
 
@@ -192,6 +189,8 @@ FLT_MAX            = 3.402823e+038
 
 ---
 
+<!-- _class: fit-90 -->
+
 # putchar() & getche() without '\n'
 
 ```c
@@ -223,15 +222,17 @@ aaBB
 
 ---
 
+<!-- _class: fit-90 -->
+
 # putchar() & getche()
 
 ```c
 int putchar(int);
-putchar(c) puts the character c on the standard output.
-it returns the character printed or EOF on error(-1).
+    putchar(c) puts the character c on the standard output.
+    it returns the character printed or EOF on error(-1).
 int getche(void);
-returns the next character from standard input.
-it returns EOF on error.
+    returns the next character from standard input.
+    it returns EOF on error.
 ```
 
 ```c
@@ -299,6 +300,8 @@ int printf (char format[], arg1, arg2 ,...);
 # Control Flow
 
 ---
+
+<!-- _class: fit-90 -->
 
 # if-else statement
 
@@ -461,31 +464,31 @@ else
 ```c
 int main()
 {
-int x; scanf("%d", &x);
-printf("%s","a variable x is ");
+    int x; scanf("%d", &x);
+    printf("%s","a variable x is ");
 
-if(x == 0)
-{
-  printf("%s\n","0");
-}
-else
-{
-  if(x == 1)
-  {
-        printf("%s\n","1");
-  }
-  else
-  {
-    if(x > 1 && x < 5)
-    {
-        printf("%s\n","between 2 and 4");
-    }
-    else
-    {
-      printf("%s\n","not between 0 and 4");
-    }
-  }
-}
+    if(x == 0)
+    {
+      printf("%s\n","0");
+    }
+    else
+    {
+      if(x == 1)
+      {
+            printf("%s\n","1");
+      }
+      else
+      {
+        if(x > 1 && x < 5)
+        {
+            printf("%s\n","between 2 and 4");
+        }
+        else
+        {
+          printf("%s\n","not between 0 and 4");
+        }
+      }
+    }
 }
 
 ```
@@ -496,7 +499,7 @@ int main()
   int x = 1; scanf("%d", &x);
   printf("%s","a variable x is ");
 
-  if(x > 0)
+    if(x > 0)
     if(x < 5)
       printf("%s\n", "between 1 and 4");
 
@@ -605,6 +608,8 @@ int main()
 ```
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Conclusions
 
@@ -877,92 +882,3 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 
 - Jakub Leszek Pach
 - <jpach@mtech.edu>
-
----
-
-# Declaring and initializing arrays
-
-```c
-int main()
-{
-  int a[5];
-  /* Declare an integer array named a with 5 elements */
-  int b[] = {1, 2, 3, 4};
-  /*Declare an integer array named b with 4 elements,
-    initialized with values 1, 2, 3, and 4            */
-  int c[10] = {9, 8, 7, 6, 5};
-  /*Declare an integer array named c with 10 elements,
-    the first 5 elements are initialized with values 9, 8, 7, 6, and 5,
-    the remaining elements are initialized to 0       		  */
-  int d[100] = {0};
-  /*Declare an integer array named d with 100 elements, all initialized to 0*/
-  int x, y = 2;
-  printf("First element (index 0) of array a equals %d.\n", a[0]);
-  /*Print the value of the first element of array a(undefined value)*/
-  printf("Second(index 1) element of array b equals %d.\n", b[1]);
-  /*Print the value of the second element of array b (which is 2)*/
-  printf("Second(index 1) element of array b equals %d.\n", *(b+1) );
-  /*Print the value of the second element of array b using pointer arithmetic*/
-  printf("Sixth(index 5) element of array c equals %d.\n", c[5]);
-  /*Print the value of the sixth element of array c (which is 0)*/
-  x = b[0];   /*Assign the value of the first element of array b (which is 1) to variable x*/
-  a[1] = y;   /*Assign the value of variable y (which is 2) to the second element of array a*/
-}
-```
-
-Result:
-
-```text
-First element (index 0) of array a equals 4201200.
-Second(index 1) element of array b equals 2.
-Second(index 1) element of array b equals 2.
-Sixth(index 5) element of array c equals 0.
-```
-
----
-
-# Basics of
-
-- The important difference between printf and scanf is that scanf requires its arguments to be pointers (location in memory) .
-
-```c
-int main()
-{
-  int x = 5;          			/* Declaration of variable x and assigning its value 5 */
-  int * p;      				/* Declaration of pointer p */
-  p = &x;       				/* Assigning the address value of the p variable to the pointer p */
-  printf("Enter x value : "); 		/* there is no end of line character here! */
-  scanf("%d", &x);     			/* To get a pointer (memory address) */
-  printf("Value of x = %d\n", x); 	/* we use a & before the variable name p */
-  printf("Enter x value again : ");
-  scanf("%d", p);             		/*scanf does not work the same as in python, */
-  printf("Value of x = %d\n", x);   /*you have to use printf and scanf separately */
-}
-```
-
-Result:
-
-```text
-Enter x value : 1
-Value of x = 1
-Enter x value again : 2
-Value of x = 2
-```
-
-```c
-int printf (char format[],  arg1,  arg2 ,...);
-```
-
-```c
-int scanf  (char format[], *arg1, *arg2 ,...);
-```
-
-- The ampersand operator & is a unary operator that returns the memory address, which is the location in memory where a variable is stored.
-
-<!-- This line is where the magic happens. It assigns the address of the variable x to the pointer pointer. The & symbol is the "address-of" operator. So, pointer now holds the memory location where the value 5 for x is stored. -->
-
----
-
-# Notice
-
-Recently, during my lab work, I made a mistake. It wasn't the development environment's fault, but mine. It was related to the scanf function. Because I'm currently working with Python, C, C++, C#, and MATLAB, I mixed up the behavior of the scanf function. You need to know that the scanf function has one drawback: it doesn't clear the buffer of characters entered from the keyboard. This means that after pressing Enter to confirm the data entered from the keyboard, our variable also contains the Enter character, which is that extra line you asked me to use to clear the buffer. To understand its operation, you need to understand today's new material.

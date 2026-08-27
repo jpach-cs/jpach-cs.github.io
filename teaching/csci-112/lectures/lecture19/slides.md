@@ -2,18 +2,8 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSSI112lec 19"
----
-
-- Czy isupper || islower == isalpha()
-- Czy strcpy() I memcpy() moze dzialac tak samo
-- strlen(s) czy moze byc uzyte na tablicy int
-- Memset() mozna laczyc z malloc zamiast calloc
-- Czy mozna uzyc bezporsrednio realloc na wskazniku wczesniej stworzonej pamieci dynamicznej za pomoca (malloc)
-- Memory leaks
-
-<!-- Zielone zrobione, czerwone na nastepne zajecia -->
-
 ---
 
 <!-- _class: lead -->
@@ -23,10 +13,6 @@ title: "CSSI112lec 19"
 - Lecture 19
 - Dr. Jakub L. Pach
 - Fall 2025
-
----
-
-![w:277px Graphic 3](assets/image3.png)
 
 ---
 
@@ -145,7 +131,7 @@ z    equals 6422284.
 
 ---
 
-# Take a closer look at this fragment of memory
+# Take a closer look at this fragment of memory...
 
 - ...
 - 0061FF14
@@ -208,7 +194,7 @@ z    equals 6422284.
 
 ---
 
-# Take a closer look at this fragment of memory
+# Take a closer look at this fragment of memory...
 
 ```c
 int main()
@@ -330,6 +316,8 @@ The value of dynamicVariable is = 5
 
 ---
 
+<!-- _class: fit-90 -->
+
 # malloc() – An array
 
 - Malloc does not require static values for allocation.
@@ -379,6 +367,8 @@ Address of heapArray[2]:         06559352
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Summary
 
 When a process is allocated memory for itself, it is copied into RAM, and the stack is placed at the end of this allocated block. Dynamic memory—the heap—is located "outside" of this process's memory space. The operating system assigns an additional block of memory for malloc(), which is why addresses in the heap can be larger than those within the process's memory.
@@ -386,6 +376,8 @@ When a process is allocated memory for itself, it is copied into RAM, and the st
 When a program that utilizes dynamically allocated memory crashes and fails to deallocate the memory it has requested, this memory may remain inaccessible until the system is rebooted. While operating systems have mechanisms in place to reclaim such memory, these mechanisms vary significantly between different systems. This phenomenon, where memory is unintentionally retained by a program, is known as a memory leak.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # calloc()
 
@@ -490,6 +482,8 @@ What does realloc() return?
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Summary
 
 When a process is allocated memory for itself, it is copied into RAM, and the stack is placed at the end of this allocated block. Dynamic memory—the heap—is located "outside" of this process's memory space. The operating system assigns an additional block of memory for malloc, which is why addresses in the heap can be larger than those within the process's memory.
@@ -497,6 +491,8 @@ When a process is allocated memory for itself, it is copied into RAM, and the st
 When a program that utilizes dynamically allocated memory crashes and fails to deallocate the memory it has requested, this memory may remain inaccessible until the system is rebooted. While operating systems have mechanisms in place to reclaim such memory, these mechanisms vary significantly between different systems. This phenomenon, where memory is unintentionally retained by a program, is known as a memory leak.
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Memory fragmentation
 
@@ -510,6 +506,8 @@ Memory fragmentation is a problem that can occur when memory is repeatedly alloc
   - Occurs when an allocated memory block is larger than actually needed, leading to wasted memory.
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Consequences of fragmentation
 
@@ -532,6 +530,8 @@ Memory fragmentation is a problem that can occur when memory is repeatedly alloc
 # Standard C Library Overview<br> (MinGW / C Standard)
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Standard C Library Overview
 
@@ -612,7 +612,7 @@ fprintf(stderr, "Error message\n");
 
 <!-- _class: long-title -->
 
-# fopen()    – Opens a file and returns a FILE\* pointer..<br>fclose()    – Closes an open file. Always close files when done
+# fopen()    – Opens a file and returns a FILE\* pointer..<br>fclose()    – Closes an open file. Always close files when done.
 
 Typically used for initializing arrays or structs.
 
@@ -646,7 +646,9 @@ Header: <stdio.h>
 
 ---
 
-# fflush()– Flushes the output buffer to the file immediately (useful before closing or switching)
+<!-- _class: fit-60 long-title -->
+
+# fflush()– Flushes the output buffer to the file immediately (useful before closing or switching).
 
 - In C: Use fflush(file\_pointer) before closing critical files to guarantee data integrity. You are essentially clearing out anything that might be stuck in the buffer right before the file handle is released.
 - In C++: std::endl is equivalent to the sequence of inserting a newline (\n) followed by a flush(). It is convenient, but using a simple \n is faster when immediate flushing is not strictly required.
@@ -673,9 +675,9 @@ Header: <stdio.h>
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: long-title fit-60 -->
 
-# clearerr(fp)     – Clears the EOF and error indicators.<br>ferror(fp)     – Checks for file I/O errors. Returns non-zero if an error occurred
+# clearerr(fp)     – Clears the EOF and error indicators.<br>ferror(fp)     – Checks for file I/O errors. Returns non-zero if an error occurred.
 
 - Within the FILE structure managed by the standard C library (for I/O streams), there is an internal error pointer (flag) that is set when a persistent error occurs during an input/output operation.
 - Setting the Flag: When you call an I/O function (e.g., fread(), fwrite(), fgetc()) and that operation encounters an error—for instance, a disk read error—the system sets the internal error flag for that specific stream (FILE \*).
@@ -725,7 +727,7 @@ Header: <stdio.h>
 
 ---
 
-# feof() – Checks if the end of the file has been reached. Returns non-zero (true) if EOF is set
+# feof() – Checks if the end of the file has been reached. Returns non-zero (true) if EOF is set.
 
 ```c
 #include <stdio.h>
@@ -760,7 +762,7 @@ Expands to:
 
 ---
 
-# perror() – Prints a human-readable error message related to the last I/O failure
+# perror() – Prints a human-readable error message related to the last I/O failure.
 
 ```c
 #include <stdio.h>
@@ -789,7 +791,7 @@ Error opening file: No such file or directory
 
 ---
 
-# freopen() – Reopens an existing stream (e.g., redirect stdin or stdout)
+# freopen() – Reopens an existing stream (e.g., redirect stdin or stdout).
 
 ```c
 #include <stdio.h>
@@ -820,7 +822,9 @@ This will be written to output.txt!
 
 ---
 
-# tmpfile() – Creates a temporary file that is automatically deleted when closed or program ends
+<!-- _class: fit-50 long-title -->
+
+# tmpfile() – Creates a temporary file that is automatically deleted when closed or program ends.
 
 - On **Unix-like systems** such as Linux and macOS, temporary files are typically placed in the **/tmp** directory. Conversely, on **Windows systems**, the location is defined by environment variables like **%TEMP%** or **%TMP%** for the current user, usually resolving to a path within the user's local application data folder (C:\Users\\[UserName\]\AppData\Local\Temp)
 - The function's true value lies in how it manages the file lifecycle. First, it ensures the file is created with a **Unique Name**, effectively preventing naming collisions with other running programs. Second, the file is opened in a robust **Binary Read and Write mode** ("wb+"). Most importantly, the file is **automatically marked for deletion** (or *unlinked*) the moment the associated stream is closed using fclose(), or when the program terminates normally by calling exit(). This automatic cleanup guarantees the file is created in a safe location where the operating system has **write permissions** and ensures the resource **disappears** when no longer needed, making it fundamentally safer and cleaner than manually managing temporary files in the program's executable directory.
@@ -854,7 +858,7 @@ Header: <stdio.h>
 
 ---
 
-# tmpnam() – Generates a unique temporary filename (does not create the file)
+# tmpnam() – Generates a unique temporary filename (does not create the file).
 
 **Result(temp\*):**
 
@@ -890,7 +894,7 @@ Expands to:
 
 ---
 
-# rename()    – Changes a file’s name.<br>remove()    – Deletes a file from disk
+# rename()    – Changes a file’s name.<br>remove()    – Deletes a file from disk.
 
 ```c
 #include <stdio.h>
@@ -922,155 +926,3 @@ Header: <stdio.h>
 
 - Jakub Leszek Pach
 - <jpach@mtech.edu>
-
----
-
-# 5. Conversion Functions (&lt;stdlib.h&gt;)
-
-Convert strings to numbers.
-
-|Function|Description|Example|
-|---|---|---|
-|atoi(str)|Converts to int.|x = atoi("123");|
-|atol(str)|Converts to long.|y = atol("12345");|
-|atof(str)|Converts to double.|z = atof("3.14");|
-|strtol(str, end, base)|String → long, supports base.|val = strtol(s, NULL, 16);|
-|strtoul(str, end, base)|String → unsigned long.|val = strtoul(s, NULL, 10);|
-|strtod(str, end)|String → double.|d = strtod(s, NULL);|
-
----
-
-# 6. Math Functions (&lt;math.h&gt;)
-
-Convert strings to numbers.
-
-|Function|Description|Example|
-|---|---|---|
-|abs(x)|Absolute value (int).|abs(-5) → 5|
-|labs(x)|Absolute (long).|labs(-100L)|
-|fabs(x)|Absolute (float/double).|fabs(-3.2)|
-|sqrt(x)|Square root.|sqrt(9) → 3.0|
-|pow(a,b)|Exponentiation.|pow(2,3) → 8.0|
-|sin(x), cos(x)|Trigonometric.|sin(3.14)|
-|ceil(x), floor(x), round(x)|Rounding operations.|ceil(3.2) → 4.0|
-|fmod(a,b)|Floating-point remainder.|fmod(7.5,2) → 1.5|
-|hypot(x,y)|√(x²+y²).|hypot(3,4) → 5.0|
-
----
-
-# 7. Utility Functions (&lt;stdlib.h&gt;)
-
-Convert strings to numbers.
-
-|Function|Description|Example|
-|---|---|---|
-|rand()|Returns pseudo-random number.|x = rand() % 10;|
-|srand(seed)|Seeds random generator.|srand(time(NULL));|
-|abort()|Terminates program abnormally.|abort();|
-|exit(status)|Ends program normally.|exit(0);|
-|atexit(func)|Registers cleanup function.|atexit(close\_files);|
-|system(cmd)|Runs shell command.|system("cls");|
-|bsearch(key, base, n, size, cmp)|Binary search.|bsearch(&amp;x, arr, n, sizeof(int), cmp);|
-|qsort(base, n, size, cmp)|Sorts array.|qsort(arr, n, sizeof(int), cmp);|
-|rand()|Returns pseudo-random number.|x = rand() % 10;|
-
----
-
-# 8. Diagnostics and Assertions (&lt;assert.h&gt;)
-
-Useful for debugging and safety.
-
-|Function / Macro|Description|Example|
-|---|---|---|
-|assert(expr)|Stops program if condition is false.|assert(ptr != NULL);|
-|\_\_FILE\_\_, \_\_LINE\_\_|Preprocessor macros with file and line info.|printf("%s:%d", \_\_FILE\_\_, \_\_LINE\_\_);|
-
----
-
-# 9. Time and Date Functions (&lt;time.h&gt;)
-
-Work with clocks and timestamps.
-
-|Function|Description|Example|
-|---|---|---|
-|time(NULL)|Current time (seconds since epoch).|t = time(NULL);|
-|clock()|CPU time used.|clock();|
-|difftime(t1,t2)|Difference in seconds.|difftime(t1,t2);|
-|mktime(&amp;tm)|Converts struct tm → time\_t.|mktime(&amp;local);|
-|asctime(&amp;tm)|Converts struct tm to string.|asctime(localtime(&amp;t));|
-|localtime(&amp;t)|Converts to local time struct.|localtime(&amp;t);|
-|ctime(&amp;t)|Converts directly to human string.|ctime(&amp;t);|
-|strftime(buf, n, fmt, &amp;tm)|Formats time as text.|strftime(s, 20, "%H:%M", &amp;tm);|
-
----
-
-# 10. Variable Argument Lists (&lt;stdarg.h&gt;)
-
-For functions that accept a variable number of parameters.
-
-|Macro|Description|Example|
-|---|---|---|
-|va\_start(list, last)|Initializes argument list.|va\_start(args, n);|
-|va\_arg(list, type)|Retrieves next argument.|sum += va\_arg(args, int);|
-|va\_end(list)|Cleans up argument list.|va\_end(args);|
-
----
-
-# 1. Character Classification and Conversion (&lt;ctype.h&gt;)
-
-Used for testing and converting characters.
-
-|Function|Description|Example|
-|---|---|---|
-|isalpha(c)|Checks if character is a letter (A–Z, a–z).|if (isalpha(c)) ...|
-|isdigit(c)|Checks if character is a decimal digit.|if (isdigit(c)) ...|
-|isalnum(c)|Checks if character is alphanumeric.|if (isalnum(c)) ...|
-|iscntrl(c)|Checks if character is a control character.|if (iscntrl(c)) ...|
-|islower(c)|Checks if character is lowercase.|if (islower(c)) ...|
-|isupper(c)|Checks if character is uppercase.|if (isupper(c)) ...|
-|isspace(c)|Checks for whitespace (space, tab, newline, etc.).|if (isspace(c)) ...|
-|isprint(c)|Checks if character is printable.|if (isprint(c)) ...|
-|ispunct(c)|Checks if character is punctuation. <br>(. , ; : ! ? ( ) \[ \] { } ‚ „ + - \* / % # @ $ &amp; = ^ ~ \| &lt; &gt;)|if (ispunct(c)) ...|
-|tolower(c)|Converts uppercase to lowercase.|tolower('A') → 'a'|
-|toupper(c)|Converts lowercase to uppercase.|toupper('b') → 'B'|
-
----
-
-# Most Common System Libraries in Windows (WinAPI)
-
-These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
-
-|Library|Description|Typical Functions|
-|---|---|---|
-|**windows.h**|The main gateway to the Windows API – contains basic type definitions, macros, and core system functions.|CreateFile(), ReadFile(), Sleep(), MessageBox()|
-|**winuser.h**|Part of the Windows API responsible for creating and managing windows, messages, and user interface elements.|CreateWindow(), ShowWindow(), GetMessage()|
-|**wincon.h**|Provides access to the Windows console (terminal) and its properties.|SetConsoleTextAttribute(), GetConsoleScreenBufferInfo()|
-|**processthreadsapi.h**|Manages processes and threads.|CreateProcess(), ExitProcess(), GetCurrentThreadId()|
-|**synchapi.h**|Synchronization mechanisms such as mutexes, semaphores, and events.|CreateMutex(), WaitForSingleObject()|
-|**fileapi.h**|Handles file and directory operations.|CreateFile(), ReadFile(), WriteFile()|
-|**timeapi.h**|Provides system time and timer-related functions.|timeGetTime(), Sleep()|
-|**winsock2.h**|Networking (sockets) – TCP/IP interface for Windows.|socket(), connect(), send(), recv()|
-|**shellapi.h**|Integrates applications with the Windows shell (opening files, shortcuts, icons).|ShellExecute(), ExtractIcon()|
-|**commdlg.h**|Provides standard dialog boxes (open/save file, color picker, font selection).|GetOpenFileName(), ChooseColor()|
-
----
-
-# Historia C
-
-- ?
-
----
-
-# Syllabus - Textbooks
-
-- Brian W. Kernighan, Dennis M. Ritchie. C Programming Language, 2nd Edition. Prentice Hall, 1988
-- Seacord, R. C. (2024). Effective C: An Introduction to Professional C Programming. No Starch Press, Inc. (Optional)
-
-![w:251px Amazon.com: C Programming Language, 2nd Edition: 8601410794231: Brian W.  Kernighan, Dennis M. Ritchie: Books](assets/image5.jpeg)
-
-![Picture 4](assets/image6.jpeg)
-
-- Dennis M. Ritchie
-
-<!-- the co-author of this book is the creator of this language!
-In the past, textbooks were the primary source of knowledge in higher education. Lectures and labs were just a small supplement to the content found in textbooks. With the advancement of technology, presentations have become the primary source of information for students, and only the most curious students seek additional content in textbooks recommended by professors. -->

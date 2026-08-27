@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
@@ -12,10 +13,6 @@ title: "CSCI 112  Programming with C"
 - Lecture 3
 - Dr. Jakub L. Pach
 - Fall 2025
-
----
-
-![w:277px Graphic 3](assets/image2.png)
 
 ---
 
@@ -34,7 +31,9 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-# Symbolic names will be used in
+<!-- _class: fit-80 -->
+
+# Symbolic names will be used in:
 
 - Variables:    Symbolic names will be used to identify and refer to data stored in variables. This<br>    allows for more meaningful and descriptive code compared to using arbitrary names or <br>    identifiers.
 - Arrays:     Symbolic names will be used to identify collections of related data elements. Arrays can be used <br>    to store multiple values of the same data type.
@@ -57,6 +56,8 @@ int a[10];
 \*Array indexing starts from 0.
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Arrays
 
@@ -111,6 +112,8 @@ Hello World
 ```
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Arrays
 
@@ -246,7 +249,6 @@ int main()
 }
 ```
 
-
 <!-- perentysys; esiszewitiwy
 Use parentheses to override order of evaluation -->
 
@@ -264,6 +266,8 @@ Operations on real numbers are recorded with only a certain degree of precision,
 
 ---
 
+<!-- _class: fit-90 -->
+
 # What is Casting?
 
 The process of converting a value of one data type to another.
@@ -280,6 +284,8 @@ The purpose:
 - To access specific parts of a data structure.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Explicit Casting
 
@@ -322,6 +328,8 @@ If we put a data type in parentheses before a symbolic name (variable), we perfo
 asterisk -->
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Implicit Casting
 
@@ -386,7 +394,6 @@ int main()
 }
 ```
 
-
 <!-- perentysys; esiszewitiwy
 Use parentheses to override order of evaluation -->
 
@@ -416,7 +423,6 @@ int main()
 	int x = 5, y = -6; int * z; float f = 3.0f; 				/*code*/
 }
 ```
-
 
 <!-- perentysys; esiszewitiwy
 Use parentheses to override order of evaluation -->
@@ -516,11 +522,12 @@ int main()
 }
 ```
 
-
 <!-- perentysys; esiszewitiwy
 Use parentheses to override order of evaluation -->
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Increment (++) & decrement (--) operator & Assignment by sum
 
@@ -603,7 +610,6 @@ int main()
 }
 ```
 
-
 <!-- Use parentheses to override order of evaluation -->
 
 ---
@@ -663,7 +669,6 @@ int main()
 }
 ```
 
-
 <!-- Use parentheses to override order of evaluation -->
 
 ---
@@ -672,7 +677,7 @@ int main()
 
 ---
 
-# C language is a procedural programming language
+# C language is a procedural programming language.
 
 - Imperative programming is a programming paradigm that uses **statements to change a program's state**.
 - It is like giving the computer instructions step by step on what to do.
@@ -680,7 +685,7 @@ int main()
 
 ---
 
-# C language is a procedural programming language
+# C language is a procedural programming language.
 
 - Procedural programming is a type of imperative programming that breaks down a program into smaller, independent procedures (functions).
 - This makes the program more organized and easier to maintain.
@@ -689,7 +694,7 @@ int main()
 
 ---
 
-# C language is a procedural programming language
+# C language is a procedural programming language.
 
 - Object-oriented programming further extends the concepts of procedural programming by organizing code into objects that encapsulate data and behavior.
 - Imperative programming
@@ -708,7 +713,7 @@ An **expression**, on the other hand, is a combination of variables, constants, 
 
 ---
 
-# Null / empty statement
+# Null / empty statement;
 
 - A single semicolon ; in C language is a statement called a null statement or empty statement.
 - A semicolons ; are used to terminate statements

@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
@@ -10,6 +11,7 @@ title: "Software Engineering"
 # Software Engineering
 
 ## Lecture 14
+
 ---
 
 # Chapter 1- Introduction
@@ -327,14 +329,6 @@ title: "Software Engineering"
 
 ---
 
-# Etyka
-
-- przysiega hipokratesa, dlaczego cenimy sobie apple czy google,
-- covey i zasady
-- mikroagresja i kursy w USA jako argument czulosci na niedobre sytuacje i sytuacja z Bartkiem, ktory mial pisać aplikacje do systemu randkowego dla homoseksualistow
-
----
-
 # ACM/IEEE Code of Ethics
 
 - The professional societies in the US have cooperated to produce a code of ethical practice.
@@ -373,6 +367,8 @@ title: "Software Engineering"
 
 ---
 
+<!-- _class: fit-60 -->
+
 # A Personal Testament to the Value of Ethics in Software Engineering
 
 Operating on large collections of data is at the core of Computer Science. In this class, we will study several commonly used structures used to store data and the algorithms used to manipulate them. We will examine the types of problems that each data structure and algorithm can be applied to. Finally, we will learn ways to analyze and compare algorithms in terms of time and space efficiency. Topics include stacks, queues, general lists, trees and graphs, hashing, searching, sorting, and recursion.
@@ -384,6 +380,8 @@ Operating on large collections of data is at the core of Computer Science. In th
 
 ---
 
+<!-- _class: fit-70 -->
+
 # A Personal Testament to the Value of Ethics in Software Engineering
 
 **The Personal Journey to Integrity**
@@ -393,6 +391,8 @@ Operating on large collections of data is at the core of Computer Science. In th
 - However, not everyone experiences a relationship with a true God—one who loves and mentors. So, let's appeal to a universal, secular principle: **Immanuel Kant’s Categorical Imperative.**
 
 ---
+
+<!-- _class: fit-70 -->
 
 # A Personal Testament to the Value of Ethics in Software Engineering
 
@@ -405,6 +405,8 @@ Operating on large collections of data is at the core of Computer Science. In th
 
 ---
 
+<!-- _class: fit-90 -->
+
 # A Personal Testament to the Value of Ethics in Software Engineering
 
 **Honesty in the Software Stack**
@@ -415,6 +417,8 @@ Operating on large collections of data is at the core of Computer Science. In th
 - My professors at my alma mater used to say, **"You write your papers and dissertations not for your fans, but for your enemies."** If your critics find a flaw, you will lose credibility sooner rather than later.
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Case studies
 
@@ -484,10 +488,6 @@ Clearly, this is a safety-critical system. If the pump fails to operate or does 
 - The system shall be available to deliver insulin when required.
 - The system shall perform reliably and deliver the correct amount of insulin to counteract the current level of blood sugar.
 - The system must therefore be designed and implemented to ensure that the system always meets these requirements.
-
----
-
-- chyba w kolejnym wykladzie
 
 ---
 
@@ -635,16 +635,6 @@ Key points
 - The fundamental ideas of software engineering are applicable to all types of software system.
 - Software engineers have responsibilities to the engineering profession and society. They should not simply be concerned with technical issues.
 - Professional societies publish codes of conduct which set out the standards of behaviour expected of their members.
-
----
-
-# Questions
-
-Quizz
-
----
-
-# Pytania do quizow
 
 ---
 
@@ -1116,6 +1106,8 @@ In agile methods, requirements specification is not a separate activity but is s
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Process improvement activities
 
 - *Process measurement*
@@ -1153,6 +1145,8 @@ In agile methods, requirements specification is not a separate activity but is s
 <!-- pptx2marp: image17.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
+
+<!-- _class: fit-70 -->
 
 # The SEI capability maturity model
 

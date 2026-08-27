@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
@@ -10,6 +11,7 @@ title: "Software Engineering"
 # Software Engineering
 
 ## Lecture 23
+
 ---
 
 # Today’s Agenda
@@ -17,6 +19,8 @@ title: "Software Engineering"
 - UML Use case diagrams
 
 ---
+
+<!-- _class: fit-70 -->
 
 # From The author of textbook
 
@@ -34,6 +38,8 @@ title: "Software Engineering"
   - which show how the system reacts to internal and external events.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # UML Use case diagrams
 
@@ -138,6 +144,8 @@ Formal model describing complete interactions:
 
 ---
 
+<!-- _class: fit-90 -->
+
 # How to Create Use Case Diagrams (Step-by-Step)
 
 - Identify actors
@@ -165,6 +173,8 @@ Formal model describing complete interactions:
 <!-- Figure 5.3 shows a use case from the Mentcare system that represents the task of uploading data from the Mentcare system to a more general patient record system. This more general system maintains summary data about a patient rather than data about each consultation, which is recorded in the Mentcare system. Notice that there are two actors in this use case—the operator who is transferring the data and the patient record system. The stick figure notation was originally devel oped to cover human interaction, but it is also used to represent other external sys tems and hardware. Formally, use case diagrams should use lines without arrows as arrows in the UML indicate the direction of flow of messages. Obviously, in a use case, messages pass in both directions. However, the arrows in Figure 5.3 are used informally to indicate that the medical receptionist initiates the transaction and data is transferred to the patient record system. -->
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Use cases in the Mentcare system involving the role ‘Medical Receptionist’
 
@@ -279,43 +289,6 @@ flowchart LR
 ````
 
 ![w:308px Picture 8](assets/image9.png)
-
----
-
-# Recommended Practice: IDs and Separate Connections
-
-````
-```mermaid
-graph TD
-A[Start] --> B{Is data valid?}
-B -- Yes --> C[Process data]
-B -- No --> D[Show error]
-C ==> E([End])
-D -. Retry .-> A
-````
-
-![w:324px Picture 13](assets/image10.png)
-
-````
-```mermaid
-graph TD
-A[Start]
-B{Is data valid?}
-C[Process data]
-D[Show error]
-E([End])
-
-
-A --> B
-B -- Yes --> C
-B -- No --> D
-C ==> E
-D -. Retry .-> A
-````
-
-- Although Mermaid allows defining nodes and connections in one line (e.g. A\[Start\] --&gt; B\[Process\]), it is often clearer to **separate definitions**:
-- This approach improves clarity, maintainability, and consistency — particularly in larger diagrams.
-- Labels describe the condition or reason for a flow, especially for decision nodes.
 
 ---
 

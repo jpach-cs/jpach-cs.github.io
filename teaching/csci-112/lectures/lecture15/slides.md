@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
@@ -12,10 +13,6 @@ title: "CSCI 112  Programming with C"
 - Lecture 15
 - Dr. Jakub L. Pach
 - Fall 2025
-
----
-
-![w:277px Graphic 3](assets/image3.png)
 
 ---
 
@@ -426,6 +423,8 @@ OK
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Summary and Best Practices
 
 - Why do all these test functions have no parameters and return void? Because their **function signature** must match what Unity expects — the function’s address is passed to the macro: RUN\_TEST(test\_multiply\_basic); inside the run\_unity\_tests() function.
@@ -553,7 +552,9 @@ Unions in C are a mechanism that allows different data types to be stored in the
 
 ---
 
-# A summary on unions
+<!-- _class: fit-90 -->
+
+# A summary on unions:
 
 Unions in C are special data types that allow different data types to be stored in the same memory location. Unlike structures, where each member has its own dedicated space, all members of a union share the same location. This means that at any given time, only one member of the union can hold a defined value, and changing the value of one member automatically overwrites the values of the others. This makes unions ideal for situations where we need to store different types of data in the same place, but only one of these types is active at any moment. Unions have various applications, from representing variable data types to creating more memory-efficient data structures. However, it’s important to note that improper use of unions can lead to programming errors, such as accessing uninitialized data or violating memory alignment rules
 
@@ -580,6 +581,8 @@ enums symbolic_name1
 - Everything that is in angle brackets &lt;&gt; is optional.
 
 ---
+
+<!-- _class: fit-80 -->
 
 # 1 example
 
@@ -628,6 +631,8 @@ Improper value
 These constants are often used to represent a fixed set of values, such as days of the week, colors, or error codes. Enums provide a way to make code more readable and maintainable by using meaningful names instead of raw integer values.
 
 ---
+
+<!-- _class: fit-80 -->
 
 # 2 example
 
@@ -686,6 +691,8 @@ enums symbolic_name1
 - Everything that is in angle brackets &lt;&gt; is optional.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # 3 example
 
@@ -821,6 +828,8 @@ Give me a number
 
 ---
 
+<!-- _class: fit-50 -->
+
 # Opening and closing files
 
 ```text
@@ -828,12 +837,12 @@ Function: fopen()
 Syntax:
 	FILE *fopen(const char *filename, const char *mode);
 Error Handling:
-Always check if fopen() returned NULL, indicating failure (e.g., file not found).
+    Always check if fopen() returned NULL, indicating failure (e.g., file not found).
 Function: fclose()
 Syntax:
 	int fclose(*FILE);
 Error Handling:
-Always check if fclose() returned NULL, indicating failure (e.g., file not found).
+    Always check if fclose() returned NULL, indicating failure (e.g., file not found).
 ```
 
 - In the context of file access, the fopen() and fclose() functions serve a role analogous to curly braces {, } in defining a code block. Opening a file with fopen() is akin to entering a new scope of operations on that file, similar to how an opening curly brace signals the beginning of a new block of statements. Conversely, fclose() marks the end of this scope, closing the file and thus concluding the block, much like a closing curly brace.
@@ -848,7 +857,7 @@ Function: fopen()
 Syntax:
 	FILE *fopen(const char *filename, const char *mode);
 Error Handling:
-Always check if fopen() returned NULL, indicating failure (e.g., file not found).
+    Always check if fopen() returned NULL, indicating failure (e.g., file not found).
 
 ```
 
@@ -859,6 +868,8 @@ file path/file name
 - mode
 
 ---
+
+<!-- _class: fit-60 -->
 
 # const char \*filename
 
@@ -896,284 +907,6 @@ File Types:
 |b|Binary mode. Treats file as a sequence of bytes with no translation.|
 
 <!-- najpierw on bibliotece i EOF i ile wynosi ( stala symboliczna i wartosc wynosi -1 -->
-
----
-
-# Binary File I/O Functions
-
-```text
-For reading blocks of binary data.
-Syntax:
-int fread(void *ptr, int size, int count, FILE *stream);
-For writing blocks of binary data.
-Syntax:
-int fwrite(const void *ptr, int size, int count, FILE *stream);
-```
-
-ptr:    Pointer to the data you want to write(read).
-
-size:    Size, in bytes, of each element to be written(read).
-
-count:    Number of elements to write(read), which is the third argument.
-
-stream:    File pointer to the open file where data should be written(read).
-
----
-
-# An example – Binary file
-
-```c
-#include <stdio.h>
-int main(int argc, char *argv[])
-{
-    FILE *file;
-    file =  fopen("binaryFile.bin", "wb");
-    if(file)
-    {
-        int x = 5;
-        _ =  fwrite(&x, sizeof(x), 1, file);
-
-        char text[10] = "Some text";
-        _ =  fwrite(text, sizeof(*text), 10, file);
-
-        float fnumber = 3.14f;
-        _ =  fwrite(&fnumber, sizeof(fnumber), 1, file);
-        fclose(file);
-    }
-    else
-        printf("Error");
-    return 0;
-}
-```
-
-binaryFile.bin:
-
-```text
-   Some text ĂőH@
-
-```
-
-Result:
-
-```text
-15 Some text 3.140000
-
-```
-
-```c
-#include <stdio.h>
-int main(int argc, char *argv[])
-{
-    FILE *file;
-    file =  fopen("binaryFile.bin", "rb");
-    if(file)
-    {
-        int x;
-        _ =  fread(&x, sizeof(x), 1, file);
-
-        char text[10];
-        _ =  fread(text, sizeof(*text), 10, file);
-
-        float fnumber;
-        _ =  fread(&fnumber, sizeof(fnumber), 1, file);
-
-        fclose(file);
-
-        printf("%d %s %f", x, text, fnumber);
-    }
-    else
-        printf("Error");
-    return 0;
-}
-```
-
----
-
-# fseek() function
-
-```text
-The function fseek() moves the file pointer to a specified location, allowing you to read from or write to a specific part of the file.
-Syntax:
-int fseek(FILE *stream, long offset, int origin);
-```
-
-stream:     A pointer to the FILE object that identifies the file.
-
-offset:     The number of bytes to move the file pointer.
-
-origin:     The starting position for the offset; it can be one of the following constants:
-
-SEEK\_SET:    Start from the beginning of the file (0).
-
-SEEK\_CUR:     Start from the current position of the file pointer (1).
-
-SEEK\_END:     Start from the end of the file(2).
-
----
-
-# ftell() and rewind() functions
-
-```text
-The function ftell() returns the current file position as a long integer. If an error occurs, it returns -1.
-Syntax:
-long ftell(FILE *stream);
-```
-
-- Unlike fseek() and ftell(), rewind() is simpler to use and is intended to reset the file pointer to the beginning of the file.
-
-Syntax:
-
-```c
-void rewind(FILE *stream);
-```
-
----
-
-# 1 example – fseek()
-
-```c
-#include <stdio.h>
-int main(int argc, char *argv[])
-{
-    FILE *file;
-    file =  fopen("binaryFile.bin", "rb");
-    if(file)
-    {
-    /* Move to the 5th byte from the beginning */
-    fseek(file, 5, SEEK_SET);
-    printf("Position after fseek: %ld\n", ftell(file));
-
-    /* Move forward by 10 bytes from the current position */
-    fseek(file, 10, SEEK_CUR);
-    printf("Position after another fseek: %ld\n", ftell(file));
-
-    /* Move to the end of the file */
-    fseek(file, 0, SEEK_END);
-    printf("Position at the end of file: %ld\n", ftell(file));
-    fclose(file);
-    }
-    else
-        printf("Error");
-    return 0;
-}
-```
-
-Result:
-
-```text
-Position after fseek: 5
-Position after another fseek: 15
-Position at the end of file: 18
-
-```
-
----
-
-# 2 example – fseek(), ftell()
-
-```c
-#include <stdio.h>
-int main(int argc, char *argv[])
-{
-    FILE *file;
-    file =  fopen("binaryFile.bin", "rb");
-    if(file)
-    {
-        int x; int position;
-        position = ftell(file);
-        printf("The position in file = %d\n", position);
-        _ =  fread(&x, sizeof(x), 1, file);
-        position = ftell(file);
-        printf("The position in file = %d\n", position);
-        char text[10];
-        _ =  fread(text, sizeof(*text), 10, file);
-        position = ftell(file);
-        printf("The position in file = %d\n", position);
-        float fnumber;
-        _ =  fread(&fnumber, sizeof(fnumber), 1, file);
-        position = ftell(file);
-        printf("The position in file = %d\n", position);
-        printf("%d %s %f\n", x, text, fnumber);
-        /* Move to the 0th byte from the beginning */
-        fseek(file, 0, SEEK_SET);
-        printf("Position after fseek(): %ld\n", ftell(file));
-        x = 0;
-        _ =  fread(&x, sizeof(x), 1, file);
-        printf("%d\n", x);
-        fclose(file);
-    }
-    else
-        printf("Error");
-    return 0;
-}
-```
-
-Result:
-
-```text
-The position in file = 0
-The position in file = 4
-The position in file = 14
-The position in file = 18
-5 Some text 3.140000
-Position after fseek(): 0
-5
-
-```
-
----
-
-# Text File I/O Functions
-
-```text
-For reading text from file:
-fgetc():	Reads a single character from a file.
-fgets():	Reads a line from a file.
-fscanf(): 	Reads formatted input from a file (similar to scanf()).
-For writing text for file:
-fputc():	Writes a single character to a file.
-fputs():	Writes a string to a file.
-fprintf():	Prints formatted output to a file (similar to printf()).
-```
-
----
-
-# Reading Text from a file
-
-```text
-int fgetc(FILE *stream)
-Description:	Reads a single character from the specified file stream.
-Return Type:	Returns the character read as an unsigned char cast to an int, or EOF on end of file or error.
-Example: 	int ch = fgetc(file_pointer);
-char *fgets(char *str, int n, FILE *stream)
-Description:	Reads a line from the file and stores it in the character array str.
-Return Type:	Returns str on success, or NULL on error or when end of file occurs.
-Example:	 char *result = fgets(buffer, sizeof(buffer), file_pointer);
-int fscanf(FILE *stream, const char *format, ...)
-Description:	Reads formatted input from a file based on the format string, similar to scanf.
-Return Type:	Returns the number of items successfully read, or EOF if an error or end of file occurs before any items are matched.
-Example: 	int read_count = fscanf(file_pointer, "%d %f", &int_var, &float_var);
-```
-
----
-
-# Writing Text to a file
-
-```text
-int fputc(int char, FILE *stream)
-Description:	Writes a single character to the specified file stream.
-Return Type:	Returns the written character as an unsigned char cast to an int, or EOF on error.
-Example: 	int result = fputc('A', file_pointer);
-int fputs(const char *str, FILE *stream)
-Description:	Writes a string to the file.
-Return Type:	Returns a non-negative number on success, or EOF on error.
-Example: 	int result = fputs("Hello, World!\n", file_pointer);
-int fprintf(FILE *stream, const char *format, ...)
-Description:	Writes formatted output to the specified file stream, similar to printf().
-Return Type:	Returns the number of characters written, or a negative value if an error occurs.
-Example: 	int chars_written = fprintf(file_pointer, "Integer: %d, Float: %f\n", int_var, float_var);
-
-```
 
 ---
 

@@ -2,15 +2,8 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSSI112lec 22"
----
-
-- Memset() mozna laczyc z malloc zamiast calloc
-- Czy mozna uzyc bezporsrednio realloc na wskazniku wczesniej stworzonej pamieci dynamicznej za pomoca (malloc)
-- Memory leaks
-
-<!-- Zielone zrobione, czerwone na nastepne zajecia -->
-
 ---
 
 <!-- _class: lead -->
@@ -20,10 +13,6 @@ title: "CSSI112lec 22"
 - Lecture 22
 - Dr. Jakub L. Pach
 - Fall 2025
-
----
-
-![w:277px Graphic 3](assets/image3.png)
 
 ---
 
@@ -180,6 +169,8 @@ Useful for debugging and safety.
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Standard C Library Overview
 
 - Character Classification and Conversion (&lt;ctype.h&gt;)
@@ -220,7 +211,7 @@ Work with clocks and timestamps.
 
 ---
 
-# time(time\_t \*) – Returns the current calendar time
+# time(time\_t \*) – Returns the current calendar time.
 
 - (seconds since January 1, 1970 — Unix epoch).
 
@@ -264,6 +255,8 @@ Now = 1763952307
 
 ---
 
+<!-- _class: fit-50 -->
+
 # time() Function and the Unix Epoch
 
 **The Unix Epoch and time\_t**
@@ -290,6 +283,8 @@ Now = 1763952307
 
 ---
 
+<!-- _class: fit-90 -->
+
 # time() Function and the Unix Epoch
 
 Why a Signed Integer for time\_t?
@@ -302,7 +297,9 @@ Why a Signed Number (signed) Was Used?
 
 ---
 
-# Seconds alone tell you nothing about the calendar
+<!-- _class: fit-70 -->
+
+# Seconds alone tell you nothing about the calendar.
 
 We cannot look at it and immediately know the year, month, day, or even the hour. To understand the calendar date, you would need to manually account for:
 
@@ -322,7 +319,9 @@ Now = 1763952307
 
 ---
 
-# localtime() – Converting Seconds Into a Calendar Structure
+<!-- _class: fit-60 -->
+
+# localtime() – Converting Seconds Into a Calendar Structure.
 
 - 1900?
 
@@ -367,6 +366,8 @@ int tm_isdst;
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Why does struct tm store the year as *years since 1900*?
 
 Historical reason — backward compatibility
@@ -392,6 +393,8 @@ When the struct tm type was defined, the designers decided to:
 - Therefore, we must always compute: year = tm\_year + 1900;
 
 ---
+
+<!-- _class: fit-70 -->
 
 # struct tm
 
@@ -468,7 +471,7 @@ Daylight Saving Time flag: 0
 
 ---
 
-# clock() – Returns the number of CPU clock ticks since the program started
+# clock() – Returns the number of CPU clock ticks since the program started.
 
 - Used for measuring **CPU time**, not real time.
 
@@ -558,7 +561,9 @@ Expands to:
 
 ---
 
-# difftime() – Returns the difference between two time\_t values in seconds: t1 − t2
+<!-- _class: fit-50 -->
+
+# difftime() – Returns the difference between two time\_t values in seconds: t1 − t2.
 
 - Measuring Wall-Clock Time Differences: It is ideal for measuring real-world time intervals (wall-clock time) between two points (e.g., the start and end of some operation).
 - Lack of CPU Time Precision: It should not be used for measuring CPU time or for micro-profiling, as it is based on the time\_t type, which typically only has second-level precision.
@@ -595,7 +600,7 @@ Real time = 1.000000 seconds
 
 ---
 
-# mktime() – Converts a filled struct tm into a time\_t
+# mktime() – Converts a filled struct tm into a time\_t.
 
 - Also automatically normalizes values (e.g., month = 13 → next year).
 
@@ -630,7 +635,7 @@ Epoch time = 1766559600
 
 ---
 
-# asctime() – Converts a struct tm into a human-readable string
+# asctime() – Converts a struct tm into a human-readable string.
 
 - Returns a static string (NOT thread safe).
 
@@ -700,7 +705,7 @@ Now: Sun Nov 23 21:55:04 2025
 
 ---
 
-# strftime() – Formats a struct tm into a custom string according to fmt
+# strftime() – Formats a struct tm into a custom string according to fmt.
 
 - (similar to asctime, also not thread-safe).
 
@@ -752,6 +757,8 @@ For functions that accept a variable number of parameters.
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Variadic Functions (stdarg.h)
 
 - Some functions can accept a **variable number of arguments**.
@@ -764,6 +771,8 @@ For functions that accept a variable number of parameters.
 - These four elements always work **together** and should be understood as one mechanism.
 
 ---
+
+<!-- _class: fit-70 -->
 
 # How variadic functions work in C
 
@@ -781,6 +790,8 @@ Therefore, the programmer must provide enough **context** for the function to de
 - or a fixed "type code" before each argument.
 
 ---
+
+<!-- _class: fit-60 -->
 
 # The va\_list mechanism
 
@@ -800,6 +811,8 @@ Therefore, the programmer must provide enough **context** for the function to de
   - Cleans up the va\_list. You **must** call this before leaving the function.
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Variadic Functions - example
 
@@ -849,6 +862,8 @@ int sum_ints(int count, ...)
 
 ---
 
+<!-- _class: fit-60 -->
+
 # Variadic Functions - example
 
 Because C does not know the types of the variable arguments, the programmer must encode them manually.
@@ -896,22 +911,3 @@ void print_values(int count, ...)
 
 - Jakub Leszek Pach
 - <jpach@mtech.edu>
-
----
-
-# Most Common System Libraries in Windows (WinAPI)
-
-These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
-
-|Library|Description|Typical Functions|
-|---|---|---|
-|**windows.h**|The main gateway to the Windows API – contains basic type definitions, macros, and core system functions.|CreateFile(), ReadFile(), Sleep(), MessageBox()|
-|**winuser.h**|Part of the Windows API responsible for creating and managing windows, messages, and user interface elements.|CreateWindow(), ShowWindow(), GetMessage()|
-|**wincon.h**|Provides access to the Windows console (terminal) and its properties.|SetConsoleTextAttribute(), GetConsoleScreenBufferInfo()|
-|**processthreadsapi.h**|Manages processes and threads.|CreateProcess(), ExitProcess(), GetCurrentThreadId()|
-|**synchapi.h**|Synchronization mechanisms such as mutexes, semaphores, and events.|CreateMutex(), WaitForSingleObject()|
-|**fileapi.h**|Handles file and directory operations.|CreateFile(), ReadFile(), WriteFile()|
-|**timeapi.h**|Provides system time and timer-related functions.|timeGetTime(), Sleep()|
-|**winsock2.h**|Networking (sockets) – TCP/IP interface for Windows.|socket(), connect(), send(), recv()|
-|**shellapi.h**|Integrates applications with the Windows shell (opening files, shortcuts, icons).|ShellExecute(), ExtractIcon()|
-|**commdlg.h**|Provides standard dialog boxes (open/save file, color picker, font selection).|GetOpenFileName(), ChooseColor()|

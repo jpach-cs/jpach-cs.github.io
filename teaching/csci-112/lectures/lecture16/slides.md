@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
@@ -12,10 +13,6 @@ title: "CSCI 112  Programming with C"
 - Lecture 16
 - Dr. Jakub L. Pach
 - Fall 2025
-
----
-
-![w:277px Graphic 3](assets/image3.png)
 
 ---
 
@@ -109,6 +106,8 @@ enums symbolic_name1
 
 ---
 
+<!-- _class: fit-80 -->
+
 # 2 example
 
 ```c
@@ -147,6 +146,8 @@ When using elements from a defined enum, we don't need to use the enum's name it
 If we don't specify a value for an enumeration field, the default value is 0. The subsequent field will have a value one greater than the previous one. However, if we define a different value for a field, that field will have an individually defined value and the next field will be one more than the last one.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # 3 example
 
@@ -277,6 +278,8 @@ Give me a number
 
 ---
 
+<!-- _class: fit-50 -->
+
 # Opening and closing files
 
 ```text
@@ -284,12 +287,12 @@ Function: fopen()
 Syntax:
 	FILE *fopen(const char *filename, const char *mode);
 Error Handling:
-Always check if fopen() returned NULL, indicating failure (e.g., file not found).
+    Always check if fopen() returned NULL, indicating failure (e.g., file not found).
 Function: fclose()
 Syntax:
 	int fclose(*FILE);
 Error Handling:
-Always check if fclose() returned NULL, indicating failure (e.g., file not found).
+    Always check if fclose() returned NULL, indicating failure (e.g., file not found).
 ```
 
 - In the context of file access, the fopen() and fclose() functions serve a role analogous to curly braces {, } in defining a code block. Opening a file with fopen() is akin to entering a new scope of operations on that file, similar to how an opening curly brace signals the beginning of a new block of statements. Conversely, fclose() marks the end of this scope, closing the file and thus concluding the block, much like a closing curly brace.
@@ -311,6 +314,8 @@ Always check if fopen() returned NULL, indicating failure (e.g., file not found)
 - mode
 
 ---
+
+<!-- _class: fit-60 -->
 
 # const char \*filename
 
@@ -355,10 +360,10 @@ Always check if fopen() returned NULL, indicating failure (e.g., file not found)
 
 ```text
 For reading blocks of binary data.
-Syntax:
+    Syntax:
 int fread(void *ptr, int size, int count, FILE *stream);
 For writing blocks of binary data.
-Syntax:
+    Syntax:
 int fwrite(const void *ptr, int size, int count, FILE *stream);
 ```
 
@@ -439,6 +444,8 @@ int main(int argc, char *argv[])
 
 ---
 
+<!-- _class: fit-90 -->
+
 # fseek() function
 
 ```text
@@ -460,6 +467,8 @@ SEEK\_CUR:     Start from the current position of the file pointer (1).
 SEEK\_END:     Start from the end of the file(2).
 
 ---
+
+<!-- _class: fit-90 -->
 
 # ftell() and rewind() functions
 
@@ -488,18 +497,18 @@ int main(int argc, char *argv[])
     file =  fopen("binaryFile.bin", "rb");
     if(file)
     {
-    /* Move to the 5th byte from the beginning */
-    fseek(file, 5, SEEK_SET);
-    printf("Position after fseek: %ld\n", ftell(file));
+        /* Move to the 5th byte from the beginning */
+        fseek(file, 5, SEEK_SET);
+        printf("Position after fseek: %ld\n", ftell(file));
 
     /* Move forward by 10 bytes from the current position */
-    fseek(file, 10, SEEK_CUR);
-    printf("Position after another fseek: %ld\n", ftell(file));
+        fseek(file, 10, SEEK_CUR);
+        printf("Position after another fseek: %ld\n", ftell(file));
 
     /* Move to the end of the file */
-    fseek(file, 0, SEEK_END);
-    printf("Position at the end of file: %ld\n", ftell(file));
-    fclose(file);
+        fseek(file, 0, SEEK_END);
+        printf("Position at the end of file: %ld\n", ftell(file));
+        fclose(file);
     }
     else
         printf("Error");
@@ -574,13 +583,13 @@ Position after fseek(): 0
 
 ```text
 For reading text from file:
-fgetc():	Reads a single character from a file.
-fgets():	Reads a line from a file.
-fscanf(): 	Reads formatted input from a file (similar to scanf()).
+    fgetc():	Reads a single character from a file.
+    fgets():	Reads a line from a file.
+    fscanf(): 	Reads formatted input from a file (similar to scanf()).
 For writing text for file:
-fputc():	Writes a single character to a file.
-fputs():	Writes a string to a file.
-fprintf():	Prints formatted output to a file (similar to printf()).
+    fputc():	Writes a single character to a file.
+    fputs():	Writes a string to a file.
+    fprintf():	Prints formatted output to a file (similar to printf()).
 ```
 
 ---
@@ -589,17 +598,17 @@ fprintf():	Prints formatted output to a file (similar to printf()).
 
 ```text
 int fgetc(FILE *stream)
-Description:	Reads a single character from the specified file stream.
-Return Type:	Returns the character read as an unsigned char cast to an int, or EOF on end of file or error.
-Example: 	int ch = fgetc(file_pointer);
+    Description:	Reads a single character from the specified file stream.
+    Return Type:	Returns the character read as an unsigned char cast to an int, or EOF on end of file or error.
+    Example: 	int ch = fgetc(file_pointer);
 char *fgets(char *str, int n, FILE *stream)
-Description:	Reads a line from the file and stores it in the character array str.
-Return Type:	Returns str on success, or NULL on error or when end of file occurs.
-Example:	 char *result = fgets(buffer, sizeof(buffer), file_pointer);
+    Description:	Reads a line from the file and stores it in the character array str.
+    Return Type:	Returns str on success, or NULL on error or when end of file occurs.
+    Example:	 char *result = fgets(buffer, sizeof(buffer), file_pointer);
 int fscanf(FILE *stream, const char *format, ...)
-Description:	Reads formatted input from a file based on the format string, similar to scanf.
-Return Type:	Returns the number of items successfully read, or EOF if an error or end of file occurs before any items are matched.
-Example: 	int read_count = fscanf(file_pointer, "%d %f", &int_var, &float_var);
+    Description:	Reads formatted input from a file based on the format string, similar to scanf.
+    Return Type:	Returns the number of items successfully read, or EOF if an error or end of file occurs before any items are matched.
+    Example: 	int read_count = fscanf(file_pointer, "%d %f", &int_var, &float_var);
 ```
 
 ---
@@ -627,6 +636,8 @@ Example: 	int chars_written = fprintf(file_pointer, "Integer: %d, Float: %f\n", 
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Introduction to Linked Lists
 
 Let’s talk about **arrays**. Imagine we have an array designed to store a list of products that a customer wants to buy in an online store. By default, the array has a size of 20, because people usually buy only a few products.
@@ -653,6 +664,8 @@ These memory slots are fixed and continuous. Besides, even if we decided to use 
 Now, what if our customer wants to add yet another product? As you can see, this approach is **extremely inefficient**.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Introduction to Linked Lists
 
@@ -774,6 +787,8 @@ for (Node *current = headPtr; current != NULL; current = current->nextPtr)
 ```
 
 ---
+
+<!-- _class: fit-80 -->
 
 # What Happens in the Loop
 

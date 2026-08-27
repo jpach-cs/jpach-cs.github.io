@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
@@ -12,6 +13,8 @@ title: "Software Engineering"
 ## Lecture 3
 
 ---
+
+<!-- _class: fit-60 -->
 
 # Today’s Agenda
 
@@ -31,10 +34,6 @@ Git
 - Please turn of AI
 
 ![w:606px Content Placeholder 10](assets/image2.png)
-
----
-
-Touch!
 
 ---
 
@@ -66,13 +65,6 @@ This Git configuration command ensures consistent handling of line endings acros
 
 - CRLF
 - LF
-
----
-
-# posh-git -  extension (install on your PC)
-
-- In powershell:
-- Przestalo dzialac nie wiem czemu
 
 ---
 
@@ -116,6 +108,8 @@ nothing to commit (create/copy files and use "git add" to track)
 
 ---
 
+<!-- _class: fit-70 -->
+
 # git status -s – Short Status View
 
 This command shows a condensed version of git status, making it easier to quickly scan changes. It uses symbols to indicate the state of each file:
@@ -136,6 +130,8 @@ $ git status –s
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Git Workflow: Understanding the Three Main Areas
 
 - **Directory / Working Space**
@@ -146,6 +142,8 @@ $ git status –s
   - This is the permanent storage area where committed changes are saved. It contains the full history of your project and allows you to track, revert, or collaborate on code over time.
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Adding a file to our directory
 
@@ -167,6 +165,8 @@ nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Git Add – Wildcards and Patterns
 
@@ -209,6 +209,8 @@ hint: Waiting for your editor to close the file...
 ```
 
 ---
+
+<!-- _class: fit-60 -->
 
 # Commit Message Conventions
 
@@ -264,6 +266,8 @@ $ git commit -m "Your commit message"
 
 ---
 
+<!-- _class: fit-80 -->
+
 # git ls-files – List Tracked Files
 
 This command displays all the files that Git is currently tracking in your repository. It shows the contents of the index (staging area), not the working directory. That means:
@@ -280,6 +284,8 @@ firstFile.txt
 ```
 
 ---
+
+<!-- _class: fit-90 -->
 
 # git log – Commit History
 
@@ -308,6 +314,8 @@ Date:   Thu Aug 28 20:09:17 2025 -0600
 
 ---
 
+<!-- _class: fit-90 -->
+
 # git log --oneline – Simplified View
 
 This version shows a **condensed list** of commits, with:
@@ -326,6 +334,8 @@ d06aafa (HEAD -> master) Add firstFile.txt
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Removing Committed Files in Git – Important Note
 
 - Be careful when removing files that have already been committed. If, for example, firstFile.txt is no longer needed in future commits, and you delete it manually from the repository folder, Git won’t automatically recognize this change.
@@ -339,6 +349,8 @@ $ git add firstFile.txt
 ```
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Renaming Files in Git – Important Note
 
@@ -390,6 +402,8 @@ node_modules/
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Understanding .gitignore – File, Not a Folder
 
 It’s important to know that .gitignore is a file, not a folder. The naming convention comes from Linux/Unix systems, where files that start with a dot (.) are treated as hidden or configuration files.
@@ -428,32 +442,6 @@ $ git switch second_branch
 
 ```console
 $ git checkout second_branch
-```
-
----
-
-# Branch - head
-
-It is worth mentioning that Git stores information about branches in the .git/refs/head directory, where each file represents a local branch and contains the commit hash it points to. The currently active branch is indicated by the .git/HEAD file, which usually contains a reference like ref: refs/heads/main.
-
-```text
-.git
-+---hooks
-+---info
-+---logs
-+---objects
-+---refs
-|   COMMIT_EDITMSG
-|   config
-|   description
-|   HEAD
-|   index
-```
-
-```console
-$ git status
-On branch master
-...
 ```
 
 ---

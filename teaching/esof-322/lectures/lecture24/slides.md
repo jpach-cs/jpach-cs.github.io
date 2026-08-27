@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
@@ -10,6 +11,7 @@ title: "Software Engineering"
 # Software Engineering
 
 ## Lecture 24
+
 ---
 
 # Today’s Agenda
@@ -17,6 +19,8 @@ title: "Software Engineering"
 - UML state \[machine\] diagrams
 
 ---
+
+<!-- _class: fit-70 -->
 
 # From The author of textbook
 
@@ -34,6 +38,8 @@ title: "Software Engineering"
   - which show how the system reacts to internal and external events.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # UML state \[machine\] diagrams
 
@@ -53,6 +59,8 @@ title: "Software Engineering"
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Occam's razor
 
 - While the State Diagram displaying an explicit **do: action** within a state is a valid, though relatively rare, feature of strict UML modeling, **Mermaid often does not handle this specific syntax reliably**.
@@ -62,6 +70,8 @@ title: "Software Engineering"
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Introduction — What Are state machine Diagrams?
 
 - State Diagrams (formally **State Machine Diagrams** in UML) are crucial for modeling the **dynamic** **behavior** of a single object or component(or system), illustrating the sequence of states an object goes through in response to events.
@@ -69,6 +79,8 @@ title: "Software Engineering"
   - *A State Diagram models an object's life cycle. It answers the question: "What is the object doing right now, and how does it react to external/internal events?"*
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Introduction to State Machine Diagrams (UML)
 
@@ -119,6 +131,8 @@ State diagrams are perfect when modeling systems where:
 - Optional **transitions** with:     event \[guard\] / action
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Core UML Definitions
 
@@ -353,6 +367,8 @@ state Downloading {
 
 ---
 
+<!-- _class: fit-60 -->
+
 # Practical Tips
 
 - **When to use state diagrams?**
@@ -371,6 +387,8 @@ state Downloading {
   - Avoid “spaghetti transitions”.
 
 ---
+
+<!-- _class: fit-50 -->
 
 # but
 
@@ -396,63 +414,6 @@ s2: exit #58; finalize()
 - Once labeled, you can safely add actions/events to the state. Furthermore, to make the output look exactly like standard UML (where internal actions are often preceded by a colon), you can use the character code for the colon: **#58;** (semicolon + hash + 58 + semicolon). Using #58; ensures that we adhere to the Mermaid syntax while allowing the state actions to look just like in UML.
 
 ![w:288px Picture 9](assets/image13.png)
-
----
-
-![w:434px Content Placeholder 7](assets/image14.png)
-
-````
-```mermaid
-stateDiagram-v2
-    %%direction TB
-
-
-    %% Initial and Final States
-    [*] --> Waiting1 : Initial entry
-    Waiting2 --> [*]
-
-
-    %% 1. Definicje Stanów i ich "Akcji" (jako etykiety)
-
-    Waiting1 : Display Time (do)
-
-    SetTime : Get Number (do)
-    SetTime : Set Time (exit)
-
-
-    Operation : Operate Oven (do)
-
-    FullPower : Set Power = 600 (do)
-
-
-    HalfPower : Set Power = 300 (do)
-
-
-    Enabled : Display 'Ready' (do)
-
-
-    Disabled : Display 'Waiting' (do)
-
-    Waiting2 : Display Time (do)
-
-
-    %% 2. Definicje Przejść
-
-    Waiting1 --> FullPower : Time
-    FullPower --> SetTime : Time
-
-
-    SetTime --> Operation
-    Operation --> Waiting2
-
-
-    Waiting1 --> HalfPower : Time
-    HalfPower --> Enabled
-
-
-    Enabled --> Disabled
-    Disabled --> Waiting2
-````
 
 ---
 

@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Chapter 5 – System Modeling"
 ---
 
@@ -22,6 +23,8 @@ title: "Chapter 5 – System Modeling"
   - architecture
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Types of System Modeling
 
@@ -432,6 +435,8 @@ In a generalization, the attributes and operations associated with higher-level 
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Data flow diagrams
 
 Data-flow diagrams (DFDs) are system models that show a functional perspective where each transformation represents a single function or process. DFDs are used to show how data flows through a sequence of process ing steps. For example, a processing step could be the filtering of duplicate records in a customer database. The data is transformed at each step before moving on to the next stage. These processing steps or transformations represent software processes or functions, where data-flow diagrams are used to document a software design. Activity diagrams in the UML may be used to represent DFDs.
@@ -613,6 +618,8 @@ You may use a table to list the states and events that stimulate state transitio
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Model driven architecture
 
 - Model-driven architecture (MDA) was the precursor of more general model-driven engineering
@@ -621,7 +628,9 @@ You may use a table to list the states and events that stimulate state transitio
 
 ---
 
-# but
+<!-- _class: fit-90 -->
+
+# but...
 
 *...it is possible, in principle, to generate a working program without manual intervention...*
 
@@ -632,6 +641,8 @@ This means that from a model (e.g., UML, SysML, or another abstract system descr
 - but **does not contain the operational logic** — meaning "nothing happens" because the implementation details, such as method bodies, algorithms, etc., are missing.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Types of model
 

@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
@@ -15,9 +16,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-![w:277px Graphic 3](assets/image2.png)
-
----
+<!-- _class: fit-90 -->
 
 # Outline
 
@@ -30,6 +29,8 @@ title: "CSCI 112  Programming with C"
 - Compiler vs Interpreter
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Some basic facts about the course
 
@@ -114,12 +115,16 @@ In the past, textbooks were the primary source of knowledge in higher education.
 
 ---
 
+<!-- _class: fit-90 -->
+
 # ANSI(C89) vs C99
 
 - Last year, the course was taught using the oldest and most widely adopted ANSI standard — C89. This choice was made because C89 does not include many of the conveniences introduced in later versions. While these conveniences make life easier for professional programmers, they can make it harder for beginners to fully grasp the fundamentals of programming in C.
 - The standard now used in our classes is **C99**, which is widely applied in embedded systems, especially in the field of electronics. This standard significantly lowers the entry barrier for beginners (for example, allowing variable declarations inside a for loop and supporting single-line comments //), while avoiding the complex and sometimes confusing features introduced in newer standards. The most recent C standard is currently C23 (2023).
 
 ---
+
+<!-- _class: fit-60 -->
 
 # Syllabus<br>Class Rules
 
@@ -157,6 +162,8 @@ Each lab may include the following components: entrance quiz, assignment, and br
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Syllabus – Laboratory Rules
 
 **Entrance Quiz (optional):**
@@ -184,6 +191,8 @@ Students who need any type of accommodation should work with Montana Tech Disabi
 You are encouraged to work in teams and use many resources including books and the Internet.  However, each student must turn in his/her own work, and each student is responsible for understanding anything that is turned in. Refer to the Student Conduct Code for more information regarding plagiarism and cheating.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Syllabus<br>Declaration of authorship
 
@@ -221,6 +230,8 @@ Lecture & Laboratory:
 # Introduction
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Meaning of words
 
@@ -277,11 +288,13 @@ Doors
 
 ![w:813px Montana Tech Main Hall](assets/image8.jpeg)
 
+![w:775px Montana Tech Main Hall](assets/image8.jpeg)
+
 Windows
 
 ---
 
-# Old, but gold
+# Old, but gold...
 
 ![w:455px Picture 2](assets/image9.jpeg)
 
@@ -289,11 +302,15 @@ Windows
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Conclusions
 
 These doors and those doors serve their purpose, these windows and those windows serve their purpose, and those buildings and these buildings also serve their purpose. However, do you see the difference? The museum building has stood for 100 years and will stand for another 200. In my class, I want to show you the art, everything I have learned from over two decades of studying computer architecture and all the programming languages I have mastered. If your goal is to write correct code, great, just like the new campus building, I will teach you. If you want to understand the nuances, the reasons why certain mechanisms were designed in a certain way, and you are thirsty for knowledge, I will give you everything I have, because I am here for you, student, but ...<br>*It takes blood, sweat, and tears.*
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Compiler vs Interpreter
 
@@ -323,6 +340,8 @@ Similarly, in music, we first learn to read sheet music, and only after masterin
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Positional notation <br>(place-value notation, positional numeral system)
 
 - usually means the extension to any base (2, …, 8,10,16 etc.) of the Hindu–Arabic numeral system (or decimal system).
@@ -347,7 +366,15 @@ Similarly, in music, we first learn to read sheet music, and only after masterin
 
 # Binary numeral system
 
+![w:248px Equation](assets/image24.png)
+
+![w:639px Equation](assets/image47.png)
+
 ![w:238px Picture 2](assets/image15.png)
+
+![w:1009px Equation](assets/image3.png)
+
+![w:1163px Equation](assets/image410.png)
 
 <!-- Why do we start from position zero, not one? Because any number raised to the power of zero always equals one!
 2 raised to the power of 3 is 8.
@@ -426,7 +453,14 @@ So, we converted 123 to binary by successively checking which powers of 2 are pr
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Binary numeral system (Unsigned arithmetic)
+
+|-255||-127||0||127||255||
+|---|---|---|---|---|---|---|---|---|---|
+
+![w:316px Equation](assets/image55.png)
 
 |-255||-127||0||127||255||
 |---|---|---|---|---|---|---|---|---|---|
@@ -447,9 +481,11 @@ least significant bit
 
 **Sign-Magnitude Representation**
 
+![w:316px Equation](assets/image56.png)
+
 ---
 
-# Data in a computer can essentially be stored using two standards
+# Data in a computer can essentially be stored using two standards:
 
 - integers represented in binary,
 - real (floating-point) numbers stored according to the IEEE 754 standard.
@@ -502,32 +538,6 @@ int main()
 - Text preceded by # is a preprocessor section, the first line gives access to standard input and output functions, this is a header.
 - Next, we have the main function defined, which returns an integer value. The {} brackets start and end the body of the main function.
 - The printf function displays the string "Hello world" on the console.
-- The printf function does not move the cursor to the next line, so it is necessary to add the newline character '\n'.
-
-```c
-#include <stdio.h>
-
-int main()
-{
-	char string[12] = "Hello world";
-	printf("%s", string);
-	return 0;
-}
-```
-
-Result:
-
-```text
-Hello world
-```
-
----
-
-# Hello World
-
-- Text preceded by # is a preprocessor section, the first line gives access to standard input and output functions, this is a header.
-- Next, we have the main function defined, which returns an integer value. The {} brackets start and end the body of the main function.
-- The printf function displays the string "Hello world" on the console.
 
 ```c
 #include <stdio.h>
@@ -568,7 +578,7 @@ printf("%s", string);
 
 ---
 
-# Semicolon
+# Semicolon ;
 
 - In the C programming language statements for the compiler (interpreter in Python) is separated by a semicolon ;. Therefore, in C, you can write an entire program on one line...
 
@@ -577,6 +587,8 @@ printf("%s", string);
 ```
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Indentation & parentheses
 
@@ -654,8 +666,3 @@ int main()
 
 - Jakub Leszek Pach
 - <jpach@mtech.edu>
-
----
-
-# Summary calego wykladu
-

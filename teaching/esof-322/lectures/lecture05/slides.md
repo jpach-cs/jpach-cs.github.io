@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
@@ -46,6 +47,8 @@ When we write programs, we need a way to check if our code works correctly. Ther
 
 ---
 
+<!-- _class: fit-90 -->
+
 # What is an assert?
 
 - Assert() is a built-in tool in C. (#include &lt;assert.h&gt;)
@@ -64,6 +67,8 @@ int divide(int a, int b)
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Word – 'assert'
 
 - In structurally or imperatively oriented programming, function names are typically nouns — for example, sum(), pow(), or strlen().
@@ -73,6 +78,8 @@ int divide(int a, int b)
 Conceptually, it’s as if the programmer is saying: “I assert that x equals 1”     assert(x==1);
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Word – 'assert'
 
@@ -166,6 +173,8 @@ int findElement(int arr[], int size, int target)
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Introduction to Unity Test Framework in C
 
 Unity is a lightweight testing framework for the C language. It allows us to write **unit tests** that check whether our functions work as expected.
@@ -177,6 +186,8 @@ When using Unity, every test file usually has three important parts:
 - **UNITY\_BEGIN(); RUN\_TEST(...); return UNITY\_END();** – this is the main pattern for starting Unity, running all tests, and reporting the results.
 
 ---
+
+<!-- _class: fit-50 -->
 
 # Common Unity Assertions
 
@@ -219,6 +230,8 @@ Assertions are the heart of testing. They compare the expected result with the a
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Understanding setUp() and tearDown()
 
 In Unity, the function setUp() is always called before each test. You use it to prepare the environment: initialize variables, reset arrays, or allocate memory.
@@ -246,6 +259,8 @@ Let's break down the fundamentals of forking on GitHub. This is one of the most 
 
 ---
 
+<!-- _class: fit-80 -->
+
 # An Introduction to Forking on GitHub
 
 - Cloning the Repository to Your Computer
@@ -260,6 +275,8 @@ Once you have your copy (the fork), the next step is to bring it down to your lo
 - Press Enter. The repository will be downloaded to your computer, and you can start working in your code editor.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # An Introduction to Forking on GitHub
 

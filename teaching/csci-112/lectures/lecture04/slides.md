@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
@@ -15,9 +16,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-![w:277px Graphic 3](assets/image2.png)
-
----
+<!-- _class: fit-90 -->
 
 # Outline
 
@@ -118,6 +117,8 @@ a / b = 1.666667
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Increment (++) & decrement (--) operator & Assignment by sum
 
 - Prefix increment ++ and decrement -- operators increase (decrease) the operand's value first, then use the new value.
@@ -200,7 +201,7 @@ Result:
 
 ---
 
-# Null / empty statement
+# Null / empty statement;
 
 - A single semicolon ; in C language is a statement called a null statement or empty statement.
 - A semicolons ; are used to terminate statements
@@ -464,6 +465,8 @@ Use parentheses to override order of evaluation -->
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Logical vs Bitwise Operators
 
 In C, Boolean logic can be used in two ways:
@@ -651,6 +654,8 @@ Input and output functions in C are not available by default — you need to inc
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Input / Output
 
 In C, it **is not** easy to explain how these functions work internally without more advanced knowledge. Therefore, we will start by using only the output functions:
@@ -679,6 +684,8 @@ Getche() - (get[ ]char[acter with echo])
 <!-- \*#include &lt;stdio.h&gt; -->
 
 ---
+
+<!-- _class: fit-90 -->
 
 # putchar() & getche() without '\n'
 
@@ -711,15 +718,17 @@ aaBB
 
 ---
 
+<!-- _class: fit-90 -->
+
 # putchar() & getche()
 
 ```c
 int putchar(int);
-putchar(c) puts the character c on the standard output.
-it returns the character printed or EOF on error(-1).
+    putchar(c) puts the character c on the standard output.
+    it returns the character printed or EOF on error(-1).
 int getche(void);
-returns the next character from standard input.
-it returns EOF on error.
+    returns the next character from standard input.
+    it returns EOF on error.
 ```
 
 ```c
@@ -757,6 +766,8 @@ B
 - you need to know that 255 is by default an int (4 bytes).
 
 ---
+
+<!-- _class: fit-90 -->
 
 # char issue
 
@@ -803,468 +814,3 @@ int printf (char format[], arg1, arg2 ,...);
 
 - Jakub Leszek Pach
 - <jpach@mtech.edu>
-
----
-
-# Can there be anything between % and &lt;type&gt;?
-
----
-
-# Yep…
-
----
-
-```c
-printf(char format[],  arg1,  arg2 ,...)
-scanf (char format[], *arg1, *arg2 ,...)
-```
-
----
-
-# printf and scanf format specification
-
-- Optional:
-  - Flags    -    modifiers that alter the formatting or scanning behavior.
-  - Width    -    specifies the minimum width of the output field <br>        or the maximum number of characters to be scanned.
-  - Precision    -    controls the precision of floating-point numbers <br>        or the maximum number of characters to be scanned for strings.
-  - Modifier    -    indicates the data type size (e.g., long, short).
-- Required:
-  - Type    -    specifies the data type of the variable to be formatted or scanned.
-
-```text
-Format =  %[flags][width][.precision][modifier]<type>
-```
-
----
-
-# printf and scanf format specification
-
-- Optional:
-  - Flags    -    modifiers that alter the formatting or scanning behavior.
-  - Width    -    specifies the minimum width of the output field <br>        or the maximum number of characters to be scanned.
-  - Precision    -    controls the precision of floating-point numbers <br>        or the maximum number of characters to be scanned for strings.
-  - Modifier    -    indicates the data type size (e.g., long, short).
-- Required:
-  - Type    -    specifies the data type of the variable to be formatted or scanned.
-
-```text
-Format =  %[flags][width][.precision][modifier]<type>
-```
-
----
-
-|Type & Specifier||Origin|Argument type||Description||
-|---|---|---|---|---|---|---|
-||||**printf**|**scanf**|**printf**|**scanf**|
-|integer|d|decimal|int|int \*|signed decimal notation||
-||u|unsigned decimal|int|unsigned int \*|unsigned decimal notation||
-||c|character|int|char \*|one unsigned character|characters are placed within the indicated memory if the specified width is greater than 1; Without ‘\0’|
-||i|integer|int|int \*|signed decimal notation (also accepts octal and hexadecimal)||
-||o|octal|int|int \*|octal notation (with leading 0)||
-||x, X|hex|int|int \*|hexadecimal notation (with or without leading 0x or 0X)||
-|string|s|string|char \*|char \*|characters from the string are printed until a ‘\0’!|string **of non-white space**; at the end will be added ‘\0’|
-||\[…\]|specific string|N/A|char \*|N/A|Matches the longest non-empty string input characters from the set between brackets; A ‘\0’ is added.|
-||\[^…\]|negated specific string|N/A|char \*|N/A|as above, but only excluding the characters|
-|floating-point number|f|float|float|float \*|single precision floating-point number notation||
-||lf|long float <br>(double)|double|double \*|double precision floating-point number notation||
-||e, E|engineer notation|double|float \*<br>double \*|scientific notation (single or double precision floating-point number)||
-||g, G|general floating-point representation|float double|float \*<br>double \*|scientific notation (single or double precision floating-point number) <br>or single or double precision floating-point number||
-|pointer|p|pointer|(any)  void \*|N/A|integer value of the pointer|N/A|
-|special|n|number of input characters|N/A|int \*|N/A|Writes into the argument the number of characters read so far by this call|
-||%|literal %|%|N/A|Prints a literal percent sign (%)|N/A|
-
-<!-- To know something like the back of one's hand. – miec to w malym palcu
-To be able to explain something in their sleep – odpowiedziec o 4 and ranem -->
-
----
-
-# Basic types
-
-|Type & Specifier||Origin|Argument type||Description||
-|---|---|---|---|---|---|---|
-||||**printf**|**scanf**|**printf**|**scanf**|
-|integer|d|decimal|int|int \*|signed decimal notation||
-||u|unsigned decimal|int|unsigned int \*|unsigned decimal notation||
-||c|character|int|char \*|one unsigned character||
-|string|s|string|char \*|char \*|characters from the string are printed until a ‘\0’!|string **of non-white space**; at the end will be added ‘\0’!|
-|floating-point number|f|float|float|float \*|single precision floating-point number notation||
-||lf|long float <br>(double)|double|double \*|double precision floating-point number notation||
-
-<!-- Każdy lancuch znakowy w C jest o jeden większy od deklarowanej treści, bo na końcu jest jeszcze dopisywany znak końca \0 -->
-
----
-
-# Basic types
-
-|Type & Specifier||Origin|Argument type|Example|Result|
-|---|---|---|---|---|---|
-|integer|d|decimal|int|printf("%d\n", x);<br>    printf("%d\n", y);|65<br>-6|
-||u|unsigned decimal|int|printf("%u\n", x);<br>    printf("%u\n", y);|65<br>4294967290|
-||c|character|int|printf("%c\n", letter);<br>    printf("%c\n", x);<br>    printf("%d\n", letter);|a<br>A<br>97|
-|string|s|string|char \*|printf("%s\n", text);|Some Text|
-|floating-point number|f|float|float|printf("%f\n", fRealNumber);<br>    printf("%f\n", dRealNumber);|3.000000<br>33999999999999998856806021345479952957440.000000|
-||lf|long float <br>(double)|double|fRealNumber = dRealNumber; <br>    printf("%lf\n", fRealNumber);<br>    printf("%lf\n", dRealNumber);|inf<br>33999999999999998856806021345479952957440.000000|
-
-```c
-int main()
-{
-  unsigned int x = 65;  int y = -6; char letter ='a'; char * text = "Some Text";
-  float fRealNumber = 3.0f; double dRealNumber = 3.4e40;
-}
-```
-
----
-
-# Conclusions
-
-- *Remember that* signed *and* unsigned integers *are represented differently in computer memory. Using the wrong* format specifier *can lead to incorrect results (e.g., using* %d *for an* unsigned int*).*
-- *A* char *is essentially a one-byte* integer*. Therefore, you can treat a* char *variable as either an ASCII character or a small* integer*.*
-- *The* float *data type has a smaller range than* double*. Assigning a* double *value to a* float *variable can result in data loss if the value is too large or too small to be represented accurately*
-- *The* lf *specifier is used for* double *values, as* d *is already reserved for decimal(*integer*).* <br>*It's important to remember this distinction.*
-
----
-
-# printf and scanf format specification
-
-- Optional:
-  - Flags    -    modifiers that alter the formatting or scanning behavior.
-  - Width    -    specifies the minimum width of the output field <br>        or the maximum number of characters to be scanned.
-  - Precision    -    controls the precision of floating-point numbers <br>        or the maximum number of characters to be scanned for strings.
-  - Modifier    -    indicates the data type size (e.g., long, short).
-- Required:
-  - Type    -    specifies the data type of the variable to be formatted or scanned.
-
-```text
-Format =  %[flags][width][.precision][modifier]<type>
-```
-
----
-
-# Width
-
-```c
-int main()
-{ int x = 5, y = -6; int * z; float f = 3.1234f; /*code*/ }
-```
-
-|Data|Type||Description|Example|Result|
-|---|---|---|---|---|---|
-|Numbers|integer|d|The width value for number (text) representation reserves at least as many characters as are needed to represent that number(text) in ASCII characters (digits). <br>If the width is smaller than the number’s (text’s) representation, the entire number (text) will be displayed. <br>If the width is greater than the number’s (text’s)  representation, extra spaces will be added on the left side.|printf("%1d\n", y);<br>printf("%4d\n", y);|-6<br>   -6|
-|||u||||
-|||c||printf("%c\n", letter);<br>printf("%1c\n", letter);|a|
-||floating-point number|f||printf("%3f\n", fRealNumber);<br>printf("%9f\n", fRealNumber);|3.123400<br> 3.123400|
-|||lf||||
-|Text|string|s||printf("%3s\n", text);<br>printf("%10s\n", text);|Some Text<br> Some Text|
-
----
-
-# printf and scanf format specification
-
-- Optional:
-  - Flags    -    modifiers that alter the formatting or scanning behavior.
-  - Width    -    specifies the minimum width of the output field <br>        or the maximum number of characters to be scanned.
-  - Precision    -    controls the precision of floating-point numbers <br>        or the maximum number of characters to be scanned for strings.
-  - Modifier    -    indicates the data type size (e.g., long, short).
-- Required:
-  - Type    -    specifies the data type of the variable to be formatted or scanned.
-
-```text
-Format =  %[flags][width][.precision][modifier]<type>
-```
-
----
-
-# Precision
-
-```c
-int main()
-{ int x = 5, y = -6; int * z; float f = 3.1234f; /*code*/ }
-```
-
-|Data|Type||Description|Example|Result|
-|---|---|---|---|---|---|
-|Numbers|integer|d|Figure out what's happening by looking at the examples.|printf("%.1d\n", x); <br>printf("%.5d\n", x);|65<br>00065|
-|||u||||
-|||c||||
-||floating-point number|f||printf("%.6f\n", fRealNumber); <br>printf("%.2f\n", fRealNumber);<br>printf("%.0f\n", fRealNumber);|3.123400<br>3.12<br>3|
-|||lf||||
-|Text|string|s||printf("%.1s\n", text);<br>printf("%.5s\n", text);<br>printf("%.20s\n", text);|S<br>Some<br>Some Text|
-
----
-
-# Precision
-
-```c
-int main()
-{ int x = 5, y = -6; int * z; float f = 3.1234f; /*code*/ }
-```
-
-|Data|Type||Description|Example|Result|
-|---|---|---|---|---|---|
-|Numbers|integer|d|precision works the same as width — it reserves a minimum field size. If the precision is greater than the ASCII character representation of the number, leading zeros are added to the left. Precision does not truncate the number! It always displays the full value.|printf("%.1d\n", x); <br>printf("%.5d\n", x);|65<br>00065|
-|||u||||
-|||c||||
-||floating-point number|f|precision determines the number of digits after the decimal point that are displayed. If the number has more decimal places than specified by the precision, it will be truncated.|printf("%.6f\n", fRealNumber); <br>printf("%.2f\n", fRealNumber);<br>printf("%.0f\n", fRealNumber);|3.123400<br>3.12<br>3|
-|||lf||||
-|Text|string|s|precision determines the precise number of characters to be extracted from the string. Any characters beyond the specified precision will be discarded.|printf("%.1s\n", text);<br>printf("%.5s\n", text);<br>printf("%.20s\n", text);|S<br>Some<br>Some Text|
-
----
-
-# printf and scanf format specification
-
-- Optional:
-  - Flags    -    modifiers that alter the formatting or scanning behavior.
-  - Width    -    specifies the minimum width of the output field <br>        or the maximum number of characters to be scanned.
-  - Precision    -    controls the precision of floating-point numbers <br>        or the maximum number of characters to be scanned for strings.
-  - Modifier    -    indicates the data type size (e.g., long, short).
-- Required:
-  - Type    -    specifies the data type of the variable to be formatted or scanned.
-
-```text
-Format =  %[flags][width][.precision][modifier]<type>
-```
-
----
-
-# Flags
-
-- \+ : Always display the sign of a number, even if it's positive.
-- \- : Left-justify the output within the given field width.
-- 0 : Pad the field with zeros instead of spaces.
-- \# : Use an alternative form for the conversion specifier.
-
-<!-- **# flag:** Use an alternative form for the conversion specifier. For example, it adds a leading zero for octal numbers or a 0x or 0X prefix for hexadecimal numbers. -->
-
----
-
-# Flag "+"
-
-```c
-int main()
-{unsigned int x = 65, y = -6; int * z; float f = 3.1234f; /*code*/ }
-```
-
-|Data|Type||Description|Example|Result|
-|---|---|---|---|---|---|
-|Numbers|integer|d|Always display the sign of a number, even if it's positive.|printf("%+d\n", x);<br>printf("%+d\n", y);|+65<br>-6|
-|||u||||
-|||c||||
-||floating-point number|f||printf("%+f\n", fRealNumber);|+3.123400|
-|||lf||||
-|Text|string|s|None|None|None|
-
----
-
-# Flag "-"
-
-```c
-int main()
-{unsigned int x = 65, y = -6; int * z; float f = 3.1234f; /*code*/ }
-```
-
-|Data|Type||Description|Example|Result|
-|---|---|---|---|---|---|
-|Numbers|integer|d|Left-justify the output within the given field width.|printf("%7d", x);<br>printf("\_next\n");<br>printf("%-7d", x);<br>printf("\_next\n");|65\_next<br>65     \_next|
-|||u||||
-|||c||||
-||floating-point number|f||printf("%13f", fRealNumber); printf("\_next\n");<br>printf("%-13f", fRealNumber);<br>printf("\_next\n");|3.123400\_next<br>3.123400     \_next|
-|||lf||||
-|Text|string|s||printf("%20s", text);    printf("\_next\n");<br>printf("%-20s", text);<br>printf("\_next\n");|Some Text\_next<br>Some Text           \_next|
-
-<!-- To understand recursion, you must first understand recursion -->
-
----
-
-# Flag "0"
-
-```c
-int main()
-{unsigned int x = 65, y = -6; int * z; float f = 3.1234f; /*code*/ }
-```
-
-|Data|Type||Description|Example|Result|
-|---|---|---|---|---|---|
-|Numbers|integer|d|Pad the field with zeros instead of spaces.|printf("%07d\n", x);|0000065\_next|
-|||u||||
-|||c||||
-||floating-point number|f||printf("%013f\n", fRealNumber);|000003.123400\_next|
-|||lf||||
-|Text|string|s||printf("%020s", text);|00000000000Some Text|
-
-<!-- To understand recursion, you must first understand recursion -->
-
----
-
-# Flag "#"
-
-- To understand recursion, you must first understand recursion.
-- This will be explained in the future, because...
-
----
-
-# printf and scanf format specification
-
-- Optional:
-  - Flags    -    modifiers that alter the formatting or scanning behavior.
-  - Width    -    specifies the minimum width of the output field <br>        or the maximum number of characters to be scanned.
-  - Precision    -    controls the precision of floating-point numbers <br>        or the maximum number of characters to be scanned for strings.
-  - Modifier    -    indicates the data type size (e.g., long, short).
-- Required:
-  - Type    -    specifies the data type of the variable to be formatted or scanned.
-
-```text
-Format =  %[flags][width][.precision][modifier]<type>
-```
-
----
-
-# Modifies
-
-```c
-int main()
-{ short int x = 65;  int y = -69000;
-  float fRealNumber = 3.1234f; double dRealNumber = 3.4e50; /*code*/ }
-```
-
-|Data|Type||Description|Example|Result|
-|---|---|---|---|---|---|
-|Numbers|integer|d|Modifier, h and l specify how many bytes should be formatted as a variable. Therefore, if we use short (h - 1 bit) on a normal int (long - 32 bit), we will get an incorrect result because printf will take only 16 bits and build a number representation from it.|printf("%0hd\n", x);<br>printf("%0hd\n", y);<br>printf("%0ld\n", x);<br>printf("%0ld\n", y);|65<br>-3464<br>65<br>-69000|
-|||u||||
-|||c||||
-||floating-point number|f|Since there's no such thing as hf (as hf is simply f), the compiler ignores h, and l represents a double. As you can see, there's no lf type, only f with the l modifier.|printf("%0hf\n", fRealNumber);<br>printf("%0lf\n", fRealNumber);<br>printf("%0hf\n", dRealNumber);<br>printf("%0lf\n", dRealNumber);|3.123400<br>3.123400<br>33999999...<br>339999999999999984402842591433794782958910267457536.000000|
-|||lf||||
-|Text|string|s|None|None|None|
-
----
-
-# printf and scanf format specification
-
-- Optional:
-  - Flags    -    modifiers that alter the formatting or scanning behavior.
-  - Width    -    specifies the minimum width of the output field <br>        or the maximum number of characters to be scanned.
-  - Precision    -    controls the precision of floating-point numbers <br>        or the maximum number of characters to be scanned for strings.
-  - Modifier    -    indicates the data type size (e.g., long, short).
-- Required:
-  - Type    -    specifies the data type of the variable to be formatted or scanned.
-
-```text
-Format =  %[flags][width][.precision][modifier]<type>
-```
-
----
-
-# Do you think it is all?
-
----
-
-|Type & Specifier||Origin|Argument type||Description||
-|---|---|---|---|---|---|---|
-||||**printf**|**scanf**|**printf**|**scanf**|
-|integer|d|decimal|int|int \*|signed decimal notation||
-||u|unsigned decimal|int|unsigned int \*|unsigned decimal notation||
-||c|character|int|char \*|one unsigned character|characters are placed within the indicated memory if the specified width is greater than 1; Without ‘\0’|
-||i|integer|int|int \*|signed decimal notation (also accepts octal and hexadecimal)||
-||o|octal|int|int \*|octal notation (with leading 0)||
-||x, X|hex|int|int \*|hexadecimal notation (with or without leading 0x or 0X)||
-|string|s|string|char \*|char \*|characters from the string are printed until a ‘\0’!|string **of non-white space**; at the end will be added ‘\0’|
-||\[…\]|specific string|N/A|char \*|N/A|Matches the longest non-empty string input characters from the set between brackets; A ‘\0’ is added.|
-||\[^…\]|negated specific string|N/A|char \*|N/A|as above, but only excluding the characters|
-|floating-point number|f|float|float|float \*|single precision floating-point number notation||
-||lf|long float <br>(double)|double|double \*|double precision floating-point number notation||
-||e, E|engineer notation|double|float \*<br>double \*|scientific notation (single or double precision floating-point number)||
-||g, G|general floating-point representation|float double|float \*<br>double \*|scientific notation (single or double precision floating-point number) <br>or single or double precision floating-point number||
-|pointer|p|pointer|(any)  void \*|N/A|integer value of the pointer|N/A|
-|special|n|number of input characters|N/A|int \*|N/A|Writes into the argument the number of characters read so far by this call|
-||%|literal %|%|N/A|Prints a literal percent sign (%)|N/A|
-
-<!-- To know something like the back of one's hand. – miec to w malym palcu
-To be able to explain something in their sleep – odpowiedziec o 4 and ranem -->
-
----
-
-# Declaring and initializing arrays
-
-```c
-int main()
-{
-  int a[5];
-  /* Declare an integer array named a with 5 elements */
-  int b[] = {1, 2, 3, 4};
-  /*Declare an integer array named b with 4 elements,
-    initialized with values 1, 2, 3, and 4            */
-  int c[10] = {9, 8, 7, 6, 5};
-  /*Declare an integer array named c with 10 elements,
-    the first 5 elements are initialized with values 9, 8, 7, 6, and 5,
-    the remaining elements are initialized to 0       		  */
-  int d[100] = {0};
-  /*Declare an integer array named d with 100 elements, all initialized to 0*/
-  int x, y = 2;
-  printf("First element (index 0) of array a equals %d.\n", a[0]);
-  /*Print the value of the first element of array a(undefined value)*/
-  printf("Second(index 1) element of array b equals %d.\n", b[1]);
-  /*Print the value of the second element of array b (which is 2)*/
-  printf("Second(index 1) element of array b equals %d.\n", *(b+1) );
-  /*Print the value of the second element of array b using pointer arithmetic*/
-  printf("Sixth(index 5) element of array c equals %d.\n", c[5]);
-  /*Print the value of the sixth element of array c (which is 0)*/
-  x = b[0];   /*Assign the value of the first element of array b (which is 1) to variable x*/
-  a[1] = y;   /*Assign the value of variable y (which is 2) to the second element of array a*/
-}
-```
-
-Result:
-
-```text
-First element (index 0) of array a equals 4201200.
-Second(index 1) element of array b equals 2.
-Second(index 1) element of array b equals 2.
-Sixth(index 5) element of array c equals 0.
-```
-
----
-
-# Basics of
-
-- The important difference between printf and scanf is that scanf requires its arguments to be pointers (location in memory) .
-
-```c
-int main()
-{
-  int x = 5;          			/* Declaration of variable x and assigning its value 5 */
-  int * p;      				/* Declaration of pointer p */
-  p = &x;       				/* Assigning the address value of the p variable to the pointer p */
-  printf("Enter x value : "); 		/* there is no end of line character here! */
-  scanf("%d", &x);     			/* To get a pointer (memory address) */
-  printf("Value of x = %d\n", x); 	/* we use a & before the variable name p */
-  printf("Enter x value again : ");
-  scanf("%d", p);             		/*scanf does not work the same as in python, */
-  printf("Value of x = %d\n", x);   /*you have to use printf and scanf separately */
-}
-```
-
-Result:
-
-```text
-Enter x value : 1
-Value of x = 1
-Enter x value again : 2
-Value of x = 2
-```
-
-```c
-int printf (char format[],  arg1,  arg2 ,...);
-```
-
-```c
-int scanf  (char format[], *arg1, *arg2 ,...);
-```
-
-- The ampersand operator & is a unary operator that returns the memory address, which is the location in memory where a variable is stored.
-
-<!-- This line is where the magic happens. It assigns the address of the variable x to the pointer pointer. The & symbol is the "address-of" operator. So, pointer now holds the memory location where the value 5 for x is stored. -->
-
----
-
-# Notice
-
-Recently, during my lab work, I made a mistake. It wasn't the development environment's fault, but mine. It was related to the scanf function. Because I'm currently working with Python, C, C++, C#, and MATLAB, I mixed up the behavior of the scanf function. You need to know that the scanf function has one drawback: it doesn't clear the buffer of characters entered from the keyboard. This means that after pressing Enter to confirm the data entered from the keyboard, our variable also contains the Enter character, which is that extra line you asked me to use to clear the buffer. To understand its operation, you need to understand today's new material.

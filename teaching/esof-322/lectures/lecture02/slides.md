@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
@@ -40,6 +41,8 @@ title: "Software Engineering"
 
 ---
 
+<!-- _class: fit-80 -->
+
 # 1. CVS – Concurrent Versions System (c. 1990–2008)
 
 One of the first widely used version control systems.
@@ -57,6 +60,8 @@ One of the first widely used version control systems.
 - Used in early open-source projects, including Linux in its early stages.
 
 ---
+
+<!-- _class: fit-60 -->
 
 # 2. BitKeeper (2000–2018)
 
@@ -80,6 +85,8 @@ From 2002, it was **free for the Linux community** under a special license.
 - Today, it’s practically abandoned—Git completely replaced it.
 
 ---
+
+<!-- _class: fit-50 -->
 
 # 3. The Birth of Git (2005)
 
@@ -110,6 +117,8 @@ After losing BitKeeper, Linus Torvalds set requirements for a new tool:
 - <https://git-scm.com/doc>
 
 ---
+
+<!-- _class: fit-70 -->
 
 # What is Git? (Simple Definition for Beginners)
 
@@ -182,6 +191,8 @@ In Agile development, where code changes often and quality can drop over time, G
 
 ---
 
+<!-- _class: long-title fit-50 -->
+
 # Navigating the Command Line: Windows vs. Linux<br>Slide 1: Opening the Command Prompt - Example
 
 ```console
@@ -216,6 +227,8 @@ C:\Users\Jacob>
 
 ---
 
+<!-- _class: fit-60 -->
+
 # Differences in Command Prompt Messages Between Windows and Linux
 
 The command prompt in different operating systems displays various information, which stems from differences in their architecture and design philosophy.
@@ -242,6 +255,8 @@ Default message:
 
 ---
 
+<!-- _class: long-title fit-80 -->
+
 # Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management
 
 - Windows:
@@ -260,7 +275,7 @@ Default message:
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: long-title fit-90 -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management – Example(dir)
 
@@ -333,71 +348,70 @@ C:\Users\Jacob>cd /
 C:\>
 ```
 
-
 ---
 
-- C:\
-- Program Files(x86)
-- Program Files
-- Users
-- Windows
-- ...
-- Jacob
-- AppData
-- Desktop
-- Documents
-- Music
-- Pictures
-- Videos
-- ...
-- Adobe
-- Microsoft Office
-- ...
-- Microsoft Visual Studio
-- Windows Defender
-- Cheat Engine 7.5
-- MATLAB
-- Notepad++
-- ...
-- D:\ (ESD-USB)
-- efi
 - My Computer
-- support
-- boot
-- sources
-- 'System Volume Information'
-- ...
-- ...
+  - C:\
+    - Program Files(x86)
+      - Adobe
+      - Microsoft Office
+      - Microsoft Visual Studio
+      - Windows Defender
+      - ...
+    - Program Files
+      - Cheat Engine 7.5
+      - MATLAB
+      - Notepad++
+      - ...
+    - Users
+      - Jacob
+        - AppData
+        - Desktop
+        - Documents
+        - Music
+        - Pictures
+        - Videos
+        - ...
+    - Windows
+    - ...
+  - D:\ (ESD-USB)
+    - efi
+    - support
+    - boot
+    - sources
+    - 'System Volume Information'
+    - ...
+  - ...
+
 - /
-- bin
-- dev
-- etc
-- home
-- lib
-- sys
-- usr
-- ...
-- Jacob
-- Desktop
-- Documents
-- Downloads
-- Music
-- Pictures
-- Videos
-- share
-- ...
-- vlc
-- (Visual Studio Code)
-- ....
-- media
-- Jacob
-- efi
-- support
-- boot
-- sources
-- 'System Volume Information'
-- ...
-- ESD-USB
+  - bin
+  - dev
+  - etc
+  - home
+    - Jacob
+      - Desktop
+      - Documents
+      - Downloads
+      - Music
+      - Pictures
+      - Videos
+      - ....
+  - lib
+  - media
+    - Jacob
+      - ESD-USB
+        - efi
+        - support
+        - boot
+        - sources
+        - 'System Volume Information'
+        - ...
+  - sys
+  - usr
+    - share
+    - vlc (Visual Studio Code)
+    - ...
+  - ...
 
 ---
 
@@ -411,6 +425,8 @@ C:\>
 **Note**: Both echo commands have similar functionality, but there might be slight variations in options and behavior.
 
 ---
+
+<!-- _class: long-title -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 3: Text Manipulation and Output - Example
 
@@ -442,7 +458,6 @@ ECHO is on.
 C:\Users\Jacob>
 ```
 
-
 ---
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 4: Hello, World! and Redirection
@@ -457,6 +472,8 @@ C:\Users\Jacob>
 **Note:** Redirection works similarly in both systems, using the &gt; symbol to overwrite a file and &gt;&gt; to append to a file.
 
 ---
+
+<!-- _class: long-title -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 4: Hello, World! and Redirection - Example
 
@@ -496,7 +513,7 @@ Hello world!
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: long-title fit-80 -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 5: Creating and Deleting Files and Directories – Example(copies, deletes, makes)
 
@@ -573,6 +590,8 @@ C:\Users\Jacob\Folder>
 
 ---
 
+<!-- _class: long-title fit-80 -->
+
 # Navigating the Command Line: Windows vs. Linux<br>Slide 6: Executing Compiled Programs – Example
 
 - To run a compiled program, you typically use the following syntax: ./program\_name.
@@ -616,7 +635,6 @@ Approximate round trip times in milli-seconds:
 C:\Windows\System32>
 ```
 
-
 ---
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 7: Additional tools
@@ -634,6 +652,8 @@ rename                            mv
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Navigating the Command Line: Windows vs. Linux<br>Slide 8: Basic Text Editing
 
 - Windows:
@@ -646,6 +666,7 @@ rename                            mv
 **Note:** There are many other text editors available for both Windows and Linux.
 
 ---
+<!-- _class: long-title -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 8: Basic Text Editing
 
@@ -670,7 +691,7 @@ An IP address is like a unique mailing address for every device connected to the
 
 <!-- _class: long-title -->
 
-# Navigating the Command Line: Windows vs. Linux<br>Slide 9: IP address – How you can get your IP address
+# Navigating the Command Line: Windows vs. Linux<br>Slide 9: IP address – How you can get your IP address.
 
 - ip addr
 
@@ -708,7 +729,6 @@ Ethernet adapter Ethernet 4:
 ...
 C:\Users\Jacob>
 ```
-
 
 ---
 
@@ -822,6 +842,8 @@ Options:
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Why Git Works on Multiple Consoles in Windows
 
 - Since Git was originally developed to manage the Linux kernel and is open source, the Windows version of Git can run in at least three different command-line environments:
@@ -844,6 +866,8 @@ Regardless of which console you use, Git follows the Linux/Unix convention for 
 |PowerShell|Yes|Partially (aliases)|
 
 ---
+
+<!-- _class: fit-90 -->
 
 # You should see…
 
@@ -873,10 +897,6 @@ git config --global core.editor "code --wait"    # Sets VS Code as the default e
 git config --global -e                           # Opens the global config file for editing
 git config --global core.autocrlf true           # Handles line endings (important on Windows)
 ```
-
----
-
-Touch!
 
 ---
 

@@ -2,15 +2,8 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSSI112lec 20"
----
-
-- Memset() mozna laczyc z malloc zamiast calloc
-- Czy mozna uzyc bezporsrednio realloc na wskazniku wczesniej stworzonej pamieci dynamicznej za pomoca (malloc)
-- Memory leaks
-
-<!-- Zielone zrobione, czerwone na nastepne zajecia -->
-
 ---
 
 <!-- _class: lead -->
@@ -20,10 +13,6 @@ title: "CSSI112lec 20"
 - Lecture 20
 - Dr. Jakub L. Pach
 - Fall 2025
-
----
-
-![w:277px Graphic 3](assets/image3.png)
 
 ---
 
@@ -119,6 +108,8 @@ Work with files and streams.
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Standard C Library Overview
 
 - Character Classification and Conversion (&lt;ctype.h&gt;)
@@ -191,6 +182,8 @@ You entered age: 42
 
 ---
 
+<!-- _class: fit-80 -->
+
 # atol() – Convert string to long
 
 - **Use case:** Converting numeric strings representing file sizes or IDs that may exceed int range.
@@ -224,6 +217,8 @@ File size: 1048576 bytes
 
 ---
 
+<!-- _class: fit-90 -->
+
 # atof() – Convert string to double
 
 - **Use case:** Reading floating-point values such as temperature, weight, or price from text.
@@ -256,6 +251,8 @@ Body temperature: 36.6°C
 ```
 
 ---
+
+<!-- _class: fit-90 -->
 
 # strtol() – Convert string to long (with base and error checking)
 
@@ -327,6 +324,8 @@ Parsed ID: 4294967295
 
 ---
 
+<!-- _class: fit-70 -->
+
 # strtod() – Convert string to double (with error checking)
 
 - **Use case:** Parsing decimal values that may contain additional characters (like currency symbols or units).
@@ -397,6 +396,8 @@ Convert strings to numbers.
 |hypot(x,y)|√(x²+y²).|hypot(3,4) → 5.0|
 
 ---
+
+<!-- _class: fit-80 -->
 
 # abs() – Absolute value (for int)
 
@@ -554,6 +555,8 @@ sin(30°) = 0.50, cos(30°) = 0.87
 
 ---
 
+<!-- _class: fit-90 -->
+
 # ceil(x), floor(x), round(x) – Rounding operations
 
 - Useful in pricing, measurement rounding, or converting floating-point results to integers.
@@ -613,6 +616,10 @@ Header: <math.h>
 ```text
 Ceil: 4, Floor: 3
 ```
+
+In C programming, it is rarely necessary to use the explicit ceil() or floor() functions from the math library for positive integers. We can efficiently calculate the ceiling of integer division ceil(a/b) using the simple algebraic trick: ⌈(a + b − 1)/b⌉. Furthermore, the floor floor(a/b) is automatically obtained as the result of standard integer division, since the fractional part is simply truncated. Why incur the overhead of including an additional library header when the calculation can be done more quickly and effectively with native integer arithmetic? For scenarios involving negative values, the positive result can always be adjusted by multiplying by negative one at the end, maintaining speed and library minimalism.
+
+![w:449px Rectangle 2](assets/image5.png)
 
 ---
 
@@ -682,122 +689,3 @@ Distance from origin: 5.00
 
 - Jakub Leszek Pach
 - <jpach@mtech.edu>
-
----
-
-# 7. Utility Functions (&lt;stdlib.h&gt;)
-
-Convert strings to numbers.
-
-|Function|Description|Example|
-|---|---|---|
-|rand()|Returns pseudo-random number.|x = rand() % 10;|
-|srand(seed)|Seeds random generator.|srand(time(NULL));|
-|abort()|Terminates program abnormally.|abort();|
-|exit(status)|Ends program normally.|exit(0);|
-|atexit(func)|Registers cleanup function.|atexit(close\_files);|
-|system(cmd)|Runs shell command.|system("cls");|
-|bsearch(key, base, n, size, cmp)|Binary search.|bsearch(&amp;x, arr, n, sizeof(int), cmp);|
-|qsort(base, n, size, cmp)|Sorts array.|qsort(arr, n, sizeof(int), cmp);|
-|rand()|Returns pseudo-random number.|x = rand() % 10;|
-
----
-
-# 8. Diagnostics and Assertions (&lt;assert.h&gt;)
-
-Useful for debugging and safety.
-
-|Function / Macro|Description|Example|
-|---|---|---|
-|assert(expr)|Stops program if condition is false.|assert(ptr != NULL);|
-|\_\_FILE\_\_, \_\_LINE\_\_|Preprocessor macros with file and line info.|printf("%s:%d", \_\_FILE\_\_, \_\_LINE\_\_);|
-
----
-
-# 9. Time and Date Functions (&lt;time.h&gt;)
-
-Work with clocks and timestamps.
-
-|Function|Description|Example|
-|---|---|---|
-|time(NULL)|Current time (seconds since epoch).|t = time(NULL);|
-|clock()|CPU time used.|clock();|
-|difftime(t1,t2)|Difference in seconds.|difftime(t1,t2);|
-|mktime(&amp;tm)|Converts struct tm → time\_t.|mktime(&amp;local);|
-|asctime(&amp;tm)|Converts struct tm to string.|asctime(localtime(&amp;t));|
-|localtime(&amp;t)|Converts to local time struct.|localtime(&amp;t);|
-|ctime(&amp;t)|Converts directly to human string.|ctime(&amp;t);|
-|strftime(buf, n, fmt, &amp;tm)|Formats time as text.|strftime(s, 20, "%H:%M", &amp;tm);|
-
----
-
-# 10. Variable Argument Lists (&lt;stdarg.h&gt;)
-
-For functions that accept a variable number of parameters.
-
-|Macro|Description|Example|
-|---|---|---|
-|va\_start(list, last)|Initializes argument list.|va\_start(args, n);|
-|va\_arg(list, type)|Retrieves next argument.|sum += va\_arg(args, int);|
-|va\_end(list)|Cleans up argument list.|va\_end(args);|
-
----
-
-# 1. Character Classification and Conversion (&lt;ctype.h&gt;)
-
-Used for testing and converting characters.
-
-|Function|Description|Example|
-|---|---|---|
-|isalpha(c)|Checks if character is a letter (A–Z, a–z).|if (isalpha(c)) ...|
-|isdigit(c)|Checks if character is a decimal digit.|if (isdigit(c)) ...|
-|isalnum(c)|Checks if character is alphanumeric.|if (isalnum(c)) ...|
-|iscntrl(c)|Checks if character is a control character.|if (iscntrl(c)) ...|
-|islower(c)|Checks if character is lowercase.|if (islower(c)) ...|
-|isupper(c)|Checks if character is uppercase.|if (isupper(c)) ...|
-|isspace(c)|Checks for whitespace (space, tab, newline, etc.).|if (isspace(c)) ...|
-|isprint(c)|Checks if character is printable.|if (isprint(c)) ...|
-|ispunct(c)|Checks if character is punctuation. <br>(. , ; : ! ? ( ) \[ \] { } ‚ „ + - \* / % # @ $ &amp; = ^ ~ \| &lt; &gt;)|if (ispunct(c)) ...|
-|tolower(c)|Converts uppercase to lowercase.|tolower('A') → 'a'|
-|toupper(c)|Converts lowercase to uppercase.|toupper('b') → 'B'|
-
----
-
-# Most Common System Libraries in Windows (WinAPI)
-
-These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
-
-|Library|Description|Typical Functions|
-|---|---|---|
-|**windows.h**|The main gateway to the Windows API – contains basic type definitions, macros, and core system functions.|CreateFile(), ReadFile(), Sleep(), MessageBox()|
-|**winuser.h**|Part of the Windows API responsible for creating and managing windows, messages, and user interface elements.|CreateWindow(), ShowWindow(), GetMessage()|
-|**wincon.h**|Provides access to the Windows console (terminal) and its properties.|SetConsoleTextAttribute(), GetConsoleScreenBufferInfo()|
-|**processthreadsapi.h**|Manages processes and threads.|CreateProcess(), ExitProcess(), GetCurrentThreadId()|
-|**synchapi.h**|Synchronization mechanisms such as mutexes, semaphores, and events.|CreateMutex(), WaitForSingleObject()|
-|**fileapi.h**|Handles file and directory operations.|CreateFile(), ReadFile(), WriteFile()|
-|**timeapi.h**|Provides system time and timer-related functions.|timeGetTime(), Sleep()|
-|**winsock2.h**|Networking (sockets) – TCP/IP interface for Windows.|socket(), connect(), send(), recv()|
-|**shellapi.h**|Integrates applications with the Windows shell (opening files, shortcuts, icons).|ShellExecute(), ExtractIcon()|
-|**commdlg.h**|Provides standard dialog boxes (open/save file, color picker, font selection).|GetOpenFileName(), ChooseColor()|
-
----
-
-# Historia C
-
-- ?
-
----
-
-# Syllabus - Textbooks
-
-- Brian W. Kernighan, Dennis M. Ritchie. C Programming Language, 2nd Edition. Prentice Hall, 1988
-- Seacord, R. C. (2024). Effective C: An Introduction to Professional C Programming. No Starch Press, Inc. (Optional)
-
-![w:251px Amazon.com: C Programming Language, 2nd Edition: 8601410794231: Brian W.  Kernighan, Dennis M. Ritchie: Books](assets/image5.jpeg)
-
-![Picture 4](assets/image6.jpeg)
-
-- Dennis M. Ritchie
-
-<!-- the co-author of this book is the creator of this language!
-In the past, textbooks were the primary source of knowledge in higher education. Lectures and labs were just a small supplement to the content found in textbooks. With the advancement of technology, presentations have become the primary source of information for students, and only the most curious students seek additional content in textbooks recommended by professors. -->

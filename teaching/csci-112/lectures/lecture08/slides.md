@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
@@ -12,10 +13,6 @@ title: "CSCI 112  Programming with C"
 - Lecture 8
 - Dr. Jakub L. Pach
 - Fall 2025
-
----
-
-![w:277px Graphic 3](assets/image2.png)
 
 ---
 
@@ -76,6 +73,8 @@ int main()
 OR
 
 ---
+
+<!-- _class: fit-70 -->
 
 # for loop
 
@@ -402,6 +401,8 @@ x equals 5 that is read by function main
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Summary - variable scope
 
 - Global variables are accessible throughout a program, but they can be temporarily hidden by a local variable declared within a nested block, such as a function, for loop, while loop, or even an if statement.
@@ -567,6 +568,8 @@ int myFunction()
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Extended example - description
 
 - We cannot declare and then initialize it on separate lines, such as:
@@ -710,6 +713,8 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Extended example - description
 
 - When printf receives an address using the & operator, it prints the address of a 32-bit <br>(or platform-dependent) integer. To display addresses correctly without compiler warnings, the %p format specifier should be used, which is specifically designed for pointer values.
@@ -727,6 +732,8 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 # Operator \* Indirection (dereference)
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Operator \* Indirection (dereference)
 
@@ -869,6 +876,8 @@ Left-to-right associativity means that when there are two operators with the sam
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Summary for associativity and \*&
 
 - The associativity of the \* and & operators is right-to-left (R–L), similar to assignment, but unlike arithmetic or logical operations, which we’re more familiar with.
@@ -900,6 +909,8 @@ int main()
 
 ---
 
+<!-- _class: fit-90 -->
+
 # The Pre-processor
 
 The C Preprocessor runs before the C program is compiled properly. It is a separate program from the compiler programs and, in theory, could be used on any file not just C source files. Its main uses are macro substitution, file inclusion and conditional compilation.
@@ -909,6 +920,8 @@ Each source file will normally have a few preprocessor commands, these are, stri
 eg.: #include&lt;stdio.h&gt;
 
 ---
+
+<!-- _class: fit-80 -->
 
 # The C compiler process has four main phases
 
@@ -926,6 +939,8 @@ eg.: #include&lt;stdio.h&gt;
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Preprocessor directives - macro substitution
 
 - A macro is a symbolic name that represents a sequence of tokens. It's like creating a shorthand that expands to a longer expression whenever it's encountered in the code.
@@ -939,6 +954,8 @@ eg.: #include&lt;stdio.h&gt;
 ```
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Preprocessor directives - macro substitution
 
@@ -1173,6 +1190,8 @@ Using "" (double quotes)	–	e.g. #include "file_name.h"
 
 ---
 
+<!-- _class: fit-70 -->
+
 # File inclusion - "" (double quotes)
 
 - Local search:
@@ -1181,6 +1200,8 @@ Using "" (double quotes)	–	e.g. #include "file_name.h"
   - This is useful for including header files that are specific to your current project and are located in the same directory or a subdirectory.
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Summary: How the C Preprocessor Works
 
@@ -1209,6 +1230,8 @@ Using "" (double quotes)	–	e.g. #include "file_name.h"
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Getchar() & scanf()
 
 - Using getche() allows you to read a character from the keyboard **without waiting for the Enter key**. This has consequences: without more advanced logic, the user cannot correct mistakes. For example, pressing Backspace doesn't erase the previous character — it's just another ASCII code. To handle this properly, you'd need to implement logic that detects Backspace and reverts the previous input.
@@ -1232,139 +1255,3 @@ Using "" (double quotes)	–	e.g. #include "file_name.h"
 
 - Jakub Leszek Pach
 - <jpach@mtech.edu>
-
----
-
-# printf and scanf format specification
-
-- Optional:
-  - Flags    -    modifiers that alter the formatting or scanning behavior.
-  - Width    -    specifies the minimum width of the output field <br>        or the maximum number of characters to be scanned.
-  - Precision    -    controls the precision of floating-point numbers <br>        or the maximum number of characters to be scanned for strings.
-  - Modifier    -    indicates the data type size (e.g., long, short).
-- Required:
-  - Type    -    specifies the data type of the variable to be formatted or scanned.
-
-```text
-Format =  %[flags][width][.precision][modifier]<type>
-```
-
----
-
-# Basic types
-
-|Type & Specifier||Origin|Argument type||Description||
-|---|---|---|---|---|---|---|
-||||**printf**|**scanf**|**printf**|**scanf**|
-|integer|d|decimal|int|int \*|signed decimal notation||
-||u|unsigned decimal|int|unsigned int \*|unsigned decimal notation||
-||c|character|int|char \*|one unsigned character||
-|string|s|string|char \*|char \*|characters from the string are printed until a ‘\0’!|string **of non-white space**; at the end will be added ‘\0’!|
-|floating-point number|f|float|float|float \*|single precision floating-point number notation||
-||lf|long float <br>(double)|double|double \*|double precision floating-point number notation||
-
-<!-- Każdy lancuch znakowy w C jest o jeden większy od deklarowanej treści, bo na końcu jest jeszcze dopisywany znak końca \0 -->
-
----
-
-# Width
-
-```c
-int main()
-{ int x = 5, y = -6; int * z; float f = 3.1234f; /*code*/ }
-```
-
-|Data|Type||Description|Example|Result|
-|---|---|---|---|---|---|
-|Numbers|integer|d|The width value for number (text) representation reserves at least as many characters as are needed to represent that number(text) in ASCII characters (digits). <br>If the width is smaller than the number’s (text’s) representation, the entire number (text) will be displayed. <br>If the width is greater than the number’s (text’s)  representation, extra spaces will be added on the left side.|printf("%1d\n", y);<br>printf("%4d\n", y);|-6<br>   -6|
-|||u||||
-|||c||printf("%c\n", letter);<br>printf("%1c\n", letter);|a|
-||floating-point number|f||printf("%3f\n", fRealNumber);<br>printf("%9f\n", fRealNumber);|3.123400<br> 3.123400|
-|||lf||||
-|Text|string|s||printf("%3s\n", text);<br>printf("%10s\n", text);|Some Text<br> Some Text|
-
----
-
-# Precision
-
-```c
-int main()
-{ int x = 5, y = -6; int * z; float f = 3.1234f; /*code*/ }
-```
-
-|Data|Type||Description|Example|Result|
-|---|---|---|---|---|---|
-|Numbers|integer|d|precision works the same as width — it reserves a minimum field size. If the precision is greater than the ASCII character representation of the number, leading zeros are added to the left. Precision does not truncate the number! It always displays the full value.|printf("%.1d\n", x); <br>printf("%.5d\n", x);|65<br>00065|
-|||u||||
-|||c||||
-||floating-point number|f|precision determines the number of digits after the decimal point that are displayed. If the number has more decimal places than specified by the precision, it will be truncated.|printf("%.6f\n", fRealNumber); <br>printf("%.2f\n", fRealNumber);<br>printf("%.0f\n", fRealNumber);|3.123400<br>3.12<br>3|
-|||lf||||
-|Text|string|s|precision determines the precise number of characters to be extracted from the string. Any characters beyond the specified precision will be discarded.|printf("%.1s\n", text);<br>printf("%.5s\n", text);<br>printf("%.20s\n", text);|S<br>Some<br>Some Text|
-
----
-
-# Flags
-
-- \+ : Always display the sign of a number, even if it's positive.
-- \- : Left-justify the output within the given field width.
-- 0 : Pad the field with zeros instead of spaces.
-- \# : Use an alternative form for the conversion specifier.
-
-<!-- **# flag:** Use an alternative form for the conversion specifier. For example, it adds a leading zero for octal numbers or a 0x or 0X prefix for hexadecimal numbers. -->
-
----
-
-# Modifies
-
-```c
-int main()
-{ short int x = 65;  int y = -69000;
-  float fRealNumber = 3.1234f; double dRealNumber = 3.4e50; /*code*/ }
-```
-
-|Data|Type||Description|Example|Result|
-|---|---|---|---|---|---|
-|Numbers|integer|d|Modifier, h and l specify how many bytes should be formatted as a variable. Therefore, if we use short (h - 2 bytes) on a normal int (long - 32 bit), we will get an incorrect result because printf will take only 16 bits and build a number representation from it.|printf("%0hd\n", x);<br>printf("%0hd\n", y);<br>printf("%0ld\n", x);<br>printf("%0ld\n", y);|65<br>-3464<br>65<br>-69000|
-|||u||||
-|||c||||
-||floating-point number|f|Since there's no such thing as hf (as hf is simply f), the compiler ignores h, and l represents a double. As you can see, there's no lf type, only f with the l modifier.|printf("%0hf\n", fRealNumber);<br>printf("%0lf\n", fRealNumber);<br>printf("%0hf\n", dRealNumber);<br>printf("%0lf\n", dRealNumber);|3.123400<br>3.123400<br>33999999...<br>339999999999999984402842591433794782958910267457536.000000|
-|||lf||||
-|Text|string|s|None|None|None|
-
----
-
-# Declaring and initializing arrays
-
-```c
-int main()
-{
-  int a[5];
-  /* Declare an integer array named a with 5 elements */
-  int b[] = {1, 2, 3, 4};
-  /*Declare an integer array named b with 4 elements,
-    initialized with values 1, 2, 3, and 4            */
-  int c[10] = {9, 8, 7, 6, 5};
-  /*Declare an integer array named c with 10 elements,
-    the first 5 elements are initialized with values 9, 8, 7, 6, and 5,
-    the remaining elements are initialized to 0       		  */
-  int d[100] = {0};
-  /*Declare an integer array named d with 100 elements, all initialized to 0*/
-  int x, y = 2;
-  printf("First element (index 0) of array a equals %d.\n", a[0]);
-  /*Print the value of the first element of array a(undefined value)*/
-  printf("Second(index 1) element of array b equals %d.\n", b[1]);
-  /*Print the value of the second element of array b (which is 2)*/
-  printf("Second(index 1) element of array b equals %d.\n", *(b+1) );
-  /*Print the value of the second element of array b using pointer arithmetic*/
-  printf("Sixth(index 5) element of array c equals %d.\n", c[5]);
-}
-```
-
-Result:
-
-```text
-First element (index 0) of array a equals 4201200.
-Second(index 1) element of array b equals 2.
-Second(index 1) element of array b equals 2.
-Sixth(index 5) element of array c equals 0.
-```

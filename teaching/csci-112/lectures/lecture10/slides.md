@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
@@ -15,10 +16,6 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-![w:277px Graphic 3](assets/image2.png)
-
----
-
 # Outline
 
 - Review
@@ -28,81 +25,6 @@ title: "CSCI 112  Programming with C"
 ---
 
 # Review
-
----
-
-# Preprocessor directives - macro substitution
-
-```c
-#define symbolic_name replaced_text
-```
-
-- Macros are not terminated with semicolons, unlike regular code statements, making them easily distinguishable.
-
-```c
-#define min(a, b) ( (a) < (b) ? (a) : (b) )
-
-#include <stdio.h>
-
-int main()
-{
-    printf("%s\n", min("abc", "cde"));
-    printf("%s\n", min("aac", “aab"));
-
-}
-```
-
-Result:
-
-```text
-cde
-aab
-
-```
-
-```c
-#include <stdio.h>
-int main()
-{
-    printf("%s\n", ( ("abc") < ("cde") ? ("abc") : ("cde") ));
-    printf("%s\n", ( ("aac") < ("aab") ? ("aac") : ("aab") ));
-}
-```
-
-- It works because it's a ternary operator!
-
----
-
-# Basics of
-
-- The important difference between printf and scanf is that scanf requires its arguments to be location in memory.
-- The ampersand operator &amp; is a unary operator that returns the memory address, which is the location in memory where a variable is stored.
-
-```c
-int main()
-{
-  int x = 5;          			/* Declaration of variable x and assigning its value 5 */
-  printf("Enter x value : "); 		/* there is no end of line character here! */
-  scanf("%d", &x);     			/* To get a pointer (memory address) */
-  while (getchar() != '\n’);
-  printf("Value of x = %d\n", x); 	/* we use a & before the variable name p */
-}
-```
-
-Result:
-
-```text
-Enter x value : 1
-Value of x = 1
-```
-
-```c
-int printf (char format[],  arg1,  arg2 ,...);
-```
-
-```c
-int scanf  (char format[], *arg1, *arg2 ,...);
-```
 
 ---
 
@@ -166,6 +88,8 @@ Sixth(index 5) element of array c equals 0.
 ```
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Summary - The \* operator works in **three different ways**
 
@@ -256,6 +180,8 @@ p               equals 6422296.
 ![Ink 60](assets/image130.png)
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Consequences
 
@@ -376,6 +302,8 @@ pointer[1] equals 5.
 
 ---
 
+<!-- _class: fit-80 -->
+
 # So, what does it mean?
 
 ```c
@@ -442,6 +370,8 @@ x = 5, y = 7, z = 1
 ```
 
 ---
+
+<!-- _class: fit-90 -->
 
 # const keyword in Array
 
@@ -557,6 +487,8 @@ Length of [Hello world!] equals 12
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Comparing two pointers
 
 Comparing pointers to strings in C can be significantly optimized, especially when there's a high probability that two strings are identical and point to the same memory location
@@ -593,6 +525,8 @@ Str1 and str2 point to the same string
 <!-- Jesli mamy dwa element tej samej tablicy, i chcemy znalezc element srodkowy tej tablicy mozemy odjac od siebie adresy I uzyskamy od tego element srodkowy -->
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Comparing two pointers
 
@@ -703,88 +637,6 @@ Words of different lengths
 ```text
 Format =  %[flags][width][.precision][modifier]<type>
 ```
-
----
-
-# Basic types
-
-|Type &amp; Specifier||Origin|Argument type||Description||
-|---|---|---|---|---|---|---|
-||||**printf**|**scanf**|**printf**|**scanf**|
-|integer|d|decimal|int|int \*|signed decimal notation||
-||u|unsigned decimal|int|unsigned int \*|unsigned decimal notation||
-||c|character|int|char \*|one unsigned character||
-|string|s|string|char \*|char \*|characters from the string are printed until a ‘\0’!|string **of non-white space**; at the end will be added ‘\0’!|
-|floating-point number|f|float|float|float \*|single precision floating-point number notation||
-||lf|long float <br>(double)|double|double \*|double precision floating-point number notation||
-
-<!-- Każdy lancuch znakowy w C jest o jeden większy od deklarowanej treści, bo na końcu jest jeszcze dopisywany znak końca \0 -->
-
----
-
-# Width
-
-```c
-int main()
-{ int x = 5, y = -6; int * z; float f = 3.1234f; /*code*/ }
-```
-
-|Data|Type||Description|Example|Result|
-|---|---|---|---|---|---|
-|Numbers|integer|d|The width value for number (text) representation reserves at least as many characters as are needed to represent that number(text) in ASCII characters (digits). <br>If the width is smaller than the number’s (text’s) representation, the entire number (text) will be displayed. <br>If the width is greater than the number’s (text’s)  representation, extra spaces will be added on the left side.|printf("%1d\n", y);<br>printf("%4d\n", y);|-6<br>   -6|
-|||u||||
-|||c||printf("%c\n", letter);<br>printf("%1c\n", letter);|a|
-||floating-point number|f||printf("%3f\n", fRealNumber);<br>printf("%9f\n", fRealNumber);|3.123400<br> 3.123400|
-|||lf||||
-|Text|string|s||printf("%3s\n", text);<br>printf("%10s\n", text);|Some Text<br> Some Text|
-
----
-
-# Precision
-
-```c
-int main()
-{ int x = 5, y = -6; int * z; float f = 3.1234f; /*code*/ }
-```
-
-|Data|Type||Description|Example|Result|
-|---|---|---|---|---|---|
-|Numbers|integer|d|precision works the same as width — it reserves a minimum field size. If the precision is greater than the ASCII character representation of the number, leading zeros are added to the left. Precision does not truncate the number! It always displays the full value.|printf("%.1d\n", x); <br>printf("%.5d\n", x);|65<br>00065|
-|||u||||
-|||c||||
-||floating-point number|f|precision determines the number of digits after the decimal point that are displayed. If the number has more decimal places than specified by the precision, it will be truncated.|printf("%.6f\n", fRealNumber); <br>printf("%.2f\n", fRealNumber);<br>printf("%.0f\n", fRealNumber);|3.123400<br>3.12<br>3|
-|||lf||||
-|Text|string|s|precision determines the precise number of characters to be extracted from the string. Any characters beyond the specified precision will be discarded.|printf("%.1s\n", text);<br>printf("%.5s\n", text);<br>printf("%.20s\n", text);|S<br>Some<br>Some Text|
-
----
-
-# Flags
-
-- \+ : Always display the sign of a number, even if it's positive.
-- \- : Left-justify the output within the given field width.
-- 0 : Pad the field with zeros instead of spaces.
-- \# : Use an alternative form for the conversion specifier.
-
-<!-- **# flag:** Use an alternative form for the conversion specifier. For example, it adds a leading zero for octal numbers or a 0x or 0X prefix for hexadecimal numbers. -->
-
----
-
-# Modifies
-
-```c
-int main()
-{ short int x = 65;  int y = -69000;
-  float fRealNumber = 3.1234f; double dRealNumber = 3.4e50; /*code*/ }
-```
-
-|Data|Type||Description|Example|Result|
-|---|---|---|---|---|---|
-|Numbers|integer|d|Modifier, h and l specify how many bytes should be formatted as a variable. Therefore, if we use short (h - 2 bytes) on a normal int (long - 32 bit), we will get an incorrect result because printf will take only 16 bits and build a number representation from it.|printf("%0hd\n", x);<br>printf("%0hd\n", y);<br>printf("%0ld\n", x);<br>printf("%0ld\n", y);|65<br>-3464<br>65<br>-69000|
-|||u||||
-|||c||||
-||floating-point number|f|Since there's no such thing as hf (as hf is simply f), the compiler ignores h, and l represents a double. As you can see, there's no lf type, only f with the l modifier.|printf("%0hf\n", fRealNumber);<br>printf("%0lf\n", fRealNumber);<br>printf("%0hf\n", dRealNumber);<br>printf("%0lf\n", dRealNumber);|3.123400<br>3.123400<br>33999999...<br>339999999999999984402842591433794782958910267457536.000000|
-|||lf||||
-|Text|string|s|None|None|None|
 
 ---
 
@@ -1020,83 +872,3 @@ Result: Date: 1988-8-2
 
 - Jakub Leszek Pach
 - <jpach@mtech.edu>
-
----
-
-# Some examples
-
-```c
-int main()
-{
-  int x = 5, y = 7;
-  int * p = &x;
-  int ** pp = &p;   /* pointer to pointer*/
-  y = **pp;
-  printf("y equals %d.\n\n",  y );
-
-  printf("&y\t\tequals %d.\n", &y );
-  printf("*(&y)\t\tequals %d.\n", *(&y) );
-  printf("&(*(&y))\tequals %d.\n", &(*(&y)) );
-  printf("&*&y\t\tequals %d.\n", &*&y );
-  printf("*&*&y\t\tequals %d.\n\n", *&*&y );
-
-  printf("&x\t\tequals %d.\n", &x );
-  printf("p\t\tequals %d.\n", p );
-  printf("&p\t\tequals %d.\n", &p );
-  printf("*p\t\tequals %d.\n\n", *p );
-
-  printf("pp\t\tequals %d.\n", pp );
-  printf("&pp\t\tequals %d.\n", &pp );
-  printf("*pp\t\tequals %d.\n", *pp );
-  printf("*&*pp\t\tequals %d.\n", *&*pp );
-  printf("**pp\t\tequals %d.\n", **pp );
-  return 0;
-}
-```
-
-Result:
-
-```text
-y equals 5.
-
-&y              equals 6422292.
-*(&y)           equals 7.
-&(*(&y))        equals 6422292.
-&*&y            equals 6422292.
-*&*&y           equals 7.
-
-&x              equals 6422296.
-p               equals 6422296.
-&p              equals 6422288.
-*p              equals 5.
-
-pp              equals 6422288.
-&pp             equals 6422284.
-*pp             equals 6422296.
-*&*pp           equals 6422296.
-**pp            equals 5.
-```
-
-||Memory Addresses and Values|||
-|---|---|---|---|
-|||||
-||x (6422296)|5||
-|||||
-||y (6422292)|5||
-|||||
-||p (6422288)|6422296||
-|||||
-||pp (6422284)|6422288||
-|||||
-
-![Ink 54](assets/image4.png)
-
-![Ink 55](assets/image5.png)
-
-![Ink 56](assets/image6.png)
-
-![Ink 58](assets/image7.png)
-
-![Ink 59](assets/image8.png)
-
-![Ink 60](assets/image9.png)

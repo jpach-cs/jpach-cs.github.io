@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
@@ -22,22 +23,11 @@ Git
 
 ---
 
-# Gitlens?
-
-extension
-
----
-
-- Create and log in in GitHub account
-- Please turn of AI
-
-![w:606px Content Placeholder 10](assets/image2.png)
-
----
-
 # git revert
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Practical Scenario – Restoring a Broken File Locally
 
@@ -48,6 +38,8 @@ extension
 - You do **not want to revert the entire history** or delete commits, because other changes were made along the way.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Practical Scenario – Restoring a Broken File Locally
 
@@ -62,6 +54,8 @@ git checkout <commit-id> -- path/to/file
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Practical Scenario – Restoring a Broken File Locally
 
 **Optional: check differences:**
@@ -74,6 +68,8 @@ git diff
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Practical Scenario – Restoring a Broken File Locally
 
 **Modify and test:**
@@ -82,6 +78,8 @@ git diff
 - Test the changes locally.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Practical Scenario – Restoring a Broken File Locally
 
@@ -109,6 +107,8 @@ git commit -m "Fix broken functionality in <file>"
 - Safe for **shared branches** because it does not require --force.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # When to Use git revert - Use Cases for git revert
 
@@ -169,6 +169,8 @@ A --- B --- C --- D --- C'
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Best Practices for Commits and Branching
 
 - Small, thematic commits:
@@ -185,6 +187,8 @@ A --- B --- C --- D --- C'
   - Avoids rewriting history in a collaborative environment.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Consequences / Why It Matters
 

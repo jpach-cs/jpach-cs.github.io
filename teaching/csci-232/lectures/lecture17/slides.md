@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "CSCI 232  Data Structures & Algorithms"
 ---
 
@@ -10,15 +11,8 @@ title: "CSCI 232  Data Structures & Algorithms"
 # CSCI 232 <br>Data Structures &amp; Algorithms
 
 ## Lecture 17
+
 Dr. Jakub L. Pach
-
----
-
-# Outline
-
-- Syllabus, Textbook, Moodle
-- Something about me
-- IDE
 
 ---
 
@@ -29,16 +23,18 @@ Dr. Jakub L. Pach
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Pseudocode
 
 ```text
 Algorithm mergeSort (A, l, r)
 	Input: An array A with indices 				ranging from 𝑙 to 𝑟 storing n ≥ 			1 integers.
-if l < r
-m ← ⌊(l+r)/2⌋
-mergeSort(A, l, m)
-mergeSort(A, m+1, r)
-merge(A, l, m, r)
+    if l < r
+        m ← ⌊(l+r)/2⌋
+        mergeSort(A, l, m)
+        mergeSort(A, m+1, r)
+        merge(A, l, m, r)
 ```
 
 ```text
@@ -71,6 +67,8 @@ let R be a new array of size n2
 ```
 
 ---
+
+<!-- _class: fit-90 -->
 
 # C
 
@@ -141,10 +139,3 @@ void mergeSort(int arr[], int left, int right)
     }
 }
 ```
-
----
-
-- wyklad z MIT z tego przedmiotu jest super, moze nie ma sensu wszystkiego pisac, ale polaczenie mediany, binarnego sortowania i sortowania przez wstawianie jest meeeega. Abym mail tylko zycia aby to wszystko pieknie opanowac.
-
-<!-- [Lecture 3: Insertion Sort, Merge Sort (youtube.com)](https://www.youtube.com/watch?v=Kg4bqzAqRBM&ab_channel=MITOpenCourseWare)
-<https://www.youtube.com/watch?v=Kg4bqzAqRBM&amp;ab_channel=MITOpenCourseWare> 24:59 -->

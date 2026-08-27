@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "Data Structures & Algorithms"
 ---
 
@@ -10,21 +11,6 @@ title: "Data Structures & Algorithms"
 # Data Structures &amp; Algorithms
 
 ## Lecture 6
----
-
-# In 136, we covered
-
-- Objects and classes, Abstract Data Types – lots of coverage.  I required class and header files in most assignments
-- Time and Space complexity – a discussion was included in each exercise.  Good coverage of constant time, linear, n2, n3, with loops and nested loops.  Didn’t do any of the math.
-- Arrays and 2D arrays, and “2D” vectors, along with Big-O and execution time tests with larger structures.  Students had a LOT of coverage
-- Linked List and Sorted Linked List – students had to write their own class/header files and driver for each
-- Stack and Queue – students were given .h files, had to write the class and member functions and driver
-- Maze using stack and queue in Python – students were given classes, had to write DFS and BFS with much assistance and examples
-- Lecture coverage of memory allocation, memory usage, static variables, compilation, memory leaks, dangling pointers, comparison of C and C++, binary search, examples of object-oriented programming and ADT’s in C++, Python, Java
-- Parameter passing, command line arguments, scope – good coverage
-- Pointers – medium coverage, mostly with parameter passing.  We didn’t use them in any useful way.
-- Recursion – weak coverage
-- Visual Studio – all the time
 
 ---
 
@@ -70,6 +56,8 @@ pop()   => removes D from the top
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Queue (FIFO – First In, First Out)
 
 - First element enqueued is the first to be dequeued.
@@ -89,6 +77,8 @@ dequeue()  => removes A from the front
 ```
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Stack &amp; Queue
 

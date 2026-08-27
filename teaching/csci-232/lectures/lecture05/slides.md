@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "Data Structures & Algorithms"
 ---
 
@@ -10,21 +11,6 @@ title: "Data Structures & Algorithms"
 # Data Structures &amp; Algorithms
 
 ## Lecture 5
----
-
-# In 136, we covered
-
-- Objects and classes, Abstract Data Types – lots of coverage.  I required class and header files in most assignments
-- Time and Space complexity – a discussion was included in each exercise.  Good coverage of constant time, linear, n2, n3, with loops and nested loops.  Didn’t do any of the math.
-- Arrays and 2D arrays, and “2D” vectors, along with Big-O and execution time tests with larger structures.  Students had a LOT of coverage
-- Linked List and Sorted Linked List – students had to write their own class/header files and driver for each
-- Stack and Queue – students were given .h files, had to write the class and member functions and driver
-- Maze using stack and queue in Python – students were given classes, had to write DFS and BFS with much assistance and examples
-- Lecture coverage of memory allocation, memory usage, static variables, compilation, memory leaks, dangling pointers, comparison of C and C++, binary search, examples of object-oriented programming and ADT’s in C++, Python, Java
-- Parameter passing, command line arguments, scope – good coverage
-- Pointers – medium coverage, mostly with parameter passing.  We didn’t use them in any useful way.
-- Recursion – weak coverage
-- Visual Studio – all the time
 
 ---
 
@@ -40,6 +26,8 @@ title: "Data Structures & Algorithms"
 # unit tests
 
 ---
+
+<!-- _class: fit-70 -->
 
 # What are Unit Tests
 
@@ -61,6 +49,8 @@ When we write programs, we need a way to check if our code works correctly. Ther
 
 ---
 
+<!-- _class: fit-60 -->
+
 # What is an assert?
 
 - Assert() is a built-in tool in C. (#include &lt;assert.h&gt;)
@@ -79,6 +69,8 @@ int divide(int a, int b)
 
 ---
 
+<!-- _class: fit-60 -->
+
 # Word – 'assert'
 
 - In structurally or imperatively oriented programming, function names are typically nouns — for example, sum(), pow(), or strlen().
@@ -88,6 +80,8 @@ int divide(int a, int b)
 Conceptually, it’s as if the programmer is saying: “I assert that x equals 1”     assert(x==1);
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Word – 'assert'
 
@@ -120,6 +114,8 @@ C:>
 
 ---
 
+<!-- _class: fit-60 -->
+
 # What is Unity Test?
 
 - Unity Test is a unit testing framework for C.
@@ -144,6 +140,8 @@ void test_addition(void)
 - Unity Test → for systematic testing of finished functions, with clear reports.
 
 ---
+
+<!-- _class: fit-60 -->
 
 # Error handling in C
 
@@ -177,6 +175,8 @@ int findElement(int arr[], int size, int target)
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Introduction to Unity Test Framework in C
 
 Unity is a lightweight testing framework for the C language. It allows us to write **unit tests** that check whether our functions work as expected.
@@ -188,6 +188,8 @@ When using Unity, every test file usually has three important parts:
 - **UNITY\_BEGIN(); RUN\_TEST(...); return UNITY\_END();** – this is the main pattern for starting Unity, running all tests, and reporting the results.
 
 ---
+
+<!-- _class: fit-30 -->
 
 # Common Unity Assertions
 
@@ -208,6 +210,8 @@ Assertions are the heart of testing. They compare the expected result with the a
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Common Unity Assertions
 
 - TEST\_ASSERT\_EQUAL(expected, actual)
@@ -219,6 +223,8 @@ Assertions are the heart of testing. They compare the expected result with the a
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Common Unity Assertions
 
 - TEST\_ASSERT\_FLOAT\_WITHIN(delta, expected, actual)
@@ -229,6 +235,8 @@ Assertions are the heart of testing. They compare the expected result with the a
   - – custom/extended check if a value is greater than a threshold.
 
 ---
+
+<!-- _class: fit-60 -->
 
 # Understanding setUp() and tearDown()
 
@@ -247,6 +255,8 @@ This makes every test independent, safe, and repeatable.
 
 ---
 
+<!-- _class: fit-70 -->
+
 # An Introduction to Forking on GitHub
 
 Let's break down the fundamentals of forking on GitHub. This is one of the most important concepts for collaborating on open-source projects.
@@ -256,6 +266,8 @@ Let's break down the fundamentals of forking on GitHub. This is one of the most 
 **Forking** is the process of creating a **personal copy** of a public repository on your own GitHub account. It's like making a private duplicate of someone else's project. This gives you a safe sandbox to experiment, make your own changes, and work on new features without altering the original code.
 
 ---
+
+<!-- _class: fit-50 -->
 
 # An Introduction to Forking on GitHub
 
@@ -271,6 +283,8 @@ Once you have your copy (the fork), the next step is to bring it down to your lo
 - Press Enter. The repository will be downloaded to your computer, and you can start working in your code editor.
 
 ---
+
+<!-- _class: fit-60 -->
 
 # An Introduction to Forking on GitHub
 
@@ -294,6 +308,8 @@ git push origin main
 ```
 
 ---
+
+<!-- _class: fit-80 -->
 
 # An Introduction to Forking on GitHub
 

@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
@@ -12,10 +13,6 @@ title: "CSCI 112  Programming with C"
 - Lecture 13
 - Dr. Jakub L. Pach
 - Fall 2025
-
----
-
-![w:277px Graphic 3](assets/image3.png)
 
 ---
 
@@ -58,6 +55,8 @@ int main()
 
 ---
 
+<!-- _class: fit-60 -->
+
 # Bitwise Left Shift &amp; Right Shift - summary
 
 - The left shift &lt;&lt; moves all bits in a number to the left by a specified number of positions.→ Each shift left multiplies the value by 2.
@@ -72,6 +71,8 @@ int main()
 - Right shift of signed values may perform arithmetic or logical shift depending on the compiler.
 
 ---
+
+<!-- _class: fit-80 -->
 
 # typedef keyword
 
@@ -225,6 +226,8 @@ struct symbolic_name1
 
 ---
 
+<!-- _class: fit-70 -->
+
 # An example
 
 ```c
@@ -294,6 +297,8 @@ To access members of a structure, we use the dot operator. When accessing a memb
 - **Global vs. local variables:** Structures can be declared as global variables (accessible from anywhere in the program) or local variables (accessible only within a specific block of code). You can also create pointers to structures for more flexible memory management.
 
 ---
+
+<!-- _class: fit-70 -->
 
 # typedef &amp; struct
 
@@ -406,7 +411,7 @@ Address of variable i = 6487824
 
 ---
 
-# A summary on padding
+# A summary on padding:
 
 - Even though memory was scarce when the C language was invented and every byte was precious, processors were even slower. Every machine instruction that could be saved while maintaining program functionality sped up the program. Therefore, the padding mechanism is a compromise between memory efficiency and program speed. Instead of calculating the memory address and saving one byte, it was better to perform a simple shift trick to make the variable addresses multiples of two. This is because, instead of multiplying (which is a relatively expensive operation for a processor), a bitwise shift can be used, which is extremely cheap. Thus, padding allows for an increase in the required space for storing a structure, but significantly speeds up access to structure members.
 - Another important point is that the sizeof() operator does not return the minimum size of the structure, but the actual size after taking into account the padding mechanism. To counteract memory waste, you can change the order of variable declarations in the structure as shown in the example.
@@ -560,6 +565,8 @@ While sprintf and printf are very useful for formatting text, they suffer from a
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Summary
 
 Conclusion: While sprintf and printf are powerful tools for parsing formatted input, they pose a significant risk of buffer overflows if not used carefully. These functions do not inherently enforce bounds checking, meaning that if the input data is larger than the allocated buffer, it can overwrite adjacent memory locations, leading to unpredictable behavior and potential security vulnerabilities. To mitigate this risk, it's essential to:
@@ -593,6 +600,8 @@ When we write programs, we need a way to check if our code works correctly. Ther
 
 ---
 
+<!-- _class: fit-90 -->
+
 # What is an assert?
 
 - Assert() is a built-in tool in C. (#include &lt;assert.h&gt;)
@@ -611,6 +620,8 @@ int divide(int a, int b)
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Word – 'assert'
 
 - In structurally or imperatively oriented programming, function names are typically nouns — for example, sum(), pow(), or strlen().
@@ -624,6 +635,8 @@ assert(x==1);
 ```
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Word – 'assert'
 
@@ -717,6 +730,8 @@ int findElement(int arr[], int size, int target)
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Introduction to Unity Test Framework in C
 
 Unity is a lightweight testing framework for the C language. It allows us to write **unit tests** that check whether our functions work as expected.
@@ -728,6 +743,8 @@ When using Unity, every test file usually has three important parts:
 - **UNITY\_BEGIN(); RUN\_TEST(...); return UNITY\_END();** – this is the main pattern for starting Unity, running all tests, and reporting the results.
 
 ---
+
+<!-- _class: fit-60 -->
 
 # Common Unity Assertions
 
@@ -769,6 +786,8 @@ Assertions are the heart of testing. They compare the expected result with the a
   - – custom/extended check if a value is greater than a threshold.
 
 ---
+
+<!-- _class: fit-50 -->
 
 # Understanding setUp() and tearDown()
 

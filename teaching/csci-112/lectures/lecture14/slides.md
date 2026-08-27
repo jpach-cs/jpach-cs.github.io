@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
@@ -12,10 +13,6 @@ title: "CSCI 112  Programming with C"
 - Lecture 14
 - Dr. Jakub L. Pach
 - Fall 2025
-
----
-
-![w:277px Graphic 3](assets/image3.png)
 
 ---
 
@@ -453,12 +450,16 @@ OK
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Summary and Best Practices
 
 - Every time a program encounters an error or *undefined behavior (UB)* during execution — such as an invalid array index (out of range), an attempt to modify a constant variable through a pointer, accessing non-existent memory (NULL), division by zero, etc. — the program immediately terminates with an **exit code** that indicates the problem. In unit testing, we must create test functions that handle **only one case at a time**, for example: void test\_multiply\_basic(void)
 - Each test function verifies one specific behavior. If a test fails and the program attempts to terminate abnormally, all remaining instructions in that test function are skipped — similar to how a break statement exits a loop. That’s why each case is written as a separate test function.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Summary and Best Practices
 
@@ -721,6 +722,8 @@ void test_addition(void)
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Introduction to Unity Test Framework in C
 
 Unity is a lightweight testing framework for the C language. It allows us to write **unit tests** that check whether our functions work as expected.
@@ -754,6 +757,8 @@ When using Unity, every test file usually has three important parts:
   - – custom/extended check if a value is greater than a threshold.
 
 ---
+
+<!-- _class: fit-50 -->
 
 # Understanding setUp() and tearDown()
 

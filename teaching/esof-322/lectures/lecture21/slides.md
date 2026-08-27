@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
@@ -10,6 +11,7 @@ title: "Software Engineering"
 # Software Engineering
 
 ## Lecture 21
+
 ---
 
 # Today’s Agenda
@@ -37,6 +39,8 @@ The Core Concept: Lifetime Dependency
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Composition vs Aggregation
 
 **Composition (Dependent Ownership)**
@@ -51,7 +55,7 @@ The Core Concept: Lifetime Dependency
 
 ---
 
-# The Decisive Question for Students
+# The Decisive Question for Students:
 
 **If the Whole is destroyed, does the Part still exist?**
 
@@ -105,6 +109,8 @@ class ClassName {
 Unlike the **Graph** (Flowchart) diagram, you cannot change the rendering direction for a **Class Diagram**.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Mermaid Class Diagram Syntax
 
@@ -265,6 +271,8 @@ note "This is a simple comment"
 ![w:516px Picture 7](assets/image7.png)
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Hints and Best Practices
 

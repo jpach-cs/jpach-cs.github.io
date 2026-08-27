@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
@@ -15,9 +16,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-![w:277px Graphic 3](assets/image2.png)
-
----
+<!-- _class: fit-90 -->
 
 # Outline
 
@@ -35,6 +34,8 @@ title: "CSCI 112  Programming with C"
 # Review
 
 ---
+
+<!-- _class: fit-90 -->
 
 # if-else statement
 
@@ -129,31 +130,31 @@ else
 ```c
 int main()
 {
-int x; scanf("%d", &x);
-printf("%s","a variable x is ");
+    int x; scanf("%d", &x);
+    printf("%s","a variable x is ");
 
-if(x == 0)
-{
-  printf("%s\n","0");
-}
-else
-{
-  if(x == 1)
-  {
-        printf("%s\n","1");
-  }
-  else
-  {
-    if(x > 1 && x < 5)
-    {
-        printf("%s\n","between 2 and 4");
-    }
-    else
-    {
-      printf("%s\n","not between 0 and 4");
-    }
-  }
-}
+    if(x == 0)
+    {
+      printf("%s\n","0");
+    }
+    else
+    {
+      if(x == 1)
+      {
+            printf("%s\n","1");
+      }
+      else
+      {
+        if(x > 1 && x < 5)
+        {
+            printf("%s\n","between 2 and 4");
+        }
+        else
+        {
+          printf("%s\n","not between 0 and 4");
+        }
+      }
+    }
 }
 
 ```
@@ -164,7 +165,7 @@ int main()
   int x = 1; scanf("%d", &x);
   printf("%s","a variable x is ");
 
-  if(x > 0)
+    if(x > 0)
     if(x < 5)
       printf("%s\n", "between 1 and 4");
 
@@ -452,27 +453,27 @@ Give me a 3-digit number. If less than 100, please write 091 etc.
 ```c
 int main()
 {
-// 1. Right-justify with a width of 10, displaying an integer
-printf("%10d\n", 123);  // Output: "       123" (7 spaces before 123)
-// 2. Left-justify with a width of 10, displaying a floating-point number
-printf("%-10f\n", 123.456);  // Output: "123.456000 " (with 3 spaces after)
-// 3. Pad with leading zeros, width of 8 for an integer
-printf("%08d\n", 123);  // Output: "00000123" (padded with zeros)
-// 4. Floating-point with 2 decimal places, right-justified, width of 8
-printf("%8.2f\n", 123.456);  // Output: "  123.46" (2 spaces before the number)
-// 5. Displaying an integer with the '+' flag to show the sign
-printf("%+d\n", 123);  // Output: "+123"
-printf("%+d\n", -123); // Output: "-123"
-// 6. Using a width specifier for strings, right-justified
-printf("%10s\n", "hello");  // Output: "     hello" (5 spaces before)
-// 7. Using width and precision with strings
-printf("%10.3s\n", "hello");  // Output: "       hel" (cut to 3 chars, 7 spaces)
-// 8. Display a floating-point number in scientific notation
-printf("%12.3e\n", 123456.789);  // Output: " 1.235e+05" (total width of 12)
-// 9. Using the 'l' modifier for long integers
-printf("%ld\n", 1234567890L);  // Output: "1234567890"
-// 10. Hexadecimal integer with leading '0x', width of 10, left-justified
-printf("%-#10x\n", 255);  // Output: "0xff      " (3 spaces after)
+    // 1. Right-justify with a width of 10, displaying an integer
+    printf("%10d\n", 123);  // Output: "       123" (7 spaces before 123)
+    // 2. Left-justify with a width of 10, displaying a floating-point number
+    printf("%-10f\n", 123.456);  // Output: "123.456000 " (with 3 spaces after)
+    // 3. Pad with leading zeros, width of 8 for an integer
+    printf("%08d\n", 123);  // Output: "00000123" (padded with zeros)
+    // 4. Floating-point with 2 decimal places, right-justified, width of 8
+    printf("%8.2f\n", 123.456);  // Output: "  123.46" (2 spaces before the number)
+    // 5. Displaying an integer with the '+' flag to show the sign
+    printf("%+d\n", 123);  // Output: "+123"
+    printf("%+d\n", -123); // Output: "-123"
+    // 6. Using a width specifier for strings, right-justified
+    printf("%10s\n", "hello");  // Output: "     hello" (5 spaces before)
+    // 7. Using width and precision with strings
+    printf("%10.3s\n", "hello");  // Output: "       hel" (cut to 3 chars, 7 spaces)
+    // 8. Display a floating-point number in scientific notation
+    printf("%12.3e\n", 123456.789);  // Output: " 1.235e+05" (total width of 12)
+    // 9. Using the 'l' modifier for long integers
+    printf("%ld\n", 1234567890L);  // Output: "1234567890"
+    // 10. Hexadecimal integer with leading '0x', width of 10, left-justified
+    printf("%-#10x\n", 255);  // Output: "0xff      " (3 spaces after)
 }
 ```
 
@@ -551,16 +552,16 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 ```c
 int main()
 {
-int y;
-char stringNumber[4] = {'\0','\0','\0','\0'};
-printf("Enter a 3-digit value for y: ");
-stringNumber[0] = getche();
-stringNumber[1] = getche();
-stringNumber[2] = getche();
-printf("\n");
-y  = atoi(stringNumber);
-printf("Value of y in HEX is = %x\n", y);
-printf("Value of y in Octal is = %o\n", y);
+    int y;
+    char stringNumber[4] = {'\0','\0','\0','\0'};
+    printf("Enter a 3-digit value for y: ");
+    stringNumber[0] = getche();
+    stringNumber[1] = getche();
+    stringNumber[2] = getche();
+    printf("\n");
+    y  = atoi(stringNumber);
+    printf("Value of y in HEX is = %x\n", y);
+    printf("Value of y in Octal is = %o\n", y);
 }
 ```
 
@@ -581,16 +582,16 @@ Value of y in Octal is = 377
 ```c
 int main()
 {
-int y;
-char stringNumber[4] = {'\0','\0','\0','\0'};
-printf("Enter a 3-digit value for y: ");
-stringNumber[0] = getche();
-stringNumber[1] = getche();
-stringNumber[2] = getche();
-printf("\n");
-y  = atoi(stringNumber);
-printf("Value of y in HEX\tis = %x\n", y);
-printf("Value of y in Octal\tis = %o\n", y);
+    int y;
+    char stringNumber[4] = {'\0','\0','\0','\0'};
+    printf("Enter a 3-digit value for y: ");
+    stringNumber[0] = getche();
+    stringNumber[1] = getche();
+    stringNumber[2] = getche();
+    printf("\n");
+    y  = atoi(stringNumber);
+    printf("Value of y in HEX\tis = %x\n", y);
+    printf("Value of y in Octal\tis = %o\n", y);
 }
 ```
 
@@ -611,16 +612,16 @@ Value of y in Octal     is = 377
 ```c
 int main()
 {
-int y;
-char stringNumber[4] = {'\0','\0','\0','\0'};
-printf("Enter a 3-digit value for y: ");
-stringNumber[0] = getche();
-stringNumber[1] = getche();
-stringNumber[2] = getche();
-printf("\n");
-y  = atoi(stringNumber);
-printf("Value of y in HEX\tis = %X\n", y);
-printf("Value of y in Octal\tis = %o\n", y);
+    int y;
+    char stringNumber[4] = {'\0','\0','\0','\0'};
+    printf("Enter a 3-digit value for y: ");
+    stringNumber[0] = getche();
+    stringNumber[1] = getche();
+    stringNumber[2] = getche();
+    printf("\n");
+    y  = atoi(stringNumber);
+    printf("Value of y in HEX\tis = %X\n", y);
+    printf("Value of y in Octal\tis = %o\n", y);
 }
 ```
 
@@ -827,7 +828,7 @@ It was true
 
 ---
 
-# Ternary conditional operator ?
+# Ternary conditional operator ?:
 
 - If expression1 evaluates to true, the ternary operator returns the value of expression2. Otherwise, it returns the value of expression3.
 
@@ -898,7 +899,7 @@ Line 15
 
 ---
 
-# magic
+# magic...
 
 ```c
 int main()

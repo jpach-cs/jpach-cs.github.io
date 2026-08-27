@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "Data Structures & Algorithms"
 ---
 
@@ -10,23 +11,10 @@ title: "Data Structures & Algorithms"
 # Data Structures &amp; Algorithms
 
 ## Lecture 1
----
-
-# In 136, we covered
-
-- Objects and classes, Abstract Data Types – lots of coverage.  I required class and header files in most assignments
-- Time and Space complexity – a discussion was included in each exercise.  Good coverage of constant time, linear, n2, n3, with loops and nested loops.  Didn’t do any of the math.
-- Arrays and 2D arrays, and “2D” vectors, along with Big-O and execution time tests with larger structures.  Students had a LOT of coverage
-- Linked List and Sorted Linked List – students had to write their own class/header files and driver for each
-- Stack and Queue – students were given .h files, had to write the class and member functions and driver
-- Maze using stack and queue in Python – students were given classes, had to write DFS and BFS with much assistance and examples
-- Lecture coverage of memory allocation, memory usage, static variables, compilation, memory leaks, dangling pointers, comparison of C and C++, binary search, examples of object-oriented programming and ADT’s in C++, Python, Java
-- Parameter passing, command line arguments, scope – good coverage
-- Pointers – medium coverage, mostly with parameter passing.  We didn’t use them in any useful way.
-- Recursion – weak coverage
-- Visual Studio – all the time
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Today’s Agenda
 
@@ -60,6 +48,8 @@ Navigating the Command Line
 - Tab: Autocompletes filenames, directories, and commands.
 
 ---
+
+<!-- _class: long-title fit-50 -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 1: Opening the Command Prompt - Example
 
@@ -108,6 +98,8 @@ C:\Users\Jacob>
 
 ---
 
+<!-- _class: fit-60 -->
+
 # Differences in Command Prompt Messages Between Windows and Linux
 
 The command prompt in different operating systems displays various information, which stems from differences in their architecture and design philosophy.
@@ -136,6 +128,8 @@ The command prompt in different operating systems displays various information, 
 
 ---
 
+<!-- _class: long-title fit-80 -->
+
 # Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management
 
 - Windows:
@@ -154,7 +148,7 @@ The command prompt in different operating systems displays various information, 
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: long-title fit-90 -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management – Example(dir)
 
@@ -336,6 +330,8 @@ C:\>
 
 ---
 
+<!-- _class: long-title -->
+
 # Navigating the Command Line: Windows vs. Linux<br>Slide 3: Text Manipulation and Output - Example
 
 - echo: Displays a message on the screen.
@@ -387,6 +383,8 @@ C:\Users\Jacob>
 
 ---
 
+<!-- _class: long-title -->
+
 # Navigating the Command Line: Windows vs. Linux<br>Slide 4: Hello, World! and Redirection - Example
 
 - The simplest way to create a new file.
@@ -433,7 +431,7 @@ myfile.txt
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: long-title fit-80 -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 5: Creating and Deleting Files and Directories – Example(copies, deletes, makes)
 
@@ -518,6 +516,8 @@ C:\Users\Jacob\Folder>
 
 ---
 
+<!-- _class: long-title fit-80 -->
+
 # Navigating the Command Line: Windows vs. Linux<br>Slide 6: Executing Compiled Programs – Example
 
 - To run a compiled program, you usually just type the program name, followed by the .exe extension: program\_name.exe.
@@ -587,6 +587,8 @@ rename                            mv
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Navigating the Command Line: Windows vs. Linux<br>Slide 8: Basic Text Editing
 
 - Windows:
@@ -599,6 +601,7 @@ rename                            mv
 **Note:** There are many other text editors available for both Windows and Linux.
 
 ---
+<!-- _class: long-title -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 8: Basic Text Editing
 
@@ -682,6 +685,8 @@ During this semester, we will work with multiple programming languages and tools
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Compiler vs Interpreter
 
 - A compiler takes the entire source code and translates it into a machine code file, often called an executable. This executable file contains instructions that the computer's processor can directly execute. Once compiled, the program can run independently without the need for the original source code or a compiler.
@@ -694,6 +699,8 @@ During this semester, we will work with multiple programming languages and tools
 Think of a compiler as a translator who translates an entire book from one language to another before you start reading it. An interpreter, on the other hand, is a translator who translates each sentence as you read it. A compiler translates the entire program at once, while an interpreter translates it line by line.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # How does a C program executes?
 
@@ -728,6 +735,8 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
+<!-- _class: fit-80 -->
+
 # GCC – GNU Compiler Collection
 
 - GCC is a collection of compilers from the GNU Project that support various programming languages, hardware architectures and operating systems. The Free Software Foundation (FSF) distributes GCC as free software under the GNU General Public License (GNU GPL).
@@ -735,6 +744,8 @@ These steps are essential for transforming your C code into an executable progra
 - The GNU project releases all its software under free software licenses, granting users the liberty to use, modify, and share these programs.
 
 ---
+
+<!-- _class: fit-70 -->
 
 # GCC on Windows - How does it work?
 
@@ -759,7 +770,7 @@ In your personal computer
 
 ---
 
-# Steps required to use the GCC compiler with MinGW
+# Steps required to use the GCC compiler with MinGW:
 
 - Download the MinGW archive from the course.
 - Extract MinGW to the C:\ directory so that the folder structure looks like this: C:\MinGW\bin.
@@ -767,7 +778,9 @@ In your personal computer
 
 ---
 
-# Steps to Add MinGW GCC to System PATH on Windows
+<!-- _class: fit-90 -->
+
+# Steps to Add MinGW GCC to System PATH on Windows:
 
 - Locate the MinGW bin folder
   - Typically, it’s in:
@@ -788,7 +801,7 @@ In your personal computer
 
 ---
 
-# Steps to Add MinGW GCC to System PATH on Windows
+# Steps to Add MinGW GCC to System PATH on Windows:
 
 - Locate the MinGW bin folder
   - C:\MinGW\bin
@@ -805,7 +818,7 @@ In your personal computer
 
 ---
 
-# Steps to Add MinGW GCC to System PATH on Windows
+# Steps to Add MinGW GCC to System PATH on Windows:
 
 - Locate the MinGW bin folder
   - C:\MinGW\bin
@@ -820,7 +833,7 @@ In your personal computer
 
 ---
 
-# Steps to Add MinGW GCC to System PATH on Windows
+# Steps to Add MinGW GCC to System PATH on Windows:
 
 - Under System variables, find and select Path.
   - Click Edit.
@@ -848,7 +861,7 @@ In your personal computer
 
 ---
 
-# Steps required to prepare the C code from the course
+# Steps required to prepare the C code from the course:
 
 - Download the C code archive from the Canvas course.
 - Extract the folder, for example, to your Desktop.
@@ -882,6 +895,8 @@ gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 
 ---
 
+<!-- _class: fit-90 -->
+
 # How does a C program executes?
 
 - C code
@@ -906,6 +921,8 @@ The loader loads the executable program into memory (RAM) so that it can be exec
 These steps are essential for transforming your C code into an executable program that can be run on a computer.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # How does a C program executes?
 
@@ -967,6 +984,8 @@ An IDE combines many tools essential for a programmer's work, such as:
 
 ---
 
+<!-- _class: fit-90 -->
+
 # IDE
 
 - Code::Blocks
@@ -1000,6 +1019,8 @@ VS Code is not a full-fledged IDE but rather a code editor. However, it is often
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Base of the numeral system
 
 - In mathematical numeral systems the radix r is usually the number of unique digits, including zero, that a positional numeral system uses to represent numbers.
@@ -1014,6 +1035,14 @@ VS Code is not a full-fledged IDE but rather a code editor. However, it is often
 
 ![w:238px Picture 5](assets/image38.png)
 
+![w:248px pole tekstowe 7](assets/image180.png)
+
+![w:640px pole tekstowe 10](assets/image19.png)
+
+![w:1009px pole tekstowe 13](assets/image200.png)
+
+![w:1163px pole tekstowe 16](assets/image21.png)
+
 ---
 
 # Converting decimal numbers to binary
@@ -1027,6 +1056,8 @@ Steps:
 - Read the numbers **from bottom to top** to get the binary number.
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Converting decimal numbers to binary – example 12310
 
@@ -1073,6 +1104,8 @@ Steps:
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Binary numeral system (Unsigned arithmetic)
 
 |||||||||||
@@ -1103,9 +1136,13 @@ least significant bit
 
 **Sign-Magnitude Representation**
 
+![w:317px pole tekstowe 47](assets/image220.png)
+
+![w:317px pole tekstowe 62](assets/image23.png)
+
 ---
 
-# Data in a computer can essentially be stored using two standards
+# Data in a computer can essentially be stored using two standards:
 
 - integers represented in binary,
 - real (floating-point) numbers stored according to the IEEE 754 standard.
@@ -1181,7 +1218,9 @@ int main()
 
 ---
 
-# Symbolic names will be used in
+<!-- _class: fit-80 -->
+
+# Symbolic names will be used in:
 
 - Variables:    Symbolic names will be used to identify and refer to data stored in variables. This<br>    allows for more meaningful and descriptive code compared to using arbitrary names or <br>    identifiers.
 - Arrays:     Symbolic names will be used to identify collections of related data elements. Arrays can be used <br>    to store multiple values of the same data type.
@@ -1203,6 +1242,8 @@ int main()
 
 ---
 
+<!-- _class: fit-80 -->
+
 # camelCase vs snake\_case for symbolic names
 
 - camelCase starts each word with a capital letter, except for the first word.
@@ -1220,7 +1261,9 @@ Constants, which are values that don't change, are usually written in all upperc
 
 ---
 
-# Symbolic names will be used in
+<!-- _class: fit-80 -->
+
+# Symbolic names will be used in:
 
 - Variables:    Symbolic names will be used to identify and refer to data stored in variables. This<br>    allows for more meaningful and descriptive code compared to using arbitrary names or <br>    identifiers.
 
@@ -1233,32 +1276,6 @@ Constants, which are values that don't change, are usually written in all upperc
 ---
 
 # Variables
-
----
-
-# Declaring and initializing variables
-
-```c
-int main()
-{
-  int p;        /* Declaration of variable p with a size of 4 bytes */
-  int q, r, s;  /* Simultaneous declaration of variables q, r, s using "," */
-  q = 2;        /* Assignment of value to variable q - initialization */
-  r = q = s;    /* Assignment of values to q and s based on r */
-  int t = 3;    /* Declaration and initialization on the same line */
-
-  char v;       /* Variable v of integer type with a size of 1 byte */
-  short int w;  /* Variable w of integer type with a size of 2 bytes */
-  long int x;   /* Variable x of integer type with a size of 4 bytes */
-  short y;      /* Shorthand declaration for short int */
-  long z;       /* Shorthand declaration for long int */
-
-  float  a = 3.16f;    /* Variable a of floating-point type with a size of 4 bytes */
-  double b = a * 3.0; /* Variable b of floating-point type with a size of 8 bytes */
-  /* Note: short float, long float, and short double do not exist in C */
-  long double d;      /* Variable d of floating-point type with a size of 12 bytes */
-}
-```
 
 ---
 
@@ -1340,6 +1357,8 @@ Operations on real numbers are recorded with only a certain degree of precision,
 
 ---
 
+<!-- _class: fit-70 -->
+
 # A few words about pointers
 
 - **POINTERS ARE TREATED AS FIRST-CLASS DATA TYPES**
@@ -1384,7 +1403,9 @@ asterisk -->
 
 ---
 
-# Symbolic names will be used in
+<!-- _class: fit-80 -->
+
+# Symbolic names will be used in:
 
 - Variables:    Symbolic names will be used to identify and refer to data stored in variables. This<br>    allows for more meaningful and descriptive code compared to using arbitrary names or <br>    identifiers.
 
@@ -1413,6 +1434,8 @@ int a[10];
 \*Array indexing starts from 0.
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Arrays
 
@@ -1505,6 +1528,8 @@ Hello World
 ```
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Arrays
 
@@ -1621,7 +1646,9 @@ American Standard Code for Information Interchange
 
 ---
 
-# Symbolic names will be used in
+<!-- _class: fit-80 -->
+
+# Symbolic names will be used in:
 
 - Variables:    Symbolic names will be used to identify and refer to data stored in variables. This<br>    allows for more meaningful and descriptive code compared to using arbitrary names or <br>    identifiers.
 
@@ -1637,7 +1664,7 @@ American Standard Code for Information Interchange
 
 ---
 
-# Every line of code in C can have its own label
+# Every line of code in C can have its own label.
 
 ```c
 int main()
@@ -1656,7 +1683,7 @@ label8:    return 0;
 
 ---
 
-# Every line of code in C can have its own label
+# Every line of code in C can have its own label.
 
 ```c
 int main()
@@ -1687,6 +1714,8 @@ An array is a contiguous, homogeneous region of RAM whose size is determined at 
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Size scale
 
 - Hypothetically, 32-bit processors had the ability to use up to 4GB of RAM. However, in practice, the first 32-bit processors were introduced in the 1990s, when the standard RAM for an entire computer was between 8 MB and 16 MB. This represented only 0.001953125% of the theoretical maximum memory capacity. Since everything running—the operating system and all programs (including background tasks)—had to fit into this RAM, it’s easy to see how little space was left for our program. In the best-case scenario, our program might get a few megabytes for everything, and even less for the stack to store data.
@@ -1696,6 +1725,8 @@ An array is a contiguous, homogeneous region of RAM whose size is determined at 
 <!-- one thousandth of a percent -->
 
 ---
+
+<!-- _class: fit-70 -->
 
 # What is a memory(RAM) -stack?
 
@@ -1715,6 +1746,8 @@ Now that you've visualized this sequence, we can reiterate that the essence of m
 
 ---
 
+<!-- _class: fit-50 -->
+
 # A stack
 
 - A **stack** is a region of memory that works like a stack of cards. When you add a new card to the stack, you place it on top. When you remove a card, you take it from the top. This is how a **stack** in computer memory works. When you declare a local variable in a function or call another function, information about it is "pushed" onto the top of the stack. When the function finishes executing, this information is "popped" off the stack. The stack follows a LIFO (Last In, First Out) principle, meaning the last element added is the first one removed.
@@ -1722,6 +1755,8 @@ Now that you've visualized this sequence, we can reiterate that the essence of m
 - **To put it simply:** The stack is a temporary storage area where the program keeps information needed to perform specific tasks. Once a task is completed, the information is removed.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # One more time
 
@@ -1734,6 +1769,8 @@ When we present the stack as a pile of plates or cards, it's actually quite misl
 This is a great place to explain the concept of a memory address. Imagine RAM as a long sequence of bits. Each variable occupies a specific location in this sequence, and the address indicates exactly where it is. For the computer to know how much space to allocate for data, we need to determine the size of arrays beforehand. This is why the size of an array must be known before the program is run. The heap is another area of memory that allows for more flexible memory management.
 
 ---
+
+<!-- _class: fit-40 -->
 
 # Without going into details
 
@@ -1831,52 +1868,3 @@ Result:
 <!-- _class: caption-slide -->
 
 # Thank You
-
----
-
-# unit tests
-
----
-
-# What are Unit Tests
-
-Unit tests are automated checks of small parts of a program (such as functions or procedures) to verify that they work correctly. The idea is to test whether a given function returns the correct result for specific input values.
-
-- Why use unit tests?
-  - You catch bugs faster.
-  - You don’t have to manually test your code every time.
-  - You gain confidence that changes in the code don’t break other parts (this is called regression prevention).
-
----
-
-# Exit code / return code / status code
-
-- The program returned exit code 0, which means it ran successfully.
-- A non-zero exit code usually indicates an error or failure.
-
----
-
-# assert()
-
-- In structurally or imperatively oriented programming, function names are typically nouns — for example, sum(), pow(), or strlen().
-- In object-oriented programming, we create instances of objects represented by nouns, but the methods invoked on those objects are usually verbs, describing actions performed on the instance — for example, trash.clean().
-- In the C language, the function assert() is an exception. Unlike typical function names, it is a verb, reflecting the programmer’s intention to assert — to strongly claim — that a certain condition holds true. Conceptually, it’s as if the programmer is saying: “I assert that x equals 1” assert(x==1);
-
----
-
-# assert()
-
-- The original intent behind assert() was to allow developers to write code like:
-
-```c
-sum(a, b);
-
-assert(a > 0);
-```
-
-- These statements were meant to halt program execution if the condition was not met. In short, they served as additional safeguards to help speed up debugging.
-- Over time, most programming languages adopted dedicated unit testing frameworks — even C, thanks to the Unity library. Unity was designed with a plan-driven approach in mind, enabling developers to write tests before implementing the actual code.
-
----
-
-***I assert that x equals 1.***

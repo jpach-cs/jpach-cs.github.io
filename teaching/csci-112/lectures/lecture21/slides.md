@@ -2,15 +2,8 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSSI112lec 21"
----
-
-- Memset() mozna laczyc z malloc zamiast calloc
-- Czy mozna uzyc bezporsrednio realloc na wskazniku wczesniej stworzonej pamieci dynamicznej za pomoca (malloc)
-- Memory leaks
-
-<!-- Zielone zrobione, czerwone na nastepne zajecia -->
-
 ---
 
 <!-- _class: lead -->
@@ -20,10 +13,6 @@ title: "CSSI112lec 21"
 - Lecture 21
 - Dr. Jakub L. Pach
 - Fall 2025
-
----
-
-![w:277px Graphic 3](assets/image3.png)
 
 ---
 
@@ -153,6 +142,8 @@ Convert strings to numbers.
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Standard C Library Overview
 
 - Character Classification and Conversion (&lt;ctype.h&gt;)
@@ -193,7 +184,7 @@ Convert strings to numbers.
 
 ---
 
-# rand() – Returns a pseudo-random integer in the range 0 … RAND\_MAX (0x7FFF - 32767)
+# rand() – Returns a pseudo-random integer in the range 0 … RAND\_MAX (0x7FFF - 32767).
 
 - The sequence is the same each program run unless seeded with srand()!
 
@@ -235,6 +226,8 @@ Header: <stdlib.h>
 
 ---
 
+<!-- _class: fit-90 -->
+
 # But…
 
 - The rand() function returns a number in the range of 0 to RAND\_MAX (which is typically 32767). To achieve a desired, custom range, you can use the modulo operator (%) trick.
@@ -264,8 +257,9 @@ Header: <stdlib.h>
 ```
 
 ---
+<!-- _class: long-title -->
 
-# srand(unsigned int seed) – Sets the starting point (seed) for the pseudo-random generator
+# srand(unsigned int seed) – Sets the starting point (seed) for the pseudo-random generator.
 
 - Use current time to get different results each run.
 
@@ -310,7 +304,7 @@ Header: < stdlib.h>
 
 ---
 
-# abort() – Immediately terminates the program with an abnormal termination signal
+# abort() – Immediately terminates the program with an abnormal termination signal.
 
 - Does **not** call cleanup handlers, destructors, or flush buffers.
 
@@ -337,7 +331,7 @@ Header: < stdlib.h>
 
 ---
 
-# exit() – Stops the program normally
+# exit() – Stops the program normally.
 
 - **Calls** all cleanup functions registered with atexit() and flushes stdio buffers.
 
@@ -443,8 +437,9 @@ In the example, we register three cleanup functions: one that closes a file, one
 During the program’s execution, we open a file and allocate memory. Even if something goes wrong and the program ends early using exit(), all the registered cleanup functions will still run. This guarantees that the file is properly closed and the memory is freed, no matter how the program exits.
 
 ---
+<!-- _class: long-title -->
 
-# system(const char command) – Executes a shell command as if typed in the terminal/console
+# system(const char command) – Executes a shell command as if typed in the terminal/console.
 
 - **Platform-dependent**, potentially unsafe. Use only for learning.
 
@@ -475,9 +470,9 @@ Header: < stdlib.h>
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: long-title fit-50 -->
 
-# bsearch() – Binary search on a sorted array.<br>Returns pointer to the found element or NULL if not found
+# bsearch() – Binary search on a sorted array.<br>Returns pointer to the found element or NULL if not found.
 
 - Binary search works by requiring the array to be **sorted**. Instead of checking every element one by one to determine whether a value appears in the array, we repeatedly **divide the search interval in half**. If the target value is smaller than the middle element, we continue searching in the left half; if it is larger, we search in the right half. This approach dramatically increases efficiency, especially when working with very large datasets.
 - The built-in functions **bsearch()** and **qsort()** rely on **comparator functions**. A comparator is a user-provided function that defines how two elements should be compared. Since these library functions only receive raw pointers to memory, they do not know the actual type of the elements. Therefore, the last parameter of both functions is a pointer to a comparator function that tells them how to compare two values correctly.
@@ -529,7 +524,7 @@ Found 7 at index 4.
 
 <!-- _class: long-title -->
 
-# bsearch() – Binary search on a sorted array.<br>Returns pointer to the found element or NULL if not found
+# bsearch() – Binary search on a sorted array.<br>Returns pointer to the found element or NULL if not found.
 
 In the C language, there are **no built-in comparator functions**. For this reason, you will very often see comparator functions written in a short, generic form—just like in the example. This simplified version works for general types because it receives two const void\* pointers, casts them to the correct type, and then compares the values manually.
 
@@ -562,9 +557,9 @@ Header: < stdlib.h>
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: long-title fit-50 -->
 
-# qsort() – General-purpose quicksort provided by the standard library.<br>Sorts any array given element size and comparator
+# qsort() – General-purpose quicksort provided by the standard library.<br>Sorts any array given element size and comparator.
 
 - **Quicksort** is one of the fastest and most widely used sorting algorithms. It performs significantly better than simpler methods such as insertion sort or bubble sort, especially on large datasets. When using C’s built-in qsort function, you do not need to know the internal implementation of quicksort — you only need to provide a correct comparator function and call qsort with the proper arguments.
 - The built-in functions **bsearch()** and **qsort()** rely on **comparator functions**. A comparator is a user-provided function that defines how two elements should be compared. Since these library functions only receive raw pointers to memory, they do not know the actual type of the elements. Therefore, the last parameter of both functions is a pointer to a comparator function that tells them how to compare two values correctly.
@@ -633,7 +628,9 @@ Useful for debugging and safety.
 
 ---
 
-# assert() – tops the program immediately if the given expression evaluates to false
+<!-- _class: fit-90 -->
+
+# assert() – tops the program immediately if the given expression evaluates to false.
 
 - It is mainly used for debugging to verify assumptions that *must* be true at runtime.
 - It's crucial to remember that the **assert() macro does not call exit()** upon failure.
@@ -661,7 +658,7 @@ Header: <assert.h>
 
 <!-- _class: long-title -->
 
-# \_\_FILE\_\_ and \_\_LINE\_\_ - These are built-in preprocessor macros that expand to the current source file name and current line number
+# \_\_FILE\_\_ and \_\_LINE\_\_ - These are built-in preprocessor macros that expand to the current source file name and current line number.
 
 - They are extremely useful for debugging, logging, and diagnostic messages.
 
@@ -691,51 +688,3 @@ This message comes from src/main.c at line 4
 
 - Jakub Leszek Pach
 - <jpach@mtech.edu>
-
----
-
-# 9. Time and Date Functions (&lt;time.h&gt;)
-
-Work with clocks and timestamps.
-
-|Function|Description|Example|
-|---|---|---|
-|time(NULL)|Current time (seconds since epoch).|t = time(NULL);|
-|clock()|CPU time used.|clock();|
-|difftime(t1,t2)|Difference in seconds.|difftime(t1,t2);|
-|mktime(&amp;tm)|Converts struct tm → time\_t.|mktime(&amp;local);|
-|asctime(&amp;tm)|Converts struct tm to string.|asctime(localtime(&amp;t));|
-|localtime(&amp;t)|Converts to local time struct.|localtime(&amp;t);|
-|ctime(&amp;t)|Converts directly to human string.|ctime(&amp;t);|
-|strftime(buf, n, fmt, &amp;tm)|Formats time as text.|strftime(s, 20, "%H:%M", &amp;tm);|
-
----
-
-# 10. Variable Argument Lists (&lt;stdarg.h&gt;)
-
-For functions that accept a variable number of parameters.
-
-|Macro|Description|Example|
-|---|---|---|
-|va\_start(list, last)|Initializes argument list.|va\_start(args, n);|
-|va\_arg(list, type)|Retrieves next argument.|sum += va\_arg(args, int);|
-|va\_end(list)|Cleans up argument list.|va\_end(args);|
-
----
-
-# Most Common System Libraries in Windows (WinAPI)
-
-These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
-
-|Library|Description|Typical Functions|
-|---|---|---|
-|**windows.h**|The main gateway to the Windows API – contains basic type definitions, macros, and core system functions.|CreateFile(), ReadFile(), Sleep(), MessageBox()|
-|**winuser.h**|Part of the Windows API responsible for creating and managing windows, messages, and user interface elements.|CreateWindow(), ShowWindow(), GetMessage()|
-|**wincon.h**|Provides access to the Windows console (terminal) and its properties.|SetConsoleTextAttribute(), GetConsoleScreenBufferInfo()|
-|**processthreadsapi.h**|Manages processes and threads.|CreateProcess(), ExitProcess(), GetCurrentThreadId()|
-|**synchapi.h**|Synchronization mechanisms such as mutexes, semaphores, and events.|CreateMutex(), WaitForSingleObject()|
-|**fileapi.h**|Handles file and directory operations.|CreateFile(), ReadFile(), WriteFile()|
-|**timeapi.h**|Provides system time and timer-related functions.|timeGetTime(), Sleep()|
-|**winsock2.h**|Networking (sockets) – TCP/IP interface for Windows.|socket(), connect(), send(), recv()|
-|**shellapi.h**|Integrates applications with the Windows shell (opening files, shortcuts, icons).|ShellExecute(), ExtractIcon()|
-|**commdlg.h**|Provides standard dialog boxes (open/save file, color picker, font selection).|GetOpenFileName(), ChooseColor()|

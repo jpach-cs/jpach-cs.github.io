@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "Data Structures & Algorithms"
 ---
 
@@ -10,21 +11,6 @@ title: "Data Structures & Algorithms"
 # Data Structures &amp; Algorithms
 
 ## Lecture 1
----
-
-# In 136, we covered
-
-- Objects and classes, Abstract Data Types – lots of coverage.  I required class and header files in most assignments
-- Time and Space complexity – a discussion was included in each exercise.  Good coverage of constant time, linear, n2, n3, with loops and nested loops.  Didn’t do any of the math.
-- Arrays and 2D arrays, and “2D” vectors, along with Big-O and execution time tests with larger structures.  Students had a LOT of coverage
-- Linked List and Sorted Linked List – students had to write their own class/header files and driver for each
-- Stack and Queue – students were given .h files, had to write the class and member functions and driver
-- Maze using stack and queue in Python – students were given classes, had to write DFS and BFS with much assistance and examples
-- Lecture coverage of memory allocation, memory usage, static variables, compilation, memory leaks, dangling pointers, comparison of C and C++, binary search, examples of object-oriented programming and ADT’s in C++, Python, Java
-- Parameter passing, command line arguments, scope – good coverage
-- Pointers – medium coverage, mostly with parameter passing.  We didn’t use them in any useful way.
-- Recursion – weak coverage
-- Visual Studio – all the time
 
 ---
 
@@ -35,6 +21,8 @@ title: "Data Structures & Algorithms"
 - Canvas
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Some basic facts about the course
 
@@ -57,11 +45,15 @@ Other times by appointment
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Syllabus - Course Description
 
 Operating on large collections of data is at the core of Computer Science. In this class you will study several commonly used structures used to store data and the algorithms used to manipulate them. You will examine the types of problems that each data structure and algorithm can be applied to. Finally, you will learn ways to analyze and compare algorithms in terms of time and space efficiency. Topics include stacks, queues, general lists, trees and graphs, hashing, searching, sorting, and recursion.
 
 ---
+
+<!-- _class: fit-70 -->
 
 # …a few words
 
@@ -69,6 +61,8 @@ Operating on large collections of data is at the core of Computer Science. In th
 - We’ll also revisit object-oriented programming concepts and compare different programming languages—Python, C++, C# —to better understand their strengths and weaknesses. With this foundation, when we move on to implementing structures like stacks, queues, lists, trees, and graphs, you’ll have the tools to not only write working code but also test it, analyze it, and compare its efficiency.
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Syllabus - Textbook
 
@@ -81,6 +75,8 @@ Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein. Introd
 ![w:154px Introduction to Algorithms by Thomas H. Cormen - ISBN 9780262046305](assets/image5.gif)
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Syllabus - Grading
 
@@ -95,6 +91,8 @@ Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein. Introd
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Syllabus<br>Class Rules
 
 **Class Rules:**
@@ -106,11 +104,15 @@ Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein. Introd
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Syllabus<br>Declaration of authorship
 
 *I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the importance the consequences of plagiarism.*
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Syllabus<br>Comments
 
@@ -143,6 +145,8 @@ I acknowledge that I have worked on this assignment independently, except where 
 # IDE<br>Visual Studio Code
 
 ---
+
+<!-- _class: fit-90 -->
 
 # IDE
 

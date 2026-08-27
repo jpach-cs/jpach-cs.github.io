@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
@@ -20,12 +21,6 @@ title: "Software Engineering"
 - Automatic Variables
 - .dep files
 - Debug
-
----
-
-- Do tego makefile można dzielic na moduly, gdzie pliki o rozszrzeniu .mk będą modulami makefile za pomocą include jak w C
-- *prerequisites* mogą być oddzielane  &amp; oznacza budowę asynchroniczna rownolegla, przyspiesza działanie make, jeśli istnieje wiele zaleznosci to można kazda z nich robic rownolegle bo sa niezależne – opcja profesionalna dla gigantycznych projektów
-- make.RECIPEPREFIX – można zmienić tab na cos innego
 
 ---
 
@@ -127,21 +122,23 @@ rules.mk
 all: $(TARGET)
 
 $(TARGET): $(OBJS) | $(BIN_DIR) #
-	$(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
 main.o: main.c
-	$(CC) $(CFLAGS) -c main.c -o main.o
+    $(CC) $(CFLAGS) -c main.c -o main.o
 
 other.o: $(INC_DIR)/other.h other.c
-	$(CC) $(CFLAGS) -c other.c -o other.o
+    $(CC) $(CFLAGS) -c other.c -o other.o
 
 $(BIN_DIR):
-	mkdir $(BIN_DIR)
+    mkdir $(BIN_DIR)
 clean:
-	$(RM) $(OBJS)
+    $(RM) $(OBJS)
 ```
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Modular Makefile
 
@@ -179,21 +176,23 @@ rules.mk
 all: $(TARGET)
 
 $(TARGET): $(OBJS) | $(BIN_DIR) #
-	$(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
 main.o: main.c
-	$(CC) $(CFLAGS) -c main.c -o main.o
+    $(CC) $(CFLAGS) -c main.c -o main.o
 
 other.o: $(INC_DIR)/other.h other.c
-	$(CC) $(CFLAGS) -c other.c -o other.o
+    $(CC) $(CFLAGS) -c other.c -o other.o
 
 $(BIN_DIR):
-	mkdir $(BIN_DIR)
+    mkdir $(BIN_DIR)
 clean:
-	$(RM) $(OBJS)
+    $(RM) $(OBJS)
 ```
 
 ---
+
+<!-- _class: fit-60 -->
 
 # Organizing Makefiles in mk/ Directory
 
@@ -291,10 +290,12 @@ obj/main.o obj/other.o ...
 
 ```make
 main.o: main.c
-	gcc -c main.c -o $@
+    gcc -c main.c -o $@
 ```
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Automatic Variables - $&lt; – The First Dependency
 
@@ -305,7 +306,7 @@ main.o: main.c
 
 ```make
 main.o: main.c
-	gcc -c $< -o $@
+    gcc -c $< -o $@
 ```
 
 ---
@@ -319,10 +320,12 @@ main.o: main.c
 
 ```make
 app: main.o utils.o
-	gcc $^ -o $@
+    gcc $^ -o $@
 ```
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Automatic Variables - $? – Newer Dependencies
 
@@ -333,7 +336,7 @@ app: main.o utils.o
 
 ```make
 app: main.o utils.o
-	gcc $? -o $@
+    gcc $? -o $@
 ```
 
 ---
@@ -347,7 +350,7 @@ app: main.o utils.o
 
 ```make
 %.o: %.c
-	gcc -c $< -o $@
+    gcc -c $< -o $@
 ```
 
 ---
@@ -381,6 +384,8 @@ app: main.o utils.o
 
 ---
 
+<!-- _class: fit-60 -->
+
 # Using Dependency Files (.d / .p)
 
 - Problem: Make doesn’t know which .c includes which .h.
@@ -404,113 +409,6 @@ bin/main.exe: $(OBJECTS)
 	$(CC) $(OBJECTS) -o $@
 # Include generated dependency files
 -include $(DEPS)
-```
-
----
-
-# Gcc -MMD -MP
-
-- -MMD → generuje plik .d (dependency file) dla każdego .o
-- -MP → dodaje „puste reguły” dla nagłówków, żeby uniknąć błędów gdy nagłówek zniknie
-- DEP = $(SRC:.c=.d)
-
----
-
-```make
-# Directories
-SRC_DIR := src
-INC_DIR := inc
-OBJ_DIR := obj
-BIN_DIR := bin
-
-# Compiler and flags
-CC     := gcc
-CFLAGS := -Wall -Wextra -std=c99 -g -I$(INC_DIR) -MMD -MP
-LDFLAGS := -g
-
-# Files
-SRCS := $(wildcard $(SRC_DIR)/*.c)
-OBJS := $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
-DEPS := $(OBJS:.o=.d)
-
-TARGET := $(BIN_DIR)/main.exe
-
-# Tools
-RM := -rm -f
-MKDIR := mkdir
-
-.PHONY: all clean dirs
-
-# Default target
-all: dirs $(TARGET)
-
-# Link
-$(TARGET): $(OBJS)
-	$(CC) $(LDFLAGS) $^ -o $@
-
-# Compile rule
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Make sure dirs exist
-dirs:
-	@$(MKDIR) $(OBJ_DIR) $(BIN_DIR)
-
-# Clean
-clean:
-	$(RM) $(OBJ_DIR)/* $(TARGET)
-
-# Include dependency files
--include $(DEPS)
-```
-
----
-
-# Adding a Dedicated bin/
-
-The compilation output (main.exe) is now placed inside the bin directory, which will **not be tracked in the repository**. This is recorded in .gitignore, so when cloning the repository locally, the bin folder will not be present.
-
-- The mkdir command is used to create the bin directory. Note that in Windows cmd, there is **no -p parameter**, so GPT’s suggestion was incorrect.
-- To avoid errors if the directory already exists and to prevent make from stopping, the **order-only prerequisite operator |** is used. This tells make to check if the target exists (file or directory). If it exists, make does nothing; if it doesn’t, it runs the recipe exactly once. This is precisely what is needed for our scenario.
-
-Modifications include:
-
-- Adding a variable for the bin directory (BIN\_DIR).
-- Extending the TARGET variable to include the directory path, so we **don’t have to modify the actual target recipe later**.
-- Adding a dedicated $(BIN\_DIR) target. **Note:** this is **not a phony target**, because we want make to check for the existence of the directory.
-
-These changes ensure that the build artifacts are separated from the source code and repository, and that make handles the directory creation safely and efficiently.
-
-```make
-INC_DIR :=inc#include for headers
-BIN_DIR :=bin# *.exe
-
-CC     := gcc
-CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC_DIR) # compiler flags
-LFLAG  := -g # linker flag
-
-TARGET := $(BIN_DIR)/main.exe #$(SCR_DIR)/main.exe
-OBJS   := main.o other.o
-RM := -rm -f
-
-.PHONY: all clean check-shell
-
-all: $(TARGET)
-
-$(TARGET): $(OBJS) | $(BIN_DIR) #order-only prerequisite
-	$(CC) $(LFLAG) $(OBJS) -o $(TARGET)
-
-main.o: main.c
-	$(CC) $(CFLAGS) -c main.c -o main.o
-
-other.o: $(INC_DIR)/other.h other.c
-	$(CC) $(CFLAGS) -c other.c -o other.o
-
-$(BIN_DIR):
-	mkdir $(BIN_DIR)
-
-clean:
-	$(RM) $(OBJS)
 ```
 
 ---
@@ -546,6 +444,8 @@ make debug flags:
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Example Usage - debug
 
 - Tips for Using Make Debugging:
@@ -569,12 +469,6 @@ make --debug=j
 make --debug=m
 # Full debug output (equivalent to --debug=a)
 make -d
-```
-
----
-
-```console
-echo %ERRORLEVEL%
 ```
 
 ---

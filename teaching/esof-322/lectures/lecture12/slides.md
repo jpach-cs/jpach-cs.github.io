@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
@@ -16,12 +17,6 @@ title: "Software Engineering"
 # Today’s Agenda
 
 - continuation of the makefile
-
----
-
-- Do tego makefile można dzielic na moduly, gdzie pliki o rozszrzeniu .mk będą modulami makefile za pomocą include jak w C
-- *prerequisites* mogą być oddzielane  &amp; oznacza budowę asynchroniczna rownolegla, przyspiesza działanie make, jeśli istnieje wiele zaleznosci to można kazda z nich robic rownolegle bo sa niezależne – opcja profesionalna dla gigantycznych projektów
-- make.RECIPEPREFIX – można zmienić tab na cos innego
 
 ---
 
@@ -130,6 +125,8 @@ clean:
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Splitting a Project into Directories with Makefile
 
 **Path separator in Makefiles**
@@ -143,6 +140,8 @@ clean:
 **Convention:** Always write Makefiles for **Bash**, even on Windows (MinGW/Git includes Bash by default).
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Splitting a Project into Directories with Makefile
 
@@ -161,6 +160,8 @@ clean:
   - $(BIN\_DIR)/main.exe
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Splitting a Project into Directories with Makefile
 
@@ -238,6 +239,8 @@ clean:
 
 ---
 
+<!-- _class: fit-50 -->
+
 # Adding a Dedicated inc/ Directory for Headers
 
 In this example, we moved other.h into a new inc/ directory. Unlike bin/ or obj/, this directory does **not** need to be created by the Makefile, because it is already part of the repository structure — headers are expected to live there.
@@ -283,7 +286,9 @@ clean:
 
 ---
 
-# Make is extremely sensitive to spaces
+<!-- _class: fit-60 -->
+
+# Make is extremely sensitive to spaces.
 
 For example, if you write
 
@@ -405,6 +410,8 @@ clean:
 
 ---
 
+<!-- _class: fit-40 -->
+
 # Adding a Dedicated bin/
 
 The compilation output (main.exe) is now placed inside the bin directory, which will **not be tracked in the repository**. This is recorded in .gitignore, so when cloning the repository locally, the bin folder will not be present.
@@ -450,12 +457,6 @@ $(BIN_DIR):
 
 clean:
 	$(RM) $(OBJS)
-```
-
----
-
-```console
-echo %ERRORLEVEL%
 ```
 
 ---

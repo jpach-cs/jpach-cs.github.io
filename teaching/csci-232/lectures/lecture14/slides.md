@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "CSCI 232  Data Structures & Algorithms"
 ---
 
@@ -10,15 +11,8 @@ title: "CSCI 232  Data Structures & Algorithms"
 # CSCI 232 <br>Data Structures &amp; Algorithms
 
 ## Lecture 14
+
 Dr. Jakub L. Pach
-
----
-
-# Outline
-
-- Syllabus, Textbook, Moodle
-- Something about me
-- IDE
 
 ---
 
@@ -85,6 +79,8 @@ C:\Users\Jakub>
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Types of trees
 
 - **General trees**:
@@ -115,6 +111,8 @@ C:\Users\Jakub>
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Summary
 
 - **Complete binary tree in an array**:
@@ -126,23 +124,3 @@ C:\Users\Jakub>
 - **Complete BST**:
   - If a BST is complete (all levels are fully filled, and the last level is filled from left to right), it can also be represented in an array, following the same rules as for a complete binary tree.
 - In summary, complete binary trees can be effectively represented in arrays, while BSTs that are not complete require other data structures (e.g., pointers) for representation.
-
----
-
-```c
-class TreeNode
-{
-public:
-    TreeNode(int Value)
-    {
-        this->Value = Value;
-        Left = nullptr;
-        Right = nullptr;
-    }
-    int Value;
-    TreeNode* Left;
-    TreeNode* Right;
-};
-```
-
-<!-- chooseAndSwapArrayWithLargerFirstElement(&amp;arr1, &amp;arr2); -->

@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
@@ -20,17 +21,11 @@ title: "Software Engineering"
 
 ---
 
-- Do tego makefile można dzielic na moduly, gdzie pliki o rozszrzeniu .mk będą modulami makefile za pomocą include jak w C
-- *prerequisites* mogą być oddzielane spacjami, tabulatorami lub | &amp;, z czego | oznacza na zamówienie, używane do katalogow, a &amp; oznacza budowę asynchroniczna rownolegla, przyspiesza działanie make, jeśli istnieje wiele zaleznosci to można kazda z nich robic rownolegle bo sa niezależne – opcja profesionalna dla gigantycznych projektów
-- make.RECIPEPREFIX – można zmienić tab na cos innego
-- Mozna dzielic linie za pomoca / chyba
-- Makefile zawsze sie zatrzymuje jesli ostatnia Komenda zwraca cos innego niz 0
-
----
-
 # Makefile
 
 ---
+
+<!-- _class: fit-80 -->
 
 # What is Make - ? (mingw32-make.exe)
 
@@ -216,6 +211,8 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
+<!-- _class: fit-80 -->
+
 # What Does a Make Rule Look Like
 
 A **Makefile** is just a text file with rules. Each rule has **four key parts**:
@@ -261,6 +258,8 @@ build: #The comment preceded by a hashmark
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Simplest makefile
 
 - Modify to:
@@ -276,6 +275,8 @@ build_obj:
 ```
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Simplest makefile
 
@@ -350,6 +351,8 @@ gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 
 ---
 
+<!-- _class: fit-60 -->
+
 # Headers and the Compilation Process – Key Rules
 
 - **Including the same header more than once**
@@ -368,6 +371,8 @@ gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 The key distinction: Headers are dependencies in the Makefile, but not arguments for the compiler. That’s something students often confuse, so it’s worth stressing early.
 
 ---
+
+<!-- _class: fit-80 -->
 
 # makefile
 
@@ -389,6 +394,8 @@ gcc -g main.o other.o -o main.exe
 ```
 
 ---
+
+<!-- _class: fit-70 -->
 
 # makefile
 
@@ -422,6 +429,8 @@ Targets in a Makefile can fall into several categories:
 
 ---
 
+<!-- _class: fit-90 -->
+
 # How Make Treats Targets (The Decision-Making Process)
 
 If a target is **not listed** in the **.PHONY** directive, make treats the target name as a **file name** and initiates a smart, two-step process:
@@ -437,6 +446,8 @@ If a target is **not listed** in the **.PHONY** directive, make treats the targe
 While computational power is high today, this timestamp logic is still crucial, especially in very large projects. There is no reason to recompile every single part of a huge system if only a few small source files have changed. **This selective rebuilding is the core reason we use make—it saves enormous amounts of time and makes the build process efficient.**
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Fully Functional Makefile: A Summary
 
@@ -460,6 +471,8 @@ clean:
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Fully Functional Makefile: A Summary
 
 Make achieves this by generating a **dependency tree** and determining the correct order of execution. We've defined this order as follows:
@@ -482,6 +495,8 @@ clean:
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Fully Functional Makefile: A Summary
 
 - We also successfully created a **symbolic target, clean**, for removing temporary object files generated during compilation. This target will **not** be executed automatically; we must explicitly call it by name: make clean.
@@ -503,6 +518,8 @@ clean:
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Modify and Run
 
 When we execute these commands sequentially in the command prompt (CMD):
@@ -520,6 +537,8 @@ mingw32-make
 ```
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Variables and Assignment in Makefiles
 
@@ -570,6 +589,8 @@ clean:
 
 ---
 
+<!-- _class: fit-70 -->
+
 # extension
 
 - Our script is clearly becoming much smarter and more automated. As you can easily observe, **make** inserts the values of our variables wherever we reference them. The commonly accepted **default name for the main build target is all**, which we've defined as a **PHONY** target dependent on our actual **$(TARGET)** variable.
@@ -597,6 +618,8 @@ clean:
 
 ---
 
+<!-- _class: fit-50 -->
+
 # Conditional Shell Detection in Make
 
 - In Makefiles, we can use **conditional directives** like ifeq and ifneq to create logic that adapts to different environments. This allows us to write more portable build scripts.
@@ -619,8 +642,8 @@ endif
 
 ```make
 check-shell:
-	echo $(SHELL)
-	echo Detected: $(DETECTED_SHELL)
+    echo $(SHELL)
+    echo Detected: $(DETECTED_SHELL)
 ```
 
 ```console
@@ -696,6 +719,8 @@ clean:
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Summary
 
 **Make** offers capabilities far beyond what we've covered so far. This has been merely an introduction to its core principles. We can leverage **Make's conditional logic** to build a fully **automated compilation process** that is aware of the operating environment. Crucially, this includes the ability to dynamically detect the specific shell running on a **Windows system** (be it CMD, PowerShell, or Git Bash) and override the **RM variable** to ensure the correct file deletion command (del or rm) is used, thereby guaranteeing project portability
@@ -729,12 +754,6 @@ other.o: other.h other.c
 	$(CC) $(CFLAGS) -c other.c -o other.o
 clean:
 	$(RM) $(OBJS)
-```
-
----
-
-```console
-echo %ERRORLEVEL%
 ```
 
 ---

@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
@@ -20,13 +21,6 @@ GitHub
 - SSH
 - Creating repo
 - Push, fetch, pull
-
----
-
-- Create and log in in GitHub account
-- Please turn of AI
-
-![w:606px Content Placeholder 10](assets/image2.png)
 
 ---
 
@@ -62,6 +56,8 @@ GitHub
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Authentication: University vs. Home PCs
 
 **On University Computers**
@@ -93,6 +89,8 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Adding an SSH Key to GitHub
 
@@ -128,6 +126,8 @@ ssh-add c:/Users/YOU/.ssh/id_ed25519
 
 ---
 
+<!-- _class: fit-60 -->
+
 # How to Create a New Repository on GitHub
 
 - **Log in** to your GitHub account.
@@ -144,6 +144,8 @@ ssh-add c:/Users/YOU/.ssh/id_ed25519
 - Copy the **SSH or HTTPS URL** to clone locally.
 
 ---
+
+<!-- _class: fit-70 -->
 
 # From master to main – Why the Change?
 

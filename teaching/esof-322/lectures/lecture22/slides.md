@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
@@ -10,6 +11,7 @@ title: "Software Engineering"
 # Software Engineering
 
 ## Lecture 22
+
 ---
 
 # Today’s Agenda
@@ -17,6 +19,8 @@ title: "Software Engineering"
 - UML Sequence diagrams
 
 ---
+
+<!-- _class: fit-70 -->
 
 # From The author of textbook
 
@@ -39,6 +43,8 @@ title: "Software Engineering"
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Introduction — What Are Sequence Diagrams?
 
 - Sequence diagrams are one of the **interaction diagrams** in UML.<br>They show **how processes, objects, and actors interact over time** to accomplish a specific behavior in a system.
@@ -48,6 +54,8 @@ title: "Software Engineering"
 *A sequence diagram shows process interactions arranged in a time sequence. It depicts the objects involved and the sequence of messages exchanged as needed to carry out the functionality.*
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Connection to Use Cases and the 4+1 Model
 
@@ -62,6 +70,8 @@ This means:
 - ***Sequence Diagram*** *= how it happens step-by-step between objects.*
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Sequence diagrams emphasize
 

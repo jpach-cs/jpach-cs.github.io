@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
@@ -12,6 +13,8 @@ title: "Software Engineering"
 ## Lecture 4
 
 ---
+
+<!-- _class: fit-80 -->
 
 # An unexpected family emergency
 

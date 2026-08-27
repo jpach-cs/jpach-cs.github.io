@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "Data Structures & Algorithms"
 ---
 
@@ -10,21 +11,6 @@ title: "Data Structures & Algorithms"
 # Data Structures &amp; Algorithms
 
 ## Lecture 3
----
-
-# In 136, we covered
-
-- Objects and classes, Abstract Data Types – lots of coverage.  I required class and header files in most assignments
-- Time and Space complexity – a discussion was included in each exercise.  Good coverage of constant time, linear, n2, n3, with loops and nested loops.  Didn’t do any of the math.
-- Arrays and 2D arrays, and “2D” vectors, along with Big-O and execution time tests with larger structures.  Students had a LOT of coverage
-- Linked List and Sorted Linked List – students had to write their own class/header files and driver for each
-- Stack and Queue – students were given .h files, had to write the class and member functions and driver
-- Maze using stack and queue in Python – students were given classes, had to write DFS and BFS with much assistance and examples
-- Lecture coverage of memory allocation, memory usage, static variables, compilation, memory leaks, dangling pointers, comparison of C and C++, binary search, examples of object-oriented programming and ADT’s in C++, Python, Java
-- Parameter passing, command line arguments, scope – good coverage
-- Pointers – medium coverage, mostly with parameter passing.  We didn’t use them in any useful way.
-- Recursion – weak coverage
-- Visual Studio – all the time
 
 ---
 
@@ -191,6 +177,8 @@ pp              equals 6422288.
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Relations between pointers and arrays
 
 This statement reserves space in memory for 10 integers and creates an 'unchanging address of memory' that points to the beginning of this array.
@@ -322,6 +310,8 @@ pointer[1] equals 5.
 ```
 
 ---
+
+<!-- _class: fit-80 -->
 
 # So, what does it mean?
 
@@ -526,52 +516,3 @@ return 0;
 <!-- _class: caption-slide -->
 
 # Thank You
-
----
-
-# unit tests
-
----
-
-# What are Unit Tests
-
-Unit tests are automated checks of small parts of a program (such as functions or procedures) to verify that they work correctly. The idea is to test whether a given function returns the correct result for specific input values.
-
-- Why use unit tests?
-  - You catch bugs faster.
-  - You don’t have to manually test your code every time.
-  - You gain confidence that changes in the code don’t break other parts (this is called regression prevention).
-
----
-
-# Exit code / return code / status code
-
-- The program returned exit code 0, which means it ran successfully.
-- A non-zero exit code usually indicates an error or failure.
-
----
-
-# assert()
-
-- In structurally or imperatively oriented programming, function names are typically nouns — for example, sum(), pow(), or strlen().
-- In object-oriented programming, we create instances of objects represented by nouns, but the methods invoked on those objects are usually verbs, describing actions performed on the instance — for example, trash.clean().
-- In the C language, the function assert() is an exception. Unlike typical function names, it is a verb, reflecting the programmer’s intention to assert — to strongly claim — that a certain condition holds true. Conceptually, it’s as if the programmer is saying: “I assert that x equals 1” assert(x==1);
-
----
-
-# assert()
-
-- The original intent behind assert() was to allow developers to write code like:
-
-```c
-sum(a, b);
-
-assert(a > 0);
-```
-
-- These statements were meant to halt program execution if the condition was not met. In short, they served as additional safeguards to help speed up debugging.
-- Over time, most programming languages adopted dedicated unit testing frameworks — even C, thanks to the Unity library. Unity was designed with a plan-driven approach in mind, enabling developers to write tests before implementing the actual code.
-
----
-
-***I assert that x equals 1.***

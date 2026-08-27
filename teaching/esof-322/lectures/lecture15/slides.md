@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Chapter 3 – Agile Software Development"
 ---
 
@@ -311,10 +312,6 @@ Experienced users are often so familiar with their work that they leave things o
   - Thus, the name “Scrum” was used symbolically to reflect the spirit of collaboration and iterative progress.
 
 ![w:361px](assets/image7.jpeg)
-
----
-
-- etymologia, obrazek, technika, mapa mysli!
 
 ---
 

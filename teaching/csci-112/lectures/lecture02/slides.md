@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
@@ -15,9 +16,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-![w:277px Graphic 3](assets/image2.png)
-
----
+<!-- _class: fit-90 -->
 
 # Outline
 
@@ -44,7 +43,15 @@ title: "CSCI 112  Programming with C"
 
 # Binary numeral system
 
+![w:248px Equation](assets/image24.png)
+
+![w:639px Equation](assets/image47.png)
+
 ![w:238px Picture 2](assets/image4.png)
+
+![w:1009px Equation](assets/image3.png)
+
+![w:1163px Equation](assets/image410.png)
 
 <!-- Why do we start from position zero, not one? Because any number raised to the power of zero always equals one!
 2 raised to the power of 3 is 8.
@@ -81,7 +88,14 @@ R-value with an index of 2
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Binary numeral system (Unsigned arithmetic)
+
+|-255||-127||0||127||255||
+|---|---|---|---|---|---|---|---|---|---|
+
+![w:316px Equation](assets/image55.png)
 
 |-255||-127||0||127||255||
 |---|---|---|---|---|---|---|---|---|---|
@@ -101,6 +115,8 @@ LSB
 least significant bit
 
 **Sign-Magnitude Representation**
+
+![w:316px Equation](assets/image56.png)
 
 ---
 
@@ -139,32 +155,6 @@ int main()
 	printf("%s", string);
 	return 0;
 }
-```
-
----
-
-# Hello World
-
-- Text preceded by # is a preprocessor section, the first line gives access to standard input and output functions, this is a header.
-- Next, we have the main function defined, which returns an integer value. The {} brackets start and end the body of the main function.
-- The printf function displays the string "Hello world" on the console.
-- The printf function does not move the cursor to the next line, so it is necessary to add the newline character '\n'.
-
-```c
-#include <stdio.h>
-
-int main()
-{
-	char string[12] = "Hello world";
-	printf("%s", string);
-	return 0;
-}
-```
-
-Result:
-
-```text
-Hello world
 ```
 
 ---
@@ -214,7 +204,7 @@ printf("%s", string);
 
 ---
 
-# Semicolon
+# Semicolon ;
 
 - In the C programming language statements for the compiler (interpreter in Python) is separated by a semicolon ;. Therefore, in C, you can write an entire program on one line...
 
@@ -223,6 +213,8 @@ printf("%s", string);
 ```
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Indentation & parentheses
 
@@ -360,7 +352,9 @@ int main()
 
 ---
 
-# Symbolic names will be used in
+<!-- _class: fit-80 -->
+
+# Symbolic names will be used in:
 
 - Variables:    Symbolic names will be used to identify and refer to data stored in variables. This<br>    allows for more meaningful and descriptive code compared to using arbitrary names or <br>    identifiers.
 - Arrays:     Symbolic names will be used to identify collections of related data elements. Arrays can be used <br>    to store multiple values of the same data type.
@@ -381,6 +375,8 @@ int main()
 
 ---
 
+<!-- _class: fit-80 -->
+
 # camelCase vs snake\_case for symbolic names
 
 - camelCase starts each word with a capital letter, except for the first word.
@@ -398,7 +394,9 @@ Constants, which are values that don't change, are usually written in all upperc
 
 ---
 
-# Symbolic names will be used in
+<!-- _class: fit-80 -->
+
+# Symbolic names will be used in:
 
 - Variables:    Symbolic names will be used to identify and refer to data stored in variables. This<br>    allows for more meaningful and descriptive code compared to using arbitrary names or <br>    identifiers.
 - \*In Python we don’t have labels.
@@ -409,32 +407,6 @@ Constants, which are values that don't change, are usually written in all upperc
 ---
 
 # Variables
-
----
-
-# Declaring and initializing variables
-
-```c
-int main()
-{
-  int p;        /* Declaration of variable p with a size of 4 bytes */
-  int q, r, s;  /* Simultaneous declaration of variables q, r, s using "," */
-  q = 2;        /* Assignment of value to variable q - initialization */
-  r = q = s;    /* Assignment of values to q and s based on r */
-  int t = 3;    /* Declaration and initialization on the same line */
-
-  char v;       /* Variable v of integer type with a size of 1 byte */
-  short int w;  /* Variable w of integer type with a size of 2 bytes */
-  long int x;   /* Variable x of integer type with a size of 4 bytes */
-  short y;      /* Shorthand declaration for short int */
-  long z;       /* Shorthand declaration for long int */
-
-  float  a = 3.16f;    /* Variable a of floating-point type with a size of 4 bytes */
-  double b = a * 3.0; /* Variable b of floating-point type with a size of 8 bytes */
-  /* Note: short float, long float, and short double do not exist in C */
-  long double d;      /* Variable d of floating-point type with a size of 12 bytes */
-}
-```
 
 ---
 
@@ -515,6 +487,8 @@ Operations on real numbers are recorded with only a certain degree of precision,
 
 ---
 
+<!-- _class: fit-70 -->
+
 # A few words about pointers
 
 - **POINTERS ARE TREATED AS FIRST-CLASS DATA TYPES**
@@ -559,7 +533,9 @@ asterisk -->
 
 ---
 
-# Symbolic names will be used in
+<!-- _class: fit-80 -->
+
+# Symbolic names will be used in:
 
 - Variables:    Symbolic names will be used to identify and refer to data stored in variables. This<br>    allows for more meaningful and descriptive code compared to using arbitrary names or <br>    identifiers.
 - \*In Python we don’t have labels.
@@ -586,6 +562,8 @@ int a[10];
 \*Array indexing starts from 0.
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Arrays
 
@@ -675,6 +653,8 @@ Hello World
 ```
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Arrays
 
@@ -785,7 +765,9 @@ American Standard Code for Information Interchange
 
 ---
 
-# Symbolic names will be used in
+<!-- _class: fit-80 -->
+
+# Symbolic names will be used in:
 
 - Variables:    Symbolic names will be used to identify and refer to data stored in variables. This<br>    allows for more meaningful and descriptive code compared to using arbitrary names or <br>    identifiers.
 - \*In Python we don’t have labels.
@@ -799,7 +781,7 @@ American Standard Code for Information Interchange
 
 ---
 
-# Every line of code in C can have its own label
+# Every line of code in C can have its own label.
 
 ```c
 int main()
@@ -818,7 +800,7 @@ label8:    return 0;
 
 ---
 
-# Every line of code in C can have its own label
+# Every line of code in C can have its own label.
 
 ```c
 int main()
@@ -910,6 +892,8 @@ Use parentheses to override order of evaluation -->
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Casting
 
 Although the int and float types in C are the same length, a much larger number can be stored in a float type than in an int. This is due to a different way of encoding the bits. As a result, when it comes to casting, float is treated as a larger type than int. Therefore, if an int appears in an expression with a float, the int is always first cast to float, and only then is the result computed.
@@ -958,6 +942,8 @@ Operations on real numbers are recorded with only a certain degree of precision,
 
 ---
 
+<!-- _class: fit-90 -->
+
 # What is Casting?
 
 The process of converting a value of one data type to another.
@@ -974,6 +960,8 @@ The purpose:
 - To access specific parts of a data structure.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Explicit Casting
 
@@ -1016,6 +1004,8 @@ If we put a data type in parentheses before a symbolic name (variable), we perfo
 asterisk -->
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Implicit Casting
 

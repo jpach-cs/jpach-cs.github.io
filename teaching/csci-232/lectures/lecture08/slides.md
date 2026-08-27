@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "Data Structures & Algorithms"
 ---
 
@@ -10,21 +11,6 @@ title: "Data Structures & Algorithms"
 # Data Structures &amp; Algorithms
 
 ## Lecture 8
----
-
-# In 136, we covered
-
-- Objects and classes, Abstract Data Types – lots of coverage.  I required class and header files in most assignments
-- Time and Space complexity – a discussion was included in each exercise.  Good coverage of constant time, linear, n2, n3, with loops and nested loops.  Didn’t do any of the math.
-- Arrays and 2D arrays, and “2D” vectors, along with Big-O and execution time tests with larger structures.  Students had a LOT of coverage
-- Linked List and Sorted Linked List – students had to write their own class/header files and driver for each
-- Stack and Queue – students were given .h files, had to write the class and member functions and driver
-- Maze using stack and queue in Python – students were given classes, had to write DFS and BFS with much assistance and examples
-- Lecture coverage of memory allocation, memory usage, static variables, compilation, memory leaks, dangling pointers, comparison of C and C++, binary search, examples of object-oriented programming and ADT’s in C++, Python, Java
-- Parameter passing, command line arguments, scope – good coverage
-- Pointers – medium coverage, mostly with parameter passing.  We didn’t use them in any useful way.
-- Recursion – weak coverage
-- Visual Studio – all the time
 
 ---
 
@@ -39,6 +25,8 @@ title: "Data Structures & Algorithms"
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Introduction to Doubly Linked Lists
 
 A **Doubly Linked List (DLL)** is a linear data structure where each element (node) contains three fields:
@@ -50,6 +38,8 @@ A **Doubly Linked List (DLL)** is a linear data structure where each element (no
 Unlike a **Singly Linked List**, which can only be traversed forward, the DLL allows traversal in both directions—forward from the head and backward from the tail.
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Key Advantages of the Doubly Linked List
 
@@ -63,6 +53,8 @@ The addition of the PrevPtr dramatically increases the flexibility and efficienc
 
 ---
 
+<!-- _class: fit-60 -->
+
 # DLL as LIFO (Stack) and FIFO (Queue)
 
 The DLL's ability to efficiently handle insertions at both the head and the tail makes it a perfect foundation for implementing the two primary abstract data types:
@@ -75,6 +67,8 @@ This dual efficiency **drastically streamlines the implementation of various dat
 |**Queue (FIFO)**|**Enqueue** (add) at the **Tail** and **Dequeue** (remove) at the **Head**.|Both operations are direct (no traversal needed).|**O(1)**|
 
 ---
+
+<!-- _class: fit-80 -->
 
 # The Trade-Off: Increased Memory Consumption
 
@@ -92,6 +86,8 @@ The primary drawback of the Doubly Linked List is its memory overhead:
 # Insertion sort
 
 ---
+
+<!-- _class: fit-50 -->
 
 # Insertion sort
 
@@ -130,12 +126,12 @@ void insertionSort(int arr[], int n)
 Algorithm insertionSort (A, n):
 	Input: An array A storing n ≥ 1 integers.
 	for i ← 1 to n - 1 do
-	key ← A[i]
-	j ← j – 1
-	while j ≥ 0 and A[j] > key do
-		A[j + 1] ← A[j]
-		j ← j – 1
-	A[j + 1] ← key
+    	key ← A[i]
+    	j ← j – 1
+    	while j ≥ 0 and A[j] > key do
+    		A[j + 1] ← A[j]
+    		j ← j – 1
+    	A[j + 1] ← key
 ```
 
 ---
@@ -157,27 +153,3 @@ Algorithm insertionSort (A, n):
 <!-- _class: caption-slide -->
 
 # Thank You
-
----
-
-# Algorithm notation systems
-
----
-
-# Efficiency – an example
-
-<!-- For a concrete example -->
-
----
-
-# Efficiency – an example
-
-<!-- For a concrete example -->
-
----
-
-# Efficiency – an example
-
-By using an algorithm whose running time grows more slowly, even with a poor compiler, computer **B** runs more than 17 times faster than computer **A**! The advantage of merge sort is even more pronounced when we sort 100 million numbers: where insertion sort takes more than 23 days, merge sort takes under four hours. In general, as the problem size increases, so does the relative advantage of merge sort.
-
-<!-- For a concrete example -->

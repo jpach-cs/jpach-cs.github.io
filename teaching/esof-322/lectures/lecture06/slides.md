@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
@@ -110,6 +111,8 @@ git commit
 
 ---
 
+<!-- _class: fit-50 -->
+
 # Summary
 
 Let’s review what we have learned so far. We previously worked on creating new branches in Git and switching between them. One important observation is that files seem to be “hidden” when moving between branches, since each branch has its own version of the file system state.
@@ -128,6 +131,8 @@ In short, branches allow safe and parallel development, merging combines work fr
 ![bg Picture 6](assets/image3.png)
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Introduction to git diff
 
@@ -290,6 +295,8 @@ git stash clear	# Delete all stashes
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Introduction to git stash
 
 **Important Note About the Stash Mechanism**
@@ -357,103 +364,7 @@ git stash save "WIP: fixing login bug"
 
 ---
 
-Touch!
-
----
-
-# posh-git -  extension (install on your PC)
-
-- In powershell:
-- Przestalo dzialac nie wiem czemu
-
----
-
-# Git Commit – Editor Message Flow
-
-When you run git commit without the -m flag, Git opens your default text editor — in our case, Visual Studio Code (VSC) — and waits for you to write a commit message.
-
-- The first line of the message should be short and descriptive — this is the summary that appears in logs and history.
-- You can optionally add a longer description below, separated by a blank line, to explain the change in more detail.
-- The rest of the file may contain comments or instructions from Git (lines starting with #). These can be left as-is or removed.
-- Once you're done, save and close the file. Git will then finalize the commit and return you to the terminal.
-
-```text
-Add firstFile.txt
-# Please enter the commit message for your changes. Lines starting
-# with '#' will be ignored, and an empty message aborts the commit.
-#
-# On branch master
-#
-# Initial commit
-#
-# Changes to be committed:
-#	new file:   firstFile.txt
-#
-```
-
----
-
-# git ls-files – List Tracked Files
-
-This command displays all the files that Git is currently tracking in your repository. It shows the contents of the index (staging area), not the working directory. That means:
-
-- Files listed by git ls-files are already added to Git using git add.
-- Untracked files (new files not yet added) will not appear in this list.
-- It’s useful for checking which files are under version control, especially in large projects.
-
-Use git ls-files to verify which files are being tracked by Git. If a file doesn’t appear, it’s either untracked or ignored via .gitignore.
-
-```console
-$ git ls-files
-firstFile.txt
-```
-
----
-
-# git log – Commit History
-
-This command displays the complete commit history of the repository. Each entry includes:
-
-- The commit hash (a unique ID)
-- Author name and email
-- Date and time of the commit
-- The full commit message
-- It’s useful for reviewing detailed information about each change made to the project.
-
-```console
-$ git status
-On branch master
-nothing to commit, working tree clean
-```
-
-```console
-$ git log
-commit d06aafaf2cd37f5bc7cd4015656e1ae15241c996 (HEAD -> master)
-Author: Jacob Pach <jpach@mtech.edu>
-Date:   Thu Aug 28 20:09:17 2025 -0600
-
-    Add firstFile.txt
-```
-
----
-
-# git log --oneline – Simplified View
-
-This version shows a **condensed list** of commits, with:
-
-- A shortened commit hash
-- The first line of the commit message
-
-It’s ideal for quickly scanning the history or identifying specific commits without all the extra details.
-
-Use git log when you need full context, and git log --oneline when you want a quick overview. Both are essential tools for navigating and understanding your project’s history.
-
-```console
-$ git log --oneline
-d06aafa (HEAD -> master) Add firstFile.txt
-```
-
----
+<!-- _class: fit-70 -->
 
 # Renaming Files in Git – Important Note
 
@@ -498,32 +409,6 @@ $ git switch second_branch
 
 ```console
 $ git checkout second_branch
-```
-
----
-
-# Branch - head
-
-It is worth mentioning that Git stores information about branches in the .git/refs/head directory, where each file represents a local branch and contains the commit hash it points to. The currently active branch is indicated by the .git/HEAD file, which usually contains a reference like ref: refs/heads/main.
-
-```text
-.git
-+---hooks
-+---info
-+---logs
-+---objects
-+---refs
-|   COMMIT_EDITMSG
-|   config
-|   description
-|   HEAD
-|   index
-```
-
-```console
-$ git status
-On branch master
-...
 ```
 
 ---

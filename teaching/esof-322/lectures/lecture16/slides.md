@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Chapter 4 – Requirements Engineering"
 ---
 
@@ -77,12 +78,6 @@ A feasibility study is a short, focused study that should take place early in th
 - Can the system be integrated with other systems that are used?
 
 If the answer to any of these questions is no, you should probably not go ahead with the project.
-
----
-
-# [The Elements of a Good Feasibility Study](https://www.projectsmart.co.uk/requirements-management/elements-of-a-good-feasibility-study.php)
-
-- <https://www.projectsmart.co.uk/requirements-management/elements-of-a-good-feasibility-study.php>
 
 ---
 
@@ -456,7 +451,7 @@ This refers to applying the **research techniques and principles** characteristi
 
 ---
 
-# In Other Words
+# In Other Words...
 
 - Using "ethnography" in this context is shorthand for a **research approach based on in-depth, direct observation of users in their natural work environment**. The goal is to capture not only what people *say* they do, but primarily what they **actually do**, how they cope with challenges, and what their real needs and pain points are.
 - This is particularly valuable because people often can't verbalize all their requirements, either due to being accustomed to current solutions or because certain aspects of their work are so obvious to them that they don't see the need to describe them. Observation helps uncover these hidden needs and facilitates the design of more useful and effective systems.
@@ -694,6 +689,8 @@ System requirements are expanded versions of the user requirements that soft war
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Guidelines for writing requirements
 
 - Invent a standard format and ensure that all requirement definitions adhere to that format. Standardizing the format makes omissions less likely and requirements easier to check. I suggest that, wherever possible, you should write the requirement in one or two sentences of natural language.
@@ -701,6 +698,8 @@ System requirements are expanded versions of the user requirements that soft war
 - Use text highlighting (bold, italic, or color) to pick out key parts of the requirement.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Guidelines for writing requirements
 
@@ -993,6 +992,8 @@ A number of large organizations, such as the U.S. Department of Defense and the 
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Requirements checking
 
 - **Validity checks** These check that the requirements reflect the real needs of system users. Because of changing circumstances, the user requirements may have changed since they were originally elicited.
@@ -1033,6 +1034,8 @@ Prototyping This involves developing an executable model of a system and using t
 Test-case generation Requirements should be testable. If the tests for the requirements are devised as part of the validation process, this often reveals requirements problems. If a test is difficult or impossible to design, this usually means that the requirements will be difficult to implement and should be recon sidered. Developing tests from the user requirements before any code is written is an integral part of test-driven development. -->
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Requirements validation techniques
 
@@ -1119,6 +1122,8 @@ Some requirements are more susceptible to change than others. Enduring requireme
 <http://software-engineering-book.com/web/changing-requirements/>
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Requirements management planning
 

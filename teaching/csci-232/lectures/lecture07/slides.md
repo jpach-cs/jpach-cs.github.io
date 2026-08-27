@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "Data Structures & Algorithms"
 ---
 
@@ -10,21 +11,6 @@ title: "Data Structures & Algorithms"
 # Data Structures &amp; Algorithms
 
 ## Lecture 7
----
-
-# In 136, we covered
-
-- Objects and classes, Abstract Data Types – lots of coverage.  I required class and header files in most assignments
-- Time and Space complexity – a discussion was included in each exercise.  Good coverage of constant time, linear, n2, n3, with loops and nested loops.  Didn’t do any of the math.
-- Arrays and 2D arrays, and “2D” vectors, along with Big-O and execution time tests with larger structures.  Students had a LOT of coverage
-- Linked List and Sorted Linked List – students had to write their own class/header files and driver for each
-- Stack and Queue – students were given .h files, had to write the class and member functions and driver
-- Maze using stack and queue in Python – students were given classes, had to write DFS and BFS with much assistance and examples
-- Lecture coverage of memory allocation, memory usage, static variables, compilation, memory leaks, dangling pointers, comparison of C and C++, binary search, examples of object-oriented programming and ADT’s in C++, Python, Java
-- Parameter passing, command line arguments, scope – good coverage
-- Pointers – medium coverage, mostly with parameter passing.  We didn’t use them in any useful way.
-- Recursion – weak coverage
-- Visual Studio – all the time
 
 ---
 
@@ -40,13 +26,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-# Meaning of words
-
-Sometimes, when we look at the same thing, we see entirely different things. Therefore, to avoid misunderstandings, I will spend a considerable amount of time clarifying the nuances associated with translating the meanings of the concepts we will be using in our classes.
-
-![w:402px Picture 1](assets/image4.png)
-
----
+<!-- _class: fit-90 -->
 
 # Algorithm
 
@@ -55,9 +35,15 @@ Sometimes, when we look at the same thing, we see entirely different things. The
 
 ---
 
+<!-- _class: fit-70 -->
+
 # Algorithm
 
+![Content Placeholder 7](assets/image5.png)
+
 ---
+
+<!-- _class: fit-90 -->
 
 # Algorithm
 
@@ -69,7 +55,9 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 
 ---
 
-# Practical applications of algorithms
+<!-- _class: fit-80 -->
+
+# Practical applications of algorithms:
 
 - The Human Genome Project has made great progress toward the goals of identifying all the 100,000 genes in human DNA, determining the sequences of the 3 billion chemical base pairs that make up human DNA.
 - The Internet enables people all around the world to quickly access and retrieve large amounts of information. With the aid of clever algorithms, sites on the Internet are able to manage and manipulate this large volume of data.
@@ -77,14 +65,16 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 
 ---
 
-# Practical applications of algorithms
+# Practical applications of algorithms:
 
 - Manufacturing and other commercial enterprises often need to allocate scarce resources in the most beneficial way.
 - We are given a road map on which the distance between each pair of adjacent intersections is marked, and we wish to determine the shortest route from one intersection to another.
 
 ---
 
-# Two characteristics that are common to many interesting algorithmic problems
+<!-- _class: fit-90 -->
+
+# Two characteristics that are common to many interesting algorithmic problems:
 
 - They have many candidate solutions, the overwhelming majority of which do not solve the problem at hand. Finding one that does, or one that is “best,” can present quite a challenge.
 - They have practical applications. Of the problems in the above list, finding the shortest path provides the easiest examples. A transportation firm, such as a trucking or railroad company, has a financial interest in finding shortest paths through a road or rail network because taking shorter paths results in lower labor and fuel costs.
@@ -96,6 +86,8 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 - We have got several data structures. **A data structure** is a way to store and organize data in order to facilitate access and modifications. No single data structure works well for all purposes, and so it is important to know the strengths and limitations of several of them.
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Hard problems
 
@@ -111,6 +103,8 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 
 ---
 
+<!-- _class: fit-90 -->
+
 # NP vs P
 
 - NP problems are those for which the correctness of a given **solution can be verified in polynomial time**.
@@ -118,6 +112,8 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 - Imagine having a riddle. Finding the solution to this riddle might be very difficult and time-consuming. However, if someone gives you a solution, you can quickly verify whether it is correct. This is somewhat analogous to NP problems: finding a solution can be hard, but verifying a given solution is easy.
 
 ---
+
+<!-- _class: fit-80 -->
 
 # NP-complete example
 
@@ -129,7 +125,9 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 
 ---
 
-# An algorithm can be represented in at least three ways
+<!-- _class: fit-90 -->
+
+# An algorithm can be represented in at least three ways:
 
 - **Flowchart:**
   - This involves breaking down the algorithm into elementary control blocks such as start, stop, data input, output, conditional statements, etc.
@@ -141,6 +139,8 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 <!-- but We will be using -->
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Pseudocode resembles a programming language like Pascal\*
 
@@ -261,14 +261,16 @@ FALSE
 ```pascal
 function factorial(n: integer): integer;
 begin
-if n = 0 then
-factorial := 1
+ if n = 0 then
+    factorial := 1
 else
-factorial := n * factorial(n - 1);
+    factorial := n * factorial(n - 1);
 end;
 ```
 
 ---
+
+<!-- _class: fit-60 -->
 
 # Advantages and Disadvantages of Flowchart Algorithm Representation
 
@@ -282,6 +284,8 @@ end;
   - **Limitations in expressing certain concepts**: It's not always easy to represent more abstract concepts in a flowchart.
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Advantages and Disadvantages of Bullet point description of Algorithm Representation
 
@@ -297,6 +301,8 @@ end;
 ![w:146px Picture 4](assets/image4.png)
 
 ---
+
+<!-- _class: fit-60 -->
 
 # Advantages and Disadvantages of Pseudocode of Algorithm Representation
 
@@ -314,11 +320,15 @@ end;
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Bubble sort
 
 Bubble sort is a simple sorting algorithm that works by repeatedly stepping through the list, comparing adjacent elements, and swapping them if they're in the wrong order. The algorithm gets its name because smaller or larger elements "bubble" up to their correct position in the list with each pass. It's an easy-to-understand algorithm, often taught as an introductory example in computer science.
 
 ---
+
+<!-- _class: fit-50 -->
 
 # Bubble sort
 
@@ -337,6 +347,8 @@ Bubble sort is a simple sorting algorithm that works by repeatedly stepping thro
 ![w:433px A diagram of a diagram AI-generated content may be incorrect.](assets/image6.png)
 
 ---
+
+<!-- _class: fit-40 -->
 
 # Bubble sort
 
@@ -460,27 +472,3 @@ void swap(int* xPointer, int* yPointer)
 <!-- _class: caption-slide -->
 
 # Thank You
-
----
-
-# Algorithm notation systems
-
----
-
-# Efficiency – an example
-
-<!-- For a concrete example -->
-
----
-
-# Efficiency – an example
-
-<!-- For a concrete example -->
-
----
-
-# Efficiency – an example
-
-By using an algorithm whose running time grows more slowly, even with a poor compiler, computer **B** runs more than 17 times faster than computer **A**! The advantage of merge sort is even more pronounced when we sort 100 million numbers: where insertion sort takes more than 23 days, merge sort takes under four hours. In general, as the problem size increases, so does the relative advantage of merge sort.
-
-<!-- For a concrete example -->

@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
@@ -15,9 +16,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-![w:277px Graphic 3](assets/image2.png)
-
----
+<!-- _class: fit-90 -->
 
 # Outline
 
@@ -69,6 +68,8 @@ Length of [Hello world!] equals 12
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Comparing two pointers
 
 Comparing pointers to strings in C can be significantly optimized, especially when there's a high probability that two strings are identical and point to the same memory location
@@ -105,6 +106,8 @@ Str1 and str2 point to the same string
 <!-- Jesli mamy dwa element tej samej tablicy, i chcemy znalezc element srodkowy tej tablicy mozemy odjac od siebie adresy I uzyskamy od tego element srodkowy -->
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Comparing two pointers
 
@@ -389,6 +392,8 @@ Result: Date: 1988-8-2
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Scanf - Summary of Best Practices
 
 - Always use &amp;: Remember that scanf requires the address of the variable (&amp;variable) to store the new value.
@@ -437,6 +442,8 @@ Words of different lengths
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Command-Line Arguments
 
 Command-line arguments are values passed to a program when it is executed from the terminal/command prompt. Allows users to provide input to the program without the need for user interaction during execution.
@@ -449,6 +456,8 @@ argv[]:	Argument vector, an array of strings (character pointers) representing t
 ```
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Command-Line Arguments
 
@@ -589,6 +598,8 @@ To make functions defined in other files visible in a file, it is sufficient to 
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Source code &amp; header files
 
 - Function prototypes serve a dual purpose.
@@ -597,6 +608,8 @@ To make functions defined in other files visible in a file, it is sufficient to 
 - The C compiler does not strictly require function prototypes or header files. It's possible to create a new file, write a function, add it to the project, and access it from main.c However, in our course, we require the creation of at least one header file containing prototypes for all functions that will be implemented in other files and included in the entire program.
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Example
 
@@ -677,6 +690,8 @@ MAX_SIZE is 100
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Example
 
 Every source file that includes a header will have its contents inserted during compilation. If multiple files include the same header that contains definitions, the linker will report multiple definition errors because the same code is compiled more than once. To prevent this, header files should use include guards (#ifndef, #define, #endif)
@@ -719,6 +734,8 @@ int main()
 *Of all the directives regarding compilation and makefiles, the* #ifndef *directive seems to be the most commonly used, as it prevents the same file from being included more than once in the final output. As can easily be seen, many different files can use the same library.*
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Example
 
@@ -774,6 +791,8 @@ Sum of 5 and 3 equals 8
 ```
 
 ---
+
+<!-- _class: fit-90 -->
 
 # extern keyword
 
@@ -998,6 +1017,8 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Compilers
 
 - GCC – GNU Compiler Collection
@@ -1126,6 +1147,8 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
+<!-- _class: fit-90 -->
+
 # About flags
 
 - The -g flag tells the compiler to include debugging information in the output. Without it, setting breakpoints in the compiled file would not be possible. This flag should be disabled in the final compilation of the application after the development process is complete.
@@ -1137,6 +1160,8 @@ These steps are essential for transforming your C code into an executable progra
 # Makefile
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Introduction to Makefile
 
@@ -1165,6 +1190,8 @@ TARGET: DEPENDENCIES
 - command:    Shell command (preceded by a tab) to execute.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # An example of makefile
 
@@ -1204,83 +1231,3 @@ Key Components:
 
 - Jakub Leszek Pach
 - <jpach@mtech.edu>
-
----
-
-# Some examples
-
-```c
-int main()
-{
-  int x = 5, y = 7;
-  int * p = &x;
-  int ** pp = &p;   /* pointer to pointer*/
-  y = **pp;
-  printf("y equals %d.\n\n",  y );
-
-  printf("&y\t\tequals %d.\n", &y );
-  printf("*(&y)\t\tequals %d.\n", *(&y) );
-  printf("&(*(&y))\tequals %d.\n", &(*(&y)) );
-  printf("&*&y\t\tequals %d.\n", &*&y );
-  printf("*&*&y\t\tequals %d.\n\n", *&*&y );
-
-  printf("&x\t\tequals %d.\n", &x );
-  printf("p\t\tequals %d.\n", p );
-  printf("&p\t\tequals %d.\n", &p );
-  printf("*p\t\tequals %d.\n\n", *p );
-
-  printf("pp\t\tequals %d.\n", pp );
-  printf("&pp\t\tequals %d.\n", &pp );
-  printf("*pp\t\tequals %d.\n", *pp );
-  printf("*&*pp\t\tequals %d.\n", *&*pp );
-  printf("**pp\t\tequals %d.\n", **pp );
-  return 0;
-}
-```
-
-Result:
-
-```text
-y equals 5.
-
-&y              equals 6422292.
-*(&y)           equals 7.
-&(*(&y))        equals 6422292.
-&*&y            equals 6422292.
-*&*&y           equals 7.
-
-&x              equals 6422296.
-p               equals 6422296.
-&p              equals 6422288.
-*p              equals 5.
-
-pp              equals 6422288.
-&pp             equals 6422284.
-*pp             equals 6422296.
-*&*pp           equals 6422296.
-**pp            equals 5.
-```
-
-||Memory Addresses and Values|||
-|---|---|---|---|
-|||||
-||x (6422296)|5||
-|||||
-||y (6422292)|5||
-|||||
-||p (6422288)|6422296||
-|||||
-||pp (6422284)|6422288||
-|||||
-
-![Ink 54](assets/image4.png)
-
-![Ink 55](assets/image5.png)
-
-![Ink 56](assets/image6.png)
-
-![Ink 58](assets/image7.png)
-
-![Ink 59](assets/image8.png)
-
-![Ink 60](assets/image9.png)

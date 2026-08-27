@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "CSCI 232  Data Structures & Algorithms"
 ---
 
@@ -10,15 +11,8 @@ title: "CSCI 232  Data Structures & Algorithms"
 # CSCI 232 <br>Data Structures &amp; Algorithms
 
 ## Lecture 18
+
 Dr. Jakub L. Pach
-
----
-
-# Outline
-
-- Syllabus, Textbook, Moodle
-- Something about me
-- IDE
 
 ---
 
@@ -26,49 +20,6 @@ Dr. Jakub L. Pach
 
 <!-- [Lecture 3: Insertion Sort, Merge Sort (youtube.com)](https://www.youtube.com/watch?v=Kg4bqzAqRBM&t=1493s&ab_channel=MITOpenCourseWare)
 [Learn Merge Sort in 13 minutes 🔪 (youtube.com)](https://www.youtube.com/watch?v=3j0SWDX4AtU&t=336s&ab_channel=BroCode) -->
-
----
-
-# Pseudocode
-
-```text
-Algorithm mergeSort (A, l, r)
-	Input: An array A with indices 				ranging from 𝑙 to 𝑟 storing n ≥ 			1 integers.
-if l < r
-m ← ⌊(l+r)/2⌋
-mergeSort(A, l, m)
-mergeSort(A, m+1, r)
-merge(A, l, m, r)
-```
-
-```text
-merge(A, l, m, r)
-	n1 = m - l + 1
-	n2 = r - m
-let L be a new array of size n1
-let R be a new array of size n2
-	for i ← 0 to n1 – 1
-		L[i] ← A[l + i]
-	for j ← 0 to n2 – 1
-	   R[j] ← A[m + 1 + j]
-		i ← 0, j ← 0, k ← l
-	while i < n1 and j < n2
-		if L[i] <= R[j]
-			A[k] ← L[i]
-			i ← i + 1
-		else
-			A[k] ← R[j]
-			j ← j + 1
-			k ← k + 1
-		while i < n1
-			A[k] ← L[i]
-			i ← i + 1
-		    k ← k + 1
-		while j < n2
-			A[k] ← R[j]
-			j ← j + 1
-			k ← k + 1
-```
 
 ---
 
@@ -82,6 +33,8 @@ let R be a new array of size n2
 ![w:651px Picture 6](assets/image2.png)
 
 ---
+
+<!-- _class: fit-90 -->
 
 # C
 
@@ -132,10 +85,3 @@ void heapSort(int arr[], int n)
     }
 }
 ```
-
----
-
-- wyklad z MIT z tego przedmiotu jest super, moze nie ma sensu wszystkiego pisac, ale polaczenie mediany, binarnego sortowania i sortowania przez wstawianie jest meeeega. Abym mail tylko zycia aby to wszystko pieknie opanowac.
-
-<!-- [Lecture 3: Insertion Sort, Merge Sort (youtube.com)](https://www.youtube.com/watch?v=Kg4bqzAqRBM&ab_channel=MITOpenCourseWare)
-<https://www.youtube.com/watch?v=Kg4bqzAqRBM&amp;ab_channel=MITOpenCourseWare> 24:59 -->

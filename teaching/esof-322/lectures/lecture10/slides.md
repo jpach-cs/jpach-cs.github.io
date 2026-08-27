@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
@@ -48,6 +49,8 @@ This is my first GitHub Pages project.
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Setting Up GitHub Pages with Markdown
 
 **Add Jekyll Configuration**
@@ -79,6 +82,8 @@ description: MarkDown
 <https://username.github.io/assignment04/>
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Setting Up GitHub Pages with Markdown
 
@@ -151,6 +156,8 @@ After updating the changes in the \_config.yml and README.md files, GitHub’s s
 
 ---
 
+<!-- _class: fit-60 -->
+
 # Core Markdown Features
 
 - Headings: #, ##, ###
@@ -183,6 +190,8 @@ the same level 5
 ![w:122px Picture 7](assets/image5.png)
 
 ---
+
+<!-- _class: fit-70 -->
 
 # Core Markdown Features
 
@@ -263,6 +272,8 @@ Note: Markdown itself does not support cell merging; for that, you need to embed
 ![w:288px Picture 10](assets/image9.png)
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Core Markdown Features
 

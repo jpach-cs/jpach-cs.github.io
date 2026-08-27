@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
@@ -12,10 +13,6 @@ title: "CSCI 112  Programming with C"
 - Lecture 7
 - Dr. Jakub L. Pach
 - Fall 2025
-
----
-
-![w:277px Graphic 3](assets/image2.png)
 
 ---
 
@@ -237,16 +234,16 @@ Give me a 3-digit number. If less than 100, please write 091 etc.
 ```c
 int main()
 {
-int y;
-char stringNumber[4] = {'\0','\0','\0','\0'};
-printf("Enter a 3-digit value for y: ");
-stringNumber[0] = getche();
-stringNumber[1] = getche();
-stringNumber[2] = getche();
-printf("\n");
-y  = atoi(stringNumber);
-printf("Value of y in HEX\tis = %X\n", y);
-printf("Value of y in Octal\tis = %o\n", y);
+    int y;
+    char stringNumber[4] = {'\0','\0','\0','\0'};
+    printf("Enter a 3-digit value for y: ");
+    stringNumber[0] = getche();
+    stringNumber[1] = getche();
+    stringNumber[2] = getche();
+    printf("\n");
+    y  = atoi(stringNumber);
+    printf("Value of y in HEX\tis = %X\n", y);
+    printf("Value of y in Octal\tis = %o\n", y);
 }
 ```
 
@@ -293,7 +290,7 @@ It was true
 
 ---
 
-# Ternary conditional operator ?
+# Ternary conditional operator ?:
 
 - If expression1 evaluates to true, the ternary operator returns the value of expression2. Otherwise, it returns the value of expression3.
 
@@ -450,6 +447,8 @@ int main()
 
 ---
 
+<!-- _class: fit-70 -->
+
 # for loop
 
 ```c
@@ -579,16 +578,16 @@ int main()
 ```c
 int main()
 {
-int number;
-bool flag = true;
-while (flag)
-{
-    printf("Enter a positive number: ");
-    scanf("%d", &number);
-    if (! (number <= 0) )
-        flag = false;
-}
-printf("You entered: %d\n", number);
+    int number;
+    bool flag = true;
+    while (flag)
+    {
+        printf("Enter a positive number: ");
+        scanf("%d", &number);
+        if (! (number <= 0) )
+            flag = false;
+    }
+    printf("You entered: %d\n", number);
 }
 ```
 
@@ -658,46 +657,6 @@ Result:
 
 ---
 
-# break & continue keywords
-
-- break and continue offer distinct ways to control loop flow.
-- break instantly terminates the loop it's in, while continue jumps to the next iteration.
-- When nested, break affects only the immediate loop.
-- break is also applicable in switch statements to exit a specific case
-
-```c
-int main()
-{
-  int i;
-  for (int i = 1; i <= 10; i++)
-  {
-    if (i == 5)
-      break;          /* Breaks the loop      */
-    printf("%d ", i); /* when i is equal to 5 */
-  }
-
-  printf("\n");
-
-  i = 0;
-  while (i < 10)
-  {
-    i++;
-    if (i % 2 == 0)
-      continue;       /* Skips the rest of the    */
-    printf("%d ", i); /* iteration when i is even */
-  }
-}
-```
-
-Result:
-
-```text
-1 2 3 4
-1 3 5 7 9
-```
-
----
-
 # goto statement in loops
 
 - goto provides a convenient way to exit from nested blocks
@@ -751,6 +710,8 @@ int main()
 ```
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Summary of the Difference Between for and while Loops
 
@@ -869,12 +830,16 @@ int main()
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Functions, return, and Casting
 
 - The return statement works in a similar way. If a programmer omits the return instruction, the compiler will return "some" value (undefined behavior) depending on its settings (usually the value from the processor's ax register). This can lead to undesirable consequences and hard-to-find bugs, since the compiler won't flag them. For this reason, this course requires every function to end with the return keyword and a variable of the function's declared type.
 - Finally, it's worth remembering that the terms **procedure**, **method**, and **function** are often used interchangeably. The main difference is that a function, like the main function, is not nested within another structure. In other languages, you can nest functions within other entities, and these are then called methods. A procedure, on the other hand, is the ancestor of a function in assembly language.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Prototype & its Function - myFunction1
 
@@ -910,6 +875,8 @@ Text from myFuntion1
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Prototype & its Function - myFunction1
 
 - A function prototype must appear **before** its definition.
@@ -944,6 +911,8 @@ Text from myFuntion1
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Prototype & its Function – myFunction2
 
 myFunction2 is of type int, so the value it returns is also of type int. Remember that everything inside the parentheses of the function parameters is a **copy** of the value passed to the function. This means that myFunction2 literally declares int n before the first statement of the function and assigns it the value 2 (like int n = 2;).
@@ -975,6 +944,8 @@ result of myFuntion2 equals 1
 ```
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Prototype & its Function – myFunction2
 
@@ -1181,6 +1152,8 @@ x equals 5 that is read by function main
 
 ---
 
+<!-- _class: fit-90 -->
+
 # Summary - variable scope
 
 - Global variables are accessible throughout a program, but they can be temporarily hidden by a local variable declared within a nested block, such as a function, for loop, while loop, or even an if statement.
@@ -1192,326 +1165,3 @@ x equals 5 that is read by function main
 
 - Jakub Leszek Pach
 - <jpach@mtech.edu>
-
----
-
-# Declaring and initializing arrays
-
-```c
-int main()
-{
-  int a[5];
-  /* Declare an integer array named a with 5 elements */
-  int b[] = {1, 2, 3, 4};
-  /*Declare an integer array named b with 4 elements,
-    initialized with values 1, 2, 3, and 4            */
-  int c[10] = {9, 8, 7, 6, 5};
-  /*Declare an integer array named c with 10 elements,
-    the first 5 elements are initialized with values 9, 8, 7, 6, and 5,
-    the remaining elements are initialized to 0       		  */
-  int d[100] = {0};
-  /*Declare an integer array named d with 100 elements, all initialized to 0*/
-  int x, y = 2;
-  printf("First element (index 0) of array a equals %d.\n", a[0]);
-  /*Print the value of the first element of array a(undefined value)*/
-  printf("Second(index 1) element of array b equals %d.\n", b[1]);
-  /*Print the value of the second element of array b (which is 2)*/
-  printf("Second(index 1) element of array b equals %d.\n", *(b+1) );
-  /*Print the value of the second element of array b using pointer arithmetic*/
-  printf("Sixth(index 5) element of array c equals %d.\n", c[5]);
-  /*Print the value of the sixth element of array c (which is 0)*/
-  x = b[0];   /*Assign the value of the first element of array b (which is 1) to variable x*/
-  a[1] = y;   /*Assign the value of variable y (which is 2) to the second element of array a*/
-}
-```
-
-Result:
-
-```text
-First element (index 0) of array a equals 4201200.
-Second(index 1) element of array b equals 2.
-Second(index 1) element of array b equals 2.
-Sixth(index 5) element of array c equals 0.
-```
-
----
-
-# Basics of
-
-- The important difference between printf and scanf is that scanf requires its arguments to be pointers (location in memory) .
-
-```c
-int main()
-{
-  int x = 5;          			/* Declaration of variable x and assigning its value 5 */
-  int * p;      				/* Declaration of pointer p */
-  p = &x;       				/* Assigning the address value of the p variable to the pointer p */
-  printf("Enter x value : "); 		/* there is no end of line character here! */
-  scanf("%d", &x);     			/* To get a pointer (memory address) */
-  printf("Value of x = %d\n", x); 	/* we use a & before the variable name p */
-  printf("Enter x value again : ");
-  scanf("%d", p);             		/*scanf does not work the same as in python, */
-  printf("Value of x = %d\n", x);   /*you have to use printf and scanf separately */
-}
-```
-
-Result:
-
-```text
-Enter x value : 1
-Value of x = 1
-Enter x value again : 2
-Value of x = 2
-```
-
-```c
-int printf (char format[],  arg1,  arg2 ,...);
-```
-
-```c
-int scanf  (char format[], *arg1, *arg2 ,...);
-```
-
-- The ampersand operator & is a unary operator that returns the memory address, which is the location in memory where a variable is stored.
-
-<!-- This line is where the magic happens. It assigns the address of the variable x to the pointer pointer. The & symbol is the "address-of" operator. So, pointer now holds the memory location where the value 5 for x is stored. -->
-
----
-
-# Notice
-
-Recently, during my lab work, I made a mistake. It wasn't the development environment's fault, but mine. It was related to the scanf function. Because I'm currently working with Python, C, C++, C#, and MATLAB, I mixed up the behavior of the scanf function. You need to know that the scanf function has one drawback: it doesn't clear the buffer of characters entered from the keyboard. This means that after pressing Enter to confirm the data entered from the keyboard, our variable also contains the Enter character, which is that extra line you asked me to use to clear the buffer. To understand its operation, you need to understand today's new material.
-
----
-
-# Huge problems… undefined behavior
-
-- Do not increment (decrement) a variable in an expression if you need to use the original value of the variable later!
-
-```c
-int main()
-{
-  {
-    int x = 1, y;
-    y = x + 2 + ++x;
-    printf("%d\n", y);
-  }
-  {
-    int x = 1, y;
-    y = x + ++x;
-    printf("%d\n", y);
-  }
-}
-```
-
-Result:
-
-```text
-5
-4
-```
-
-- When modifying and using a variable multiple times within the same expression, it may lead to undefined behavior!
-
----
-
-# Left-to-right & right-to-left associativity
-
-|Priority||Ass.|
-|---|---|---|
-|1|()|LR|
-|2|++, --|RL|
-||\*, &||
-||(type)||
-|3|\*, /, %|LR|
-|4|+, -||
-|6|&lt;, &lt;=,||
-|7|==, !=||
-|14|=|RL|
-||+=||
-|15|,|LR|
-
-```c
-int main()
-{
-  {
-    int x = 1, y = 2;
-    x += y = 3 + x * y;
-    printf("%d\n", x);
-  }
-  {
-    int x = 1, y = 2;
-    x += x = y = 3 + x - y;
-    printf("%d\n", x);
-  }
-}
-```
-
-Result:
-
-```text
-6
-4
-```
-
-```c
-x += y = 3 + x * y;			/* 2 */
-x += y = 3 + 2;				/* 5 */
-x += y = 5;				/*y=5*/
-x += 5;					/*x=6*/
-```
-
-```c
-x += x = y = 3 + x - y; 		/* 4 */
-x += x = y = 4 - y;			/* 2 */
-x += x = y = 2; 			/*y=2*/
-x += x = 2; 				/*x=2*/
-x += 2; 					/*x=4*/
-
-```
-
-Left-to-right associativity means that when there are two operators with the same priority, the operator on the left is evaluated first. In right-to-left associativity, the opposite is true.
-
-- LR
-- RL
-
-
----
-
-# Basics of
-
-- The important difference between printf and scanf is that scanf requires its arguments to be pointers (location in memory) .
-
-```c
-int main()
-{
-  int x = 5;          			/* Declaration of variable x and assigning its value 5 */
-  int * p;      				/* Declaration of pointer p */
-  p = &x;       				/* Assigning the address value of the p variable to the pointer p */
-  printf("Enter x value : "); 		/* there is no end of line character here! */
-  scanf("%d", &x);     			/* To get a pointer (memory address) */
-  printf("Value of x = %d\n", x); 	/* we use a & before the variable name p */
-  printf("Enter x value again : ");
-  scanf("%d", p);             		/*scanf does not work the same as in python, */
-  printf("Value of x = %d\n", x);   /*you have to use printf and scanf separately */
-}
-```
-
-Result:
-
-```text
-Enter x value : 1
-Value of x = 1
-Enter x value again : 2
-Value of x = 2
-```
-
-```c
-int printf (char format[],  arg1,  arg2 ,...);
-```
-
-```c
-int scanf  (char format[], *arg1, *arg2 ,...);
-```
-
-- The ampersand operator & is a unary operator that returns the memory address, which is the location in memory where a variable is stored.
-
-<!-- This line is where the magic happens. It assigns the address of the variable x to the pointer pointer. The & symbol is the "address-of" operator. So, pointer now holds the memory location where the value 5 for x is stored. -->
-
----
-
-# Basic types
-
-|Type & Specifier||Origin|Argument type||Description||
-|---|---|---|---|---|---|---|
-||||**printf**|**scanf**|**printf**|**scanf**|
-|integer|d|decimal|int|int \*|signed decimal notation||
-||u|unsigned decimal|int|unsigned int \*|unsigned decimal notation||
-||c|character|int|char \*|one unsigned character||
-|string|s|string|char \*|char \*|characters from the string are printed until a ‘\0’!|string **of non-white space**; at the end will be added ‘\0’!|
-|floating-point number|f|float|float|float \*|single precision floating-point number notation||
-||lf|long float <br>(double)|double|double \*|double precision floating-point number notation||
-
-<!-- Każdy lancuch znakowy w C jest o jeden większy od deklarowanej treści, bo na końcu jest jeszcze dopisywany znak końca \0 -->
-
----
-
-# Width
-
-```c
-int main()
-{ int x = 5, y = -6; int * z; float f = 3.1234f; /*code*/ }
-```
-
-|Data|Type||Description|Example|Result|
-|---|---|---|---|---|---|
-|Numbers|integer|d|The width value for number (text) representation reserves at least as many characters as are needed to represent that number(text) in ASCII characters (digits). <br>If the width is smaller than the number’s (text’s) representation, the entire number (text) will be displayed. <br>If the width is greater than the number’s (text’s)  representation, extra spaces will be added on the left side.|printf("%1d\n", y);<br>printf("%4d\n", y);|-6<br>   -6|
-|||u||||
-|||c||printf("%c\n", letter);<br>printf("%1c\n", letter);|a|
-||floating-point number|f||printf("%3f\n", fRealNumber);<br>printf("%9f\n", fRealNumber);|3.123400<br> 3.123400|
-|||lf||||
-|Text|string|s||printf("%3s\n", text);<br>printf("%10s\n", text);|Some Text<br> Some Text|
-
----
-
-# Precision
-
-```c
-int main()
-{ int x = 5, y = -6; int * z; float f = 3.1234f; /*code*/ }
-```
-
-|Data|Type||Description|Example|Result|
-|---|---|---|---|---|---|
-|Numbers|integer|d|precision works the same as width — it reserves a minimum field size. If the precision is greater than the ASCII character representation of the number, leading zeros are added to the left. Precision does not truncate the number! It always displays the full value.|printf("%.1d\n", x); <br>printf("%.5d\n", x);|65<br>00065|
-|||u||||
-|||c||||
-||floating-point number|f|precision determines the number of digits after the decimal point that are displayed. If the number has more decimal places than specified by the precision, it will be truncated.|printf("%.6f\n", fRealNumber); <br>printf("%.2f\n", fRealNumber);<br>printf("%.0f\n", fRealNumber);|3.123400<br>3.12<br>3|
-|||lf||||
-|Text|string|s|precision determines the precise number of characters to be extracted from the string. Any characters beyond the specified precision will be discarded.|printf("%.1s\n", text);<br>printf("%.5s\n", text);<br>printf("%.20s\n", text);|S<br>Some<br>Some Text|
-
----
-
-# Flags
-
-- \+ : Always display the sign of a number, even if it's positive.
-- \- : Left-justify the output within the given field width.
-- 0 : Pad the field with zeros instead of spaces.
-- \# : Use an alternative form for the conversion specifier.
-
-<!-- **# flag:** Use an alternative form for the conversion specifier. For example, it adds a leading zero for octal numbers or a 0x or 0X prefix for hexadecimal numbers. -->
-
----
-
-# Modifies
-
-```c
-int main()
-{ short int x = 65;  int y = -69000;
-  float fRealNumber = 3.1234f; double dRealNumber = 3.4e50; /*code*/ }
-```
-
-|Data|Type||Description|Example|Result|
-|---|---|---|---|---|---|
-|Numbers|integer|d|Modifier, h and l specify how many bytes should be formatted as a variable. Therefore, if we use short (h - 2 bytes) on a normal int (long - 32 bit), we will get an incorrect result because printf will take only 16 bits and build a number representation from it.|printf("%0hd\n", x);<br>printf("%0hd\n", y);<br>printf("%0ld\n", x);<br>printf("%0ld\n", y);|65<br>-3464<br>65<br>-69000|
-|||u||||
-|||c||||
-||floating-point number|f|Since there's no such thing as hf (as hf is simply f), the compiler ignores h, and l represents a double. As you can see, there's no lf type, only f with the l modifier.|printf("%0hf\n", fRealNumber);<br>printf("%0lf\n", fRealNumber);<br>printf("%0hf\n", dRealNumber);<br>printf("%0lf\n", dRealNumber);|3.123400<br>3.123400<br>33999999...<br>339999999999999984402842591433794782958910267457536.000000|
-|||lf||||
-|Text|string|s|None|None|None|
-
----
-
-# printf and scanf format specification
-
-- Optional:
-  - Flags    -    modifiers that alter the formatting or scanning behavior.
-  - Width    -    specifies the minimum width of the output field <br>        or the maximum number of characters to be scanned.
-  - Precision    -    controls the precision of floating-point numbers <br>        or the maximum number of characters to be scanned for strings.
-  - Modifier    -    indicates the data type size (e.g., long, short).
-- Required:
-  - Type    -    specifies the data type of the variable to be formatted or scanned.
-
-```text
-Format =  %[flags][width][.precision][modifier]<type>
-```

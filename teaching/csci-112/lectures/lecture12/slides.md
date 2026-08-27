@@ -2,6 +2,7 @@
 marp: true
 theme: pach
 paginate: true
+footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
@@ -12,10 +13,6 @@ title: "CSCI 112  Programming with C"
 - Lecture 12
 - Dr. Jakub L. Pach
 - Fall 2025
-
----
-
-![w:277px Graphic 3](assets/image2.png)
 
 ---
 
@@ -33,6 +30,8 @@ title: "CSCI 112  Programming with C"
 # Review
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Command-Line Arguments
 
@@ -169,6 +168,8 @@ To make functions defined in other files visible in a file, it is sufficient to 
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Example
 
 - All files are in the same folder
@@ -248,6 +249,8 @@ MAX_SIZE is 100
 
 ---
 
+<!-- _class: fit-80 -->
+
 # Example
 
 Every source file that includes a header will have its contents inserted during compilation. If multiple files include the same header that contains definitions, the linker will report multiple definition errors because the same code is compiled more than once. To prevent this, header files should use include guards (#ifndef, #define, #endif)
@@ -290,6 +293,8 @@ int main()
 *Of all the directives regarding compilation and makefiles, the* #ifndef *directive seems to be the most commonly used, as it prevents the same file from being included more than once in the final output. As can easily be seen, many different files can use the same library.*
 
 ---
+
+<!-- _class: fit-80 -->
 
 # Example
 
@@ -345,6 +350,8 @@ Sum of 5 and 3 equals 8
 ```
 
 ---
+
+<!-- _class: fit-90 -->
 
 # extern keyword
 
@@ -627,6 +634,8 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
+<!-- _class: fit-90 -->
+
 # About flags
 
 - The -g flag tells the compiler to include debugging information in the output. Without it, setting breakpoints in the compiled file would not be possible. This flag should be disabled in the final compilation of the application after the development process is complete.
@@ -634,6 +643,8 @@ These steps are essential for transforming your C code into an executable progra
 - Therefore, if the compilation process is split into two stages — compilation and linking — only the -g flag should be repeated during linking.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Introduction to Makefile
 
@@ -647,6 +658,8 @@ These steps are essential for transforming your C code into an executable progra
   - **Commands**:    The shell commands executed to compile the dependencies and create the target.
 
 ---
+
+<!-- _class: fit-90 -->
 
 # An example of makefile
 
@@ -679,86 +692,6 @@ Key Components:
 - Targets: Specifies what file(s) to create (e.g., main.exe).
 - Commands: Actual shell commands that run <br>(must be preceded by a tab).
 - Phony Targets: Non-file targets like clean, used to remove build files (rm in Linux, del in Windows).
-
----
-
-# Some examples
-
-```c
-int main()
-{
-  int x = 5, y = 7;
-  int * p = &x;
-  int ** pp = &p;   /* pointer to pointer*/
-  y = **pp;
-  printf("y equals %d.\n\n",  y );
-
-  printf("&y\t\tequals %d.\n", &y );
-  printf("*(&y)\t\tequals %d.\n", *(&y) );
-  printf("&(*(&y))\tequals %d.\n", &(*(&y)) );
-  printf("&*&y\t\tequals %d.\n", &*&y );
-  printf("*&*&y\t\tequals %d.\n\n", *&*&y );
-
-  printf("&x\t\tequals %d.\n", &x );
-  printf("p\t\tequals %d.\n", p );
-  printf("&p\t\tequals %d.\n", &p );
-  printf("*p\t\tequals %d.\n\n", *p );
-
-  printf("pp\t\tequals %d.\n", pp );
-  printf("&pp\t\tequals %d.\n", &pp );
-  printf("*pp\t\tequals %d.\n", *pp );
-  printf("*&*pp\t\tequals %d.\n", *&*pp );
-  printf("**pp\t\tequals %d.\n", **pp );
-  return 0;
-}
-```
-
-Result:
-
-```text
-y equals 5.
-
-&y              equals 6422292.
-*(&y)           equals 7.
-&(*(&y))        equals 6422292.
-&*&y            equals 6422292.
-*&*&y           equals 7.
-
-&x              equals 6422296.
-p               equals 6422296.
-&p              equals 6422288.
-*p              equals 5.
-
-pp              equals 6422288.
-&pp             equals 6422284.
-*pp             equals 6422296.
-*&*pp           equals 6422296.
-**pp            equals 5.
-```
-
-||Memory Addresses and Values|||
-|---|---|---|---|
-|||||
-||x (6422296)|5||
-|||||
-||y (6422292)|5||
-|||||
-||p (6422288)|6422296||
-|||||
-||pp (6422284)|6422288||
-|||||
-
-![Ink 54](assets/image4.png)
-
-![Ink 55](assets/image5.png)
-
-![Ink 56](assets/image6.png)
-
-![Ink 58](assets/image7.png)
-
-![Ink 59](assets/image8.png)
-
-![Ink 60](assets/image9.png)
 
 ---
 
@@ -1009,6 +942,8 @@ int main()
 
 ---
 
+<!-- _class: fit-60 -->
+
 # Bitwise Left Shift &amp; Right Shift - summary
 
 - The left shift &lt;&lt; moves all bits in a number to the left by a specified number of positions.→ Each shift left multiplies the value by 2.
@@ -1027,6 +962,8 @@ int main()
 # typedef keyword
 
 ---
+
+<!-- _class: fit-80 -->
 
 # typedef keyword
 
@@ -1076,6 +1013,8 @@ Result:
 # Function pointer
 
 ---
+
+<!-- _class: fit-90 -->
 
 # Foreword - signature of function
 
@@ -1240,6 +1179,8 @@ struct symbolic_name1
 
 ---
 
+<!-- _class: fit-70 -->
+
 # An example
 
 ```c
@@ -1380,6 +1321,8 @@ Use parentheses to override order of evaluation -->
 
 ---
 
+<!-- _class: fit-80 -->
+
 # typedef &amp; struct
 
 Normally, when we define a struct, we can also declare global variables or pointers immediately after the closing brace:
@@ -1509,7 +1452,7 @@ Address of variable i = 6487824
 
 ---
 
-# A summary on padding
+# A summary on padding:
 
 - Even though memory was scarce when the C language was invented and every byte was precious, processors were even slower. Every machine instruction that could be saved while maintaining program functionality sped up the program. Therefore, the padding mechanism is a compromise between memory efficiency and program speed. Instead of calculating the memory address and saving one byte, it was better to perform a simple shift trick to make the variable addresses multiples of two. This is because, instead of multiplying (which is a relatively expensive operation for a processor), a bitwise shift can be used, which is extremely cheap. Thus, padding allows for an increase in the required space for storing a structure, but significantly speeds up access to structure members.
 - Another important point is that the sizeof() operator does not return the minimum size of the structure, but the actual size after taking into account the padding mechanism. To counteract memory waste, you can change the order of variable declarations in the structure as shown in the example.
