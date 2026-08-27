@@ -6,12 +6,16 @@ services:
         PAGES_REPO_NWO: jpach-cs/jpach-cs.github.io
     ports:
       # Override locally if 8080 is taken: WEB_PORT=8081 docker compose up
-      - "${WEB_PORT:-8080}:80"
+      # The image is nginx-unprivileged, which listens on 8080, not 80.
+      - "${WEB_PORT:-8080}:8080"
     volumes: []
     restart: unless-stopped
     healthcheck:
-      # nginx:alpine ships busybox wget; `docker compose up --wait` blocks on this.
-      test: ["CMD", "wget", "-qO-", "http://localhost/"]
+      # The alpine image ships busybox wget; `docker compose up --wait` blocks on this.
+      # 127.0.0.1, not localhost: the unprivileged image listens on IPv4 only
+      # (its entrypoint cannot enable IPv6 in the config as a non-root user),
+      # and localhost resolves to ::1 first inside the container.
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/"]
       interval: 5s
       timeout: 3s
       retries: 10

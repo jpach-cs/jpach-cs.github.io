@@ -162,10 +162,39 @@ jobs:
           docker compose -f tests/e2e/docker-compose.selenium.yml down
           docker compose down
 
+  security:
+    name: Security (pip-audit, Trivy)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: pip-audit (tests/requirements.txt against the PyPI advisory database)
+        uses: pypa/gh-action-pip-audit@v1.1.0
+        with:
+          inputs: tests/requirements.txt
+      - name: Trivy, repository (dependency CVEs, secrets, Dockerfile and workflow misconfiguration)
+        uses: aquasecurity/trivy-action@0.36.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          scanners: vuln,secret,misconfig
+          severity: HIGH,CRITICAL
+          exit-code: '1'
+          skip-dirs: node_modules
+      - name: Build the site image
+        run: docker build -t site-web .
+      - name: Trivy, site image (OS packages of what is actually served)
+        uses: aquasecurity/trivy-action@0.36.0
+        with:
+          scan-type: image
+          image-ref: site-web
+          severity: HIGH,CRITICAL
+          exit-code: '1'
+          ignore-unfixed: true
+
   deploy:
     name: Deploy to GitHub Pages
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: [python, lint, e2e]
+    needs: [python, lint, e2e, security]
     runs-on: ubuntu-latest
     permissions:
       contents: read

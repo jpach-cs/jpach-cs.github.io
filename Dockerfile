@@ -40,11 +40,18 @@ RUN bundle exec jekyll build --destination /site/_site \
     && find teaching -name slides.md -exec sh -c \
         'mkdir -p "/site/_site/$(dirname "$1")" && cp "$1" "/site/_site/$1"' _ {} \;
 
-# Stage 3: Serve with nginx
-FROM nginx:alpine
+# Stage 3: Serve with nginx. The unprivileged image runs as the `nginx` user
+# (uid 101) and listens on 8080, so the container never runs as root (Trivy
+# AVD-DS-0002). `apk upgrade` picks up base-image package fixes published
+# since the tag was cut - the scan in CI (`trivy image`) fails the build on
+# any fixable HIGH or CRITICAL CVE left in the final image.
+FROM nginxinc/nginx-unprivileged:1.31.4-alpine
 
-RUN rm -rf /usr/share/nginx/html/*
-COPY --from=builder /site/_site /usr/share/nginx/html/
+USER root
+RUN apk upgrade --no-cache \
+    && rm -rf /usr/share/nginx/html/*
+COPY --from=builder --chown=nginx:nginx /site/_site /usr/share/nginx/html/
+USER nginx
 
-EXPOSE 80
+EXPOSE 8080
 CMD ["nginx", "-g", "daemon off;"]

@@ -90,6 +90,9 @@ python3 -m pylint tools tests
 python3 -m pyright tools tests
 npm run lint:md && npm run lint:css && npm run lint:toml
 yamllint .
+pip-audit -r tests/requirements.txt --strict         # known CVEs in the Python tooling
+trivy fs --scanners vuln,secret,misconfig --severity HIGH,CRITICAL --exit-code 1 .
+trivy image --severity HIGH,CRITICAL --exit-code 1 --ignore-unfixed jpach-csgithubio-web
 ```
 
 The end-to-end suite drives a real browser against the running site:

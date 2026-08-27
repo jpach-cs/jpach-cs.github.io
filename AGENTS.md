@@ -61,7 +61,13 @@ with it by hand. A converted deck is right when it looks like that deck.
 python3 -m pytest tests/unit --cov && python3 -m pytest tests/content
 python3 -m pylint tools tests && python3 -m pyright tools tests
 npm run lint:md && npm run lint:css && npm run lint:toml && yamllint .
+pip-audit -r tests/requirements.txt --strict
+trivy fs --scanners vuln,secret,misconfig --severity HIGH,CRITICAL --exit-code 1 .
 ```
+
+The security scans are a gate, not a report: a HIGH or CRITICAL finding blocks
+the push until it is fixed (upgrade the package, pin a fixed base image), never
+ignored.
 
 `tests/content` has known failures that report real upstream defects (see
 `tests/README.md`); a change must not add to them. A change to a deck's

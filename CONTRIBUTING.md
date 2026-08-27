@@ -245,6 +245,9 @@ of them. Run the same commands locally before opening a pull request:
 | `teaching/**/slides.md` | markdownlint, deck rules | `npm run lint:md:decks` (`lint:md` runs both) |
 | `**/*.svg` | xmllint (well-formedness) | `xmllint --noout $(find . -name '*.svg')` |
 | `Gemfile` | ruby syntax check | `ruby -c Gemfile` |
+| `tests/requirements.txt` | pip-audit | `pip-audit -r tests/requirements.txt --strict` |
+| repository, `Dockerfile` | Trivy | `trivy fs --scanners vuln,secret,misconfig --exit-code 1 .` |
+| built site image | Trivy (OS packages served) | `trivy image --exit-code 1 --ignore-unfixed jpach-csgithubio-web` |
 
 Python tools come from `tests/requirements.txt`; node tools from `package.json`
 (`npm ci`). Every version is pinned in those two files. Linter configuration lives in
