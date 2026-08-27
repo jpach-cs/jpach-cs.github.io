@@ -46,16 +46,54 @@ build time - the markdown is the source of truth, not the rendered files.
    `index.pdf` in the same directory as its source, using the shared theme,
    and writes them straight onto your working tree (no container-only output
    to dig out).
-5. Commit `teaching/<path>/slides.md` and its `assets/` folder. Do **not**
+5. Add the deck to `_data/decks.yml` so its course page links to it - see
+   "The deck catalog" below.
+6. Commit `teaching/<path>/slides.md` and its `assets/` folder. Do **not**
    commit the generated `teaching/<path>/index.html` or `index.pdf` - see
    "Generated output and committed legacy content" below.
-6. Preview the whole site the normal way:
+7. Preview the whole site the normal way:
 
    ```sh
    WEB_PORT=8083 docker compose up --build web
    ```
 
    (Port 8080/8081 may already be in use locally; 8083 is free.)
+
+## The deck catalog
+
+`_data/decks.yml` names every deck the site publishes. The four course pages
+render their lists from it through `_includes/deck-lists.html`, so a deck's
+name, its position in the course, and the formats it is offered in are
+written down once instead of once per page.
+
+Each entry looks like this:
+
+```yaml
+- dir: lecture05
+  label: Lecture 05
+  title: Unit Testing with Unity, and Forking on GitHub
+  source: slides
+```
+
+- `dir` is the directory under `teaching/<course>/<section>/`.
+- `label` is the short position name, and must agree with `dir`: a deck in
+  `lecture05/` is labelled `Lecture 05`. A suffixed directory such as
+  `lecture01-intro/` sits outside the numbered run and takes a descriptive
+  label instead.
+- `title` says what the deck actually covers, read off the deck itself. It is
+  descriptive, not aspirational - where a deck's content disagrees with the
+  course it sits under, the index shows that rather than hiding it.
+- `source` is `slides` for a deck rendered from `slides.md` (linked as HTML,
+  PDF and Markdown) or `legacy` for one that only has committed output
+  (linked as HTML and PDF).
+
+`tests/content/test_deck_catalog.py` holds the catalog and the directories on
+disk to each other: an unlisted deck directory, a listed deck with no
+directory, a label that disagrees with its directory, or a `source` that
+disagrees with the directory's contents all fail. Before this catalog existed
+the course pages hand-listed Lectures 01-15 and Labs 01-15 for every course
+whether or not those decks had been written, which is where the site's few
+hundred dead links came from.
 
 ## The shared theme
 
@@ -84,6 +122,50 @@ assets as data URIs sidesteps that path-resolution problem entirely - the
 theme is fully self-contained, `tools/render-decks.sh` has nothing asset-related
 to copy, and there's exactly one authored copy of each image, living only in
 `theme.css`.
+
+## What the theme expects of a deck
+
+The theme assigns meanings to the markup, so a deck has to use the right
+element for the right job. `tests/content/test_deck_styling.py` enforces all
+of this.
+
+**`h1` is the slide title.** `theme.css` positions `h1` absolutely in a title
+bar at the top of the slide, in `--color-primary`, with the accent rule drawn
+by `h1::before`. `h2` is an inline subheading *within* the slide body. So each
+slide opens with a single `#`, and uses `##` only for subheads under it. Dr.
+Pach's hand-authored deck at `teaching/csci-232/lectures/lecture01-intro/`
+uses `<h1>` on all 25 of its slides and `<h2>` only for subheads; that deck is
+the reference every other deck is matched against.
+
+This is worth stating plainly because it was got wrong at scale: the decks
+converted from PowerPoint originally emitted `##` for every slide title, so
+not one converted slide rendered in the title bar. 2,433 titles were promoted
+in one pass, and `tools/pptx2marp.py` now emits `#` for a slide title.
+
+**Section classes.** The theme defines exactly these, and a deck may not name
+any other (a class the theme has no rule for silently does nothing):
+
+| Class | Use |
+| --- | --- |
+| `lead` | The deck's title slide. Recentres the title and sizes the `h2` subtitle. Exactly one per deck. |
+| `caption-slide` | A divider slide: white title on a filled background. Used for the closing "Thank You" slide. |
+| `long-title` | A slide whose title is a whole caption sentence. Steps the type down and lets the title bar grow. |
+| `code-description` | Two-column layout, code on the left and prose on the right. |
+| `small-code`, `tiny-code` | Reduce `--code-base-size` on a slide with a large code block. |
+
+Apply one with a per-slide directive:
+
+```markdown
+<!-- _class: lead -->
+
+# CSCI 232
+
+## Algorithms & Data Structures
+```
+
+**Nothing else styles a deck.** No inline `<style>` block, no `style:`
+front-matter directive, no per-deck CSS file. If the look needs to change,
+`assets/marp/theme.css` changes once.
 
 ## Generated output and committed legacy content
 

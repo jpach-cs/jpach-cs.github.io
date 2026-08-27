@@ -5,6 +5,8 @@ paginate: true
 title: "CSCI 112  Programming with C"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 9
@@ -17,7 +19,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Outline
+# Outline
 
 - Review
 - Const
@@ -30,7 +32,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Extended example
+# Extended example
 
 ```c
 #include <stdio.h>
@@ -49,7 +51,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Value at address of x                    = 5
 Value at address of arr1 (array name)    = 9
 Value at address of arr1 (array name)    = 10
@@ -57,12 +61,11 @@ Value at address of arr1 (array name)    = 8
 
 ```
 
-- Result:
 - Priority!!!
 
 ---
 
-## Left-to-right &amp; right-to-left associativity
+# Left-to-right &amp; right-to-left associativity
 
 |Priority||Ass.|
 |---|---|---|
@@ -94,14 +97,14 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 6
 4
 
 
 ```
-
-- Result:
 
 ```c
 x += y = 3 + x * y;			/* 2 */
@@ -126,7 +129,7 @@ Left-to-right associativity means that when there are two operators with the sam
 
 ---
 
-## Summary for associativity and \*&amp;
+# Summary for associativity and \*&amp;
 
 - The associativity of the \* and &amp; operators is right-to-left (R–L), similar to assignment, but unlike arithmetic or logical operations, which we’re more familiar with.
 - This means that using them together — like in \*&amp;x — works correctly: first, the address of x is obtained, and then the value stored at that address is retrieved.
@@ -135,7 +138,7 @@ Left-to-right associativity means that when there are two operators with the sam
 
 ---
 
-## The Pre-processor
+# The Pre-processor
 
 The C Preprocessor runs before the C program is compiled properly. It is a separate program from the compiler programs and, in theory, could be used on any file not just C source files. Its main uses are macro substitution, file inclusion and conditional compilation.
 
@@ -145,7 +148,7 @@ eg.: #include&lt;stdio.h&gt;
 
 ---
 
-## The C compiler process has four main phases
+# The C compiler process has four main phases
 
 - **Preprocessing**: The preprocessor modifies the source code by performing:
   - **Macro substitution**
@@ -157,16 +160,14 @@ eg.: #include&lt;stdio.h&gt;
 
 ---
 
-## Preprocessor directives - macro substitution
+# Preprocessor directives - macro substitution
 
 ```c
 #define symbolic_name replaced_text
-Macros are not terminated with semicolons, unlike regular code statements, making them easily distinguishable.
-
-
-
-Writing macro-defined constants in uppercase is a best practice to emphasize their immutable nature. While the compiler won't complain, these values cannot be changed during runtime and are not accessible for debugging.
 ```
+
+- Macros are not terminated with semicolons, unlike regular code statements, making them easily distinguishable.
+- Writing macro-defined constants in uppercase is a best practice to emphasize their immutable nature. While the compiler won't complain, these values cannot be changed during runtime and are not accessible for debugging.
 
 ```c
 #define PI 3.14159
@@ -181,12 +182,12 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 abcde
 3.641590
 ```
-
-- Result:
 
 ```c
 #define PI 3.14159
@@ -203,7 +204,7 @@ int main()
 
 ---
 
-## Preprocessor directives - macro substitution
+# Preprocessor directives - macro substitution
 
 ```c
 #define symbolic_name replaced_text
@@ -229,13 +230,13 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 abcde
 25
 Hello
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -252,7 +253,7 @@ int main()
 
 ---
 
-## Preprocessor directives - macro substitution
+# Preprocessor directives - macro substitution
 
 ```c
 #define symbolic_name replaced_text
@@ -273,13 +274,13 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 cde
 aab
 
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -294,7 +295,7 @@ int main()
 
 ---
 
-## Conditional compilation
+# Conditional compilation
 
 ```c
 #if (conditional1)
@@ -327,7 +328,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 A value of arr[0] =  41
 A value of arr[1] =  67
 A value of arr[2] =  34
@@ -341,11 +344,9 @@ A value of arr[9] =  64
 
 ```
 
-- Result:
-
 ---
 
-## Built-in constants in C - examples
+# Built-in constants in C - examples
 
 \_\_FILE\_\_    name of the file being compiled
 
@@ -364,19 +365,19 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 11:24:35
 C:\Users\Jakub\Desktop\CSCI112\main.c
 Sep 26 2024
 ```
 
-- Result:
-
 ---
 
-## File inclusion
+# File inclusion
 
-```c
+```text
 Using <> (angle brackets)	–	e.g. #include <file_name.h>
 Using "" (double quotes)	–	e.g. #include "file_name.h"
 
@@ -384,7 +385,7 @@ Using "" (double quotes)	–	e.g. #include "file_name.h"
 
 ---
 
-## Summary: How the C Preprocessor Works
+# Summary: How the C Preprocessor Works
 
 - The preprocessor works like a “Find and Replace” tool in a text editor — it searches for specific strings (like constant names) and **replaces them with defined values** before the actual compilation begins. This means you cannot debug constants or change their values during runtime, because the source code has already been transformed — as if you manually replaced every occurrence of the name with its value.
 - **Conditional compilation** allows the program to check whether a constant has been defined (#ifdef, #ifndef) and **include or skip parts of the code** accordingly. This is useful for writing code that adapts to different configurations, platforms, or versions.
@@ -395,7 +396,7 @@ Using "" (double quotes)	–	e.g. #include "file_name.h"
 
 ---
 
-## Fundamental Functions for Input and Output
+# Fundamental Functions for Input and Output
 
 - Data Output for Screen:
   - putchar\*    -    (put\[ \]char\[acter\]):    Displays a single character on the screen.
@@ -411,24 +412,26 @@ Using "" (double quotes)	–	e.g. #include "file_name.h"
 
 ---
 
-## Getchar() &amp; scanf()
+# Getchar() &amp; scanf()
 
 - Using getche() allows you to read a character from the keyboard **without waiting for the Enter key**. This has consequences: without more advanced logic, the user cannot correct mistakes. For example, pressing Backspace doesn't erase the previous character — it's just another ASCII code. To handle this properly, you'd need to implement logic that detects Backspace and reverts the previous input.
 - To simplify user interaction, the system uses an **input buffer**. Keystrokes are stored in this buffer before being passed to the program. This solves some problems, but introduces others: when waiting for Enter to confirm input, remember that Enter is actually **two ASCII characters** — CR (Carriage Return, 13) and LF (Line Feed, 10). As a result, one of these characters may remain in the buffer, causing the next call to getchar() or scanf() to behave incorrectly — it might read leftover input.
 
 ---
 
-## Getchar() &amp; scanf()
+# Getchar() &amp; scanf()
 
 - To avoid this, you should **clear the input buffer** before reading new data. Since standard functions don’t do this automatically, the simplest solution is to define a macro:
 
-\#define clearBuffer() while (getchar() != '\n’);
+```c
+#define clearBuffer() while (getchar() != '\n’);
+```
 
 - and call clearBuffer() after each keyboard input operation.
 
 ---
 
-## Basics of
+# Basics of
 
 - The important difference between printf and scanf is that scanf requires its arguments to be location in memory.
 - The ampersand operator &amp; is a unary operator that returns the memory address, which is the location in memory where a variable is stored.
@@ -443,12 +446,12 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Enter x value : 1
 Value of x = 1
 ```
-
-- Result:
 
 ```c
 int printf (char format[],  arg1,  arg2 ,...);
@@ -460,7 +463,7 @@ int scanf  (char format[], *arg1, *arg2 ,...);
 
 ---
 
-## Basics of
+# Basics of
 
 - The important difference between printf and scanf is that scanf requires its arguments to be location in memory.
 - The ampersand operator &amp; is a unary operator that returns the memory address, which is the location in memory where a variable is stored.
@@ -476,12 +479,12 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Enter x value : 1
 Value of x = 1
 ```
-
-- Result:
 
 ```c
 int printf (char format[],  arg1,  arg2 ,...);
@@ -497,7 +500,7 @@ int scanf  (char format[], *arg1, *arg2 ,...);
 
 ---
 
-## const keyword
+# const keyword
 
 - We can use const before declaration (and initialization):
   - Array:    Prevents changing the content of the array.
@@ -510,7 +513,7 @@ int scanf  (char format[], *arg1, *arg2 ,...);
 
 ---
 
-## const keyword
+# const keyword
 
 - const prevents changing the value after its initialization, but it allows debugging.
 - In a function definition, const allows control over changing the argument values.
@@ -520,7 +523,7 @@ int scanf  (char format[], *arg1, *arg2 ,...);
 
 ---
 
-## Huge problems… undefined behavior
+# Huge problems… undefined behavior
 
 - Do not increment (decrement) a variable in an expression if you need to use the original value of the variable later!
 
@@ -540,19 +543,20 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 5
 4
 
 
 ```
 
-- Result:
 - When modifying and using a variable multiple times within the same expression, it may lead to undefined behavior!
 
 ---
 
-## printf and scanf format specification
+# printf and scanf format specification
 
 - Optional:
   - Flags    -    modifiers that alter the formatting or scanning behavior.
@@ -562,13 +566,13 @@ int main()
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-```c
+```text
 Format =  %[flags][width][.precision][modifier]<type>
 ```
 
 ---
 
-## Basic types
+# Basic types
 
 |Type &amp; Specifier||Origin|Argument type||Description||
 |---|---|---|---|---|---|---|
@@ -584,7 +588,7 @@ Format =  %[flags][width][.precision][modifier]<type>
 
 ---
 
-## Width
+# Width
 
 ```c
 int main()
@@ -602,7 +606,7 @@ int main()
 
 ---
 
-## Precision
+# Precision
 
 ```c
 int main()
@@ -620,7 +624,7 @@ int main()
 
 ---
 
-## Flags
+# Flags
 
 - \+ : Always display the sign of a number, even if it's positive.
 - \- : Left-justify the output within the given field width.
@@ -631,7 +635,7 @@ int main()
 
 ---
 
-## Modifies
+# Modifies
 
 ```c
 int main()
@@ -650,7 +654,7 @@ int main()
 
 ---
 
-## Declaring and initializing arrays
+# Declaring and initializing arrays
 
 ```c
 int main()
@@ -677,14 +681,14 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 First element (index 0) of array a equals 4201200.
 Second(index 1) element of array b equals 2.
 Second(index 1) element of array b equals 2.
 Sixth(index 5) element of array c equals 0.
 ```
-
-- Result:
 
 ---
 
@@ -717,7 +721,7 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 
 ---
 
-## Pointers
+# Pointers
 
 - Pointers are treated as first-class data types;
 - We can create a pointer to **any** data type (also void) using the \* operator between the existing data type and the symbolic name;
@@ -730,25 +734,29 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 
 ---
 
-## Summary - The \* operator works in **three different ways**
+# Summary - The \* operator works in **three different ways**
 
 - **Binary multiplication operator**
 
-a \* b;  // multiplies a and b
+```c
+a * b;  // multiplies a and b
+```
 
 - **Unary dereference operator** – used to access the value stored at a given memory address:
 
+```c
 int x = 5;
-
-int \* y =&amp;x;
-
-y = \*ptr + 1;
+int * y =&x;
+y = *ptr + 1;
+```
 
 - **Pointer declaration**
 
 – when used in a declaration, it indicates that the variable is a pointer, not a simple type:
 
-int \* x;  // x is a pointer to an int
+```c
+int * x;  // x is a pointer to an int
+```
 
 This applies to **local variables, global variables, and function parameters** (including arrays).
 
@@ -756,7 +764,7 @@ This applies to **local variables, global variables, and function parameters** (
 
 ---
 
-## Some examples
+# Some examples
 
 ```c
 int main()
@@ -780,7 +788,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 y equals 7.
 
 &y              equals 6422292.
@@ -795,8 +805,6 @@ p               equals 6422296.
 *p              equals 5.
 
 ```
-
-- Result:
 
 ||Memory Addresses and Values|||
 |---|---|---|---|
@@ -816,7 +824,7 @@ p               equals 6422296.
 
 ---
 
-## Consequences
+# Consequences
 
 - Each variable declared has a lower address\*. This is due to the computer's memory architecture. The stack grows downward, so when it's empty, the address is at its maximum value (e.g., FFFFFF). Every time a value is pushed onto the stack, the address is decremented by the size of the data type.
 - The \* and &amp; operators are right-associative, so parentheses are not strictly necessary.
@@ -831,21 +839,23 @@ p               equals 6422296.
 
 ---
 
-## Function arguments Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
+# Function arguments
+
+Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
 
 ---
 
-## by the Value
+# by the Value
 
 - Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
 
-```c
+Result:
+
+```text
 5
 5
 
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -870,17 +880,17 @@ int main()
 
 ---
 
-## by the Value
+# by the Value
 
 - Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
 
-```c
+Result:
+
+```text
 5
 5
 
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -905,17 +915,17 @@ int main()
 
 ---
 
-## by the Reference
+# by the Reference
 
 - Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
 
-```c
+Result:
+
+```text
 5
 6
 
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -944,9 +954,11 @@ int main()
 
 ---
 
-## Relations between pointers and arrays
+# Relations between pointers and arrays
 
-- int a\[10\];
+```c
+int a[10];
+```
 
 This statement reserves space in memory for 10 integers and creates an 'unchanging address of memory' that points to the beginning of this array.
 
@@ -960,13 +972,13 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 a    equals 6422272.
 
 
 ```
-
-- Result:
 
 ![Ink 17](assets/image140.png)
 
@@ -974,7 +986,7 @@ a    equals 6422272.
 
 ---
 
-## Relations between pointers and arrays
+# Relations between pointers and arrays
 
 ```c
 int main()
@@ -987,16 +999,16 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 a    equals 6422272.
 ?
 ```
 
-- Result:
-
 ---
 
-## Relations between pointers and arrays
+# Relations between pointers and arrays
 
 ```c
 int main()
@@ -1009,17 +1021,17 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 a    equals 6422272.
 &a   equals 6422272.
 ?
 ```
 
-- Result:
-
 ---
 
-## Relations between pointers and arrays
+# Relations between pointers and arrays
 
 ```c
 int main()
@@ -1032,17 +1044,19 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 a    equals 6422272.
 &a   equals 6422272.
 *a   equals 1.
 ```
 
-- Result:
-
 ---
 
-## Relations between pointers and arrays **So, what does it mean?**
+# Relations between pointers and arrays
+
+**So, what does it mean?**
 
 ```c
 int main()
@@ -1059,7 +1073,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 x    equals 6422292.
 y    equals 6422288.
 z    equals 6422284.
@@ -1068,11 +1084,9 @@ pointer* equals 7.
 pointer[1] equals 5.
 ```
 
-- Result:
-
 ---
 
-## So, what does it mean?
+# So, what does it mean?
 
 ```c
 int a[10];
@@ -1086,7 +1100,7 @@ For example, if the array stores char values, the index is multiplied by 1, and 
 
 ---
 
-## Conclusions
+# Conclusions
 
 - The expression a\[i\] is transformed by the compiler into the form \*(a+i).
 - The square brackets following the symbolic\_name do not provide any information about whether we are referring to an array.
@@ -1131,7 +1145,7 @@ Use parentheses to override order of evaluation -->
 
 ---
 
-## Conclusions
+# Conclusions
 
 Square brackets are often mistakenly interpreted as an indication that we are working with arrays. However, this is incorrect. Square brackets are actually the highest-priority operator, designed to simplify expressions like \*(a + i) into a\[i\], which is faster. Of course, square brackets also serve a dual purpose: they are used both for array declarations and for accessing array elements.
 
@@ -1139,7 +1153,7 @@ Square brackets are often mistakenly interpreted as an indication that we are wo
 
 ---
 
-## const keyword in Array &amp; Pointer
+# const keyword in Array &amp; Pointer
 
 - We can use const before declaration (and initialization):
   - Array: Prevents changing the content of the array.
@@ -1152,7 +1166,7 @@ Square brackets are often mistakenly interpreted as an indication that we are wo
 
 ---
 
-## const keyword in Pointer
+# const keyword in Pointer
 
 ```c
 int main()
@@ -1172,17 +1186,17 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 x = 5, y = 7, z = 1
 
 
 ```
 
-- Result:
-
 ---
 
-## const keyword in Array
+# const keyword in Array
 
 ```c
 #include <stdio.h>
@@ -1199,11 +1213,13 @@ int main()
 
 ---
 
-## Conclusions
+# Conclusions
 
 There are no restrictions on passing an array as a function parameter. However, there's a common misconception: when we write int arr\[\], it may seem like the entire array is copied and we get access to an identical copy. This is not true. The square bracket syntax is primarily a hint for the programmer, as the compiler internally treats it as int const \*arr.
 
-```c
+Result:
+
+```text
 1
 2
 3
@@ -1213,8 +1229,6 @@ There are no restrictions on passing an array as a function parameter. However, 
 7
 
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -1256,7 +1270,7 @@ void byTheReference(int const * arr, int n)
 
 ---
 
-## Some examples
+# Some examples
 
 ```c
 int main()
@@ -1287,7 +1301,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 y equals 5.
 
 &y              equals 6422292.
@@ -1307,8 +1323,6 @@ pp              equals 6422288.
 *&*pp           equals 6422296.
 **pp            equals 5.
 ```
-
-- Result:
 
 ||Memory Addresses and Values|||
 |---|---|---|---|
@@ -1336,7 +1350,7 @@ pp              equals 6422288.
 
 ---
 
-## The valid pointer operations are
+# The valid pointer operations are
 
 - Assignment of pointers to the same type,
 - Adding or subtracting a pointer and an integer,

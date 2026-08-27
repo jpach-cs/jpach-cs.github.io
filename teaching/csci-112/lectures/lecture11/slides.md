@@ -5,6 +5,8 @@ paginate: true
 title: "CSCI 112  Programming with C"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 11
@@ -17,7 +19,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Outline
+# Outline
 
 - Review
 - Command-Line Arguments
@@ -34,7 +36,9 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Subtracting two pointers The result of subtracting two pointers is the difference in their array indices, not the actual difference in their memory locations
+# Subtracting two pointers
+
+The result of subtracting two pointers is the difference in their array indices, not the actual difference in their memory locations
 
 ```c
 #include <stdio.h>
@@ -55,17 +59,19 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Length of [Hello world!] equals 12
 
 
 ```
 
-- Result:
-
 ---
 
-## Comparing two pointers Comparing pointers to strings in C can be significantly optimized, especially when there's a high probability that two strings are identical and point to the same memory location
+# Comparing two pointers
+
+Comparing pointers to strings in C can be significantly optimized, especially when there's a high probability that two strings are identical and point to the same memory location
 
 ```c
 #include <stdio.h>
@@ -88,19 +94,19 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Str1 and str2 point to the same string
 
 
 ```
 
-- Result:
-
 <!-- Jesli mamy dwa element tej samej tablicy, i chcemy znalezc element srodkowy tej tablicy mozemy odjac od siebie adresy I uzyskamy od tego element srodkowy -->
 
 ---
 
-## Comparing two pointers
+# Comparing two pointers
 
 - Array elements are pushed onto the stack in reverse order to ensure that element addresses increase.
 - If we compare two elements of an array using two pointers, and we don't know which one is closer to the beginning and which one is closer to the end, the one with the higher address value will be closer to the end, and the one with the lower address value will be closer to the beginning of the array.
@@ -136,7 +142,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 6422292.
 6422288.
 6422284.
@@ -154,13 +162,13 @@ int main()
 l1 is closer to the beginning
 ```
 
-- Result:
-
 <!-- Jesli mamy dwa element tej samej tablicy, i chcemy znalezc element srodkowy tej tablicy mozemy odjac od siebie adresy I uzyskamy od tego element srodkowy -->
 
 ---
 
-## Assigning or comparing to zero (NULL = ‘\0’) Trying to use a null pointer will crash the program.
+# Assigning or comparing to zero (NULL = ‘\0’)
+
+Trying to use a null pointer will crash the program.
 
 ```c
 #include <stdio.h>
@@ -181,16 +189,16 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Words of different lengths
 
 ```
 
-- Result:
-
 ---
 
-## Scanf -Basic Types and Width Specifier
+# Scanf -Basic Types and Width Specifier
 
 ```c
 #include <stdio.h>
@@ -220,7 +228,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 1. Basic Reads and Width:
 Enter Age (2 digits max, e.g., 35): 2222222
 Enter First Initial: a
@@ -228,14 +238,13 @@ Enter Weight (e.g., 75.5): 76.2
 Results: Age: 22, Initial: a, Weight: 76.2
 ```
 
-- Result:
 - This exercise focuses on the fundamental type specifiers (%d, %c, %f) and introduces the **width** modifier (%2d).
 
 <!-- Jesli mamy dwa element tej samej tablicy, i chcemy znalezc element srodkowy tej tablicy mozemy odjac od siebie adresy I uzyskamy od tego element srodkowy -->
 
 ---
 
-## Scanf -Length Modifiers (h and l)
+# Scanf -Length Modifiers (h and l)
 
 ```c
 #include <stdio.h>
@@ -265,7 +274,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 2. Length Modifiers (long/short):
 Enter a small integer (short): 25
 Enter a large integer (long): 66000
@@ -273,9 +284,9 @@ Enter a large integer (long): 66000
 Results: Short: 25, Long: 66000
 ```
 
-- Result:
+Result:
 
-```c
+```text
 2. Length Modifiers (long/short):
 Enter a small integer (short): 67 000
 Enter a large integer (long): 1
@@ -283,14 +294,13 @@ Enter a large integer (long): 1
 Results: Short: 67, Long: 1
 ```
 
-- Result:
 - This exercise demonstrates the length modifiers for integers: **h** (for short) and **l** (for long). These are essential for matching the format specifier to the variable type.
 
 <!-- Jesli mamy dwa element tej samej tablicy, i chcemy znalezc element srodkowy tej tablicy mozemy odjac od siebie adresy I uzyskamy od tego element srodkowy -->
 
 ---
 
-## Scanf - Common Errors 1 and Pitfalls
+# Scanf - Common Errors 1 and Pitfalls
 
 ```c
 #include <stdio.h>
@@ -315,7 +325,7 @@ int main()
 
 ---
 
-## Scanf - Common Errors 2 and Pitfalls
+# Scanf - Common Errors 2 and Pitfalls
 
 ```c
 #include <stdio.h>
@@ -345,7 +355,7 @@ int main()
 
 ---
 
-## Scanf - Best Practice: Reading Multiple Variables
+# Scanf - Best Practice: Reading Multiple Variables
 
 ```c
 #include <stdio.h>
@@ -366,20 +376,20 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 5. BEST PRACTICE: Reading multiple variables with one scanf call.
 Enter the date in DD MM YYYY format (separated by spaces/Enter): 2 08 1988
 
 Result: Date: 1988-8-2
 ```
 
-- Result:
-
 <!-- Jesli mamy dwa element tej samej tablicy, i chcemy znalezc element srodkowy tej tablicy mozemy odjac od siebie adresy I uzyskamy od tego element srodkowy -->
 
 ---
 
-## Scanf - Summary of Best Practices
+# Scanf - Summary of Best Practices
 
 - Always use &amp;: Remember that scanf requires the address of the variable (&amp;variable) to store the new value.
 - Use clearBuffer(): Call the macro AFTER EVERY scanf call, unless you are reading multiple numeric variables in one go.
@@ -395,7 +405,9 @@ Result: Date: 1988-8-2
 
 ---
 
-## Review Trying to use a null pointer will crash the program.
+# Review
+
+Trying to use a null pointer will crash the program.
 
 ```c
 #include <stdio.h>
@@ -416,19 +428,20 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Words of different lengths
 
 ```
 
-- Result:
-
 ---
 
-## Command-Line Arguments
+# Command-Line Arguments
 
-```c
 Command-line arguments are values passed to a program when it is executed from the terminal/command prompt. Allows users to provide input to the program without the need for user interaction during execution.
+
+```text
 argc:	Argument count, the number of command-line arguments passed
 	(including the program's name).
 argv[]:	Argument vector, an array of strings (character pointers) representing the 	arguments.
@@ -437,20 +450,19 @@ argv[]:	Argument vector, an array of strings (character pointers) representing t
 
 ---
 
-## Command-Line Arguments
+# Command-Line Arguments
 
 - Command-line arguments start after a whitespace character, such as a space (ASCII 32), and are treated as strings. Each word separated by a space is considered a separate argument.
 - However, if you want to pass an argument that contains spaces as a single string, you need to enclose it in quotes.
 
-argc:    Always greater than or equal to 1 (the first argument is the program’s name).
-
+- argc:    Always greater than or equal to 1 (the first argument is the program’s name).
 - argv\[\]:
   - argv\[0\]: The name of the program.
   - argv\[1\] to argv\[argc-1\]: The actual arguments passed by the user.
 
 ---
 
-## Examples
+# Examples
 
 ```c
 #include <stdio.h>
@@ -463,7 +475,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+```console
 C:\...\C>main.exe text
 text
 ```
@@ -484,7 +496,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+```console
 C:\...\C>main.exe text1 text2
 text1
 text2
@@ -504,7 +516,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+```console
 C:\...\C>main.exe "text1 text2"
 text1 text2
 ```
@@ -514,7 +526,7 @@ text1 text2
 
 ---
 
-## Examples
+# Examples
 
 ```c
 #include <stdio.h>
@@ -528,7 +540,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+```console
 C:\...\C>main.exe text1 text2
 Argument 1: tex1
 Argument 2: text2
@@ -551,7 +563,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+```console
 C:\...\C>main.exe 1 2
 Sum: 3
 
@@ -566,23 +578,18 @@ Sum: 3
 
 ---
 
-## Source code &amp; header files
+# Source code &amp; header files
 
 To improve code readability, C allows for the separation of functions, data structures, and global variables into separate files. This makes the code more clear and easier to maintain.
 
-- header file:
-
-(with a .h extension) contains prototypes of functions, global variables, and structures that are used in multiple source files, providing a way to share information
-
-- source code file:
-
-(with a .c extension) contains the actual implementation of the program's logic, such as function definitions and variable declarations.
+- header file: (with a .h extension) contains prototypes of functions, global variables, and structures that are used in multiple source files, providing a way to share information
+- source code file: (with a .c extension) contains the actual implementation of the program's logic, such as function definitions and variable declarations.
 
 To make functions defined in other files visible in a file, it is sufficient to include the header file using #include "name\_of\_header.h". There is no need to include files with the .c extension.
 
 ---
 
-## Source code &amp; header files
+# Source code &amp; header files
 
 - Function prototypes serve a dual purpose.
   - They ensure consistency between a function's declaration and its definition. This allows the compiler to verify the compatibility of return types and arguments, preventing hard-to-find errors that often occur when prototypes are omitted.
@@ -591,16 +598,20 @@ To make functions defined in other files visible in a file, it is sufficient to 
 
 ---
 
-## Example
+# Example
 
 - All files are in the same folder
 - It's worth noting that header file names and implementation file names don't have to be identical, although this convention is often used to improve project readability
+
+File: funs.h
 
 ```c
 
 int sum(int, int);
 int difference(int, int);
 ```
+
+File: funs.c
 
 ```c
 #include "funs.h"
@@ -615,6 +626,8 @@ int difference(int a, int b)
 }
 ```
 
+File: main.c
+
 ```c
 #include <stdio.h>
 #include "funs.h"
@@ -627,21 +640,17 @@ int main()
 }
 ```
 
-- File: funs.h
-- File: funs.c
-- File: main.c
+Result:
 
-```c
+```text
 Sum of 5 and 3 equals 8
 
 
 ```
 
-- Result:
-
 ---
 
-## Review - preprocessor directive - #ifndef
+# Review - preprocessor directive - #ifndef
 
 - Checks if a macro is not defined.
 
@@ -659,24 +668,26 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 MAX_SIZE is 100
 
 ```
 
-- Result:
-
 ---
 
-## Example Every source file that includes a header will have its contents inserted during compilation. If multiple files include the same header that contains definitions, the linker will report multiple definition errors because the same code is compiled more than once. To prevent this, header files should use include guards (#ifndef, #define, #endif)
+# Example
+
+Every source file that includes a header will have its contents inserted during compilation. If multiple files include the same header that contains definitions, the linker will report multiple definition errors because the same code is compiled more than once. To prevent this, header files should use include guards (#ifndef, #define, #endif)
+
+File: funs.h
 
 ```c
 
 int sum(int, int);
 int difference(int, int);
 ```
-
-- File: funs.h
 
 ```c
 #include <stdio.h>
@@ -703,14 +714,18 @@ int main()
 
 ---
 
-## Summary *Of all the directives regarding compilation and makefiles, the* #ifndef *directive seems to be the most commonly used, as it prevents the same file from being included more than once in the final output. As can easily be seen, many different files can use the same library.*
+# Summary
+
+*Of all the directives regarding compilation and makefiles, the* #ifndef *directive seems to be the most commonly used, as it prevents the same file from being included more than once in the final output. As can easily be seen, many different files can use the same library.*
 
 ---
 
-## Example
+# Example
 
 - All files are in the same folder
 - It's worth noting that header file names and implementation file names don't have to be identical, although this convention is often used to improve project readability
+
+File: funs.h
 
 ```c
 //func.h
@@ -720,6 +735,8 @@ int main()
   int difference(int, int);
 #endif
 ```
+
+File: funs.c
 
 ```c
 #include "funs.h"
@@ -734,6 +751,8 @@ int difference(int a, int b)
 }
 ```
 
+File: main.c
+
 ```c
 #include <stdio.h>
 #include "funs.h"
@@ -746,21 +765,17 @@ int main()
 }
 ```
 
-- File: funs.h
-- File: funs.c
-- File: main.c
+Result:
 
-```c
+```text
 Sum of 5 and 3 equals 8
 
 
 ```
 
-- Result:
-
 ---
 
-## extern keyword
+# extern keyword
 
 - In a single code block, we cannot declare two variables with the same name.
 - An inner block allows us to declare a variable with the same name inside it, which shadows the variable from the outer block but doesn't destroy it. After the inner block ends, we can access the first variable again.
@@ -769,7 +784,9 @@ Sum of 5 and 3 equals 8
 
 ---
 
-## extern keyword
+# extern keyword
+
+File: funs.h
 
 ```c
 //func.h
@@ -779,6 +796,8 @@ Sum of 5 and 3 equals 8
   int difference(int, int);
 #endif
 ```
+
+File: funs.c
 
 ```c
 #include "funs.h"
@@ -794,6 +813,8 @@ int difference()
 }
 ```
 
+File: main.c
+
 ```c
 #include <stdio.h>
 #include "funs.h“
@@ -807,17 +828,13 @@ int main()
 }
 ```
 
-- File: funs.h
-- File: funs.c
-- File: main.c
+Result:
 
-```c
+```text
 Sum of 5 and 3 equals 8
 
 
 ```
-
-- Result:
 
 ---
 
@@ -825,7 +842,9 @@ Sum of 5 and 3 equals 8
 
 ---
 
-## static keyword
+# static keyword
+
+File: funs.h
 
 ```c
 //func.h
@@ -835,6 +854,8 @@ Sum of 5 and 3 equals 8
   int difference(int, int);
 #endif
 ```
+
+File: funs.c
 
 ```c
 #include "funs.h"
@@ -850,6 +871,8 @@ int difference()
 }
 ```
 
+File: main.c
+
 ```c
 #include <stdio.h>
 #include "funs.h“
@@ -863,21 +886,17 @@ int main()
 }
 ```
 
-- File: funs.h
-- File: funs.c
-- File: main.c
+Result:
 
-```c
+```text
 Sum of 5 and 3 equals 6
 
 
 ```
 
-- Result:
-
 ---
 
-## static keyword
+# static keyword
 
 - static keyword has two meanings, depending on where the static variable\* is declared:
 - Outside a function, static variables only visible within that file, not globally
@@ -890,7 +909,7 @@ Sum of 5 and 3 equals 6
 
 ---
 
-## static keyword
+# static keyword
 
 ```c
 #include <stdio.h>
@@ -912,13 +931,13 @@ void ticketSale()
 }
 ```
 
-```c
+Result:
+
+```text
 There are currently 1 tickets sold.
 There are currently 1 tickets sold.
 There are currently 1 tickets sold.
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -940,13 +959,13 @@ void ticketSale()
 }
 ```
 
-```c
+Result:
+
+```text
 There are currently 1 tickets sold.
 There are currently 2 tickets sold.
 There are currently 3 tickets sold.
 ```
-
-- Result:
 
 ---
 
@@ -954,7 +973,7 @@ There are currently 3 tickets sold.
 
 ---
 
-## How does a C program executes?
+# How does a C program executes?
 
 - C/C++ code
 - Preprocessing
@@ -979,7 +998,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## Compilers
+# Compilers
 
 - GCC – GNU Compiler Collection
 - Microsoft Compiler C/C++
@@ -989,7 +1008,7 @@ C files are regular text files (txt), differing only by their extension, as they
 
 ---
 
-## A summary
+# A summary
 
 *Although GNU is primarily associated with Unix-like systems, the ideas of free software and open source have allowed GNU tools, such as GCC, to be ported to other platforms, including Windows.*
 
@@ -997,7 +1016,7 @@ C files are regular text files (txt), differing only by their extension, as they
 
 ---
 
-## Example 1 - main.c
+# Example 1 - main.c
 
 - Create a new folder,
 - create a file named main.c inside it and fill it with the simplest possible code.
@@ -1016,32 +1035,33 @@ int main()
 
 ---
 
-## Process of compilation
+# Process of compilation
 
-- Compile main.c into an object file main.o:
-- Link the object file main.o into an executable main.exe:
+Compile main.c into an object file main.o:
 
-```c
+```console
 gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 ```
 
-```c
+```console
 # 1) Compile main.c into an object file main.o (no linking).
 #    Includes debug symbols (-g), enables most warnings (-Wall), uses the C99 standard (-std=c99),
 #    and enforces strict standard conformance (-pedantic).
 ```
 
-```c
+Link the object file main.o into an executable main.exe:
+
+```console
 gcc -g main.o -o main.exe
 ```
 
-```c
+```console
 # 2) Link the object file into an executable named main.exe.
 ```
 
 ---
 
-## How does a C program executes?
+# How does a C program executes?
 
 - C code
 - Preprocessing
@@ -1066,22 +1086,22 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## Process of compilation
+# Process of compilation
 
-- Compile and link in one step (from main.c directly to main.exe):
+Compile and link in one step (from main.c directly to main.exe):
 
-```c
+```console
 gcc -g -Wall -std=c99 -pedantic main.c -o main.exe
 ```
 
-```c
+```console
 # 3) Compile and link in one step: from main.c directly to main.exe,
 #    with the same diagnostic/standard flags as in step 1.
 ```
 
 ---
 
-## How does a C program executes?
+# How does a C program executes?
 
 - C code
 - Preprocessing
@@ -1106,7 +1126,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## About flags
+# About flags
 
 - The -g flag tells the compiler to include debugging information in the output. Without it, setting breakpoints in the compiled file would not be possible. This flag should be disabled in the final compilation of the application after the development process is complete.
 - The flags -Wall, -std, and -pedantic are compiler-specific and only necessary during the creation of object files. The -c and -o flags indicate source and object files, respectively.
@@ -1118,7 +1138,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## Introduction to Makefile
+# Introduction to Makefile
 
 - What is a Makefile?
   - A Makefile is a script(program) used by the mingw32-make build automation tool to compile and link programs.
@@ -1131,13 +1151,14 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## Introduction to Makefile
+# Introduction to Makefile
 
 Syntax Example:
 
+```make
 TARGET: DEPENDENCIES
-
-\[TAB\] command
+[TAB] command
+```
 
 - TARGET:    The file to generate (e.g., main.exe).
 - DEPENDENCIES:    Source files or other targets that the current target depends on.
@@ -1145,9 +1166,9 @@ TARGET: DEPENDENCIES
 
 ---
 
-## An example of makefile
+# An example of makefile
 
-```c
+```make
 CC = gcc
 CFLAGS = -g -Wall -Wextra -std=c99 -pedantic
 OBJS = main.o unity.o
@@ -1186,7 +1207,7 @@ Key Components:
 
 ---
 
-## Some examples
+# Some examples
 
 ```c
 int main()
@@ -1217,7 +1238,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 y equals 5.
 
 &y              equals 6422292.
@@ -1237,8 +1260,6 @@ pp              equals 6422288.
 *&*pp           equals 6422296.
 **pp            equals 5.
 ```
-
-- Result:
 
 ||Memory Addresses and Values|||
 |---|---|---|---|

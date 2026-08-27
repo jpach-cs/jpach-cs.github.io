@@ -5,13 +5,14 @@ paginate: true
 title: "Data Structures & Algorithms"
 ---
 
+<!-- _class: lead -->
+
 # Data Structures &amp; Algorithms
 
-*Lecture 11*
-
+## Lecture 11
 ---
 
-## In 136, we covered
+# In 136, we covered
 
 - Objects and classes, Abstract Data Types – lots of coverage.  I required class and header files in most assignments
 - Time and Space complexity – a discussion was included in each exercise.  Good coverage of constant time, linear, n2, n3, with loops and nested loops.  Didn’t do any of the math.
@@ -27,7 +28,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 - Logarithmic and Exponential Rules
 - Asymptote
@@ -37,13 +38,11 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## Logarithmic and Exponential
-
-- Rules
+# Logarithmic and Exponential Rules
 
 ---
 
-## Binary logarithm
+# Binary logarithm
 
 ![w:509px Picture 5](assets/image6.png)
 
@@ -56,7 +55,7 @@ y is the **function value** -->
 
 ---
 
-## Logarithmic and Exponential Rules (The Fundamentals)
+# Logarithmic and Exponential Rules (The Fundamentals)
 
 <!-- **The Product Rule:** The logarithm of a product of two numbers, a and c, is equal to the **sum** of the logarithms of those numbers.
 **The Quotient Rule:** The logarithm of a quotient (a division) is equal to the **difference** between the logarithms of the numerator (a) and the denominator (c).
@@ -69,7 +68,7 @@ y is the **function value** -->
 
 ---
 
-## Examples
+# Examples
 
 <!-- The logarithm of  equals one plus log n plus log log n. //The logarithm of two times n times log n equals one plus log n plus log log n.<br>Here, we use the rule that the log of a product equals the sum of logs.<br>Since when the base is 2, we replace it with 1.<br>Remember that in computer science, if the base is not written, we usually assume it’s base 2.
 The logarithm of n divided by 2 equals log n minus log 2, which is log n minus one.<br>Again, we assume base 2, so .
@@ -84,11 +83,11 @@ Four to the power n divided by two to the power 2n simplifies to two to the powe
 
 ---
 
-## Asymptote
+# Asymptote
 
 ---
 
-## Asymptote
+# Asymptote
 
 - An asymptote is a line that a curve approaches as it tends towards infinity or a specific value, but never actually touches.
 - YOU SHALL
@@ -98,7 +97,7 @@ Four to the power n divided by two to the power 2n simplifies to two to the powe
 
 ---
 
-## Polynomial
+# Polynomial
 
 - **Weierstrass approximation theory**
 - Any continuous function on a closed interval can be approximated uniformly by a polynomial to any desired degree of accuracy.
@@ -108,7 +107,7 @@ Four to the power n divided by two to the power 2n simplifies to two to the powe
 
 ---
 
-## A linear function
+# A linear function
 
 - A linear function is a special case of a polynomial function
 - -5
@@ -120,7 +119,7 @@ Four to the power n divided by two to the power 2n simplifies to two to the powe
 
 ---
 
-## A quadratic function &amp; cubic polynomial
+# A quadratic function &amp; cubic polynomial
 
 - -5
 - 0
@@ -140,7 +139,7 @@ Four to the power n divided by two to the power 2n simplifies to two to the powe
 
 ---
 
-## Multiplication of a function by a constant c
+# Multiplication of a function by a constant c
 
 - -5
 - 0
@@ -166,11 +165,11 @@ Four to the power n divided by two to the power 2n simplifies to two to the powe
 
 ---
 
-## Asymptotic notation
+# Asymptotic notation
 
 ---
 
-## Asymptotic notation
+# Asymptotic notation
 
 - The order of growth of the running time of an algorithm, gives a simple characterization of the algorithm’s efficiency and also allows us to compare the relative performance of alternative algorithms.
 - When we look at input sizes large enough to make only the order of growth of the running time relevant, we are studying the asymptotic efficiency of algorithms.
@@ -178,23 +177,21 @@ Four to the power n divided by two to the power 2n simplifies to two to the powe
 
 ---
 
-## Asymptotic notation
+# Asymptotic notation
 
 ---
 
-## Asymptotic notation
+# Asymptotic notation
 
 <!-- Big Theta of g of n equals the set of functions f of n such that there exist positive constants c one, c two, and n zero, such that zero is less than or equal to c one times g of n, which is less than or equal to f of n, which is less than or equal to c two times g of n, for all n greater than or equal to n zero. -->
 
 ---
 
-## Asymptotic notation
-
-- Θ-notation
+# Asymptotic notation<br>Θ-notation
 
 ---
 
-## Θ-notation
+# Θ-notation
 
 ![w:1056px Picture 6](assets/image17.png)
 
@@ -203,7 +200,7 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## Θ-notation
+# Θ-notation
 
 ![w:1056px Picture 6](assets/image17.png)
 
@@ -214,7 +211,7 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## Θ-notation
+# Θ-notation
 
 ![w:1056px Picture 6](assets/image17.png)
 
@@ -227,7 +224,7 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## Θ-notation
+# Θ-notation
 
 ![w:1056px Picture 6](assets/image17.png)
 
@@ -238,7 +235,7 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## O-notation
+# O-notation
 
 ![w:1056px Picture 6](assets/image17.png)
 
@@ -250,7 +247,7 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## O-notation
+# O-notation
 
 ![w:1056px Picture 6](assets/image17.png)
 
@@ -262,13 +259,11 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## Asymptotic notation
-
-- Ω-notation
+# Asymptotic notation<br>Ω-notation
 
 ---
 
-## Ω-notation
+# Ω-notation
 
 ![w:1056px Picture 6](assets/image17.png)
 
@@ -285,7 +280,7 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## Ω-notation
+# Ω-notation
 
 ![w:1056px Picture 6](assets/image17.png)
 
@@ -297,36 +292,38 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## Example
+# Example
 
 ---
 
-## Efficiency – an example
+# Efficiency – an example
 
 <!-- For a concrete example -->
 
 ---
 
-## Efficiency – an example
+# Efficiency – an example
 
 <!-- For a concrete example -->
 
 ---
 
-## Efficiency – an example By using an algorithm whose running time grows more slowly, even with a poor compiler, computer **B** runs more than 17 times faster than computer **A**! The advantage of merge sort is even more pronounced when we sort 100 million numbers: where insertion sort takes more than 23 days, merge sort takes under four hours. In general, as the problem size increases, so does the relative advantage of merge sort.
+# Efficiency – an example
+
+By using an algorithm whose running time grows more slowly, even with a poor compiler, computer **B** runs more than 17 times faster than computer **A**! The advantage of merge sort is even more pronounced when we sort 100 million numbers: where insertion sort takes more than 23 days, merge sort takes under four hours. In general, as the problem size increases, so does the relative advantage of merge sort.
 
 <!-- For a concrete example -->
 
 ---
 
-## Questions?
+# Questions?
 
 ---
 
-## Thank
+<!-- _class: caption-slide -->
 
-- You
+# Thank You
 
 ---
 
-## Algorithm notation systems
+# Algorithm notation systems

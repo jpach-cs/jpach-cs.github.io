@@ -5,13 +5,14 @@ paginate: true
 title: "Data Structures & Algorithms"
 ---
 
+<!-- _class: lead -->
+
 # Data Structures &amp; Algorithms
 
-*Lecture 12*
-
+## Lecture 12
 ---
 
-## In 136, we covered
+# In 136, we covered
 
 - Objects and classes, Abstract Data Types – lots of coverage.  I required class and header files in most assignments
 - Time and Space complexity – a discussion was included in each exercise.  Good coverage of constant time, linear, n2, n3, with loops and nested loops.  Didn’t do any of the math.
@@ -27,7 +28,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 - Logarithmic and Exponential Rules
 - Asymptote
@@ -37,11 +38,11 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## algorithm
-
-- correctness
+# algorithm correctness
 
 ---
+
+Searching for the maximum value in an array
 
 ```c
 int arrayMax(int A[], int n)
@@ -56,7 +57,7 @@ int arrayMax(int A[], int n)
 }
 ```
 
-```c
+```text
 Algorithm arrayMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -67,13 +68,11 @@ Algorithm arrayMax(A, n):
 	return currentMax
 ```
 
-- Searching for the maximum value in an array
-
 <!-- chooseAndSwapArrayWithLargerFirstElement(&amp;arr1, &amp;arr2); -->
 
 ---
 
-## Curio
+# Curio
 
 ```c
 int arrayMax(int A[], int n)
@@ -102,13 +101,13 @@ int arrayMax(int A[], int n)
 
 ---
 
-## Using pseudo-code to prove algorithm correctness
+# Using pseudo-code to prove algorithm correctness
 
 By inspecting the pseudocode, we can argue about the correctness of algorithm arrayMax with a simple argument. Variable currentMax starts out being equal to the first element of A. We claim that at the beginning of the ith iteration of the loop, currentMax is equal to the maximum of the first i elements in A. Since we compare currentMax to A⁡\[i\] in iteration i, if this claim is true before this iteration, it will be true after it for i+1 (which is the next value of counter i). Thus, after n−1 iterations, currentMax will equal the maximum element in A. As with this example, we want our pseudocode descriptions to always be detailed enough to fully justify the correctness of the algorithm they describe, while being simple enough for human readers to understand.
 
 .
 
-```c
+```text
 Algorithm arrayMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -121,7 +120,7 @@ Algorithm arrayMax(A, n):
 
 ---
 
-## These constructs include the following
+# These constructs include the following
 
 - ***Expressions:*** We use standard mathematical symbols to express numeric and Boolean expressions. We use the left arrow sign (←) as the assignment operator in assignment statements (equivalent to the = operator in C++) and we use the equal sign (=) as the equality relation in Boolean expressions (equivalent to the "==" relation in C++).
 - ***Method declarations:*** **Algorithm** name(param1, param2, ...) declares a new method "name" and its parameters.
@@ -135,7 +134,7 @@ Algorithm arrayMax(A, n):
 
 ---
 
-## The random access machine (RAM) model
+# The random access machine (RAM) model
 
 If we wish to analyze a particular algorithm without performing experiments on its running time, we can take the following more analytic approach directly on the high-level code or pseudocode. We define a set of high-level **primitive operations** that are largely independent from the programming language used and can be identified also in the pseudocode. Primitive operations include the following:
 
@@ -149,11 +148,13 @@ If we wish to analyze a particular algorithm without performing experiments on i
 
 ---
 
-## The random access machine (RAM) model Specifically, a primitive operation corresponds to a low-level instruction with an execution time that depends on the hardware and software environment but is nevertheless constant. Instead of trying to determine the specific execution time of each primitive operation, we will simply count how many primitive operations are executed, and use this number ***t***  as a high-level estimate of the running time of the algorithm. This operation ***count*** will correlate to an actual running time in a specific hardware and software environment, for each primitive operation corresponds to a constant-time instruction, and there are only a fixed number of primitive operations. The implicit assumption in this approach is that the running times of different primitive operations will be fairly similar. Thus, the number, ***t*** , of primitive operations an algorithm performs will be proportional to the actual running time of that algorithm.
+# The random access machine (RAM) model
+
+Specifically, a primitive operation corresponds to a low-level instruction with an execution time that depends on the hardware and software environment but is nevertheless constant. Instead of trying to determine the specific execution time of each primitive operation, we will simply count how many primitive operations are executed, and use this number ***t***  as a high-level estimate of the running time of the algorithm. This operation ***count*** will correlate to an actual running time in a specific hardware and software environment, for each primitive operation corresponds to a constant-time instruction, and there are only a fixed number of primitive operations. The implicit assumption in this approach is that the running times of different primitive operations will be fairly similar. Thus, the number, ***t*** , of primitive operations an algorithm performs will be proportional to the actual running time of that algorithm.
 
 ---
 
-## The random access machine (RAM) model
+# The random access machine (RAM) model
 
 If we wish to analyze a particular algorithm without performing experiments on its running time, we can take the following more analytic approach directly on the high-level code or pseudocode. We define a set of high-level **primitive operations** that are largely independent from the programming language used and can be identified also in the pseudocode. Primitive operations include the following:
 
@@ -173,13 +174,15 @@ c7    Returning from a method.
 
 ---
 
-## RAM machine model definition This approach of simply counting primitive operations gives rise to a computational model called the **Random Access Machine** (RAM). This model, which should not be confused with "random access memory," views a computer simply as a CPU connected to a bank of memory cells. Each memory cell stores a word, which can be a number, a character string, or an address—that is, the value of a base type. The term ***random access*** refers to the ability of the CPU to access an arbitrary memory cell with ***one primitive operation***. To keep the model simple, we do not place any specific limits on the size of numbers that can be stored in words of memory. We assume the CPU in the RAM model can perform any primitive operation in a constant number of steps, which do not depend on the size of the input. Thus, an accurate bound on the number of primitive operations an algorithm performs corresponds directly to the running time of that algorithm in the RAM model.
+# RAM machine model definition
+
+This approach of simply counting primitive operations gives rise to a computational model called the **Random Access Machine** (RAM). This model, which should not be confused with "random access memory," views a computer simply as a CPU connected to a bank of memory cells. Each memory cell stores a word, which can be a number, a character string, or an address—that is, the value of a base type. The term ***random access*** refers to the ability of the CPU to access an arbitrary memory cell with ***one primitive operation***. To keep the model simple, we do not place any specific limits on the size of numbers that can be stored in words of memory. We assume the CPU in the RAM model can perform any primitive operation in a constant number of steps, which do not depend on the size of the input. Thus, an accurate bound on the number of primitive operations an algorithm performs corresponds directly to the running time of that algorithm in the RAM model.
 
 ---
 
-## Counting primitive operations
+# Counting primitive operations
 
-```c
+```text
 Algorithm arrayMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -208,11 +211,11 @@ Algorithm arrayMax(A, n):
 
 ---
 
-## Counting primitive operations
+# Counting primitive operations
 
 - Initializing the variable currentMax to A\[0\] corresponds to two primitive operations (indexing into an array and assigning a value to a variable) and is executed only once at the beginning of the algorithm. Thus, it contributes two units to the count.
 
-```c
+```text
 Algorithm arrayMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -223,7 +226,7 @@ Algorithm arrayMax(A, n):
 	return currentMax
 ```
 
-```c
+```text
 currentMax ← A[0]
 ```
 
@@ -245,11 +248,11 @@ currentMax ← A[0]
 
 ---
 
-## Counting primitive operations
+# Counting primitive operations
 
 - At the beginning of the for loop, counter i is initialized to 1. This action corresponds to executing one primitive operation (assigning a value to a variable).
 
-```c
+```text
 Algorithm arrayMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -260,7 +263,9 @@ Algorithm arrayMax(A, n):
 	return currentMax
 ```
 
+```text
 i ← 1
+```
 
 **c1    Assigning a value to a variable**
 
@@ -280,11 +285,11 @@ i ← 1
 
 ---
 
-## Counting primitive operations
+# Counting primitive operations
 
 - Before entering the body of the for loop, condition i &lt; n is verified. This action corresponds to executing one primitive instruction (comparing two numbers). Since counter i starts at 1 and is incremented by 1 at the end of each iteration of the loop, the comparison i &lt; n is performed n  times. Thus, it contributes n units to the count.
 
-```c
+```text
 Algorithm arrayMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -295,7 +300,7 @@ Algorithm arrayMax(A, n):
 	return currentMax
 ```
 
-```c
+```text
 for i ← 1 to n - 1 do
 ```
 
@@ -321,7 +326,7 @@ for i ← 1 to n - 1 do
 
 ---
 
-## Counting primitive operations
+# Counting primitive operations
 
 - The body of the for loop is executed n-1 times (for values 1, 2, ..., n-1 of the counter).
 - At each iteration, A\[*i*\] is compared with currentMax (two primitive operations, indexing and comparing).
@@ -330,7 +335,7 @@ for i ← 1 to n - 1 do
 - Hence, at each iteration of the loop, either four or six primitive operations are performed, depending on whether A\[i\] &lt;= currentMax or A\[i\]&gt;currentMax.
 - Therefore, the body of the loop contributes between 4(n-1) and 6(n-1) units to the count.
 
-```c
+```text
 Algorithm arrayMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -362,7 +367,7 @@ normalnie jest n+1 -->
 
 ---
 
-## Counting primitive operations
+# Counting primitive operations
 
 - The body of the for loop is executed n-1 times (for values 1, 2, ..., n-1 of the counter).
 - At each iteration, A\[*i*\] is compared with currentMax (two primitive operations, indexing and comparing).
@@ -371,7 +376,7 @@ normalnie jest n+1 -->
 - Hence, at each iteration of the loop, either four or six primitive operations are performed, depending on whether A\[i\] &lt;= currentMax or A\[i\]&gt;currentMax.
 - Therefore, the body of the loop contributes between 4(n-1) and 6(n-1) units to the count.
 
-```c
+```text
 Algorithm arrayMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -401,7 +406,7 @@ normalnie jest n+1 -->
 
 ---
 
-## Counting primitive operations
+# Counting primitive operations
 
 - The body of the for loop is executed n-1 times (for values 1, 2, ..., n-1 of the counter).
 - At each iteration, A\[*i*\] is compared with currentMax (two primitive operations, indexing and comparing).
@@ -410,7 +415,7 @@ normalnie jest n+1 -->
 - Hence, at each iteration of the loop, either four or six primitive operations are performed, depending on whether A\[i\] &lt;= currentMax or A\[i\]&gt;currentMax.
 - Therefore, the body of the loop contributes between 4(n-1) and 6(n-1) units to the count.
 
-```c
+```text
 Algorithm arrayMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -440,7 +445,7 @@ normalnie jest n+1 -->
 
 ---
 
-## Counting primitive operations
+# Counting primitive operations
 
 - The body of the for loop is executed n-1 times (for values 1, 2, ..., n-1 of the counter).
 - At each iteration, A\[*i*\] is compared with currentMax (two primitive operations, indexing and comparing).
@@ -449,7 +454,7 @@ normalnie jest n+1 -->
 - Hence, at each iteration of the loop, either four or six primitive operations are performed, depending on whether A\[i\] &lt;= currentMax or A\[i\]&gt;currentMax.
 - Therefore, the body of the loop contributes between 4(n-1) and 6(n-1) units to the count.
 
-```c
+```text
 Algorithm arrayMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -479,7 +484,7 @@ normalnie jest n+1 -->
 
 ---
 
-## Counting primitive operations
+# Counting primitive operations
 
 - The body of the for loop is executed n-1 times (for values 1, 2, ..., n-1 of the counter).
 - At each iteration, A\[*i*\] is compared with currentMax (two primitive operations, indexing and comparing).
@@ -488,7 +493,7 @@ normalnie jest n+1 -->
 - Hence, at each iteration of the loop, either four or six primitive operations are performed, depending on whether A\[i\] &lt;= currentMax or A\[i\]&gt;currentMax.
 - Therefore, the body of the loop contributes between 4(n-1) and 6(n-1) units to the count.
 
-```c
+```text
 Algorithm arrayMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -518,11 +523,11 @@ normalnie jest n+1 -->
 
 ---
 
-## Counting primitive operations
+# Counting primitive operations
 
 - Returning the value of variable currentMax corresponds to one primitive operation, and is executed only once.
 
-```c
+```text
 Algorithm arrayMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -535,7 +540,7 @@ Algorithm arrayMax(A, n):
 
 or
 
-```c
+```text
 Algorithm arrayMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -565,11 +570,11 @@ normalnie jest n+1 -->
 
 ---
 
-## Counting primitive operations
+# Counting primitive operations
 
 - To summarize, the number of primitive operations t(n) (or  T(n)) executed by algorithm arrayMax is at least:
 
-```c
+```text
 Algorithm arrayMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -589,7 +594,7 @@ normalnie jest n+1 -->
 
 ---
 
-## Average-case and worst-case analysis
+# Average-case and worst-case analysis
 
 - Like the arrayMax method, an algorithm may run faster on some inputs than it does on others. In such cases we may wish to express the running time of such an algorithm as an average taken over all possible inputs. Although such an **average case** analysis would often be valuable, it is typically quite challenging. It requires us to define a probability distribution on the set of inputs, which is typically a difficult task.
 
@@ -599,7 +604,7 @@ The figure schematically shows how, depending on the input distribution, the run
 
 ---
 
-## Average-case and worst-case analysis
+# Average-case and worst-case analysis
 
 - An average-case analysis also typically requires that we calculate expected running times based on a given input distribution. Such an analysis often requires heavy mathematics and probability theory.
 - Therefore, except for experimental studies or the analysis of algorithms that are themselves randomized, we will, for the remainder of this book, typically characterize running times in terms of the **worst case**. We say, for example, that algorithm arrayMax executes *t(n) = 7n-2* primitive operations **in the worst case**, meaning that the maximum number of primitive operations executed by the algorithm, taken over all inputs of size n, is *7n-2*
@@ -607,7 +612,7 @@ The figure schematically shows how, depending on the input distribution, the run
 
 ---
 
-## Which is faster?
+# Which is faster?
 
 ```c
 int arrayMax(int A[], int n)
@@ -634,10 +639,10 @@ int arrayMax(int A[], int n)
 
 ---
 
-## Questions?
+# Questions?
 
 ---
 
-## Thank
+<!-- _class: caption-slide -->
 
-- You
+# Thank You

@@ -5,13 +5,14 @@ paginate: true
 title: "Data Structures & Algorithms"
 ---
 
+<!-- _class: lead -->
+
 # Data Structures &amp; Algorithms
 
-*Lecture 7*
-
+## Lecture 7
 ---
 
-## In 136, we covered
+# In 136, we covered
 
 - Objects and classes, Abstract Data Types – lots of coverage.  I required class and header files in most assignments
 - Time and Space complexity – a discussion was included in each exercise.  Good coverage of constant time, linear, n2, n3, with loops and nested loops.  Didn’t do any of the math.
@@ -27,7 +28,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 - An algorithm
 - NP vs P
@@ -35,28 +36,30 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## An Algorithm
+# An Algorithm
 
 ---
 
-## Meaning of words Sometimes, when we look at the same thing, we see entirely different things. Therefore, to avoid misunderstandings, I will spend a considerable amount of time clarifying the nuances associated with translating the meanings of the concepts we will be using in our classes.
+# Meaning of words
+
+Sometimes, when we look at the same thing, we see entirely different things. Therefore, to avoid misunderstandings, I will spend a considerable amount of time clarifying the nuances associated with translating the meanings of the concepts we will be using in our classes.
 
 ![w:402px Picture 1](assets/image4.png)
 
 ---
 
-## Algorithm
+# Algorithm
 
 - Informally, an **algorithm** is any well-defined computational procedure that takes some value, or set of values, as **input** and produces some value, or set of values, as **output**. An algorithm is thus a sequence of computational steps that transform the input into the output.
 - We can also view an algorithm as a tool for solving a well-specified **computational problem**. The statement of the problem specifies in general terms the desired input/output relationship. The algorithm describes a specific computational procedure for achieving that input/output relationship.
 
 ---
 
-## Algorithm
+# Algorithm
 
 ---
 
-## Algorithm
+# Algorithm
 
 Such an input sequence is called an **instance** of the sorting problem. In general, an **instance of a problem** consists of the input (satisfying whatever constraints are imposed in the problem statement) needed to compute a solution to the problem.
 
@@ -66,7 +69,7 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 
 ---
 
-## Practical applications of algorithms
+# Practical applications of algorithms
 
 - The Human Genome Project has made great progress toward the goals of identifying all the 100,000 genes in human DNA, determining the sequences of the 3 billion chemical base pairs that make up human DNA.
 - The Internet enables people all around the world to quickly access and retrieve large amounts of information. With the aid of clever algorithms, sites on the Internet are able to manage and manipulate this large volume of data.
@@ -74,27 +77,27 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 
 ---
 
-## Practical applications of algorithms
+# Practical applications of algorithms
 
 - Manufacturing and other commercial enterprises often need to allocate scarce resources in the most beneficial way.
 - We are given a road map on which the distance between each pair of adjacent intersections is marked, and we wish to determine the shortest route from one intersection to another.
 
 ---
 
-## Two characteristics that are common to many interesting algorithmic problems
+# Two characteristics that are common to many interesting algorithmic problems
 
 - They have many candidate solutions, the overwhelming majority of which do not solve the problem at hand. Finding one that does, or one that is “best,” can present quite a challenge.
 - They have practical applications. Of the problems in the above list, finding the shortest path provides the easiest examples. A transportation firm, such as a trucking or railroad company, has a financial interest in finding shortest paths through a road or rail network because taking shorter paths results in lower labor and fuel costs.
 
 ---
 
-## Data structures
+# Data structures
 
 - We have got several data structures. **A data structure** is a way to store and organize data in order to facilitate access and modifications. No single data structure works well for all purposes, and so it is important to know the strengths and limitations of several of them.
 
 ---
 
-## Hard problems
+# Hard problems
 
 - Most of this course is about efficient algorithms. Our usual measure of efficiency is speed, i.e., how long an algorithm takes to produce its result. There are some problems, however, for which no efficient solution is known.
 - An interesting subset of these problems, which are known as NP-complete. <br>(nondeterministic polynomial-time complete).
@@ -104,11 +107,11 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 
 ---
 
-## NP vs P
+# NP vs P
 
 ---
 
-## NP vs P
+# NP vs P
 
 - NP problems are those for which the correctness of a given **solution can be verified in polynomial time**.
 - P problems, on the other hand, **can be solved in polynomial time**.
@@ -116,19 +119,17 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 
 ---
 
-## NP-complete example
+# NP-complete example
 
 - As a concrete example, consider a delivery company with a central depot. Each day, it loads up each delivery truck at the depot and sends it around to deliver goods to several addresses. At the end of the day, each truck must end up back at the depot so that it is ready to be loaded for the next day. To reduce costs, the company wants to select an order of delivery stops that yields the lowest overall distance traveled by each truck. This problem is the well-known “**traveling-salesman problem**,” and it is **NP-complete**. It has no known efficient algorithm. Under certain assumptions, however, we know of efficient algorithms that give an overall distance which is not too far above the smallest possible.
 
 ---
 
-## Algorithm
-
-- notation systems
+# Algorithm notation systems
 
 ---
 
-## An algorithm can be represented in at least three ways
+# An algorithm can be represented in at least three ways
 
 - **Flowchart:**
   - This involves breaking down the algorithm into elementary control blocks such as start, stop, data input, output, conditional statements, etc.
@@ -141,11 +142,15 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 
 ---
 
-## Pseudocode resembles a programming language like Pascal\* When the C language was being born, Pascal was already a popular language. It contributed significantly—or even profoundly—to the world of programming, but it did not stand the test of time. Languages derived from C eventually replaced it entirely. Today, Python is the most popular language for describing programming concepts due to its simplicity, so pseudocode will be a mixture of natural language and a specific programming language.
+# Pseudocode resembles a programming language like Pascal\*
+
+When the C language was being born, Pascal was already a popular language. It contributed significantly—or even profoundly—to the world of programming, but it did not stand the test of time. Languages derived from C eventually replaced it entirely. Today, Python is the most popular language for describing programming concepts due to its simplicity, so pseudocode will be a mixture of natural language and a specific programming language.
 
 ---
 
-## Flowchart A flowchart is a graphical representation of an algorithm. It uses shapes to represent different types of operations and arrows to indicate the flow of control between them.
+# Flowchart
+
+A flowchart is a graphical representation of an algorithm. It uses shapes to represent different types of operations and arrows to indicate the flow of control between them.
 
 Use tape
 
@@ -175,7 +180,7 @@ YES
 
 ---
 
-## Flowchart symbols
+# Flowchart symbols
 
 |**Shape**|**Name**|**Description**|
 |---|---|---|
@@ -189,7 +194,7 @@ these are basic symbols
 
 ---
 
-## Flowchart symbols
+# Flowchart symbols
 
 |**Shape**|**Name**|**Description**|
 |---|---|---|
@@ -202,9 +207,7 @@ these are basic symbols
 
 ---
 
-## Flow diagram a C-style
-
-for loop, representing the following code:
+# Flow diagram a C-style for loop, representing the following code:
 
 ```c
 for ( i = 0; i < n; i++)
@@ -231,7 +234,7 @@ FALSE
 
 ---
 
-## Bullet point description
+# Bullet point description
 
 **Input:**
 
@@ -253,102 +256,71 @@ FALSE
 
 ---
 
-## Pseudocode (pascal\*)
+# Pseudocode (pascal\*)
 
+```pascal
 function factorial(n: integer): integer;
-
 begin
-
 if n = 0 then
-
 factorial := 1
-
 else
-
-factorial := n \* factorial(n - 1);
-
+factorial := n * factorial(n - 1);
 end;
+```
 
 ---
 
-## Advantages and Disadvantages of Flowchart Algorithm Representation
+# Advantages and Disadvantages of Flowchart Algorithm Representation
 
 - Advantages:
-  - **Visualization**:    Presents the algorithm in a graphical manner, making it easier to understand,
-
-especially for visual learners.
-
-- **Intuitiveness**:    Arrows and shapes clearly show the sequence of actions.
-- **Universality**:    Can be used to represent various types of algorithms,
-
-regardless of the programming language.
-
+  - **Visualization**:    Presents the algorithm in a graphical manner, making it easier to understand, especially for visual learners.
+  - **Intuitiveness**:    Arrows and shapes clearly show the sequence of actions.
+  - **Universality**:    Can be used to represent various types of algorithms, regardless of the programming language.
 - Disadvantages:
   - **Complexity**:    For large and complex algorithms, the diagram can become unreadable.
   - **Time-consuming**:    Creating a detailed flowchart can be time-consuming.
-  - **Limitations in expressing certain concepts**:
-
-It's not always easy to represent more abstract concepts in a flowchart.
+  - **Limitations in expressing certain concepts**: It's not always easy to represent more abstract concepts in a flowchart.
 
 ---
 
-## Advantages and Disadvantages of Bullet point description of Algorithm Representation
+# Advantages and Disadvantages of Bullet point description of Algorithm Representation
 
 - Advantages:
   - **Simplicity**:    Easy to understand, even for beginners.
   - **Flexibility**:    Natural language can be used, allowing for more detailed explanations.
-  - **Focus on the idea**:    Allows you to focus on the main idea of the algorithm,
-
-rather than implementation details.
-
+  - **Focus on the idea**:    Allows you to focus on the main idea of the algorithm, rather than implementation details.
 - Disadvantages:
   - **Lack of formality**:     Not as precise as pseudocode or a flowchart.
   - **Potential ambiguity**:    Interpretation of individual points may vary depending on the reader.
-  - **Limitations for complex algorithms**:
-
-For more complex algorithms, a bullet point list may be insufficient.
+  - **Limitations for complex algorithms**: For more complex algorithms, a bullet point list may be insufficient.
 
 ![w:146px Picture 4](assets/image4.png)
 
 ---
 
-## Advantages and Disadvantages of Pseudocode of Algorithm Representation
+# Advantages and Disadvantages of Pseudocode of Algorithm Representation
 
 - Advantages:
-  - **Intermediate between natural language and programming language**:
-
-Easier to understand than pure code, but more formal than a bullet point description.
-
-- **Precision**:     Allows for a precise description of the algorithm's steps.
-- **Programming language independence**:
-
-Can be easily\* translated into any programming language.
-
-Disadvantages:
-
-- **Less intuitive than a flowchart**:
-
-Requires more effort to understand the algorithm's logic.
-
-- **Possibility of errors**:
-
-If the pseudocode is not written carefully, it may contain inaccuracies.
+  - **Intermediate between natural language and programming language**: Easier to understand than pure code, but more formal than a bullet point description.
+  - **Precision**:     Allows for a precise description of the algorithm's steps.
+  - **Programming language independence**: Can be easily\* translated into any programming language.
+- Disadvantages:
+  - **Less intuitive than a flowchart**: Requires more effort to understand the algorithm's logic.
+  - **Possibility of errors**: If the pseudocode is not written carefully, it may contain inaccuracies.
 
 ---
 
-## Bubble
-
-- sort
+# Bubble sort
 
 ---
 
-## Bubble sort
+# Bubble sort
 
 Bubble sort is a simple sorting algorithm that works by repeatedly stepping through the list, comparing adjacent elements, and swapping them if they're in the wrong order. The algorithm gets its name because smaller or larger elements "bubble" up to their correct position in the list with each pass. It's an easy-to-understand algorithm, often taught as an introductory example in computer science.
 
 ---
 
-## Bubble sort
+# Bubble sort
 
 **Bullet Point Description (Simply Bubble Sort)**
 
@@ -362,13 +334,11 @@ Bubble sort is a simple sorting algorithm that works by repeatedly stepping thro
     - Set swapped = true to indicate that a change was made.
 - The process continues until a full pass occurs with no swaps (array is sorted).
 
-![w:433px A diagram of a diagram
-
-AI-generated content may be incorrect.](assets/image6.png)
+![w:433px A diagram of a diagram AI-generated content may be incorrect.](assets/image6.png)
 
 ---
 
-## Bubble sort
+# Bubble sort
 
 **Bullet Point Description (Simply Bubble Sort)**
 
@@ -382,20 +352,18 @@ AI-generated content may be incorrect.](assets/image6.png)
     - Set swapped = true to indicate that a change was made.
 - The process continues until a full pass occurs with no swaps (array is sorted).
 
-![w:387px A diagram of a diagram
-
-AI-generated content may be incorrect.](assets/image6.png)
+![w:387px A diagram of a diagram AI-generated content may be incorrect.](assets/image6.png)
 
 ---
 
-## Bubble sort - Strengths and Weaknesses
+# Bubble sort - Strengths and Weaknesses
 
 - Bubble sort's main strength is its **simplicity**. It's easy to implement and understand. It's also an **in-place algorithm**, meaning it doesn't require extra memory to perform the sort. This makes it efficient in terms of space.
 - However, its weaknesses far outweigh its strengths. The most significant weakness is its poor **performance**. Bubble sort has a worst-case and average-case time complexity of O(n2), which makes it highly inefficient for large datasets. For every element in the list, it has to perform a comparison and a potential swap, which quickly becomes computationally expensive as the number of items grows. The algorithm's inefficiency means it's rarely used in real-world applications where performance is critical. It also performs many unnecessary swaps, making it less efficient than other simple sorting algorithms like insertion sort.
 
 ---
 
-## C
+# C
 
 ```c
 void simplyBubbleSort(int arr[], int n)
@@ -420,7 +388,7 @@ void simplyBubbleSort(int arr[], int n)
 
 ---
 
-## C/C++
+# C/C++
 
 ```c
 void bubbleSort(int arr[], int n)
@@ -449,7 +417,7 @@ void bubbleSort(int arr[], int n)
 
 ---
 
-## C/C++
+# C/C++
 
 ```c
 void bubbleSort(int arr[], int n)
@@ -485,32 +453,34 @@ void swap(int* xPointer, int* yPointer)
 
 ---
 
-## Questions?
+# Questions?
 
 ---
 
-## Thank
+<!-- _class: caption-slide -->
 
-- You
-
----
-
-## Algorithm notation systems
+# Thank You
 
 ---
 
-## Efficiency – an example
+# Algorithm notation systems
+
+---
+
+# Efficiency – an example
 
 <!-- For a concrete example -->
 
 ---
 
-## Efficiency – an example
+# Efficiency – an example
 
 <!-- For a concrete example -->
 
 ---
 
-## Efficiency – an example By using an algorithm whose running time grows more slowly, even with a poor compiler, computer **B** runs more than 17 times faster than computer **A**! The advantage of merge sort is even more pronounced when we sort 100 million numbers: where insertion sort takes more than 23 days, merge sort takes under four hours. In general, as the problem size increases, so does the relative advantage of merge sort.
+# Efficiency – an example
+
+By using an algorithm whose running time grows more slowly, even with a poor compiler, computer **B** runs more than 17 times faster than computer **A**! The advantage of merge sort is even more pronounced when we sort 100 million numbers: where insertion sort takes more than 23 days, merge sort takes under four hours. In general, as the problem size increases, so does the relative advantage of merge sort.
 
 <!-- For a concrete example -->

@@ -13,6 +13,8 @@ title: "CSSI112lec 20"
 
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 20
@@ -25,7 +27,7 @@ title: "CSSI112lec 20"
 
 ---
 
-## Outline
+# Outline
 
 - Review
 - Standard C Library Overview
@@ -38,7 +40,9 @@ title: "CSSI112lec 20"
 
 ---
 
-## 1. Character Classification and Conversion (&lt;ctype.h&gt;) Used for testing and converting characters.
+# 1. Character Classification and Conversion (&lt;ctype.h&gt;)
+
+Used for testing and converting characters.
 
 |Function|Description|Example|
 |---|---|---|
@@ -56,7 +60,9 @@ title: "CSSI112lec 20"
 
 ---
 
-## 2. String Handling (&lt;string.h&gt;) Used for manipulating null-terminated character arrays.
+# 2. String Handling (&lt;string.h&gt;)
+
+Used for manipulating null-terminated character arrays.
 
 |Function|Description|Example|
 |---|---|---|
@@ -73,7 +79,9 @@ title: "CSSI112lec 20"
 
 ---
 
-## 3. Memory Handling (&lt;string.h&gt;) Used for working with raw memory blocks.
+# 3. Memory Handling (&lt;string.h&gt;)
+
+Used for working with raw memory blocks.
 
 |Function|Description|Example|
 |---|---|---|
@@ -85,7 +93,9 @@ title: "CSSI112lec 20"
 
 ---
 
-## 4. Input / Output Functions (&lt;stdio.h&gt;) Work with files and streams.
+# 4. Input / Output Functions (&lt;stdio.h&gt;)
+
+Work with files and streams.
 
 |Function|Description|Example|
 |---|---|---|
@@ -109,7 +119,7 @@ title: "CSSI112lec 20"
 
 ---
 
-## Standard C Library Overview
+# Standard C Library Overview
 
 - Character Classification and Conversion (&lt;ctype.h&gt;)
 - String Handling (&lt;string.h&gt;)
@@ -128,7 +138,9 @@ title: "CSSI112lec 20"
 
 ---
 
-## 5. Conversion Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
+# 5. Conversion Functions (&lt;stdlib.h&gt;)
+
+Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -145,7 +157,7 @@ title: "CSSI112lec 20"
 
 ---
 
-## atoi() – Convert string to int
+# atoi() – Convert string to int
 
 - **Use case:** Reading an integer from user input or command-line argument.
 
@@ -167,20 +179,19 @@ int main()
 
 - atoi(char\*)
 
-```c
+```text
 Header: <stdlib.h>
 ```
 
-```c
+**Result:**
+
+```text
 You entered age: 42
-
 ```
-
-- Result:
 
 ---
 
-## atol() – Convert string to long
+# atol() – Convert string to long
 
 - **Use case:** Converting numeric strings representing file sizes or IDs that may exceed int range.
 
@@ -201,20 +212,19 @@ int main()
 
 - atol(char\*)
 
-```c
+```text
 Header: <stdlib.h>
 ```
 
-```c
+**Result:**
+
+```text
 File size: 1048576 bytes
-
 ```
-
-- Result:
 
 ---
 
-## atof() – Convert string to double
+# atof() – Convert string to double
 
 - **Use case:** Reading floating-point values such as temperature, weight, or price from text.
 
@@ -235,20 +245,19 @@ int main()
 
 - atof(char\*)
 
-```c
+```text
 Header: <stdlib.h>
 ```
 
-```c
+**Result:**
+
+```text
 Body temperature: 36.6°C
-
 ```
-
-- Result:
 
 ---
 
-## strtol() – Convert string to long (with base and error checking)
+# strtol() – Convert string to long (with base and error checking)
 
 - **Use case:** Converting hexadecimal, octal, or binary strings into numbers, with validation.
 
@@ -271,19 +280,19 @@ int main()
 
 - strtol(char\*)
 
-```c
+```text
 Header: <stdlib.h>
 ```
 
-```c
+**Result:**
+
+```text
 Hex 1A3F = 6719 in decimal
 ```
 
-- Result:
-
 ---
 
-## strtoul() – Convert string to unsigned long
+# strtoul() – Convert string to unsigned long
 
 - **Use case:** Safely parsing large positive numbers such as IDs or counters.
 
@@ -306,19 +315,19 @@ int main()
 
 - strtoul(char\*)
 
-```c
+```text
 Header: <stdlib.h>
 ```
 
-```c
+**Result:**
+
+```text
 Parsed ID: 4294967295
 ```
 
-- Result:
-
 ---
 
-## strtod() – Convert string to double (with error checking)
+# strtod() – Convert string to double (with error checking)
 
 - **Use case:** Parsing decimal values that may contain additional characters (like currency symbols or units).
 
@@ -341,20 +350,20 @@ char price_str[] = "199.99USD";
 
 - strtod(char\*)
 
-```c
+```text
 Header: <stdlib.h>
 ```
 
-```c
+**Result:**
+
+```text
 Price: $199.99
 Remaining text: USD
 ```
 
-- Result:
-
 ---
 
-## Summary
+# Summary
 
 |Function|Converts To|Error Checking|Supports Base|Common Use|
 |---|---|---|---|---|
@@ -371,7 +380,9 @@ Remaining text: USD
 
 ---
 
-## 6. Math Functions (&lt;math.h&gt;) Convert strings to numbers.
+# 6. Math Functions (&lt;math.h&gt;)
+
+Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -387,7 +398,7 @@ Remaining text: USD
 
 ---
 
-## abs() – Absolute value (for int)
+# abs() – Absolute value (for int)
 
 - Used to display a difference that should always be positive (e.g., temperature, distance, or balance).
 
@@ -405,19 +416,19 @@ int main()
 
 - abs(int)
 
-```c
+```text
 Header: <math.h>
 ```
 
-```c
+**Result:**
+
+```text
 The absolute temperature difference is 7°C
 ```
 
-- Result:
-
 ---
 
-## labs() – Absolute value for long integers
+# labs() – Absolute value for long integers
 
 - Useful for large integer calculations, such as bank transactions or file sizes.
 
@@ -435,20 +446,19 @@ int main()
 
 - labs(long int)
 
-```c
+```text
 Header: <math.h>
 ```
 
-```c
+**Result:**
+
+```text
 Account adjusted by 150000 units.
-
 ```
-
-- Result:
 
 ---
 
-## sqrt() – Square root
+# sqrt() – Square root
 
 - Used to compute geometric values or perform normalization in vector calculations.
 
@@ -467,20 +477,19 @@ int main()
 
 - sqrt(double)
 
-```c
+```text
 Header: <math.h>
 ```
 
-```c
+**Result:**
+
+```text
 Square side length: 7.00
-
 ```
-
-- Result:
 
 ---
 
-## pow() – Exponentiation (a^b)
+# pow() – Exponentiation (a^b)
 
 - Useful for financial growth models, compound interest, or physics formulas.
 
@@ -503,20 +512,19 @@ int main()
 
 - pow(double, double)
 
-```c
+```text
 Header: <math.h>
 ```
 
-```c
+**Result:**
+
+```text
 Future value after 3 years: $1157.63
-
 ```
-
-- Result:
 
 ---
 
-## sin(), cos() – Trigonometric functions
+# sin(), cos() – Trigonometric functions
 
 - Used in graphics, physics simulations, and robotics for motion calculations.
 
@@ -534,20 +542,19 @@ int main()
 
 - sin/cos(double)
 
-```c
+```text
 Header: <math.h>
 ```
 
-```c
+**Result:**
+
+```text
 sin(30°) = 0.50, cos(30°) = 0.87
-
 ```
-
-- Result:
 
 ---
 
-## ceil(x), floor(x), round(x) – Rounding operations
+# ceil(x), floor(x), round(x) – Rounding operations
 
 - Useful in pricing, measurement rounding, or converting floating-point results to integers.
 
@@ -565,20 +572,19 @@ int main()
 
 - ceil/floor/round(double)
 
-```c
+```text
 Header: <math.h>
 ```
 
-```c
+**Result:**
+
+```text
 Ceil: 13, Floor: 12, Rounded: 12
-
 ```
-
-- Result:
 
 ---
 
-## But! - Integer rounding operations
+# But! - Integer rounding operations
 
 ```c
 #include <stdio.h>
@@ -598,20 +604,19 @@ int main()
 }
 ```
 
-```c
+```text
 Header: <math.h>
 ```
 
-```c
+**Result:**
+
+```text
 Ceil: 4, Floor: 3
-
 ```
-
-- Result:
 
 ---
 
-## fmod() – Floating-point remainder
+# fmod() – Floating-point remainder
 
 - Used to find time or distance remainders that aren’t divisible evenly.
 
@@ -629,20 +634,21 @@ int main()
 
 - fmod(double, double)
 
-```c
+```text
 Header: <math.h>
 ```
 
-```c
+**Result:**
+
+```text
 Remaining hours after full shifts: 1.5
-
 ```
-
-- Result:
 
 ---
 
-## hypot(x, y) – √(x² + y²) “Hypotenuse” - Euclidean Distance Function - Hypotenuse Calculation Function
+<!-- _class: long-title -->
+
+# hypot(x, y) – √(x² + y²) “Hypotenuse” - Euclidean Distance Function - Hypotenuse Calculation Function
 
 - Used in geometry, physics, or computer graphics to calculate distances.
 
@@ -660,16 +666,15 @@ int main()
 
 - hypot(double, double)
 
-```c
+```text
 Header: <math.h>
 ```
 
-```c
+**Result:**
+
+```text
 Distance from origin: 5.00
-
 ```
-
-- Result:
 
 ---
 
@@ -680,7 +685,9 @@ Distance from origin: 5.00
 
 ---
 
-## 7. Utility Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
+# 7. Utility Functions (&lt;stdlib.h&gt;)
+
+Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -696,7 +703,9 @@ Distance from origin: 5.00
 
 ---
 
-## 8. Diagnostics and Assertions (&lt;assert.h&gt;) Useful for debugging and safety.
+# 8. Diagnostics and Assertions (&lt;assert.h&gt;)
+
+Useful for debugging and safety.
 
 |Function / Macro|Description|Example|
 |---|---|---|
@@ -705,7 +714,9 @@ Distance from origin: 5.00
 
 ---
 
-## 9. Time and Date Functions (&lt;time.h&gt;) Work with clocks and timestamps.
+# 9. Time and Date Functions (&lt;time.h&gt;)
+
+Work with clocks and timestamps.
 
 |Function|Description|Example|
 |---|---|---|
@@ -720,7 +731,9 @@ Distance from origin: 5.00
 
 ---
 
-## 10. Variable Argument Lists (&lt;stdarg.h&gt;) For functions that accept a variable number of parameters.
+# 10. Variable Argument Lists (&lt;stdarg.h&gt;)
+
+For functions that accept a variable number of parameters.
 
 |Macro|Description|Example|
 |---|---|---|
@@ -730,7 +743,9 @@ Distance from origin: 5.00
 
 ---
 
-## 1. Character Classification and Conversion (&lt;ctype.h&gt;) Used for testing and converting characters.
+# 1. Character Classification and Conversion (&lt;ctype.h&gt;)
+
+Used for testing and converting characters.
 
 |Function|Description|Example|
 |---|---|---|
@@ -748,7 +763,9 @@ Distance from origin: 5.00
 
 ---
 
-## Most Common System Libraries in Windows (WinAPI) These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
+# Most Common System Libraries in Windows (WinAPI)
+
+These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
 
 |Library|Description|Typical Functions|
 |---|---|---|
@@ -765,13 +782,13 @@ Distance from origin: 5.00
 
 ---
 
-## Historia C
+# Historia C
 
 - ?
 
 ---
 
-## Syllabus - Textbooks
+# Syllabus - Textbooks
 
 - Brian W. Kernighan, Dennis M. Ritchie. C Programming Language, 2nd Edition. Prentice Hall, 1988
 - Seacord, R. C. (2024). Effective C: An Introduction to Professional C Programming. No Starch Press, Inc. (Optional)

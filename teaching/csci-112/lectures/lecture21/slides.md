@@ -13,6 +13,8 @@ title: "CSSI112lec 21"
 
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 21
@@ -25,7 +27,7 @@ title: "CSSI112lec 21"
 
 ---
 
-## Outline
+# Outline
 
 - Review
 - Standard C Library Overview
@@ -39,7 +41,9 @@ title: "CSSI112lec 21"
 
 ---
 
-## 1. Character Classification and Conversion (&lt;ctype.h&gt;) Used for testing and converting characters.
+# 1. Character Classification and Conversion (&lt;ctype.h&gt;)
+
+Used for testing and converting characters.
 
 |Function|Description|Example|
 |---|---|---|
@@ -57,7 +61,9 @@ title: "CSSI112lec 21"
 
 ---
 
-## 2. String Handling (&lt;string.h&gt;) Used for manipulating null-terminated character arrays.
+# 2. String Handling (&lt;string.h&gt;)
+
+Used for manipulating null-terminated character arrays.
 
 |Function|Description|Example|
 |---|---|---|
@@ -74,7 +80,9 @@ title: "CSSI112lec 21"
 
 ---
 
-## 3. Memory Handling (&lt;string.h&gt;) Used for working with raw memory blocks.
+# 3. Memory Handling (&lt;string.h&gt;)
+
+Used for working with raw memory blocks.
 
 |Function|Description|Example|
 |---|---|---|
@@ -86,7 +94,9 @@ title: "CSSI112lec 21"
 
 ---
 
-## 4. Input / Output Functions (&lt;stdio.h&gt;) Work with files and streams.
+# 4. Input / Output Functions (&lt;stdio.h&gt;)
+
+Work with files and streams.
 
 |Function|Description|Example|
 |---|---|---|
@@ -110,7 +120,9 @@ title: "CSSI112lec 21"
 
 ---
 
-## 5. Conversion Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
+# 5. Conversion Functions (&lt;stdlib.h&gt;)
+
+Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -123,7 +135,9 @@ title: "CSSI112lec 21"
 
 ---
 
-## 6. Math Functions (&lt;math.h&gt;) Convert strings to numbers.
+# 6. Math Functions (&lt;math.h&gt;)
+
+Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -139,7 +153,7 @@ title: "CSSI112lec 21"
 
 ---
 
-## Standard C Library Overview
+# Standard C Library Overview
 
 - Character Classification and Conversion (&lt;ctype.h&gt;)
 - String Handling (&lt;string.h&gt;)
@@ -162,7 +176,9 @@ title: "CSSI112lec 21"
 
 ---
 
-## 7. Utility Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
+# 7. Utility Functions (&lt;stdlib.h&gt;)
+
+Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -177,7 +193,7 @@ title: "CSSI112lec 21"
 
 ---
 
-## rand() – Returns a pseudo-random integer in the range 0 … RAND\_MAX (0x7FFF - 32767)
+# rand() – Returns a pseudo-random integer in the range 0 … RAND\_MAX (0x7FFF - 32767)
 
 - The sequence is the same each program run unless seeded with srand()!
 
@@ -195,34 +211,31 @@ int main()
 
 - rand()
 
-```c
+```text
 Header: <stdlib.h>
 ```
 
-```c
-5
+**Result:**
 
+```text
+5
 ```
 
-- Result:
+**Result:**
 
-```c
+```text
 5
-
 ```
 
-- Result:
+**Result:**
 
-```c
+```text
 5
-
 ```
-
-- Result:
 
 ---
 
-## But…
+# But…
 
 - The rand() function returns a number in the range of 0 to RAND\_MAX (which is typically 32767). To achieve a desired, custom range, you can use the modulo operator (%) trick.
 
@@ -240,20 +253,19 @@ int main()
 }
 ```
 
-```c
+```text
 Header: <stdlib.h>
 ```
 
-```c
+**Result:**
+
+```text
 5
-
 ```
-
-- Result:
 
 ---
 
-## srand(unsigned int seed) – Sets the starting point (seed) for the pseudo-random generator
+# srand(unsigned int seed) – Sets the starting point (seed) for the pseudo-random generator
 
 - Use current time to get different results each run.
 
@@ -274,34 +286,31 @@ int main()
 
 - srand(time(NULL));
 
-```c
+```text
 Header: < stdlib.h>
 ```
 
-```c
+**Result:**
+
+```text
 2
-
 ```
 
-- Result:
+**Result:**
 
-```c
+```text
 4
-
 ```
 
-- Result:
+**Result:**
 
-```c
+```text
 3
-
 ```
-
-- Result:
 
 ---
 
-## abort() – Immediately terminates the program with an abnormal termination signal
+# abort() – Immediately terminates the program with an abnormal termination signal
 
 - Does **not** call cleanup handlers, destructors, or flush buffers.
 
@@ -322,13 +331,13 @@ int main()
 
 - abort()
 
-```c
+```text
 Header: < stdlib.h>
 ```
 
 ---
 
-## exit() – Stops the program normally
+# exit() – Stops the program normally
 
 - **Calls** all cleanup functions registered with atexit() and flushes stdio buffers.
 
@@ -344,13 +353,15 @@ int main()
 
 - exit(int)
 
-```c
+```text
 Header: < stdlib.h>
 ```
 
 ---
 
-## atexit() – Registers a function to be called automatically when the program exits (via return or exit() — but NOT abort()).
+<!-- _class: long-title -->
+
+# atexit() – Registers a function to be called automatically when the program exits (via return or exit() — but NOT abort()).
 
 ```c
 #include <stdio.h>
@@ -382,7 +393,7 @@ void freeBuffer()
 
 - \*atexit(void (func)(void))
 
-```c
+```text
 Header: < stdlib.h>
 ```
 
@@ -418,13 +429,13 @@ int main()
 }
 ```
 
-```c
+**program.log:**
+
+```text
 [INFO] Program started.
 [CLEANUP] Closing log file.
-
 ```
 
-- program.log:
 - In this program we show how the atexit() function works. It allows us to register functions that will be called automatically when the program ends. This is useful because we don’t have to remember to manually close files or free memory — the program will do it for us when it finishes.
 
 In the example, we register three cleanup functions: one that closes a file, one that frees memory, and one that prints a final message. An important detail is that functions registered with atexit() are executed in reverse order: the last one you register will run first.
@@ -433,7 +444,7 @@ During the program’s execution, we open a file and allocate memory. Even if so
 
 ---
 
-## system(const char command) – Executes a shell command as if typed in the terminal/console
+# system(const char command) – Executes a shell command as if typed in the terminal/console
 
 - **Platform-dependent**, potentially unsafe. Use only for learning.
 
@@ -452,16 +463,21 @@ int main()
 
 - system(\*char)
 
-```c
+```text
 Header: < stdlib.h>
 ```
 
-- &lt;&lt;NONE&gt;&gt;
-- Result:
+**Result:**
+
+```text
+<<NONE>>
+```
 
 ---
 
-## bsearch() – Binary search on a sorted array.<br>Returns pointer to the found element or NULL if not found
+<!-- _class: long-title -->
+
+# bsearch() – Binary search on a sorted array.<br>Returns pointer to the found element or NULL if not found
 
 - Binary search works by requiring the array to be **sorted**. Instead of checking every element one by one to determine whether a value appears in the array, we repeatedly **divide the search interval in half**. If the target value is smaller than the middle element, we continue searching in the left half; if it is larger, we search in the right half. This approach dramatically increases efficiency, especially when working with very large datasets.
 - The built-in functions **bsearch()** and **qsort()** rely on **comparator functions**. A comparator is a user-provided function that defines how two elements should be compared. Since these library functions only receive raw pointers to memory, they do not know the actual type of the elements. Therefore, the last parameter of both functions is a pointer to a comparator function that tells them how to compare two values correctly.
@@ -499,19 +515,23 @@ int main()
 
 - bsearch(\*void, \*void, int, int, (\*function))
 
-```c
+```text
 Header: < stdlib.h>
 ```
 
-```c
+**Result:**
+
+```text
 Found 7 at index 4.
 ```
 
-- Result:
-
 ---
 
-## bsearch() – Binary search on a sorted array.<br>Returns pointer to the found element or NULL if not found In the C language, there are **no built-in comparator functions**. For this reason, you will very often see comparator functions written in a short, generic form—just like in the example. This simplified version works for general types because it receives two const void\* pointers, casts them to the correct type, and then compares the values manually.
+<!-- _class: long-title -->
+
+# bsearch() – Binary search on a sorted array.<br>Returns pointer to the found element or NULL if not found
+
+In the C language, there are **no built-in comparator functions**. For this reason, you will very often see comparator functions written in a short, generic form—just like in the example. This simplified version works for general types because it receives two const void\* pointers, casts them to the correct type, and then compares the values manually.
 
 ```c
 int cmpIntAsc(const void* a, const void* b)
@@ -536,13 +556,15 @@ int cmpFloat(const void* a, const void* b)
 
 - But…
 
-```c
+```text
 Header: < stdlib.h>
 ```
 
 ---
 
-## qsort() – General-purpose quicksort provided by the standard library.<br>Sorts any array given element size and comparator
+<!-- _class: long-title -->
+
+# qsort() – General-purpose quicksort provided by the standard library.<br>Sorts any array given element size and comparator
 
 - **Quicksort** is one of the fastest and most widely used sorting algorithms. It performs significantly better than simpler methods such as insertion sort or bubble sort, especially on large datasets. When using C’s built-in qsort function, you do not need to know the internal implementation of quicksort — you only need to provide a correct comparator function and call qsort with the proper arguments.
 - The built-in functions **bsearch()** and **qsort()** rely on **comparator functions**. A comparator is a user-provided function that defines how two elements should be compared. Since these library functions only receive raw pointers to memory, they do not know the actual type of the elements. Therefore, the last parameter of both functions is a pointer to a comparator function that tells them how to compare two values correctly.
@@ -580,11 +602,13 @@ int main()
 
 - qsort(\*void, int, int, (\*function))
 
-```c
+```text
 Header: < stdlib.h>
 ```
 
-```c
+**Result:**
+
+```text
 Original array:
 42 7 13 99 5 18 2
 
@@ -592,15 +616,15 @@ Sorted array:
 2 5 7 13 18 42 99
 ```
 
-- Result:
-
 ---
 
 # Diagnostics and Assertions
 
 ---
 
-## 8. Diagnostics and Assertions (&lt;assert.h&gt;) Useful for debugging and safety.
+# 8. Diagnostics and Assertions (&lt;assert.h&gt;)
+
+Useful for debugging and safety.
 
 |Function / Macro|Description|Example|
 |---|---|---|
@@ -609,7 +633,7 @@ Sorted array:
 
 ---
 
-## assert() – tops the program immediately if the given expression evaluates to false
+# assert() – tops the program immediately if the given expression evaluates to false
 
 - It is mainly used for debugging to verify assumptions that *must* be true at runtime.
 - It's crucial to remember that the **assert() macro does not call exit()** upon failure.
@@ -629,13 +653,15 @@ void process(int *ptr)
 
 - assert(expr)
 
-```c
+```text
 Header: <assert.h>
 ```
 
 ---
 
-## \_\_FILE\_\_ and \_\_LINE\_\_ - These are built-in preprocessor macros that expand to the current source file name and current line number
+<!-- _class: long-title -->
+
+# \_\_FILE\_\_ and \_\_LINE\_\_ - These are built-in preprocessor macros that expand to the current source file name and current line number
 
 - They are extremely useful for debugging, logging, and diagnostic messages.
 
@@ -649,16 +675,15 @@ int main()
 }
 ```
 
-```c
+```text
 Header: <stdio.h>
 ```
 
-```c
+**Result:**
+
+```text
 This message comes from src/main.c at line 4
-
 ```
-
-- Result:
 
 ---
 
@@ -669,7 +694,9 @@ This message comes from src/main.c at line 4
 
 ---
 
-## 9. Time and Date Functions (&lt;time.h&gt;) Work with clocks and timestamps.
+# 9. Time and Date Functions (&lt;time.h&gt;)
+
+Work with clocks and timestamps.
 
 |Function|Description|Example|
 |---|---|---|
@@ -684,7 +711,9 @@ This message comes from src/main.c at line 4
 
 ---
 
-## 10. Variable Argument Lists (&lt;stdarg.h&gt;) For functions that accept a variable number of parameters.
+# 10. Variable Argument Lists (&lt;stdarg.h&gt;)
+
+For functions that accept a variable number of parameters.
 
 |Macro|Description|Example|
 |---|---|---|
@@ -694,7 +723,9 @@ This message comes from src/main.c at line 4
 
 ---
 
-## Most Common System Libraries in Windows (WinAPI) These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
+# Most Common System Libraries in Windows (WinAPI)
+
+These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
 
 |Library|Description|Typical Functions|
 |---|---|---|

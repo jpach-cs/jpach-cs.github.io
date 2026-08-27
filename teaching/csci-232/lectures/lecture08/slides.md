@@ -5,13 +5,14 @@ paginate: true
 title: "Data Structures & Algorithms"
 ---
 
+<!-- _class: lead -->
+
 # Data Structures &amp; Algorithms
 
-*Lecture 8*
-
+## Lecture 8
 ---
 
-## In 136, we covered
+# In 136, we covered
 
 - Objects and classes, Abstract Data Types – lots of coverage.  I required class and header files in most assignments
 - Time and Space complexity – a discussion was included in each exercise.  Good coverage of constant time, linear, n2, n3, with loops and nested loops.  Didn’t do any of the math.
@@ -27,18 +28,18 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 - Doubly Linked Lists
 - Insertion sort
 
 ---
 
-## Doubly Linked Lists
+# Doubly Linked Lists
 
 ---
 
-## Introduction to Doubly Linked Lists
+# Introduction to Doubly Linked Lists
 
 A **Doubly Linked List (DLL)** is a linear data structure where each element (node) contains three fields:
 
@@ -50,7 +51,7 @@ Unlike a **Singly Linked List**, which can only be traversed forward, the DLL al
 
 ---
 
-## Key Advantages of the Doubly Linked List
+# Key Advantages of the Doubly Linked List
 
 The addition of the PrevPtr dramatically increases the flexibility and efficiency of certain operations:
 
@@ -62,7 +63,7 @@ The addition of the PrevPtr dramatically increases the flexibility and efficienc
 
 ---
 
-## DLL as LIFO (Stack) and FIFO (Queue)
+# DLL as LIFO (Stack) and FIFO (Queue)
 
 The DLL's ability to efficiently handle insertions at both the head and the tail makes it a perfect foundation for implementing the two primary abstract data types:
 
@@ -75,7 +76,7 @@ This dual efficiency **drastically streamlines the implementation of various dat
 
 ---
 
-## The Trade-Off: Increased Memory Consumption
+# The Trade-Off: Increased Memory Consumption
 
 The primary drawback of the Doubly Linked List is its memory overhead:
 
@@ -88,13 +89,11 @@ The primary drawback of the Doubly Linked List is its memory overhead:
 
 ---
 
-## Insertion
-
-- sort
+# Insertion sort
 
 ---
 
-## Insertion sort
+# Insertion sort
 
 Insertion Sort is a simple, stable sorting algorithm that builds the final sorted array (or list) one item at a time. It is highly intuitive and often compared to how a person might sort a hand of playing cards.
 
@@ -107,7 +106,7 @@ The Mechanism:
 
 ---
 
-## Insertion sort
+# Insertion sort
 
 ```c
 void insertionSort(int arr[], int n)
@@ -127,7 +126,7 @@ void insertionSort(int arr[], int n)
 }
 ```
 
-```c
+```text
 Algorithm insertionSort (A, n):
 	Input: An array A storing n ≥ 1 integers.
 	for i ← 1 to n - 1 do
@@ -141,7 +140,7 @@ Algorithm insertionSort (A, n):
 
 ---
 
-## Insertion sort - Strengths and Weaknesses
+# Insertion sort - Strengths and Weaknesses
 
 - Poor Scalability: The primary weakness is its O(n^2 ) complexity for large, unsorted lists. This makes it impractical for sorting large volumes of data compared to O(nlogn) algorithms.
 - High Number of Shifts: In the worst case, every insertion requires a large number of shifts to make space for the new element, making it slower than other O(n^2 ) algorithms like Selection Sort (which minimizes swaps).
@@ -151,32 +150,34 @@ Algorithm insertionSort (A, n):
 
 ---
 
-## Questions?
+# Questions?
 
 ---
 
-## Thank
+<!-- _class: caption-slide -->
 
-- You
-
----
-
-## Algorithm notation systems
+# Thank You
 
 ---
 
-## Efficiency – an example
+# Algorithm notation systems
+
+---
+
+# Efficiency – an example
 
 <!-- For a concrete example -->
 
 ---
 
-## Efficiency – an example
+# Efficiency – an example
 
 <!-- For a concrete example -->
 
 ---
 
-## Efficiency – an example By using an algorithm whose running time grows more slowly, even with a poor compiler, computer **B** runs more than 17 times faster than computer **A**! The advantage of merge sort is even more pronounced when we sort 100 million numbers: where insertion sort takes more than 23 days, merge sort takes under four hours. In general, as the problem size increases, so does the relative advantage of merge sort.
+# Efficiency – an example
+
+By using an algorithm whose running time grows more slowly, even with a poor compiler, computer **B** runs more than 17 times faster than computer **A**! The advantage of merge sort is even more pronounced when we sort 100 million numbers: where insertion sort takes more than 23 days, merge sort takes under four hours. In general, as the problem size increases, so does the relative advantage of merge sort.
 
 <!-- For a concrete example -->

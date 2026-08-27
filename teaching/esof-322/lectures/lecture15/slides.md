@@ -5,11 +5,13 @@ paginate: true
 title: "Chapter 3 – Agile Software Development"
 ---
 
+<!-- _class: lead -->
+
 # Chapter 3 – Agile Software Development
 
 ---
 
-## Topics covered
+# Topics covered
 
 - Agile methods
 - Agile development techniques
@@ -18,7 +20,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Rapid software development
+# Rapid software development
 
 - Rapid development and delivery is now often the most important requirement for software systems
   - Businesses operate in a fast –changing requirement and it is practically impossible to produce a set of stable software requirements
@@ -28,7 +30,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Agile development
+# Agile development
 
 - Program specification, design and implementation are inter-leaved
 - The system is developed as a series of versions or increments with stakeholders involved in version specification and evaluation
@@ -38,14 +40,14 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Plan-driven and agile development
+# Plan-driven and agile development
 
 ![w:802px 3.2 PlanBasedAgile.eps](assets/image2.emf)
 <!-- pptx2marp: image2.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## Plan-driven and agile development
+# Plan-driven and agile development
 
 - Plan-driven development
   - A plan-driven approach to software engineering is based around separate development stages with the outputs to be produced at each of these stages planned in advance.
@@ -56,11 +58,11 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Agile methods
+# Agile methods
 
 ---
 
-## Agile methods
+# Agile methods
 
 - Dissatisfaction with the overheads involved in software design methods of the 1980s and 1990s led to the creation of agile methods. These methods:
   - Focus on the code rather than the design
@@ -70,7 +72,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Agile manifesto
+# Agile manifesto
 
 - *We are uncovering better ways of developing  software by doing it and helping others do it.  Through this work we have come to value:*
   - *Individuals and interactions over processes and tools*<br>*Working software over comprehensive documentation* <br>*Customer collaboration over contract negotiation* <br>*Responding to change over following a plan*
@@ -78,19 +80,19 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## The principles of agile methods
+# The principles of agile methods
 
-|**Principle**|**Description**||
-|---|---|---|
-|Customer involvement|Customers should be closely involved throughout the development process. Their role is provide and prioritize new system requirements and to evaluate the iterations of the system.||
-|Incremental delivery|The software is developed in increments with the customer specifying the requirements to be included in each increment.||
-|People not process|The skills of the development team should be recognized and exploited. Team members should be left to develop their own ways of working without prescriptive processes.||
-|Embrace change|Expect the system requirements to change and so design the system to accommodate these changes.||
-|Maintain simplicity|Focus on simplicity in both the software being developed and in the development process. Wherever possible, actively work to eliminate complexity from the system.||
+|**Principle**|**Description**|
+|---|---|
+|Customer involvement|Customers should be closely involved throughout the development process. Their role is provide and prioritize new system requirements and to evaluate the iterations of the system.|
+|Incremental delivery|The software is developed in increments with the customer specifying the requirements to be included in each increment.|
+|People not process|The skills of the development team should be recognized and exploited. Team members should be left to develop their own ways of working without prescriptive processes.|
+|Embrace change|Expect the system requirements to change and so design the system to accommodate these changes.|
+|Maintain simplicity|Focus on simplicity in both the software being developed and in the development process. Wherever possible, actively work to eliminate complexity from the system.|
 
 ---
 
-## Agile method applicability
+# Agile method applicability
 
 - Product development where a software company is developing a small or medium-sized product for sale.
   - Virtually all software products and apps are now developed using an agile approach
@@ -98,11 +100,11 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Agile development techniques
+# Agile development techniques
 
 ---
 
-## Extreme programming
+# Extreme programming
 
 - A very influential agile method, developed in the late 1990s, that introduced a range of agile development techniques.
 - Extreme Programming (XP) takes an ‘extreme’ approach to iterative development.
@@ -112,14 +114,14 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## The extreme programming release cycle
+# The extreme programming release cycle
 
 ![w:918px 3.3-XP-ReleaseCycle.eps](assets/image3.emf)
 <!-- pptx2marp: image3.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## Extreme programming practices (a)
+# Extreme programming practices (a)
 
 |**Principle or practice**|**Description**|
 |---|---|
@@ -131,7 +133,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Extreme programming practices (b)
+# Extreme programming practices (b)
 
 |Pair programming|Developers work in pairs, checking each other’s work and providing the support to always do a good job.|
 |---|---|
@@ -142,7 +144,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## XP and agile principles
+# XP and agile principles
 
 - Incremental development is supported through small, frequent system releases.
 - Customer involvement means full-time customer engagement with the team.
@@ -152,7 +154,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Influential XP practices
+# Influential XP practices
 
 - Extreme programming has a technical focus and is not easy to integrate with management practice in most organizations.
 - Consequently, while agile development uses practices from XP, the method as originally defined is not widely used.
@@ -164,7 +166,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## User stories for requirements
+# User stories for requirements
 
 - In XP, a customer or user is part of the XP team and is responsible for making decisions on requirements.
 - User requirements are expressed as user stories or scenarios.
@@ -173,25 +175,25 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## A ‘prescribing medication’ story
+# A ‘prescribing medication’ story
 
 ![w:835px 3.5 StoryCard.eps](assets/image4.emf)
 <!-- pptx2marp: image4.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## Examples of task cards for prescribing medication
+# Examples of task cards for prescribing medication
 
 ![w:898px 3.6 TaskCards.eps](assets/image5.emf)
 <!-- pptx2marp: image5.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-- Experienced users are often so familiar with their work that they leave things out when describing it.
+Experienced users are often so familiar with their work that they leave things out when describing it.
 
 ---
 
-## Refactoring
+# Refactoring
 
 - Conventional wisdom in software engineering is to design for change. It is worth spending time and effort anticipating changes as this reduces costs later in the life cycle.
 - XP, however, maintains that this is not worthwhile as changes cannot be reliably anticipated.
@@ -199,7 +201,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Refactoring
+# Refactoring
 
 - Programming team look for possible software improvements and make these improvements even where there is no immediate need for them.
 - This improves the understandability of the software and so reduces the need for documentation.
@@ -208,7 +210,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Examples of refactoring
+# Examples of refactoring
 
 - Re-organization of a class hierarchy to remove duplicate code.
 - Tidying up and renaming attributes and methods to make them easier to understand.
@@ -216,7 +218,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Test-first development
+# Test-first development
 
 - Testing is central to XP and XP has developed an approach where the program is tested after every change has been made.
 - XP testing features:
@@ -227,7 +229,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Test-driven development
+# Test-driven development
 
 - Writing tests before code clarifies the requirements to be implemented.
 - Tests are written as programs rather than data so that they can be executed automatically. The test includes a check that it has executed correctly.
@@ -236,7 +238,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Customer involvement
+# Customer involvement
 
 - The role of the customer in the testing process is to help develop acceptance tests for the stories that are to be implemented in the next release of the system.
 - The customer who is part of the team writes tests as development proceeds. All new code is therefore validated to ensure that it is what the customer needs.
@@ -244,14 +246,14 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Test case description for dose checking
+# Test case description for dose checking
 
 ![w:1041px 3.7 DoseChecking.eps](assets/image6.emf)
 <!-- pptx2marp: image6.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## Test automation
+# Test automation
 
 - Test automation means that tests are written as executable components before the task is implemented
   - These testing components should be stand-alone, should simulate the submission of input to be tested and should check that the result meets the output specification. An automated test framework (e.g. Junit) is a system that makes it easy to write executable tests and submit a set of tests for execution.
@@ -260,7 +262,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Problems with test-first development
+# Problems with test-first development
 
 - Programmers prefer programming to testing and sometimes they take short cuts when writing tests. For example, they may write incomplete tests that do not check for all possible exceptions that may occur.
 - Some tests can be very difficult to write incrementally. For example, in a complex user interface, it is often difficult to write unit tests for the code that implements the ‘display logic’ and workflow between screens.
@@ -268,7 +270,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Pair programming
+# Pair programming
 
 - Pair programming involves programmers working in pairs, developing code together.
 - This helps develop common ownership of code and spreads knowledge across the team.
@@ -277,7 +279,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Pair programming
+# Pair programming
 
 - In pair programming, programmers sit together at the same computer to develop the software.
 - Pairs are created dynamically so that all team members work with each other during the development process.
@@ -286,11 +288,11 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Agile project management
+# Agile project management
 
 ---
 
-## Agile project management
+# Agile project management
 
 - The principal responsibility of software project managers is to manage the project so that the software is delivered on time and within the planned budget for the project.
 - The standard approach to project management is plan-driven. Managers draw up a plan for the project showing what should be delivered, when it should be delivered and who will work on the development of the project deliverables.
@@ -298,7 +300,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Scrum
+# Scrum
 
 - The word Scrum comes from rugby terminology and was adopted into software engineering by the authors of the 1986 article “The New Product Development Game” (Takeuchi and Nonaka).
 - In rugby, a scrum (short for scrummage) refers to a moment when the team forms a tight formation and works together to push the ball forward — symbolizing close collaboration, autonomy, and collective problem-solving.
@@ -308,7 +310,7 @@ title: "Chapter 3 – Agile Software Development"
   - Instead of imposing rigid roles and procedures, it allows the team to decide how best to achieve their goals.
   - Thus, the name “Scrum” was used symbolically to reflect the spirit of collaboration and iterative progress.
 
-![w:361px undefined](assets/image7.jpeg)
+![w:361px](assets/image7.jpeg)
 
 ---
 
@@ -316,7 +318,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Scrum
+# Scrum
 
 - Scrum is an agile method that focuses on managing iterative development rather than specific agile practices.
 - There are three phases in Scrum.
@@ -326,7 +328,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Scrum terminology (a)
+# Scrum terminology (a)
 
 |Scrum term|Definition|
 |---|---|
@@ -337,7 +339,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Scrum terminology (b)
+# Scrum terminology (b)
 
 |Scrum term|Definition|
 |---|---|
@@ -348,14 +350,14 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Scrum sprint cycle
+# Scrum sprint cycle
 
 ![w:1142px 3.9 Scrum sprint cycle.eps](assets/image8.emf)
 <!-- pptx2marp: image8.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## The Scrum sprint cycle
+# The Scrum sprint cycle
 
 - Sprints are fixed length, normally 2–4 weeks.
 - The starting point for planning is the product backlog, which is the list of work to be done on the project.
@@ -363,7 +365,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## The Sprint cycle
+# The Sprint cycle
 
 - Once these are agreed, the team organize themselves to develop the software.
 - During this stage the team is isolated from the customer and the organization, with all communications channelled through the so-called ‘Scrum master’.
@@ -372,7 +374,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Teamwork in Scrum
+# Teamwork in Scrum
 
 - The ‘Scrum master’ is a facilitator who arranges daily meetings, tracks the backlog of work to be done, records decisions, measures progress against the backlog and communicates with customers and management outside of the team.
 - The whole team attends short daily meetings (Scrums) where all team members share information, describe their progress since the last meeting, problems that have arisen and what is planned for the following day.
@@ -380,7 +382,7 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Scrum benefits
+# Scrum benefits
 
 - The product is broken down into a set of manageable and understandable chunks.
 - Unstable requirements do not hold up progress.
@@ -390,14 +392,14 @@ title: "Chapter 3 – Agile Software Development"
 
 ---
 
-## Distributed Scrum
+# Distributed Scrum
 
 ![w:1074px 3.10 Distributed Scrum.eps](assets/image9.emf)
 <!-- pptx2marp: image9.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## Scaling agile methods
+# Scaling agile methods
 
 ---
 
@@ -410,7 +412,7 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-## Scaling agile methods
+# Scaling agile methods
 
 - Agile methods have proved to be successful for small and medium sized projects that can be developed by a small co-located team.
 - It is sometimes argued that the success of these methods comes because of improved communications which is possible when everyone is working together.
@@ -418,7 +420,7 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-## Scaling out and scaling up
+# Scaling out and scaling up
 
 - ‘Scaling up’ is concerned with using agile methods for developing large software systems that cannot be developed by a small team.
 - ‘Scaling out’ is concerned with how agile methods can be introduced across a large organization with many years of software development experience.
@@ -427,7 +429,7 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-## Practical problems with agile methods
+# Practical problems with agile methods
 
 - The informality of agile development is incompatible with the legal approach to contract definition that is commonly used in large companies.
 - Agile methods are most appropriate for new software development rather than software maintenance. Yet the majority of software costs in large companies come from maintaining their existing software systems.
@@ -435,7 +437,7 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-## Contractual issues
+# Contractual issues
 
 - Most software contracts for custom systems are based around a specification, which sets out what has to be implemented by the system developer for the system customer.
 - However, this precludes interleaving specification and development as is the norm in agile development.
@@ -444,7 +446,7 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-## Agile methods and software maintenance
+# Agile methods and software maintenance
 
 - Most organizations spend more on maintaining existing software than they do on new software development. So, if agile methods are to be successful, they have to support maintenance as well as original development.
 - Two key issues:
@@ -454,7 +456,7 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-## Agile maintenance
+# Agile maintenance
 
 - Key problems are:
   - Lack of product documentation
@@ -465,7 +467,7 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-## Agile and plan-driven methods
+# Agile and plan-driven methods
 
 - Most projects include elements of plan-driven and agile processes. Deciding on the balance depends on:
   - Is it important to have a very detailed specification and design before moving to implementation? If so, you probably need to use a plan-driven approach.
@@ -474,7 +476,7 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-## Agile principles and organizational practice
+# Agile principles and organizational practice
 
 |Principle|Practice|
 |---|---|
@@ -484,7 +486,7 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-## Agile principles and organizational practice
+# Agile principles and organizational practice
 
 |Principle|Practice|
 |---|---|
@@ -493,14 +495,14 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-## Agile and plan-based factors
+# Agile and plan-based factors
 
 ![w:1186px 3.12 Agile-plan-based-factors.eps](assets/image10.emf)
 <!-- pptx2marp: image10.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## System issues
+# System issues
 
 - How large is the system being developed?
   - Agile methods are most effective a relatively small co-located team who can communicate informally.
@@ -513,7 +515,7 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-## People and teams
+# People and teams
 
 - How good are the designers and programmers in the development team?
   - It is sometimes argued that agile methods require higher skill levels than plan-based approaches in which programmers simply translate a detailed design into code.
@@ -524,7 +526,7 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-## Organizational issues
+# Organizational issues
 
 - Traditional engineering organizations have a culture of plan-based development, as this is the norm in engineering.
 - Is it standard organizational practice to develop a detailed system specification?
@@ -533,7 +535,7 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-## Agile methods for large systems
+# Agile methods for large systems
 
 - Large systems are usually collections of separate, communicating systems, where separate teams develop each system. Frequently, these teams are working in different places, sometimes in different time zones.
 - Large systems are ‘brownfield systems’, that is they include and interact with a number of existing systems. Many of the system requirements are concerned with this interaction and so don’t really lend themselves to flexibility and incremental development.
@@ -541,7 +543,7 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-## Large system development
+# Large system development
 
 - Large systems and their development processes are often constrained by external rules and regulations limiting the way that they can be developed.
 - Large systems have a long procurement and development time. It is difficult to maintain coherent teams who know about the system over that period as, inevitably, people move on to other jobs and projects.
@@ -549,21 +551,21 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-## Factors in large systems
+# Factors in large systems
 
 ![w:1001px 3.13 Factors in large systems.eps](assets/image11.emf)
 <!-- pptx2marp: image11.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## IBM’s agility at scale model
+# IBM’s agility at scale model
 
 ![w:1014px 3.14 IBM's agility at scale model.eps](assets/image12.emf)
 <!-- pptx2marp: image12.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## Scaling up to large systems
+# Scaling up to large systems
 
 - A completely incremental approach to requirements engineering is impossible.
 - There cannot be a single product owner or customer representative.
@@ -573,7 +575,7 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-## Multi-team Scrum
+# Multi-team Scrum
 
 - *Role replication*
   - Each team has a Product Owner for their work component and ScrumMaster.
@@ -586,7 +588,7 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-## Agile methods across organizations
+# Agile methods across organizations
 
 - Project managers who do not have experience of agile methods may be reluctant to accept the risk of a new approach.
 - Large organizations often have quality procedures and standards that all projects are expected to follow and, because of their bureaucratic nature, these are likely to be incompatible with agile methods.
@@ -595,7 +597,7 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-## Key points
+# Key points
 
 - Agile methods are incremental development methods that focus on rapid software development, frequent releases of the software, reducing process overheads by minimizing documentation and producing high-quality code.
 - Agile development practices include
@@ -611,7 +613,7 @@ Of course, the need for faster delivery of software, which is more suited to cus
 
 ---
 
-## Key points
+# Key points
 
 - Scrum is an agile method that provides a project management framework.
   - It is centred round a set of sprints, which are fixed time periods when a system increment is developed.

@@ -5,13 +5,15 @@ paginate: true
 title: "Software Engineering"
 ---
 
+<!-- _class: lead -->
+
 # Software Engineering
 
-*Lecture 7*
+## Lecture 7
 
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 Git
 
@@ -21,9 +23,9 @@ Git
 
 ---
 
-## Gitlens?
+# Gitlens?
 
-- extension
+extension
 
 ---
 
@@ -34,7 +36,7 @@ Git
 
 ---
 
-## Git Rebase vs. Merge
+# Git Rebase vs. Merge
 
 **Merge**
 
@@ -47,13 +49,13 @@ Git
 - A merge creates a **merge commit** that keeps both branch histories visible.
 - Useful when you want a **complete history** of how branches diverged and then rejoined.
 
-```
+```text
 A---B---C---D  (main)
          \
           E---F (feature)
 ```
 
-```
+```text
 A---B---C---D---M  (main)
          \     /
           E---F
@@ -61,7 +63,7 @@ A---B---C---D---M  (main)
 
 ---
 
-## Git Rebase vs. Merge
+# Git Rebase vs. Merge
 
 **Rebase**
 
@@ -74,20 +76,19 @@ A---B---C---D---M  (main)
   - Commits from feature-branch are “replayed” on top of main.
 - Rebase creates a **linear history**, making it look like work happened in sequence.
 
-```
+```text
 A---B---C---D  (main)
          \
           E---F (feature)
 ```
 
-```
+```text
 A---B---C---D---E'---F'  (feature)
-
 ```
 
 ---
 
-## Git Rebase vs. Merge - Key Differences
+# Git Rebase vs. Merge - Key Differences
 
 **Merge**
 
@@ -103,7 +104,7 @@ A---B---C---D---E'---F'  (feature)
 
 ---
 
-## Git Rebase vs. Merge - Rule of Thumb
+# Git Rebase vs. Merge - Rule of Thumb
 
 - Merge when integrating finished work into main.
 - Rebase when updating your feature branch to stay current with main.
@@ -112,7 +113,7 @@ It is important to remember that neither rebase nor merge deletes branches. This
 
 ---
 
-## Introduction to git reset
+# Introduction to git reset
 
 **What is git reset?**
 
@@ -127,7 +128,7 @@ It is important to remember that neither rebase nor merge deletes branches. This
 
 ---
 
-## Introduction to git reset
+# Introduction to git reset
 
 **Three operating modes**
 
@@ -139,7 +140,7 @@ The behavior of git reset depends on the option:
 
 ---
 
-## git reset --soft
+# git reset --soft
 
 **a) --soft**
 
@@ -149,14 +150,13 @@ The behavior of git reset depends on the option:
 
 Effect: last commit undone, but changes still staged.
 
-```
+```bash
 git reset --soft HEAD~1
-
 ```
 
 ---
 
-## git reset --mixed (default)
+# git reset --mixed (default)
 
 **b) --mixed (default)**
 
@@ -166,14 +166,13 @@ git reset --soft HEAD~1
 
 Effect: last commit undone, changes remain in files, but are **unstaged**.
 
-```
+```bash
 git reset --mixed HEAD~1
-
 ```
 
 ---
 
-## git reset --hard
+# git reset --hard
 
 **c) --hard**
 
@@ -184,14 +183,13 @@ git reset --mixed HEAD~1
 
 Dangerous – use with caution.
 
-```
+```bash
 git reset --hard HEAD~1
-
 ```
 
 ---
 
-## git reset - File-level usage
+# git reset - File-level usage
 
 git reset can also be used on specific files:
 
@@ -201,14 +199,13 @@ Leaves changes in the working directory.
 
 Equivalent to: “Unstage this file.”
 
-```
+```bash
 git reset HEAD filename
-
 ```
 
 ---
 
-## git reset - Summary
+# git reset - Summary
 
 reset moves the HEAD pointer and updates index / working directory depending on the mode.
 
@@ -228,27 +225,25 @@ Use reset carefully – it can rewrite history and delete changes.
 
 ---
 
-## Reverting changes in a file
+# Reverting changes in a file
 
 **Situation:** You modified a file in your branch and want to discard the changes.
 
 - Discard changes in a **tracked file** (not yet staged):
 - Discard changes that are **staged for commit**:
 
-```
+```bash
 git checkout – filename
-
 ```
 
-```
+```bash
 git reset HEAD filename   # Unstage
 git checkout -- filename  # Discard changes
-
 ```
 
 ---
 
-## Accidentally adding files that should not be tracked
+# Accidentally adding files that should not be tracked
 
 - **Situation:** You accidentally ran git add . and added files that should be ignored, e.g., compiled objects in obj/.
 - **Check what’s staged and Unstage the unwanted files:**
@@ -258,72 +253,64 @@ git checkout -- filename  # Discard changes
 
 - If you want to ignore obj/ folder, it should be:
 
-```
+```bash
 Git status
 git reset HEAD path/to/file
-
 ```
 
-```
+```bash
 git rm --cached path/to/file
-
 ```
 
-```
+```text
 obj/
-
 ```
 
 ---
 
-## Undoing a commit
+# Undoing a commit
 
 - **Scenario A:** Last commit was a mistake, **you haven’t pushed yet**:
 - **Scenario B:** Undo commit **after it was pushed**:
 
-```
+```bash
 git reset --soft HEAD~1   # Keep changes staged
 git reset --mixed HEAD~1  # Keep changes unstaged
 git reset --hard HEAD~1   # Discard changes completely
-
 ```
 
-```
+```bash
 git revert <commit-id>	#Safer than reset if others already pulled your changes.
-
 ```
 
 ---
 
-## Modifying a commit message
+# Modifying a commit message
 
 - **Situation:** You want to change the last commit message **before pushing**:
 
-```
+```bash
 git commit --amend -m "New commit message“
-
 ```
 
 ---
 
-## Recovering deleted files
+# Recovering deleted files
 
 - **Scenario:** A file was deleted by mistake and not committed yet:
 - **Scenario B:** File was deleted in a previous commit:
 
-```
+```bash
 git checkout – filename
-
 ```
 
-```
+```bash
 git checkout <commit-id> -- filename
-
 ```
 
 ---
 
-## Working with branches
+# Working with branches
 
 - **Switching branches while having uncommitted changes**:
 - Git may prevent switching if changes would be overwritten.
@@ -331,22 +318,20 @@ git checkout <commit-id> -- filename
   - Stash changes:
   - Or commit to a temporary branch:
 
-```
+```bash
 git stash
 git checkout other-branch
 git stash apply
-
 ```
 
-```
+```bash
 git checkout -b temp-branch
 git commit -m "WIP“
-
 ```
 
 ---
 
-## Common mistakes
+# Common mistakes
 
 - Adding obj/ or compiled files → use .gitignore correctly and git rm --cached.
 - Forgetting which files are staged → always check git status.
@@ -357,6 +342,6 @@ Practice these **on a test repository** first. Small mistakes in a test repo are
 
 ---
 
-# Thank
+<!-- _class: caption-slide -->
 
-*You!*
+# Thank You!

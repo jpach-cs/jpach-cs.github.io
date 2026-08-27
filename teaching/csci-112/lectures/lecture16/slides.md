@@ -5,6 +5,8 @@ paginate: true
 title: "CSCI 112  Programming with C"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 16
@@ -17,7 +19,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Outline
+# Outline
 
 - Review
 - File Input / Output
@@ -29,9 +31,11 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Unions
+# Unions
 
 - Unions in C are special data types that allow different data types to be stored in the same memory location.
+
+**Syntax:**
 
 ```c
 unions symbolic_name1
@@ -40,12 +44,11 @@ unions symbolic_name1
 }<symbolic_name2, ...>;
 ```
 
-- Syntax:
 - Everything that is in angle brackets &lt;&gt; is optional.
 
 ---
 
-## An example - unions
+# An example - unions
 
 ```c
 #include <stdio.h>
@@ -74,7 +77,9 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+**Result:**
+
+```text
 Union Example:
 The value of [example.s] = 5
 The value of [example.c] = 65
@@ -82,16 +87,16 @@ The value of [example.i] = 63123
 The value of [example.s] = -2413
 ```
 
-- Result:
-
 Unions in C are a mechanism that allows different data types to be stored in the same memory location, which can be useful in specific situations but requires caution due to potential pitfalls associated with their use.
 
 ---
 
-## Enums
+# Enums
 
 - An enum (enumeration) is a user-defined data type in C that consists of a set of named integer constants. These constants are often used to represent a fixed set of values.
 - Enum syntax is the same as struct.
+
+**Syntax:**
 
 ```c
 enums symbolic_name1
@@ -100,12 +105,11 @@ enums symbolic_name1
 }<symbolic_name2, ...>;
 ```
 
-- Syntax:
 - Everything that is in angle brackets &lt;&gt; is optional.
 
 ---
 
-## 2 example
+# 2 example
 
 ```c
 #include <stdio.h>
@@ -129,15 +133,14 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+**Result:**
+
+```text
 The value of red is 51
 The value of green is 52
 The value of blue is 91
 The value of orange is 92
-
 ```
-
-- Result:
 
 When using elements from a defined enum, we don't need to use the enum's name itself. They are treated by the compiler as integer constants, which means they can be used to define array sizes just like the #define preprocessor directive.
 
@@ -145,7 +148,7 @@ If we don't specify a value for an enumeration field, the default value is 0. Th
 
 ---
 
-## 3 example
+# 3 example
 
 ```c
 #include <stdio.h>
@@ -187,20 +190,19 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+**Result:**
+
+```text
 The value of my_local_color is 51
 The value of my_local_color is 91
 orange
-
 ```
-
-- Result:
 
 Given that enums can also create global variables within their definition (including pointers), it's important to keep this in mind. Enums are often used with switch statements, allowing us to convert numerical values into strings.
 
 ---
 
-## An example
+# An example
 
 ```c
 #include <stdio.h>
@@ -230,34 +232,34 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+**Result1:**
+
+```text
 The size of Data is 1
 Give me a number
 8
 1 0 1
 ```
 
-- Result1:
-
 A bit-field structure occupies as much space as the largest defined field type, instead of assigning a value '=' to fields, the number of BITS for this flag ':' is specified
 
-```c
+**Result2:**
+
+```text
 The size of Data is 1
 Give me a number
 12
 1 1 0
 ```
 
-- Result2:
+**Result3:**
 
-```c
+```text
 The size of Data is 1
 Give me a number
 11
 0 1 0
 ```
-
-- Result3:
 
 ---
 
@@ -265,7 +267,7 @@ Give me a number
 
 ---
 
-## Introduction to File Access in C
+# Introduction to File Access in C
 
 - Why File Access Matters:
   - Storing and retrieving data beyond program execution.
@@ -275,9 +277,9 @@ Give me a number
 
 ---
 
-## Opening and closing files
+# Opening and closing files
 
-```c
+```text
 Function: fopen()
 Syntax:
 	FILE *fopen(const char *filename, const char *mode);
@@ -295,26 +297,22 @@ Always check if fclose() returned NULL, indicating failure (e.g., file not found
 
 ---
 
-## Opening files
+# Opening files
 
-```c
+```text
 Function: fopen()
 Syntax:
 	FILE *fopen(const char *filename, const char *mode);
 Error Handling:
 Always check if fopen() returned NULL, indicating failure (e.g., file not found).
-
 ```
 
-```c
-file path/file name
-```
-
+- file path/file name
 - mode
 
 ---
 
-## const char \*filename
+# const char \*filename
 
 - The const char \*filename argument in the fopen() function can specify three types of file locations:
 - File Name Only:
@@ -330,7 +328,9 @@ file path/file name
 
 ---
 
-## File Access Modes in C
+# File Access Modes in C
+
+**Access Modes:**
 
 |Mode|Description|
 |---|---|
@@ -340,21 +340,20 @@ file path/file name
 |x|Creates the file if it does not already exist. Fails if the file already exists.|
 |+|Combined with r, w, a, or x, allows both reading and writing.|
 
+**File Types:**
+
 |Type Modifier|Description|
 |---|---|
 |t|Text mode (default). Treats file as a sequence of characters.|
 |b|Binary mode. Treats file as a sequence of bytes with no translation.|
 
-- Access Modes:
-- File Types:
-
 <!-- najpierw on bibliotece i EOF i ile wynosi ( stala symboliczna i wartosc wynosi -1 -->
 
 ---
 
-## Binary File I/O Functions
+# Binary File I/O Functions
 
-```c
+```text
 For reading blocks of binary data.
 Syntax:
 int fread(void *ptr, int size, int count, FILE *stream);
@@ -373,7 +372,7 @@ stream:    File pointer to the open file where data should be written(read).
 
 ---
 
-## An example – Binary file
+# An example – Binary file
 
 ```c
 #include <stdio.h>
@@ -399,21 +398,17 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+**binaryFile.bin:**
+
+```text
    Some text ĂőH@
-
 ```
 
-```c
-binaryFile.bin:
-```
+**Result:**
 
-```c
+```text
 15 Some text 3.140000
-
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -444,9 +439,9 @@ int main(int argc, char *argv[])
 
 ---
 
-## fseek() function
+# fseek() function
 
-```c
+```text
 The function fseek() moves the file pointer to a specified location, allowing you to read from or write to a specific part of the file.
 Syntax:
 int fseek(FILE *stream, long offset, int origin);
@@ -466,22 +461,24 @@ SEEK\_END:     Start from the end of the file(2).
 
 ---
 
-## ftell() and rewind() functions
+# ftell() and rewind() functions
 
-```c
+```text
 The function ftell() returns the current file position as a long integer. If an error occurs, it returns -1.
 Syntax:
 long ftell(FILE *stream);
 ```
 
 - Unlike fseek() and ftell(), rewind() is simpler to use and is intended to reset the file pointer to the beginning of the file.
-- Syntax:
+**Syntax:**
 
-void rewind(FILE \*stream);
+```c
+void rewind(FILE *stream);
+```
 
 ---
 
-## 1 example – fseek()
+# 1 example – fseek()
 
 ```c
 #include <stdio.h>
@@ -510,18 +507,17 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+**Result:**
+
+```text
 Position after fseek: 5
 Position after another fseek: 15
 Position at the end of file: 18
-
 ```
-
-- Result:
 
 ---
 
-## 2 example – fseek(), ftell()
+# 2 example – fseek(), ftell()
 
 ```c
 #include <stdio.h>
@@ -560,7 +556,9 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+**Result:**
+
+```text
 The position in file = 0
 The position in file = 4
 The position in file = 14
@@ -568,16 +566,13 @@ The position in file = 18
 5 Some text 3.140000
 Position after fseek(): 0
 5
-
 ```
-
-- Result:
 
 ---
 
-## Text File I/O Functions
+# Text File I/O Functions
 
-```c
+```text
 For reading text from file:
 fgetc():	Reads a single character from a file.
 fgets():	Reads a line from a file.
@@ -590,9 +585,9 @@ fprintf():	Prints formatted output to a file (similar to printf()).
 
 ---
 
-## Reading Text from a file
+# Reading Text from a file
 
-```c
+```text
 int fgetc(FILE *stream)
 Description:	Reads a single character from the specified file stream.
 Return Type:	Returns the character read as an unsigned char cast to an int, or EOF on end of file or error.
@@ -609,9 +604,9 @@ Example: 	int read_count = fscanf(file_pointer, "%d %f", &int_var, &float_var);
 
 ---
 
-## Writing Text to a file
+# Writing Text to a file
 
-```c
+```text
 int fputc(int char, FILE *stream)
 Description:	Writes a single character to the specified file stream.
 Return Type:	Returns the written character as an unsigned char cast to an int, or EOF on error.
@@ -624,7 +619,6 @@ int fprintf(FILE *stream, const char *format, ...)
 Description:	Writes formatted output to the specified file stream, similar to printf().
 Return Type:	Returns the number of characters written, or a negative value if an error occurs.
 Example: 	int chars_written = fprintf(file_pointer, "Integer: %d, Float: %f\n", int_var, float_var);
-
 ```
 
 ---
@@ -633,7 +627,7 @@ Example: 	int chars_written = fprintf(file_pointer, "Integer: %d, Float: %f\n", 
 
 ---
 
-## Introduction to Linked Lists
+# Introduction to Linked Lists
 
 Let’s talk about **arrays**. Imagine we have an array designed to store a list of products that a customer wants to buy in an online store. By default, the array has a size of 20, because people usually buy only a few products.
 
@@ -641,11 +635,13 @@ Of course, an edge case must eventually happen — a customer tries to add the *
 
 **Why not?** Because, as you know, **static memory (on the stack)** is reserved one variable after another — like:
 
+```c
 int x, y;
+```
 
 ---
 
-## Introduction to Linked Lists
+# Introduction to Linked Lists
 
 These memory slots are fixed and continuous. Besides, even if we decided to use **dynamic memory allocation**, we still face a problem: to insert the 21st element, we would need to:
 
@@ -658,7 +654,7 @@ Now, what if our customer wants to add yet another product? As you can see, this
 
 ---
 
-## Introduction to Linked Lists
+# Introduction to Linked Lists
 
 Arrays have a **fixed size**, so one common workaround is to increase the array not by 1, but by a fraction of its current size — for example, by half. However, the same problem still occurs: the larger the array becomes, the more expensive it is to:
 
@@ -670,7 +666,7 @@ So we can ask: *Is there another way to store data whose size changes during pro
 
 ---
 
-## Introduction to Linked Lists
+# Introduction to Linked Lists
 
 The answer actually appeared on this slide already — but as a word in everyday language, not yet as a data structure: we are talking about a list.
 
@@ -691,7 +687,7 @@ typedef struct
 
 ---
 
-## Creating and Linking Nodes
+# Creating and Linking Nodes
 
 Now, let’s create an independent pointer to the first element:
 
@@ -705,7 +701,9 @@ typedef struct
 } Node;
 ```
 
-Node \*headPtr;
+```c
+Node *headPtr;
+```
 
 ```c
 int x = 5;
@@ -714,7 +712,7 @@ int *xPtr = &x;   // xPtr does not create a new variable; it only points to x
 
 ---
 
-## Creating and Linking Nodes
+# Creating and Linking Nodes
 
 Through xPtr, we can modify x itself, for example:
 
@@ -729,7 +727,9 @@ int x = 5;
 int *xPtr = &x;   // xPtr does not create a new variable; it only points to x
 ```
 
-\*xPtr = 2;
+```c
+*xPtr = 2;
+```
 
 ```c
 Node node_1;
@@ -756,7 +756,7 @@ typedef struct
 
 ---
 
-## Traversing the List
+# Traversing the List
 
 Now we can move through the list using the pointer headPtr and read the elements just like we did with an array. For an array, we might do:
 
@@ -775,7 +775,7 @@ for (Node *current = headPtr; current != NULL; current = current->nextPtr)
 
 ---
 
-## What Happens in the Loop
+# What Happens in the Loop
 
 - Let’s explain what happens here:
 - We start by assigning the first element to current.
@@ -784,14 +784,14 @@ for (Node *current = headPtr; current != NULL; current = current->nextPtr)
 - The last element of the list has its nextPtr set to NULL, so when we reach it, the condition fails and the loop stops.
 - We must use the **arrow operator (-&gt;)** instead of the dot (.) because we are accessing fields of a structure **through a pointer**. For example, these are equivalent:
 
-```c
+```text
 current->value
 (*current).value
 ```
 
 ---
 
-## Why We Use current Instead of headPtr
+# Why We Use current Instead of headPtr
 
 - *Why didn’t we use headPtr directly in the loop?*
 - Because if we overwrite headPtr, we lose access to the previous elements. That’s why headPtr is usually reserved as a reference to the head of the list, used primarily for reading or accessing the start of the list.
@@ -799,7 +799,7 @@ current->value
 
 ---
 
-## Stack vs Heap
+# Stack vs Heap
 
 - So far, we created our elements on the stack. However, later, when we learn about dynamic memory allocation using malloc() and free(), we will create lists on the heap instead of the stack so that their elements can persist even after the function that created them ends.
 - The headPtr always points to the beginning of the list,<br>so we never modify it inside the loop — otherwise, we would lose the list entirely.<br>Instead, we use its copy (current) to move through the elements safely.

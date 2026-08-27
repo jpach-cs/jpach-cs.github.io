@@ -5,13 +5,14 @@ paginate: true
 title: "Software Engineering"
 ---
 
+<!-- _class: lead -->
+
 # Software Engineering
 
-*Lecture 20*
-
+## Lecture 20
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 - Flowchart
 - Mermaid
@@ -22,7 +23,7 @@ title: "Software Engineering"
 
 ---
 
-## What is a Flowchart?
+# What is a Flowchart?
 
 - A **flowchart** (or process diagram) is a graphical representation of a process or algorithm, showing how data or control flows between steps.
 - Each step is represented by a **symbol** (such as rectangles for actions or diamonds for decisions), and arrows indicate the **direction of flow**.
@@ -31,11 +32,11 @@ title: "Software Engineering"
   - **Edges (connections)** — showing the relationships and flow between nodes.
 - Flowcharts in Mermaid are compliant with **ANSI** and **ISO 5807:2019** standards. In UML terminology, this type corresponds to **Activity Diagrams**.
 
-![w:265px undefined](assets/image2.png)
+![w:265px](assets/image2.png)
 
 ---
 
-## Flowchart
+# Flowchart
 
 |**Name/ ANSI/ISO Shape**|**Description**|
 |---|---|
@@ -51,37 +52,21 @@ title: "Software Engineering"
 
 ![w:100px Picture 5](assets/image3.png)
 
-![w:66px A black and white photo frame
+![w:66px A black and white photo frame AI-generated content may be incorrect.](assets/image4.png)
 
-AI-generated content may be incorrect.](assets/image4.png)
+![w:66px A black and white rectangle AI-generated content may be incorrect.](assets/image5.png)
 
-![w:66px A black and white rectangle
+![w:67px A white diamond on a black background AI-generated content may be incorrect.](assets/image6.png)
 
-AI-generated content may be incorrect.](assets/image5.png)
+![w:78px A black and white rectangle AI-generated content may be incorrect.](assets/image7.png)
 
-![w:67px A white diamond on a black background
+![w:100px A black and white rectangle AI-generated content may be incorrect.](assets/image8.png)
 
-AI-generated content may be incorrect.](assets/image6.png)
+![w:66px A black and white rectangle AI-generated content may be incorrect.](assets/image9.png)
 
-![w:78px A black and white rectangle
+![w:50px A white circle in the dark AI-generated content may be incorrect.](assets/image10.png)
 
-AI-generated content may be incorrect.](assets/image7.png)
-
-![w:100px A black and white rectangle
-
-AI-generated content may be incorrect.](assets/image8.png)
-
-![w:66px A black and white rectangle
-
-AI-generated content may be incorrect.](assets/image9.png)
-
-![w:50px A white circle in the dark
-
-AI-generated content may be incorrect.](assets/image10.png)
-
-![w:39px A black and white logo
-
-AI-generated content may be incorrect.](assets/image11.png)
+![w:39px A black and white logo AI-generated content may be incorrect.](assets/image11.png)
 
 - <https://en.wikipedia.org/wiki/Flowchart>
 
@@ -91,14 +76,14 @@ AI-generated content may be incorrect.](assets/image11.png)
 
 ---
 
-## What is Mermaid?
+# What is Mermaid?
 
 - Mermaid is a text-based diagramming and charting tool created by **Knut Sveidqvist** in 2014. It was designed to make it easier for developers to create and maintain diagrams directly in text files — especially within Markdown documents and version control systems like Git.
 - Mermaid allows you to describe diagrams in plain text using a simple markup syntax, and then automatically generates diagrams such as flowcharts, sequence diagrams, class diagrams, state diagrams, and more.
 
 ---
 
-## Using Mermaid in Visual Studio Code
+# Using Mermaid in Visual Studio Code
 
 - To render Mermaid diagrams in Visual Studio Code, you can use the official extension “Mermaid Chart”. There are two important notes when using it:
 - The first line of your file must start with \`\`\`mermaid otherwise, VS Code will not recognize the content as a Mermaid diagram.
@@ -111,27 +96,35 @@ AI-generated content may be incorrect.](assets/image11.png)
 
 ---
 
-## Exporting Diagrams to PNG or SVG
+# Exporting Diagrams to PNG or SVG
 
 - If you want to export diagrams as image files (PNG or SVG), follow these steps:
 - **Install Node.js** – download and install it from [https://nodejs.org](https://nodejs.org/).
 - **Install the Mermaid CLI tool** using PowerShell:
 
+```console
 npm install -g @mermaid-js/mermaid-cli
+```
 
 - **Generate the output file**:
 
+```console
 mmdc -i input.mmd -o output.svg
+```
 
 - **Important notes:**
   - The input file **must** use the .mmd extension.
   - If your file contains the VS Code marker \`\`\`mermaid at the top, you must **comment it out** using:
 
-%%\`\`\`mermaid Otherwise, the CLI will not process the file correctly.
+````text
+%%```mermaid
+````
+
+Otherwise, the CLI will not process the file correctly.
 
 ---
 
-## Mermaid Toolset: Supported Diagram Families
+# Mermaid Toolset: Supported Diagram Families
 
 - Logic and Process Modeling (Flow &amp; State)
 - Structure and Architecture Modeling (UML &amp; Requirements)
@@ -140,7 +133,7 @@ mmdc -i input.mmd -o output.svg
 
 ---
 
-## Mermaid Toolset: Supported Diagram Types
+# Mermaid Toolset: Supported Diagram Types
 
 - **Logic and Process Modeling (Flow &amp; State)**
   - **Flowchart** (Flow Diagram) / **Graph** (Dependency Graph)
@@ -151,7 +144,7 @@ mmdc -i input.mmd -o output.svg
 
 ---
 
-## Mermaid Toolset: Supported Diagram Types
+# Mermaid Toolset: Supported Diagram Types
 
 - **Structure and Architecture Modeling (UML &amp; Requirements)**
   - **Class** (Class Diagram)
@@ -163,7 +156,7 @@ mmdc -i input.mmd -o output.svg
 
 ---
 
-## Mermaid Toolset: Supported Diagram Types
+# Mermaid Toolset: Supported Diagram Types
 
 - **Project Management and Data Charts**
   - **Gantt** (Gantt Chart)
@@ -176,7 +169,7 @@ mmdc -i input.mmd -o output.svg
 
 ---
 
-## Mermaid Toolset: Supported Diagram Types
+# Mermaid Toolset: Supported Diagram Types
 
 - **Specialized and Network Diagrams**
   - **Gitgraph** (Git Repository History)
@@ -186,13 +179,11 @@ mmdc -i input.mmd -o output.svg
 
 ---
 
-# Flowchart
-
-*in Mermaid*
+# Flowchart in Mermaid
 
 ---
 
-## Flowchart Shapes in Mermaid
+# Flowchart Shapes in Mermaid
 
 |Shape|Description|Mermaid Notation|
 |---|---|---|
@@ -205,7 +196,7 @@ mmdc -i input.mmd -o output.svg
 
 ---
 
-## Syntax of a Mermaid Flowchart
+# Syntax of a Mermaid Flowchart
 
 - Node Definition
   - Each node has a **unique identifier (ID)** and a **label** displayed in a shape defined by brackets.
@@ -215,7 +206,7 @@ mmdc -i input.mmd -o output.svg
 
 ---
 
-## Arrows can be styled in several ways
+# Arrows can be styled in several ways
 
 |Symbol|Type|Description|
 |---|---|---|
@@ -228,7 +219,7 @@ mmdc -i input.mmd -o output.svg
 
 ---
 
-## Recommended Practice: IDs and Separate Connections
+# Recommended Practice: IDs and Separate Connections
 
 ````
 ```mermaid
@@ -259,14 +250,13 @@ C ==> E
 D -. Retry .-> A
 ````
 
-- Although Mermaid allows defining nodes and connections in one line
-- (e.g. A\[Start\] --&gt; B\[Process\]), it is often clearer to **separate definitions**:
+- Although Mermaid allows defining nodes and connections in one line (e.g. A\[Start\] --&gt; B\[Process\]), it is often clearer to **separate definitions**:
 - This approach improves clarity, maintainability, and consistency — particularly in larger diagrams.
 - Labels describe the condition or reason for a flow, especially for decision nodes.
 
 ---
 
-## Mermaid File Structure and Flow Direction
+# Mermaid File Structure and Flow Direction
 
 - Each Mermaid diagram starts with a **type definition** and an optional **direction** parameter. For example: graph TD means a **flowchart (graph)** drawn from **Top to Down**.
 - Other directions include:
@@ -277,7 +267,7 @@ D -. Retry .-> A
 
 ---
 
-## Customizing Styles
+# Customizing Styles
 
 - Mermaid allows you to modify the **global diagram style** using an **initialization directive**, for example:
 - The init directive is written in JSON format. You can customize fonts, colors, background, and more.
@@ -302,7 +292,7 @@ style B fill:#f9f,stroke:#333,stroke-width:2px
 
 ---
 
-## Practical Lesson: Dealing with Special Characters and Vague Errors
+# Practical Lesson: Dealing with Special Characters and Vague Errors
 
 - Many characters, such as **brackets** (\[\]), **curly braces** ({}), and **parentheses** (()), have a special structural function in Mermaid (defining node shapes, subgraphs, etc.). If you need to use these characters as **plain text** within a node's label (e.g., "arr\[i\]" or "Function(arg)"), you **must** enclose the entire label in **double quotes**.
 
@@ -314,13 +304,13 @@ style B fill:#f9f,stroke:#333,stroke-width:2px
 
 - When encountering cryptic rendering errors, the most reliable debugging strategy is the "Divide and Conquer" approach:
 
-**Comment Out Half:** Use the %% syntax to temporarily comment out approximately **half of the diagram's code**.
+- **Comment Out Half:** Use the %% syntax to temporarily comment out approximately **half of the diagram's code**.
 
 - **Test:** Attempt to render the remaining half.
 
 ---
 
-## Summary
+# Summary
 
 - Mermaid is a lightweight, text-based tool for generating diagrams in Markdown and code repositories.
 - It supports UML-like notation but remains general enough to describe any kind of process or relationship.
@@ -328,7 +318,7 @@ style B fill:#f9f,stroke:#333,stroke-width:2px
 
 ---
 
-## Summary of Flowchart Syntax
+# Summary of Flowchart Syntax
 
 |Concept|Example|Description|
 |---|---|---|
@@ -345,6 +335,6 @@ style B fill:#f9f,stroke:#333,stroke-width:2px
 
 ---
 
-# Thank
+<!-- _class: caption-slide -->
 
-*You!*
+# Thank You!

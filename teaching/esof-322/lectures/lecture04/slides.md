@@ -5,13 +5,15 @@ paginate: true
 title: "Software Engineering"
 ---
 
+<!-- _class: lead -->
+
 # Software Engineering
 
-*Lecture 4*
+## Lecture 4
 
 ---
 
-## An unexpected family emergency
+# An unexpected family emergency
 
 **Dear Students,**
 
@@ -27,6 +29,6 @@ Thank you for your understanding.
 
 ---
 
-# Thank
+<!-- _class: caption-slide -->
 
-*You!*
+# Thank You!

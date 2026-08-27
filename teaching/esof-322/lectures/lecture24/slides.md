@@ -5,19 +5,20 @@ paginate: true
 title: "Software Engineering"
 ---
 
+<!-- _class: lead -->
+
 # Software Engineering
 
-*Lecture 24*
-
+## Lecture 24
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 - UML state \[machine\] diagrams
 
 ---
 
-## From The author of textbook
+# From The author of textbook
 
 …I therefore concentrate on these five UML diagram types here:
 
@@ -34,25 +35,25 @@ title: "Software Engineering"
 
 ---
 
-# UML state \[machine\] diagrams<br>
+# UML state \[machine\] diagrams
 
 ---
 
-## State diagram of a microwave oven
+# State diagram of a microwave oven
 
 ![w:993px 5.16 MWOvenStateDiag.eps](assets/image2.emf)
 <!-- pptx2marp: image2.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## State diagram of a microwave oven
+# State diagram of a microwave oven
 
 ![w:993px 5.16 MWOvenStateDiag.eps](assets/image2.emf)
 <!-- pptx2marp: image2.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## Occam's razor
+# Occam's razor
 
 - While the State Diagram displaying an explicit **do: action** within a state is a valid, though relatively rare, feature of strict UML modeling, **Mermaid often does not handle this specific syntax reliably**.
 - In standard documentation, diagrams are frequently simplified: the **state** is represented by a rounded rectangle, and the **transition arrow** includes text that defines the action (or event) that must occur to move to the **next state**. This is the most common and robust way to model basic state changes in Mermaid.
@@ -61,7 +62,7 @@ title: "Software Engineering"
 
 ---
 
-## Introduction — What Are state machine Diagrams?
+# Introduction — What Are state machine Diagrams?
 
 - State Diagrams (formally **State Machine Diagrams** in UML) are crucial for modeling the **dynamic** **behavior** of a single object or component(or system), illustrating the sequence of states an object goes through in response to events.
 - *UML Fundamentals: The Purpose of State Diagrams:*
@@ -69,7 +70,7 @@ title: "Software Engineering"
 
 ---
 
-## Introduction to State Machine Diagrams (UML)
+# Introduction to State Machine Diagrams (UML)
 
 State diagrams (also called **State Machine Diagrams** in UML) model the **lifecycle of an object** by describing:
 
@@ -85,7 +86,7 @@ State diagrams (also called **State Machine Diagrams** in UML) model the **lifec
 
 ---
 
-## Introduction to State Machine Diagrams (UML)
+# Introduction to State Machine Diagrams (UML)
 
 **What they are used for**
 
@@ -97,7 +98,7 @@ State diagrams are perfect when modeling systems where:
 
 ---
 
-## Introduction to State Machine Diagrams (UML)
+# Introduction to State Machine Diagrams (UML)
 
 **Typical real examples**
 
@@ -108,7 +109,7 @@ State diagrams are perfect when modeling systems where:
 
 ---
 
-## Introduction to State Machine Diagrams (UML)
+# Introduction to State Machine Diagrams (UML)
 
 **In UML, states have:**
 
@@ -119,7 +120,7 @@ State diagrams are perfect when modeling systems where:
 
 ---
 
-## Core UML Definitions
+# Core UML Definitions
 
 **UML Definition:** ***State Machine***
 
@@ -137,7 +138,7 @@ State diagrams are perfect when modeling systems where:
 
 ---
 
-## Core UML Definitions
+# Core UML Definitions
 
 **UML Definition:** ***Transition***
 
@@ -149,7 +150,7 @@ State diagrams are perfect when modeling systems where:
 
 ---
 
-## Mermaid state \[machine\] Diagram Syntax
+# Mermaid state \[machine\] Diagram Syntax
 
 - All class diagrams must start with this directive.
 - For vsc
@@ -176,7 +177,7 @@ stateDiagram-v2
 
 ---
 
-## Supported in Mermaid
+# Supported in Mermaid
 
 |Feature|Supported?|Syntax|
 |---|---|---|
@@ -194,7 +195,7 @@ stateDiagram-v2
 
 ---
 
-## NOT Supported in Mermaid
+# NOT Supported in Mermaid
 
 |UML Feature|Mermaid replacement|
 |---|---|
@@ -207,7 +208,7 @@ stateDiagram-v2
 
 ---
 
-## Mermaid State Diagram Overview (1)
+# Mermaid State Diagram Overview (1)
 
 - Initial and Final States
 - Transition with event
@@ -231,7 +232,7 @@ stateDiagram-v2
 
 ---
 
-## Mermaid State Diagram Overview (2)
+# Mermaid State Diagram Overview (2)
 
 - Composite (Nested) State
 - Entry / Exit / Do Activities
@@ -263,7 +264,7 @@ state Downloading {
 
 ---
 
-## Mermaid State Diagram Overview (3)
+# Mermaid State Diagram Overview (3)
 
 - Notes
 - Choice Pseudo-state
@@ -294,7 +295,7 @@ state Downloading {
 
 ---
 
-## Mermaid State Diagram Overview (4)
+# Mermaid State Diagram Overview (4)
 
 - Fork / Join
 
@@ -317,7 +318,7 @@ state Downloading {
 
 ---
 
-## Full Example (UML-style State Machine)
+# Full Example (UML-style State Machine)
 
 **UML concepts used:**
 
@@ -352,7 +353,7 @@ state Downloading {
 
 ---
 
-## Practical Tips
+# Practical Tips
 
 - **When to use state diagrams?**
   - When system behavior depends on **current state**.
@@ -371,7 +372,7 @@ state Downloading {
 
 ---
 
-## but
+# but
 
 ````
 ```mermaid
@@ -455,10 +456,6 @@ stateDiagram-v2
 
 ---
 
-<!-- pptx2marp: slide 26 has no extractable text or images -->
+<!-- _class: caption-slide -->
 
----
-
-# Thank
-
-*You!*
+# Thank You!

@@ -5,13 +5,15 @@ paginate: true
 title: "Software Engineering"
 ---
 
+<!-- _class: lead -->
+
 # Software Engineering
 
-*Lecture 13*
+## Lecture 13
 
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 - Modular makefile
 - Wildcard, patsubst
@@ -27,13 +29,11 @@ title: "Software Engineering"
 
 ---
 
-# modular
-
-*makefile*
+# modular makefile
 
 ---
 
-## Modular Makefile
+# Modular Makefile
 
 **Why Split a Makefile?**
 
@@ -45,7 +45,7 @@ title: "Software Engineering"
 
 ---
 
-## Modular Makefile
+# Modular Makefile
 
 **Why Split a Makefile?**
 
@@ -55,7 +55,7 @@ title: "Software Engineering"
   - **reuse** pieces in other projects,
   - **keep things clear** – each file has one responsibility
 
-```
+```text
 project/
 │── Makefile        <- main file
 │── paths.mk        <- directories, paths
@@ -67,23 +67,22 @@ project/
 │   └── other.c
 └── inc/
     └── other.h
-
 ```
 
 ---
 
-## Modular Makefile
+# Modular Makefile
 
-```
+```make
 INC_DIR :=inc#include for headers
 BIN_DIR :=bin# *.exe
 
-CC     := gcc
+CC     := gcc
 CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC_DIR) # compiler flags
-LFLAG  := -g # linker flag
+LFLAG  := -g # linker flag
 
 TARGET := $(BIN_DIR)/main.exe #$(SCR_DIR)/main.exe
-OBJS   := main.o other.o
+OBJS   := main.o other.o
 RM := -rm -f
 
 .PHONY: all clean check-shell
@@ -91,60 +90,60 @@ RM := -rm -f
 all: $(TARGET)
 
 $(TARGET): $(OBJS) | $(BIN_DIR) #order-only prerequisite
-    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+	$(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
 main.o: main.c
-    $(CC) $(CFLAGS) -c main.c -o main.o
+	$(CC) $(CFLAGS) -c main.c -o main.o
 
 other.o: $(INC_DIR)/other.h other.c
-    $(CC) $(CFLAGS) -c other.c -o other.o
+	$(CC) $(CFLAGS) -c other.c -o other.o
 
 $(BIN_DIR):
-    mkdir $(BIN_DIR)
+	mkdir $(BIN_DIR)
 
 clean:
-    $(RM) $(OBJS)
+	$(RM) $(OBJS)
 ```
 
-```
+paths.mk
+
+```make
 INC_DIR :=inc#
 BIN_DIR :=bin#
 
-CC     := gcc
+CC     := gcc
 CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC_DIR)
-LFLAG  := -g
+LFLAG  := -g
 
 TARGET := $(BIN_DIR)/main.exe
-OBJS   := main.o other.o
+OBJS   := main.o other.o
 RM := -rm -f
 ```
 
-- paths.mk
+rules.mk
 
-```
+```make
 .PHONY: all clean check-shell
 all: $(TARGET)
 
 $(TARGET): $(OBJS) | $(BIN_DIR) #
-    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+	$(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
 main.o: main.c
-    $(CC) $(CFLAGS) -c main.c -o main.o
+	$(CC) $(CFLAGS) -c main.c -o main.o
 
 other.o: $(INC_DIR)/other.h other.c
-    $(CC) $(CFLAGS) -c other.c -o other.o
+	$(CC) $(CFLAGS) -c other.c -o other.o
 
 $(BIN_DIR):
-    mkdir $(BIN_DIR)
+	mkdir $(BIN_DIR)
 clean:
-    $(RM) $(OBJS)
+	$(RM) $(OBJS)
 ```
-
-- rules.mk
 
 ---
 
-## Modular Makefile
+# Modular Makefile
 
 How It Works:
 
@@ -152,51 +151,51 @@ How It Works:
 - Then it includes the contents of paths.mk, rules.mk.
 - The end result is one big Makefile, but structured into smaller logical pieces.
 
-```
+```make
 # Combine everything together
 include paths.mk
 include rules.mk
 ```
 
-```
+paths.mk
+
+```make
 INC_DIR :=inc#
 BIN_DIR :=bin#
 
-CC     := gcc
+CC     := gcc
 CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC_DIR)
-LFLAG  := -g
+LFLAG  := -g
 
 TARGET := $(BIN_DIR)/main.exe
-OBJS   := main.o other.o
+OBJS   := main.o other.o
 RM := -rm -f
 ```
 
-- paths.mk
+rules.mk
 
-```
+```make
 .PHONY: all clean check-shell
 all: $(TARGET)
 
 $(TARGET): $(OBJS) | $(BIN_DIR) #
-    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+	$(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
 main.o: main.c
-    $(CC) $(CFLAGS) -c main.c -o main.o
+	$(CC) $(CFLAGS) -c main.c -o main.o
 
 other.o: $(INC_DIR)/other.h other.c
-    $(CC) $(CFLAGS) -c other.c -o other.o
+	$(CC) $(CFLAGS) -c other.c -o other.o
 
 $(BIN_DIR):
-    mkdir $(BIN_DIR)
+	mkdir $(BIN_DIR)
 clean:
-    $(RM) $(OBJS)
+	$(RM) $(OBJS)
 ```
-
-- rules.mk
 
 ---
 
-## Organizing Makefiles in mk/ Directory
+# Organizing Makefiles in mk/ Directory
 
 - In larger projects, it’s common to separate Makefiles into a dedicated mk/ directory.
 - The main Makefile stays clean and minimal, while detailed configuration lives inside modular .mk files.
@@ -214,7 +213,7 @@ clean:
 - **Portability** → different .mk sets for Windows, Linux, macOS.
 - **Industry Standard** → many open-source projects follow this convention.
 
-```
+```text
 project/
 │── Makefile
 │── src/
@@ -227,47 +226,45 @@ project/
 
 ---
 
-# Using wildcard and patsubst
-
-*in Makefiles*
+# Using wildcard and patsubst in Makefiles
 
 ---
 
-## Using wildcard in Makefiles
+# Using wildcard in Makefiles
 
 - **$(wildcard pattern)**
   - Expands to all files matching a given pattern.
   - Commonly used to collect source files automatically.
 - \# Expands to:
 
-```
+```make
 SOURCES = $(wildcard src/*.c)
 ```
 
-```
+```text
 src/main.c src/other.c ...
 ```
 
 ---
 
-## Using patsubst in Makefiles
+# Using patsubst in Makefiles
 
 - **$(patsubst pattern,replacement,text)**
   - Performs pattern substitution on a list of words.
   - Often used to map .c files to corresponding .o object files.
 - \# Expands to:
 
-```
+```make
 OBJECTS = $(patsubst src/%.c,obj/%.o,$(SOURCES))
 ```
 
-```
+```text
 obj/main.o obj/other.o ...
 ```
 
 ---
 
-## Using patsubst in Makefiles - Benefits
+# Using patsubst in Makefiles - Benefits
 
 - Automation → no need to manually list every file.
 - Scalability → new .c files are picked up automatically.
@@ -275,89 +272,87 @@ obj/main.o obj/other.o ...
 
 ---
 
-# Automatic Variables
-
-*in Makefiles*
+# Automatic Variables in Makefiles
 
 ---
 
-## Automatic Variables
+# Automatic Variables
 
 - Purpose: Shortcuts that let you reference targets and dependencies without repeating file names.
 - Used inside rules to simplify commands.
 
 ---
 
-## Automatic Variables - $@ – The Target File
+# Automatic Variables - $@ – The Target File
 
 - Represents the **name of the file to be created**.
 
 → $@ expands to main.o.
 
-```
+```make
 main.o: main.c
-    gcc -c main.c -o $@
+	gcc -c main.c -o $@
 ```
 
 ---
 
-## Automatic Variables - $&lt; – The First Dependency
+# Automatic Variables - $&lt; – The First Dependency
 
 - Represents the first prerequisite of the rule.
 - Commonly used in compilation rules.
 
 → $&lt; expands to main.c.
 
-```
+```make
 main.o: main.c
-    gcc -c $< -o $@
+	gcc -c $< -o $@
 ```
 
 ---
 
-## Automatic Variables - $^ – All Dependencies
+# Automatic Variables - $^ – All Dependencies
 
 - Expands to a space-separated list of all prerequisites.
 - Removes duplicates.
 
 → $^ expands to main.o utils.o.
 
-```
+```make
 app: main.o utils.o
-    gcc $^ -o $@
+	gcc $^ -o $@
 ```
 
 ---
 
-## Automatic Variables - $? – Newer Dependencies
+# Automatic Variables - $? – Newer Dependencies
 
 - Expands to dependencies newer than the target.
 - Useful for incremental builds.
 
 → recompiles only when needed.
 
-```
+```make
 app: main.o utils.o
-    gcc $? -o $@
+	gcc $? -o $@
 ```
 
 ---
 
-## Automatic Variables - $\* – The Stem
+# Automatic Variables - $\* – The Stem
 
 - Represents the stem (base name) of the target.
 - Mainly used in implicit rules.
 
 → Here $\* would expand to main if the target is main.o.
 
-```
+```make
 %.o: %.c
-    gcc -c $< -o $@
+	gcc -c $< -o $@
 ```
 
 ---
 
-## Automatic Variables - Summary
+# Automatic Variables - Summary
 
 |Variable|Expands To|Example Use|Example Expansion|
 |---|---|---|---|
@@ -369,13 +364,11 @@ app: main.o utils.o
 
 ---
 
-# .dep files
-
-*in Makefiles*
+# .dep files in Makefiles
 
 ---
 
-## A Solved Problem Creates a New One
+# A Solved Problem Creates a New One
 
 - Previously, in dependencies, we explicitly listed header files (.h).
 - With automatic source discovery (wildcard, patsubst), we no longer directly know which .c file includes which .h file.
@@ -388,7 +381,7 @@ app: main.o utils.o
 
 ---
 
-## Using Dependency Files (.d / .p)
+# Using Dependency Files (.d / .p)
 
 - Problem: Make doesn’t know which .c includes which .h.
 - Solution: Let the compiler generate dependency files.
@@ -396,26 +389,26 @@ app: main.o utils.o
 - -MP: Add phony targets to avoid errors if headers are deleted
 - -include $(DEPS): Load dependencies if they exist (ignore missing ones at first run)
 
-```
+```make
 # Compiler flags for dependency generation
 CFLAGS := -g -Wall -std=c99 -pedantic -I inc -MMD -MP
 # Sources and objects
 SOURCES := $(wildcard src/*.c)
 OBJECTS := $(patsubst src/%.c,obj/%.o,$(SOURCES))
-DEPS    := $(OBJECTS:.o=.d)
+DEPS    := $(OBJECTS:.o=.d)
 # Build rule (note use of $@ and $<)
 obj/%.o: src/%.c
-    $(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 # Link final binary
 bin/main.exe: $(OBJECTS)
-    $(CC) $(OBJECTS) -o $@
+	$(CC) $(OBJECTS) -o $@
 # Include generated dependency files
 -include $(DEPS)
 ```
 
 ---
 
-## Gcc -MMD -MP
+# Gcc -MMD -MP
 
 - -MMD → generuje plik .d (dependency file) dla każdego .o
 - -MP → dodaje „puste reguły” dla nagłówków, żeby uniknąć błędów gdy nagłówek zniknie
@@ -423,7 +416,7 @@ bin/main.exe: $(OBJECTS)
 
 ---
 
-```
+```make
 # Directories
 SRC_DIR := src
 INC_DIR := inc
@@ -473,7 +466,7 @@ clean:
 
 ---
 
-## Adding a Dedicated bin/
+# Adding a Dedicated bin/
 
 The compilation output (main.exe) is now placed inside the bin directory, which will **not be tracked in the repository**. This is recorded in .gitignore, so when cloning the repository locally, the bin folder will not be present.
 
@@ -488,16 +481,16 @@ Modifications include:
 
 These changes ensure that the build artifacts are separated from the source code and repository, and that make handles the directory creation safely and efficiently.
 
-```
+```make
 INC_DIR :=inc#include for headers
 BIN_DIR :=bin# *.exe
 
-CC     := gcc
+CC     := gcc
 CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC_DIR) # compiler flags
-LFLAG  := -g # linker flag
+LFLAG  := -g # linker flag
 
 TARGET := $(BIN_DIR)/main.exe #$(SCR_DIR)/main.exe
-OBJS   := main.o other.o
+OBJS   := main.o other.o
 RM := -rm -f
 
 .PHONY: all clean check-shell
@@ -505,30 +498,28 @@ RM := -rm -f
 all: $(TARGET)
 
 $(TARGET): $(OBJS) | $(BIN_DIR) #order-only prerequisite
-    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+	$(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
 main.o: main.c
-    $(CC) $(CFLAGS) -c main.c -o main.o
+	$(CC) $(CFLAGS) -c main.c -o main.o
 
 other.o: $(INC_DIR)/other.h other.c
-    $(CC) $(CFLAGS) -c other.c -o other.o
+	$(CC) $(CFLAGS) -c other.c -o other.o
 
 $(BIN_DIR):
-    mkdir $(BIN_DIR)
+	mkdir $(BIN_DIR)
 
 clean:
-    $(RM) $(OBJS)
+	$(RM) $(OBJS)
 ```
 
 ---
 
-# Debug
-
-*in Makefiles*
+# Debug in Makefiles
 
 ---
 
-## Introduction to Makefile Debugging
+# Introduction to Makefile Debugging
 
 **Goal:** Understand how to debug Makefile builds and figure out why targets are rebuilt.
 
@@ -540,7 +531,7 @@ Common situations:
 
 ---
 
-## Debugging Options
+# Debugging Options
 
 make debug flags:
 
@@ -555,7 +546,7 @@ make debug flags:
 
 ---
 
-## Example Usage - debug
+# Example Usage - debug
 
 - Tips for Using Make Debugging:
 - Use --debug=b first to see basic rebuild information.
@@ -565,7 +556,7 @@ make debug flags:
 - Helps understand dependency issues, missing files, or outdated targets.
 - Essential when working with complex Makefiles or large projects.
 
-```
+```bash
 # Show which targets are out-of-date
 make --debug=b
 # Explain why a target is rebuilt
@@ -582,10 +573,12 @@ make -d
 
 ---
 
-- echo %ERRORLEVEL%
+```console
+echo %ERRORLEVEL%
+```
 
 ---
 
-# Thank
+<!-- _class: caption-slide -->
 
-*You!*
+# Thank You!

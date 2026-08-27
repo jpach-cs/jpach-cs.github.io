@@ -5,13 +5,15 @@ paginate: true
 title: "Software Engineering"
 ---
 
+<!-- _class: lead -->
+
 # Software Engineering
 
-*Lecture 6*
+## Lecture 6
 
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 Git
 
@@ -21,9 +23,9 @@ Git
 
 ---
 
-## Gitlens?
+# Gitlens?
 
-- extension
+extension
 
 ---
 
@@ -34,7 +36,7 @@ Git
 
 ---
 
-## Working with Branches
+# Working with Branches
 
 **Branch inheritance:**
 
@@ -43,7 +45,7 @@ Git
 
 ---
 
-## Working with Branches
+# Working with Branches
 
 **Files created inside a branch:**
 
@@ -52,7 +54,7 @@ Git
 
 ---
 
-## Working with Branches
+# Working with Branches
 
 **Merge command:**
 
@@ -61,7 +63,7 @@ Git
 
 ---
 
-## Working with Branches
+# Working with Branches
 
 **What happens to the merged branch?:**
 
@@ -73,7 +75,7 @@ Git
 
 ---
 
-## Working with Branches
+# Working with Branches
 
 **Merge conflicts:**
 
@@ -83,7 +85,7 @@ Git
 
 ---
 
-## Working with Branches
+# Working with Branches
 
 **Resolving merge conflicts:**
 
@@ -93,7 +95,7 @@ Git
 - After editing and saving, run:
 - to finalize the merge.
 
-```
+```text
 <<<<<<< HEAD
 your current branch content
 =======
@@ -101,14 +103,14 @@ incoming branch content
 >>>>>>> feature-branch
 ```
 
-```
+```bash
 git add <file>
 git commit
 ```
 
 ---
 
-## Summary
+# Summary
 
 Let’s review what we have learned so far. We previously worked on creating new branches in Git and switching between them. One important observation is that files seem to be “hidden” when moving between branches, since each branch has its own version of the file system state.
 
@@ -127,7 +129,7 @@ In short, branches allow safe and parallel development, merging combines work fr
 
 ---
 
-## Introduction to git diff
+# Introduction to git diff
 
 **What is git diff**?
 
@@ -143,13 +145,13 @@ In short, branches allow safe and parallel development, merging combines work fr
 
 ---
 
-## Introduction to git diff
+# Introduction to git diff
 
 **Example:**
 
 - Here, the - and + at the start of lines indicate removal or addition. --- and +++ just label the files.
 
-```
+```diff
 diff --git a/file.txt b/file.txt
 --- a/file.txt
 +++ b/file.txt
@@ -162,14 +164,15 @@ diff --git a/file.txt b/file.txt
 
 ---
 
-## Introduction to git diff
+# Introduction to git diff
 
 **Comparing staged changes: --staged (or --cached)**
 
-- By default, git diff compares your working directory with the index (staged area).To compare staged changes with the last commit:
+- By default, git diff compares your working directory with the index (staged area).
+- To compare staged changes with the last commit:
 - Shows changes that **are staged for the next commit**, i.e., tracked files that have been modified and added with git add.
 
-```
+```bash
 git diff --staged
 ```
 
@@ -177,7 +180,7 @@ git diff --staged
 
 ---
 
-## Introduction to git diff
+# Introduction to git diff
 
 **Comparing specific commits:**
 
@@ -187,11 +190,11 @@ git diff --staged
 - Output shows **what changed from commit 3a5f1b2 to commit 9c7e8d0**.
 - Hint: git log --oneline
 
-```
+```bash
 git diff <commit1> <commit2>
 ```
 
-```
+```bash
 git diff 3a5f1b2 9c7e8d0
 ```
 
@@ -199,7 +202,7 @@ git diff 3a5f1b2 9c7e8d0
 
 ---
 
-## Introduction to git diff
+# Introduction to git diff
 
 **Order of commit IDs matters:**
 
@@ -209,7 +212,7 @@ git diff 3a5f1b2 9c7e8d0
 - Lines starting with - were removed from A → B, lines starting with + were added in B compared to A.
 - Example:
 
-```
+```bash
 git diff A B   # shows changes to get from A to B
 git diff B A   # shows changes to get from B to A (reversed)
 ```
@@ -218,7 +221,7 @@ git diff B A   # shows changes to get from B to A (reversed)
 
 ---
 
-## Summary - git diff
+# Summary - git diff
 
 - git diff is a read-only comparison tool.
 - +++ / --- do not indicate changes, only file versions.
@@ -231,7 +234,7 @@ git diff B A   # shows changes to get from B to A (reversed)
 
 ---
 
-## Introduction to git stash
+# Introduction to git stash
 
 **What is git stash?**
 
@@ -240,7 +243,7 @@ git diff B A   # shows changes to get from B to A (reversed)
 - Think of it as a “clipboard” for your changes.
 - Basic idea:
 
-```
+```bash
 # Save current changes to stash
 git stash
 
@@ -252,7 +255,7 @@ git stash apply
 
 ---
 
-## Introduction to git stash
+# Introduction to git stash
 
 **How it works?**
 
@@ -267,14 +270,14 @@ git stash apply
 
 ---
 
-## Introduction to git stash
+# Introduction to git stash
 
 **Managing multiple stashes?**
 
 - Each stash is stored in a stack-like structure.
 - Commands:
 
-```
+```bash
 git stash list	# Show all stashes
 git stash apply	# Apply the most recent stash
 git stash apply stash@{2}	# Apply specific stash
@@ -287,7 +290,7 @@ git stash clear	# Delete all stashes
 
 ---
 
-## Introduction to git stash
+# Introduction to git stash
 
 **Important Note About the Stash Mechanism**
 
@@ -303,14 +306,14 @@ Without careful management, using git stash can create more problems than it sol
 
 ---
 
-## Introduction to git stash
+# Introduction to git stash
 
 **Stash naming**
 
 - You can add a message for clarity:
 - Helps to remember the purpose of each stash.
 
-```
+```bash
 git stash save "WIP: fixing login bug"
 ```
 
@@ -318,7 +321,7 @@ git stash save "WIP: fixing login bug"
 
 ---
 
-## Introduction to git stash
+# Introduction to git stash
 
 **Stash and branches**
 
@@ -332,20 +335,21 @@ git stash save "WIP: fixing login bug"
 
 ---
 
-## Introduction to git stash
+# Introduction to git stash
 
 **Quick tips**
 
 - git stash = save + clean working directory.
 - git stash pop = restore and remove from stash.
 - git stash apply = restore without removing.
-- Include untracked files: git stash -u.Stashes are temporary storage, not a substitute for commits.
+- Include untracked files: git stash -u.
+- Stashes are temporary storage, not a substitute for commits.
 
 <!-- Index = ID commita?? -->
 
 ---
 
-## Summary - Introduction to git stash
+# Summary - Introduction to git stash
 
 - Use stash when you need to pause your work without committing.
 - Remember: stash is a stack → LIFO (last in, first out).
@@ -353,18 +357,18 @@ git stash save "WIP: fixing login bug"
 
 ---
 
-- Touch!
+Touch!
 
 ---
 
-## posh-git -  extension (install on your PC)
+# posh-git -  extension (install on your PC)
 
 - In powershell:
 - Przestalo dzialac nie wiem czemu
 
 ---
 
-## Git Commit – Editor Message Flow
+# Git Commit – Editor Message Flow
 
 When you run git commit without the -m flag, Git opens your default text editor — in our case, Visual Studio Code (VSC) — and waits for you to write a commit message.
 
@@ -373,7 +377,7 @@ When you run git commit without the -m flag, Git opens your default text editor 
 - The rest of the file may contain comments or instructions from Git (lines starting with #). These can be left as-is or removed.
 - Once you're done, save and close the file. Git will then finalize the commit and return you to the terminal.
 
-```
+```text
 Add firstFile.txt
 # Please enter the commit message for your changes. Lines starting
 # with '#' will be ignored, and an empty message aborts the commit.
@@ -389,7 +393,7 @@ Add firstFile.txt
 
 ---
 
-## git ls-files – List Tracked Files
+# git ls-files – List Tracked Files
 
 This command displays all the files that Git is currently tracking in your repository. It shows the contents of the index (staging area), not the working directory. That means:
 
@@ -399,14 +403,14 @@ This command displays all the files that Git is currently tracking in your repos
 
 Use git ls-files to verify which files are being tracked by Git. If a file doesn’t appear, it’s either untracked or ignored via .gitignore.
 
-```
+```console
 $ git ls-files
 firstFile.txt
 ```
 
 ---
 
-## git log – Commit History
+# git log – Commit History
 
 This command displays the complete commit history of the repository. Each entry includes:
 
@@ -416,13 +420,13 @@ This command displays the complete commit history of the repository. Each entry 
 - The full commit message
 - It’s useful for reviewing detailed information about each change made to the project.
 
-```
+```console
 $ git status
 On branch master
 nothing to commit, working tree clean
 ```
 
-```
+```console
 $ git log
 commit d06aafaf2cd37f5bc7cd4015656e1ae15241c996 (HEAD -> master)
 Author: Jacob Pach <jpach@mtech.edu>
@@ -433,7 +437,7 @@ Date:   Thu Aug 28 20:09:17 2025 -0600
 
 ---
 
-## git log --oneline – Simplified View
+# git log --oneline – Simplified View
 
 This version shows a **condensed list** of commits, with:
 
@@ -444,15 +448,14 @@ It’s ideal for quickly scanning the history or identifying specific commits wi
 
 Use git log when you need full context, and git log --oneline when you want a quick overview. Both are essential tools for navigating and understanding your project’s history.
 
-```
+```console
 $ git log --oneline
 d06aafa (HEAD -> master) Add firstFile.txt
-
 ```
 
 ---
 
-## Renaming Files in Git – Important Note
+# Renaming Files in Git – Important Note
 
 When working with Git, it's important to understand how file renaming is handled. Git does not automatically detect a rename as a single action. Instead, it treats it as:
 
@@ -464,7 +467,7 @@ So, if you rename a file manually (e.g., from oldName.txt to newName.txt), Git w
 - To properly reflect this change in Git, you should:
 - Git doesn’t track file names — it tracks content. Renaming a file is treated as removing one and adding another. Always stage both the deletion and the new file to keep your history clean and understandable.
 
-```
+```console
 $  git add oldName.txt
 $  git add newName.txt
 $  git commit -m "Renamed file from oldName.txt to newName.txt"
@@ -472,7 +475,7 @@ $  git commit -m "Renamed file from oldName.txt to newName.txt"
 
 ---
 
-## What Is a Git Branch?
+# What Is a Git Branch?
 
 - A branch in Git is like a separate line of development. It allows you to work on new features, bug fixes, or experiments without affecting the main codebase. The default branch is usually called main or master.
 - Branches help teams collaborate safely and efficiently by isolating changes until they’re ready to be merged.
@@ -480,30 +483,30 @@ $  git commit -m "Renamed file from oldName.txt to newName.txt"
 
 ---
 
-## git branch – Create a new branch
+# git branch – Create a new branch
 
 - The command git branch shows a list of all branches in your repository. The currently active branch is marked with an asterisk (\*).
 - When working with a repository that has multiple branches, we can switch between them using two different commands. This is because modern versions of Git introduced standardized naming conventions, but the older commands were kept to ensure backward compatibility and to avoid forcing experienced users to relearn everything from scratch.
 
-```
+```bash
 git branch new_branch
 ```
 
-```
+```console
 $ git switch second_branch
 ```
 
-```
+```console
 $ git checkout second_branch
 ```
 
 ---
 
-## Branch - head
+# Branch - head
 
 It is worth mentioning that Git stores information about branches in the .git/refs/head directory, where each file represents a local branch and contains the commit hash it points to. The currently active branch is indicated by the .git/HEAD file, which usually contains a reference like ref: refs/heads/main.
 
-```
+```text
 .git
 +---hooks
 +---info
@@ -517,7 +520,7 @@ It is worth mentioning that Git stores information about branches in the .git/re
 |   index
 ```
 
-```
+```console
 $ git status
 On branch master
 ...
@@ -525,15 +528,17 @@ On branch master
 
 ---
 
-## Git status &amp; git branch Depending on the shell or terminal, Git can display additional information in the prompt, such as the current branch, whether all files are tracked, or if there are uncommitted changes. However, to check which branch you are on, you can always use the git status command or git branch without any parameters.
+# Git status &amp; git branch
 
-```
+Depending on the shell or terminal, Git can display additional information in the prompt, such as the current branch, whether all files are tracked, or if there are uncommitted changes. However, to check which branch you are on, you can always use the git status command or git branch without any parameters.
+
+```console
 $ git branch
 * master
   second
 ```
 
-```
+```console
 $ git status
 On branch master
 ...
@@ -541,6 +546,6 @@ On branch master
 
 ---
 
-# Thank
+<!-- _class: caption-slide -->
 
-*You!*
+# Thank You!

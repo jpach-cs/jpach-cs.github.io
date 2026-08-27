@@ -5,21 +5,22 @@ paginate: true
 title: "Software Engineering"
 ---
 
+<!-- _class: lead -->
+
 # Software Engineering
 
-*Lecture 19*
-
+## Lecture 19
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 Software Security
 
 ---
 
-## Gitlens?
+# Gitlens?
 
-- extension
+extension
 
 ---
 
@@ -34,13 +35,13 @@ Software Security
 
 ---
 
-## 1) Design Principle: "Never Trust the Client"
+# 1) Design Principle: "Never Trust the Client"
 
 The most crucial rule: **never assume the client is honest.** Where possible, all critical logic and core data must reside on an **authoritative server (etc. Diablo IV)**. If your application or game operates offline, you must implement local detection, auditing, and anti-tamper mechanisms.
 
 ---
 
-## 2) Methods for Detecting and Preventing Memory Manipulation (Client-Side)
+# 2) Methods for Detecting and Preventing Memory Manipulation (Client-Side)
 
 - Redundant Value Copies (Mirroring)
 - Store critical values in multiple memory locations (e.g., v, v\_copy1, v\_copy2) and compare them cyclically.
@@ -51,7 +52,7 @@ The most crucial rule: **never assume the client is honest.** Where possible, al
 
 ---
 
-## Etymology: The Canary in the Coal Mine
+# Etymology: The Canary in the Coal Mine
 
 The name ***canary*** refers to a historical method of warning used in coal mines:
 
@@ -61,7 +62,7 @@ The name ***canary*** refers to a historical method of warning used in coal mine
 
 ---
 
-## Canary - Transfer to Computer Science
+# Canary - Transfer to Computer Science
 
 In computer science, especially in the field of memory security, the **"Canary Value"** serves an identical role:
 
@@ -71,7 +72,7 @@ In computer science, especially in the field of memory security, the **"Canary V
 
 ---
 
-## 2) Methods for Detecting and Preventing Memory Manipulation (Client-Side)
+# 2) Methods for Detecting and Preventing Memory Manipulation (Client-Side)
 
 B. Sentry/Canary Values
 
@@ -81,7 +82,7 @@ Place a "sentry" (e.g., a 32-bit random token) adjacent to or associated with ev
 
 ---
 
-## 2) Methods for Detecting and Preventing Memory Manipulation (Client-Side)
+# 2) Methods for Detecting and Preventing Memory Manipulation (Client-Side)
 
 C. Checksums / CRC / Fast Hash
 
@@ -91,7 +92,7 @@ Calculate a quick checksum (like **CRC32** or **xxHash**) for a block of data, s
 
 ---
 
-## 2) Methods for Detecting and Preventing Memory Manipulation (Client-Side)
+# 2) Methods for Detecting and Preventing Memory Manipulation (Client-Side)
 
 D. Monotonic Counters / Versioning (Missing in original, but critical)
 
@@ -99,7 +100,7 @@ Maintain a **counter** that is incremented with every legitimate data update (e.
 
 ---
 
-## 2) Methods for Detecting and Preventing Memory Manipulation (Client-Side)
+# 2) Methods for Detecting and Preventing Memory Manipulation (Client-Side)
 
 E. Obfuscation &amp; Anti-Debug Techniques
 
@@ -107,7 +108,7 @@ Making code analysis difficult for reverse engineers through **obfuscation** (e.
 
 ---
 
-## 3) Performance and Practical Trade-offs
+# 3) Performance and Practical Trade-offs
 
 Continuous, full verification is often too computationally expensive and introduces unacceptable overhead. Use practical trade-offs:
 
@@ -118,14 +119,14 @@ Continuous, full verification is often too computationally expensive and introdu
 
 ---
 
-## 4) Ethics and Limitations (Crucial)
+# 4) Ethics and Limitations (Crucial)
 
 - **Our Goal:** We are teaching defensive and educational security principles, not how to cheat or bypass the protections of others' software.
 - **Responsibility:** Always discuss the ethical and legal ramifications of modifying proprietary software, using public tooling (e.g., Cheat Engine), and respecting user privacy. Our focus is on **defense**, not offense.
 
 ---
 
-## Summary of Data Masking Techniques in Memory
+# Summary of Data Masking Techniques in Memory
 
 |**Technique**|**Purpose in Memory**|**Application**|
 |---|---|---|
@@ -135,7 +136,7 @@ Continuous, full verification is often too computationally expensive and introdu
 
 ---
 
-## My summary
+# My summary
 
 - When using memory scanners like Cheat Engine, we must be aware that the program we analyze is an executable copy residing in RAM. Within any code block (e.g., inside a function), instructions execute sequentially.
 - With a basic understanding of Assembly language, an attacker can disassemble the code and change the program's flow of control by introducing a jump instruction (e.g., JMP), thereby bypassing critical code segments. This control-flow modification technique (often referred to as code patching or hooking or code injection) allows the attacker to circumvent even the most sophisticated memory integrity verification mechanisms.
@@ -143,7 +144,7 @@ Continuous, full verification is often too computationally expensive and introdu
 
 ---
 
-## My summary
+# My summary
 
 - In conclusion, for a purely offline application, we are ultimately destined to fail against a sufficiently skilled and persistent specialist. Our goal can only be to raise the barrier and significantly slow down the process of memory modification. By combining all discussed defensive methods (e.g., scattering state parameters and keys across various data structures), we can effectively increase the time required to reverse-engineer the program's logic.
 - However, it is worth noting that knowledge of computer architecture, compilers, and low-level Assembly programming is becoming increasingly specialized. Mastering advanced techniques like code patching and injecting Assembly code remains a high barrier to entry for the average **computer science graduate** in the 21st century.
@@ -227,7 +228,7 @@ Lokalnie: lekkie maskowanie (scrambling) + CRC/ HMAC (jeżeli secret pochodzi z 
 
 ---
 
-## Practical Scenario – Restoring a Broken File Locally
+# Practical Scenario – Restoring a Broken File Locally
 
 **Situation:**
 
@@ -237,34 +238,32 @@ Lokalnie: lekkie maskowanie (scrambling) + CRC/ HMAC (jeżeli secret pochodzi z 
 
 ---
 
-## Practical Scenario – Restoring a Broken File Locally
+# Practical Scenario – Restoring a Broken File Locally
 
 **Solution – restoring a file from a previous commit:**
 
 - This command retrieves the version of the file from the specified commit and places it in your working directory.
 - Other files in the project remain unchanged.
 
-```
+```console
 git checkout <commit-id> -- path/to/file
-
 ```
 
 ---
 
-## Practical Scenario – Restoring a Broken File Locally
+# Practical Scenario – Restoring a Broken File Locally
 
 **Optional: check differences:**
 
 - Compare the current state of the file (after checkout) with the latest version in the branch to see what has changed.
 
-```
+```console
 git diff
-
 ```
 
 ---
 
-## Practical Scenario – Restoring a Broken File Locally
+# Practical Scenario – Restoring a Broken File Locally
 
 **Modify and test:**
 
@@ -273,7 +272,7 @@ git diff
 
 ---
 
-## Practical Scenario – Restoring a Broken File Locally
+# Practical Scenario – Restoring a Broken File Locally
 
 **Commit the changes:**
 
@@ -285,14 +284,14 @@ git diff
 - Works similarly to git revert, but only affects specific files, not the entire commit.
 - Does not require force push or rewriting history.
 
-```
+```console
 git add path/to/file
 git commit -m "Fix broken functionality in <file>"
 ```
 
 ---
 
-## Introduction to Git Revert
+# Introduction to Git Revert
 
 - git revert is used to **undo changes from a previous commit** by creating a **new commit**.
 - Important: it does **not delete the original commit** – history remains intact.
@@ -300,7 +299,7 @@ git commit -m "Fix broken functionality in <file>"
 
 ---
 
-## When to Use git revert - Use Cases for git revert
+# When to Use git revert - Use Cases for git revert
 
 - Undo a commit that **introduced a bug** without affecting later commits.
 - Correct mistakes on a **shared branch** without rewriting history.
@@ -308,7 +307,7 @@ git commit -m "Fix broken functionality in <file>"
 
 ---
 
-## How git revert Works - Mechanics of git revert
+# How git revert Works - Mechanics of git revert
 
 - Git calculates the changes made in the target commit.
 - Creates **inverse changes** in the working directory (staging area).
@@ -317,24 +316,26 @@ git commit -m "Fix broken functionality in <file>"
 
 ---
 
-## git revert - Reverting a Commit Example
+# git revert - Reverting a Commit Example
 
 - C' is a new commit that undoes changes from C.
 - Commits D and earlier remain untouched.
 
-```
+```text
 A --- B --- C --- D  (branch)
 ```
 
-- git revert C
-
+```console
+git revert C
 ```
+
+```text
 A --- B --- C --- D --- C'
 ```
 
 ---
 
-## git revert - Key Points About git revert
+# git revert - Key Points About git revert
 
 - Creates a new commit, does not remove old commits.
 - Does not require force push, safe for shared branches.
@@ -343,7 +344,7 @@ A --- B --- C --- D --- C'
 
 ---
 
-## git revert - Comparison to Other Methods
+# git revert - Comparison to Other Methods
 
 |Method|Effect on History|Force Push Required?|Safe for Shared Branch?|
 |---|---|---|---|
@@ -357,7 +358,7 @@ A --- B --- C --- D --- C'
 
 ---
 
-## Best Practices for Commits and Branching
+# Best Practices for Commits and Branching
 
 - Small, thematic commits:
   - One commit = one logical change / one functionality / one file (or tightly related files).
@@ -374,7 +375,7 @@ A --- B --- C --- D --- C'
 
 ---
 
-## Consequences / Why It Matters
+# Consequences / Why It Matters
 
 - Small commits make reverts safe:
   - If a commit breaks something, it can be reverted without affecting unrelated changes.
@@ -389,6 +390,6 @@ A --- B --- C --- D --- C'
 
 ---
 
-# Thank
+<!-- _class: caption-slide -->
 
-*You!*
+# Thank You!

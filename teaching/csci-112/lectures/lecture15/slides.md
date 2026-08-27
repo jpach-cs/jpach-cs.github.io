@@ -5,6 +5,8 @@ paginate: true
 title: "CSCI 112  Programming with C"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 15
@@ -17,7 +19,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Outline
+# Outline
 
 - Review
 - Unions
@@ -31,13 +33,13 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Project Structure - Modular C Program with Unit Tests
+# Project Structure - Modular C Program with Unit Tests
 
 - Separate logic, tests, and headers for clarity.
 - Unity is a lightweight, header-based testing framework — ideal for C projects.
 - This structure allows easy maintenance and clear organization.
 
-```c
+```text
 C project/
 │
 ├── code.c              ← function implementations
@@ -55,7 +57,7 @@ C project/
 
 ---
 
-## main.c
+# main.c
 
 ```c
 //#define clearBuffer() while (getchar() != '\n');
@@ -93,7 +95,7 @@ int main(int argc, char *argv[])
 
 ---
 
-## code.h
+# code.h
 
 ```c
 // code.h
@@ -130,7 +132,7 @@ int addOne(int * pointer);     // increments value pointed to by pointer
 
 ---
 
-## code.c
+# code.c
 
 ```c
 char * AUTHOR_NAME = (char *) "Jakub Pach";
@@ -159,7 +161,7 @@ int multiply(int x, int y)
 
 ---
 
-## tests.h
+# tests.h
 
 ```c
 // tests.h
@@ -178,7 +180,7 @@ int run_unity_tests(void);
 
 ---
 
-## tests.c
+# tests.c
 
 ```c
 //#include <assert.h>   // commented out, not needed
@@ -248,7 +250,7 @@ int run_unity_tests(void)
 
 ---
 
-## code.c and code.h – Functional Module
+# code.c and code.h – Functional Module
 
 - code.h declares the interface.
 - code.c contains the implementation.
@@ -281,7 +283,7 @@ int multiply(int x, int y)
 
 ---
 
-## main.c – Program Entry Point
+# main.c – Program Entry Point
 
 - The program supports several command-line arguments.
 - --test runs all unit tests.
@@ -320,7 +322,7 @@ int main(int argc, char *argv[])
 
 ---
 
-## Unit Testing with Unity - Writing Tests with Assertions
+# Unit Testing with Unity - Writing Tests with Assertions
 
 - Each test\_\* function verifies one behavior.
 - TEST\_ASSERT\_EQUAL(expected, actual) checks correctness.
@@ -349,7 +351,7 @@ void test_multiply_negative()
 
 ---
 
-## Unit Testing with Unity - Setup and Teardown Functions
+# Unit Testing with Unity - Setup and Teardown Functions
 
 - setUp() runs before each test → initializes variables.
 - tearDown() runs after each test → cleans up memory.
@@ -374,7 +376,7 @@ void tearDown()
 
 ---
 
-## Unit Testing with Unity - Running and Reporting Tests
+# Unit Testing with Unity - Running and Reporting Tests
 
 - Each test is executed via RUN\_TEST().
 - Unity reports all results in a readable format.
@@ -407,7 +409,9 @@ int run_unity_tests(void)
 
 ```
 
-```c
+Result:
+
+```text
 tests.c:53:test_multiply_basic:PASS
 tests.c:54:test_multiply_with_zero:PASS
 tests.c:55:test_multiply_negative:PASS
@@ -420,18 +424,17 @@ tests.c:57:test_addOne_negative:PASS
 OK
 ```
 
-- Result:
-
 ---
 
-## Summary and Best Practices
+# Summary and Best Practices
 
 - Why do all these test functions have no parameters and return void? Because their **function signature** must match what Unity expects — the function’s address is passed to the macro: RUN\_TEST(test\_multiply\_basic); inside the run\_unity\_tests() function.
 - If all tests run successfully, UNITY\_END() returns the number of **failed tests**.<br>This allows us to conveniently pass that information to the operating system using: return UNITY\_END(); in main.c, since main.c contains:
 
-failed\_tests = run\_unity\_tests();
-
-return failed\_tests;
+```c
+failed_tests = run_unity_tests();
+return failed_tests;
+```
 
 ---
 
@@ -439,7 +442,7 @@ return failed\_tests;
 
 ---
 
-## An example - unions
+# An example - unions
 
 ```c
 #include <stdio.h>
@@ -473,7 +476,9 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+Result:
+
+```text
 Size of a struct Example is = 12
 Size of a struct Example is = 4
 Struct Example1:
@@ -486,13 +491,13 @@ Address of variable c = 6487824
 Address of variable i = 6487824
 ```
 
-- Result:
-
 ---
 
-## Unions
+# Unions
 
 - Unions in C are special data types that allow different data types to be stored in the same memory location.
+
+Syntax:
 
 ```c
 unions symbolic_name1
@@ -501,12 +506,11 @@ unions symbolic_name1
 }<symbolic_name2, ...>;
 ```
 
-- Syntax:
 - Everything that is in angle brackets &lt;&gt; is optional.
 
 ---
 
-## An example - unions
+# An example - unions
 
 ```c
 #include <stdio.h>
@@ -535,7 +539,9 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+Result:
+
+```text
 Union Example:
 The value of [example.s] = 5
 The value of [example.c] = 65
@@ -543,13 +549,13 @@ The value of [example.i] = 63123
 The value of [example.s] = -2413
 ```
 
-- Result:
-
 Unions in C are a mechanism that allows different data types to be stored in the same memory location, which can be useful in specific situations but requires caution due to potential pitfalls associated with their use.
 
 ---
 
-## A summary on unions Unions in C are special data types that allow different data types to be stored in the same memory location. Unlike structures, where each member has its own dedicated space, all members of a union share the same location. This means that at any given time, only one member of the union can hold a defined value, and changing the value of one member automatically overwrites the values of the others. This makes unions ideal for situations where we need to store different types of data in the same place, but only one of these types is active at any moment. Unions have various applications, from representing variable data types to creating more memory-efficient data structures. However, it’s important to note that improper use of unions can lead to programming errors, such as accessing uninitialized data or violating memory alignment rules
+# A summary on unions
+
+Unions in C are special data types that allow different data types to be stored in the same memory location. Unlike structures, where each member has its own dedicated space, all members of a union share the same location. This means that at any given time, only one member of the union can hold a defined value, and changing the value of one member automatically overwrites the values of the others. This makes unions ideal for situations where we need to store different types of data in the same place, but only one of these types is active at any moment. Unions have various applications, from representing variable data types to creating more memory-efficient data structures. However, it’s important to note that improper use of unions can lead to programming errors, such as accessing uninitialized data or violating memory alignment rules
 
 ---
 
@@ -557,10 +563,12 @@ Unions in C are a mechanism that allows different data types to be stored in the
 
 ---
 
-## Enums
+# Enums
 
 - An enum (enumeration) is a user-defined data type in C that consists of a set of named integer constants. These constants are often used to represent a fixed set of values.
 - Enum syntax is the same as struct.
+
+Syntax:
 
 ```c
 enums symbolic_name1
@@ -569,12 +577,11 @@ enums symbolic_name1
 }<symbolic_name2, ...>;
 ```
 
-- Syntax:
 - Everything that is in angle brackets &lt;&gt; is optional.
 
 ---
 
-## 1 example
+# 1 example
 
 ```c
 #include <stdio.h>
@@ -607,7 +614,9 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+Result:
+
+```text
 The size of [enum color] is 4
 The value of my_color is 0
 The value of x is 1
@@ -616,13 +625,11 @@ Improper value
 
 ```
 
-- Result:
-
 These constants are often used to represent a fixed set of values, such as days of the week, colors, or error codes. Enums provide a way to make code more readable and maintainable by using meaningful names instead of raw integer values.
 
 ---
 
-## 2 example
+# 2 example
 
 ```c
 #include <stdio.h>
@@ -646,7 +653,9 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+Result:
+
+```text
 The value of red is 51
 The value of green is 52
 The value of blue is 91
@@ -654,18 +663,18 @@ The value of orange is 92
 
 ```
 
-- Result:
-
 When using elements from a defined enum, we don't need to use the enum's name itself. They are treated by the compiler as integer constants, which means they can be used to define array sizes just like the #define preprocessor directive.
 
 If we don't specify a value for an enumeration field, the default value is 0. The subsequent field will have a value one greater than the previous one. However, if we define a different value for a field, that field will have an individually defined value and the next field will be one more than the last one.
 
 ---
 
-## Enums
+# Enums
 
 - An enum (enumeration) is a user-defined data type in C that consists of a set of named integer constants. These constants are often used to represent a fixed set of values.
 - Enum syntax is the same as struct.
+
+Syntax:
 
 ```c
 enums symbolic_name1
@@ -674,12 +683,11 @@ enums symbolic_name1
 }<symbolic_name2, ...>;
 ```
 
-- Syntax:
 - Everything that is in angle brackets &lt;&gt; is optional.
 
 ---
 
-## 3 example
+# 3 example
 
 ```c
 #include <stdio.h>
@@ -721,14 +729,14 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+Result:
+
+```text
 The value of my_local_color is 51
 The value of my_local_color is 91
 orange
 
 ```
-
-- Result:
 
 Given that enums can also create global variables within their definition (including pointers), it's important to keep this in mind. Enums are often used with switch statements, allowing us to convert numerical values into strings.
 
@@ -738,7 +746,7 @@ Given that enums can also create global variables within their definition (inclu
 
 ---
 
-## An example
+# An example
 
 ```c
 #include <stdio.h>
@@ -768,34 +776,34 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+Result1:
+
+```text
 The size of Data is 1
 Give me a number
 8
 1 0 1
 ```
 
-- Result1:
-
 A bit-field structure occupies as much space as the largest defined field type, instead of assigning a value '=' to fields, the number of BITS for this flag ':' is specified
 
-```c
+Result2:
+
+```text
 The size of Data is 1
 Give me a number
 12
 1 1 0
 ```
 
-- Result2:
+Result3:
 
-```c
+```text
 The size of Data is 1
 Give me a number
 11
 0 1 0
 ```
-
-- Result3:
 
 ---
 
@@ -803,7 +811,7 @@ Give me a number
 
 ---
 
-## Introduction to File Access in C
+# Introduction to File Access in C
 
 - Why File Access Matters:
   - Storing and retrieving data beyond program execution.
@@ -813,9 +821,9 @@ Give me a number
 
 ---
 
-## Opening and closing files
+# Opening and closing files
 
-```c
+```text
 Function: fopen()
 Syntax:
 	FILE *fopen(const char *filename, const char *mode);
@@ -833,9 +841,9 @@ Always check if fclose() returned NULL, indicating failure (e.g., file not found
 
 ---
 
-## Opening files
+# Opening files
 
-```c
+```text
 Function: fopen()
 Syntax:
 	FILE *fopen(const char *filename, const char *mode);
@@ -844,7 +852,7 @@ Always check if fopen() returned NULL, indicating failure (e.g., file not found)
 
 ```
 
-```c
+```text
 file path/file name
 ```
 
@@ -852,7 +860,7 @@ file path/file name
 
 ---
 
-## const char \*filename
+# const char \*filename
 
 - The const char \*filename argument in the fopen() function can specify three types of file locations:
 - File Name Only:
@@ -868,7 +876,9 @@ file path/file name
 
 ---
 
-## File Access Modes in C
+# File Access Modes in C
+
+Access Modes:
 
 |Mode|Description|
 |---|---|
@@ -878,21 +888,20 @@ file path/file name
 |x|Creates the file if it does not already exist. Fails if the file already exists.|
 |+|Combined with r, w, a, or x, allows both reading and writing.|
 
+File Types:
+
 |Type Modifier|Description|
 |---|---|
 |t|Text mode (default). Treats file as a sequence of characters.|
 |b|Binary mode. Treats file as a sequence of bytes with no translation.|
 
-- Access Modes:
-- File Types:
-
 <!-- najpierw on bibliotece i EOF i ile wynosi ( stala symboliczna i wartosc wynosi -1 -->
 
 ---
 
-## Binary File I/O Functions
+# Binary File I/O Functions
 
-```c
+```text
 For reading blocks of binary data.
 Syntax:
 int fread(void *ptr, int size, int count, FILE *stream);
@@ -911,7 +920,7 @@ stream:    File pointer to the open file where data should be written(read).
 
 ---
 
-## An example – Binary file
+# An example – Binary file
 
 ```c
 #include <stdio.h>
@@ -937,21 +946,19 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+binaryFile.bin:
+
+```text
    Some text ĂőH@
 
 ```
 
-```c
-binaryFile.bin:
-```
+Result:
 
-```c
+```text
 15 Some text 3.140000
 
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -982,9 +989,9 @@ int main(int argc, char *argv[])
 
 ---
 
-## fseek() function
+# fseek() function
 
-```c
+```text
 The function fseek() moves the file pointer to a specified location, allowing you to read from or write to a specific part of the file.
 Syntax:
 int fseek(FILE *stream, long offset, int origin);
@@ -1004,22 +1011,25 @@ SEEK\_END:     Start from the end of the file(2).
 
 ---
 
-## ftell() and rewind() functions
+# ftell() and rewind() functions
 
-```c
+```text
 The function ftell() returns the current file position as a long integer. If an error occurs, it returns -1.
 Syntax:
 long ftell(FILE *stream);
 ```
 
 - Unlike fseek() and ftell(), rewind() is simpler to use and is intended to reset the file pointer to the beginning of the file.
-- Syntax:
 
-void rewind(FILE \*stream);
+Syntax:
+
+```c
+void rewind(FILE *stream);
+```
 
 ---
 
-## 1 example – fseek()
+# 1 example – fseek()
 
 ```c
 #include <stdio.h>
@@ -1048,18 +1058,18 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+Result:
+
+```text
 Position after fseek: 5
 Position after another fseek: 15
 Position at the end of file: 18
 
 ```
 
-- Result:
-
 ---
 
-## 2 example – fseek(), ftell()
+# 2 example – fseek(), ftell()
 
 ```c
 #include <stdio.h>
@@ -1098,7 +1108,9 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+Result:
+
+```text
 The position in file = 0
 The position in file = 4
 The position in file = 14
@@ -1109,13 +1121,11 @@ Position after fseek(): 0
 
 ```
 
-- Result:
-
 ---
 
-## Text File I/O Functions
+# Text File I/O Functions
 
-```c
+```text
 For reading text from file:
 fgetc():	Reads a single character from a file.
 fgets():	Reads a line from a file.
@@ -1128,9 +1138,9 @@ fprintf():	Prints formatted output to a file (similar to printf()).
 
 ---
 
-## Reading Text from a file
+# Reading Text from a file
 
-```c
+```text
 int fgetc(FILE *stream)
 Description:	Reads a single character from the specified file stream.
 Return Type:	Returns the character read as an unsigned char cast to an int, or EOF on end of file or error.
@@ -1147,9 +1157,9 @@ Example: 	int read_count = fscanf(file_pointer, "%d %f", &int_var, &float_var);
 
 ---
 
-## Writing Text to a file
+# Writing Text to a file
 
-```c
+```text
 int fputc(int char, FILE *stream)
 Description:	Writes a single character to the specified file stream.
 Return Type:	Returns the written character as an unsigned char cast to an int, or EOF on error.

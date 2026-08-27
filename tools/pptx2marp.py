@@ -609,10 +609,21 @@ def assemble_slide(slide_index, title, subtitle, body_blocks, notes_text):
     title_text, title_kind = title
     pieces = []
     if title_text:
-        heading = '#' if title_kind == 'ctrTitle' else '##'
-        pieces.append(f'{heading} {title_text}')
+        # In the shared theme, h1 *is* the slide-title style: an absolutely
+        # positioned title bar with the accent rule drawn by `h1::before`. h2 is
+        # an inline subheading within the slide body. So a slide's title is an h1
+        # whichever placeholder it came from - matching the hand-authored deck at
+        # teaching/csci-232/lectures/lecture01-intro/, which uses h1 on every
+        # slide. What the deck's opening slide additionally gets is the theme's
+        # `lead` class, which recentres the title instead of parking it in the bar.
+        if title_kind == 'ctrTitle' and slide_index == 1:
+            pieces.append('<!-- _class: lead -->')
+        pieces.append(f'# {title_text}')
     if subtitle:
-        pieces.append(f'*{subtitle}*')
+        # A PowerPoint subtitle placeholder is a heading, not emphasised body
+        # text: the theme has a `section.lead h2` rule sized for exactly this,
+        # and the hand-authored reference deck's title slide is an h1 over an h2.
+        pieces.append(f'## {subtitle}')
     if body_blocks:
         pieces.append(join_body_blocks(normalize_list_indentation(body_blocks)))
     is_empty = not pieces

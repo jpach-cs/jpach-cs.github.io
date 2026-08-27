@@ -5,13 +5,14 @@ paginate: true
 title: "Data Structures & Algorithms"
 ---
 
+<!-- _class: lead -->
+
 # Data Structures &amp; Algorithms
 
-*Lecture 4*
-
+## Lecture 4
 ---
 
-## In 136, we covered
+# In 136, we covered
 
 - Objects and classes, Abstract Data Types – lots of coverage.  I required class and header files in most assignments
 - Time and Space complexity – a discussion was included in each exercise.  Good coverage of constant time, linear, n2, n3, with loops and nested loops.  Didn’t do any of the math.
@@ -27,13 +28,13 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## My 8 Best Practices for Working with
-
-- Pointers and Linked Lists in C
+# My 8 Best Practices for Working with Pointers and Linked Lists in C
 
 ---
 
-## When working with linked lists in C, it’s important to follow a few key principles to avoid logical and memory-related errors
+<!-- _class: long-title -->
+
+# When working with linked lists in C, it’s important to follow a few key principles to avoid logical and memory-related errors
 
 - First, decide how your functions should operate. You have two common strategies. The first one is to return an integer value that indicates whether an operation succeeded or failed. In this case, you need to pass a **double pointer** (for example, Node \*\*head) to allow the function to modify the head of the list directly. Remember that when calling such a function, you must pass the **address of the pointer** using the &amp; operator.
 - The second strategy is to make your function return a pointer to the head of the list after the operation. This function should return either a valid pointer or NULL if something goes wrong. If you use this approach, always check the return value before overwriting your current head pointer. This prevents losing access to your list when an operation fails.
@@ -46,7 +47,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## 1. Designing Pointer-Based Linked Lists
+# 1. Designing Pointer-Based Linked Lists
 
 **When working with linked lists, you must clearly define your function design strategy:**
 
@@ -67,7 +68,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## 2. Passing by Reference vs Returning Head
+# 2. Passing by Reference vs Returning Head
 
 **When using a double pointer:**
 
@@ -88,7 +89,7 @@ if (head != NULL)
 
 ---
 
-## 3. Validating Pointer Access
+# 3. Validating Pointer Access
 
 - Before accessing memory via a pointer, **ensure it’s valid**:
   - Just like checking array bounds before accessing an index.
@@ -106,7 +107,7 @@ printf("First element: %d\n", head->value);
 
 ---
 
-## 4. Stack vs Heap Memory
+# 4. Stack vs Heap Memory
 
 **Never call free() on a variable allocated on the stack:**
 
@@ -126,7 +127,7 @@ free(p);
 
 ---
 
-## 5. Passing by Reference vs Returning Head
+# 5. Passing by Reference vs Returning Head
 
 **During debugging, use the Call Stack panel:**
 
@@ -141,7 +142,7 @@ free(p);
 
 ---
 
-## 6. Head and Tail Are Just References
+# 6. Head and Tail Are Just References
 
 **Remember:**
 
@@ -163,7 +164,7 @@ while (head != NULL)
 
 ---
 
-## 7. Improving Code Readability
+# 7. Improving Code Readability
 
 - Use parentheses to clarify nested pointer access:
 - instead of:
@@ -179,7 +180,7 @@ current->next->next
 
 ---
 
-## 8. Simplifying Double Pointers
+# 8. Simplifying Double Pointers
 
 - When double pointers feel too abstract, use a **temporary single pointer** to step through logic:
 - After understanding this, using \*\* directly becomes intuitive.
@@ -193,7 +194,7 @@ tempPointer->next = newNode;
 
 ---
 
-## X. printIntArrayBackward
+# X. printIntArrayBackward
 
 ```c
 void printIntArrayBackward(int *arr, int N)
@@ -209,13 +210,11 @@ void printIntArrayBackward(int *arr, int N)
 
 ---
 
-## Best Practices for Working with
-
-- Pointers and Linked Lists in C
+# Best Practices for Working with Pointers and Linked Lists in C
 
 ---
 
-## 1. A node is independent — never confuse it with the head
+# 1. A node is independent — never confuse it with the head
 
 - The head is a pointer to the first node, not the node itself.
 
@@ -227,7 +226,7 @@ void printIntArrayBackward(int *arr, int N)
 
 ---
 
-## 2. Use -&gt; for pointers, . for structures
+# 2. Use -&gt; for pointers, . for structures
 
 - If you have a pointer to a struct, use -&gt;. If you have a struct object, use ..
 
@@ -240,7 +239,7 @@ void printIntArrayBackward(int *arr, int N)
 
 ---
 
-## 3. Always allocate memory for a new node
+# 3. Always allocate memory for a new node
 
 - Don’t create a node as a local variable if it needs to persist.
 
@@ -252,7 +251,7 @@ void printIntArrayBackward(int *arr, int N)
 
 ---
 
-## 4. Always check the result of malloc()
+# 4. Always check the result of malloc()
 
 - Never assume memory was successfully allocated.
 
@@ -267,7 +266,7 @@ if (newNode == NULL)
 
 ---
 
-## 5. Use a double pointer (Node \*\*) when modifying the head
+# 5. Use a double pointer (Node \*\*) when modifying the head
 
 - To change the head inside a function, you need its address.
 
@@ -279,7 +278,7 @@ if (newNode == NULL)
 
 ---
 
-## 6. Always free memory when done
+# 6. Always free memory when done
 
 - Every malloc() should have a corresponding free().
 
@@ -291,7 +290,7 @@ if (newNode == NULL)
 
 ---
 
-## 7. Never dereference a NULL pointer
+# 7. Never dereference a NULL pointer
 
 - Always check before accessing pointer contents.
 
@@ -304,13 +303,13 @@ if (newNode == NULL)
 
 ---
 
-## 8. Draw the list on paper when debugging
+# 8. Draw the list on paper when debugging
 
 - Visualizing the structure helps understand pointer behavior.
 
 ---
 
-## 9. Copying a pointer does not copy the data
+# 9. Copying a pointer does not copy the data
 
 - It only copies the address — both pointers refer to the same memory.
 
@@ -321,7 +320,7 @@ if (newNode == NULL)
 
 ---
 
-## 11. Debugging Linked Lists in C
+# 11. Debugging Linked Lists in C
 
 *Debugging linked lists is difficult when you only have a pointer to the head. But if you create an array of Node structures and pass it by pointer, you retain full access to all elements from the context of main, which drastically simplifies code analysis.*<br>*Even temporarily, you can create a local array of Node inside a function to aid debugging. Once everything works, you can replace it with malloc — the behavior will be exactly the same, since you're accessing nodes via the -&gt; operator.*
 
@@ -334,7 +333,7 @@ if (newNode == NULL)
 
 ---
 
-## 12. Designing Functions for Linked Lists in C — Two Approaches
+# 12. Designing Functions for Linked Lists in C — Two Approaches
 
 **Approach 1: Return the new head (single-level pointer)**
 
@@ -365,7 +364,7 @@ struct Node * insertAtBeginning(struct Node *head, struct Node *newNode)
 
 ---
 
-## 12. Designing Functions for Linked Lists in C — Two Approaches
+# 12. Designing Functions for Linked Lists in C — Two Approaches
 
 **Approach 2: Modify the head directly (double pointer)**
 
@@ -396,7 +395,7 @@ int insertAtBeginning(struct Node **head, struct Node *newNode)
 
 ---
 
-## 12. Designing Functions for Linked Lists in C — Two Approaches
+# 12. Designing Functions for Linked Lists in C — Two Approaches
 
 |Feature|Return Head|Modify via Double Pointer|
 |---|---|---|
@@ -408,7 +407,7 @@ int insertAtBeginning(struct Node **head, struct Node *newNode)
 
 ---
 
-## Code
+# Code
 
 ---
 
@@ -732,10 +731,10 @@ int DeleteValue(struct Node **headPointer, int value)
 
 ---
 
-## Questions?
+# Questions?
 
 ---
 
-## Thank
+<!-- _class: caption-slide -->
 
-- You
+# Thank You

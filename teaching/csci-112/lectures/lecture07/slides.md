@@ -5,6 +5,8 @@ paginate: true
 title: "CSCI 112  Programming with C"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 7
@@ -17,12 +19,12 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Outline
+# Outline
 
 - Review
 - Loop statements
 - Functions
-- Global &amp; local variables
+- Global & local variables
 
 ---
 
@@ -30,7 +32,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## switch statement
+# switch statement
 
 ```c
 switch (expression)
@@ -69,18 +71,18 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 4
 a variable x is not between 1 and 3
 ```
-
-- Result:
 
 In C programming, a **constant expression** is an expression that evaluates to a fixed value at compile time, meaning the value is determined during the compilation process rather than during program execution.
 
 ---
 
-## switch statement
+# switch statement
 
 ```c
 int main()
@@ -99,20 +101,20 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 2
 a variable x is 2
-
 ```
 
-- Result:
 - The default block in the switch statement is optional!
 - The default block can be used for error handling.
 - It's important to note that omitting the default block will cause the program to skip the entire switch statement if the variable takes on a value not defined in the switch statement.
 
 ---
 
-## switch statement
+# switch statement
 
 ```c
 int main()
@@ -133,12 +135,13 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 2
 a variable x is  1 and 3
 ```
 
-- Result:
 - To terminate a switch statement, we use the break keyword
 
 ```c
@@ -162,13 +165,15 @@ int main()
 }
 ```
 
-- OR
+OR
 
 <!-- Similar to labels used with goto keyword -->
 
 ---
 
-## atof() &amp; atoi() functions To convert a char array (string) containing an integer number, we can use the atoi() function (ASCII to int), which returns the converted value as an int. Similarly, the atof() function (ASCII to float) converts the char array to a float. After the conversion, arithmetic operations on these numbers become possible. To use these functions, it is necessary to include the &lt;stdlib.h&gt; header.
+# atof() & atoi() functions
+
+To convert a char array (string) containing an integer number, we can use the atoi() function (ASCII to int), which returns the converted value as an int. Similarly, the atof() function (ASCII to float) converts the char array to a float. After the conversion, arithmetic operations on these numbers become possible. To use these functions, it is necessary to include the &lt;stdlib.h&gt; header.
 
 ```c
 char floatString[] = "3.14159";
@@ -180,17 +185,15 @@ int y = atoi(intString);
 printf("%f", x + y );
 ```
 
-```c
+Result:
+
+```text
 258.141590
-
-
 ```
-
-- Result:
 
 ---
 
-## atof() &amp; atoi() functions
+# atof() & atoi() functions
 
 ```c
 // Reserve space for a 3-character string + null terminator ('\0')
@@ -212,27 +215,24 @@ int ten = 10;
 printf("%d\n", number + ten);
 ```
 
-```c
+Result:
+
+```text
 258.141590
-
-
 ```
 
-- Result:
+Result:
 
-```c
+```text
 Give me a 3-digit number. If less than 100, please write 091 etc.
 321
 321
 331
-
 ```
-
-- Result:
 
 ---
 
-## Hex &amp; Octal
+# Hex & Octal
 
 ```c
 int main()
@@ -250,17 +250,17 @@ printf("Value of y in Octal\tis = %o\n", y);
 }
 ```
 
-```c
+Result:
+
+```text
 Enter a 3-digit value for y: 255
 Value of y in HEX       is = FF
 Value of y in Octal     is = 377
 ```
 
-- Result:
-
 ---
 
-## goto statement
+# goto statement
 
 - goto allows us to jump\* unconditionally to a location identified by a label
 - a simple example of Spaghetti Code <br>- Dijkstra, E. W. (1968)
@@ -285,17 +285,15 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 It was true
-
-
 ```
-
-- Result:
 
 ---
 
-## Ternary conditional operator ?
+# Ternary conditional operator ?
 
 - If expression1 evaluates to true, the ternary operator returns the value of expression2. Otherwise, it returns the value of expression3.
 
@@ -312,13 +310,11 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 2
-
-
 ```
-
-- Result:
 
 ---
 
@@ -326,7 +322,7 @@ int main()
 
 ---
 
-## while loop
+# while loop
 
 ```c
 while (expression1)
@@ -334,14 +330,6 @@ while (expression1)
 ```
 
 A while loop repeatedly executes statement1 based on the logical outcome of expression1 as long as expression1 evaluates to true.
-
-```c
-a value of i is: 0
-a value of i is: 1
-a value of i is: 2
-```
-
-- Result:
 
 ```c
 int main()
@@ -355,6 +343,14 @@ int main()
 }
 ```
 
+Result:
+
+```text
+a value of i is: 0
+a value of i is: 1
+a value of i is: 2
+```
+
 ```c
 int main()
 {
@@ -364,11 +360,11 @@ int main()
 }
 ```
 
-- OR
+OR
 
 ---
 
-## while loop
+# while loop
 
 ```c
 while (expression1)
@@ -376,14 +372,6 @@ while (expression1)
 ```
 
 A while loop repeatedly executes statement1 based on the logical outcome of expression1 as long as expression1 evaluates to true.
-
-```c
-a value of i is: 0
-a value of i is: 1
-a value of i is: 2
-```
-
-- Result:
 
 ```c
 int main()
@@ -397,6 +385,14 @@ int main()
 }
 ```
 
+Result:
+
+```text
+a value of i is: 0
+a value of i is: 1
+a value of i is: 2
+```
+
 ```c
 int main()
 {
@@ -406,19 +402,11 @@ int main()
 }
 ```
 
-- OR
+OR
 
 ---
 
-## while loop
-
-```c
-a value of i is: 0
-a value of i is: 1
-a value of i is: 2
-```
-
-- Result:
+# while loop
 
 ```c
 int main()
@@ -429,7 +417,15 @@ int main()
 }
 ```
 
-- OR
+Result:
+
+```text
+a value of i is: 0
+a value of i is: 1
+a value of i is: 2
+```
+
+OR
 
 ```c
 int main()
@@ -454,7 +450,7 @@ int main()
 
 ---
 
-## for loop
+# for loop
 
 ```c
 for (expression1; expression2; expression3)
@@ -466,14 +462,6 @@ for (expression1; expression2; expression3)
 - Any of the three part can be omitted, although the semicolons must be remain. If expression2 is not present, it is taken as permanently true.
 
 ```c
-a value of i is: 0
-a value of i is: 1
-a value of i is: 2
-```
-
-- Result:
-
-```c
 int main()
 {
   for (int i = 0; i < 4; i++ )
@@ -481,9 +469,17 @@ int main()
 }
 ```
 
+Result:
+
+```text
+a value of i is: 0
+a value of i is: 1
+a value of i is: 2
+```
+
 ---
 
-## The for loop is equivalent to while loop
+# The for loop is equivalent to while loop
 
 ```c
 expression1;
@@ -503,7 +499,7 @@ for (expression1; expression2; expression3)
 
 ---
 
-## “Infinity” loop
+# “Infinity” loop
 
 ```c
 while (true)
@@ -521,7 +517,7 @@ for (;;)
 
 ---
 
-## do-while loop
+# do-while loop
 
 ```c
 do
@@ -530,14 +526,6 @@ while(expression1)
 ```
 
 A do-while loop executes statement1, then checks the logical outcome of expression1. If expression1 evaluates to true, the loop repeats; otherwise, the loop terminates.
-
-```c
-Enter a positive number: -9
-Enter a positive number: 2
-You entered: 2
-```
-
-- Result:
 
 ```c
 int main()
@@ -555,11 +543,19 @@ int main()
 }
 ```
 
+Result:
+
+```text
+Enter a positive number: -9
+Enter a positive number: 2
+You entered: 2
+```
+
 - semicolon!
 
 ---
 
-## Simulating a do-while loop with while loop
+# Simulating a do-while loop with while loop
 
 ```c
 int main()
@@ -578,15 +574,7 @@ int main()
 
 ---
 
-## An example
-
-```c
-Enter a positive number: -9
-Enter a positive number: 2
-You entered: 2
-```
-
-- Result:
+# An example
 
 ```c
 int main()
@@ -604,9 +592,17 @@ printf("You entered: %d\n", number);
 }
 ```
 
+Result:
+
+```text
+Enter a positive number: -9
+Enter a positive number: 2
+You entered: 2
+```
+
 ---
 
-## break &amp; continue keywords
+# break & continue keywords
 
 - break and continue offer distinct ways to control loop flow.
 - break instantly terminates the loop it's in, while continue jumps to the next iteration.
@@ -625,16 +621,15 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 1 2 3 4
-
 ```
-
-- Result:
 
 ---
 
-## break &amp; continue keywords
+# break & continue keywords
 
 - break and continue offer distinct ways to control loop flow.
 - break instantly terminates the loop it's in, while continue jumps to the next iteration.
@@ -655,16 +650,15 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 1 3 5 7 9
-
 ```
-
-- Result:
 
 ---
 
-## break &amp; continue keywords
+# break & continue keywords
 
 - break and continue offer distinct ways to control loop flow.
 - break instantly terminates the loop it's in, while continue jumps to the next iteration.
@@ -695,17 +689,16 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 1 2 3 4
 1 3 5 7 9
-
 ```
-
-- Result:
 
 ---
 
-## goto statement in loops
+# goto statement in loops
 
 - goto provides a convenient way to exit from nested blocks
 
@@ -759,7 +752,7 @@ int main()
 
 ---
 
-## Summary of the Difference Between for and while Loops
+# Summary of the Difference Between for and while Loops
 
 - The statement about using for for a known number of iterations and while for an unknown number is an excellent guideline, but it's not a strict rule. It's more of a best practice for writing clean, readable, and maintainable code.
 - In most programming languages, these two loops are technically interchangeable. You can always write a for loop using a while loop (by manually handling the counter variable), and you can often force a while loop into a for structure, though it might look awkward.
@@ -767,11 +760,11 @@ int main()
 
 ---
 
-# Functions &amp; variables
+# Functions & variables
 
 ---
 
-## Prototype &amp; its Function
+# Prototype & its Function
 
 - In contrast to function implementations, function prototypes are terminated with a semicolon(;)
 - A minimal prototype must precede the function definition, and it is standard to list function prototypes alphabetically after preprocessor directives within a file
@@ -790,7 +783,7 @@ return-type function-name (only type of parameter declarations, if any);
 
 ---
 
-## Prototype &amp; its Function
+# Prototype & its Function
 
 - The return type can be any of the data types presented in the previous material, and additionally, void can be used if no value is to be returned.
 - The function name is symbolic\_name.
@@ -809,7 +802,7 @@ return-type function-name (only type of parameter declarations, if any);
 
 ---
 
-## Main() example
+# Main() example
 
 - The main function is the entry point of a C program. When a C program is executed, the main function is called first.
 - The main function is an excellent example. The type of value it returns is int, and its symbolic name is main. In this variant, the function doesn't accept any parameters, though another version with argc does exist. The final line, return 0;, instructs the compiler that the function is returning a value of 0.
@@ -826,7 +819,9 @@ int main()
 
 ---
 
-## Exit(0) One might wonder why it returns zero if we never use this value anywhere. In fact, it isn't truly unused. When the program finishes its execution, control is handed back to the computer's operating system, which can respond to the returned value. A return value of 0 signifies that the program completed successfully, as the programmer intended, without errors. Any other value indicates an abnormal termination or an error.
+# Exit(0)
+
+One might wonder why it returns zero if we never use this value anywhere. In fact, it isn't truly unused. When the program finishes its execution, control is handed back to the computer's operating system, which can respond to the returned value. A return value of 0 signifies that the program completed successfully, as the programmer intended, without errors. Any other value indicates an abnormal termination or an error.
 
 ```c
 #include <stdio.h>
@@ -840,7 +835,7 @@ int main()
 
 ---
 
-## Functions, return, and Casting
+# Functions, return, and Casting
 
 - Regardless of the function's return type, the compiler expects the return keyword followed by a value of the same type as specified in the function's declaration or prototype. Therefore, if a function returns void (nothing), the last line should simply be return;.
 
@@ -855,11 +850,13 @@ int main()
 
 ---
 
-## Functions, return, and Casting
+# Functions, return, and Casting
 
 - Similar to **casting**, there is **explicit casting** (consciously performed by the programmer) and **implicit casting** (done automatically by the compiler). If the result of an int expression is assigned to a float variable, implicit casting will occur. Another programmer analyzing this code won't know if this was a mistake or intentional. To avoid this ambiguity, it's a best practice to use explicit casting with parentheses, for example:
 
+```c
 float x = (float) (y + z);
+```
 
 ```c
 #include <stdio.h>
@@ -872,14 +869,14 @@ int main()
 
 ---
 
-## Functions, return, and Casting
+# Functions, return, and Casting
 
 - The return statement works in a similar way. If a programmer omits the return instruction, the compiler will return "some" value (undefined behavior) depending on its settings (usually the value from the processor's ax register). This can lead to undesirable consequences and hard-to-find bugs, since the compiler won't flag them. For this reason, this course requires every function to end with the return keyword and a variable of the function's declared type.
 - Finally, it's worth remembering that the terms **procedure**, **method**, and **function** are often used interchangeably. The main difference is that a function, like the main function, is not nested within another structure. In other languages, you can nest functions within other entities, and these are then called methods. A procedure, on the other hand, is the ancestor of a function in assembly language.
 
 ---
 
-## Prototype &amp; its Function - myFunction1
+# Prototype & its Function - myFunction1
 
 - A function prototype must appear **before** its definition.
 - A prototype ends with a semicolon.
@@ -903,17 +900,17 @@ int main()
 
 ```
 
-```c
-Text from myFuntion1
+Result:
 
+```text
+Text from myFuntion1
 ```
 
-- Result:
 - Correct exit
 
 ---
 
-## Prototype &amp; its Function - myFunction1
+# Prototype & its Function - myFunction1
 
 - A function prototype must appear **before** its definition.
 - A prototype ends with a semicolon.
@@ -937,17 +934,19 @@ int main()
 
 ```
 
-```c
-Text from myFuntion1
+Result:
 
+```text
+Text from myFuntion1
 ```
 
-- Result:
 - Correct exit
 
 ---
 
-## Prototype &amp; its Function – myFunction2 myFunction2 is of type int, so the value it returns is also of type int. Remember that everything inside the parentheses of the function parameters is a **copy** of the value passed to the function. This means that myFunction2 literally declares int n before the first statement of the function and assigns it the value 2 (like int n = 2;).
+# Prototype & its Function – myFunction2
+
+myFunction2 is of type int, so the value it returns is also of type int. Remember that everything inside the parentheses of the function parameters is a **copy** of the value passed to the function. This means that myFunction2 literally declares int n before the first statement of the function and assigns it the value 2 (like int n = 2;).
 
 ```c
 #include <stdio.h>
@@ -968,17 +967,18 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 incremented n from myFuntion2 equals 3
 result of myFuntion2 equals 1
-
 ```
-
-- Result:
 
 ---
 
-## Prototype &amp; its Function – myFunction2 As known from the concept of a block, once the body of myFunction2 finishes executing, this local variable n is destroyed — it exists only within the scope of the function. Inside the function, the value of n is incremented by 1, displayed using printf, and the function then returns the value 1. This returned value is assigned to result in main.
+# Prototype & its Function – myFunction2
+
+As known from the concept of a block, once the body of myFunction2 finishes executing, this local variable n is destroyed — it exists only within the scope of the function. Inside the function, the value of n is incremented by 1, displayed using printf, and the function then returns the value 1. This returned value is assigned to result in main.
 
 ```c
 #include <stdio.h>
@@ -999,17 +999,18 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 incremented n from myFuntion2 equals 3
 result of myFuntion2 equals 1
-
 ```
-
-- Result:
 
 ---
 
-## Prototype &amp; its Function – myFunction2 This demonstrates how a function communicates with a variable in main: the parameter n is a local copy, and the function can return a value to the caller.
+# Prototype & its Function – myFunction2
+
+This demonstrates how a function communicates with a variable in main: the parameter n is a local copy, and the function can return a value to the caller.
 
 ```c
 #include <stdio.h>
@@ -1030,17 +1031,16 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 incremented n from myFuntion2 equals 3
 result of myFuntion2 equals 1
-
 ```
-
-- Result:
 
 ---
 
-## Prototype &amp; its Function – myFunction3
+# Prototype & its Function – myFunction3
 
 ```c
 #include <stdio.h>
@@ -1063,17 +1063,16 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 n from myFuntion3 equals 2
 result of myFuntion3 equals 27
-
 ```
-
-- Result:
 
 ---
 
-## Prototype &amp; its Function
+# Prototype & its Function
 
 ```c
 #include <stdio.h>
@@ -1115,7 +1114,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Text from myFuntion1
 incremented n from myFuntion2 equals 3
 result of myFuntion2 equals 1
@@ -1123,14 +1124,13 @@ n from myFuntion3 equals 2
 result of myFuntion3 equals 27
 ```
 
-- Result:
 - Correct exit
 
 <!-- Green comment! -->
 
 ---
 
-## Variables
+# Variables
 
 - variable scope    –    the region in which a variable is valid;
 
@@ -1147,7 +1147,9 @@ any variable must be declared before its first use;
 
 ---
 
-## global vs local We don't have direct access to a shadowed variable. The only way to access it is through a pointer.
+# global vs local
+
+We don't have direct access to a shadowed variable. The only way to access it is through a pointer.
 
 ```c
 #include <stdio.h>
@@ -1169,17 +1171,17 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 x equals 5 that is read by function myFunction
 x equals 3 that is read by function main
 x equals 5 that is read by function main
 ```
 
-- Result:
-
 ---
 
-## Summary - variable scope
+# Summary - variable scope
 
 - Global variables are accessible throughout a program, but they can be temporarily hidden by a local variable declared within a nested block, such as a function, for loop, while loop, or even an if statement.
 - This is known as "variable shadowing," and within the local variable's scope, any reference to that variable name will refer to the local one. The global variable remains inaccessible until the local variable's block is exited and the local variable is released from memory. At that point, access to the global variable is restored.
@@ -1193,7 +1195,7 @@ x equals 5 that is read by function main
 
 ---
 
-## Declaring and initializing arrays
+# Declaring and initializing arrays
 
 ```c
 int main()
@@ -1223,18 +1225,18 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 First element (index 0) of array a equals 4201200.
 Second(index 1) element of array b equals 2.
 Second(index 1) element of array b equals 2.
 Sixth(index 5) element of array c equals 0.
 ```
 
-- Result:
-
 ---
 
-## Basics of
+# Basics of
 
 - The important difference between printf and scanf is that scanf requires its arguments to be pointers (location in memory) .
 
@@ -1253,14 +1255,14 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Enter x value : 1
 Value of x = 1
 Enter x value again : 2
 Value of x = 2
 ```
-
-- Result:
 
 ```c
 int printf (char format[],  arg1,  arg2 ,...);
@@ -1270,17 +1272,19 @@ int printf (char format[],  arg1,  arg2 ,...);
 int scanf  (char format[], *arg1, *arg2 ,...);
 ```
 
-- The ampersand operator &amp; is a unary operator that returns the memory address, which is the location in memory where a variable is stored.
+- The ampersand operator & is a unary operator that returns the memory address, which is the location in memory where a variable is stored.
 
-<!-- This line is where the magic happens. It assigns the address of the variable x to the pointer pointer. The &amp; symbol is the "address-of" operator. So, pointer now holds the memory location where the value 5 for x is stored. -->
-
----
-
-## Notice Recently, during my lab work, I made a mistake. It wasn't the development environment's fault, but mine. It was related to the scanf function. Because I'm currently working with Python, C, C++, C#, and MATLAB, I mixed up the behavior of the scanf function. You need to know that the scanf function has one drawback: it doesn't clear the buffer of characters entered from the keyboard. This means that after pressing Enter to confirm the data entered from the keyboard, our variable also contains the Enter character, which is that extra line you asked me to use to clear the buffer. To understand its operation, you need to understand today's new material.
+<!-- This line is where the magic happens. It assigns the address of the variable x to the pointer pointer. The & symbol is the "address-of" operator. So, pointer now holds the memory location where the value 5 for x is stored. -->
 
 ---
 
-## Huge problems… undefined behavior
+# Notice
+
+Recently, during my lab work, I made a mistake. It wasn't the development environment's fault, but mine. It was related to the scanf function. Because I'm currently working with Python, C, C++, C#, and MATLAB, I mixed up the behavior of the scanf function. You need to know that the scanf function has one drawback: it doesn't clear the buffer of characters entered from the keyboard. This means that after pressing Enter to confirm the data entered from the keyboard, our variable also contains the Enter character, which is that extra line you asked me to use to clear the buffer. To understand its operation, you need to understand today's new material.
+
+---
+
+# Huge problems… undefined behavior
 
 - Do not increment (decrement) a variable in an expression if you need to use the original value of the variable later!
 
@@ -1300,25 +1304,24 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 5
 4
-
-
 ```
 
-- Result:
 - When modifying and using a variable multiple times within the same expression, it may lead to undefined behavior!
 
 ---
 
-## Left-to-right &amp; right-to-left associativity
+# Left-to-right & right-to-left associativity
 
 |Priority||Ass.|
 |---|---|---|
 |1|()|LR|
 |2|++, --|RL|
-||\*, &amp;||
+||\*, &||
 ||(type)||
 |3|\*, /, %|LR|
 |4|+, -||
@@ -1344,14 +1347,12 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 6
 4
-
-
 ```
-
-- Result:
 
 ```c
 x += y = 3 + x * y;			/* 2 */
@@ -1374,13 +1375,10 @@ Left-to-right associativity means that when there are two operators with the sam
 - LR
 - RL
 
----
-
-<!-- pptx2marp: slide 52 has no extractable text or images -->
 
 ---
 
-## Basics of
+# Basics of
 
 - The important difference between printf and scanf is that scanf requires its arguments to be pointers (location in memory) .
 
@@ -1399,14 +1397,14 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Enter x value : 1
 Value of x = 1
 Enter x value again : 2
 Value of x = 2
 ```
-
-- Result:
 
 ```c
 int printf (char format[],  arg1,  arg2 ,...);
@@ -1416,15 +1414,15 @@ int printf (char format[],  arg1,  arg2 ,...);
 int scanf  (char format[], *arg1, *arg2 ,...);
 ```
 
-- The ampersand operator &amp; is a unary operator that returns the memory address, which is the location in memory where a variable is stored.
+- The ampersand operator & is a unary operator that returns the memory address, which is the location in memory where a variable is stored.
 
-<!-- This line is where the magic happens. It assigns the address of the variable x to the pointer pointer. The &amp; symbol is the "address-of" operator. So, pointer now holds the memory location where the value 5 for x is stored. -->
+<!-- This line is where the magic happens. It assigns the address of the variable x to the pointer pointer. The & symbol is the "address-of" operator. So, pointer now holds the memory location where the value 5 for x is stored. -->
 
 ---
 
-## Basic types
+# Basic types
 
-|Type &amp; Specifier||Origin|Argument type||Description||
+|Type & Specifier||Origin|Argument type||Description||
 |---|---|---|---|---|---|---|
 ||||**printf**|**scanf**|**printf**|**scanf**|
 |integer|d|decimal|int|int \*|signed decimal notation||
@@ -1438,7 +1436,7 @@ int scanf  (char format[], *arg1, *arg2 ,...);
 
 ---
 
-## Width
+# Width
 
 ```c
 int main()
@@ -1456,7 +1454,7 @@ int main()
 
 ---
 
-## Precision
+# Precision
 
 ```c
 int main()
@@ -1474,7 +1472,7 @@ int main()
 
 ---
 
-## Flags
+# Flags
 
 - \+ : Always display the sign of a number, even if it's positive.
 - \- : Left-justify the output within the given field width.
@@ -1485,7 +1483,7 @@ int main()
 
 ---
 
-## Modifies
+# Modifies
 
 ```c
 int main()
@@ -1504,7 +1502,7 @@ int main()
 
 ---
 
-## printf and scanf format specification
+# printf and scanf format specification
 
 - Optional:
   - Flags    -    modifiers that alter the formatting or scanning behavior.
@@ -1514,6 +1512,6 @@ int main()
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-```c
+```text
 Format =  %[flags][width][.precision][modifier]<type>
 ```

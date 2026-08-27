@@ -5,13 +5,15 @@ paginate: true
 title: "Software Engineering"
 ---
 
+<!-- _class: lead -->
+
 # Software Engineering
 
-*Lecture 12*
+## Lecture 12
 
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 - continuation of the makefile
 
@@ -23,27 +25,25 @@ title: "Software Engineering"
 
 ---
 
-# continuation of
-
-*the makefile*
+# continuation of the makefile
 
 ---
 
-## Last time
+# Last time
 
-```
-CC     := gcc
+```make
+CC     := gcc
 CFLAGS := -g -Wall -std=c99 -pedantic # compiler flags
-LFLAG  := -g # linker flag
+LFLAG  := -g # linker flag
 
 TARGET := main.exe
-OBJS   := main.o other.o
+OBJS   := main.o other.o
 
 RM := -rm -f
 
 ifeq ($(SHELL),sh.exe) # without any space!
-    # cmd/powershell
-    RM := del
+    # cmd/powershell
+    RM := del
 endif
 
 .PHONY: all clean
@@ -51,34 +51,34 @@ endif
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+	$(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
-main.o: main.c  # we dont have the main.h
-    $(CC) $(CFLAGS) -c main.c -o main.o
+main.o: main.c  # we dont have the main.h
+	$(CC) $(CFLAGS) -c main.c -o main.o
 
 other.o: other.h other.c
-    $(CC) $(CFLAGS) -c other.c -o other.o
+	$(CC) $(CFLAGS) -c other.c -o other.o
 clean:
-    $(RM) $(OBJS)
+	$(RM) $(OBJS)
 ```
 
 ---
 
-## extension
+# extension
 
-```
-CC     := gcc
+```make
+CC     := gcc
 CFLAGS := -g -Wall -std=c99 -pedantic # compiler flags
-LFLAG  := -g # linker flag
+LFLAG  := -g # linker flag
 
 TARGET := main.exe
-OBJS   := main.o other.o
+OBJS   := main.o other.o
 
 RM := -rm -f
 
 ifeq ($(SHELL),sh.exe) # without any space!
-    # cmd/powershell
-    RM := del
+    # cmd/powershell
+    RM := del
 endif
 
 .PHONY: all clean
@@ -86,26 +86,26 @@ endif
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+	$(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
-main.o: main.c  # we dont have the main.h
-    $(CC) $(CFLAGS) -c main.c -o main.o
+main.o: main.c  # we dont have the main.h
+	$(CC) $(CFLAGS) -c main.c -o main.o
 
 other.o: other.h other.c
-    $(CC) $(CFLAGS) -c other.c -o other.o
+	$(CC) $(CFLAGS) -c other.c -o other.o
 clean:
-    $(RM) $(OBJS)
+	$(RM) $(OBJS)
 ```
 
-```
+```make
 INC_DIR :=inc#include for headers
 
-CC     := gcc
+CC     := gcc
 CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC_DIR) # compiler flags
-LFLAG  := -g # linker flag
+LFLAG  := -g # linker flag
 
 TARGET := main.exe #$(SCR_DIR)/main.exe
-OBJS   := main.o other.o
+OBJS   := main.o other.o
 RM := -rm -f
 
 .PHONY: all clean
@@ -116,21 +116,21 @@ all: $(TARGET)
 
 
 $(TARGET): $(OBJS)
-    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+	$(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
 main.o: main.c
-    $(CC) $(CFLAGS) -c main.c -o main.o
+	$(CC) $(CFLAGS) -c main.c -o main.o
 
 other.o: $(INC_DIR)/other.h other.c
-    $(CC) $(CFLAGS) -c other.c -o other.o
+	$(CC) $(CFLAGS) -c other.c -o other.o
 
 clean:
-    $(RM) $(OBJS)
+	$(RM) $(OBJS)
 ```
 
 ---
 
-## Splitting a Project into Directories with Makefile
+# Splitting a Project into Directories with Makefile
 
 **Path separator in Makefiles**
 
@@ -144,7 +144,7 @@ clean:
 
 ---
 
-## Splitting a Project into Directories with Makefile
+# Splitting a Project into Directories with Makefile
 
 **Backslash problem:**
 
@@ -162,7 +162,7 @@ clean:
 
 ---
 
-## Splitting a Project into Directories with Makefile
+# Splitting a Project into Directories with Makefile
 
 **Header files and -I option**
 
@@ -172,21 +172,21 @@ clean:
 
 ---
 
-## extension
+# extension
 
-```
-CC     := gcc
+```make
+CC     := gcc
 CFLAGS := -g -Wall -std=c99 -pedantic # compiler flags
-LFLAG  := -g # linker flag
+LFLAG  := -g # linker flag
 
 TARGET := main.exe
-OBJS   := main.o other.o
+OBJS   := main.o other.o
 
 RM := -rm -f
 
 ifeq ($(SHELL),sh.exe) # without any space!
-    # cmd/powershell
-    RM := del
+    # cmd/powershell
+    RM := del
 endif
 
 .PHONY: all clean
@@ -194,26 +194,26 @@ endif
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+	$(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
-main.o: main.c  # we dont have the main.h
-    $(CC) $(CFLAGS) -c main.c -o main.o
+main.o: main.c  # we dont have the main.h
+	$(CC) $(CFLAGS) -c main.c -o main.o
 
 other.o: other.h other.c
-    $(CC) $(CFLAGS) -c other.c -o other.o
+	$(CC) $(CFLAGS) -c other.c -o other.o
 clean:
-    $(RM) $(OBJS)
+	$(RM) $(OBJS)
 ```
 
-```
+```make
 INC_DIR :=inc#include for headers
 
-CC     := gcc
+CC     := gcc
 CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC_DIR) # compiler flags
-LFLAG  := -g # linker flag
+LFLAG  := -g # linker flag
 
 TARGET := main.exe #$(SCR_DIR)/main.exe
-OBJS   := main.o other.o
+OBJS   := main.o other.o
 RM := -rm -f
 
 .PHONY: all clean
@@ -224,21 +224,21 @@ all: $(TARGET)
 
 
 $(TARGET): $(OBJS)
-    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+	$(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
 main.o: main.c
-    $(CC) $(CFLAGS) -c main.c -o main.o
+	$(CC) $(CFLAGS) -c main.c -o main.o
 
 other.o: $(INC_DIR)/other.h other.c
-    $(CC) $(CFLAGS) -c other.c -o other.o
+	$(CC) $(CFLAGS) -c other.c -o other.o
 
 clean:
-    $(RM) $(OBJS)
+	$(RM) $(OBJS)
 ```
 
 ---
 
-## Adding a Dedicated inc/ Directory for Headers
+# Adding a Dedicated inc/ Directory for Headers
 
 In this example, we moved other.h into a new inc/ directory. Unlike bin/ or obj/, this directory does **not** need to be created by the Makefile, because it is already part of the repository structure — headers are expected to live there.
 
@@ -250,15 +250,15 @@ Three important changes were required to make compilation work:
 
 With these adjustments, the compiler will correctly find other.h in the inc/ directory, and the build process completes successfully.
 
-```
+```make
 INC_DIR :=inc#include for headers
 
-CC     := gcc
+CC     := gcc
 CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC_DIR) # compiler flags
-LFLAG  := -g # linker flag
+LFLAG  := -g # linker flag
 
 TARGET := main.exe #$(SCR_DIR)/main.exe
-OBJS   := main.o other.o
+OBJS   := main.o other.o
 RM := -rm -f
 
 .PHONY: all clean
@@ -269,45 +269,51 @@ all: $(TARGET)
 
 
 $(TARGET): $(OBJS)
-    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+	$(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
 main.o: main.c
-    $(CC) $(CFLAGS) -c main.c -o main.o
+	$(CC) $(CFLAGS) -c main.c -o main.o
 
 other.o: $(INC_DIR)/other.h other.c
-    $(CC) $(CFLAGS) -c other.c -o other.o
+	$(CC) $(CFLAGS) -c other.c -o other.o
 
 clean:
-    $(RM) $(OBJS)
+	$(RM) $(OBJS)
 ```
 
 ---
 
-## Make is extremely sensitive to spaces
+# Make is extremely sensitive to spaces
 
 For example, if you write
 
-- INC\_DIR :=inc#include for headers
+```make
+INC_DIR :=inc#include for headers
+```
 
 everything works fine. But if you accidentally insert a space before the comment, like this:
 
-- INC\_DIR :=inc #include for headers
+```make
+INC_DIR :=inc #include for headers
+```
 
 then make will fail with an error such as:
 
-- mingw32-make: \*\*\* No rule to make target '/other.h', needed by 'other.o'.  Stop.
+```text
+mingw32-make: *** No rule to make target '/other.h', needed by 'other.o'.  Stop.
+```
 
 One way to avoid this issue is to always place the # for comments **immediately after the declaration, with no spaces in between**. This guarantees there are no stray whitespace characters that could break the Makefile
 
-```
+```make
 INC_DIR :=inc#include for headers
 
-CC     := gcc
+CC     := gcc
 CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC_DIR) # compiler flags
-LFLAG  := -g # linker flag
+LFLAG  := -g # linker flag
 
 TARGET := main.exe #$(SCR_DIR)/main.exe
-OBJS   := main.o other.o
+OBJS   := main.o other.o
 RM := -rm -f
 
 .PHONY: all clean
@@ -318,32 +324,32 @@ all: $(TARGET)
 
 
 $(TARGET): $(OBJS)
-    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+	$(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
 main.o: main.c
-    $(CC) $(CFLAGS) -c main.c -o main.o
+	$(CC) $(CFLAGS) -c main.c -o main.o
 
 other.o: $(INC_DIR)/other.h other.c
-    $(CC) $(CFLAGS) -c other.c -o other.o
+	$(CC) $(CFLAGS) -c other.c -o other.o
 
 clean:
-    $(RM) $(OBJS)
+	$(RM) $(OBJS)
 ```
 
 ---
 
-## extension
+# extension
 
-```
+```make
 INC_DIR :=inc#include for headers
 BIN_DIR :=bin# *.exe
 
-CC     := gcc
+CC     := gcc
 CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC_DIR) # compiler flags
-LFLAG  := -g # linker flag
+LFLAG  := -g # linker flag
 
 TARGET := $(BIN_DIR)/main.exe #$(SCR_DIR)/main.exe
-OBJS   := main.o other.o
+OBJS   := main.o other.o
 RM := -rm -f
 
 .PHONY: all clean check-shell
@@ -351,30 +357,30 @@ RM := -rm -f
 all: $(TARGET)
 
 $(TARGET): $(OBJS) | $(BIN_DIR) #order-only prerequisite
-    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+	$(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
 main.o: main.c
-    $(CC) $(CFLAGS) -c main.c -o main.o
+	$(CC) $(CFLAGS) -c main.c -o main.o
 
 other.o: $(INC_DIR)/other.h other.c
-    $(CC) $(CFLAGS) -c other.c -o other.o
+	$(CC) $(CFLAGS) -c other.c -o other.o
 
 $(BIN_DIR):
-    mkdir $(BIN_DIR)
+	mkdir $(BIN_DIR)
 
 clean:
-    $(RM) $(OBJS)
+	$(RM) $(OBJS)
 ```
 
-```
+```make
 INC_DIR :=inc#include for headers
 
-CC     := gcc
+CC     := gcc
 CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC_DIR)
-LFLAG  := -g # linker flag
+LFLAG  := -g # linker flag
 
 TARGET := main.exe #$(SCR_DIR)/main.exe
-OBJS   := main.o other.o
+OBJS   := main.o other.o
 RM := -rm -f
 
 .PHONY: all clean
@@ -385,21 +391,21 @@ all: $(TARGET)
 
 
 $(TARGET): $(OBJS)
-    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+	$(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
 main.o: main.c
-    $(CC) $(CFLAGS) -c main.c -o main.o
+	$(CC) $(CFLAGS) -c main.c -o main.o
 
 other.o: $(INC_DIR)/other.h other.c
-    $(CC) $(CFLAGS) -c other.c -o other.o
+	$(CC) $(CFLAGS) -c other.c -o other.o
 
 clean:
-    $(RM) $(OBJS)
+	$(RM) $(OBJS)
 ```
 
 ---
 
-## Adding a Dedicated bin/
+# Adding a Dedicated bin/
 
 The compilation output (main.exe) is now placed inside the bin directory, which will **not be tracked in the repository**. This is recorded in .gitignore, so when cloning the repository locally, the bin folder will not be present.
 
@@ -414,16 +420,16 @@ Modifications include:
 
 These changes ensure that the build artifacts are separated from the source code and repository, and that make handles the directory creation safely and efficiently.
 
-```
+```make
 INC_DIR :=inc#include for headers
 BIN_DIR :=bin# *.exe
 
-CC     := gcc
+CC     := gcc
 CFLAGS := -g -Wall -std=c99 -pedantic -I $(INC_DIR) # compiler flags
-LFLAG  := -g # linker flag
+LFLAG  := -g # linker flag
 
 TARGET := $(BIN_DIR)/main.exe #$(SCR_DIR)/main.exe
-OBJS   := main.o other.o
+OBJS   := main.o other.o
 RM := -rm -f
 
 .PHONY: all clean check-shell
@@ -431,27 +437,29 @@ RM := -rm -f
 all: $(TARGET)
 
 $(TARGET): $(OBJS) | $(BIN_DIR) #order-only prerequisite
-    $(CC) $(LFLAG) $(OBJS) -o $(TARGET)
+	$(CC) $(LFLAG) $(OBJS) -o $(TARGET)
 
 main.o: main.c
-    $(CC) $(CFLAGS) -c main.c -o main.o
+	$(CC) $(CFLAGS) -c main.c -o main.o
 
 other.o: $(INC_DIR)/other.h other.c
-    $(CC) $(CFLAGS) -c other.c -o other.o
+	$(CC) $(CFLAGS) -c other.c -o other.o
 
 $(BIN_DIR):
-    mkdir $(BIN_DIR)
+	mkdir $(BIN_DIR)
 
 clean:
-    $(RM) $(OBJS)
+	$(RM) $(OBJS)
 ```
 
 ---
 
-- echo %ERRORLEVEL%
+```console
+echo %ERRORLEVEL%
+```
 
 ---
 
-# Thank
+<!-- _class: caption-slide -->
 
-*You!*
+# Thank You!

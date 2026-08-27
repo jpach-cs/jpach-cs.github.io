@@ -5,6 +5,8 @@ paginate: true
 title: "CSCI 112  Programming with C"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 14
@@ -17,7 +19,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Outline
+# Outline
 
 - Unit Tests - example
 - Debugging
@@ -30,13 +32,13 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Project Structure - Modular C Program with Unit Tests
+# Project Structure - Modular C Program with Unit Tests
 
 - Separate logic, tests, and headers for clarity.
 - Unity is a lightweight, header-based testing framework — ideal for C projects.
 - This structure allows easy maintenance and clear organization.
 
-```c
+```text
 C project/
 │
 ├── code.c              ← function implementations
@@ -54,7 +56,7 @@ C project/
 
 ---
 
-## main.c
+# main.c
 
 ```c
 //#define clearBuffer() while (getchar() != '\n');
@@ -92,7 +94,7 @@ int main(int argc, char *argv[])
 
 ---
 
-## code.h
+# code.h
 
 ```c
 // code.h
@@ -129,7 +131,7 @@ int addOne(int * pointer);     // increments value pointed to by pointer
 
 ---
 
-## code.c
+# code.c
 
 ```c
 char * AUTHOR_NAME = (char *) "Jakub Pach";
@@ -158,7 +160,7 @@ int multiply(int x, int y)
 
 ---
 
-## tests.h
+# tests.h
 
 ```c
 // tests.h
@@ -177,7 +179,7 @@ int run_unity_tests(void);
 
 ---
 
-## tests.c
+# tests.c
 
 ```c
 //#include <assert.h>   // commented out, not needed
@@ -247,7 +249,7 @@ int run_unity_tests(void)
 
 ---
 
-## code.c and code.h – Functional Module
+# code.c and code.h – Functional Module
 
 - code.h declares the interface.
 - code.c contains the implementation.
@@ -280,7 +282,7 @@ int multiply(int x, int y)
 
 ---
 
-## main.c – Program Entry Point
+# main.c – Program Entry Point
 
 - The program supports several command-line arguments.
 - --test runs all unit tests.
@@ -319,7 +321,7 @@ int main(int argc, char *argv[])
 
 ---
 
-## Unit Testing with Unity - Writing Tests with Assertions
+# Unit Testing with Unity - Writing Tests with Assertions
 
 - Each test\_\* function verifies one behavior.
 - TEST\_ASSERT\_EQUAL(expected, actual) checks correctness.
@@ -348,7 +350,7 @@ void test_multiply_negative()
 
 ---
 
-## Unit Testing with Unity - Setup and Teardown Functions
+# Unit Testing with Unity - Setup and Teardown Functions
 
 - setUp() runs before each test → initializes variables.
 - tearDown() runs after each test → cleans up memory.
@@ -373,9 +375,11 @@ void tearDown()
 
 ---
 
-## Function pointer
+# Function pointer
 
-- int (\*operation)(int, int);
+```c
+int (*operation)(int, int);
+```
 
 *Function pointers are used to store the memory address of a function. For a function pointer to be correctly used, the signature of the function it points to must exactly match the signature of the pointer itself. This means the return type and the list of arguments (including their types and order) must be identical.*
 
@@ -389,7 +393,7 @@ return-type (*function-name-pointer) (only type of parameter declarations, if an
 
 ---
 
-## Unit Testing with Unity - Running and Reporting Tests
+# Unit Testing with Unity - Running and Reporting Tests
 
 - Each test is executed via RUN\_TEST().
 - Unity reports all results in a readable format.
@@ -422,7 +426,9 @@ int run_unity_tests(void)
 
 ```
 
-```c
+Result:
+
+```text
 tests.c:53:test_multiply_basic:PASS
 tests.c:54:test_multiply_with_zero:PASS
 tests.c:55:test_multiply_negative:PASS
@@ -435,11 +441,9 @@ tests.c:57:test_addOne_negative:PASS
 OK
 ```
 
-- Result:
-
 ---
 
-## Summary and Best Practices
+# Summary and Best Practices
 
 - Modular structure simplifies maintenance and testing
 - Unity enables lightweight, automated unit testing
@@ -449,21 +453,22 @@ OK
 
 ---
 
-## Summary and Best Practices
+# Summary and Best Practices
 
 - Every time a program encounters an error or *undefined behavior (UB)* during execution — such as an invalid array index (out of range), an attempt to modify a constant variable through a pointer, accessing non-existent memory (NULL), division by zero, etc. — the program immediately terminates with an **exit code** that indicates the problem. In unit testing, we must create test functions that handle **only one case at a time**, for example: void test\_multiply\_basic(void)
 - Each test function verifies one specific behavior. If a test fails and the program attempts to terminate abnormally, all remaining instructions in that test function are skipped — similar to how a break statement exits a loop. That’s why each case is written as a separate test function.
 
 ---
 
-## Summary and Best Practices
+# Summary and Best Practices
 
 - Why do all these test functions have no parameters and return void? Because their **function signature** must match what Unity expects — the function’s address is passed to the macro: RUN\_TEST(test\_multiply\_basic); inside the run\_unity\_tests() function.
 - If all tests run successfully, UNITY\_END() returns the number of **failed tests**.<br>This allows us to conveniently pass that information to the operating system using: return UNITY\_END(); in main.c, since main.c contains:
 
-failed\_tests = run\_unity\_tests();
-
-return failed\_tests;
+```c
+failed_tests = run_unity_tests();
+return failed_tests;
+```
 
 ---
 
@@ -471,7 +476,7 @@ return failed\_tests;
 
 ---
 
-## sprintf
+# sprintf
 
 - What is sprintf?
   - Writing formatted data to a string
@@ -492,16 +497,16 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+Result:
+
+```text
 I am 30 years old.
 
 ```
 
-- Result:
-
 ---
 
-## sscanf
+# sscanf
 
 - What is sscanf?
   - Reading formatted data from a string
@@ -522,16 +527,16 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+Result:
+
+```text
 30
 
 ```
 
-- Result:
-
 ---
 
-## gets, puts
+# gets, puts
 
 - puts():
   - This function writes a string followed by a newline to stdout.
@@ -560,18 +565,18 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Please enter your name:
 Jacob
 Hello,
 Jacob
 ```
 
-- Result:
-
 ---
 
-## Function pointer with typdef
+# Function pointer with typdef
 
 ```c
 #include <stdio.h>
@@ -602,12 +607,12 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Result of addition: 8
 Result of subtraction: 2
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -642,7 +647,7 @@ int main()
 
 ---
 
-## Exit code / return code / status code
+# Exit code / return code / status code
 
 - The program returned exit code 0, which means it ran successfully.
 - A non-zero exit code usually indicates an error or failure.
@@ -654,7 +659,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+```console
 C:>main.exe
 C:>echo $LASTEXITCODE
 0
@@ -663,7 +668,7 @@ C:>
 
 ---
 
-## Error handling in C
+# Error handling in C
 
 - C has no exceptions (like in Java or Python).
 - Instead, functions use special return values to signal errors:
@@ -687,7 +692,7 @@ int findElement(int arr[], int size, int target)
 
 ---
 
-## What are Unit Tests
+# What are Unit Tests
 
 Unit tests are automated checks of small parts of a program (such as functions or procedures) to verify that they work correctly. The idea is to test whether a given function returns the correct result for specific input values.
 
@@ -698,7 +703,7 @@ Unit tests are automated checks of small parts of a program (such as functions o
 
 ---
 
-## What is Unity Test?
+# What is Unity Test?
 
 - Unity Test is a unit testing framework for C.
 - It allows us to test functions in a safe and controlled way.
@@ -716,7 +721,7 @@ void test_addition(void)
 
 ---
 
-## Introduction to Unity Test Framework in C
+# Introduction to Unity Test Framework in C
 
 Unity is a lightweight testing framework for the C language. It allows us to write **unit tests** that check whether our functions work as expected.
 
@@ -728,7 +733,7 @@ When using Unity, every test file usually has three important parts:
 
 ---
 
-## Common Unity Assertions
+# Common Unity Assertions
 
 - TEST\_ASSERT\_EQUAL(expected, actual)
   - – check if two integers are the same.
@@ -739,7 +744,7 @@ When using Unity, every test file usually has three important parts:
 
 ---
 
-## Common Unity Assertions
+# Common Unity Assertions
 
 - TEST\_ASSERT\_FLOAT\_WITHIN(delta, expected, actual)
   - – check if two floating-point numbers are equal within a tolerance.
@@ -750,7 +755,7 @@ When using Unity, every test file usually has three important parts:
 
 ---
 
-## Understanding setUp() and tearDown()
+# Understanding setUp() and tearDown()
 
 In Unity, the function setUp() is always called before each test. You use it to prepare the environment: initialize variables, reset arrays, or allocate memory.
 
@@ -771,7 +776,7 @@ This makes every test independent, safe, and repeatable.
 
 ---
 
-## Debugging
+# Debugging
 
 - Debugging is an integral part of programming, and understanding its fundamental principles will significantly speed up your software development process. While different development environments may have varying keyboard shortcuts or interfaces, the core concepts of debugging remain universal.
 - Basic debugging principles:
@@ -783,7 +788,7 @@ This makes every test independent, safe, and repeatable.
 
 ---
 
-## Debugging
+# Debugging
 
 - Inspecting variables:
   - While debugging, you can observe the values of variables, which helps quickly identify logical errors.
@@ -796,9 +801,9 @@ This makes every test independent, safe, and repeatable.
 
 ---
 
-## Visual Studio / Visual Studio Code
+# Visual Studio / Visual Studio Code
 
-- Debug actions
+Debug actions
 
 |**Action**|**Explanation**|
 |---|---|
@@ -812,7 +817,7 @@ This makes every test independent, safe, and repeatable.
 
 ---
 
-## Visual Studio / Visual Studio Code
+# Visual Studio / Visual Studio Code
 
 ![w:757px Debugging diagram](assets/image5.png)
 
@@ -820,27 +825,27 @@ This makes every test independent, safe, and repeatable.
 
 ---
 
-## Visual Studio / Visual Studio Code
+# Visual Studio / Visual Studio Code
+
+Breakpoints
 
 ![w:825px breakpoints in overview ruler](assets/image7.png)
 
-- Breakpoints
-
 ---
 
-## Visual Studio / Visual Studio Code
+# Visual Studio / Visual Studio Code
+
+Variables
 
 ![w:429px Debug Variables](assets/image8.png)
 
 ![w:422px Debug Watch](assets/image9.png)
 
-- Variables
-
 ---
 
-## Visual Studio / Visual Studio Code
+# Visual Studio / Visual Studio Code
 
-- Call stack
+Call stack
 
 ![w:737px Picture 5](assets/image10.png)
 

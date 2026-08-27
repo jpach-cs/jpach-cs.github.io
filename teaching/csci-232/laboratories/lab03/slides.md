@@ -5,13 +5,14 @@ paginate: true
 title: "Data Structures & Algorithms"
 ---
 
+<!-- _class: lead -->
+
 # Data Structures &amp; Algorithms
 
-*Lecture 3*
-
+## Lecture 3
 ---
 
-## In 136, we covered
+# In 136, we covered
 
 - Objects and classes, Abstract Data Types – lots of coverage.  I required class and header files in most assignments
 - Time and Space complexity – a discussion was included in each exercise.  Good coverage of constant time, linear, n2, n3, with loops and nested loops.  Didn’t do any of the math.
@@ -27,7 +28,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 - Review
   - Relations between pointers and arrays
@@ -35,19 +36,23 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## Function arguments Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
+# Function arguments
+
+Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
 
 ---
 
-## by the Value Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
+# by the Value
 
-```c
+Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
+
+Result:
+
+```text
 5
 5
 
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -72,7 +77,9 @@ int main()
 
 ---
 
-## by the Reference Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
+# by the Reference
+
+Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
 
 ```c
 #include <stdio.h>
@@ -95,17 +102,17 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 5
 6
 
 ```
 
-- Result:
-
 ---
 
-## Some examples
+# Some examples
 
 ```c
 int main()
@@ -136,7 +143,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 y equals 5.
 
 &y              equals 6422292.
@@ -157,19 +166,12 @@ pp              equals 6422288.
 **pp            equals 5.
 ```
 
-- Result:
-
-||Memory Addresses and Values|||
-|---|---|---|---|
-|||||
-||x (6422296)|5||
-|||||
-||y (6422292)|5||
-|||||
-||p (6422288)|6422296||
-|||||
-||pp (6422284)|6422288||
-|||||
+|Memory Addresses and Values||
+|---|---|
+|x (6422296)|5|
+|y (6422292)|5|
+|p (6422288)|6422296|
+|pp (6422284)|6422288|
 
 ![Ink 54](assets/image80.png)
 
@@ -185,15 +187,17 @@ pp              equals 6422288.
 
 ---
 
-## Relations between pointers and arrays
+# Relations between pointers and arrays
 
 ---
 
-## Relations between pointers and arrays
+# Relations between pointers and arrays
 
 This statement reserves space in memory for 10 integers and creates an 'unchanging address of memory' that points to the beginning of this array.
 
-- int a\[10\];
+```c
+int a[10];
+```
 
 ```c
 int main()
@@ -205,13 +209,13 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 a    equals 6422272.
 
 
 ```
-
-- Result:
 
 ![Ink 17](assets/image140.png)
 
@@ -219,7 +223,7 @@ a    equals 6422272.
 
 ---
 
-## Relations between pointers and arrays
+# Relations between pointers and arrays
 
 ```c
 int main()
@@ -232,16 +236,16 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 a    equals 6422272.
 ?
 ```
 
-- Result:
-
 ---
 
-## Relations between pointers and arrays
+# Relations between pointers and arrays
 
 ```c
 int main()
@@ -254,17 +258,17 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 a    equals 6422272.
 &a   equals 6422272.
 ?
 ```
 
-- Result:
-
 ---
 
-## Relations between pointers and arrays
+# Relations between pointers and arrays
 
 ```c
 int main()
@@ -277,17 +281,19 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 a    equals 6422272.
 &a   equals 6422272.
 *a   equals 1.
 ```
 
-- Result:
-
 ---
 
-## Relations between pointers and arrays **So, what does it mean?**
+# Relations between pointers and arrays
+
+**So, what does it mean?**
 
 ```c
 int main()
@@ -304,7 +310,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 x    equals 6422292.
 y    equals 6422288.
 z    equals 6422284.
@@ -313,11 +321,9 @@ pointer* equals 7.
 pointer[1] equals 5.
 ```
 
-- Result:
-
 ---
 
-## So, what does it mean?
+# So, what does it mean?
 
 When performing arithmetic operations on pointers, the array index is automatically multiplied by the size of the data type pointed to by the pointer.
 
@@ -331,7 +337,7 @@ a[i] == *(a+i)		&a[i] == &*(a+i) == a+i
 
 ---
 
-## Conclusions
+# Conclusions
 
 - The expression a\[i\] is transformed by the compiler into the form \*(a+i).
 - The square brackets following the symbolic\_name do not provide any information about whether we are referring to an array.
@@ -341,7 +347,7 @@ a[i] == *(a+i)		&a[i] == &*(a+i) == a+i
 
 ---
 
-## crème de la crème
+# crème de la crème
 
 ```c
 int main()
@@ -364,7 +370,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 x = 0x41424344
 p[0] = D
 p[1] = C
@@ -372,17 +380,13 @@ p[2] = B
 p[3] = A
 ```
 
-- Result:
+---
+
+# List Basics
 
 ---
 
-## List Basics
-
----
-
-## Code
-
-- file
+# Code file
 
 <!-- //#define clearBuffer() while (getchar() != '\n');
 #include &lt;stdio.h&gt;
@@ -515,21 +519,21 @@ return 0;
 
 ---
 
-## Questions?
+# Questions?
 
 ---
 
-## Thank
+<!-- _class: caption-slide -->
 
-- You
-
----
-
-## unit tests
+# Thank You
 
 ---
 
-## What are Unit Tests
+# unit tests
+
+---
+
+# What are Unit Tests
 
 Unit tests are automated checks of small parts of a program (such as functions or procedures) to verify that they work correctly. The idea is to test whether a given function returns the correct result for specific input values.
 
@@ -540,14 +544,14 @@ Unit tests are automated checks of small parts of a program (such as functions o
 
 ---
 
-## Exit code / return code / status code
+# Exit code / return code / status code
 
 - The program returned exit code 0, which means it ran successfully.
 - A non-zero exit code usually indicates an error or failure.
 
 ---
 
-## assert()
+# assert()
 
 - In structurally or imperatively oriented programming, function names are typically nouns — for example, sum(), pow(), or strlen().
 - In object-oriented programming, we create instances of objects represented by nouns, but the methods invoked on those objects are usually verbs, describing actions performed on the instance — for example, trash.clean().
@@ -555,21 +559,19 @@ Unit tests are automated checks of small parts of a program (such as functions o
 
 ---
 
-## assert()
+# assert()
 
 - The original intent behind assert() was to allow developers to write code like:
 
+```c
 sum(a, b);
 
-assert(a &gt; 0);
+assert(a > 0);
+```
 
 - These statements were meant to halt program execution if the condition was not met. In short, they served as additional safeguards to help speed up debugging.
 - Over time, most programming languages adopted dedicated unit testing frameworks — even C, thanks to the Unity library. Unity was designed with a plan-driven approach in mind, enabling developers to write tests before implementing the actual code.
 
 ---
 
-<!-- pptx2marp: slide 26 has no extractable text or images -->
-
----
-
-- ***I assert that x equals 1.***
+***I assert that x equals 1.***

@@ -5,13 +5,14 @@ paginate: true
 title: "Data Structures & Algorithms"
 ---
 
+<!-- _class: lead -->
+
 # Data Structures &amp; Algorithms
 
-*Lecture 1*
-
+## Lecture 1
 ---
 
-## In 136, we covered
+# In 136, we covered
 
 - Objects and classes, Abstract Data Types – lots of coverage.  I required class and header files in most assignments
 - Time and Space complexity – a discussion was included in each exercise.  Good coverage of constant time, linear, n2, n3, with loops and nested loops.  Didn’t do any of the math.
@@ -27,7 +28,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 - Introduction
 - Syllabus
@@ -35,7 +36,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## Some basic facts about the course
+# Some basic facts about the course
 
 - course:    Data Structures &amp; Algorithms 232
 - instructor:    Dr. Jakub Leszek Pach
@@ -50,30 +51,30 @@ Other times by appointment
 
 ---
 
-## Syllabus
+# Syllabus
 
 - Point 1
 
 ---
 
-## Syllabus - Course Description
+# Syllabus - Course Description
 
 Operating on large collections of data is at the core of Computer Science. In this class you will study several commonly used structures used to store data and the algorithms used to manipulate them. You will examine the types of problems that each data structure and algorithm can be applied to. Finally, you will learn ways to analyze and compare algorithms in terms of time and space efficiency. Topics include stacks, queues, general lists, trees and graphs, hashing, searching, sorting, and recursion.
 
 ---
 
-## …a few words
+# …a few words
 
 - In this course, we will learn how to solve common programming problems using different data structures and algorithms. But before we dive into more complex code, we’ll take some time to review the basics—how to effectively use a debugger, how to write unit tests, how to organize a project in an IDE, and how to work with compilers and libraries.
 - We’ll also revisit object-oriented programming concepts and compare different programming languages—Python, C++, C# —to better understand their strengths and weaknesses. With this foundation, when we move on to implementing structures like stacks, queues, lists, trees, and graphs, you’ll have the tools to not only write working code but also test it, analyze it, and compare its efficiency.
 
 ---
 
-## Syllabus - Textbook
+# Syllabus - Textbook
 
 Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein. Introduction to Algorithms, third edition. MIT Press, 2009.
 
-**or fourth edit**ion, it does not matter.
+**or fourth edition**, it does not matter.
 
 ![w:258px Picture 5](assets/image4.png)
 
@@ -81,20 +82,20 @@ Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein. Introd
 
 ---
 
-## Syllabus - Grading
+# Syllabus - Grading
 
-\*\*The final grade will be calculated based on the following components:
+**The final grade will be calculated based on the following components:**
 
 - **Quizzes**(25%):
   - **Entrance Quizzes**: Short quizzes (5-10 minutes) **may** be given at the beginning of some classes to assess understanding of the previous material.
   - **Two Major Quizzes**: 50-minute quizzes administered throughout the semester. Each student will have one opportunity to retake each quiz at the end of the semester.
 - **Assignments** (75%): Regular, individual assignments will primarily be completed during class time; however, students will have an additional 6 days to finish any unfinished work. Assignments will be graded on accuracy, quality of arguments, and timeliness.
 
-The final grade will be calculated as a weighted average of the scores obtained in each component.\*\*
+**The final grade will be calculated as a weighted average of the scores obtained in each component.**
 
 ---
 
-## Syllabus<br>Class Rules
+# Syllabus<br>Class Rules
 
 **Class Rules:**
 
@@ -105,23 +106,27 @@ The final grade will be calculated as a weighted average of the scores obtained 
 
 ---
 
-## Syllabus<br>Declaration of authorship *I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the importance the consequences of plagiarism.*
+# Syllabus<br>Declaration of authorship
+
+*I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the importance the consequences of plagiarism.*
 
 ---
 
-## Syllabus<br>Comments
+# Syllabus<br>Comments
+
+Comments:
+
+There must be 4 lines of comments at the top of each source file. This heading should include your name, the class and semester, and the assignment number, and required statement. Source file without this comment gets zero points.
+
+Template:
 
 ```c
-Comments:
-There must be 4 lines of comments at the top of each source file. This heading should include your name, the class and semester, and the assignment number, and required statement. Source file without this comment gets zero points.
-Template:
 /*
 Jakub Leszek Pach
 CSCI 232 Fall 2025
 Programming Assignment #1
 I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the importance the consequences of plagiarism.
 */
-
 ```
 
 ```c
@@ -135,13 +140,11 @@ I acknowledge that I have worked on this assignment independently, except where 
 
 ---
 
-## IDE
-
-- Visual Studio Code
+# IDE<br>Visual Studio Code
 
 ---
 
-## IDE
+# IDE
 
 - Code::Blocks
 - Visual Studio Code
@@ -157,10 +160,10 @@ I acknowledge that I have worked on this assignment independently, except where 
 
 ---
 
-## Questions?
+# Questions?
 
 ---
 
-## Thank
+<!-- _class: caption-slide -->
 
-- You
+# Thank You

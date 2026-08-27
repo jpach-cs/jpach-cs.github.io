@@ -5,13 +5,14 @@ paginate: true
 title: "Software Engineering"
 ---
 
+<!-- _class: lead -->
+
 # Software Engineering
 
-*Lecture 21*
-
+## Lecture 21
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 - Composition vs Aggregation
 - UML Class Diagram
@@ -22,7 +23,7 @@ title: "Software Engineering"
 
 ---
 
-## Composition vs Aggregation
+# Composition vs Aggregation
 
 - The difficulty students face in distinguishing between Composition and Aggregation stems from their **foreign etymology** and lack of use in everyday language to describe object relationships.
 - Since both words imply a **"Whole–Part" (Has-a)** relationship, the key to technical differentiation lies in the crucial concept of **object lifecycle dependence**.
@@ -36,7 +37,7 @@ The Core Concept: Lifetime Dependency
 
 ---
 
-## Composition vs Aggregation
+# Composition vs Aggregation
 
 **Composition (Dependent Ownership)**
 
@@ -50,7 +51,7 @@ The Core Concept: Lifetime Dependency
 
 ---
 
-## The Decisive Question for Students
+# The Decisive Question for Students
 
 **If the Whole is destroyed, does the Part still exist?**
 
@@ -63,7 +64,7 @@ The Core Concept: Lifetime Dependency
 
 ---
 
-## What Is a UML Class Diagram?
+# What Is a UML Class Diagram?
 
 A **Class Diagram** describes the *static structure* of an object-oriented system.<br>It shows:
 
@@ -76,7 +77,7 @@ In simple words, it’s a **map of the system’s architecture** — what entiti
 
 ---
 
-## Mermaid Class Diagram Syntax
+# Mermaid Class Diagram Syntax
 
 - All class diagrams must start with this directive.
 - For vsc
@@ -105,7 +106,7 @@ Unlike the **Graph** (Flowchart) diagram, you cannot change the rendering direct
 
 ---
 
-## Mermaid Class Diagram Syntax
+# Mermaid Class Diagram Syntax
 
 **Visibility Modifiers:**
 
@@ -133,7 +134,7 @@ class ClassName {
 
 ---
 
-## Example of error from GPT/Gemini
+# Example of error from GPT/Gemini
 
 ````
 ```mermaid
@@ -167,7 +168,7 @@ classDiagram
 
 ---
 
-## Relationships Between Classes
+# Relationships Between Classes
 
 |Relationship|Mermaid Syntax|Meaning|
 |---|---|---|
@@ -176,11 +177,11 @@ classDiagram
 |Composition|A \*-- B|B is a *part* of A (strong ownership)|
 |Aggregation|A o-- B|B is *contained* in A (weak ownership)|
 |Dependency|A ..&gt; B|A depends on B temporarily|
-|Realization (Interface Implementation)|\`A &lt;|.. B\`|
+|Realization (Interface Implementation)|\`A &lt;\|.. B\`||
 
 ---
 
-## Example
+# Example
 
 ![w:261px Picture 7](assets/image5.png)
 
@@ -199,11 +200,11 @@ Driver --> Car
 |Composition|A \*-- B|B is a *part* of A (strong ownership)|
 |Aggregation|A o-- B|B is *contained* in A (weak ownership)|
 |Dependency|A ..&gt; B|A depends on B temporarily|
-|Realization (Interface Implementation)|\`A &lt;|.. B\`|
+|Realization (Interface Implementation)|\`A &lt;\|.. B\`||
 
 ---
 
-## Example: A Simple UML Model
+# Example: A Simple UML Model
 
 ![w:355px Content Placeholder 6](assets/image6.png)
 
@@ -241,7 +242,7 @@ This example includes:
 
 ---
 
-## Notes
+# Notes
 
 ````
 ```mermaid
@@ -265,7 +266,7 @@ note "This is a simple comment"
 
 ---
 
-## Hints and Best Practices
+# Hints and Best Practices
 
 - Keep diagrams small and readable. Split large systems into several smaller diagrams.
 - Use meaningful names. Both class and relationship names should describe their purpose clearly.
@@ -276,6 +277,6 @@ note "This is a simple comment"
 
 ---
 
-# Thank
+<!-- _class: caption-slide -->
 
-*You!*
+# Thank You!

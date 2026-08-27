@@ -5,6 +5,8 @@ paginate: true
 title: "CSCI 112  Programming with C"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 3
@@ -17,7 +19,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Outline
+# Outline
 
 - Syllabus, Textbook, Canvas
 - Introduction
@@ -33,14 +35,14 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Bit &amp; Byte
+# Bit & Byte
 
 - A **bit** is the smallest unit of data in a computer, representing a single binary value: either a **0** or a **1**.
 - A **byte** is a group of eight bits. A single byte can represent a wide range of values, such as a single character (like the letter 'A' or the symbol '@') or an integer from 0 to 255.
 
 ---
 
-## Binary numeral system
+# Binary numeral system
 
 ![w:238px Picture 2](assets/image4.png)
 
@@ -51,7 +53,7 @@ R-value with an index of 2
 
 ---
 
-## Converting binary numbers to oct – example 1111011(2)
+# Converting binary numbers to oct – example 1111011(2)
 
 - 001.111.011    = 1.7.3
 - 0111.1011    = 7.B
@@ -79,19 +81,10 @@ R-value with an index of 2
 
 ---
 
-## Binary numeral system (Unsigned arithmetic)
+# Binary numeral system (Unsigned arithmetic)
 
-|||||||||||
-|---|---|---|---|---|---|---|---|---|---|
-|||||||||||
-|||||||||||
 |-255||-127||0||127||255||
-
-|||||||||||
 |---|---|---|---|---|---|---|---|---|---|
-|||||||||||
-|||||||||||
-|-255||-127||0||127||255||
 
 |1|1|1|1|1|1|1|1|
 |---|---|---|---|---|---|---|---|
@@ -115,7 +108,7 @@ least significant bit
 
 ---
 
-## IDE
+# IDE
 
 - Code::Blocks
 - Visual Studio Code
@@ -131,7 +124,7 @@ least significant bit
 
 ---
 
-## Hello World
+# Hello World
 
 - Code
 - Preprocessor
@@ -150,7 +143,7 @@ int main()
 
 ---
 
-## Hello World
+# Hello World
 
 - Text preceded by # is a preprocessor section, the first line gives access to standard input and output functions, this is a header.
 - Next, we have the main function defined, which returns an integer value. The {} brackets start and end the body of the main function.
@@ -168,18 +161,15 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Hello world
-
-
-
 ```
-
-- Result:
 
 ---
 
-## Hello World
+# Hello World
 
 - Text preceded by # is a preprocessor section, the first line gives access to standard input and output functions, this is a header.
 - Next, we have the main function defined, which returns an integer value. The {} brackets start and end the body of the main function.
@@ -196,18 +186,15 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Hello world
-
-
-
 ```
-
-- Result:
 
 ---
 
-## Hello World
+# Hello World
 
 printf() is a function and has two sides:
 
@@ -227,7 +214,7 @@ printf("%s", string);
 
 ---
 
-## Semicolon
+# Semicolon
 
 - In the C programming language statements for the compiler (interpreter in Python) is separated by a semicolon ;. Therefore, in C, you can write an entire program on one line...
 
@@ -237,7 +224,7 @@ printf("%s", string);
 
 ---
 
-## Indentation &amp; parentheses
+# Indentation & parentheses
 
 ```c
 #include <stdio.h>
@@ -258,9 +245,9 @@ int main()
 
 ---
 
-## Indentation &amp; parentheses
+# Indentation & parentheses
 
-- but...
+but...
 
 ```c
 #include <stdio.h>
@@ -285,7 +272,7 @@ int main(){
 
 ---
 
-## Comments
+# Comments
 
 ```c
 int main()
@@ -313,7 +300,7 @@ int main()
 
 ---
 
-## What is an address?
+# What is an address?
 
 - **Address of University:**
 - 1300 W Park St, Butte, MT 59701
@@ -322,7 +309,7 @@ int main()
 
 ---
 
-## What is an address?
+# What is an address?
 
 - Address is an identifier <br>(symbolic name) of location
 - A place to locate what we refer to
@@ -333,7 +320,7 @@ int main()
 
 ---
 
-## What is a name of variable?
+# What is a name of variable?
 
 ```c
 int main()
@@ -353,7 +340,7 @@ In C:
 
 ---
 
-## What is a name of variable?
+# What is a name of variable?
 
 In C:
 
@@ -373,7 +360,7 @@ int main()
 
 ---
 
-## Symbolic names will be used in
+# Symbolic names will be used in
 
 - Variables:    Symbolic names will be used to identify and refer to data stored in variables. This<br>    allows for more meaningful and descriptive code compared to using arbitrary names or <br>    identifiers.
 - Arrays:     Symbolic names will be used to identify collections of related data elements. Arrays can be used <br>    to store multiple values of the same data type.
@@ -383,7 +370,7 @@ int main()
 
 ---
 
-## Restrictions on symbolic name
+# Restrictions on symbolic name
 
 - The first character must be a letter, underscore "\_", or special character “@, #, $”\*
 - The remaining characters can be letters, digits, underscores
@@ -394,7 +381,7 @@ int main()
 
 ---
 
-## camelCase vs snake\_case for symbolic names
+# camelCase vs snake\_case for symbolic names
 
 - camelCase starts each word with a capital letter, except for the first word.
   - For example, thisIsCamelCase.
@@ -411,7 +398,7 @@ Constants, which are values that don't change, are usually written in all upperc
 
 ---
 
-## Symbolic names will be used in
+# Symbolic names will be used in
 
 - Variables:    Symbolic names will be used to identify and refer to data stored in variables. This<br>    allows for more meaningful and descriptive code compared to using arbitrary names or <br>    identifiers.
 - \*In Python we don’t have labels.
@@ -425,7 +412,7 @@ Constants, which are values that don't change, are usually written in all upperc
 
 ---
 
-## Declaring and initializing variables
+# Declaring and initializing variables
 
 ```c
 int main()
@@ -451,7 +438,7 @@ int main()
 
 ---
 
-## Declaring and initializing variables
+# Declaring and initializing variables
 
 ```c
 int main()
@@ -472,7 +459,7 @@ int == long int
 
 ---
 
-## Declaring and initializing variables
+# Declaring and initializing variables
 
 ```c
 int main()
@@ -495,7 +482,7 @@ long  == long int == int
 
 ---
 
-## Declaring and initializing variables
+# Declaring and initializing variables
 
 ```c
 int main()
@@ -509,7 +496,7 @@ int main()
 
 ---
 
-## Declaring and initializing variables
+# Declaring and initializing variables
 
 - Any variable must be declared before use.
 - Unlike Python, C requires explicit type declaration for variables\*
@@ -520,16 +507,18 @@ int main()
 
 ---
 
-## Two words about floating-point representation Operations on real numbers are recorded with only a certain degree of precision, and therefore there is a very high probability that the result of (a + b – c) will not be the same as (a - c + b) ! This means that using real numbers requires careful consideration.
+# Two words about floating-point representation
+
+Operations on real numbers are recorded with only a certain degree of precision, and therefore there is a very high probability that the result of (a + b – c) will not be the same as (a - c + b) ! This means that using real numbers requires careful consideration.
 
 <!-- but more on that in another course - namely, computer architecture. -->
 
 ---
 
-## A few words about pointers
+# A few words about pointers
 
 - **POINTERS ARE TREATED AS FIRST-CLASS DATA TYPES**
-- We can create a pointer to **any** data type using the \* operator between the existing data type and the symbolic name. Unary Operator &amp; returns memory locations
+- We can create a pointer to **any** data type using the \* operator between the existing data type and the symbolic name. Unary Operator & returns memory locations
 - A pointer in C is a reference to a specific memory location
 
 ```c
@@ -552,7 +541,7 @@ asterisk -->
 
 ---
 
-## Summary of memory size of data types
+# Summary of memory size of data types
 
 |Type|Memory size in bytes / bits|
 |---|---|
@@ -570,7 +559,7 @@ asterisk -->
 
 ---
 
-## Symbolic names will be used in
+# Symbolic names will be used in
 
 - Variables:    Symbolic names will be used to identify and refer to data stored in variables. This<br>    allows for more meaningful and descriptive code compared to using arbitrary names or <br>    identifiers.
 - \*In Python we don’t have labels.
@@ -584,18 +573,21 @@ asterisk -->
 
 ---
 
-## Arrays
+# Arrays
 
 This statement reserves space in memory for 10 integers and creates an 'unchanging address of memory' that points to the beginning of this array\*. You can use this symbolic name to access individual elements of the array using square brackets and the appropriate index.
 
 The values of array will be undefined, meaning they can hold any random value.
 
-- int a\[10\];
-- \*Array indexing starts from 0.
+```c
+int a[10];
+```
+
+\*Array indexing starts from 0.
 
 ---
 
-## Arrays
+# Arrays
 
 - When you specify the size of an array in square brackets, it is created with that exact size.
 - If you omit the size but provide initial values, the compiler counts them and creates an array of that size.
@@ -605,12 +597,14 @@ The values of array will be undefined, meaning they can hold any random value.
 <type> symbolic_name[size];
 ```
 
-- &lt;type&gt; symbolic\_name\[\] = {value1, value2, value3};
-- &lt;type&gt; symbolic\_name\[size\] = {value1, value2};
+```c
+<type> symbolic_name[] = {value1, value2, value3};
+<type> symbolic_name[size] = {value1, value2};
+```
 
 ---
 
-## Do you remember?
+# Do you remember?
 
 - Code
 - Preprocessor
@@ -629,7 +623,7 @@ int main()
 
 ---
 
-## Hello World
+# Hello World
 
 ```c
 #include <stdio.h>
@@ -645,7 +639,7 @@ int main()
 
 ---
 
-## Example of an array
+# Example of an array
 
 ```c
 int main()
@@ -668,7 +662,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Hello World
 Hello World
 Hello World
@@ -678,11 +674,9 @@ Hello World
 Hello World
 ```
 
-- Result:
-
 ---
 
-## Arrays
+# Arrays
 
 - When you specify the size of an array in square brackets, it is created with that exact size.
 - If you omit the size but provide initial values, the compiler counts them and creates an array of that size.
@@ -692,12 +686,14 @@ Hello World
 <type> symbolic_name[size];
 ```
 
-- &lt;type&gt; symbolic\_name\[\] = {value1, value2, value3};
-- &lt;type&gt; symbolic\_name\[size\] = {value1, value2};
+```c
+<type> symbolic_name[] = {value1, value2, value3};
+<type> symbolic_name[size] = {value1, value2};
+```
 
 ---
 
-## Question: How do we know which letter goes with which number?
+# Question: How do we know which letter goes with which number?
 
 ```c
 int main()
@@ -708,18 +704,15 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Hello World
-
-
-
 ```
-
-- Result:
 
 ---
 
-## ASCII Table
+# ASCII Table
 
 American Standard Code for Information Interchange
 
@@ -729,7 +722,7 @@ American Standard Code for Information Interchange
 - \t equals 11
 - White\_Space equals 32
 
-```c
+```text
  Val Char                            Val  Char     Val  Char     Val  Char
 ---------                            ---------     ---------     ----------
   0  NUL (null)                      32  SPACE     64  @         96  `
@@ -771,7 +764,7 @@ American Standard Code for Information Interchange
 
 ---
 
-## Multi-dimensional arrays
+# Multi-dimensional arrays
 
 - One dimension:
 - Two dimensions:
@@ -792,7 +785,7 @@ American Standard Code for Information Interchange
 
 ---
 
-## Symbolic names will be used in
+# Symbolic names will be used in
 
 - Variables:    Symbolic names will be used to identify and refer to data stored in variables. This<br>    allows for more meaningful and descriptive code compared to using arbitrary names or <br>    identifiers.
 - \*In Python we don’t have labels.
@@ -806,7 +799,7 @@ American Standard Code for Information Interchange
 
 ---
 
-## Every line of code in C can have its own label
+# Every line of code in C can have its own label
 
 ```c
 int main()
@@ -825,7 +818,7 @@ label8:    return 0;
 
 ---
 
-## Every line of code in C can have its own label
+# Every line of code in C can have its own label
 
 ```c
 int main()
@@ -853,24 +846,24 @@ label8:    return 0;
 |1|(), \[\]|Parentheses; Array subscript|Left-to-right|arr\[0\] \* (x + y)|1|
 ||.|Structure and union member access||point.x|1|
 ||-&gt;|Structure and union member access through pointer||ppoint-&gt;x|1|
-|2|++, --|Prefix &amp; postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
+|2|++, --|Prefix & postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
 ||+, -, !, ~|(Unary) plus and minus; Logical NOT and bitwise NOT||y =-y; y =+y; !x; ~;x|6, -6,0, -6|
-||\*, &amp; , &amp;&amp;|Indirection (dereference); Address-of; Address-of labels||z = &amp;x; \*z;|6422276; 5|
+||\*, & , &&|Indirection (dereference); Address-of; Address-of labels||z = &x; \*z;|6422276; 5|
 ||(type), sizeof|Cast, Size-of||(int)3.0f; sizeof(x);|3, 4|
 |3|\*, /, %|Multiplication, division, and remainder|Left-to-right|6/2 % 2|1|
 |4|+, -|Addition and subtraction||1 + 2; 3 - 1|3, 2|
 |5|&lt;&lt;,  &gt;&gt;|Bitwise left shift and right shift||4 &lt;&lt; 1; 4 &gt;&gt; 2|8, 1|
 |6|&lt;, &lt;=, &gt;, &gt;=|For relational operators &lt;, &gt; and ≤, ≥ respectively||x&lt;y; x&lt;=y; x&gt;y; x&gt;=y|1, 1, 0 ,0|
 |7|==, !=|For relational = and ≠ respectively||x == y, x != 1|1, 0|
-|8|&amp;|Bitwise AND||7 &amp; 3|3|
+|8|&|Bitwise AND||7 & 3|3|
 |9|^|Bitwise XOR (exclusive or)||255 ^ 0|255|
 |10|\||Bitwise OR (inclusive or)||7 \| 3|7|
-|11|&amp;&amp;|Logical AND||1 &amp;&amp; 0|0|
+|11|&&|Logical AND||1 && 0|0|
 |12|\|\||Logical OR||1 \|\| 0|1|
 |13|?:|Ternary conditional|Right-to-left|x  = (x &gt; y) ? y : x;|-6|
 |14|=|Simple assignment||x  = y;|-6|
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
-||&lt;&lt;=, &gt;&gt;=, &amp;=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
+||&lt;&lt;=, &gt;&gt;=, &=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
 ```c
@@ -883,17 +876,19 @@ Use parentheses to override order of evaluation -->
 
 ---
 
+# Basic operators
+
 |Priority / Operator||Description|Associativity|Example|Result|
 |---|---|---|---|---|---|
 |1|()|Parentheses|Left-to-right|2 \* (x + y)|-2|
-|2|++, --|Prefix &amp; postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
-||\*, &amp;|Indirection (dereference); Address-of||z = &amp;x; \*z;|6422276; 5|
+|2|++, --|Prefix & postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
+||\*, &|Indirection (dereference); Address-of||z = &x; \*z;|6422276; 5|
 ||(type)|Cast||(int)3.0f|3|
 |3|\*, /, %|Multiplication, division, and remainder|Left-to-right|6/2 % 2|1|
 |4|+, -|Addition and subtraction||1 + 2; 3 - 1|3, 2|
 |6|&lt;, &lt;=, &gt;, &gt;=|For relational operators &lt;, &gt; and ≤, ≥ respectively||x&lt;y; x&lt;=y; x&gt;y; x&gt;=y|1, 1, 0 ,0|
 |7|==, !=|For relational = and ≠ respectively||x == y, x != 1|1, 0|
-|11|&amp;&amp;|Logical AND||1 &amp;&amp; 0|0|
+|11|&&|Logical AND||1 && 0|0|
 |12|\|\||Logical OR||1 \|\| 0|1|
 |14|=|Simple assignment|Right-to-left|x  = y;|-6|
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
@@ -906,8 +901,6 @@ int main()
 }
 ```
 
-- Basic operators
-
 <!-- perentysys; esiszewitiwy
 Use parentheses to override order of evaluation -->
 
@@ -917,7 +910,9 @@ Use parentheses to override order of evaluation -->
 
 ---
 
-## Casting Although the int and float types in C are the same length, a much larger number can be stored in a float type than in an int. This is due to a different way of encoding the bits. As a result, when it comes to casting, float is treated as a larger type than int. Therefore, if an int appears in an expression with a float, the int is always first cast to float, and only then is the result computed.
+# Casting
+
+Although the int and float types in C are the same length, a much larger number can be stored in a float type than in an int. This is due to a different way of encoding the bits. As a result, when it comes to casting, float is treated as a larger type than int. Therefore, if an int appears in an expression with a float, the int is always first cast to float, and only then is the result computed.
 
 ```c
 int main()
@@ -932,7 +927,7 @@ int main()
 }
 ```
 
-```c
+```text
 1
 2
 3
@@ -955,13 +950,15 @@ asterisk -->
 
 ---
 
-## Two words about floating-point representation Operations on real numbers are recorded with only a certain degree of precision, and therefore there is a very high probability that the result of (a + b – c) will not be the same as (a - c + b) ! This means that using real numbers requires careful consideration.
+# Two words about floating-point representation
+
+Operations on real numbers are recorded with only a certain degree of precision, and therefore there is a very high probability that the result of (a + b – c) will not be the same as (a - c + b) ! This means that using real numbers requires careful consideration.
 
 <!-- but more on that in another course - namely, computer architecture. -->
 
 ---
 
-## What is Casting?
+# What is Casting?
 
 The process of converting a value of one data type to another.
 
@@ -978,7 +975,7 @@ The purpose:
 
 ---
 
-## Explicit Casting
+# Explicit Casting
 
 ```c
 int main()
@@ -993,7 +990,7 @@ int main()
 }
 ```
 
-```c
+```text
 1
 2
 3
@@ -1020,7 +1017,7 @@ asterisk -->
 
 ---
 
-## Implicit Casting
+# Implicit Casting
 
 - Automatic conversion performed by the compiler.
 - Automatic casting will always cast to a wider type to never lose information.
@@ -1032,7 +1029,7 @@ asterisk -->
 
 ---
 
-## What’s the difference?
+# What’s the difference?
 
 ```c
 int main()
@@ -1047,7 +1044,7 @@ return 0;
 }
 ```
 
-```c
+```text
 1
 2
 3
@@ -1078,7 +1075,7 @@ int main()
 }
 ```
 
-```c
+```text
 1
 2
 3

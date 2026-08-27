@@ -5,13 +5,14 @@ paginate: true
 title: "Data Structures & Algorithms"
 ---
 
+<!-- _class: lead -->
+
 # Data Structures &amp; Algorithms
 
-*Lecture 9*
-
+## Lecture 9
 ---
 
-## In 136, we covered
+# In 136, we covered
 
 - Objects and classes, Abstract Data Types – lots of coverage.  I required class and header files in most assignments
 - Time and Space complexity – a discussion was included in each exercise.  Good coverage of constant time, linear, n2, n3, with loops and nested loops.  Didn’t do any of the math.
@@ -27,18 +28,18 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 - Compiler
 - Makefile
 
 ---
 
-## Makefile
+# Makefile
 
 ---
 
-## What is Make - ? (mingw32-make.exe)
+# What is Make - ? (mingw32-make.exe)
 
 **Makefile** is an **automation tool** that manages the compilation and building process for software projects. It primarily serves two main purposes:
 
@@ -51,18 +52,18 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## Compiler
+# Compiler
 
 ---
 
-## Compiler vs Interpreter
+# Compiler vs Interpreter
 
 - A compiler takes the entire source code and translates it into a machine code file, often called an executable. This executable file contains instructions that the computer's processor can directly execute. Once compiled, the program can run independently without the need for the original source code or a compiler.
 - An interpreter translates the source code line by line as the program is running. It doesn't create a separate executable file. Instead, it uses a virtual machine to execute the translated code. The virtual machine provides an environment that mimics a real computer, allowing the program to run even if the underlying hardware architecture is different
 
 ---
 
-## How does a C program executes?
+# How does a C program executes?
 
 - C/C++ code
 - Preprocessing
@@ -87,7 +88,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## Compilers
+# Compilers
 
 - GCC – GNU Compiler Collection
 - Microsoft Compiler C/C++
@@ -97,7 +98,7 @@ C files are regular text files (txt), differing only by their extension, as they
 
 ---
 
-## A summary
+# A summary
 
 *Although GNU is primarily associated with Unix-like systems, the ideas of free software and open source have allowed GNU tools, such as GCC, to be ported to other platforms, including Windows.*
 
@@ -105,7 +106,7 @@ C files are regular text files (txt), differing only by their extension, as they
 
 ---
 
-## Example 1 - main.c
+# Example 1 - main.c
 
 - Create a new folder,
 - create a file named main.c inside it and fill it with the simplest possible code.
@@ -124,32 +125,32 @@ int main()
 
 ---
 
-## Process of compilation
+# Process of compilation
 
 - Compile main.c into an object file main.o:
 - Link the object file main.o into an executable main.exe:
 
-```c
+```console
 gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 ```
 
-```c
+```text
 # 1) Compile main.c into an object file main.o (no linking).
 #    Includes debug symbols (-g), enables most warnings (-Wall), uses the C99 standard (-std=c99),
 #    and enforces strict standard conformance (-pedantic).
 ```
 
-```c
+```console
 gcc -g main.o -o main.exe
 ```
 
-```c
+```text
 # 2) Link the object file into an executable named main.exe.
 ```
 
 ---
 
-## How does a C program executes?
+# How does a C program executes?
 
 - C code
 - Preprocessing
@@ -174,22 +175,22 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## Process of compilation
+# Process of compilation
 
 - Compile and link in one step (from main.c directly to main.exe):
 
-```c
+```console
 gcc -g -Wall -std=c99 -pedantic main.c -o main.exe
 ```
 
-```c
+```text
 # 3) Compile and link in one step: from main.c directly to main.exe,
 #    with the same diagnostic/standard flags as in step 1.
 ```
 
 ---
 
-## How does a C program executes?
+# How does a C program executes?
 
 - C code
 - Preprocessing
@@ -214,7 +215,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## About flags
+# About flags
 
 - The -g flag tells the compiler to include debugging information in the output. Without it, setting breakpoints in the compiled file would not be possible. This flag should be disabled in the final compilation of the application after the development process is complete.
 - The flags -Wall, -std, and -pedantic are compiler-specific and only necessary during the creation of object files. The -c and -o flags indicate source and object files, respectively.
@@ -222,7 +223,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## What Does a Make Rule Look Like
+# What Does a Make Rule Look Like
 
 A **Makefile** is just a text file with rules. Each rule has **four key parts**:
 
@@ -236,7 +237,7 @@ A **Makefile** is just a text file with rules. Each rule has **four key parts**:
   - Each command **must start with a tab**.
   - Commands run one by one. If one fails (non-zero exit code), make stops.
 
-```c
+```text
 target … : prerequisites …
         recipe
         …
@@ -245,21 +246,21 @@ target … : prerequisites …
 
 ---
 
-## Simplest makefile
+# Simplest makefile
 
 - Create a file "Makefile "
 - And run in cmd: "mingw32-make"
 - The first command **compiles** the source code into an **object file**,
 - The second command **links** the object file to produce the final **.exe executable**
 
-```c
+```text
 target … : prerequisites …
         recipe
         …
         …
 ```
 
-```c
+```make
 build: #The comment preceded by a hashmark
 	gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 	gcc -g main.o -o main.exe
@@ -267,14 +268,14 @@ build: #The comment preceded by a hashmark
 
 ---
 
-## Simplest makefile
+# Simplest makefile
 
 - Modify to:
 - And run in cmd: "mingw32-make"
 
 Without any parameters, **make** will only execute the first target. Our first target is linking, so it will create the **.exe** file from the **.o** file. If we wanted to build the **.obj** (object file) alone, we would have to call that target as a program parameter: **'mingw32-make build\_obj'**, followed by either **'mingw32-make'** or **'mingw32-make build\_exe'**.
 
-```c
+```make
 build_exe:
 	gcc -g main.o -o main.exe
 build_obj:
@@ -283,7 +284,7 @@ build_obj:
 
 ---
 
-## Simplest makefile
+# Simplest makefile
 
 - Modify to:
 - And run in cmd: "mingw32-make"
@@ -292,7 +293,7 @@ We can also modify the Makefile where **'build\_obj' is a dependency of our 'bui
 
 Consequently, we can then run **make** without any parameters, as it will find the dependencies and execute the entire compilation process.
 
-```c
+```make
 build_exe: build_obj
 	gcc -g main.o -o main.exe
 build_obj:
@@ -301,7 +302,7 @@ build_obj:
 
 ---
 
-## Example 2 – main.c; other.h; other.c
+# Example 2 – main.c; other.h; other.c
 
 - Modify and create files:
 
@@ -337,26 +338,26 @@ void extern_function();
 
 ---
 
-## Process of compilation
+# Process of compilation
 
 - Compiling:
 - Linking:
 
-```c
+```console
 gcc -g -Wall -std=c99 -pedantic -c other.c -o other.o
 ```
 
-```c
+```console
 gcc -g main.o other.o -o main.exe
 ```
 
-```c
+```console
 gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 ```
 
 ---
 
-## Headers and the Compilation Process – Key Rules
+# Headers and the Compilation Process – Key Rules
 
 - **Including the same header more than once**
   - If the same header.h is included in multiple places, the compiler may get confused (errors like *redefinition*). To prevent this, we use *include guards*: #ifndef etc.
@@ -375,9 +376,11 @@ The key distinction: Headers are dependencies in the Makefile, but not arguments
 
 ---
 
-## makefile From just three command-line calls, we can create a **Makefile** that automates the exact same functionality. However, at this stage, our Makefile is essentially no different from a simple **batch script** (or a .bat file). Every single time we invoke **make**, the entire compilation process is executed from start to finish, regardless of whether any files have actually changed.
+# makefile
 
-```c
+From just three command-line calls, we can create a **Makefile** that automates the exact same functionality. However, at this stage, our Makefile is essentially no different from a simple **batch script** (or a .bat file). Every single time we invoke **make**, the entire compilation process is executed from start to finish, regardless of whether any files have actually changed.
+
+```make
 # makefile
 build_exe: build_obj
 	gcc -g main.o other.o -o main.exe
@@ -387,7 +390,7 @@ build_obj:
 
 ```
 
-```c
+```console
 gcc -g -Wall -std=c99 -pedantic -c other.c -o other.o
 gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 gcc -g main.o other.o -o main.exe
@@ -395,18 +398,21 @@ gcc -g main.o other.o -o main.exe
 
 ---
 
-## makefile This happens because both of our current targets are essentially **artificial targets** (or **PHONY targets**). Their dependencies don't rely on the existence of any files; they simply establish that one target requires the execution of the other. The line defining this—\*\*.PHONY: target1 target2...\*\*—should be placed before the first occurrence of the first target. By doing this, **make** will not attempt to search for files with the same name as the target.
+# makefile
 
-\# makefile
+This happens because both of our current targets are essentially **artificial targets** (or **PHONY targets**). Their dependencies don't rely on the existence of any files; they simply establish that one target requires the execution of the other. The line defining this—**.PHONY: target1 target2...**—should be placed before the first occurrence of the first target. By doing this, **make** will not attempt to search for files with the same name as the target.
 
-- .PHONY: build\_exe build\_obj
-- build\_exe: build\_obj
-- gcc -g main.o other.o -o main.exe
-- build\_obj:
-- gcc -g -Wall -std=c99 -pedantic -c other.c -o other.o
-- gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
+```make
+# makefile
+.PHONY: build_exe build_obj
+build_exe: build_obj
+	gcc -g main.o other.o -o main.exe
+build_obj:
+	gcc -g -Wall -std=c99 -pedantic -c other.c -o other.o
+	gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
+```
 
-```c
+```console
 gcc -g -Wall -std=c99 -pedantic -c other.c -o other.o
 gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 gcc -g main.o other.o -o main.exe
@@ -414,7 +420,7 @@ gcc -g main.o other.o -o main.exe
 
 ---
 
-## The Nature of Make Targets
+# The Nature of Make Targets
 
 Targets in a Makefile can fall into several categories:
 
@@ -424,7 +430,7 @@ Targets in a Makefile can fall into several categories:
 
 ---
 
-## How Make Treats Targets (The Decision-Making Process)
+# How Make Treats Targets (The Decision-Making Process)
 
 If a target is **not listed** in the **.PHONY** directive, make treats the target name as a **file name** and initiates a smart, two-step process:
 
@@ -434,13 +440,17 @@ If a target is **not listed** in the **.PHONY** directive, make treats the targe
 
 ---
 
-## Why This Still Matters While computational power is high today, this timestamp logic is still crucial, especially in very large projects. There is no reason to recompile every single part of a huge system if only a few small source files have changed. **This selective rebuilding is the core reason we use make—it saves enormous amounts of time and makes the build process efficient.**
+# Why This Still Matters
+
+While computational power is high today, this timestamp logic is still crucial, especially in very large projects. There is no reason to recompile every single part of a huge system if only a few small source files have changed. **This selective rebuilding is the core reason we use make—it saves enormous amounts of time and makes the build process efficient.**
 
 ---
 
-## Fully Functional Makefile: A Summary At this point, we have a **complete and functional Makefile**. If we run it without any parameters, **make** will automatically build the final executable, main.exe.
+# Fully Functional Makefile: A Summary
 
-```c
+At this point, we have a **complete and functional Makefile**. If we run it without any parameters, **make** will automatically build the final executable, main.exe.
+
+```make
 .PHONY: clean
 
 main.exe: main.o other.o
@@ -458,14 +468,14 @@ clean:
 
 ---
 
-## Fully Functional Makefile: A Summary
+# Fully Functional Makefile: A Summary
 
 Make achieves this by generating a **dependency tree** and determining the correct order of execution. We've defined this order as follows:
 
 - The final executable (main.exe) depends on both object files: main.o and other.o.
 - These object files, in turn, have their own prerequisites: main.o depends only on its source code, main.c, while **other.o depends on both its source file (other.c) AND its header file (other.h)**. This last dependency is crucial, ensuring that if the header is modified, other.o will be recompiled.
 
-```c
+```make
 .PHONY: clean
 main.exe: main.o other.o
     gcc -g main.o other.o -o main.exe
@@ -480,13 +490,13 @@ clean:
 
 ---
 
-## Fully Functional Makefile: A Summary
+# Fully Functional Makefile: A Summary
 
 - We also successfully created a **symbolic target, clean**, for removing temporary object files generated during compilation. This target will **not** be executed automatically; we must explicitly call it by name: make clean.
 - Crucially, we only listed clean in the **.PHONY** directive because it's the only truly artificial target. All other targets (main.exe, main.o, other.o) are meant to be treated as actual file names, allowing **make** to use its smart timestamp logic.
 - Note that while we needed to list other.h as a dependency for other.o, we **did not** need to define a separate target for it, as headers are only inputs, never outputs.
 
-```c
+```make
 .PHONY: clean
 main.exe: main.o other.o
     gcc -g main.o other.o -o main.exe
@@ -501,7 +511,7 @@ clean:
 
 ---
 
-## Modify and Run
+# Modify and Run
 
 When we execute these commands sequentially in the command prompt (CMD):
 
@@ -511,7 +521,7 @@ When we execute these commands sequentially in the command prompt (CMD):
 
 This final message confirms that **make** has checked all dependencies and creation dates for every file. It found that the current version of main.exe is the newest one, meaning there is no need for **make** to perform any actions or recompilation.
 
-```c
+```console
 mingw32-make clean
 mingw32-make
 mingw32-make
@@ -519,7 +529,7 @@ mingw32-make
 
 ---
 
-## Variables and Assignment in Makefiles
+# Variables and Assignment in Makefiles
 
 - In a Makefile, we can greatly enhance flexibility and readability by using **variables**. We've used the **:=** symbol for defining our variables, which denotes **simple assignment**.
 - While alternative assignment operators exist (like =, !=, ?=, etc.), it's crucial to understand that make operates in **two distinct phases** (reading and execution). Using the simple assignment operator (:=) is the safest approach for creating straightforward string variables at this level. You should generally **avoid the = operator** for now, as it defines a **recursively expanded variable**, which is reserved for much more complex and advanced scenarios.
@@ -528,9 +538,9 @@ mingw32-make
 
 ---
 
-## extension
+# extension
 
-```c
+```make
 .PHONY: clean
 
 main.exe: main.o other.o
@@ -546,7 +556,7 @@ clean:
     del other.o
 ```
 
-```c
+```make
 CC     := gcc
 CFLAGS := -g -Wall -std=c99 -pedantic # compiler flags
 LFLAG  := -g # linker flag
@@ -568,12 +578,12 @@ clean:
 
 ---
 
-## extension
+# extension
 
 - Our script is clearly becoming much smarter and more automated. As you can easily observe, **make** inserts the values of our variables wherever we reference them. The commonly accepted **default name for the main build target is all**, which we've defined as a **PHONY** target dependent on our actual **$(TARGET)** variable.
 - However, it's essential to remember that this current Makefile is designed exclusively for the **Windows CMD** environment. If we tried to run the clean target in a Linux/Unix environment (such as **Bash**), it would fail because the command **del** is not recognized there.
 
-```c
+```make
 CC     := gcc
 CFLAGS := -g -Wall -std=c99 -pedantic # compiler flags
 LFLAG  := -g # linker flag
@@ -595,7 +605,7 @@ clean:
 
 ---
 
-## Conditional Shell Detection in Make
+# Conditional Shell Detection in Make
 
 - In Makefiles, we can use **conditional directives** like ifeq and ifneq to create logic that adapts to different environments. This allows us to write more portable build scripts.
 - A key built-in variable we can leverage is **$(SHELL)**. This variable stores the path to the shell interpreter that **make** uses internally to execute the commands (recipes).
@@ -607,7 +617,7 @@ When running mingw32-make on Windows:
 
 Therefore, by using a simple conditional statement to check the **length** or the **presence of the absolute path delimiters** (like drive letters and slashes) in the $(SHELL) variable, we can reliably distinguish between the "native" Windows environment and the Unix-like Git Bash environment, allowing us to select the appropriate commands for our recipes
 
-```c
+```make
 ifeq ($(SHELL),sh.exe) # without any space!
     DETECTED_SHELL = cmd/powershell
 else
@@ -615,19 +625,19 @@ else
 endif
 ```
 
-```c
+```make
 check-shell:
     echo $(SHELL)
     echo Detected: $(DETECTED_SHELL)
 ```
 
-```c
+```console
 $ mingw32-make check-shell
 SHELL=C:/Program Files/Git/usr/bin/sh.exe
 Detected: bash
 ```
 
-```c
+```console
 C:\..> mingw32-make check-shell
 SHELL=sh.exe
 Detected: cmd/powershell
@@ -635,9 +645,9 @@ Detected: cmd/powershell
 
 ---
 
-## extension
+# extension
 
-```c
+```make
 CC     := gcc
 CFLAGS := -g -Wall -std=c99 -pedantic # compiler flags
 LFLAG  := -g # linker flag
@@ -661,7 +671,7 @@ check-shell:
     @echo Detected: $(DETECTED_SHELL)
 ```
 
-```c
+```make
 CC     := gcc
 CFLAGS := -g -Wall -std=c99 -pedantic # compiler flags
 LFLAG  := -g # linker flag
@@ -694,9 +704,11 @@ clean:
 
 ---
 
-## Summary **Make** offers capabilities far beyond what we've covered so far. This has been merely an introduction to its core principles. We can leverage **Make's conditional logic** to build a fully **automated compilation process** that is aware of the operating environment. Crucially, this includes the ability to dynamically detect the specific shell running on a **Windows system** (be it CMD, PowerShell, or Git Bash) and override the **RM variable** to ensure the correct file deletion command (del or rm) is used, thereby guaranteeing project portability
+# Summary
 
-```c
+**Make** offers capabilities far beyond what we've covered so far. This has been merely an introduction to its core principles. We can leverage **Make's conditional logic** to build a fully **automated compilation process** that is aware of the operating environment. Crucially, this includes the ability to dynamically detect the specific shell running on a **Windows system** (be it CMD, PowerShell, or Git Bash) and override the **RM variable** to ensure the correct file deletion command (del or rm) is used, thereby guaranteeing project portability
+
+```make
 CC     := gcc
 CFLAGS := -g -Wall -std=c99 -pedantic # compiler flags
 LFLAG  := -g # linker flag
@@ -729,32 +741,34 @@ clean:
 
 ---
 
-## Questions?
+# Questions?
 
 ---
 
-## Thank
+<!-- _class: caption-slide -->
 
-- You
-
----
-
-## Algorithm notation systems
+# Thank You
 
 ---
 
-## Efficiency – an example
+# Algorithm notation systems
+
+---
+
+# Efficiency – an example
 
 <!-- For a concrete example -->
 
 ---
 
-## Efficiency – an example
+# Efficiency – an example
 
 <!-- For a concrete example -->
 
 ---
 
-## Efficiency – an example By using an algorithm whose running time grows more slowly, even with a poor compiler, computer **B** runs more than 17 times faster than computer **A**! The advantage of merge sort is even more pronounced when we sort 100 million numbers: where insertion sort takes more than 23 days, merge sort takes under four hours. In general, as the problem size increases, so does the relative advantage of merge sort.
+# Efficiency – an example
+
+By using an algorithm whose running time grows more slowly, even with a poor compiler, computer **B** runs more than 17 times faster than computer **A**! The advantage of merge sort is even more pronounced when we sort 100 million numbers: where insertion sort takes more than 23 days, merge sort takes under four hours. In general, as the problem size increases, so does the relative advantage of merge sort.
 
 <!-- For a concrete example -->

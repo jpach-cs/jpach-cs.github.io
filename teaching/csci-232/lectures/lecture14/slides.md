@@ -5,15 +5,16 @@ paginate: true
 title: "CSCI 232  Data Structures & Algorithms"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 232 <br>Data Structures &amp; Algorithms
 
-*Lecture 14*
-
-- Dr. Jakub L. Pach
+## Lecture 14
+Dr. Jakub L. Pach
 
 ---
 
-## Outline
+# Outline
 
 - Syllabus, Textbook, Moodle
 - Something about me
@@ -25,15 +26,15 @@ title: "CSCI 232  Data Structures & Algorithms"
 
 ---
 
-## Tree
+# Tree
 
 - Viewed abstractly, a tree is a data structure that stores elements hierarchically. With the exception of the top element, each element in a tree has a parent element and zero or more children elements. A tree is usually visualized by placing elements inside ovals or rectangles, and by drawing the connections between parents and children with straight lines. We typically call the top element the root of the tree, but it is drawn as the highest element, with the other elements being connected below (just the opposite of a botanical tree).
 
 ---
 
-## Tree
+# Tree
 
-```c
+```console
 C:\Users\Jakub>tree C:\jpac\Dos
 Folder PATH listing for volume Windows
 Volume serial number is D096-8BC8
@@ -70,13 +71,13 @@ C:\Users\Jakub>
 
 ---
 
-## Tree
+# Tree
 
 ![w:1151px Content Placeholder 4](assets/image2.png)
 
 ---
 
-## Book
+# Book
 
 - A structured document, such as a book, is hierarchically organized as a tree whose internal nodes are chapters, sections, and subsections, and whose external nodes are paragraphs, tables, figures, the bibliography, and so on. We could in fact consider expanding the tree further to show paragraphs consisting of sentences, sentences consisting of words, and words consisting of characters. In any case, such a tree is an example of an ordered tree, because there is a well-defined ordering among the children of each node.
 
@@ -84,7 +85,7 @@ C:\Users\Jakub>
 
 ---
 
-## Types of trees
+# Types of trees
 
 - **General trees**:
 - This is the most general form of trees. Each node in such a tree can have any number of children.
@@ -108,13 +109,13 @@ C:\Users\Jakub>
 
 ---
 
-## A binary tree
+# A binary tree
 
 - A binary tree is an ordered tree in which every node has at most two children. A binary tree is proper if each internal node has two children. For each internal node in a binary tree, we label each child as either being a left child or a right child. These children are ordered so that a left child comes before a right child. The subtree rooted at a left or right child of an internal node v is called a left subtree or right subtree, respectively, of v. Of course, even an improper binary tree is still a general tree, with the property that each internal node has at most two children. Binary trees have a number of useful applications.
 
 ---
 
-## Summary
+# Summary
 
 - **Complete binary tree in an array**:
   - A complete binary tree can be efficiently represented in an array because each node has exactly two children (or none). Indexing can start from 0 or 1, which affects how parent-child relationships are defined:
@@ -145,7 +146,3 @@ public:
 ```
 
 <!-- chooseAndSwapArrayWithLargerFirstElement(&amp;arr1, &amp;arr2); -->
-
----
-
-<!-- pptx2marp: slide 12 has no extractable text or images -->

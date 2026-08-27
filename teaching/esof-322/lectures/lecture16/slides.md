@@ -5,11 +5,13 @@ paginate: true
 title: "Chapter 4 – Requirements Engineering"
 ---
 
+<!-- _class: lead -->
+
 # Chapter 4 – Requirements Engineering
 
 ---
 
-## Topics covered
+# Topics covered
 
 - Functional and non-functional requirements
 - Requirements engineering processes
@@ -20,14 +22,14 @@ title: "Chapter 4 – Requirements Engineering"
 
 ---
 
-## Requirements engineering
+# Requirements engineering
 
 - The process of establishing the services that acustomer requires from a system and the constraints under which it operates and is developed.
 - The system requirements are the descriptions of the system services and constraints that are generated during the requirements engineering process.
 
 ---
 
-## What is a requirement?
+# What is a requirement?
 
 - It may range from a high-level abstract statement of a service or of a system constraint to a detailed mathematical functional specification.
 - This is inevitable as requirements may serve a dual function
@@ -37,13 +39,13 @@ title: "Chapter 4 – Requirements Engineering"
 
 ---
 
-## Requirements abstraction (Davis)
+# Requirements abstraction (Davis)
 
 - “If a company wishes to let a contract for a large software development project, it must define its needs in a sufficiently abstract way that a solution is not pre-defined. The requirements must be written so that several contractors can bid for the contract, offering, perhaps, different ways of meeting the client organization’s needs. Once a contract has been awarded, the contractor must write a system definition for the client in more detail so that the client understands and can validate what the software will do. Both of these documents may be called the requirements document for the system.”
 
 ---
 
-## Types of requirement
+# Types of requirement
 
 - User requirements
   - Statements in natural language plus diagrams of the services the system provides and its operational constraints. Written for customers.
@@ -52,21 +54,21 @@ title: "Chapter 4 – Requirements Engineering"
 
 ---
 
-## User and system requirements
+# User and system requirements
 
 ![w:877px 4.1 UserSysReqs.eps](assets/image2.emf)
 <!-- pptx2marp: image2.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## Readers of different types of requirements specification
+# Readers of different types of requirements specification
 
 ![w:914px 4.2 ReqReaders.eps](assets/image3.emf)
 <!-- pptx2marp: image3.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## Feasibility studies
+# Feasibility studies
 
 A feasibility study is a short, focused study that should take place early in the RE process. It should answer three key questions:
 
@@ -78,13 +80,13 @@ If the answer to any of these questions is no, you should probably not go ahead 
 
 ---
 
-## [The Elements of a Good Feasibility Study](https://www.projectsmart.co.uk/requirements-management/elements-of-a-good-feasibility-study.php)
+# [The Elements of a Good Feasibility Study](https://www.projectsmart.co.uk/requirements-management/elements-of-a-good-feasibility-study.php)
 
 - <https://www.projectsmart.co.uk/requirements-management/elements-of-a-good-feasibility-study.php>
 
 ---
 
-## System stakeholders
+# System stakeholders
 
 - Any person or organization who is affected by the system in some way and so who has a legitimate interest
 - Stakeholder types
@@ -95,7 +97,7 @@ If the answer to any of these questions is no, you should probably not go ahead 
 
 ---
 
-## Stakeholders in the Mentcare system
+# Stakeholders in the Mentcare system
 
 - Patients whose information is recorded in the system.
 - Doctors who are responsible for assessing and treating patients.
@@ -105,7 +107,7 @@ If the answer to any of these questions is no, you should probably not go ahead 
 
 ---
 
-## Stakeholders in the Mentcare system
+# Stakeholders in the Mentcare system
 
 - A medical ethics manager who must ensure that the system meets current ethical guidelines for patient care.
 - Health care managers who obtain management information from the system.
@@ -113,7 +115,7 @@ If the answer to any of these questions is no, you should probably not go ahead 
 
 ---
 
-## Agile methods and requirements
+# Agile methods and requirements
 
 - Many agile methods argue that producing detailed system requirements is a waste of time as requirements change so quickly.
 - The requirements document is therefore always out of date.
@@ -122,11 +124,11 @@ If the answer to any of these questions is no, you should probably not go ahead 
 
 ---
 
-## Functional and non-functional requirements
+# Functional and non-functional requirements
 
 ---
 
-## Functional and non-functional requirements
+# Functional and non-functional requirements
 
 - Functional requirements
   - Statements of services the system should provide, how the system should react to particular inputs and how the system should behave in particular situations.
@@ -147,7 +149,7 @@ but...
 
 ---
 
-## For examle
+# For examle
 
 if the system is required to respond in less than 2 seconds (a non-functional requirement), it may turn out that the implementation of a search function (a functional requirement) cannot rely on simple linear search — instead, techniques like indexing, hashing, caching, or more suitable data structures must be used.
 
@@ -155,7 +157,7 @@ In other words, seemingly “secondary” quality requirements can completely ch
 
 ---
 
-## Domain requirements
+# Domain requirements
 
 - Domain requirements are derived from the application domain of the system rather than from the specific needs of system users. They may be new functional requirements in their own right, constrain existing functional requirements, or set out how particular computations must be carried out.
 - The problem with domain requirements is that software engineers may not understand the characteristics of the domain in which the system operates. This means that these engineers may not know whether or not a domain requirement has been missed out or conflicts with other requirements.
@@ -164,7 +166,7 @@ In other words, seemingly “secondary” quality requirements can completely ch
 
 ---
 
-## Functional requirements
+# Functional requirements
 
 - Describe functionality or system services.
 - Depend on the type of software, expected users and the type of system where the software is used.
@@ -173,7 +175,7 @@ In other words, seemingly “secondary” quality requirements can completely ch
 
 ---
 
-## Example of Mentcare system: functional requirements
+# Example of Mentcare system: functional requirements
 
 - A user shall be able to search the appointments lists for all clinics.
 - The system shall generate each day, for each clinic, a list of patients who are expected to attend appointments that day.
@@ -183,7 +185,7 @@ The requirements show that functional requirements may be written at different l
 
 ---
 
-## Requirements imprecision
+# Requirements imprecision
 
 - Problems arise when functional requirements are not precisely stated.
 - Ambiguous requirements may be interpreted in different ways by developers and users.
@@ -199,7 +201,7 @@ A medical staff member specifying a search requirement may expect “search” t
 
 ---
 
-## Requirements completeness and consistency
+# Requirements completeness and consistency
 
 - In principle, requirements should be both complete and consistent.
 - Complete
@@ -210,7 +212,7 @@ A medical staff member specifying a search requirement may expect “search” t
 
 ---
 
-## Non-functional requirements
+# Non-functional requirements
 
 - These define system properties and constraints e.g. reliability, response time and storage requirements. Constraints are I/O device capability, system representations, etc.
 - Process requirements may also be specified mandating a particular IDE, programming language or development method.
@@ -218,14 +220,14 @@ A medical staff member specifying a search requirement may expect “search” t
 
 ---
 
-## Types of nonfunctional requirement
+# Types of nonfunctional requirement
 
 ![w:968px 4.3 Non-functionalReq.eps](assets/image4.emf)
 <!-- pptx2marp: image4.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## Non-functional requirements implementation
+# Non-functional requirements implementation
 
 - Non-functional requirements may affect the overall architecture of a system rather than the individual components.
   - For example, to ensure that performance requirements are met, you may have to organize the system to minimize communications between components.
@@ -234,7 +236,7 @@ A medical staff member specifying a search requirement may expect “search” t
 
 ---
 
-## Non-functional classifications
+# Non-functional classifications
 
 - Product requirements
   - Requirements which specify that the delivered product must behave in a particular way e.g. execution speed, reliability, etc.
@@ -245,14 +247,14 @@ A medical staff member specifying a search requirement may expect “search” t
 
 ---
 
-## Examples of nonfunctional requirements in the Mentcare system
+# Examples of nonfunctional requirements in the Mentcare system
 
 |**Product requirement**<br>The Mentcare system shall be available to all clinics during normal working hours (Mon–Fri, 0830–17.30). Downtime within normal working hours shall not exceed five seconds in any one day.<br>**Organizational requirement**<br>Users of the Mentcare system shall authenticate themselves using their health authority identity card.<br>**External requirement**<br>The system shall implement patient privacy provisions as set out in HStan-03-2006-priv.|
 |---|
 
 ---
 
-## Goals and requirements
+# Goals and requirements
 
 - Non-functional requirements may be very difficult to state precisely and imprecise requirements may be difficult to verify.
 - Goal
@@ -263,7 +265,7 @@ A medical staff member specifying a search requirement may expect “search” t
 
 ---
 
-## Usability requirements
+# Usability requirements
 
 *(how a manager might express usability requirements)*
 
@@ -275,7 +277,7 @@ A medical staff member specifying a search requirement may expect “search” t
 
 ---
 
-## Metrics for specifying nonfunctional requirements
+# Metrics for specifying nonfunctional requirements
 
 |**Property**|**Measure**|
 |---|---|
@@ -288,19 +290,21 @@ A medical staff member specifying a search requirement may expect “search” t
 
 ---
 
-## Card readers example In practice, customers for a system often find it difficult to translate their goals into measurable requirements. For some goals, such as maintainability, there are no sim ple metrics that can be used. In other cases, even when quantitative specification is possible, customers may not be able to relate their needs to these specifications. They don’t understand what some number defining the reliability (for example) means in terms of their everyday experience with computer systems. Furthermore, the cost of objectively verifying measurable, non-functional requirements can be very high, and the customers paying for the system may not think these costs are justified. Non-functional requirements often conflict and interact with other functional or non-functional requirements. For example, the identification requirement in Figure 4.4 requires a card reader to be installed with each computer that connects to the system. However, there may be another requirement that requests mobile access to the system from doctors’ or nurses’ tablets or smartphones. These are not normally equipped with card readers so, in these circumstances, some alternative identification method may have to be supported. It is difficult to separate functional and non-functional requirements in the requirements document. If the non-functional requirements are stated separately from the functional requirements, the relationships between them may be hard to understand. However, you should, ideally, highlight requirements that are clearly related to emergent system properties, such as performance or reliability. You can do this by putting them in a separate section of the requirements document or by distin guishing them, in some way, from other system requirements.
+# Card readers example
+
+In practice, customers for a system often find it difficult to translate their goals into measurable requirements. For some goals, such as maintainability, there are no sim ple metrics that can be used. In other cases, even when quantitative specification is possible, customers may not be able to relate their needs to these specifications. They don’t understand what some number defining the reliability (for example) means in terms of their everyday experience with computer systems. Furthermore, the cost of objectively verifying measurable, non-functional requirements can be very high, and the customers paying for the system may not think these costs are justified. Non-functional requirements often conflict and interact with other functional or non-functional requirements. For example, the identification requirement in Figure 4.4 requires a card reader to be installed with each computer that connects to the system. However, there may be another requirement that requests mobile access to the system from doctors’ or nurses’ tablets or smartphones. These are not normally equipped with card readers so, in these circumstances, some alternative identification method may have to be supported. It is difficult to separate functional and non-functional requirements in the requirements document. If the non-functional requirements are stated separately from the functional requirements, the relationships between them may be hard to understand. However, you should, ideally, highlight requirements that are clearly related to emergent system properties, such as performance or reliability. You can do this by putting them in a separate section of the requirements document or by distin guishing them, in some way, from other system requirements.
 
 ---
 
-- It's valuable to group stakeholders so that each group represents a consistent viewpoint regarding the system's requirements.
+It's valuable to group stakeholders so that each group represents a consistent viewpoint regarding the system's requirements.
 
 ---
 
-## Requirements engineering processes
+# Requirements engineering processes
 
 ---
 
-## Requirements engineering processes
+# Requirements engineering processes
 
 - The processes used for RE vary widely depending on the application domain, the people involved and the organisation developing the requirements.
 - However, there are a number of generic activities common to all processes
@@ -312,7 +316,7 @@ A medical staff member specifying a search requirement may expect “search” t
 
 ---
 
-## A spiral view of the requirements engineering process
+# A spiral view of the requirements engineering process
 
 ![w:771px 4.12 ReqEngSpiral.eps](assets/image5.emf)
 <!-- pptx2marp: image5.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
@@ -321,15 +325,15 @@ A medical staff member specifying a search requirement may expect “search” t
 
 ---
 
-- Agile development can be used instead of prototyping so that the requirements and the system implementation are developed together.
+Agile development can be used instead of prototyping so that the requirements and the system implementation are developed together.
 
 ---
 
-## Requirements elicitation (extraction)
+# Requirements elicitation (extraction)
 
 ---
 
-## Requirements elicitation and analysis
+# Requirements elicitation and analysis
 
 - Sometimes called requirements elicitation or requirements discovery.
 - Involves technical staff working with customers to find out about the application domain, the services that the system should provide and the system’s operational constraints.
@@ -337,11 +341,11 @@ A medical staff member specifying a search requirement may expect “search” t
 
 ---
 
-## Requirements elicitation
+# Requirements elicitation
 
 ---
 
-## Requirements elicitation
+# Requirements elicitation
 
 - Software engineers work with a range of system stakeholders to find out about the application domain, the services that the system should provide, the required system performance, hardware constraints, other systems, etc.
 - Stages include:
@@ -352,7 +356,7 @@ A medical staff member specifying a search requirement may expect “search” t
 
 ---
 
-## Problems of requirements elicitation
+# Problems of requirements elicitation
 
 - Stakeholders don’t know what they really want.
 - Stakeholders express requirements in their own terms.
@@ -362,14 +366,14 @@ A medical staff member specifying a search requirement may expect “search” t
 
 ---
 
-## The requirements elicitation and analysis process
+# The requirements elicitation and analysis process
 
 ![w:833px 4.13 RequirementsElicitation.eps](assets/image6.emf)
 <!-- pptx2marp: image6.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## Process activities
+# Process activities
 
 - Requirements discovery
   - Interacting with stakeholders to discover their requirements. Domain requirements are also discovered at this stage.
@@ -387,17 +391,15 @@ Requirements documentation The requirements are documented and input into the ne
 
 ---
 
-## Viewpoints
+# Viewpoints
 
-A viewpoint is a way of collecting and organizing a set of requirements from a group of stakeholders who have something in common. Each viewpoint therefore includes a set of system requirements. Viewpoints might come from end-users, managers, or others. They help identify the people who can provide information about their requirements and structure the requirements for an
-
-alysis.
+A viewpoint is a way of collecting and organizing a set of requirements from a group of stakeholders who have something in common. Each viewpoint therefore includes a set of system requirements. Viewpoints might come from end-users, managers, or others. They help identify the people who can provide information about their requirements and structure the requirements for analysis.
 
 <http://www.software-engineering-book.com/web/viewpoints/>
 
 ---
 
-## Requirements discovery
+# Requirements discovery
 
 - The process of gathering information about the required and existing systems and distilling the user and system requirements from this information.
 - Interaction is with system stakeholders from managers to external regulators.
@@ -405,7 +407,7 @@ alysis.
 
 ---
 
-## Interviewing
+# Interviewing
 
 - Formal or informal interviews with stakeholders are part of most RE processes.
 - Types of interview
@@ -421,7 +423,7 @@ You should prompt the interviewee to get discussions going by using a spring boa
 
 ---
 
-## Interviews in practice
+# Interviews in practice
 
 - Normally a mix of closed and open-ended interviewing.
 - Interviews are good for getting an overall understanding of what stakeholders do and how they might interact with the system.
@@ -430,7 +432,7 @@ You should prompt the interviewee to get discussions going by using a spring boa
 
 ---
 
-## Problems with interviews
+# Problems with interviews
 
 - Application specialists may use language to describe their work that isn’t easy for the requirements engineer to understand.
 - Interviews are not good for understanding domain requirements
@@ -441,7 +443,7 @@ For example. Some domain knowledge is so familiar to stakeholders that they eith
 
 ---
 
-## Why "Ethnography" in Software Engineering?
+# Why "Ethnography" in Software Engineering?
 
 In the context you cited, which is **"Observation or ethnography, when we observe people at work to see what artifacts they use, how they use them, etc."**, the authors of the book are using the term "ethnography" in its **broad and methodological sense**, not in the strict, academic anthropological understanding.
 
@@ -454,7 +456,7 @@ This refers to applying the **research techniques and principles** characteristi
 
 ---
 
-## In Other Words
+# In Other Words
 
 - Using "ethnography" in this context is shorthand for a **research approach based on in-depth, direct observation of users in their natural work environment**. The goal is to capture not only what people *say* they do, but primarily what they **actually do**, how they cope with challenges, and what their real needs and pain points are.
 - This is particularly valuable because people often can't verbalize all their requirements, either due to being accustomed to current solutions or because certain aspects of their work are so obvious to them that they don't see the need to describe them. Observation helps uncover these hidden needs and facilitates the design of more useful and effective systems.
@@ -462,7 +464,7 @@ This refers to applying the **research techniques and principles** characteristi
 
 ---
 
-## A Historical Example
+# A Historical Example
 
 - A classic example illustrating this problem is the **"Confirm" system (American Airlines, 1990s).**
 - **Context:** American Airlines (AA) had great success with its proprietary airline reservation system, Sabre, which was highly innovative and crucial to its business. In the 1990s, AA attempted to create a new, even more advanced and flexible reservation system, allowing travel agents and airline employees to comprehensively manage bookings, fares, and connections. It was named "Confirm.“
@@ -475,7 +477,7 @@ This refers to applying the **research techniques and principles** characteristi
 
 ---
 
-## Cultural Clash in UI Design: A Hidden Pitfall
+# Cultural Clash in UI Design: A Hidden Pitfall
 
 **The Problem:** Software developed by teams from **Left-to-Right (LTR)** reading cultures (e.g., Europe) often defaults to LTR interface design. When this software is deployed for users in **Right-to-Left (RTL)** reading cultures (e.g., Middle East), it creates a significant usability barrier.
 
@@ -488,11 +490,11 @@ This refers to applying the **research techniques and principles** characteristi
 
 ---
 
-- Windows and the Start Menu
+Windows and the Start Menu
 
 ---
 
-## Windows and the Start Menu: Evolution with Resistance
+# Windows and the Start Menu: Evolution with Resistance
 
 The Original Start Menu (Windows 95 - XP):
 
@@ -500,7 +502,7 @@ The Original Start Menu (Windows 95 - XP):
 
 ---
 
-## Windows and the Start Menu: Evolution with Resistance
+# Windows and the Start Menu: Evolution with Resistance
 
 The Change in Windows 8 (and the lack of a Start Menu):
 
@@ -511,11 +513,11 @@ The Change in Windows 8 (and the lack of a Start Menu):
 
 ---
 
-- The Ribbon in MS Office: Innovation with a Learning Curve
+The Ribbon in MS Office: Innovation with a Learning Curve
 
 ---
 
-## The Ribbon in MS Office: Innovation with a Learning Curve
+# The Ribbon in MS Office: Innovation with a Learning Curve
 
 The Ribbon Concept (from Office 2007 onwards):
 
@@ -524,7 +526,7 @@ The Ribbon Concept (from Office 2007 onwards):
 
 ---
 
-## The Ribbon in MS Office: Innovation with a Learning Curve
+# The Ribbon in MS Office: Innovation with a Learning Curve
 
 Difference from Windows 8: Despite initial resistance, the Ribbon was eventually accepted and is now standard. Why?
 
@@ -534,7 +536,7 @@ Difference from Windows 8: Despite initial resistance, the Ribbon was eventually
 
 ---
 
-## How Does This Relate to Ethnography?
+# How Does This Relate to Ethnography?
 
 In both cases, Microsoft attempted to **change the "ethos" (customs, habits, character) of software usage** on a massive scale:
 
@@ -543,7 +545,9 @@ In both cases, Microsoft attempted to **change the "ethos" (customs, habits, cha
 
 ---
 
-## Summary Ethnography doesn't say never change the interface or never innovate. Rather, it says: **"Deeply understand how people** ***truly*** **work and what their** ***deep-seated habits*** **are before introducing fundamental changes."** Ignoring this leads to failures, like Windows 8, while carefully managing change and demonstrating clear benefits can lead to success, as in the case of the Ribbon.
+# Summary
+
+Ethnography doesn't say never change the interface or never innovate. Rather, it says: **"Deeply understand how people** ***truly*** **work and what their** ***deep-seated habits*** **are before introducing fundamental changes."** Ignoring this leads to failures, like Windows 8, while carefully managing change and demonstrating clear benefits can lead to success, as in the case of the Ribbon.
 
 ---
 
@@ -551,11 +555,7 @@ Ethnography is helpful to understand existing systems, but this understanding do
 
 ---
 
-<!-- pptx2marp: slide 64 has no extractable text or images -->
-
----
-
-## Ethnography
+# Ethnography
 
 - A social scientist spends a considerable time observing and analysing how people actually work.
 - People do not have to explain or articulate their work.
@@ -564,7 +564,7 @@ Ethnography is helpful to understand existing systems, but this understanding do
 
 ---
 
-## Scope of ethnography
+# Scope of ethnography
 
 - Requirements that are derived from the way that people actually work rather than the way I which process definitions suggest that they ought to work.
 - Requirements that are derived from cooperation and awareness of other people’s activities.
@@ -574,7 +574,7 @@ Ethnography is effective for understanding existing processes but cannot identif
 
 ---
 
-## Focused ethnography
+# Focused ethnography
 
 - Developed in a project studying the air traffic control process
 - Combines ethnography with prototyping
@@ -583,14 +583,14 @@ Ethnography is effective for understanding existing processes but cannot identif
 
 ---
 
-## Ethnography and prototyping for requirements analysis
+# Ethnography and prototyping for requirements analysis
 
 ![w:1035px 4.16 Ethno-prototyping.eps](assets/image7.emf)
 <!-- pptx2marp: image7.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## Stories and scenarios
+# Stories and scenarios
 
 - Scenarios and user stories are real-life examples of how a system can be used.
 - Stories and scenarios are a description of how a system may be used for a particular task.
@@ -598,13 +598,13 @@ Ethnography is effective for understanding existing processes but cannot identif
 
 ---
 
-## Photo sharing in the classroom (iLearn)
+# Photo sharing in the classroom (iLearn)
 
 - Jack is a primary school teacher in Ullapool (a village in northern Scotland). He has decided that a class project should be focused around the fishing industry in the area, looking at the history, development and economic impact of fishing. As part of this, pupils are asked to gather and share reminiscences from relatives, use newspaper archives and collect old photographs related to fishing and fishing communities in the area. Pupils use an iLearn wiki to gather together fishing stories and SCRAN (a history resources site) to access newspaper archives and photographs. However, Jack also needs a photo sharing site as he wants pupils to take and comment on each others’ photos and to upload scans of old photographs that they may have in their families.<br><br>Jack sends an email to a primary school teachers group, which he is a member of to see if anyone can recommend an appropriate system. Two teachers reply and both suggest that he uses KidsTakePics, a photo sharing site that allows teachers to check and moderate content. As KidsTakePics is not integrated with the iLearn authentication service, he sets up a teacher and a class account. He uses the iLearn setup service to add KidsTakePics to the services seen by the pupils in his class so that when they log in, they can immediately use the system to upload photos from their mobile devices and class computers.
 
 ---
 
-## Scenarios
+# Scenarios
 
 - A structured form of user story
 - Scenarios should include
@@ -616,7 +616,7 @@ Ethnography is effective for understanding existing processes but cannot identif
 
 ---
 
-## Uploading photos iLearn)
+# Uploading photos iLearn)
 
 - **Initial assumption**: A user or a group of users have one or more digital photographs to be uploaded to the picture sharing site. These are saved on either a tablet or laptop computer. They have successfully logged on to KidsTakePics.
 - **Normal**:  The user chooses upload photos and they are prompted to select the photos to be uploaded on their computer and to select the project name under which the photos will be stored. They should also be given the option of inputting keywords that should be associated with each uploaded photo. Uploaded photos are named by creating a conjunction of the user name with the filename of the photo on the local computer.
@@ -624,7 +624,7 @@ Ethnography is effective for understanding existing processes but cannot identif
 
 ---
 
-## Uploading photos
+# Uploading photos
 
 - **What can go wrong**:
 - No moderator is associated with the selected project. An email is automatically generated to the school administrator asking them to nominate a project moderator. Users should be informed that there could be a delay in making their photos visible.
@@ -634,11 +634,11 @@ Ethnography is effective for understanding existing processes but cannot identif
 
 ---
 
-## Requirements specification
+# Requirements specification
 
 ---
 
-## Requirements specification
+# Requirements specification
 
 - The process of writing down the user and system requirements in a requirements document.
 - User requirements have to be understandable by end-users and customers who do not have a technical background.
@@ -648,11 +648,13 @@ Ethnography is effective for understanding existing processes but cannot identif
 
 ---
 
-## System requirements System requirements are expanded versions of the user requirements that soft ware engineers use as the starting point for the system design. They add detail and explain how the system should provide the user requirements. They may be used as part of the contract for the implementation of the system and should therefore be a complete and detailed specification of the whole system.
+# System requirements
+
+System requirements are expanded versions of the user requirements that soft ware engineers use as the starting point for the system design. They add detail and explain how the system should provide the user requirements. They may be used as part of the contract for the implementation of the system and should therefore be a complete and detailed specification of the whole system.
 
 ---
 
-## Ways of writing a system requirements specification
+# Ways of writing a system requirements specification
 
 |**Notation**|**Description**|
 |---|---|
@@ -664,7 +666,7 @@ Ethnography is effective for understanding existing processes but cannot identif
 
 ---
 
-## Requirements and design
+# Requirements and design
 
 - In principle, requirements should state what the system should do and the design should describe how it does this.
 - In practice, requirements and design are inseparable
@@ -675,14 +677,14 @@ Ethnography is effective for understanding existing processes but cannot identif
 
 ---
 
-## Natural language specification
+# Natural language specification
 
 - Requirements are written as natural language sentences supplemented by diagrams and tables.
 - Used for writing requirements because it is expressive, intuitive and universal. This means that the requirements  can be understood by users and customers.
 
 ---
 
-## Guidelines for writing requirements
+# Guidelines for writing requirements
 
 - Invent a standard format and use it for all requirements.
 - Use language in a consistent way. Use shall for mandatory requirements, should for desirable requirements.
@@ -692,7 +694,7 @@ Ethnography is effective for understanding existing processes but cannot identif
 
 ---
 
-## Guidelines for writing requirements
+# Guidelines for writing requirements
 
 - Invent a standard format and ensure that all requirement definitions adhere to that format. Standardizing the format makes omissions less likely and requirements easier to check. I suggest that, wherever possible, you should write the requirement in one or two sentences of natural language.
 - Use language consistently to distinguish between mandatory and desirable requirements. Mandatory requirements are requirements that the system must support and are usually written using “shall/must/have to.” Desirable requirements are not essential and are written using “should.”
@@ -700,14 +702,14 @@ Ethnography is effective for understanding existing processes but cannot identif
 
 ---
 
-## Guidelines for writing requirements
+# Guidelines for writing requirements
 
 - Do not assume that readers understand technical, software engineering language. It is easy for words such as “architecture” and “module” to be misunderstood. Wherever possible, you should avoid the use of jargon, abbreviations, and acronyms.
 - Whenever possible, you should try to associate a rationale with each user requirement. The rationale should explain why the requirement has been included and who proposed the requirement (the requirement source), so that you know whom to consult if the requirement has to be changed. Requirements rationale is particularly useful when requirements are changed, as it may help decide what changes would be undesirable.
 
 ---
 
-## Problems with natural language
+# Problems with natural language
 
 - Lack of clarity
   - Precision is difficult without making the document difficult to read.
@@ -718,7 +720,7 @@ Ethnography is effective for understanding existing processes but cannot identif
 
 ---
 
-## Problems with using natural language for requirements specification
+# Problems with using natural language for requirements specification
 
 The flexibility of natural language, which is so useful for specification, often causes problems. There is scope for writing unclear requirements, and readers (the designers) may misinterpret requirements because they have a different background to the user. It is easy to amalgamate several requirements into a single sentence, and structuring natural language requirements can be difficult.
 
@@ -726,28 +728,28 @@ The flexibility of natural language, which is so useful for specification, often
 
 ---
 
-## Example requirements for the insulin pump software system
+# Example requirements for the insulin pump software system
 
 |3.2 The system shall\* measure the blood sugar and deliver insulin, if required, every 10 minutes. *(Changes in blood sugar are relatively slow so more frequent measurement is unnecessary; less frequent measurement could lead to unnecessarily high sugar levels.)*<br>3.6 The system shall\* run a self-test routine every minute with the conditions to be tested and the associated actions defined in Table 1. *(A self-test routine can discover hardware and software problems and alert the user to the fact the normal operation may be impossible.)*|
 |---|
 
 ---
 
-## Example requirements for the insulin pump software system
+# Example requirements for the insulin pump software system
 
 |3.2 The system must/has to measure the blood sugar and deliver insulin, if required, every 10 minutes. *(Changes in blood sugar are relatively slow so more frequent measurement is unnecessary; less frequent measurement could lead to unnecessarily high sugar levels.)*<br>3.6 The system must/has to run a self-test routine every minute with the conditions to be tested and the associated actions defined in Table 1. *(A self-test routine can discover hardware and software problems and alert the user to the fact the normal operation may be impossible.)*|
 |---|
 
 ---
 
-## Structured specifications
+# Structured specifications
 
 - An approach to writing requirements where the freedom of the requirements writer is limited and requirements are written in a standard way.
 - This works well for some types of requirements e.g. requirements for embedded control system but is sometimes too rigid for writing business system requirements.
 
 ---
 
-## Form-based specifications
+# Form-based specifications
 
 - Definition of the function or entity(object).
 - Description of inputs and where they come from.
@@ -759,7 +761,7 @@ The flexibility of natural language, which is so useful for specification, often
 
 ---
 
-## Entity - Philosophy and Ontology
+# Entity - Philosophy and Ontology
 
 **I**n philosophy, especially in ontology (the branch of philosophy studying beings and their existence), "entity" is used as a synonym for **being** or an **existing object**.
 
@@ -767,7 +769,7 @@ It refers to something that has a distinct existence, regardless of whether it i
 
 ---
 
-## Entity
+# Entity
 
 - An entity:
   - is a clearly defined object, concept, or thing in the system or its environment that is relevant to the software being developed.<br>It usually has a name, identity, and some associated data or behavior.
@@ -778,7 +780,7 @@ It refers to something that has a distinct existence, regardless of whether it i
 
 ---
 
-## Examples of entities
+# Examples of entities
 
 |**Domain (Field)**|**Example Entity**|**Description**|
 |---|---|---|
@@ -790,7 +792,7 @@ It refers to something that has a distinct existence, regardless of whether it i
 
 ---
 
-## Entity - Relation to Other Concepts
+# Entity - Relation to Other Concepts
 
 - In databases, entities usually become tables.
 - In object-oriented programming, entities often become classes.
@@ -799,7 +801,7 @@ It refers to something that has a distinct existence, regardless of whether it i
 
 ---
 
-## A structured specification of a requirement for an insulin pump
+# A structured specification of a requirement for an insulin pump
 
 ![w:541px Object 2](assets/image8.png)
 
@@ -807,7 +809,7 @@ It refers to something that has a distinct existence, regardless of whether it i
 
 ---
 
-## A structured specification of a requirement for an insulin pump
+# A structured specification of a requirement for an insulin pump
 
 ![w:541px Object 2](assets/image8.png)
 
@@ -815,13 +817,13 @@ It refers to something that has a distinct existence, regardless of whether it i
 
 ---
 
-## A structured specification of a requirement for an insulin pump
+# A structured specification of a requirement for an insulin pump
 
 ![w:1152px Object 2](assets/image8.png)
 
 ---
 
-## A structured specification of a requirement for an insulin pump
+# A structured specification of a requirement for an insulin pump
 
 ![w:914px Object 2](assets/image9.png)
 
@@ -831,7 +833,7 @@ The Robertsons (Robertson and Robertson 2013), in their book on the VOLERE requi
 
 ---
 
-## Tabular specification
+# Tabular specification
 
 - Used to supplement natural language.
 - Particularly useful when you have to define a number of possible alternative courses of action.
@@ -839,7 +841,7 @@ The Robertsons (Robertson and Robertson 2013), in their book on the VOLERE requi
 
 ---
 
-## Tabular specification of computation for an insulin pump
+# Tabular specification of computation for an insulin pump
 
 |**Condition**|**Action**|
 |---|---|
@@ -850,7 +852,7 @@ The Robertsons (Robertson and Robertson 2013), in their book on the VOLERE requi
 
 ---
 
-## Use cases
+# Use cases
 
 - Use-cases are a kind of scenario that are included in the UML.
 - Use cases identify the actors in an interaction and which describe the interaction itself.
@@ -860,27 +862,27 @@ The Robertsons (Robertson and Robertson 2013), in their book on the VOLERE requi
 
 ---
 
-## Use cases for the Mentcare system
+# Use cases for the Mentcare system
 
 ![w:918px 4.15 UseCases.eps](assets/image10.emf)
 <!-- pptx2marp: image10.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## Use cases for the Mentcare system
+# Use cases for the Mentcare system
 
 ![w:918px 4.15 UseCases.eps](assets/image10.emf)
 <!-- pptx2marp: image10.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## Use cases for the Mentcare system
+# Use cases for the Mentcare system
 
 *Setup consultation allows two or more doctors, working in different offices, to view the same patient record at the same time. One doctor initiates the consul tation by choosing the people involved from a dropdown menu of doctors who are online. The patient record is then displayed on their screens, but only the initiating doctor can edit the record. In addition, a text chat window is created to help coordinate actions. It is assumed that a phone call for voice communication can be separately arranged.*
 
 ---
 
-## Use cases – conclusion from the author
+# Use cases – conclusion from the author
 
 Stakeholders don’t understand the term use case; they don’t find the graphical model to be useful, and they are often not interested in a detailed description of each and every system interaction.
 
@@ -890,7 +892,7 @@ I discuss use cases fur ther in Chapter 5, which shows how they are used alongsi
 
 ---
 
-## The software requirements document
+# The software requirements document
 
 - The software requirements document is the official statement of what is required of the system developers.
 - Should include both a definition of user requirements and a specification of the system requirements.
@@ -898,14 +900,14 @@ I discuss use cases fur ther in Chapter 5, which shows how they are used alongsi
 
 ---
 
-## Users of a requirements document
+# Users of a requirements document
 
 ![w:533px 4.6 ReqDocUsers.eps](assets/image11.emf)
 <!-- pptx2marp: image11.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## Requirements document variability
+# Requirements document variability
 
 - Information in requirements document depends on type of system and the approach to development used.
 - Systems developed incrementally will, typically, have less detail in the requirements document.
@@ -913,7 +915,7 @@ I discuss use cases fur ther in Chapter 5, which shows how they are used alongsi
 
 ---
 
-## The structure of a requirements document
+# The structure of a requirements document
 
 |**Chapter**|**Description**|
 |---|---|
@@ -941,7 +943,7 @@ I discuss use cases fur ther in Chapter 5, which shows how they are used alongsi
 
 ---
 
-## The structure of a requirements document
+# The structure of a requirements document
 
 |**Chapter**|**Description**|
 |---|---|
@@ -953,7 +955,7 @@ I discuss use cases fur ther in Chapter 5, which shows how they are used alongsi
 
 ---
 
-## The structure of a requirements document
+# The structure of a requirements document
 
 |Chapter|Description|
 |---|---|
@@ -969,7 +971,7 @@ I discuss use cases fur ther in Chapter 5, which shows how they are used alongsi
 
 ---
 
-## Requirements document standards
+# Requirements document standards
 
 A number of large organizations, such as the U.S. Department of Defense and the IEEE, have defined standards for requirements documents. These are usually very generic but are nevertheless useful as a basis for developing more detailed organizational standards. The U.S. Institute of Electrical and Electronic Engineers (IEEE) is one of the best-known standards providers, and they have developed a standard for the structure of requirements documents. This standard is most appropriate for systems such as military command and control systems that have a long lifetime and are usually developed by a group of organizations.
 
@@ -977,11 +979,11 @@ A number of large organizations, such as the U.S. Department of Defense and the 
 
 ---
 
-## Requirements validation
+# Requirements validation
 
 ---
 
-## Requirements validation
+# Requirements validation
 
 - Concerned with demonstrating that the requirements define the system that the customer really wants.
 - Requirements error costs are high so validation is very important
@@ -991,7 +993,7 @@ A number of large organizations, such as the U.S. Department of Defense and the 
 
 ---
 
-## Requirements checking
+# Requirements checking
 
 - **Validity checks** These check that the requirements reflect the real needs of system users. Because of changing circumstances, the user requirements may have changed since they were originally elicited.
 - **Consistency checks** Requirements in the document should not conflict. That is, there should not be contradictory constraints or different descriptions of the same system function.
@@ -1001,7 +1003,7 @@ A number of large organizations, such as the U.S. Department of Defense and the 
 
 ---
 
-## Requirements checking
+# Requirements checking
 
 - Validity. Does the system provide the functions which best support the customer’s needs?
 - Consistency. Are there any requirements conflicts?
@@ -1017,7 +1019,7 @@ Verifiability To reduce the potential for dispute between customer and contracto
 
 ---
 
-## Requirements validation techniques
+# Requirements validation techniques
 
 - Requirements reviews
   - Systematic manual analysis of the requirements.
@@ -1032,7 +1034,7 @@ Test-case generation Requirements should be testable. If the tests for the requi
 
 ---
 
-## Requirements validation techniques
+# Requirements validation techniques
 
 - **Requirements reviews** The requirements are analyzed systematically by a team of reviewers who check for errors and inconsistencies.
 - **Prototyping** This involves developing an executable model of a system and using this with end-users and customers to see if it meets their needs and expectations. Stakeholders experiment with the system and feed back requirements changes to the development team.
@@ -1044,7 +1046,7 @@ Test-case generation Requirements should be testable. If the tests for the requi
 
 ---
 
-## Requirements reviews
+# Requirements reviews
 
 - Regular reviews should be held while the requirements definition is being formulated.
 - Both client and contractor staff should be involved in reviews.
@@ -1052,7 +1054,7 @@ Test-case generation Requirements should be testable. If the tests for the requi
 
 ---
 
-## Requirements reviews
+# Requirements reviews
 
 A requirements review is a process in which a group of people from the system customer and the system developer read the requirements document in detail and check for errors, anomalies, and inconsistencies. Once these have been detected and recorded, it is then up to the customer and the developer to negotiate how the identified problems should be solved.
 
@@ -1060,7 +1062,7 @@ A requirements review is a process in which a group of people from the system cu
 
 ---
 
-## Review checks
+# Review checks
 
 - Verifiability
   - Is the requirement realistically testable?
@@ -1073,11 +1075,11 @@ A requirements review is a process in which a group of people from the system cu
 
 ---
 
-## Requirements change
+# Requirements change
 
 ---
 
-## Changing requirements
+# Changing requirements
 
 - The business and technical environment of the system always changes after installation.
   - New hardware may be introduced, it may be necessary to interface the system with other systems, business priorities may change (with consequent changes in the system support required), and new legislation and regulations may be introduced that the system must necessarily abide by.
@@ -1088,21 +1090,21 @@ A requirements review is a process in which a group of people from the system cu
 
 ---
 
-## Changing requirements
+# Changing requirements
 
 - Large systems usually have a diverse user community, with many users having different requirements and priorities that may be conflicting or contradictory.
   - The final system requirements are inevitably a compromise between them and, with experience, it is often discovered that the balance of support given to different users has to be changed.
 
 ---
 
-## Requirements evolution
+# Requirements evolution
 
 ![w:701px 4.17 ReqEvolution.eps](assets/image12.emf)
 <!-- pptx2marp: image12.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## Requirements management
+# Requirements management
 
 - Requirements management is the process of managing changing requirements during the requirements engineering process and system development.
 - New requirements emerge as a system is being developed and after it has gone into use.
@@ -1110,7 +1112,7 @@ A requirements review is a process in which a group of people from the system cu
 
 ---
 
-## Enduring and volatile requirements
+# Enduring and volatile requirements
 
 Some requirements are more susceptible to change than others. Enduring requirements are the requirements that are associated with the core, slow-to-change activities of an organization. Enduring requirements are associated with fundamental work activities. Volatile requirements are more likely to change. They are usually associated with supporting activities that reflect how the organization does its work rather than the work itself.
 
@@ -1118,7 +1120,7 @@ Some requirements are more susceptible to change than others. Enduring requireme
 
 ---
 
-## Requirements management planning
+# Requirements management planning
 
 - Establishes the level of requirements management detail that is required.
 - Requirements management decisions:
@@ -1129,7 +1131,7 @@ Some requirements are more susceptible to change than others. Enduring requireme
 
 ---
 
-## Requirements change management
+# Requirements change management
 
 - Deciding if a requirements change should be accepted
   - *Problem analysis and change specification*
@@ -1141,14 +1143,14 @@ Some requirements are more susceptible to change than others. Enduring requireme
 
 ---
 
-## Requirements change management
+# Requirements change management
 
 ![w:1213px 4.18 ReqChangeMan.eps](assets/image13.emf)
 <!-- pptx2marp: image13.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## Requirements traceability
+# Requirements traceability
 
 You need to keep track of the relationships between requirements, their sources, and the system design so that you can analyze the reasons for proposed changes and the impact that these changes are likely to have on other parts of the system. You need to be able to trace how a change ripples its way through the system. Why?
 
@@ -1156,7 +1158,7 @@ You need to keep track of the relationships between requirements, their sources,
 
 ---
 
-## Key points
+# Key points
 
 - Requirements for a software system set out what the system should do and define constraints on its operation and implementation.
 - Functional requirements are statements of the services that the system must provide or are descriptions of how some computations must be carried out.
@@ -1165,7 +1167,7 @@ You need to keep track of the relationships between requirements, their sources,
 
 ---
 
-## Key points
+# Key points
 
 - The requirements engineering process is an iterative process that includes requirements elicitation, specification and validation.
 - Requirements elicitation is an iterative process that can be represented as a spiral of activities – requirements discovery, requirements classification and organization, requirements negotiation and requirements documentation.
@@ -1173,14 +1175,14 @@ You need to keep track of the relationships between requirements, their sources,
 
 ---
 
-## Key points
+# Key points
 
 - Requirements specification is the process of formally documenting the user and system requirements and creating a software requirements document.
 - The software requirements document is an agreed statement of the system requirements. It should be organized so that both system customers and software developers can use it.
 
 ---
 
-## Key points
+# Key points
 
 - Requirements validation is the process of checking the requirements for validity, consistency, completeness, realism and verifiability.
 - Business, organizational and technical changes inevitably lead to changes to the requirements for a software system. Requirements management is the process of managing and controlling these changes.

@@ -5,19 +5,20 @@ paginate: true
 title: "Software Engineering"
 ---
 
+<!-- _class: lead -->
+
 # Software Engineering
 
-*Lecture 23*
-
+## Lecture 23
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 - UML Use case diagrams
 
 ---
 
-## From The author of textbook
+# From The author of textbook
 
 …I therefore concentrate on these five UML diagram types here:
 
@@ -34,11 +35,11 @@ title: "Software Engineering"
 
 ---
 
-# UML Use case diagrams<br>
+# UML Use case diagrams
 
 ---
 
-## Introduction — What Are Use Case Diagrams?
+# Introduction — What Are Use Case Diagrams?
 
 - Use Case Diagrams belong to the **behavioral** category of UML.<br>They describe *what* the system does from an external perspective — not how it works internally.
 - A **use case** models an interaction between an **actor** and the **system**, producing a meaningful result.
@@ -49,7 +50,7 @@ title: "Software Engineering"
 
 ---
 
-## Core UML Definitions
+# Core UML Definitions
 
 - **2.1 Use Case (UML)**
   - A use case represents a set of behaviors performed by the system that deliver observable value to an actor.
@@ -61,7 +62,7 @@ title: "Software Engineering"
 
 ---
 
-## Core UML Definitions
+# Core UML Definitions
 
 - **2.3 System Boundary**
   - Defines what belongs to the system and what is external.<br>Use cases always sit **inside** the boundary.
@@ -73,7 +74,7 @@ title: "Software Engineering"
 
 ---
 
-## Use Case Diagrams vs User Stories
+# Use Case Diagrams vs User Stories
 
 - **User Story (Agile)**
 
@@ -100,7 +101,7 @@ Formal model describing complete interactions:
 
 ---
 
-## Systems Engineering vs Software Engineering Use Cases
+# Systems Engineering vs Software Engineering Use Cases
 
 - **Systems Engineering (INCOSE)**
   - High-level operational view
@@ -113,7 +114,7 @@ Formal model describing complete interactions:
 
 ---
 
-## Systems Engineering vs Software Engineering Use Cases
+# Systems Engineering vs Software Engineering Use Cases
 
 |Aspect|Systems Engineering|Software Engineering|
 |---|---|---|
@@ -124,7 +125,7 @@ Formal model describing complete interactions:
 
 ---
 
-## Scenarios and Flows
+# Scenarios and Flows
 
 - **Use Case**
   - A full set of possible interactions.
@@ -137,7 +138,7 @@ Formal model describing complete interactions:
 
 ---
 
-## How to Create Use Case Diagrams (Step-by-Step)
+# How to Create Use Case Diagrams (Step-by-Step)
 
 - Identify actors
 - Identify goals (these become use cases)
@@ -154,7 +155,7 @@ Formal model describing complete interactions:
 
 ---
 
-## Transfer-data use case
+# Transfer-data use case
 
 - A use case in the Mentcare system
 
@@ -165,7 +166,7 @@ Formal model describing complete interactions:
 
 ---
 
-## Use cases in the Mentcare system involving the role ‘Medical Receptionist’
+# Use cases in the Mentcare system involving the role ‘Medical Receptionist’
 
 ![w:467px 5.5 RecepUseCases.eps](assets/image3.emf)
 <!-- pptx2marp: image3.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
@@ -174,14 +175,14 @@ Formal model describing complete interactions:
 
 ---
 
-## Weather station use cases
+# Weather station use cases
 
 ![w:344px 7.2 WS-UseCases.eps](assets/image4.emf)
 <!-- pptx2marp: image4.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## Mermaid Use Case Syntax
+# Mermaid Use Case Syntax
 
 - “Use case diagrams require custom shapes and manual layout. Mermaid’s engine is not designed for this. “(Issue #2872, Issue #240)
 - “We will not add use case diagrams. They are out of scope for Mermaid’s goals.”
@@ -189,7 +190,7 @@ Formal model describing complete interactions:
 
 ---
 
-## But…
+# But…
 
 - We can use a subgraph, employing a rectangle to represent the 'system’;
 
@@ -210,7 +211,7 @@ flowchart TB
 
 ---
 
-## But…
+# But…
 
 - We are able to use icons to represent the actors.
 
@@ -218,17 +219,15 @@ flowchart TB
 
 - <https://www.utm.mx/~caff/doc/OpenUPWeb/openup/guidances/concepts/use_case_BB199D1B.html>
 
-```
-
+```text
 ACTOR1(("**fa:fa-user**"))
-
 ```
 
 ![w:320px Picture 6](assets/image7.png)
 
 ---
 
-## So…
+# So…
 
 ![w:359px 7.2 WS-UseCases.eps](assets/image4.emf)
 <!-- pptx2marp: image4.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
@@ -263,7 +262,7 @@ graph LR
 
 ---
 
-## And…
+# And…
 
 ````
 ```mermaid
@@ -283,7 +282,7 @@ flowchart LR
 
 ---
 
-## Recommended Practice: IDs and Separate Connections
+# Recommended Practice: IDs and Separate Connections
 
 ````
 ```mermaid
@@ -314,13 +313,12 @@ C ==> E
 D -. Retry .-> A
 ````
 
-- Although Mermaid allows defining nodes and connections in one line
-- (e.g. A\[Start\] --&gt; B\[Process\]), it is often clearer to **separate definitions**:
+- Although Mermaid allows defining nodes and connections in one line (e.g. A\[Start\] --&gt; B\[Process\]), it is often clearer to **separate definitions**:
 - This approach improves clarity, maintainability, and consistency — particularly in larger diagrams.
 - Labels describe the condition or reason for a flow, especially for decision nodes.
 
 ---
 
-# Thank
+<!-- _class: caption-slide -->
 
-*You!*
+# Thank You!

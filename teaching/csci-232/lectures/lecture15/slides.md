@@ -5,15 +5,16 @@ paginate: true
 title: "CSCI 232  Data Structures & Algorithms"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 232 <br>Data Structures &amp; Algorithms
 
-*Lecture 15*
-
-- Dr. Jakub L. Pach
+## Lecture 15
+Dr. Jakub L. Pach
 
 ---
 
-## Outline
+# Outline
 
 - Syllabus, Textbook, Moodle
 - Something about me
@@ -55,11 +56,11 @@ public:
 
 ---
 
-## arrayMax
+# arrayMax
 
 - To summarize, the number of primitive operations t(n) (or  T(n)) executed by algorithm arrayMax is at least:
 
-```c
+```text
 Algorithm arrayMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -78,17 +79,17 @@ normalnie jest n+1 -->
 
 ---
 
-## recursiveMax
+# recursiveMax
 
 - from **recurrence equation** to **closed form**
 
 ---
 
-## Asymptotic notation
+# Asymptotic notation
 
 ---
 
-## The O(n) "big-oh" notation
+# The O(n) "big-oh" notation
 
 - Let f(n) and g(n) be functions mapping nonnegative integers to real numbers. We say that f(n) is O(g(n) if there is a real constant c &gt; 0 and an integer constant n0 ≥ 1 such that f(n) ≤ c\*g(n) for every integer n ≥ n0. This definition is often pronounced as "f(n) is big-Oh of g(n)" or "f(n) is order g(n)".
 - **Example:**
@@ -99,7 +100,7 @@ normalnie jest n+1 -->
 
 ---
 
-## Example
+# Example
 
 ![w:1223px Picture 4](assets/image3.png)
 
@@ -107,13 +108,13 @@ normalnie jest n+1 -->
 
 ---
 
-## Example
+# Example
 
 ![w:347px Picture 7](assets/image4.png)
 
 ---
 
-## Example
+# Example
 
 - The big-Oh notation allows us to say that a function of n is "less than or equal to" another function (by the inequality "≤" in the definition), up to a constant factor (by the constant c in the definition) and in the asymptotic sense as n grows toward infinity (by the statement "n ≥ n0" in the definition).
 - The big-Oh notation is used widely to characterize running times and space bounds of algorithm in terms of a parameter, n , which represents the "size" of the problem. For example, if we are interested in finding the largest element in an array of integers ( arrayMax given ), it would be most natural to let n denote the number of elements of the array. For example, we can write the following precise statement on the running time of algorithm arrayMax.
@@ -122,13 +123,13 @@ normalnie jest n+1 -->
 
 ---
 
-## Theorem
+# Theorem
 
 ![w:1189px Content Placeholder 4](assets/image9.png)
 
 ---
 
-## Example
+# Example
 
 ![w:588px Picture 3](assets/image10.png)
 
@@ -136,13 +137,13 @@ normalnie jest n+1 -->
 
 ---
 
-## Example
+# Example
 
 ![w:1099px Picture 4](assets/image12.png)
 
 ---
 
-## Example
+# Example
 
 ![w:749px Picture 3](assets/image13.png)
 
@@ -150,73 +151,75 @@ normalnie jest n+1 -->
 
 ---
 
-## Theorem – 8 rules!
+# Theorem – 8 rules!
 
 ![w:1092px Content Placeholder 6](assets/image17.png)
 
 ---
 
-## Analogy between the asymptotic comparison of two functions *f* and *g* and the comparison of two real numbers *a* and *b*
+<!-- _class: long-title -->
+
+# Analogy between the asymptotic comparison of two functions *f* and *g* and the comparison of two real numbers *a* and *b*
 
 ![w:511px Picture 6](assets/image18.png)
 
 ---
 
-## 1/8 rule
+# 1/8 rule
 
 ![w:1020px Picture 4](assets/image19.png)
 
 ---
 
-## 2/8 rule
+# 2/8 rule
 
 ![w:1006px Picture 3](assets/image24.png)
 
 ---
 
-## 3/8 rule
+# 3/8 rule
 
 ![w:1025px Picture 4](assets/image31.png)
 
 ---
 
-## 4/8 rule
+# 4/8 rule
 
 ![w:1057px Picture 4](assets/image36.png)
 
 ---
 
-## 5/8 rule
+# 5/8 rule
 
 ![w:1139px Picture 4](assets/image40.png)
 
 ---
 
-## 6/8 rule
+# 6/8 rule
 
 ![w:1141px Picture 6](assets/image42.png)
 
 ---
 
-## 7/8 rule
+# 7/8 rule
 
 ![w:1138px Picture 4](assets/image43.png)
 
 ---
 
-## 8/8 rule
+# 8/8 rule
 
 ![w:1151px Picture 4](assets/image44.png)
 
 ---
 
-## Terminology for classes of functions
+# Terminology for classes of functions
 
 ![w:774px Content Placeholder 4](assets/image45.png)
 
 ---
 
-## Using the big-Oh notation
+# Using the big-Oh notation
 
 ![w:1110px Content Placeholder 4](assets/image46.png)
 
@@ -226,15 +229,15 @@ normalnie jest n+1 -->
 
 ---
 
-## Asymptotic notation
+# Asymptotic notation
 
 ---
 
-## Asymptotic notation
+# Asymptotic notation
 
 ---
 
-## Θ-notation
+# Θ-notation
 
 ![w:1056px Picture 6](assets/image4.png)
 
@@ -249,7 +252,7 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## Multiplication of a function by a constant c
+# Multiplication of a function by a constant c
 
 - -5
 - 0
@@ -275,7 +278,7 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## O &amp; Ω-notation
+# O &amp; Ω-notation
 
 ![w:1056px Picture 6](assets/image4.png)
 
@@ -287,7 +290,7 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## O &amp; Ω-notation
+# O &amp; Ω-notation
 
 ![w:1056px Picture 6](assets/image4.png)
 
@@ -302,25 +305,25 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## Asymptotic notation in equations and inequalities
+# Asymptotic notation in equations and inequalities
 
 ![w:996px Picture 4](assets/image50.png)
 
 ---
 
-## Asymptotic notation in equations and inequalities
+# Asymptotic notation in equations and inequalities
 
 ![w:1092px Picture 3](assets/image51.png)
 
 ---
 
-## Asymptotic notation in equations and inequalities
+# Asymptotic notation in equations and inequalities
 
 ![w:861px Picture 3](assets/image52.png)
 
 ---
 
-## o-notation
+# o-notation
 
 ![w:891px Picture 4](assets/image53.png)
 
@@ -328,13 +331,15 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## ω-notation
+# ω-notation
 
 ![w:884px Picture 7](assets/image55.png)
 
 ---
 
-## Analogy between the asymptotic comparison of two functions *f* and *g* and the comparison of two real numbers *a* and *b*
+<!-- _class: long-title -->
+
+# Analogy between the asymptotic comparison of two functions *f* and *g* and the comparison of two real numbers *a* and *b*
 
 ![w:1039px Picture 4](assets/image18.png)
 
@@ -358,7 +363,7 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## pasuje
+# pasuje
 
 - 0
 - 1
@@ -380,7 +385,7 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## bubble sort
+# bubble sort
 
 - 1
 - 2
@@ -497,15 +502,9 @@ Algorithms that have the same time complexity for all input cases: For example, 
 
 ---
 
+<!-- _class: caption-slide -->
+
 # Thank You
-
----
-
-<!-- pptx2marp: slide 54 has no extractable text or images -->
-
----
-
-<!-- pptx2marp: slide 55 has no extractable text or images -->
 
 ---
 
@@ -524,11 +523,11 @@ Algorithms that have the same time complexity for all input cases: For example, 
 
 ---
 
-## Algorithm
+# Algorithm
 
 ---
 
-## Insertion sort
+# Insertion sort
 
 ---
 
@@ -567,7 +566,7 @@ int * binadd(int arrA[], int arrB[], int n)
 
 ---
 
-## Analyzing algorithms
+# Analyzing algorithms
 
 - For most of this course, we shall assume a generic one processor, **random-access machine** (RAM) model of computation as our implementation technology and understand that our algorithms will be implemented as computer programs. In the RAM model, **instructions are executed one after another**, with no concurrent operations.
 - The data types in the RAM model are integer and floating point (for storing real numbers).
@@ -575,7 +574,7 @@ int * binadd(int arrA[], int arrB[], int n)
 
 ---
 
-## Analyzing algorithms
+# Analyzing algorithms
 
 Real computers contain instructions not listed above, and such instructions represent a gray area in the RAM model.
 
@@ -585,7 +584,7 @@ Therefore, such computers can compute 2k in one constant-time instruction by shi
 
 ---
 
-## The best notion for input size
+# The best notion for input size
 
 The best notion for **input size** depends on the problem being studied. For many problems, such as sorting or computing discrete Fourier transforms, the most natural measure is **the number of items in the input**—for example, the array size n for sorting.
 
@@ -593,7 +592,7 @@ For many other problems, such as multiplying two integers, the best measure of i
 
 ---
 
-## Running time
+# Running time
 
 The best notion for **input size** depends on the problem being studied. For many problems, such as sorting or computing discrete Fourier transforms, the most natural measure is **the number of items in the input**—for example, the array size n for sorting.
 
@@ -601,7 +600,7 @@ For many other problems, such as multiplying two integers, the best measure of i
 
 ---
 
-## loop invariant
+# loop invariant
 
 - Loop condition that always holds
 - Loop truth
@@ -614,7 +613,3 @@ For many other problems, such as multiplying two integers, the best measure of i
 - zrobic program ktory, ktory mierzy czas jego dzialania, poszukac w c++ funkcji ktora ten czas mierzy,
 - uwzglednic
 - podzial przedzialu na m = l + (r -1)/2; // gdzie l jest minimalnym indeksem, a r jest maksymalnym, daje nam przesuniecie o 1 w prawo wzgledem (l + r) /2 i chroni nas przed przepelnieniem przy indeksach bliskich rozmiarowi typu int.
-
----
-
-<!-- pptx2marp: slide 67 has no extractable text or images -->

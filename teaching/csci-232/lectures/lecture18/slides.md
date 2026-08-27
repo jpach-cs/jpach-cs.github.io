@@ -5,15 +5,16 @@ paginate: true
 title: "CSCI 232  Data Structures & Algorithms"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 232 <br>Data Structures &amp; Algorithms
 
-*Lecture 18*
-
-- Dr. Jakub L. Pach
+## Lecture 18
+Dr. Jakub L. Pach
 
 ---
 
-## Outline
+# Outline
 
 - Syllabus, Textbook, Moodle
 - Something about me
@@ -28,9 +29,9 @@ title: "CSCI 232  Data Structures & Algorithms"
 
 ---
 
-## Pseudocode
+# Pseudocode
 
-```c
+```text
 Algorithm mergeSort (A, l, r)
 	Input: An array A with indices 				ranging from 𝑙 to 𝑟 storing n ≥ 			1 integers.
 if l < r
@@ -40,7 +41,7 @@ mergeSort(A, m+1, r)
 merge(A, l, m, r)
 ```
 
-```c
+```text
 merge(A, l, m, r)
 	n1 = m - l + 1
 	n2 = r - m
@@ -71,7 +72,7 @@ let R be a new array of size n2
 
 ---
 
-## Lecture
+# Lecture
 
 - [Lecture 4: Heaps and Heap Sort](https://www.youtube.com/watch?v=B7hVxCmfPtM&t=768s)
 - [https://www.youtube.com/watch?v=B7hVxCmfPtM&amp;t=768s](https://www.youtube.com/watch?v=B7hVxCmfPtM&t=768s)
@@ -82,7 +83,7 @@ let R be a new array of size n2
 
 ---
 
-## C
+# C
 
 ```c
 void heapify(int arr[], int n, int i)
@@ -138,7 +139,3 @@ void heapSort(int arr[], int n)
 
 <!-- [Lecture 3: Insertion Sort, Merge Sort (youtube.com)](https://www.youtube.com/watch?v=Kg4bqzAqRBM&ab_channel=MITOpenCourseWare)
 <https://www.youtube.com/watch?v=Kg4bqzAqRBM&amp;ab_channel=MITOpenCourseWare> 24:59 -->
-
----
-
-<!-- pptx2marp: slide 8 has no extractable text or images -->

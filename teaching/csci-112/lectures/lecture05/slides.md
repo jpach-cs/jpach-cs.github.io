@@ -5,6 +5,8 @@ paginate: true
 title: "CSCI 112  Programming with C"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 5
@@ -17,7 +19,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Outline
+# Outline
 
 - Review
 - Control Flow – If statement
@@ -29,20 +31,12 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Accessing Array Elements
+# Accessing Array Elements
 
 - tab\[index\] is used both to read and write values.
 - Array indices in C start from 0.
 - Make sure the index is within the declared size (here 0–2).
 - Each element in the array is stored contiguously in memory.
-
-```c
-x = 5
-y = 10
-
-```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -64,9 +58,16 @@ int main()
 }
 ```
 
+Result:
+
+```text
+x = 5
+y = 10
+```
+
 ---
 
-## Logical vs Bitwise Operators
+# Logical vs Bitwise Operators
 
 ```c
 unsigned int x = 6;             // 00000000 00000000 00000000 0000 0110 (binary)
@@ -94,7 +95,9 @@ printf("%d\n", (x || y) && !(x && y));
 printf("%d\n", -1 && -2);       // (00000000 00000000 00000000 0000 0001) = 1 (true)
 ```
 
-```c
+Result:
+
+```text
 2
 7
 4294967289
@@ -106,11 +109,9 @@ printf("%d\n", -1 && -2);       // (00000000 00000000 00000000 0000 0001) = 1
 1
 ```
 
-- Result:
-
 ---
 
-## Operator Sizeof()
+# Operator Sizeof()
 
 The sizeof operator returns the size of a type(requires parentheses) or variable in bytes.
 
@@ -132,7 +133,9 @@ The sizeof operator returns the size of a type(requires parentheses) or variable
     printf("%d\n", sizeof(float) );
 ```
 
-```c
+Result:
+
+```text
 8
 8
 8
@@ -144,11 +147,9 @@ The sizeof operator returns the size of a type(requires parentheses) or variable
 4
 ```
 
-- Result:
-
 ---
 
-## limits.h &amp; float.h
+# limits.h & float.h
 
 ```c
 printf("CHAR_MIN           = %d\n", CHAR_MIN);
@@ -169,7 +170,9 @@ printf("FLT_MAX            = %f\n", FLT_MAX);
 printf("FLT_MAX            = %e\n", FLT_MAX);
 ```
 
-```c
+Result:
+
+```text
 CHAR_MIN           = -128
 CHAR_MAX           = 127
 UCHAR_MAX          = 255
@@ -187,11 +190,9 @@ FLT_MAX            =
 FLT_MAX            = 3.402823e+038
 ```
 
-- Result:
-
 ---
 
-## putchar() &amp; getche() without '\n'
+# putchar() & getche() without '\n'
 
 ```c
 int putchar(int);
@@ -201,9 +202,6 @@ int getche(void);
 returns the next character from standard input.
 it returns EOF on error.
 ```
-
-- aaBB
-- Result:
 
 ```c
 int main()
@@ -217,9 +215,15 @@ int main()
 }
 ```
 
+Result:
+
+```text
+aaBB
+```
+
 ---
 
-## putchar() &amp; getche()
+# putchar() & getche()
 
 ```c
 int putchar(int);
@@ -229,15 +233,6 @@ int getche(void);
 returns the next character from standard input.
 it returns EOF on error.
 ```
-
-```c
-a
-a
-B
-B
-```
-
-- Result:
 
 ```c
 int main()
@@ -256,9 +251,18 @@ int main()
 }
 ```
 
+Result:
+
+```text
+a
+a
+B
+B
+```
+
 ---
 
-## Basics of
+# Basics of
 
 - The format requires a string enclosed in double quotes ("&lt;string&gt;").
 - If we want to display the contents of our variables, such as int types, we must use the % symbol followed by the type. This allows displaying a value from memory interpreted as the given type and after we must provide the name of the variable that will be read. Each instance of %&lt;type&gt; will allow us to display the contents of one variable.
@@ -275,14 +279,14 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Hello world
 5
 Value of x = 5, and value of y = 7
 5 7
 ```
-
-- Result:
 
 ```c
 int printf (char format[], arg1, arg2 ,...);
@@ -296,9 +300,9 @@ int printf (char format[], arg1, arg2 ,...);
 
 ---
 
-## if-else statement
+# if-else statement
 
-```c
+```text
 expression1 is non-zero ⇒ statement1
 expression1 could be series of expressions
 Block can be substitute for simple_statement
@@ -315,7 +319,7 @@ else
 
 ---
 
-## if-else statement
+# if-else statement
 
 ```c
 int main()
@@ -329,16 +333,15 @@ int main()
 - Why is an if-else statement considered a statement when it doesn't change anything on its own?
 - It's not true that it doesn't change the PC, but to explain that we need to understand ternary operator and labels.
 
-```c
+Result:
+
+```text
 a variable x is greater than 1
-
 ```
-
-- Result:
 
 ---
 
-## if-else statement
+# if-else statement
 
 - With optional else
 
@@ -353,16 +356,15 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 a variable x is greater than 1
-
 ```
-
-- Result:
 
 ---
 
-## if-else statement
+# if-else statement
 
 ```c
 int main()
@@ -381,16 +383,15 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 a variable x is not greater than 1
-
 ```
-
-- Result:
 
 ---
 
-## nested if-else statement
+# nested if-else statement
 
 ```c
 int main()
@@ -511,7 +512,7 @@ scanf (char format[], *arg1, *arg2 ,...)
 
 ---
 
-## printf and scanf format specification
+# printf and scanf format specification
 
 - Optional:
   - Flags    -    modifiers that alter the formatting or scanning behavior.
@@ -521,27 +522,29 @@ scanf (char format[], *arg1, *arg2 ,...)
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
-
----
-
-## printf and scanf format specification
-
-- Optional:
-  - Flags    -    modifiers that alter the formatting or scanning behavior.
-  - Width    -    specifies the minimum width of the output field <br>        or the maximum number of characters to be scanned.
-  - Precision    -    controls the precision of floating-point numbers <br>        or the maximum number of characters to be scanned for strings.
-  - Modifier    -    indicates the data type size (e.g., long, short).
-- Required:
-  - Type    -    specifies the data type of the variable to be formatted or scanned.
-
-```c
+```text
 Format =  %[flags][width][.precision][modifier]<type>
 ```
 
 ---
 
-|Type &amp; Specifier||Origin|Argument type||Description||
+# printf and scanf format specification
+
+- Optional:
+  - Flags    -    modifiers that alter the formatting or scanning behavior.
+  - Width    -    specifies the minimum width of the output field <br>        or the maximum number of characters to be scanned.
+  - Precision    -    controls the precision of floating-point numbers <br>        or the maximum number of characters to be scanned for strings.
+  - Modifier    -    indicates the data type size (e.g., long, short).
+- Required:
+  - Type    -    specifies the data type of the variable to be formatted or scanned.
+
+```text
+Format =  %[flags][width][.precision][modifier]<type>
+```
+
+---
+
+|Type & Specifier||Origin|Argument type||Description||
 |---|---|---|---|---|---|---|
 ||||**printf**|**scanf**|**printf**|**scanf**|
 |integer|d|decimal|int|int \*|signed decimal notation||
@@ -566,9 +569,9 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 
 ---
 
-## Basic types
+# Basic types
 
-|Type &amp; Specifier||Origin|Argument type||Description||
+|Type & Specifier||Origin|Argument type||Description||
 |---|---|---|---|---|---|---|
 ||||**printf**|**scanf**|**printf**|**scanf**|
 |integer|d|decimal|int|int \*|signed decimal notation||
@@ -582,9 +585,9 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 
 ---
 
-## Basic types
+# Basic types
 
-|Type &amp; Specifier||Origin|Argument type|Example|Result|
+|Type & Specifier||Origin|Argument type|Example|Result|
 |---|---|---|---|---|---|
 |integer|d|decimal|int|printf("%d\n", x);<br>    printf("%d\n", y);|65<br>-6|
 ||u|unsigned decimal|int|printf("%u\n", x);<br>    printf("%u\n", y);|65<br>4294967290|
@@ -603,7 +606,7 @@ int main()
 
 ---
 
-## Conclusions
+# Conclusions
 
 - *Remember that* signed *and* unsigned integers *are represented differently in computer memory. Using the wrong* format specifier *can lead to incorrect results (e.g., using* %d *for an* unsigned int*).*
 - *A* char *is essentially a one-byte* integer*. Therefore, you can treat a* char *variable as either an ASCII character or a small* integer*.*
@@ -612,7 +615,7 @@ int main()
 
 ---
 
-## printf and scanf format specification
+# printf and scanf format specification
 
 - Optional:
   - Flags    -    modifiers that alter the formatting or scanning behavior.
@@ -622,13 +625,13 @@ int main()
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-```c
+```text
 Format =  %[flags][width][.precision][modifier]<type>
 ```
 
 ---
 
-## Width
+# Width
 
 ```c
 int main()
@@ -646,7 +649,7 @@ int main()
 
 ---
 
-## printf and scanf format specification
+# printf and scanf format specification
 
 - Optional:
   - Flags    -    modifiers that alter the formatting or scanning behavior.
@@ -656,13 +659,13 @@ int main()
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-```c
+```text
 Format =  %[flags][width][.precision][modifier]<type>
 ```
 
 ---
 
-## Precision
+# Precision
 
 ```c
 int main()
@@ -680,7 +683,7 @@ int main()
 
 ---
 
-## Precision
+# Precision
 
 ```c
 int main()
@@ -698,7 +701,7 @@ int main()
 
 ---
 
-## printf and scanf format specification
+# printf and scanf format specification
 
 - Optional:
   - Flags    -    modifiers that alter the formatting or scanning behavior.
@@ -708,13 +711,13 @@ int main()
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-```c
+```text
 Format =  %[flags][width][.precision][modifier]<type>
 ```
 
 ---
 
-## Flags
+# Flags
 
 - \+ : Always display the sign of a number, even if it's positive.
 - \- : Left-justify the output within the given field width.
@@ -725,7 +728,7 @@ Format =  %[flags][width][.precision][modifier]<type>
 
 ---
 
-## Flag "+"
+# Flag "+"
 
 ```c
 int main()
@@ -743,7 +746,7 @@ int main()
 
 ---
 
-## Flag "-"
+# Flag "-"
 
 ```c
 int main()
@@ -763,7 +766,7 @@ int main()
 
 ---
 
-## Flag "0"
+# Flag "0"
 
 ```c
 int main()
@@ -783,14 +786,14 @@ int main()
 
 ---
 
-## Flag "#"
+# Flag "#"
 
 - To understand recursion, you must first understand recursion.
 - This will be explained in the future, because...
 
 ---
 
-## printf and scanf format specification
+# printf and scanf format specification
 
 - Optional:
   - Flags    -    modifiers that alter the formatting or scanning behavior.
@@ -800,13 +803,13 @@ int main()
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-```c
+```text
 Format =  %[flags][width][.precision][modifier]<type>
 ```
 
 ---
 
-## Modifies
+# Modifies
 
 ```c
 int main()
@@ -825,7 +828,7 @@ int main()
 
 ---
 
-## printf and scanf format specification
+# printf and scanf format specification
 
 - Optional:
   - Flags    -    modifiers that alter the formatting or scanning behavior.
@@ -835,7 +838,7 @@ int main()
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-```c
+```text
 Format =  %[flags][width][.precision][modifier]<type>
 ```
 
@@ -845,7 +848,7 @@ Format =  %[flags][width][.precision][modifier]<type>
 
 ---
 
-|Type &amp; Specifier||Origin|Argument type||Description||
+|Type & Specifier||Origin|Argument type||Description||
 |---|---|---|---|---|---|---|
 ||||**printf**|**scanf**|**printf**|**scanf**|
 |integer|d|decimal|int|int \*|signed decimal notation||
@@ -877,7 +880,7 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 
 ---
 
-## Declaring and initializing arrays
+# Declaring and initializing arrays
 
 ```c
 int main()
@@ -907,18 +910,18 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 First element (index 0) of array a equals 4201200.
 Second(index 1) element of array b equals 2.
 Second(index 1) element of array b equals 2.
 Sixth(index 5) element of array c equals 0.
 ```
 
-- Result:
-
 ---
 
-## Basics of
+# Basics of
 
 - The important difference between printf and scanf is that scanf requires its arguments to be pointers (location in memory) .
 
@@ -937,14 +940,14 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Enter x value : 1
 Value of x = 1
 Enter x value again : 2
 Value of x = 2
 ```
-
-- Result:
 
 ```c
 int printf (char format[],  arg1,  arg2 ,...);
@@ -954,10 +957,12 @@ int printf (char format[],  arg1,  arg2 ,...);
 int scanf  (char format[], *arg1, *arg2 ,...);
 ```
 
-- The ampersand operator &amp; is a unary operator that returns the memory address, which is the location in memory where a variable is stored.
+- The ampersand operator & is a unary operator that returns the memory address, which is the location in memory where a variable is stored.
 
-<!-- This line is where the magic happens. It assigns the address of the variable x to the pointer pointer. The &amp; symbol is the "address-of" operator. So, pointer now holds the memory location where the value 5 for x is stored. -->
+<!-- This line is where the magic happens. It assigns the address of the variable x to the pointer pointer. The & symbol is the "address-of" operator. So, pointer now holds the memory location where the value 5 for x is stored. -->
 
 ---
 
-## Notice Recently, during my lab work, I made a mistake. It wasn't the development environment's fault, but mine. It was related to the scanf function. Because I'm currently working with Python, C, C++, C#, and MATLAB, I mixed up the behavior of the scanf function. You need to know that the scanf function has one drawback: it doesn't clear the buffer of characters entered from the keyboard. This means that after pressing Enter to confirm the data entered from the keyboard, our variable also contains the Enter character, which is that extra line you asked me to use to clear the buffer. To understand its operation, you need to understand today's new material.
+# Notice
+
+Recently, during my lab work, I made a mistake. It wasn't the development environment's fault, but mine. It was related to the scanf function. Because I'm currently working with Python, C, C++, C#, and MATLAB, I mixed up the behavior of the scanf function. You need to know that the scanf function has one drawback: it doesn't clear the buffer of characters entered from the keyboard. This means that after pressing Enter to confirm the data entered from the keyboard, our variable also contains the Enter character, which is that extra line you asked me to use to clear the buffer. To understand its operation, you need to understand today's new material.

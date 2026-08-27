@@ -5,13 +5,15 @@ paginate: true
 title: "Software Engineering"
 ---
 
+<!-- _class: lead -->
+
 # Software Engineering
 
-*Lecture 10*
+## Lecture 10
 
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 - GitHub Pages
 - Markdown
@@ -22,7 +24,7 @@ title: "Software Engineering"
 
 ---
 
-## Setting Up GitHub Pages with Markdown
+# Setting Up GitHub Pages with Markdown
 
 **Create a Repository**
 
@@ -32,22 +34,21 @@ title: "Software Engineering"
 
 ---
 
-## Setting Up GitHub Pages with Markdown
+# Setting Up GitHub Pages with Markdown
 
 **Add a Static Markdown Page**
 
 - Write something simple in README.md :
 - or index.md
 
-```
+```markdown
 # Welcome to Assignment 04
 This is my first GitHub Pages project.
-
 ```
 
 ---
 
-## Setting Up GitHub Pages with Markdown
+# Setting Up GitHub Pages with Markdown
 
 **Add Jekyll Configuration**
 
@@ -57,7 +58,7 @@ This is my first GitHub Pages project.
 
 <https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll>
 
-```
+```yaml
 title: Assignment 04
 show_downloads: false
 theme: jekyll-theme-minimal
@@ -66,19 +67,20 @@ description: MarkDown
 
 ---
 
-## Setting Up GitHub Pages with Markdown
+# Setting Up GitHub Pages with Markdown
 
 **Configure GitHub Pages**
 
 - Go to Settings → Pages.
 - Under Build and Deployment, select Deploy from branch.
-- Choose main and / (root).Save — your site will be live at:
+- Choose main and / (root).
+- Save — your site will be live at:
 
 <https://username.github.io/assignment04/>
 
 ---
 
-## Setting Up GitHub Pages with Markdown
+# Setting Up GitHub Pages with Markdown
 
 **Check Your Page**
 
@@ -92,7 +94,7 @@ After updating the changes in the \_config.yml and README.md files, GitHub’s s
 
 ---
 
-## Clone your repo
+# Clone your repo
 
 - After creating the repository, clone it locally,
 - open the folder in Visual Studio Code,
@@ -110,7 +112,7 @@ After updating the changes in the \_config.yml and README.md files, GitHub’s s
 
 ---
 
-## Introduction to Markdown
+# Introduction to Markdown
 
 **What is Markdown?**
 
@@ -120,7 +122,7 @@ After updating the changes in the \_config.yml and README.md files, GitHub’s s
 
 ---
 
-## Introduction to Markdown
+# Introduction to Markdown
 
 **Markdown and CommonMark**
 
@@ -134,13 +136,14 @@ After updating the changes in the \_config.yml and README.md files, GitHub’s s
 
 ---
 
-## Core Markdown Features
+# Core Markdown Features
 
 - Headings: #, ##, ###
 - Lists:
   - Unordered: - item
   - Ordered: 1. item
-- Links: \[text\](url)Images: !\[alt\](url)
+- Links: \[text\](url)
+- Images: !\[alt\](url)
 - Tables ||
 - Code:
   - Inline: \`code\`
@@ -148,7 +151,7 @@ After updating the changes in the \_config.yml and README.md files, GitHub’s s
 
 ---
 
-## Core Markdown Features
+# Core Markdown Features
 
 - Headings: #, ##, ###
 - Headings in Markdown work very similarly to headings in MS Word.
@@ -158,7 +161,7 @@ After updating the changes in the \_config.yml and README.md files, GitHub’s s
   - if subchapters differ drastically in length or content, it usually means that the structure was poorly designed.
   - There is also an unwritten rule that you should avoid using more than three levels of subdivision.
 
-```
+```markdown
 # 1 level
 some text
 ## 2 level
@@ -181,7 +184,7 @@ the same level 5
 
 ---
 
-## Core Markdown Features
+# Core Markdown Features
 
 Lists:
 
@@ -190,7 +193,7 @@ Lists:
 - For ordered lists, you use **numbers followed by a dot**.
 - **Keep in mind**: in Markdown it doesn’t matter what number you type—Markdown will **automatically renumber** the items correctly in sequence.
 
-```
+```markdown
 my unordered list:
 - 1 item
 - 2 item
@@ -210,7 +213,7 @@ my unordered list:
 
 ---
 
-## Core Markdown Features
+# Core Markdown Features
 
 Links and Images:
 
@@ -221,19 +224,17 @@ Links and Images:
   - alt → alternative text (displayed if the image cannot load)
   - url → the path or link to the image
 
-```
+```markdown
 [Google](https://www.google.com)
 
 ![Logo](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)
-
-
 ```
 
 ![w:267px Picture 10](assets/image7.png)
 
 ---
 
-## Core Markdown Features
+# Core Markdown Features
 
 Tables
 
@@ -243,29 +244,27 @@ Tables
 
 Note: Markdown itself does not support cell merging; for that, you need to embed HTML within the .md file.
 
-```
+```markdown
 | Column 1 | Column 2 | Column 3 |
 |----------|----------|----------|
 | Value 1  | Value 2  | Value 3  |
 | A        | B        | C        |
-
 ```
 
 ![w:265px Picture 12](assets/image8.png)
 
-```
+```markdown
 | Column 1 | Column 2 | Column 3 |
 |:---------|:--------:|---------:|
 | Value 1  | Value 2  | Value 3  |
 | A        | B        | C        |
-
 ```
 
 ![w:288px Picture 10](assets/image9.png)
 
 ---
 
-## Core Markdown Features
+# Core Markdown Features
 
 Code:
 
@@ -276,21 +275,21 @@ Code:
 
 Note: After three tildes, you can inform Markdown what language the code is in for syntax highlighting, but this only works for code blocks.
 
-```
+```markdown
 `code`
-
 ```
 
-````
+````text
 ```c
 def hello():
     print("Hello Markdown!")
+```
 ````
 
 ![w:751px Picture 8](assets/image10.png)
 
 ---
 
-# Thank
+<!-- _class: caption-slide -->
 
-*You!*
+# Thank You!

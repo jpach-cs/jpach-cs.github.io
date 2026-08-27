@@ -5,15 +5,16 @@ paginate: true
 title: "CSCI 232  Data Structures & Algorithms"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 232 <br>Data Structures &amp; Algorithms
 
-*Lecture 19*
-
-- Dr. Jakub L. Pach
+## Lecture 19
+Dr. Jakub L. Pach
 
 ---
 
-## Outline
+# Outline
 
 - Syllabus, Textbook, Moodle
 - Something about me
@@ -28,7 +29,7 @@ title: "CSCI 232  Data Structures & Algorithms"
 
 ---
 
-## Analyzing Algorithm Complexity
+# Analyzing Algorithm Complexity
 
 - Review of Time Complexity
 - Asymptotic Notation
@@ -38,7 +39,7 @@ title: "CSCI 232  Data Structures & Algorithms"
 
 ---
 
-## Primitive Operations
+# Primitive Operations
 
 |Symbol|Description|
 |---|---|
@@ -54,7 +55,7 @@ title: "CSCI 232  Data Structures & Algorithms"
 
 ---
 
-## Algorithm 1: Constant Time
+# Algorithm 1: Constant Time
 
 - \- T(n) = c₁ + 2c₃ + c₇
 - \- O(1), Θ(1), Ω(1)
@@ -82,7 +83,7 @@ int sumThree(int a, int b, int c)
 
 ---
 
-## Algorithm 2: Linear Time
+# Algorithm 2: Linear Time
 
 ```c
 int sumArray(int A[], int n)
@@ -123,7 +124,7 @@ int sumArray(int A[], int n)
 
 ---
 
-## Algorithm 3: Quadratic Time
+# Algorithm 3: Quadratic Time
 
 ```c
 void printPairs(int A[], int n)
@@ -165,7 +166,7 @@ T(n)=c1​+(n+1)c4​+n(c1​+c3​)+n\[c1​+(n+1)c4​+n(c1​+c3​)+ n(c2+2(
 
 ---
 
-## Algorithm 4: Logarithmic Time
+# Algorithm 4: Logarithmic Time
 
 ```c
 int binarySearch(int A[], int n, int key)
@@ -214,7 +215,7 @@ Notice how the structure of the algorithm guarantees efficiency — we don’t s
 
 ---
 
-## Algorithm 5: Linearithmic Time
+# Algorithm 5: Linearithmic Time
 
 ```c
 void mergeSort(int arr[], int left, int right)
@@ -284,7 +285,7 @@ RodzajWartość**Best case**Θ(n log n)**Average case**Θ(n log n)**Worst case**
 
 ---
 
-## Algorithm 6: Exponential Time
+# Algorithm 6: Exponential Time
 
 ```c
 int fib(int n)
@@ -337,7 +338,7 @@ OperacjaLiczbaPorównanie n &lt;= 11 (c4)Odejmowanie n-11 (c3)Odejmowanie n-21 (
 
 ---
 
-## Comparing Growth Rates
+# Comparing Growth Rates
 
 |Complexity|Example Algorithm|Growth|
 |---|---|---|
@@ -350,9 +351,9 @@ OperacjaLiczbaPorównanie n &lt;= 11 (c4)Odejmowanie n-11 (c3)Odejmowanie n-21 (
 
 ---
 
-## Pseudocode
+# Pseudocode
 
-```c
+```text
 Algorithm mergeSort (A, l, r)
 	Input: An array A with indices 				ranging from 𝑙 to 𝑟 storing n ≥ 			1 integers.
 if l < r
@@ -362,7 +363,7 @@ mergeSort(A, m+1, r)
 merge(A, l, m, r)
 ```
 
-```c
+```text
 merge(A, l, m, r)
 	n1 = m - l + 1
 	n2 = r - m
@@ -390,7 +391,3 @@ let R be a new array of size n2
 			j ← j + 1
 			k ← k + 1
 ```
-
----
-
-<!-- pptx2marp: slide 14 has no extractable text or images -->

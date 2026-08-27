@@ -5,6 +5,8 @@ paginate: true
 title: "CSCI 112  Programming with C"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 6
@@ -17,13 +19,13 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Outline
+# Outline
 
 - Review
 - Printing / scanning a number as ASCII
 - printf:
   - complex examples
-  - Hex &amp; octal
+  - Hex & octal
 - Switch statement
 - goto statement
 - Ternary conditional operator
@@ -34,9 +36,9 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## if-else statement
+# if-else statement
 
-```c
+```text
 expression1 is non-zero ⇒ statement1
 expression1 could be series of expressions
 Block can be substitute for simple_statement
@@ -53,7 +55,7 @@ else
 
 ---
 
-## if-else statement
+# if-else statement
 
 - With optional else
 
@@ -68,16 +70,15 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 a variable x is greater than 1
-
 ```
-
-- Result:
 
 ---
 
-## if-else statement
+# if-else statement
 
 ```c
 int main()
@@ -96,12 +97,11 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 a variable x is not greater than 1
-
 ```
-
-- Result:
 
 ---
 
@@ -173,7 +173,7 @@ int main()
 
 ---
 
-## printf and scanf format specification
+# printf and scanf format specification
 
 - Optional:
   - Flags    -    modifiers that alter the formatting or scanning behavior.
@@ -183,11 +183,13 @@ int main()
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
+```text
+Format =  %[flags][width][.precision][modifier]<type>
+```
 
 ---
 
-|Type &amp; Specifier||Origin|Argument type||Description||
+|Type & Specifier||Origin|Argument type||Description||
 |---|---|---|---|---|---|---|
 ||||**printf**|**scanf**|**printf**|**scanf**|
 |integer|d|decimal|int|int \*|signed decimal notation||
@@ -216,7 +218,7 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 
 ---
 
-## Printing a number as ASCII
+# Printing a number as ASCII
 
 ```c
 int number = 123;
@@ -235,17 +237,16 @@ hundreds = number / 10;   // hundreds = 1
 printf("%c%c%c\n", hundreds + 48, tens + 48, units + 48);
 ```
 
-```c
-123
-123
+Result:
 
+```text
+123
+123
 ```
-
-- Result:
 
 ---
 
-## ASCII Table
+# ASCII Table
 
 American Standard Code for Information Interchange
 
@@ -255,7 +256,7 @@ American Standard Code for Information Interchange
 - \t equals 11
 - White\_Space equals 32
 
-```c
+```text
  Val Char                            Val  Char     Val  Char     Val  Char
 ---------                            ---------     ---------     ----------
   0  NUL (null)                      32  SPACE     64  @         96  `
@@ -294,11 +295,13 @@ American Standard Code for Information Interchange
 
 ---
 
-## Printing a number as ASCII When we display text on a console, anywhere on a computer, we must remember that everything we see is represented by ASCII characters. Each character has its own decimal value from the ASCII table. When we see the number 123 on the screen, it is not an integer but its textual representation. These are the ASCII characters '1' (which has a decimal value of 49), '2' (with a value of 50), and '3' (with a value of 51). The process of displaying a decimal number on the screen via a function like printf is performed automatically, following a similar algorithm to the one shown.
+# Printing a number as ASCII
+
+When we display text on a console, anywhere on a computer, we must remember that everything we see is represented by ASCII characters. Each character has its own decimal value from the ASCII table. When we see the number 123 on the screen, it is not an integer but its textual representation. These are the ASCII characters '1' (which has a decimal value of 49), '2' (with a value of 50), and '3' (with a value of 51). The process of displaying a decimal number on the screen via a function like printf is performed automatically, following a similar algorithm to the one shown.
 
 ---
 
-## Scanning a number as ASCII
+# Scanning a number as ASCII
 
 ```c
 int units, tens, hundreds, number;
@@ -323,13 +326,15 @@ printf("%d\n", number);
 
 ---
 
-## Scanning a number as ASCII
+# Scanning a number as ASCII
 
 Scanning a number as ASCII is the process of converting a sequence of characters representing a number into its numerical value in a computer's memory. This is the reverse process of printing and is crucial for programs that need to accept numerical input from a user.
 
 ---
 
-## atof() &amp; atoi() functions To convert a char array (string) containing an integer number, we can use the atoi() function (ASCII to int), which returns the converted value as an int. Similarly, the atof() function (ASCII to float) converts the char array to a float. After the conversion, arithmetic operations on these numbers become possible. To use these functions, it is necessary to include the &lt;stdlib.h&gt; header.
+# atof() & atoi() functions
+
+To convert a char array (string) containing an integer number, we can use the atoi() function (ASCII to int), which returns the converted value as an int. Similarly, the atof() function (ASCII to float) converts the char array to a float. After the conversion, arithmetic operations on these numbers become possible. To use these functions, it is necessary to include the &lt;stdlib.h&gt; header.
 
 ```c
 char floatString[] = "3.14159";
@@ -341,17 +346,15 @@ int y = atoi(intString);
 printf("%f", x + y );
 ```
 
-```c
+Result:
+
+```text
 258.141590
-
-
 ```
-
-- Result:
 
 ---
 
-## What will you see?
+# What will you see?
 
 ```c
 int main()
@@ -361,12 +364,11 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Hello World
-
 ```
-
-- Result:
 
 ```c
 int main()
@@ -376,19 +378,15 @@ int main()
 }
 ```
 
-- ?
-- Result:
+Result:
+
+?
 
 ---
 
-## What will you see?
+# What will you see?
 
-```c
 The printf function does not read a character array from the first to the last element we reserved, but instead it continues until it encounters the special null-terminator character '\0'. This convention comes from older languages such as Assembly. The same rule applies to most functions that operate on strings (character arrays) in C. For example, when we create a character array like: char arr[] = "Hello"; we provided 5 ASCII characters, but the actual length of the array is 6. The compiler automatically appends one extra byte at the end to store the terminating '\0'. Thanks to this, functions like printf know where the string ends.
-```
-
-- He
-- Result:
 
 ```c
 int main()
@@ -398,9 +396,15 @@ int main()
 }
 ```
 
+Result:
+
+```text
+He
+```
+
 ---
 
-## atof() &amp; atoi() functions
+# atof() & atoi() functions
 
 ```c
 // Reserve space for a 3-character string + null terminator ('\0')
@@ -422,23 +426,20 @@ int ten = 10;
 printf("%d\n", number + ten);
 ```
 
-```c
+Result:
+
+```text
 258.141590
-
-
 ```
 
-- Result:
+Result:
 
-```c
+```text
 Give me a 3-digit number. If less than 100, please write 091 etc.
 321
 321
 331
-
 ```
-
-- Result:
 
 ---
 
@@ -446,7 +447,7 @@ Give me a 3-digit number. If less than 100, please write 091 etc.
 
 ---
 
-## complex examples of printf
+# complex examples of printf
 
 ```c
 int main()
@@ -475,7 +476,9 @@ printf("%-#10x\n", 255);  // Output: "0xff      " (3 spaces after)
 }
 ```
 
-```c
+Result:
+
+```text
        123
 123.456000
 00000123
@@ -489,13 +492,11 @@ printf("%-#10x\n", 255);  // Output: "0xff      " (3 spaces after)
 0xff
 ```
 
-- Result:
-
-<!-- This line is where the magic happens. It assigns the address of the variable x to the pointer pointer. The &amp; symbol is the "address-of" operator. So, pointer now holds the memory location where the value 5 for x is stored. -->
+<!-- This line is where the magic happens. It assigns the address of the variable x to the pointer pointer. The & symbol is the "address-of" operator. So, pointer now holds the memory location where the value 5 for x is stored. -->
 
 ---
 
-|Type &amp; Specifier||Origin|Argument type||Description||
+|Type & Specifier||Origin|Argument type||Description||
 |---|---|---|---|---|---|---|
 ||||**printf**|**scanf**|**printf**|**scanf**|
 |integer|d|decimal|int|int \*|signed decimal notation||
@@ -520,7 +521,7 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 
 ---
 
-|Type &amp; Specifier||Origin|Argument type||Description||
+|Type & Specifier||Origin|Argument type||Description||
 |---|---|---|---|---|---|---|
 ||||**printf**|**scanf**|**printf**|**scanf**|
 |integer|d|decimal|int|int \*|signed decimal notation||
@@ -545,7 +546,7 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 
 ---
 
-## Hex &amp; Octal
+# Hex & Octal
 
 ```c
 int main()
@@ -563,18 +564,19 @@ printf("Value of y in Octal is = %o\n", y);
 }
 ```
 
-```c
+Result:
+
+```text
 Enter a 3-digit value for y: 255
 Value of y in HEX is = ff
 Value of y in Octal is = 377
 ```
 
-- Result:
 - Is it possible to nicely format the result display?
 
 ---
 
-## Hex &amp; Octal
+# Hex & Octal
 
 ```c
 int main()
@@ -592,18 +594,19 @@ printf("Value of y in Octal\tis = %o\n", y);
 }
 ```
 
-```c
+Result:
+
+```text
 Enter a 3-digit value for y: 255
 Value of y in HEX       is = ff
 Value of y in Octal     is = 377
 ```
 
-- Result:
 - Is it possible to get uppercase letters in Hex?
 
 ---
 
-## Hex &amp; Octal
+# Hex & Octal
 
 ```c
 int main()
@@ -621,13 +624,13 @@ printf("Value of y in Octal\tis = %o\n", y);
 }
 ```
 
-```c
+Result:
+
+```text
 Enter a 3-digit value for y: 255
 Value of y in HEX       is = FF
 Value of y in Octal     is = 377
 ```
-
-- Result:
 
 ---
 
@@ -635,7 +638,7 @@ Value of y in Octal     is = 377
 
 ---
 
-## switch statement
+# switch statement
 
 ```c
 switch (expression)
@@ -674,18 +677,18 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 4
 a variable x is not between 1 and 3
 ```
-
-- Result:
 
 In C programming, a **constant expression** is an expression that evaluates to a fixed value at compile time, meaning the value is determined during the compilation process rather than during program execution.
 
 ---
 
-## switch statement
+# switch statement
 
 ```c
 int main()
@@ -704,20 +707,20 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 2
 a variable x is 2
-
 ```
 
-- Result:
 - The default block in the switch statement is optional!
 - The default block can be used for error handling.
 - It's important to note that omitting the default block will cause the program to skip the entire switch statement if the variable takes on a value not defined in the switch statement.
 
 ---
 
-## switch statement
+# switch statement
 
 ```c
 int main()
@@ -738,12 +741,13 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 2
 a variable x is  1 and 3
 ```
 
-- Result:
 - To terminate a switch statement, we use the break keyword
 
 ```c
@@ -767,13 +771,13 @@ int main()
 }
 ```
 
-- OR
+OR
 
 <!-- Similar to labels used with goto keyword -->
 
 ---
 
-## Difference between switch &amp; if-else
+# Difference between switch & if-else
 
 - if statements:
   - Dynamic Conditions: if statements allow for dynamic conditions that can change during program execution. These conditions can involve complex expressions, function calls, and even user input.
@@ -786,7 +790,7 @@ int main()
 
 ---
 
-## goto statement
+# goto statement
 
 - goto allows us to jump\* unconditionally to a location identified by a label
 - a simple example of Spaghetti Code <br>- Dijkstra, E. W. (1968)
@@ -811,13 +815,11 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 It was true
-
-
 ```
-
-- Result:
 
 ---
 
@@ -825,7 +827,7 @@ It was true
 
 ---
 
-## Ternary conditional operator ?
+# Ternary conditional operator ?
 
 - If expression1 evaluates to true, the ternary operator returns the value of expression2. Otherwise, it returns the value of expression3.
 
@@ -842,17 +844,15 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 2
-
-
 ```
-
-- Result:
 
 ---
 
-## If-else statement
+# If-else statement
 
 ```c
 int main()		/* Program Counter =01;		PC++; “goto” new PC	 	*/
@@ -872,7 +872,7 @@ int main()		/* Program Counter =01;		PC++; “goto” new PC	 	*/
 }				/* Program Counter =15;		PC++; “goto” new PC		*/
 ```
 
-```c
+```text
 Line 01
 Line 02
 Line 03
@@ -898,7 +898,7 @@ Line 15
 
 ---
 
-## magic
+# magic
 
 ```c
 int main()
@@ -921,7 +921,7 @@ int main()
 }
 ```
 
-```c
+```text
 Line 01
 Line 02
 Line 03

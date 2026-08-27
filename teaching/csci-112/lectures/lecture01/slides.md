@@ -5,6 +5,8 @@ paginate: true
 title: "CSCI 112  Programming with C"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 1
@@ -17,7 +19,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Outline
+# Outline
 
 - Syllabus, Textbook, Canvas
 - Introduction
@@ -29,7 +31,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Some basic facts about the course
+# Some basic facts about the course
 
 Course:    CSCI 112
 
@@ -47,7 +49,7 @@ Dates and Location:
   - Time:
     - 12:00 pm – 12:50 pm
   - Location:
-    - Science &amp; Engineering Building (S&amp;E) 308
+    - Science & Engineering Building (S&E) 308
 - Lab meets on Monday
   - Time:
     - 2:00 pm – 4:50 pm
@@ -56,13 +58,13 @@ Dates and Location:
 
 ---
 
-## Syllabus
+# Syllabus
 
 - Course Description
 - Textbooks
 - Class Rules
 - Grading
-- Accommodations &amp; Academic Dishonesty
+- Accommodations & Academic Dishonesty
 - Declaration of authorship
 - You can find the syllabus and other information on Canvas.
 
@@ -70,13 +72,15 @@ Dates and Location:
 
 ---
 
-## Syllabus - Course Description
+# Syllabus - Course Description
 
 This course provides a comprehensive introduction to structured programming using the C language. Student will gain a deep understanding of memory management techniques such as pointers and dynamic allocation. The skills acquired in this course will be essential for those who wish to pursue further studies in languages like C++, C#, and Java, as well as microcontroller programming. Additionally, this course will lay a strong foundation for understanding computer architecture.
 
 ---
 
-## …a few words This course is designed for students in Computer Science (CS), Software Engineering (SE), and Electronics programs. No prior programming experience is required — only basic computer literacy, such as using a web browser, email, and navigating the MS Windows environment.
+# …a few words
+
+This course is designed for students in Computer Science (CS), Software Engineering (SE), and Electronics programs. No prior programming experience is required — only basic computer literacy, such as using a web browser, email, and navigating the MS Windows environment.
 
 <!-- This course is designed for students in **Computer Science (CS)**, **Software Engineering (SE)**, and **Electronics** programs. No prior programming experience is required — only basic computer literacy, such as using a web browser, email, and navigating the **MS Windows** environment.
 The course covers the following topics:
@@ -94,7 +98,7 @@ The course is taught with a strong emphasis on **practical understanding** of 
 
 ---
 
-## Syllabus - Textbooks
+# Syllabus - Textbooks
 
 - Brian W. Kernighan, Dennis M. Ritchie. C Programming Language, 2nd Edition. Prentice Hall, 1988
 - Seacord, R. C. (2024). Effective C: An Introduction to Professional C Programming. No Starch Press, Inc. (Optional)
@@ -103,21 +107,21 @@ The course is taught with a strong emphasis on **practical understanding** of 
 
 ![Picture 4](assets/image5.jpeg)
 
-- Dennis M. Ritchie
+Dennis M. Ritchie
 
 <!-- the co-author of this book is the creator of this language!
 In the past, textbooks were the primary source of knowledge in higher education. Lectures and labs were just a small supplement to the content found in textbooks. With the advancement of technology, presentations have become the primary source of information for students, and only the most curious students seek additional content in textbooks recommended by professors. -->
 
 ---
 
-## ANSI(C89) vs C99
+# ANSI(C89) vs C99
 
 - Last year, the course was taught using the oldest and most widely adopted ANSI standard — C89. This choice was made because C89 does not include many of the conveniences introduced in later versions. While these conveniences make life easier for professional programmers, they can make it harder for beginners to fully grasp the fundamentals of programming in C.
 - The standard now used in our classes is **C99**, which is widely applied in embedded systems, especially in the field of electronics. This standard significantly lowers the entry barrier for beginners (for example, allowing variable declarations inside a for loop and supporting single-line comments //), while avoiding the complex and sometimes confusing features introduced in newer standards. The most recent C standard is currently C23 (2023).
 
 ---
 
-## Syllabus<br>Class Rules
+# Syllabus<br>Class Rules
 
 **Class Rules:**
 
@@ -128,7 +132,7 @@ In the past, textbooks were the primary source of knowledge in higher education.
 
 ---
 
-## Syllabus - Grading
+# Syllabus - Grading
 
 The course grade will be determined by two equally weighted components:
 
@@ -141,7 +145,7 @@ The course grade will be determined by two equally weighted components:
 
 ---
 
-## Syllabus - Grading
+# Syllabus - Grading
 
 **Lecture:**
 
@@ -153,7 +157,7 @@ Each lab may include the following components: entrance quiz, assignment, and br
 
 ---
 
-## Syllabus – Laboratory Rules
+# Syllabus – Laboratory Rules
 
 **Entrance Quiz (optional):**
 
@@ -169,7 +173,7 @@ If included, this quiz serves as a summative assessment component, reinforcing t
 
 ---
 
-## Syllabus - Details
+# Syllabus - Details
 
 - Accommodations:
 
@@ -181,11 +185,13 @@ You are encouraged to work in teams and use many resources including books and t
 
 ---
 
-## Syllabus<br>Declaration of authorship *I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the importance the consequences of plagiarism.*
+# Syllabus<br>Declaration of authorship
+
+*I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the importance the consequences of plagiarism.*
 
 ---
 
-## Syllabus<br>Comments
+# Syllabus<br>Comments
 
 **Comments:**
 
@@ -193,19 +199,18 @@ You are encouraged to work in teams and use many resources including books and t
 
 **Template:**
 
+```c
 //Jakub Leszek Pach
-
 //CSCI 112 Fall 2025
-
 //Programming Assignment #1
-
 //I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the importance the consequences of plagiarism.
+```
 
 ---
 
-## Canvas
+# Canvas
 
-Lecture &amp; Laboratory:
+Lecture & Laboratory:
 
 (76078) CSCI 112 Sec 01 :Programming with C
 
@@ -217,7 +222,7 @@ Lecture &amp; Laboratory:
 
 ---
 
-## Meaning of words
+# Meaning of words
 
 ![w:402px Picture 9](assets/image6.png)
 
@@ -226,7 +231,7 @@ Lecture &amp; Laboratory:
 
 ---
 
-## The Pareto Principle
+# The Pareto Principle
 
 To illustrate my point, let's use a metaphor. You don't need to enroll in a computer science degree to learn programming. You can find online courses on YouTube and master certain programming elements quite quickly. According to the Pareto Principle:
 
@@ -238,13 +243,13 @@ You'll see shortly.
 
 ---
 
-## Highlands College (new Campus)
+# Highlands College (new Campus)
 
 ![w:809px Picture 2](assets/image7.jpeg)
 
 ---
 
-## Old Campus
+# Old Campus
 
 ![w:636px Montana Tech Main Hall](assets/image8.jpeg)
 
@@ -252,7 +257,7 @@ You'll see shortly.
 
 ---
 
-## Highlands College &amp; Old Campus
+# Highlands College & Old Campus
 
 ![w:438px Picture 2](assets/image10.jpeg)
 
@@ -260,11 +265,11 @@ You'll see shortly.
 
 ![w:434px Museum Building Doors](assets/image11.jpeg)
 
-- Doors
+Doors
 
 ---
 
-## Highlands College &amp; Old Campus
+# Highlands College & Old Campus
 
 ![w:389px Picture 2](assets/image12.jpeg)
 
@@ -272,11 +277,11 @@ You'll see shortly.
 
 ![w:813px Montana Tech Main Hall](assets/image8.jpeg)
 
-- Windows
+Windows
 
 ---
 
-## Old, but gold
+# Old, but gold
 
 ![w:455px Picture 2](assets/image9.jpeg)
 
@@ -284,11 +289,13 @@ You'll see shortly.
 
 ---
 
-## Conclusions These doors and those doors serve their purpose, these windows and those windows serve their purpose, and those buildings and these buildings also serve their purpose. However, do you see the difference? The museum building has stood for 100 years and will stand for another 200. In my class, I want to show you the art, everything I have learned from over two decades of studying computer architecture and all the programming languages I have mastered. If your goal is to write correct code, great, just like the new campus building, I will teach you. If you want to understand the nuances, the reasons why certain mechanisms were designed in a certain way, and you are thirsty for knowledge, I will give you everything I have, because I am here for you, student, but ...<br>*It takes blood, sweat, and tears.*
+# Conclusions
+
+These doors and those doors serve their purpose, these windows and those windows serve their purpose, and those buildings and these buildings also serve their purpose. However, do you see the difference? The museum building has stood for 100 years and will stand for another 200. In my class, I want to show you the art, everything I have learned from over two decades of studying computer architecture and all the programming languages I have mastered. If your goal is to write correct code, great, just like the new campus building, I will teach you. If you want to understand the nuances, the reasons why certain mechanisms were designed in a certain way, and you are thirsty for knowledge, I will give you everything I have, because I am here for you, student, but ...<br>*It takes blood, sweat, and tears.*
 
 ---
 
-## Compiler vs Interpreter
+# Compiler vs Interpreter
 
 - A compiler takes the entire source code and translates it into a machine code file, often called an executable. This executable file contains instructions that the computer's processor can directly execute. Once compiled, the program can run independently without the need for the original source code or a compiler.
 - An interpreter translates the source code line by line as the program is running. It doesn't create a separate executable file. Instead, it uses a virtual machine to execute the translated code. The virtual machine provides an environment that mimics a real computer, allowing the program to run even if the underlying hardware architecture is different
@@ -297,13 +304,15 @@ Think of a compiler as a translator who translates an entire book from one langu
 
 ---
 
-## History of C Similarly, in music, we first learn to read sheet music, and only after mastering the basics can we investigate  into the history and evolution of musical notation. In this course, we'll follow a similar approach. We'll start by learning how to write code in C, and we'll save the history of the C language for later, once you have gained significant experience. Then, we can explore the origins of certain language constructs.
+# History of C
+
+Similarly, in music, we first learn to read sheet music, and only after mastering the basics can we investigate  into the history and evolution of musical notation. In this course, we'll follow a similar approach. We'll start by learning how to write code in C, and we'll save the history of the C language for later, once you have gained significant experience. Then, we can explore the origins of certain language constructs.
 
 <!-- Sinusoidalnosc zwiazana z typami i ich brak w przodku C -->
 
 ---
 
-## Bit &amp; Byte
+# Bit & Byte
 
 - A **bit** is the smallest unit of data in a computer, representing a single binary value: either a **0** or a **1**.
 - A **byte** is a group of eight bits. A single byte can represent a wide range of values, such as a single character (like the letter 'A' or the symbol '@') or an integer from 0 to 255.
@@ -314,7 +323,7 @@ Think of a compiler as a translator who translates an entire book from one langu
 
 ---
 
-## Positional notation <br>(place-value notation, positional numeral system)
+# Positional notation <br>(place-value notation, positional numeral system)
 
 - usually means the extension to any base (2, …, 8,10,16 etc.) of the Hindu–Arabic numeral system (or decimal system).
 - a positional system is a numeral system in which the contribution of a digit to the value of a number is the value of the digit multiplied by a factor determined by the position of the digit.
@@ -324,7 +333,7 @@ Think of a compiler as a translator who translates an entire book from one langu
 
 ---
 
-## Base of the numeral system
+# Base of the numeral system
 
 - In mathematical numeral systems the radix r is usually the number of unique digits, including zero, that a positional numeral system uses to represent numbers.
 - The highest symbol of a positional numeral system usually has the value one less than the value of the radix of that numeral system. The standard positional numeral systems differ from one another only in the base they use.
@@ -336,7 +345,7 @@ Think of a compiler as a translator who translates an entire book from one langu
 
 ---
 
-## Binary numeral system
+# Binary numeral system
 
 ![w:238px Picture 2](assets/image15.png)
 
@@ -347,7 +356,7 @@ R-value with an index of 2
 
 ---
 
-## Converting decimal numbers to binary
+# Converting decimal numbers to binary
 
 Steps:
 
@@ -359,7 +368,7 @@ Steps:
 
 ---
 
-## Converting decimal numbers to binary – example 12310
+# Converting decimal numbers to binary – example 12310
 
 - 123 / 2 = 61 (remainder 1)
 - Write down a 1.
@@ -389,7 +398,7 @@ So, we converted 123 to binary by successively checking which powers of 2 are pr
 
 ---
 
-## Converting binary numbers to oct – example 1111011(2)
+# Converting binary numbers to oct – example 1111011(2)
 
 - 001.111.011    = 1.7.3
 - 0111.1011    = 7.B
@@ -417,19 +426,10 @@ So, we converted 123 to binary by successively checking which powers of 2 are pr
 
 ---
 
-## Binary numeral system (Unsigned arithmetic)
+# Binary numeral system (Unsigned arithmetic)
 
-|||||||||||
-|---|---|---|---|---|---|---|---|---|---|
-|||||||||||
-|||||||||||
 |-255||-127||0||127||255||
-
-|||||||||||
 |---|---|---|---|---|---|---|---|---|---|
-|||||||||||
-|||||||||||
-|-255||-127||0||127||255||
 
 |1|1|1|1|1|1|1|1|
 |---|---|---|---|---|---|---|---|
@@ -449,7 +449,7 @@ least significant bit
 
 ---
 
-## Data in a computer can essentially be stored using two standards
+# Data in a computer can essentially be stored using two standards
 
 - integers represented in binary,
 - real (floating-point) numbers stored according to the IEEE 754 standard.
@@ -462,7 +462,7 @@ Everything else is a combination or interpretation based on these two fundamenta
 
 ---
 
-## IDE
+# IDE
 
 - Code::Blocks
 - Visual Studio Code
@@ -478,7 +478,7 @@ Everything else is a combination or interpretation based on these two fundamenta
 
 ---
 
-## Hello World
+# Hello World
 
 - Code
 - Preprocessor
@@ -497,7 +497,7 @@ int main()
 
 ---
 
-## Hello World
+# Hello World
 
 - Text preceded by # is a preprocessor section, the first line gives access to standard input and output functions, this is a header.
 - Next, we have the main function defined, which returns an integer value. The {} brackets start and end the body of the main function.
@@ -515,18 +515,15 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Hello world
-
-
-
 ```
-
-- Result:
 
 ---
 
-## Hello World
+# Hello World
 
 - Text preceded by # is a preprocessor section, the first line gives access to standard input and output functions, this is a header.
 - Next, we have the main function defined, which returns an integer value. The {} brackets start and end the body of the main function.
@@ -543,18 +540,15 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Hello world
-
-
-
 ```
-
-- Result:
 
 ---
 
-## Hello World
+# Hello World
 
 printf() is a function and has two sides:
 
@@ -574,7 +568,7 @@ printf("%s", string);
 
 ---
 
-## Semicolon
+# Semicolon
 
 - In the C programming language statements for the compiler (interpreter in Python) is separated by a semicolon ;. Therefore, in C, you can write an entire program on one line...
 
@@ -584,7 +578,7 @@ printf("%s", string);
 
 ---
 
-## Indentation &amp; parentheses
+# Indentation & parentheses
 
 ```c
 #include <stdio.h>
@@ -605,9 +599,9 @@ int main()
 
 ---
 
-## Indentation &amp; parentheses
+# Indentation & parentheses
 
-- but...
+but...
 
 ```c
 #include <stdio.h>
@@ -632,7 +626,7 @@ int main(){
 
 ---
 
-## Comments
+# Comments
 
 ```c
 int main()
@@ -663,12 +657,5 @@ int main()
 
 ---
 
-## Summary calego wykladu
+# Summary calego wykladu
 
----
-
-<!-- pptx2marp: slide 51 has no extractable text or images -->
-
----
-
-<!-- pptx2marp: slide 52 has no extractable text or images -->

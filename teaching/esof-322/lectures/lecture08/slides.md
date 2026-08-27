@@ -5,13 +5,15 @@ paginate: true
 title: "Software Engineering"
 ---
 
+<!-- _class: lead -->
+
 # Software Engineering
 
-*Lecture 8*
+## Lecture 8
 
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 Git
 
@@ -20,9 +22,9 @@ Git
 
 ---
 
-## Gitlens?
+# Gitlens?
 
-- extension
+extension
 
 ---
 
@@ -37,7 +39,7 @@ Git
 
 ---
 
-## Practical Scenario – Restoring a Broken File Locally
+# Practical Scenario – Restoring a Broken File Locally
 
 **Situation:**
 
@@ -47,34 +49,32 @@ Git
 
 ---
 
-## Practical Scenario – Restoring a Broken File Locally
+# Practical Scenario – Restoring a Broken File Locally
 
 **Solution – restoring a file from a previous commit:**
 
 - This command retrieves the version of the file from the specified commit and places it in your working directory.
 - Other files in the project remain unchanged.
 
-```
+```bash
 git checkout <commit-id> -- path/to/file
-
 ```
 
 ---
 
-## Practical Scenario – Restoring a Broken File Locally
+# Practical Scenario – Restoring a Broken File Locally
 
 **Optional: check differences:**
 
 - Compare the current state of the file (after checkout) with the latest version in the branch to see what has changed.
 
-```
+```bash
 git diff
-
 ```
 
 ---
 
-## Practical Scenario – Restoring a Broken File Locally
+# Practical Scenario – Restoring a Broken File Locally
 
 **Modify and test:**
 
@@ -83,7 +83,7 @@ git diff
 
 ---
 
-## Practical Scenario – Restoring a Broken File Locally
+# Practical Scenario – Restoring a Broken File Locally
 
 **Commit the changes:**
 
@@ -95,14 +95,14 @@ git diff
 - Works similarly to git revert, but only affects specific files, not the entire commit.
 - Does not require force push or rewriting history.
 
-```
+```bash
 git add path/to/file
 git commit -m "Fix broken functionality in <file>"
 ```
 
 ---
 
-## Introduction to Git Revert
+# Introduction to Git Revert
 
 - git revert is used to **undo changes from a previous commit** by creating a **new commit**.
 - Important: it does **not delete the original commit** – history remains intact.
@@ -110,7 +110,7 @@ git commit -m "Fix broken functionality in <file>"
 
 ---
 
-## When to Use git revert - Use Cases for git revert
+# When to Use git revert - Use Cases for git revert
 
 - Undo a commit that **introduced a bug** without affecting later commits.
 - Correct mistakes on a **shared branch** without rewriting history.
@@ -118,7 +118,7 @@ git commit -m "Fix broken functionality in <file>"
 
 ---
 
-## How git revert Works - Mechanics of git revert
+# How git revert Works - Mechanics of git revert
 
 - Git calculates the changes made in the target commit.
 - Creates **inverse changes** in the working directory (staging area).
@@ -127,24 +127,26 @@ git commit -m "Fix broken functionality in <file>"
 
 ---
 
-## git revert - Reverting a Commit Example
+# git revert - Reverting a Commit Example
 
 - C' is a new commit that undoes changes from C.
 - Commits D and earlier remain untouched.
 
-```
+```text
 A --- B --- C --- D  (branch)
 ```
 
-- git revert C
-
+```bash
+git revert C
 ```
+
+```text
 A --- B --- C --- D --- C'
 ```
 
 ---
 
-## git revert - Key Points About git revert
+# git revert - Key Points About git revert
 
 - Creates a new commit, does not remove old commits.
 - Does not require force push, safe for shared branches.
@@ -153,7 +155,7 @@ A --- B --- C --- D --- C'
 
 ---
 
-## git revert - Comparison to Other Methods
+# git revert - Comparison to Other Methods
 
 |Method|Effect on History|Force Push Required?|Safe for Shared Branch?|
 |---|---|---|---|
@@ -167,7 +169,7 @@ A --- B --- C --- D --- C'
 
 ---
 
-## Best Practices for Commits and Branching
+# Best Practices for Commits and Branching
 
 - Small, thematic commits:
   - One commit = one logical change / one functionality / one file (or tightly related files).
@@ -184,7 +186,7 @@ A --- B --- C --- D --- C'
 
 ---
 
-## Consequences / Why It Matters
+# Consequences / Why It Matters
 
 - Small commits make reverts safe:
   - If a commit breaks something, it can be reverted without affecting unrelated changes.
@@ -199,6 +201,6 @@ A --- B --- C --- D --- C'
 
 ---
 
-# Thank
+<!-- _class: caption-slide -->
 
-*You!*
+# Thank You!

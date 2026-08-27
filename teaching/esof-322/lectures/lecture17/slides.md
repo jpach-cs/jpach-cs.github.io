@@ -5,11 +5,13 @@ paginate: true
 title: "Chapter 5 – System Modeling"
 ---
 
-## Chapter 5 – System Modeling
+<!-- _class: lead -->
+
+# Chapter 5 – System Modeling
 
 ---
 
-## Topics covered
+# Topics covered
 
 - Context models
 - Interaction models
@@ -21,7 +23,7 @@ title: "Chapter 5 – System Modeling"
 
 ---
 
-## Types of System Modeling
+# Types of System Modeling
 
 - Visual Modeling (Graphical Modeling)
 
@@ -49,7 +51,7 @@ Describing a system using mathematical notation, such as logic, sets, equations,
 
 ---
 
-## System modeling
+# System modeling
 
 - System modeling is the process of developing abstract models of a system, with each model presenting a different view or perspective of that system.
 - System modeling has now come to mean representing a system using some kind of graphical notation, which is now almost always based on notations in the Unified Modeling Language (UML).
@@ -57,7 +59,7 @@ Describing a system using mathematical notation, such as logic, sets, equations,
 
 ---
 
-## Existing and planned system models
+# Existing and planned system models
 
 - Models of the existing system are used during requirements engineering. They help clarify what the existing system does and can be used as a basis for discussing its strengths and weaknesses. These then lead to requirements for the new system.
 - Models of the new system are used during requirements engineering to help explain the proposed requirements to other system stakeholders. Engineers use these models to discuss design proposals and to document the system for implementation.
@@ -65,7 +67,7 @@ Describing a system using mathematical notation, such as logic, sets, equations,
 
 ---
 
-## System perspectives
+# System perspectives
 
 - An external perspective, where you model the context or environment of the system.
 - An interaction perspective, where you model the interactions between a system and its environment, or between the components of a system.
@@ -74,7 +76,7 @@ Describing a system using mathematical notation, such as logic, sets, equations,
 
 ---
 
-## UML diagram types
+# UML diagram types
 
 - Activity diagrams, which show the activities involved in a process or in data processing .
 - Use case diagrams, which show the interactions between a system and its environment.
@@ -84,7 +86,7 @@ Describing a system using mathematical notation, such as logic, sets, equations,
 
 ---
 
-## Use of graphical models
+# Use of graphical models
 
 - As a means of facilitating discussion about an existing or proposed system
   - Incomplete and incorrect models are OK as their role is to support discussion.
@@ -99,7 +101,7 @@ As a detailed system description that can be used to generate a system implement
 
 ---
 
-## The Unified Modeling Language (UML)
+# The Unified Modeling Language (UML)
 
 The Unified Modeling Language (UML) is a set of 13 different diagram types that may be used to model soft ware systems. It emerged from work in the 1990s on object-oriented modeling, where similar object-oriented notations were integrated to create the UML. A major revision (UML 2) was finalized in 2004. The UML is universally accepted as the standard approach for developing models of software systems. Variants, such as SysML, have been proposed for more general system modeling.
 
@@ -107,7 +109,7 @@ The Unified Modeling Language (UML) is a set of 13 different diagram types that 
 
 ---
 
-## Brief Overview of UML Evolution
+# Brief Overview of UML Evolution
 
 The current official version of UML is UML 2.5.1, which was formally adopted in December 2017. This specification remains the latest widely recognized and stable version endorsed by the Object Management Group (OMG).
 
@@ -121,7 +123,7 @@ Brief Overview of UML Evolution
 
 ---
 
-## From The author
+# From The author
 
 In this chapter, I use diagrams defined in the Unified Modeling Language (UML), which has become a standard language for object-oriented modeling. The UML has 13 diagram types and so supports the creation of many different types of system model. However, a survey showed that most users of the UML thought that five diagram types could represent the essentials of a system. I therefore concentrate on these five UML diagram types here:
 
@@ -154,11 +156,11 @@ In this chapter, I use diagrams defined in the Unified Modeling Language (UML), 
 
 ---
 
-## Context models
+# Context models
 
 ---
 
-## Context models
+# Context models
 
 - Context models are used to illustrate the operational context of a system - they show what lies outside the system boundaries.
 - Social and organisational concerns may affect the decision on where to position system boundaries.
@@ -166,7 +168,7 @@ In this chapter, I use diagrams defined in the Unified Modeling Language (UML), 
 
 ---
 
-## System boundaries
+# System boundaries
 
 - System boundaries are established to define what is inside and what is outside the system.
   - They show other systems that are used or depend on the system being developed.
@@ -176,7 +178,7 @@ In this chapter, I use diagrams defined in the Unified Modeling Language (UML), 
 
 ---
 
-## The context of the Mentcare system
+# The context of the Mentcare system
 
 ![w:790px 5.1 Mentcare context.eps](assets/image2.emf)
 <!-- pptx2marp: image2.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
@@ -185,7 +187,7 @@ In this chapter, I use diagrams defined in the Unified Modeling Language (UML), 
 
 ---
 
-## The context of the Mentcare system
+# The context of the Mentcare system
 
 ![w:790px 5.1 Mentcare context.eps](assets/image2.emf)
 <!-- pptx2marp: image2.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
@@ -196,7 +198,7 @@ In this chapter, I use diagrams defined in the Unified Modeling Language (UML), 
 
 ---
 
-## Process perspective
+# Process perspective
 
 - Context models simply show the other systems in the environment, not how the system being developed is used in that environment.
 - Process models reveal how the system being developed is used in broader business processes.
@@ -204,7 +206,7 @@ In this chapter, I use diagrams defined in the Unified Modeling Language (UML), 
 
 ---
 
-## Process model of involuntary detention
+# Process model of involuntary detention
 
 ![w:1166px 5.2 Detention Process.eps](assets/image3.emf)
 <!-- pptx2marp: image3.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
@@ -218,11 +220,11 @@ However, patients who are suicidal and are a danger to themselves may be admitte
 
 ---
 
-## Interaction models
+# Interaction models
 
 ---
 
-## Interaction models
+# Interaction models
 
 - Modeling user interaction is important as it helps to identify user requirements.
 - Modeling system-to-system interaction highlights the communication problems that may arise.
@@ -231,7 +233,7 @@ However, patients who are suicidal and are a danger to themselves may be admitte
 
 ---
 
-## Use case modeling
+# Use case modeling
 
 - Use cases were developed originally to support requirements elicitation and now incorporated into the UML.
 - Each use case represents a discrete task that involves external interaction with a system.
@@ -240,7 +242,7 @@ However, patients who are suicidal and are a danger to themselves may be admitte
 
 ---
 
-## Transfer-data use case
+# Transfer-data use case
 
 - A use case in the Mentcare system
 
@@ -251,7 +253,7 @@ However, patients who are suicidal and are a danger to themselves may be admitte
 
 ---
 
-## Tabular description of the ‘Transfer data’ use-case
+# Tabular description of the ‘Transfer data’ use-case
 
 |**MHC-PMS: Transfer data**||
 |---|---|
@@ -266,7 +268,7 @@ However, patients who are suicidal and are a danger to themselves may be admitte
 
 ---
 
-## Use cases in the Mentcare system involving the role ‘Medical Receptionist’
+# Use cases in the Mentcare system involving the role ‘Medical Receptionist’
 
 ![w:623px 5.5 RecepUseCases.eps](assets/image5.emf)
 <!-- pptx2marp: image5.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
@@ -275,7 +277,7 @@ However, patients who are suicidal and are a danger to themselves may be admitte
 
 ---
 
-## Sequence diagrams
+# Sequence diagrams
 
 - Sequence diagrams are part of the UML and are used to model the interactions between the actors and the objects within a system.
 - A sequence diagram shows the sequence of interactions that take place during a particular use case or use case instance.
@@ -284,7 +286,7 @@ However, patients who are suicidal and are a danger to themselves may be admitte
 
 ---
 
-## Sequence diagram for View patient information
+# Sequence diagram for View patient information
 
 ![w:868px 5.6 ViewInfo Seq Diag.eps](assets/image6.emf)
 <!-- pptx2marp: image6.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
@@ -297,7 +299,7 @@ If authorized, the patient information is returned and is displayed on a form on
 
 ---
 
-## Sequence diagram for Transfer Data
+# Sequence diagram for Transfer Data
 
 ![w:838px 5.7 Transfer Data.eps](assets/image7.emf)
 <!-- pptx2marp: image7.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
@@ -326,7 +328,7 @@ Unless you are using sequence diagrams for code generation or detailed docu ment
 
 ---
 
-## Structural models
+# Structural models
 
 - Structural models of software display the organization of a system in terms of the components that make up that system and their relationships.
 - Structural models may be static models, which show the structure of the system design, or dynamic models, which show the organization of the system when it is executing.
@@ -334,7 +336,7 @@ Unless you are using sequence diagrams for code generation or detailed docu ment
 
 ---
 
-## Class diagrams
+# Class diagrams
 
 - Class diagrams are used when developing an object-oriented system model to show the classes in a system and the associations between these classes.
 - An object class can be thought of as a general definition of one kind of system object.
@@ -343,7 +345,7 @@ Unless you are using sequence diagrams for code generation or detailed docu ment
 
 ---
 
-## UML classes and association
+# UML classes and association
 
 ![w:744px 5.8 ClassAssoc.eps](assets/image8.emf)
 <!-- pptx2marp: image8.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
@@ -354,7 +356,7 @@ For example, in that Figure is a simple class diagram showing two classes, Patie
 
 ---
 
-## Classes and associations in the MHC-PMS
+# Classes and associations in the MHC-PMS
 
 ![w:935px 5.9 MHCPMS-classes.eps](assets/image9.emf)
 <!-- pptx2marp: image9.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
@@ -367,7 +369,7 @@ At this level of detail, class diagrams look like semantic data models. Semantic
 
 ---
 
-## The Consultation class
+# The Consultation class
 
 ![w:372px 5.10 Consultation Class.eps](assets/image10.emf)
 <!-- pptx2marp: image10.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
@@ -380,11 +382,7 @@ In the example shown in Figure 5.10, it is assumed that doctors record voice not
 
 ---
 
-<!-- pptx2marp: slide 35 has no extractable text or images -->
-
----
-
-## Generalization
+# Generalization
 
 - Generalization is an everyday technique that we use to manage complexity.
 - Rather than learn the detailed characteristics of every entity that we experience, we place these entities in more general classes (animals, cars, houses, etc.) and learn the characteristics of these classes.
@@ -392,7 +390,7 @@ In the example shown in Figure 5.10, it is assumed that doctors record voice not
 
 ---
 
-## Generalization
+# Generalization
 
 - In modeling systems, it is often useful to examine the classes in a system to see if there is scope for generalization. If changes are proposed, then you do not have to look at all classes in the system to see if they are affected by the change.
 - In object-oriented languages, such as Java (C#, C++, Python, etc.), generalization is implemented using the class inheritance mechanisms built into the language.
@@ -401,7 +399,7 @@ In the example shown in Figure 5.10, it is assumed that doctors record voice not
 
 ---
 
-## A generalization hierarchy
+# A generalization hierarchy
 
 ![w:629px 5.11 GeneralizationHierarchy.eps](assets/image11.emf)
 <!-- pptx2marp: image11.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
@@ -411,21 +409,21 @@ In a generalization, the attributes and operations associated with higher-level 
 
 ---
 
-## A generalization hierarchy with added detail
+# A generalization hierarchy with added detail
 
 ![w:641px 5.12 GeneralisationDetail.eps](assets/image12.emf)
 <!-- pptx2marp: image12.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
 ---
 
-## Object class aggregation models
+# Object class aggregation models
 
 - An aggregation model shows how classes that are collections are composed of other classes.
 - Aggregation models are similar to the part-of relationship in semantic data models.
 
 ---
 
-## The aggregation association
+# The aggregation association
 
 ![w:588px 5.13 Aggregation.eps](assets/image13.emf)
 <!-- pptx2marp: image13.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
@@ -434,7 +432,7 @@ In a generalization, the attributes and operations associated with higher-level 
 
 ---
 
-## Data flow diagrams
+# Data flow diagrams
 
 Data-flow diagrams (DFDs) are system models that show a functional perspective where each transformation represents a single function or process. DFDs are used to show how data flows through a sequence of process ing steps. For example, a processing step could be the filtering of duplicate records in a customer database. The data is transformed at each step before moving on to the next stage. These processing steps or transformations represent software processes or functions, where data-flow diagrams are used to document a software design. Activity diagrams in the UML may be used to represent DFDs.
 
@@ -442,11 +440,11 @@ Data-flow diagrams (DFDs) are system models that show a functional perspective w
 
 ---
 
-## Behavioral models
+# Behavioral models
 
 ---
 
-## Behavioral models
+# Behavioral models
 
 - Behavioral models are models of the dynamic behavior of a system as it is executing. They show what happens or what is supposed to happen when a system responds to a stimulus from its environment.
 - You can think of these stimuli as being of two types:
@@ -455,7 +453,7 @@ Data-flow diagrams (DFDs) are system models that show a functional perspective w
 
 ---
 
-## Data-driven modeling
+# Data-driven modeling
 
 - Many business systems are data-processing systems that are primarily driven by data. They are controlled by the data input to the system, with relatively little external event processing.
 - Data-driven models show the sequence of actions involved in processing input data and generating an associated output.
@@ -463,7 +461,7 @@ Data-flow diagrams (DFDs) are system models that show a functional perspective w
 
 ---
 
-## An activity model of the insulin pump’s operation
+# An activity model of the insulin pump’s operation
 
 ![w:1010px 5.14 PumpDFD.eps](assets/image14.emf)
 <!-- pptx2marp: image14.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
@@ -478,7 +476,7 @@ Data-flow diagrams can be represented in the UML using the activity diagram type
 
 ---
 
-## An activity model of the insulin pump’s operation
+# An activity model of the insulin pump’s operation
 
 Key Takeaways:
 
@@ -495,16 +493,16 @@ Data-flow diagrams can be represented in the UML using the activity diagram type
 
 ---
 
-## Order processing
+# Order processing
+
+**UML sequence diagrams**
 
 ![w:1035px 5.15 OrderSeq.eps](assets/image15.emf)
 <!-- pptx2marp: image15.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
 
-- UML sequence diagrams
-
 ---
 
-## Event-driven modeling
+# Event-driven modeling
 
 - Real-time systems are often event-driven, with minimal data processing. For example, a landline phone switching system responds to events such as ‘receiver off hook’ by generating a dial tone.
 - Event-driven modeling shows how a system responds to external and internal events.
@@ -512,7 +510,7 @@ Data-flow diagrams can be represented in the UML using the activity diagram type
 
 ---
 
-## State machine models
+# State machine models
 
 - These model the behaviour of the system in response to external and internal events.
 - They show the system’s responses to stimuli so are often used for modelling real-time systems.
@@ -521,7 +519,7 @@ Data-flow diagrams can be represented in the UML using the activity diagram type
 
 ---
 
-## State diagram of a microwave oven
+# State diagram of a microwave oven
 
 ![w:992px 5.16 MWOvenStateDiag.eps](assets/image16.emf)
 <!-- pptx2marp: image16.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
@@ -543,7 +541,7 @@ This superstate looks like a single state on a high-level model but is then expa
 
 ---
 
-## Microwave oven operation
+# Microwave oven operation
 
 ![w:707px 5.18 Operate-state-mc.eps](assets/image17.emf)
 <!-- pptx2marp: image17.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
@@ -555,7 +553,7 @@ You may use a table to list the states and events that stimulate state transitio
 
 ---
 
-## States and stimuli for the microwave oven (a)
+# States and stimuli for the microwave oven (a)
 
 |**State**|**Description**|
 |---|---|
@@ -582,7 +580,7 @@ You may use a table to list the states and events that stimulate state transitio
 
 ---
 
-## States and stimuli for the microwave oven (a)
+# States and stimuli for the microwave oven (a)
 
 |**State**|**Description**|
 |---|---|
@@ -596,7 +594,7 @@ You may use a table to list the states and events that stimulate state transitio
 
 ---
 
-## States and stimuli for the microwave oven (b)
+# States and stimuli for the microwave oven (b)
 
 |**Stimulus**|**Description**|
 |---|---|
@@ -611,11 +609,11 @@ You may use a table to list the states and events that stimulate state transitio
 
 ---
 
-## Model-driven architecture
+# Model-driven architecture
 
 ---
 
-## Model driven architecture
+# Model driven architecture
 
 - Model-driven architecture (MDA) was the precursor of more general model-driven engineering
 - MDA is a model-focused approach to software design and implementation that uses a subset of UML models to describe a system.
@@ -623,7 +621,7 @@ You may use a table to list the states and events that stimulate state transitio
 
 ---
 
-## but
+# but
 
 *...it is possible, in principle, to generate a working program without manual intervention...*
 
@@ -635,7 +633,7 @@ This means that from a model (e.g., UML, SysML, or another abstract system descr
 
 ---
 
-## Types of model
+# Types of model
 
 - A computation independent model (CIM)
   - These model the important domain abstractions used in a system. CIMs are sometimes called domain models.
@@ -651,7 +649,7 @@ This means that from a model (e.g., UML, SysML, or another abstract system descr
 
 ---
 
-## MDA transformations
+# MDA transformations
 
 ![w:950px 5.19 MDA-Transformations.eps](assets/image18.emf)
 <!-- pptx2marp: image18.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
@@ -661,7 +659,7 @@ The translation of platform-independent to platform-specific models is a simpler
 
 ---
 
-## Multiple platform-specific models
+# Multiple platform-specific models
 
 ![w:996px 5.20 Multiple PSMs.eps](assets/image19.emf)
 <!-- pptx2marp: image19.emf is a EMF file; many browsers cannot render it inline. Re-export from PowerPoint as PNG/SVG if this slide looks blank. -->
@@ -670,7 +668,7 @@ The translation of platform-independent to platform-specific models is a simpler
 
 ---
 
-## Executable UML
+# Executable UML
 
 The fundamental notion behind model-driven engineering is that completely automated transformation of models to code should be possible. To achieve this, you have to be able to construct graphical models with clearly defined meanings that can be compiled to executable code. You also need a way of adding information to graphical models about the ways in which the operations defined in the model are implemented. This is possible using a subset of UML 2, called Executable UML or xUML (Mellor and Balcer 2002).
 
@@ -678,7 +676,7 @@ The fundamental notion behind model-driven engineering is that completely automa
 
 ---
 
-## Agile methods and MDA
+# Agile methods and MDA
 
 - The developers of MDA claim that it is intended to support an iterative approach to development and so can be used within agile methods.
 - The notion of extensive up-front modeling contradicts the fundamental ideas in the agile manifesto and I suspect that few agile developers feel comfortable with model-driven engineering.
@@ -686,7 +684,7 @@ The fundamental notion behind model-driven engineering is that completely automa
 
 ---
 
-## Adoption of MDA
+# Adoption of MDA
 
 - A range of factors has limited the adoption of MDE/MDA
 - Specialized tool support is required to convert models from one level to another
@@ -695,25 +693,25 @@ The fundamental notion behind model-driven engineering is that completely automa
 
 ---
 
-## Adoption of MDA
+# Adoption of MDA
 
 - Models are a good way of facilitating discussions about a software design. Howeverthe abstractions that are useful for discussions may not be the right abstractions for implementation.
 - For most complex systems, implementation is not the major problem – requirements engineering, security and dependability, integration with legacy systems and testing are all more significant.
 
 ---
 
-## Adoption of MDA
+# Adoption of MDA
 
 - The arguments for platform-independence are only valid for large, long-lifetime systems. For software products and information systems, the savings from the use of MDA are likely to be outweighed by the costs of its introduction and tooling.
 - The widespread adoption of agile methods over the same period that MDA was evolving has diverted attention away from model-driven approaches.
 
 ---
 
-## Model-driven engineering
+# Model-driven engineering
 
 ---
 
-## Model-driven engineering
+# Model-driven engineering
 
 - Model-driven engineering (MDE) is an approach to software development where models rather than programs are the principal outputs of the development process.
 - The programs that execute on a hardware/software platform are then generated automatically from the models.
@@ -721,7 +719,7 @@ The fundamental notion behind model-driven engineering is that completely automa
 
 ---
 
-## Usage of model-driven engineering
+# Usage of model-driven engineering
 
 - Model-driven engineering is still at an early stage of development, and it is unclear whether or not it will have a significant effect on software engineering practice.
 - Pros
@@ -733,7 +731,7 @@ The fundamental notion behind model-driven engineering is that completely automa
 
 ---
 
-## Key points
+# Key points
 
 - A model is an abstract view of a system that ignores system details. Complementary system models can be developed to show the system’s context, interactions, structure and behavior.
 - Context models show how a system that is being modeled is positioned in an environment with other systems and processes.
@@ -742,7 +740,7 @@ The fundamental notion behind model-driven engineering is that completely automa
 
 ---
 
-## Key points
+# Key points
 
 - Behavioral models are used to describe the dynamic behavior of an executing system. This behavior can be modeled from the perspective of the data processed by the system, or by the events that stimulate responses from a system.
 - Activity diagrams may be used to model the processing of data, where each activity represents one process step.

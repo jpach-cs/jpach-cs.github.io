@@ -5,6 +5,8 @@ paginate: true
 title: "CSCI 112  Programming with C"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 13
@@ -17,7 +19,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Outline
+# Outline
 
 - Review
 - Sscanf &amp; sprint
@@ -30,16 +32,16 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Bitwise left shift(&lt;&lt;) and right shift(&gt;&gt;)
+# Bitwise left shift(&lt;&lt;) and right shift(&gt;&gt;)
 
-```c
+Result:
+
+```text
 a >> b = 1
 a << b = 16
 
 
 ```
-
-- Result:
 
 ```c
 int main()
@@ -56,7 +58,7 @@ int main()
 
 ---
 
-## Bitwise Left Shift &amp; Right Shift - summary
+# Bitwise Left Shift &amp; Right Shift - summary
 
 - The left shift &lt;&lt; moves all bits in a number to the left by a specified number of positions.→ Each shift left multiplies the value by 2.
 - The right shift &gt;&gt; moves all bits to the right by a specified number of positions.→ Each shift right divides the value by 2 (for unsigned types).
@@ -71,14 +73,16 @@ int main()
 
 ---
 
-## typedef keyword
+# typedef keyword
 
 - C provides a facility called typedef for creating new data type names.
 - typedef can be used with functions and structs etc.
 
 Syntax:
 
-typedef &lt;type&gt; Symbolic\_name
+```c
+typedef <type> Symbolic_name
+```
 
 ```c
 #include <stdio.h>
@@ -105,18 +109,20 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+Result:
+
+```text
 0A
 
 ```
 
-- Result:
-
 ---
 
-## Function pointer
+# Function pointer
 
-- int (\*operation)(int, int);
+```c
+int (*operation)(int, int);
+```
 
 *Function pointers are used to store the memory address of a function. For a function pointer to be correctly used, the signature of the function it points to must exactly match the signature of the pointer itself. This means the return type and the list of arguments (including their types and order) must be identical.*
 
@@ -130,7 +136,7 @@ return-type (*function-name-pointer) (only type of parameter declarations, if an
 
 ---
 
-## Function pointer with typdef
+# Function pointer with typdef
 
 ```c
 #include <stdio.h>
@@ -161,12 +167,12 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Result of addition: 8
 Result of subtraction: 2
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -201,10 +207,12 @@ int main()
 
 ---
 
-## Structures
+# Structures
 
 - Structures are user-defined data types that group together variables of different data types.
 - A structure is a collection of one or more variables, possibly of different types, grouped together under single symbolic\_name for convenient handling.
+
+Syntax:
 
 ```c
 struct symbolic_name1
@@ -213,12 +221,11 @@ struct symbolic_name1
 }<symbolic_name2, ...>;
 ```
 
-- Syntax:
 - Everything that is in angle brackets &lt;&gt; is optional.
 
 ---
 
-## An example
+# An example
 
 ```c
 #include <stdio.h>
@@ -257,7 +264,9 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+Result:
+
+```text
 1
 2
 2
@@ -268,15 +277,11 @@ int main(int argc, char *argv[])
 
 ```
 
-- Result:
-
-```c
-To access members of a structure, we use the dot operator. When accessing a member through a pointer, we must use the dereferencing operator (*) followed by the member access operator (.), enclosed in parentheses: (*symbolic_name).field. Alternatively, we can use the arrow operator (->), which is equivalent to symbolic_name->field.
-```
+To access members of a structure, we use the dot operator. When accessing a member through a pointer, we must use the dereferencing operator (\*) followed by the member access operator (.), enclosed in parentheses: (\*symbolic\_name).field. Alternatively, we can use the arrow operator (-&gt;), which is equivalent to symbolic\_name-&gt;field.
 
 ---
 
-## A summary
+# A summary
 
 - Structures are user-defined data types that group together variables of different data types. They provide a way to create custom data types tailored to specific needs.
 - **Components:** Structures consist of members (or fields), which can be of different data types.
@@ -290,7 +295,7 @@ To access members of a structure, we use the dot operator. When accessing a memb
 
 ---
 
-## typedef &amp; struct
+# typedef &amp; struct
 
 Normally, when we define a struct, we can also declare global variables or pointers immediately after the closing brace:
 
@@ -338,7 +343,7 @@ Point symbolic_name;
 
 ---
 
-## Padding
+# Padding
 
 - **What is padding in structures?**
   - Padding is extra space (or "padding") that a compiler adds to a structure to align its members on specific memory addresses. This alignment is often done to improve memory access performance, especially for data types like integers and floating-point numbers.
@@ -350,7 +355,7 @@ Point symbolic_name;
 
 ---
 
-## An example - padding
+# An example - padding
 
 ```c
 #include <stdio.h>
@@ -384,7 +389,9 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+Result:
+
+```text
 Size of a struct Example is = 12
 Size of a struct Example is = 8
 Struct Example1:
@@ -397,11 +404,9 @@ Address of variable c = 6487822
 Address of variable i = 6487824
 ```
 
-- Result:
-
 ---
 
-## A summary on padding
+# A summary on padding
 
 - Even though memory was scarce when the C language was invented and every byte was precious, processors were even slower. Every machine instruction that could be saved while maintaining program functionality sped up the program. Therefore, the padding mechanism is a compromise between memory efficiency and program speed. Instead of calculating the memory address and saving one byte, it was better to perform a simple shift trick to make the variable addresses multiples of two. This is because, instead of multiplying (which is a relatively expensive operation for a processor), a bitwise shift can be used, which is extremely cheap. Thus, padding allows for an increase in the required space for storing a structure, but significantly speeds up access to structure members.
 - Another important point is that the sizeof() operator does not return the minimum size of the structure, but the actual size after taking into account the padding mechanism. To counteract memory waste, you can change the order of variable declarations in the structure as shown in the example.
@@ -414,7 +419,7 @@ Address of variable i = 6487824
 
 ---
 
-## sprintf
+# sprintf
 
 - What is sprintf?
   - Writing formatted data to a string
@@ -435,16 +440,16 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+Result:
+
+```text
 I am 30 years old.
 
 ```
 
-- Result:
-
 ---
 
-## sscanf
+# sscanf
 
 - What is sscanf?
   - Reading formatted data from a string
@@ -465,16 +470,16 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+Result:
+
+```text
 30
 
 ```
 
-- Result:
-
 ---
 
-## gets, puts
+# gets, puts
 
 - puts():
   - This function writes a string followed by a newline to stdout.
@@ -503,18 +508,18 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Please enter your name:
 Jacob
 Hello,
 Jacob
 ```
 
-- Result:
-
 ---
 
-## Result of ...sscanf
+# Result of ...sscanf
 
 - Return value:
   - Number of successfully assigned values:
@@ -540,20 +545,22 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+Result:
+
+```text
 30
 
 ```
 
-- Result:
+---
+
+# Summary
+
+While sprintf and printf are very useful for formatting text, they suffer from a significant drawback: they lack built-in safeguards against buffer overflows. This is because the representation of data, particularly for floating-point numbers %f and integers %d, can be longer with formatting than the allocated memory buffer. Consequently, it's crucial to implement precise formatting for all elements (e.g., %s, %d, %f) to accurately calculate the required character count and ensure that the data fits within the allocated array.
 
 ---
 
-## Summary While sprintf and printf are very useful for formatting text, they suffer from a significant drawback: they lack built-in safeguards against buffer overflows. This is because the representation of data, particularly for floating-point numbers %f and integers %d, can be longer with formatting than the allocated memory buffer. Consequently, it's crucial to implement precise formatting for all elements (e.g., %s, %d, %f) to accurately calculate the required character count and ensure that the data fits within the allocated array.
-
----
-
-## Summary
+# Summary
 
 Conclusion: While sprintf and printf are powerful tools for parsing formatted input, they pose a significant risk of buffer overflows if not used carefully. These functions do not inherently enforce bounds checking, meaning that if the input data is larger than the allocated buffer, it can overwrite adjacent memory locations, leading to unpredictable behavior and potential security vulnerabilities. To mitigate this risk, it's essential to:
 
@@ -566,7 +573,7 @@ Conclusion: While sprintf and printf are powerful tools for parsing formatted in
 
 ---
 
-## What are Unit Tests
+# What are Unit Tests
 
 Unit tests are automated checks of small parts of a program (such as functions or procedures) to verify that they work correctly. The idea is to test whether a given function returns the correct result for specific input values.
 
@@ -577,7 +584,7 @@ Unit tests are automated checks of small parts of a program (such as functions o
 
 ---
 
-## Introduction to Unity Test in C
+# Introduction to Unity Test in C
 
 When we write programs, we need a way to check if our code works correctly. There are two common tools for this in C:
 
@@ -586,7 +593,7 @@ When we write programs, we need a way to check if our code works correctly. Ther
 
 ---
 
-## What is an assert?
+# What is an assert?
 
 - Assert() is a built-in tool in C. (#include &lt;assert.h&gt;)
 - It is mainly used by the programmer while writing code to check if assumptions are correct.
@@ -604,7 +611,7 @@ int divide(int a, int b)
 
 ---
 
-## Word – 'assert'
+# Word – 'assert'
 
 - In structurally or imperatively oriented programming, function names are typically nouns — for example, sum(), pow(), or strlen().
 - In object-oriented programming, we create instances of objects represented by nouns, but the methods invoked on those objects are usually verbs, describing actions performed on the instance — for example, trash.clean().
@@ -612,24 +619,27 @@ int divide(int a, int b)
 
 Conceptually, it’s as if the programmer is saying: “I assert that x equals 1”
 
+```c
 assert(x==1);
+```
 
 ---
 
-## Word – 'assert'
+# Word – 'assert'
 
 - The original intent behind assert() was to allow developers to write code like:
 
+```c
 sum(a, b);
-
-assert(a &gt; 0);
+assert(a > 0);
+```
 
 - These statements were meant to halt program execution if the condition was not met. In short, they served as additional safeguards to help speed up debugging.
 - Over time, **most programming languages adopted dedicated unit testing frameworks** — even C, thanks to the Unity library. Unity was designed with **a plan-driven** approach in mind, enabling developers to write tests before implementing the actual code.
 
 ---
 
-## Exit code / return code / status code
+# Exit code / return code / status code
 
 - The program returned exit code 0, which means it ran successfully.
 - A non-zero exit code usually indicates an error or failure.
@@ -641,7 +651,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+```console
 C:>main.exe
 C:>echo $LASTEXITCODE
 0
@@ -650,7 +660,7 @@ C:>
 
 ---
 
-## What is Unity Test?
+# What is Unity Test?
 
 - Unity Test is a unit testing framework for C.
 - It allows us to test functions in a safe and controlled way.
@@ -668,14 +678,14 @@ void test_addition(void)
 
 ---
 
-## The difference: assert vs. Unity Test
+# The difference: assert vs. Unity Test
 
 - Assert() → for the programmer, during development, to catch bugs early.
 - Unity Test → for systematic testing of finished functions, with clear reports.
 
 ---
 
-## Error handling in C
+# Error handling in C
 
 - C has no exceptions (like in Java or Python).
 - Instead, functions use special return values to signal errors:
@@ -699,7 +709,7 @@ int findElement(int arr[], int size, int target)
 
 ---
 
-## Summary
+# Summary
 
 - Use assert inside your code while developing → catches programmer mistakes early.
 - Use Unity Test to run proper unit tests on your functions.
@@ -707,7 +717,7 @@ int findElement(int arr[], int size, int target)
 
 ---
 
-## Introduction to Unity Test Framework in C
+# Introduction to Unity Test Framework in C
 
 Unity is a lightweight testing framework for the C language. It allows us to write **unit tests** that check whether our functions work as expected.
 
@@ -719,7 +729,7 @@ When using Unity, every test file usually has three important parts:
 
 ---
 
-## Common Unity Assertions
+# Common Unity Assertions
 
 Assertions are the heart of testing. They compare the expected result with the actual result and tell us if the test passed or failed. Some of the most common are:
 
@@ -738,7 +748,7 @@ Assertions are the heart of testing. They compare the expected result with the a
 
 ---
 
-## Common Unity Assertions
+# Common Unity Assertions
 
 - TEST\_ASSERT\_EQUAL(expected, actual)
   - – check if two integers are the same.
@@ -749,7 +759,7 @@ Assertions are the heart of testing. They compare the expected result with the a
 
 ---
 
-## Common Unity Assertions
+# Common Unity Assertions
 
 - TEST\_ASSERT\_FLOAT\_WITHIN(delta, expected, actual)
   - – check if two floating-point numbers are equal within a tolerance.
@@ -760,7 +770,7 @@ Assertions are the heart of testing. They compare the expected result with the a
 
 ---
 
-## Understanding setUp() and tearDown()
+# Understanding setUp() and tearDown()
 
 In Unity, the function setUp() is always called before each test. You use it to prepare the environment: initialize variables, reset arrays, or allocate memory.
 
@@ -781,7 +791,7 @@ This makes every test independent, safe, and repeatable.
 
 ---
 
-## Debugging
+# Debugging
 
 - Debugging is an integral part of programming, and understanding its fundamental principles will significantly speed up your software development process. While different development environments may have varying keyboard shortcuts or interfaces, the core concepts of debugging remain universal.
 - Basic debugging principles:
@@ -793,7 +803,7 @@ This makes every test independent, safe, and repeatable.
 
 ---
 
-## Debugging
+# Debugging
 
 - Inspecting variables:
   - While debugging, you can observe the values of variables, which helps quickly identify logical errors.
@@ -806,9 +816,9 @@ This makes every test independent, safe, and repeatable.
 
 ---
 
-## Visual Studio / Visual Studio Code
+# Visual Studio / Visual Studio Code
 
-- Debug actions
+Debug actions
 
 |**Action**|**Explanation**|
 |---|---|
@@ -822,7 +832,7 @@ This makes every test independent, safe, and repeatable.
 
 ---
 
-## Visual Studio / Visual Studio Code
+# Visual Studio / Visual Studio Code
 
 ![w:757px Debugging diagram](assets/image5.png)
 
@@ -830,27 +840,27 @@ This makes every test independent, safe, and repeatable.
 
 ---
 
-## Visual Studio / Visual Studio Code
+# Visual Studio / Visual Studio Code
+
+Breakpoints
 
 ![w:825px breakpoints in overview ruler](assets/image7.png)
 
-- Breakpoints
-
 ---
 
-## Visual Studio / Visual Studio Code
+# Visual Studio / Visual Studio Code
+
+Variables
 
 ![w:429px Debug Variables](assets/image8.png)
 
 ![w:422px Debug Watch](assets/image9.png)
 
-- Variables
-
 ---
 
-## Visual Studio / Visual Studio Code
+# Visual Studio / Visual Studio Code
 
-- Call stack
+Call stack
 
 ![w:737px Picture 5](assets/image10.png)
 

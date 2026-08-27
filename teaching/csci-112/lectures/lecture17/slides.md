@@ -5,6 +5,8 @@ paginate: true
 title: "CSCI 112  Programming with C"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 17
@@ -17,7 +19,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Outline
+# Outline
 
 - Review
 - Standard C Library Overview
@@ -30,9 +32,9 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Opening and closing files
+# Opening and closing files
 
-```c
+```text
 Function: fopen()
 Syntax:
 	FILE *fopen(const char *filename, const char *mode);
@@ -50,7 +52,7 @@ Always check if fclose() returned NULL, indicating failure (e.g., file not found
 
 ---
 
-## const char \*filename
+# const char \*filename
 
 - The const char \*filename argument in the fopen() function can specify three types of file locations:
 - File Name Only:
@@ -66,7 +68,9 @@ Always check if fclose() returned NULL, indicating failure (e.g., file not found
 
 ---
 
-## File Access Modes in C
+# File Access Modes in C
+
+**Access Modes:**
 
 |Mode|Description|
 |---|---|
@@ -76,21 +80,20 @@ Always check if fclose() returned NULL, indicating failure (e.g., file not found
 |x|Creates the file if it does not already exist. Fails if the file already exists.|
 |+|Combined with r, w, a, or x, allows both reading and writing.|
 
+**File Types:**
+
 |Type Modifier|Description|
 |---|---|
 |t|Text mode (default). Treats file as a sequence of characters.|
 |b|Binary mode. Treats file as a sequence of bytes with no translation.|
 
-- Access Modes:
-- File Types:
-
 <!-- najpierw on bibliotece i EOF i ile wynosi ( stala symboliczna i wartosc wynosi -1 -->
 
 ---
 
-## Binary File I/O Functions
+# Binary File I/O Functions
 
-```c
+```text
 For reading blocks of binary data.
 Syntax:
 int fread(void *ptr, int size, int count, FILE *stream);
@@ -109,7 +112,7 @@ stream:    File pointer to the open file where data should be written(read).
 
 ---
 
-## An example – Binary file
+# An example – Binary file
 
 ```c
 #include <stdio.h>
@@ -135,21 +138,17 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+**binaryFile.bin:**
+
+```text
    Some text ĂőH@
-
 ```
 
-```c
-binaryFile.bin:
-```
+**Result:**
 
-```c
+```text
 15 Some text 3.140000
-
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -180,9 +179,9 @@ int main(int argc, char *argv[])
 
 ---
 
-## fseek() function
+# fseek() function
 
-```c
+```text
 The function fseek() moves the file pointer to a specified location, allowing you to read from or write to a specific part of the file.
 Syntax:
 int fseek(FILE *stream, long offset, int origin);
@@ -202,22 +201,24 @@ SEEK\_END:     Start from the end of the file(2).
 
 ---
 
-## ftell() and rewind() functions
+# ftell() and rewind() functions
 
-```c
+```text
 The function ftell() returns the current file position as a long integer. If an error occurs, it returns -1.
 Syntax:
 long ftell(FILE *stream);
 ```
 
 - Unlike fseek() and ftell(), rewind() is simpler to use and is intended to reset the file pointer to the beginning of the file.
-- Syntax:
+**Syntax:**
 
-void rewind(FILE \*stream);
+```c
+void rewind(FILE *stream);
+```
 
 ---
 
-## 1 example – fseek()
+# 1 example – fseek()
 
 ```c
 #include <stdio.h>
@@ -246,18 +247,17 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+**Result:**
+
+```text
 Position after fseek: 5
 Position after another fseek: 15
 Position at the end of file: 18
-
 ```
-
-- Result:
 
 ---
 
-## 2 example – fseek(), ftell()
+# 2 example – fseek(), ftell()
 
 ```c
 #include <stdio.h>
@@ -296,7 +296,9 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+**Result:**
+
+```text
 The position in file = 0
 The position in file = 4
 The position in file = 14
@@ -304,16 +306,13 @@ The position in file = 18
 5 Some text 3.140000
 Position after fseek(): 0
 5
-
 ```
-
-- Result:
 
 ---
 
-## Text File I/O Functions
+# Text File I/O Functions
 
-```c
+```text
 For reading text from file:
 fgetc():	Reads a single character from a file.
 fgets():	Reads a line from a file.
@@ -326,9 +325,9 @@ fprintf():	Prints formatted output to a file (similar to printf()).
 
 ---
 
-## Reading Text from a file
+# Reading Text from a file
 
-```c
+```text
 int fgetc(FILE *stream)
 Description:	Reads a single character from the specified file stream.
 Return Type:	Returns the character read as an unsigned char cast to an int, or EOF on end of file or error.
@@ -345,9 +344,9 @@ Example: 	int read_count = fscanf(file_pointer, "%d %f", &int_var, &float_var);
 
 ---
 
-## Writing Text to a file
+# Writing Text to a file
 
-```c
+```text
 int fputc(int char, FILE *stream)
 Description:	Writes a single character to the specified file stream.
 Return Type:	Returns the written character as an unsigned char cast to an int, or EOF on error.
@@ -360,7 +359,6 @@ int fprintf(FILE *stream, const char *format, ...)
 Description:	Writes formatted output to the specified file stream, similar to printf().
 Return Type:	Returns the number of characters written, or a negative value if an error occurs.
 Example: 	int chars_written = fprintf(file_pointer, "Integer: %d, Float: %f\n", int_var, float_var);
-
 ```
 
 ---
@@ -369,7 +367,7 @@ Example: 	int chars_written = fprintf(file_pointer, "Integer: %d, Float: %f\n", 
 
 ---
 
-## Creating and Linking Nodes
+# Creating and Linking Nodes
 
 Through xPtr, we can modify x itself, for example:
 
@@ -384,7 +382,9 @@ int x = 5;
 int *xPtr = &x;   // xPtr does not create a new variable; it only points to x
 ```
 
-\*xPtr = 2;
+```c
+*xPtr = 2;
+```
 
 ```c
 Node node_1;
@@ -411,7 +411,7 @@ typedef struct
 
 ---
 
-## Traversing the List
+# Traversing the List
 
 Now we can move through the list using the pointer headPtr and read the elements just like we did with an array. For an array, we might do:
 
@@ -430,7 +430,7 @@ for (Node *current = headPtr; current != NULL; current = current->nextPtr)
 
 ---
 
-## What Happens in the Loop
+# What Happens in the Loop
 
 - Let’s explain what happens here:
 - We start by assigning the first element to current.
@@ -439,14 +439,14 @@ for (Node *current = headPtr; current != NULL; current = current->nextPtr)
 - The last element of the list has its nextPtr set to NULL, so when we reach it, the condition fails and the loop stops.
 - We must use the **arrow operator (-&gt;)** instead of the dot (.) because we are accessing fields of a structure **through a pointer**. For example, these are equivalent:
 
-```c
+```text
 current->value
 (*current).value
 ```
 
 ---
 
-## Why We Use current Instead of headPtr
+# Why We Use current Instead of headPtr
 
 - *Why didn’t we use headPtr directly in the loop?*
 - Because if we overwrite headPtr, we lose access to the previous elements. That’s why headPtr is usually reserved as a reference to the head of the list, used primarily for reading or accessing the start of the list.
@@ -454,7 +454,7 @@ current->value
 
 ---
 
-## Stack vs Heap
+# Stack vs Heap
 
 - So far, we created our elements on the stack. However, later, when we learn about dynamic memory allocation using malloc() and free(), we will create lists on the heap instead of the stack so that their elements can persist even after the function that created them ends.
 - The headPtr always points to the beginning of the list, so we never modify it inside the loop — otherwise, we would lose the list entirely. Instead, we use its copy (current) to move through the elements safely.
@@ -465,7 +465,7 @@ current->value
 
 ---
 
-## Standard C Library Overview
+# Standard C Library Overview
 
 - Character Classification and Conversion (&lt;ctype.h&gt;)
 - String Handling (&lt;string.h&gt;)
@@ -484,7 +484,9 @@ current->value
 
 ---
 
-## 1. Character Classification and Conversion (&lt;ctype.h&gt;) Used for testing and converting characters.
+# 1. Character Classification and Conversion (&lt;ctype.h&gt;)
+
+Used for testing and converting characters.
 
 |Function|Description|Example|
 |---|---|---|
@@ -502,26 +504,17 @@ current->value
 
 ---
 
-## isalpha() – Checks if the character is a letter
+# isalpha() – Checks if the character is a letter
 
-```c
+```text
 Header: <ctype.h>
-
-
-
-
-
-
-
-
 ```
 
-```c
+**Result:**
+
+```text
 A is a letter.
-
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -538,26 +531,17 @@ int main(void)
 
 ---
 
-## isdigit() – Checks if the character is a digit
+# isdigit() – Checks if the character is a digit
 
-```c
+```text
 Header: <ctype.h>
-
-
-
-
-
-
-
-
 ```
 
-```c
+**Result:**
+
+```text
 7 is a digit.
-
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -574,26 +558,17 @@ int main(void)
 
 ---
 
-## isalnum() – Checks if the character is alphanumeric
+# isalnum() – Checks if the character is alphanumeric
 
-```c
+```text
 Header: <ctype.h>
-
-
-
-
-
-
-
-
 ```
 
-```c
+**Result:**
+
+```text
 x is alphanumeric.
-
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -610,26 +585,17 @@ int main(void)
 
 ---
 
-## iscntrl() – Checks if the character is a control character
+# iscntrl() – Checks if the character is a control character
 
-```c
+```text
 Header: <ctype.h>
-
-
-
-
-
-
-
-
 ```
 
-```c
+**Result:**
+
+```text
 This is a control character.
-
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -648,26 +614,17 @@ int main(void)
 
 ---
 
-## islower() – Checks if the character is lowercase (a–z)
+# islower() – Checks if the character is lowercase (a–z)
 
-```c
+```text
 Header: <ctype.h>
-
-
-
-
-
-
-
-
 ```
 
-```c
+**Result:**
+
+```text
 g is lowercase.
-
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -684,26 +641,17 @@ int main(void)
 
 ---
 
-## isupper() – Checks if the character is uppercase (A–Z)
+# isupper() – Checks if the character is uppercase (A–Z)
 
-```c
+```text
 Header: <ctype.h>
-
-
-
-
-
-
-
-
 ```
 
-```c
+**Result:**
+
+```text
 M is uppercase.
-
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -720,26 +668,17 @@ int main(void)
 
 ---
 
-## isspace() – Checks if the character is a whitespace
+# isspace() – Checks if the character is a whitespace
 
-```c
+```text
 Header: <ctype.h>
-
-
-
-
-
-
-
-
 ```
 
-```c
+**Result:**
+
+```text
 Whitespace detected.
-
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -758,7 +697,7 @@ int main(void)
 
 ---
 
-## isprint() - Checks if the character is printable
+# isprint() - Checks if the character is printable
 
 ```c
 int x = 5;
@@ -769,40 +708,31 @@ printf("%d %d %d %d\n",oneByte[0], oneByte[1], oneByte[2], oneByte[3] );
 printf("%d\n",  isprint( oneByte[0]) );
 printf("%d\n",  isprint( oneByte[1]) ); //97 = 'a'
 getchar();
-
 ```
 
-```c
+**Result:**
+
+```text
 5 97 0 0
 0
 2
 ```
 
-- Result:
 - (not a control character).
 
 ---
 
-## ispunct() – Checks if the character is a punctuation mark
+# ispunct() – Checks if the character is a punctuation mark
 
-```c
+```text
 Header: <ctype.h>
-
-
-
-
-
-
-
-
 ```
 
-```c
+**Result:**
+
+```text
 ? is punctuation.
-
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -821,26 +751,17 @@ int main(void)
 
 ---
 
-## tolower() – Converts a letter to lowercase (if possible)
+# tolower() – Converts a letter to lowercase (if possible)
 
-```c
+```text
 Header: <ctype.h>
-
-
-
-
-
-
-
-
 ```
 
-```c
+**Result:**
+
+```text
 Lowercase: g.
-
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -856,26 +777,17 @@ int main(void)
 
 ---
 
-## toupper() – Converts a letter to uppercase (if possible)
+# toupper() – Converts a letter to uppercase (if possible)
 
-```c
+```text
 Header: <ctype.h>
-
-
-
-
-
-
-
-
 ```
 
-```c
+**Result:**
+
+```text
 Uppercase: M
-
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -891,16 +803,20 @@ int main(void)
 
 ---
 
-## Mini practical example Header: &lt;ctype.h&gt;
+# Mini practical example
 
-```c
+```text
+Header: <ctype.h>
+```
+
+**Result:**
+
+```text
 Letters: 10
 Digits: 3
 Spaces: 2
 Punctuation: 2
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -924,7 +840,7 @@ int main(void)
 
 ---
 
-## caesarCipher() + ctype.h
+# caesarCipher() + ctype.h
 
 ```c
 int caesarCipher(char input_text[], int shift)
@@ -982,7 +898,9 @@ int caesarCipher2(char input_text[], int shift)
 
 ---
 
-## 2. String Handling (&lt;string.h&gt;) Used for manipulating null-terminated character arrays.
+# 2. String Handling (&lt;string.h&gt;)
+
+Used for manipulating null-terminated character arrays.
 
 |Function|Description|Example|
 |---|---|---|
@@ -999,17 +917,17 @@ int caesarCipher2(char input_text[], int shift)
 
 ---
 
-## strcpy() – copy a string
+# strcpy() – copy a string
 
 - **Header:** &lt;string.h&gt;
 - Use: copies the entire string including '\0’
 - Caution: No bounds checking — make sure the destination is large enough.
 
-```c
+**Result:**
+
+```text
 Copied string: Hello, world!
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -1027,17 +945,17 @@ int main(void)
 
 ---
 
-## strncpy() – copy with length limit
+# strncpy() – copy with length limit
 
 - **Header:** &lt;string.h&gt;
 - Use: safer version of strcpy(),
 - You must add the null terminator manually.
 
-```c
+**Result:**
+
+```text
 Copied safely: This is a
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -1056,16 +974,16 @@ int main(void)
 
 ---
 
-## strcmp() – compare strings
+# strcmp() – compare strings
 
 - **Header:** &lt;string.h&gt;
 - **Use:** appends one string to another (requires enough space)
 
-```c
+**Result:**
+
+```text
 Result: Hello, world!
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -1082,16 +1000,16 @@ int main(void)
 
 ---
 
-## strcmp() – compare strings
+# strcmp() – compare strings
 
 - **Header:** &lt;string.h&gt;
 - **Use:** returns 0 if equal, negative/positive if lexicographically smaller/larger.
 
-```c
+**Result:**
+
+```text
 Passwords match!
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -1111,12 +1029,16 @@ int main(void)
 
 ---
 
-## strlen() – get string length
+# strlen() – get string length
 
 - **Header:** &lt;string.h&gt;
 - **Use:** returns the number of visible characters (not counting '\0').
-- Length: 12
-- Result:
+
+**Result:**
+
+```text
+Length: 12
+```
 
 ```c
 #include <stdio.h>
@@ -1132,17 +1054,17 @@ int main(void)
 
 ---
 
-## strchr() and strrchr() – find a character in a string
+# strchr() and strrchr() – find a character in a string
 
 - **Header:** &lt;string.h&gt;
 - strchr(str, c) → finds first occurrence
 - strrchr(str, c) → finds last occurrence
 
-```c
+**Result:**
+
+```text
 File extension: docx
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -1162,16 +1084,16 @@ int main(void)
 
 ---
 
-## strstr() – find substring
+# strstr() – find substring
 
 - **Header:** &lt;string.h&gt;
 - **Use:** returns pointer to first occurrence of substring or NULL if not found.
 
-```c
+**Result:**
+
+```text
 Found substring: Montana Tech!
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -1191,19 +1113,19 @@ int main(void)
 
 ---
 
-## strtok() – split string into tokens
+# strtok() – split string into tokens
 
 - **Header:** &lt;string.h&gt;
 - Use: splits a string using delimiters
 - Caution: modifies the original string and uses internal static memory — not thread-safe..
 
-```c
+**Result:**
+
+```text
 Token: apple
 Token: banana
 Token: orange
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -1227,7 +1149,7 @@ It *does* look like “magic” in procedural C, because it’s **one of the few
 
 ---
 
-## A simplified version (conceptually) looks something like this
+# A simplified version (conceptually) looks something like this
 
 ```c
 char *strtok(char *str, const char *delim)
@@ -1255,25 +1177,29 @@ char *strtok(char *str, const char *delim)
 
 ---
 
-## A simplified version (conceptually) looks something like this
+# A simplified version (conceptually) looks something like this
 
 **What this means**
 
 The first call:
 
+```c
 strtok(text, ",");
+```
 
 — sets context to the beginning of the text.
 
 The following call:
 
+```c
 strtok(NULL, ",");
+```
 
 — uses the **last remembered position in context** as the new starting point.
 
 ---
 
-## A simplified version (conceptually) looks something like this
+# A simplified version (conceptually) looks something like this
 
 **Limitations**
 
@@ -1298,7 +1224,9 @@ strtok(NULL, ",");
 
 ---
 
-## 3. Memory Handling (&lt;string.h&gt;) Used for working with raw memory blocks.
+# 3. Memory Handling (&lt;string.h&gt;)
+
+Used for working with raw memory blocks.
 
 |Function|Description|Example|
 |---|---|---|
@@ -1310,7 +1238,9 @@ strtok(NULL, ",");
 
 ---
 
-## 4. Input / Output Functions (&lt;stdio.h&gt;) Work with files and streams.
+# 4. Input / Output Functions (&lt;stdio.h&gt;)
+
+Work with files and streams.
 
 |Function|Description|Example|
 |---|---|---|
@@ -1334,7 +1264,9 @@ strtok(NULL, ",");
 
 ---
 
-## 5. Conversion Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
+# 5. Conversion Functions (&lt;stdlib.h&gt;)
+
+Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -1347,7 +1279,9 @@ strtok(NULL, ",");
 
 ---
 
-## 6. Math Functions (&lt;math.h&gt;) Convert strings to numbers.
+# 6. Math Functions (&lt;math.h&gt;)
+
+Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -1363,7 +1297,9 @@ strtok(NULL, ",");
 
 ---
 
-## 7. Utility Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
+# 7. Utility Functions (&lt;stdlib.h&gt;)
+
+Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -1379,7 +1315,9 @@ strtok(NULL, ",");
 
 ---
 
-## 8. Diagnostics and Assertions (&lt;assert.h&gt;) Useful for debugging and safety.
+# 8. Diagnostics and Assertions (&lt;assert.h&gt;)
+
+Useful for debugging and safety.
 
 |Function / Macro|Description|Example|
 |---|---|---|
@@ -1388,7 +1326,9 @@ strtok(NULL, ",");
 
 ---
 
-## 9. Time and Date Functions (&lt;time.h&gt;) Work with clocks and timestamps.
+# 9. Time and Date Functions (&lt;time.h&gt;)
+
+Work with clocks and timestamps.
 
 |Function|Description|Example|
 |---|---|---|
@@ -1403,7 +1343,9 @@ strtok(NULL, ",");
 
 ---
 
-## 10. Variable Argument Lists (&lt;stdarg.h&gt;) For functions that accept a variable number of parameters.
+# 10. Variable Argument Lists (&lt;stdarg.h&gt;)
+
+For functions that accept a variable number of parameters.
 
 |Macro|Description|Example|
 |---|---|---|
@@ -1413,7 +1355,9 @@ strtok(NULL, ",");
 
 ---
 
-## 1. Character Classification and Conversion (&lt;ctype.h&gt;) Used for testing and converting characters.
+# 1. Character Classification and Conversion (&lt;ctype.h&gt;)
+
+Used for testing and converting characters.
 
 |Function|Description|Example|
 |---|---|---|
@@ -1431,7 +1375,9 @@ strtok(NULL, ",");
 
 ---
 
-## Most Common System Libraries in Windows (WinAPI) These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
+# Most Common System Libraries in Windows (WinAPI)
+
+These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
 
 |Library|Description|Typical Functions|
 |---|---|---|

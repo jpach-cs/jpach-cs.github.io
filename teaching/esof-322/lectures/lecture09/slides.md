@@ -5,13 +5,15 @@ paginate: true
 title: "Software Engineering"
 ---
 
+<!-- _class: lead -->
+
 # Software Engineering
 
-*Lecture 9*
+## Lecture 9
 
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 GitHub
 
@@ -32,7 +34,7 @@ GitHub
 
 ---
 
-## What is GitHub?
+# What is GitHub?
 
 - A **cloud-based platform** for hosting Git repositories.
 - Provides **collaboration tools**: pull requests, issues, code review.
@@ -41,7 +43,7 @@ GitHub
 
 ---
 
-## Git vs GitHub
+# Git vs GitHub
 
 - **Git** = version control system (local).
 - **GitHub** = remote hosting + collaboration features.
@@ -49,7 +51,7 @@ GitHub
 
 ---
 
-## GitHub Authentication Methods
+# GitHub Authentication Methods
 
 - **HTTPS**:
   - Login with **username + password** (deprecated for push).
@@ -60,7 +62,7 @@ GitHub
 
 ---
 
-## Authentication: University vs. Home PCs
+# Authentication: University vs. Home PCs
 
 **On University Computers**
 
@@ -77,7 +79,7 @@ GitHub
 
 ---
 
-## GitHub Generating SSH Keys
+# GitHub Generating SSH Keys
 
 <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>
 
@@ -86,13 +88,13 @@ GitHub
 - Add the public key to GitHub:
   - **Settings → SSH and GPG keys → New SSH key**.
 
-```
+```bash
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 
 ---
 
-## Adding an SSH Key to GitHub
+# Adding an SSH Key to GitHub
 
 - **Log in** to your GitHub account.
 - Click your **profile icon** (top-right corner).
@@ -106,19 +108,19 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 
 ---
 
-## Adding your SSH key to the ssh-agent
+# Adding your SSH key to the ssh-agent
 
 - Adding your SSH key to the ssh-agent
 
+```powershell
 Get-Service -Name ssh-agent | Set-Service -StartupType Manual
-
 Start-Service ssh-agent
-
-ssh-add c:/Users/YOU/.ssh/id\_ed25519
+ssh-add c:/Users/YOU/.ssh/id_ed25519
+```
 
 ---
 
-## GitHub SSH Adding Multiple Devices
+# GitHub SSH Adding Multiple Devices
 
 - Each device should have its **own SSH key**.
 - Add each key separately in GitHub settings.
@@ -126,7 +128,7 @@ ssh-add c:/Users/YOU/.ssh/id\_ed25519
 
 ---
 
-## How to Create a New Repository on GitHub
+# How to Create a New Repository on GitHub
 
 - **Log in** to your GitHub account.
 - Click the **"+" icon** in the top-right corner.
@@ -143,7 +145,7 @@ ssh-add c:/Users/YOU/.ssh/id\_ed25519
 
 ---
 
-## From master to main – Why the Change?
+# From master to main – Why the Change?
 
 **Background:**
 
@@ -160,12 +162,12 @@ ssh-add c:/Users/YOU/.ssh/id\_ed25519
 - When creating new repositories on GitHub, the default branch will be **main**.
 - If your local repo still uses **master**, you can rename it:
 
-```
+```bash
 git branch -m master main
 ```
 
 ---
 
-# Thank
+<!-- _class: caption-slide -->
 
-*You!*
+# Thank You!

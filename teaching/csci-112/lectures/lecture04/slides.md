@@ -5,6 +5,8 @@ paginate: true
 title: "CSCI 112  Programming with C"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 4
@@ -17,7 +19,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Outline
+# Outline
 
 - Review
 - Boolean algebra
@@ -33,7 +35,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Operators
+# Operators
 
 - Operators specify what is to be done to variables (also pointers or labels)
 - Operators can be:
@@ -55,14 +57,14 @@ int main()
 
 ---
 
-## Basics of mathematics
+# Basics of mathematics
 
 - Another important point is the division operator /. When used with integers, it performs integer division, meaning that 5 / 3 results in 1. If at least one operand is a floating-point number, the division produces a floating-point result, so 5 / 3 evaluates to approximately 1.6666.
 - Finally, there is the modulo operator %, which returns the remainder of integer division. For example, 5 % 2 equals 1.
 
 ---
 
-## Example - division
+# Example - division
 
 ```c
 // Declarations
@@ -91,7 +93,9 @@ printf("\nFloat / Float:\n");
 printf("a / b = %f\n", a / b); // normal float division
 ```
 
-```c
+Result:
+
+```text
 Integers:
 x = 5
 y = 3
@@ -112,11 +116,9 @@ Float / Float:
 a / b = 1.666667
 ```
 
-- Result:
-
 ---
 
-## Increment (++) &amp; decrement (--) operator &amp; Assignment by sum
+# Increment (++) & decrement (--) operator & Assignment by sum
 
 - Prefix increment ++ and decrement -- operators increase (decrease) the operand's value first, then use the new value.
 - Postfix increment ++ and decrement -- operators use the operand's current value first, then increase (decrease) the operand's value.
@@ -168,7 +170,7 @@ int main()
 
 ---
 
-## Relational &amp; logical operators <br>&lt;, &lt;=, &gt;, &gt;=, ==, !=, &amp;&amp;, ||
+# Relational & logical operators <br>&lt;, &lt;=, &gt;, &gt;=, ==, !=, &&, ||
 
 - Relational and logical operators return 1 for a true condition and 0 for a false condition. The result type of these operators is int (integer).
 - In if and while statements, the C language considers the logical value of the conditional expression. This means that any value other than 0 (including positive, negative, characters, pointers, etc.) will be treated as true, while the value 0 will be treated as false.
@@ -189,18 +191,16 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 0
 1
-
-
 ```
-
-- Result:
 
 ---
 
-## Null / empty statement
+# Null / empty statement
 
 - A single semicolon ; in C language is a statement called a null statement or empty statement.
 - A semicolons ; are used to terminate statements
@@ -218,7 +218,7 @@ int main()
 
 ---
 
-## Block &amp; complex(compound) statements
+# Block & complex(compound) statements
 
 - Block can be:
   - substitute for simple statement,
@@ -237,7 +237,7 @@ Przypisanie jest rownoczesnie statement I -->
 
 ---
 
-## Blocks &amp; complex(compound) statements
+# Blocks & complex(compound) statements
 
 ```c
 int main()
@@ -256,18 +256,18 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Hello world
 Bye world
 Aloha world
 Hello world
 ```
 
-- Result:
-
 ---
 
-## Statement &amp; expression
+# Statement & expression
 
 - A **statement** can modify the state of a program, such as assigning a value to a variable, calling a function, or jumping to a different part of the code.
 - Statements do not produce a value on their own.
@@ -276,7 +276,7 @@ Hello world
 
 ---
 
-## Consequences
+# Consequences
 
 |Priority / Operator||Expression|Statement|
 |---|---|---|---|
@@ -285,22 +285,22 @@ Hello world
 ||-&gt;|√|×|
 |2|++, --|√|√|
 ||+, -, !, ~ (unary)|√|×|
-||\*, &amp; , &amp;&amp;  (unary)|√|×|
+||\*, & , &&  (unary)|√|×|
 ||(type), sizeof|√|×|
 |3|\*, /, %|√|×|
 |4|+, -|√|×|
 |5|&lt;&lt;,  &gt;&gt;|√|×|
 |6|&lt;, &lt;=, &gt;, &gt;=|√|×|
 |7|==, !=|√|×|
-|8|&amp;|√|×|
+|8|&|√|×|
 |9|^|√|×|
 |10|\||√|×|
-|11|&amp;&amp;|√|×|
+|11|&&|√|×|
 |12|\|\||√|×|
 |13|?:|√|×|
 |14|=|√|√|
 ||+=, -=, \*=, /=, %=|√|√|
-||&lt;&lt;=, &gt;&gt;=, &amp;=, ^=, \|=|√|√|
+||&lt;&lt;=, &gt;&gt;=, &=, ^=, \|=|√|√|
 |15|,|√|×|
 
 - In the Python language, there is not a single operator that is both a statement and an expression.
@@ -315,7 +315,7 @@ Hello world
 
 ---
 
-## Boolean algebra
+# Boolean algebra
 
 <br>
 
@@ -332,7 +332,7 @@ Hello world
 
 ---
 
-## AND gate
+# AND gate
 
 <br>
 
@@ -347,7 +347,7 @@ Hello world
 
 ---
 
-## OR gate
+# OR gate
 
 |**x**|**y**|**x ∨ y**|
 |---|---|---|
@@ -362,7 +362,7 @@ Hello world
 
 ---
 
-## NOT gate
+# NOT gate
 
 <br>
 
@@ -375,7 +375,7 @@ Hello world
 
 ---
 
-## XOR gate
+# XOR gate
 
 <br>
 
@@ -394,20 +394,12 @@ Hello world
 
 ---
 
-## Accessing Array Elements
+# Accessing Array Elements
 
 - tab\[index\] is used both to read and write values.
 - Array indices in C start from 0.
 - Make sure the index is within the declared size (here 0–2).
 - Each element in the array is stored contiguously in memory.
-
-```c
-x = 5
-y = 10
-
-```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -429,19 +421,28 @@ int main()
 }
 ```
 
+Result:
+
+```text
+x = 5
+y = 10
+```
+
 ---
+
+# Basic operators
 
 |Priority / Operator||Description|Associativity|Example|Result|
 |---|---|---|---|---|---|
 |1|()|Parentheses|Left-to-right|2 \* (x + y)|-2|
-|2|++, --|Prefix &amp; postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
-||\*, &amp;|Indirection (dereference); Address-of||z = &amp;x; \*z;|6422276; 5|
+|2|++, --|Prefix & postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
+||\*, &|Indirection (dereference); Address-of||z = &x; \*z;|6422276; 5|
 ||(type)|Cast, sizeof()||(int)3.0f; sizeof(x);|3, 4|
 |3|\*, /, %|Multiplication, division, and remainder|Left-to-right|6/2 % 2|1|
 |4|+, -|Addition and subtraction||1 + 2; 3 - 1|3, 2|
 |6|&lt;, &lt;=, &gt;, &gt;=|For relational operators &lt;, &gt; and ≤, ≥ respectively||x&lt;y; x&lt;=y; x&gt;y; x&gt;=y|1, 1, 0 ,0|
 |7|==, !=|For relational = and ≠ respectively||x == y, x != 1|1, 0|
-|11|&amp;&amp;|Logical AND||1 &amp;&amp; 0|0|
+|11|&&|Logical AND||1 && 0|0|
 |12|\|\||Logical OR||1 \|\| 0|1|
 |14|=|Simple assignment|Right-to-left|x  = y;|-6|
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
@@ -454,8 +455,6 @@ int main()
 }
 ```
 
-- Basic operators
-
 <!-- perentysys; esiszewitiwy
 Use parentheses to override order of evaluation -->
 
@@ -465,7 +464,7 @@ Use parentheses to override order of evaluation -->
 
 ---
 
-## Logical vs Bitwise Operators
+# Logical vs Bitwise Operators
 
 In C, Boolean logic can be used in two ways:
 
@@ -478,7 +477,7 @@ In the second case (logical operators), remember that any non-zero value (includ
 
 ---
 
-## Logical vs Bitwise Operators
+# Logical vs Bitwise Operators
 
 ```c
 unsigned int x = 6;             // 00000000 00000000 00000000 0000 0110 (binary)
@@ -506,7 +505,9 @@ printf("%d\n", (x || y) && !(x && y));
 printf("%d\n", -1 && -2);       // (00000000 00000000 00000000 0000 0001) = 1 (true)
 ```
 
-```c
+Result:
+
+```text
 2
 7
 4294967289
@@ -518,15 +519,13 @@ printf("%d\n", -1 && -2);       // (00000000 00000000 00000000 0000 0001) = 1
 1
 ```
 
-- Result:
-
 ---
 
 # Sizeof()
 
 ---
 
-## Summary of memory size of data types
+# Summary of memory size of data types
 
 |Type|Memory size in bytes / bits|
 |---|---|
@@ -545,7 +544,7 @@ printf("%d\n", -1 && -2);       // (00000000 00000000 00000000 0000 0001) = 1
 
 ---
 
-## Operator Sizeof()
+# Operator Sizeof()
 
 The sizeof operator returns the size of a type(requires parentheses) or variable in bytes.
 
@@ -567,7 +566,9 @@ The sizeof operator returns the size of a type(requires parentheses) or variable
     printf("%d\n", sizeof(float) );
 ```
 
-```c
+Result:
+
+```text
 8
 8
 8
@@ -579,22 +580,20 @@ The sizeof operator returns the size of a type(requires parentheses) or variable
 4
 ```
 
-- Result:
-
 ---
 
 # Limits
 
 ---
 
-## limits.h &amp; float.h
+# limits.h & float.h
 
 - To access constants defining the minimum and maximum values of integer types in C, include the header &lt;limits.h&gt;.<br>For floating-point types, include &lt;float.h&gt;.
 - Important: FLT\_MIN (and other floating-point “min” constants) does not represent the most negative value.<br>It is the smallest positive non-zero value that can be represented.<br>If you want the actual minimum (most negative) value, use -FLT\_MAX.
 
 ---
 
-## limits.h &amp; float.h
+# limits.h & float.h
 
 ```c
 printf("CHAR_MIN           = %d\n", CHAR_MIN);
@@ -615,7 +614,9 @@ printf("FLT_MAX            = %f\n", FLT_MAX);
 printf("FLT_MAX            = %e\n", FLT_MAX);
 ```
 
-```c
+Result:
+
+```text
 CHAR_MIN           = -128
 CHAR_MAX           = 127
 UCHAR_MAX          = 255
@@ -633,15 +634,13 @@ FLT_MAX            =
 FLT_MAX            = 3.402823e+038
 ```
 
-- Result:
-
 ---
 
 # Input / Output
 
 ---
 
-## Input / Output
+# Input / Output
 
 Input and output functions in C are not available by default — you need to include the &lt;stdio.h&gt; library. The most basic functions include:
 
@@ -652,7 +651,7 @@ Input and output functions in C are not available by default — you need to inc
 
 ---
 
-## Input / Output
+# Input / Output
 
 In C, it **is not** easy to explain how these functions work internally without more advanced knowledge. Therefore, we will start by using only the output functions:
 
@@ -660,13 +659,13 @@ In C, it **is not** easy to explain how these functions work internally without 
 
 To better understand how input works, we will first use the **getche()** function from the Windows-only 'conio.h' library. After that, we will move on to getchar() and finally to scanf().
 
-```c
+```text
 Getche() - (get[ ]char[acter with echo])
 ```
 
 ---
 
-## Fundamental Functions for Input and Output
+# Fundamental Functions for Input and Output
 
 - Data Output for Screen:
   - putchar\*    -    (put\[ \]char\[acter\]):    Displays a single character on the screen.
@@ -681,7 +680,7 @@ Getche() - (get[ ]char[acter with echo])
 
 ---
 
-## putchar() &amp; getche() without '\n'
+# putchar() & getche() without '\n'
 
 ```c
 int putchar(int);
@@ -691,9 +690,6 @@ int getche(void);
 returns the next character from standard input.
 it returns EOF on error.
 ```
-
-- aaBB
-- Result:
 
 ```c
 int main()
@@ -707,9 +703,15 @@ int main()
 }
 ```
 
+Result:
+
+```text
+aaBB
+```
+
 ---
 
-## putchar() &amp; getche()
+# putchar() & getche()
 
 ```c
 int putchar(int);
@@ -719,15 +721,6 @@ int getche(void);
 returns the next character from standard input.
 it returns EOF on error.
 ```
-
-```c
-a
-a
-B
-B
-```
-
-- Result:
 
 ```c
 int main()
@@ -746,9 +739,18 @@ int main()
 }
 ```
 
+Result:
+
+```text
+a
+a
+B
+B
+```
+
 ---
 
-## char issue
+# char issue
 
 - By default, char in C is signed, which means its range is -128 to 127 (two’s complement) instead of 0–255.
 - When you write: char var = 255; or something greater than 255+x;
@@ -756,14 +758,14 @@ int main()
 
 ---
 
-## char issue
+# char issue
 
 - An automatic cast occurs here: only the lowest 8 bits are kept, and the most significant bit (MSB), which determines the sign, is overwritten. As a result, printf will show -1 because that is how these 8 bits are interpreted in signed form.
 - This is an example of overflow and truncation, causing loss of information. This is also why getche()/getchar() returns an int: it can hold all possible char values plus the special EOF value -1.<br>Using int ensures we can reliably distinguish between a real char with all bits set and an intentional EOF signal.
 
 ---
 
-## Basics of
+# Basics of
 
 - The format requires a string enclosed in double quotes ("&lt;string&gt;").
 - If we want to display the contents of our variables, such as int types, we must use the % symbol followed by the type. This allows displaying a value from memory interpreted as the given type and after we must provide the name of the variable that will be read. Each instance of %&lt;type&gt; will allow us to display the contents of one variable.
@@ -780,14 +782,14 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Hello world
 5
 Value of x = 5, and value of y = 7
 5 7
 ```
-
-- Result:
 
 ```c
 int printf (char format[], arg1, arg2 ,...);
@@ -819,7 +821,7 @@ scanf (char format[], *arg1, *arg2 ,...)
 
 ---
 
-## printf and scanf format specification
+# printf and scanf format specification
 
 - Optional:
   - Flags    -    modifiers that alter the formatting or scanning behavior.
@@ -829,27 +831,29 @@ scanf (char format[], *arg1, *arg2 ,...)
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-Format =  %\[flags\]\[width\]\[.precision\]\[modifier\]&lt;type&gt;
-
----
-
-## printf and scanf format specification
-
-- Optional:
-  - Flags    -    modifiers that alter the formatting or scanning behavior.
-  - Width    -    specifies the minimum width of the output field <br>        or the maximum number of characters to be scanned.
-  - Precision    -    controls the precision of floating-point numbers <br>        or the maximum number of characters to be scanned for strings.
-  - Modifier    -    indicates the data type size (e.g., long, short).
-- Required:
-  - Type    -    specifies the data type of the variable to be formatted or scanned.
-
-```c
+```text
 Format =  %[flags][width][.precision][modifier]<type>
 ```
 
 ---
 
-|Type &amp; Specifier||Origin|Argument type||Description||
+# printf and scanf format specification
+
+- Optional:
+  - Flags    -    modifiers that alter the formatting or scanning behavior.
+  - Width    -    specifies the minimum width of the output field <br>        or the maximum number of characters to be scanned.
+  - Precision    -    controls the precision of floating-point numbers <br>        or the maximum number of characters to be scanned for strings.
+  - Modifier    -    indicates the data type size (e.g., long, short).
+- Required:
+  - Type    -    specifies the data type of the variable to be formatted or scanned.
+
+```text
+Format =  %[flags][width][.precision][modifier]<type>
+```
+
+---
+
+|Type & Specifier||Origin|Argument type||Description||
 |---|---|---|---|---|---|---|
 ||||**printf**|**scanf**|**printf**|**scanf**|
 |integer|d|decimal|int|int \*|signed decimal notation||
@@ -874,9 +878,9 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 
 ---
 
-## Basic types
+# Basic types
 
-|Type &amp; Specifier||Origin|Argument type||Description||
+|Type & Specifier||Origin|Argument type||Description||
 |---|---|---|---|---|---|---|
 ||||**printf**|**scanf**|**printf**|**scanf**|
 |integer|d|decimal|int|int \*|signed decimal notation||
@@ -890,9 +894,9 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 
 ---
 
-## Basic types
+# Basic types
 
-|Type &amp; Specifier||Origin|Argument type|Example|Result|
+|Type & Specifier||Origin|Argument type|Example|Result|
 |---|---|---|---|---|---|
 |integer|d|decimal|int|printf("%d\n", x);<br>    printf("%d\n", y);|65<br>-6|
 ||u|unsigned decimal|int|printf("%u\n", x);<br>    printf("%u\n", y);|65<br>4294967290|
@@ -911,7 +915,7 @@ int main()
 
 ---
 
-## Conclusions
+# Conclusions
 
 - *Remember that* signed *and* unsigned integers *are represented differently in computer memory. Using the wrong* format specifier *can lead to incorrect results (e.g., using* %d *for an* unsigned int*).*
 - *A* char *is essentially a one-byte* integer*. Therefore, you can treat a* char *variable as either an ASCII character or a small* integer*.*
@@ -920,7 +924,7 @@ int main()
 
 ---
 
-## printf and scanf format specification
+# printf and scanf format specification
 
 - Optional:
   - Flags    -    modifiers that alter the formatting or scanning behavior.
@@ -930,13 +934,13 @@ int main()
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-```c
+```text
 Format =  %[flags][width][.precision][modifier]<type>
 ```
 
 ---
 
-## Width
+# Width
 
 ```c
 int main()
@@ -954,7 +958,7 @@ int main()
 
 ---
 
-## printf and scanf format specification
+# printf and scanf format specification
 
 - Optional:
   - Flags    -    modifiers that alter the formatting or scanning behavior.
@@ -964,13 +968,13 @@ int main()
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-```c
+```text
 Format =  %[flags][width][.precision][modifier]<type>
 ```
 
 ---
 
-## Precision
+# Precision
 
 ```c
 int main()
@@ -988,7 +992,7 @@ int main()
 
 ---
 
-## Precision
+# Precision
 
 ```c
 int main()
@@ -1006,7 +1010,7 @@ int main()
 
 ---
 
-## printf and scanf format specification
+# printf and scanf format specification
 
 - Optional:
   - Flags    -    modifiers that alter the formatting or scanning behavior.
@@ -1016,13 +1020,13 @@ int main()
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-```c
+```text
 Format =  %[flags][width][.precision][modifier]<type>
 ```
 
 ---
 
-## Flags
+# Flags
 
 - \+ : Always display the sign of a number, even if it's positive.
 - \- : Left-justify the output within the given field width.
@@ -1033,7 +1037,7 @@ Format =  %[flags][width][.precision][modifier]<type>
 
 ---
 
-## Flag "+"
+# Flag "+"
 
 ```c
 int main()
@@ -1051,7 +1055,7 @@ int main()
 
 ---
 
-## Flag "-"
+# Flag "-"
 
 ```c
 int main()
@@ -1071,7 +1075,7 @@ int main()
 
 ---
 
-## Flag "0"
+# Flag "0"
 
 ```c
 int main()
@@ -1091,14 +1095,14 @@ int main()
 
 ---
 
-## Flag "#"
+# Flag "#"
 
 - To understand recursion, you must first understand recursion.
 - This will be explained in the future, because...
 
 ---
 
-## printf and scanf format specification
+# printf and scanf format specification
 
 - Optional:
   - Flags    -    modifiers that alter the formatting or scanning behavior.
@@ -1108,13 +1112,13 @@ int main()
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-```c
+```text
 Format =  %[flags][width][.precision][modifier]<type>
 ```
 
 ---
 
-## Modifies
+# Modifies
 
 ```c
 int main()
@@ -1133,7 +1137,7 @@ int main()
 
 ---
 
-## printf and scanf format specification
+# printf and scanf format specification
 
 - Optional:
   - Flags    -    modifiers that alter the formatting or scanning behavior.
@@ -1143,7 +1147,7 @@ int main()
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-```c
+```text
 Format =  %[flags][width][.precision][modifier]<type>
 ```
 
@@ -1153,7 +1157,7 @@ Format =  %[flags][width][.precision][modifier]<type>
 
 ---
 
-|Type &amp; Specifier||Origin|Argument type||Description||
+|Type & Specifier||Origin|Argument type||Description||
 |---|---|---|---|---|---|---|
 ||||**printf**|**scanf**|**printf**|**scanf**|
 |integer|d|decimal|int|int \*|signed decimal notation||
@@ -1178,7 +1182,7 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 
 ---
 
-## Declaring and initializing arrays
+# Declaring and initializing arrays
 
 ```c
 int main()
@@ -1208,18 +1212,18 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 First element (index 0) of array a equals 4201200.
 Second(index 1) element of array b equals 2.
 Second(index 1) element of array b equals 2.
 Sixth(index 5) element of array c equals 0.
 ```
 
-- Result:
-
 ---
 
-## Basics of
+# Basics of
 
 - The important difference between printf and scanf is that scanf requires its arguments to be pointers (location in memory) .
 
@@ -1238,14 +1242,14 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Enter x value : 1
 Value of x = 1
 Enter x value again : 2
 Value of x = 2
 ```
-
-- Result:
 
 ```c
 int printf (char format[],  arg1,  arg2 ,...);
@@ -1255,10 +1259,12 @@ int printf (char format[],  arg1,  arg2 ,...);
 int scanf  (char format[], *arg1, *arg2 ,...);
 ```
 
-- The ampersand operator &amp; is a unary operator that returns the memory address, which is the location in memory where a variable is stored.
+- The ampersand operator & is a unary operator that returns the memory address, which is the location in memory where a variable is stored.
 
-<!-- This line is where the magic happens. It assigns the address of the variable x to the pointer pointer. The &amp; symbol is the "address-of" operator. So, pointer now holds the memory location where the value 5 for x is stored. -->
+<!-- This line is where the magic happens. It assigns the address of the variable x to the pointer pointer. The & symbol is the "address-of" operator. So, pointer now holds the memory location where the value 5 for x is stored. -->
 
 ---
 
-## Notice Recently, during my lab work, I made a mistake. It wasn't the development environment's fault, but mine. It was related to the scanf function. Because I'm currently working with Python, C, C++, C#, and MATLAB, I mixed up the behavior of the scanf function. You need to know that the scanf function has one drawback: it doesn't clear the buffer of characters entered from the keyboard. This means that after pressing Enter to confirm the data entered from the keyboard, our variable also contains the Enter character, which is that extra line you asked me to use to clear the buffer. To understand its operation, you need to understand today's new material.
+# Notice
+
+Recently, during my lab work, I made a mistake. It wasn't the development environment's fault, but mine. It was related to the scanf function. Because I'm currently working with Python, C, C++, C#, and MATLAB, I mixed up the behavior of the scanf function. You need to know that the scanf function has one drawback: it doesn't clear the buffer of characters entered from the keyboard. This means that after pressing Enter to confirm the data entered from the keyboard, our variable also contains the Enter character, which is that extra line you asked me to use to clear the buffer. To understand its operation, you need to understand today's new material.

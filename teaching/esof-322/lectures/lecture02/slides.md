@@ -5,13 +5,15 @@ paginate: true
 title: "Software Engineering"
 ---
 
+<!-- _class: lead -->
+
 # Software Engineering
 
-*Lecture 2*
+## Lecture 2
 
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 - History of GIT
 - GIT
@@ -20,7 +22,7 @@ title: "Software Engineering"
 
 ---
 
-## Where we are now
+# Where we are now
 
 - Road Trip
   - Programmer’s Toolbox
@@ -34,13 +36,11 @@ title: "Software Engineering"
 
 ---
 
-# A Brief History of
-
-*Version Control Systems and the Birth of Git*
+# A Brief History of Version Control Systems and the Birth of Git
 
 ---
 
-## 1. CVS – Concurrent Versions System (c. 1990–2008)
+# 1. CVS – Concurrent Versions System (c. 1990–2008)
 
 One of the first widely used version control systems.
 
@@ -58,7 +58,7 @@ One of the first widely used version control systems.
 
 ---
 
-## 2. BitKeeper (2000–2018)
+# 2. BitKeeper (2000–2018)
 
 A **commercial**, distributed version control system known for speed.
 
@@ -81,7 +81,7 @@ From 2002, it was **free for the Linux community** under a special license.
 
 ---
 
-## 3. The Birth of Git (2005)
+# 3. The Birth of Git (2005)
 
 After losing BitKeeper, Linus Torvalds set requirements for a new tool:
 
@@ -103,7 +103,7 @@ After losing BitKeeper, Linus Torvalds set requirements for a new tool:
 
 ---
 
-## Git - Global Information Tracker
+# Git - Global Information Tracker
 
 - Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
 - Git is easy to learn and has a tiny footprint with lightning fast performance. It outclasses SCM tools like Subversion, CVS, Perforce, and ClearCase with features like cheap local branching, convenient staging areas, and multiple workflows.
@@ -111,7 +111,7 @@ After losing BitKeeper, Linus Torvalds set requirements for a new tool:
 
 ---
 
-## What is Git? (Simple Definition for Beginners)
+# What is Git? (Simple Definition for Beginners)
 
 Git is a version control system. Its main job is to track every change in your code and allow you to go back to previous versions if needed. It also lets you compare changes between versions.
 
@@ -125,7 +125,7 @@ In Agile development, where code changes often and quality can drop over time, G
 
 ---
 
-## Materials I based my work on
+# Materials I based my work on
 
 - [https://www.youtube.com/watch?v=zTjRZNkhiEU&amp;t=11983s](https://www.youtube.com/watch?v=zTjRZNkhiEU&t=11983s)
 - [https://www.youtube.com/watch?v=7tOLcNZfPso&amp;list=PLRAV69dS1uWT4v4iK1h6qejyhGObFH9\_o&amp;ab\_channel=HiteshChoudhary](https://www.youtube.com/watch?v=7tOLcNZfPso&list=PLRAV69dS1uWT4v4iK1h6qejyhGObFH9_o&ab_channel=HiteshChoudhary)
@@ -133,7 +133,7 @@ In Agile development, where code changes often and quality can drop over time, G
 
 ---
 
-## Download and install GIT ( Homework )
+# Download and install GIT ( Homework )
 
 - <https://git-scm.com/downloads>
 
@@ -141,7 +141,7 @@ In Agile development, where code changes often and quality can drop over time, G
 
 ---
 
-## Download and install warp ( Homework )
+# Download and install warp ( Homework )
 
 - <https://www.warp.dev/download>
 
@@ -166,7 +166,7 @@ In Agile development, where code changes often and quality can drop over time, G
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 1: Opening the Command Prompt
+# Navigating the Command Line: Windows vs. Linux<br>Slide 1: Opening the Command Prompt
 
 - Windows:
   - Cmd: The most commonly used command to open the command prompt.
@@ -182,34 +182,21 @@ In Agile development, where code changes often and quality can drop over time, G
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 1: Opening the Command Prompt - Example
+# Navigating the Command Line: Windows vs. Linux<br>Slide 1: Opening the Command Prompt - Example
 
-```
+```console
 jacob@raspberrypi:~ $ pwd
 /home/jacob
 jacob@raspberrypi:~ $
-
-
-
-
-
-
-
-
 ```
 
-```
+```console
 Microsoft Windows [Version 10.0.22631.4602]
 (c) Microsoft Corporation. All rights reserved.
 
 C:\Users\Jacob> whoami
 notebooki7\Jacob
 C:\Users\Jacob>
-
-
-
-
-
 ```
 
 - From the Start menu:
@@ -229,7 +216,7 @@ C:\Users\Jacob>
 
 ---
 
-## Differences in Command Prompt Messages Between Windows and Linux
+# Differences in Command Prompt Messages Between Windows and Linux
 
 The command prompt in different operating systems displays various information, which stems from differences in their architecture and design philosophy.
 
@@ -238,26 +225,24 @@ The command prompt in different operating systems displays various information, 
 - Default message: Typically displays the full path to the currently open directory.
 - Example: C:\Users\User\Documents Purpose: Provides the exact location of the user within the file system hierarchy.
 
-**Linux** Default message:
+**Linux**
+
+Default message:
 
 - Most often presents the username and hostname (device name).
 - Example: user@computer:~$ Purpose: Informs about the currently logged-in user and the machine they are working on.
 
-```
+```console
  C:\Users\Jacob>
-
-
 ```
 
-```
+```console
  jacob@raspberrypi:~ $
-
-
 ```
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management
+# Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management
 
 - Windows:
   - dir:    Lists files and directories in the current directory.
@@ -275,34 +260,23 @@ The command prompt in different operating systems displays various information, 
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management – Example(dir)
+<!-- _class: long-title -->
 
-- dir:    Lists files and directories in the current directory.
+# Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management – Example(dir)
 
-```
+- ls:    Lists files and directories in the current directory.
+
+```console
 jacob@raspberrypi:~ $ ls
 Bookshelf  Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
 jacob@raspberrypi:~ $ dir
 Bookshelf  Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
 jacob@raspberrypi:~ $
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ```
 
-```
+- dir:    Lists files and directories in the current directory.
+
+```console
 C:\Users\Jacob>dir
 12/19/2024  12:14 PM    <DIR>          .
 09/05/2023  09:06 AM    <DIR>          ..
@@ -322,23 +296,20 @@ ls
 'ls' is not recognized as an internal or external command,
 operable program or batch file.
 C:\Users\Jacob>
-
-
-
 ```
-
-- ls:    Lists files and directories in the current directory.
 
 \*Windows PowerShell supports ls, but cmd doesn’t.
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management – Example(cd/cd..)
+<!-- _class: long-title -->
+
+# Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management – Example(cd/cd..)
 
 - cd:    Changes the current directory.
-- cd..:    Moves up one directory level.
+- cd ..:    Moves up one directory level.
 
-```
+```console
 jacob@raspberrypi:~ $ cd Desktop
 jacob@raspberrypi:~/Desktop $ cd ..
 jacob@raspberrypi:~ $ cd Desktop
@@ -348,32 +319,20 @@ jacob@raspberrypi:~/Desktop $cd /
 jacob@raspberrypi:/ $ pwd
 /
 jacob@raspberrypi:/ $
-
-
-
-
-
 ```
 
-```
+- cd:    Changes the current directory.
+- cd..:    Moves up one directory level.
+
+```console
 C:\Users\Jacob>cd Desktop
 C:\Users\Jacob\Desktop>cd..
 C:\Users\Jacob>cd Desktop
 C:\Users\Jacob\Desktop>cd ..
 C:\Users\Jacob>cd /
 C:\>
-
-
-
-
-
-
-
-
 ```
 
-- cd:    Changes the current directory.
-- cd ..:    Moves up one directory level.
 
 ---
 
@@ -442,7 +401,7 @@ C:\>
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 3: Text Manipulation and Output
+# Navigating the Command Line: Windows vs. Linux<br>Slide 3: Text Manipulation and Output
 
 - Windows:
   - echo: Displays a message on the screen.
@@ -453,11 +412,11 @@ C:\>
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 3: Text Manipulation and Output - Example
+# Navigating the Command Line: Windows vs. Linux<br>Slide 3: Text Manipulation and Output - Example
 
 - echo: Displays a message on the screen.
 
-```
+```console
 jacob@raspberrypi:~ $ echo Hello World!
 Hello World!
 jacob@raspberrypi:~ $ echo "Hello World!"
@@ -467,12 +426,11 @@ jacob@raspberrypi:~ $echo
 jacob@raspberrypi:~ $echo.
 -bash: echo.: command not found
 jacob@raspberrypi:~ $
-
-
-
 ```
 
-```
+- echo: Displays a message on the screen.
+
+```console
 C:\Users\Jacob>echo Hello World!
 Hello World!
 C:\Users\Jacob> echo "Hello World!"
@@ -482,16 +440,12 @@ C:\Users\Jacob>echo.
 C:\Users\Jacob>echo
 ECHO is on.
 C:\Users\Jacob>
-
-
-
 ```
 
-- echo: Displays a message on the screen.
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 4: Hello, World! and Redirection
+# Navigating the Command Line: Windows vs. Linux<br>Slide 4: Hello, World! and Redirection
 
 - Windows:
   - echo Hello, world!
@@ -504,38 +458,32 @@ C:\Users\Jacob>
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 4: Hello, World! and Redirection - Example
+# Navigating the Command Line: Windows vs. Linux<br>Slide 4: Hello, World! and Redirection - Example
 
 - The simplest way to create a new file.
 - Redirection works similarly in both systems, using the &gt; symbol to overwrite a file and &gt;&gt; to append to a file.
 
-```
+```console
 jacob@raspberrypi:~ echo Hello world! > myfile.txt
 jacob@raspberrypi:~ $
-
-
-
 ```
 
-```
+```console
 C:\Users\Jacob>echo Hello world! > myfile.txt
 C:\Users\Jacob>
-
-
-
-```
-
-```
-Hello world!
-
-
 ```
 
 myfile.txt
 
+```text
+Hello world!
+```
+
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 5: Creating and Deleting Files and Directories
+<!-- _class: long-title -->
+
+# Navigating the Command Line: Windows vs. Linux<br>Slide 5: Creating and Deleting Files and Directories
 
 - Windows:
   - copy:    Copies files.
@@ -548,7 +496,9 @@ myfile.txt
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 5: Creating and Deleting Files and Directories – Example(copies, deletes, makes)
+<!-- _class: long-title -->
+
+# Navigating the Command Line: Windows vs. Linux<br>Slide 5: Creating and Deleting Files and Directories – Example(copies, deletes, makes)
 
 - copy:    Copies files.
 - del:    Deletes files.
@@ -557,37 +507,29 @@ myfile.txt
 - rm:    Removes files or directories.
 - mkdir:    Makes a new directory.
 
-```
+```console
 jacob@raspberrypi:~ $ mkdir Folder
 jacob@raspberrypi:~ $ ls
 Bookshelf  Desktop  Documents  Downloads  Folder  Music  Pictures  Public  Templates  Videos
-
-
-
 ```
 
-```
+```console
 jacob@raspberrypi:~ $ cd Folder
 jacob@raspberrypi:~/Folder $ echo > empty.txt
 jacob@raspberrypi:~/Folder $ cp empty.txt copyEmpty.txt
 ```
 
-```
+```console
 jacob@raspberrypi:~/Folder $ ls
 copyEmpty.txt  empty.txt
-
-
-
-
-
 ```
 
-```
+```console
 jacob@raspberrypi:~/Folder $ rm copyEmpty.txt
 jacob@raspberrypi:~/Folder $
 ```
 
-```
+```console
 C:\Users\Jacob>md Folder
 C:\Users\Jacob>dir
 ...
@@ -597,13 +539,13 @@ C:\Users\Jacob>dir
 ...
 ```
 
-```
+```console
 C:\Users\Jacob> cd Folder
 C:\Users\Jacob\Folder> echo. > empty.txt
 C:\Users\Jacob\Folder> copy empty.txt copyEmpty.txt
 ```
 
-```
+```console
 C:\Users\Jacob\Folder> dir
 ...
 01/04/2025  12:22 PM    <DIR>          .
@@ -613,14 +555,14 @@ C:\Users\Jacob\Folder> dir
 ...
 ```
 
-```
+```console
 C:\Users\Jacob\Folder> del copyEmpty.txt
 C:\Users\Jacob\Folder>
 ```
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 6: Executing Compiled Programs
+# Navigating the Command Line: Windows vs. Linux<br>Slide 6: Executing Compiled Programs
 
 - Windows:
   - To run a compiled program, you usually just type the program name, followed by the .exe extension: program\_name.exe.
@@ -631,11 +573,11 @@ C:\Users\Jacob\Folder>
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 6: Executing Compiled Programs – Example
+# Navigating the Command Line: Windows vs. Linux<br>Slide 6: Executing Compiled Programs – Example
 
-- To run a compiled program, you usually just type the program name, followed by the .exe extension: program\_name.exe.
+- To run a compiled program, you typically use the following syntax: ./program\_name.
 
-```
+```console
 jacob@raspberrypi:~ $cd /
 jacob@raspberrypi:/ $ cd /usr/bin
 jacob@raspberrypi:/usr/bin $ ./ping www.google.com
@@ -654,7 +596,9 @@ rtt min/avg/max/mdev = 16.013/16.068/16.192/0.069 ms
 jacob@raspberrypi:/usr/bin $
 ```
 
-```
+- To run a compiled program, you usually just type the program name, followed by the .exe extension: program\_name.exe.
+
+```console
 C:\Users\Jacob>cd C:\Windows\System32
 C:\Windows\System32>ping.exe www.google.com
 
@@ -670,27 +614,19 @@ Approximate round trip times in milli-seconds:
     Minimum = 16ms, Maximum = 16ms, Average = 16ms
 
 C:\Windows\System32>
-
-
-
-
-
-
 ```
 
-- To run a compiled program, you typically use the following syntax: ./program\_name.
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 7: Additional tools
+# Navigating the Command Line: Windows vs. Linux<br>Slide 7: Additional tools
 
+```text
 Windows:                             Linux:
-
 cls                                 clear
-
 rename                            mv
-
 /h -h                                --h
+```
 
 - Instead of copying a file to a new name, you can use a command to rename the file. The syntax is identical to that of copying.
 - To clear the console/terminal window, use the appropriate command, such as cls or clear.
@@ -698,7 +634,7 @@ rename                            mv
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 8: Basic Text Editing
+# Navigating the Command Line: Windows vs. Linux<br>Slide 8: Basic Text Editing
 
 - Windows:
   - notepad/notepad++:
@@ -711,7 +647,9 @@ rename                            mv
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 8: Basic Text Editing Windows: notepad/notepad++:         Linux: nano:
+# Navigating the Command Line: Windows vs. Linux<br>Slide 8: Basic Text Editing
+
+Windows: notepad/notepad++:         Linux: nano:
 
 ![w:486px Picture 2](assets/image28.png)
 
@@ -719,7 +657,7 @@ rename                            mv
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 9: IP address
+# Navigating the Command Line: Windows vs. Linux<br>Slide 9: IP address
 
 An IP address is like a unique mailing address for every device connected to the internet. It allows computers to locate and communicate with each other. Think of it as a numerical label assigned to each device, making it possible for data to be sent to the correct destination.
 
@@ -730,11 +668,13 @@ An IP address is like a unique mailing address for every device connected to the
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 9: IP address – How you can get your IP address
+<!-- _class: long-title -->
 
-- ipconfig
+# Navigating the Command Line: Windows vs. Linux<br>Slide 9: IP address – How you can get your IP address
 
-```
+- ip addr
+
+```console
 jacob@raspberrypi:~ $ ip addr
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -753,7 +693,9 @@ jacob@raspberrypi:~ $ ip addr
 jacob@raspberrypi:~
 ```
 
-```
+- ipconfig
+
+```console
 C:\Users\Jacob>ipconfig
 ...
 Ethernet adapter Ethernet 4:
@@ -765,21 +707,12 @@ Ethernet adapter Ethernet 4:
    Default Gateway . . . . . . . . . : 10.38.32.254
 ...
 C:\Users\Jacob>
-
-
-
-
-
-
-
-
 ```
 
-- ip addr
 
 ---
 
-## Windows Consoles vs Linux Command Conventions
+# Windows Consoles vs Linux Command Conventions
 
 In Windows command-line environments such as Command Prompt (cmd) (and the more modern PowerShell), you typically run programs by typing their name, for example:
 
@@ -791,17 +724,18 @@ In Windows, parameters are usually preceded by / (slash) or sometimes - (hyphen)
 
 ---
 
-## Windows Consoles vs Linux Command Conventions
+# Windows Consoles vs Linux Command Conventions
 
-```
 The traditional way to get help for a command is by using /? or -h or /h. For example:
+
+```console
 ping /?
 dir /?
+```
+
 This displays the available options for that command.
 
-```
-
-```
+```console
 C:\>ping /?
 
 Usage: ping [-t] [-a] [-n count] [-l size] [-f] [-i TTL] [-v TOS]
@@ -817,7 +751,7 @@ Options:
     -n count       Number of echo requests to send.
 ```
 
-```
+```console
 C:\>ping -h
 
 Usage: ping [-t] [-a] [-n count] [-l size] [-f] [-i TTL] [-v TOS]
@@ -835,14 +769,14 @@ Options:
 
 ---
 
-## Windows Consoles vs Linux Command Conventions
+# Windows Consoles vs Linux Command Conventions
 
 In Linux/Unix systems, a different convention is used:
 
 - Parameters are preceded by - (single dash) for short options (usually **one letter**), and these can often be combined.
 - Parameters are preceded by -- (double dash) for long, descriptive options, which cannot be combined.
 
-```
+```console
 student@pi5v:~ $ ping -h
 
 Usage
@@ -857,7 +791,7 @@ Options:
 ...
 ```
 
-```
+```console
 student@pi5v:~ $ ping --help
 
 Usage
@@ -874,7 +808,7 @@ Options:
 
 ---
 
-## Summary
+# Summary
 
 - Windows uses / for options in classic CMD, and - is also accepted in some tools.
 - /? is the standard help flag in CMD; -h is common in Unix/Linux, but some Windows tools also support it.
@@ -888,7 +822,7 @@ Options:
 
 ---
 
-## Why Git Works on Multiple Consoles in Windows
+# Why Git Works on Multiple Consoles in Windows
 
 - Since Git was originally developed to manage the Linux kernel and is open source, the Windows version of Git can run in at least three different command-line environments:
 - Git Bash
@@ -911,44 +845,41 @@ Regardless of which console you use, Git follows the Linux/Unix convention for 
 
 ---
 
-## You should see…
+# You should see…
 
 - After opening **Command Prompt**, type:
 - If you get the message:
 - 'git' is not recognized as an internal or external command, operable program or batch file.
 - it means Git is not installed on your computer. Please raise your hand, and I’ll come to help you.
 
-```
+```console
 Microsoft Windows [Version 10.0.26100.4946]
 (c) Microsoft Corporation. All rights reserved.
 
 C:\Users\jakub>git -v
 git version 2.43.0.windows.1
-
 ```
 
 ---
 
-## Git Settings
+# Git Settings
 
 - Let’s start by configuring Git. Every user—whether on Windows or Linux—has their own local Git settings. Here are the key commands:
 
-```
-
+```bash
 git config --global user.name "Jacob Pach"       # Sets your name for commits
 git config --global user.email "jpach@mtech.edu" # Sets your email for commits
 git config --global core.editor "code --wait"    # Sets VS Code as the default editor
 git config --global -e                           # Opens the global config file for editing
 git config --global core.autocrlf true           # Handles line endings (important on Windows)
-
 ```
 
 ---
 
-- Touch!
+Touch!
 
 ---
 
-# Thank
+<!-- _class: caption-slide -->
 
-*You!*
+# Thank You!

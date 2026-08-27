@@ -5,15 +5,16 @@ paginate: true
 title: "CSCI 232  Data Structures & Algorithms"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 232 <br>Data Structures &amp; Algorithms
 
-*Lecture 13*
-
-- Dr. Jakub L. Pach
+## Lecture 13
+Dr. Jakub L. Pach
 
 ---
 
-## Outline
+# Outline
 
 - Syllabus, Textbook, Moodle
 - Something about me
@@ -75,7 +76,7 @@ int arrayMax(int A[], int n)
 }
 ```
 
-```c
+```text
 Algorithm arrayMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -104,7 +105,7 @@ int recursiveMax(int arr[], int n)
 }
 ```
 
-```c
+```text
 Algorithm recursiveMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -119,7 +120,7 @@ Algorithm recursiveMax(A, n):
 
 ---
 
-```c
+```text
 Algorithm recursiveMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -136,7 +137,7 @@ Algorithm recursiveMax(A, n):
 
 ---
 
-```c
+```text
 Algorithm recursiveMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -152,7 +153,7 @@ Algorithm recursiveMax(A, n):
 
 ---
 
-```c
+```text
 Algorithm recursiveMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -168,7 +169,7 @@ Algorithm recursiveMax(A, n):
 
 ---
 
-```c
+```text
 Algorithm recursiveMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -184,7 +185,7 @@ Algorithm recursiveMax(A, n):
 
 ---
 
-## The random access machine (RAM) model
+# The random access machine (RAM) model
 
 - If we wish to analyze a particular algorithm without performing experiments on its running time, we can take the following more analytic approach directly on the high-level code or pseudocode. We define a set of high-level **primitive operations** that are largely independent from the programming language used and can be identified also in the pseudocode. Primitive operations include the following:
 - **c1    Assigning a value to a variable**
@@ -197,9 +198,9 @@ Algorithm recursiveMax(A, n):
 
 ---
 
-## Counting primitive operations
+# Counting primitive operations
 
-```c
+```text
 Algorithm recursiveMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -223,9 +224,9 @@ normalnie jest n+1 -->
 
 ---
 
-## Counting primitive operations
+# Counting primitive operations
 
-```c
+```text
 Algorithm recursiveMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -249,9 +250,9 @@ normalnie jest n+1 -->
 
 ---
 
-## Counting primitive operations
+# Counting primitive operations
 
-```c
+```text
 Algorithm recursiveMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -275,9 +276,9 @@ normalnie jest n+1 -->
 
 ---
 
-## Counting primitive operations
+# Counting primitive operations
 
-```c
+```text
 Algorithm recursiveMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -302,9 +303,9 @@ normalnie jest n+1 -->
 
 ---
 
-## Counting primitive operations
+# Counting primitive operations
 
-```c
+```text
 Algorithm recursiveMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -330,9 +331,9 @@ normalnie jest n+1 -->
 
 ---
 
-## Counting primitive operations
+# Counting primitive operations
 
-```c
+```text
 Algorithm recursiveMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -359,9 +360,9 @@ normalnie jest n+1 -->
 
 ---
 
-## Counting primitive operations
+# Counting primitive operations
 
-```c
+```text
 Algorithm recursiveMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -389,9 +390,9 @@ normalnie jest n+1 -->
 
 ---
 
-## Counting primitive operations
+# Counting primitive operations
 
-```c
+```text
 Algorithm recursiveMax(A, n):
 	Input: An array A storing n ≥ 1 integers.
 	Output: The maximum element in A.
@@ -420,7 +421,7 @@ normalnie jest n+1 -->
 
 ---
 
-## How?
+# How?
 
 - from **recurrence equation** to **closed form**
 
@@ -428,9 +429,7 @@ normalnie jest n+1 -->
 
 ![w:869px Picture 5](assets/image29.png)
 
-![bg A black and white math problem
-
-Description automatically generated with medium confidence](assets/image32.png)
+![bg A black and white math problem Description automatically generated with medium confidence](assets/image32.png)
 
 ---
 
@@ -446,7 +445,7 @@ Description automatically generated with medium confidence](assets/image32.png)
 
 ---
 
-## Proof by induction for the arithmetic sum using recursive notation T(n)
+# Proof by induction for the arithmetic sum using recursive notation T(n)
 
 ---
 
@@ -462,15 +461,15 @@ Description automatically generated with medium confidence](assets/image32.png)
 
 ---
 
-## Asymptotic notation
+# Asymptotic notation
 
 ---
 
-## Asymptotic notation
+# Asymptotic notation
 
 ---
 
-## Θ-notation
+# Θ-notation
 
 ![w:1056px Picture 6](assets/image45.png)
 
@@ -485,7 +484,7 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## Multiplication of a function by a constant c
+# Multiplication of a function by a constant c
 
 - -5
 - 0
@@ -511,7 +510,7 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## O &amp; Ω-notation
+# O &amp; Ω-notation
 
 ![w:1056px Picture 6](assets/image45.png)
 
@@ -523,7 +522,7 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## O &amp; Ω-notation
+# O &amp; Ω-notation
 
 ![w:1056px Picture 6](assets/image45.png)
 
@@ -538,25 +537,25 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## Asymptotic notation in equations and inequalities
+# Asymptotic notation in equations and inequalities
 
 ![w:996px Picture 4](assets/image49.png)
 
 ---
 
-## Asymptotic notation in equations and inequalities
+# Asymptotic notation in equations and inequalities
 
 ![w:1092px Picture 3](assets/image50.png)
 
 ---
 
-## Asymptotic notation in equations and inequalities
+# Asymptotic notation in equations and inequalities
 
 ![w:861px Picture 3](assets/image51.png)
 
 ---
 
-## o-notation
+# o-notation
 
 ![w:891px Picture 4](assets/image52.png)
 
@@ -564,13 +563,15 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## ω-notation
+# ω-notation
 
 ![w:884px Picture 7](assets/image54.png)
 
 ---
 
-## Analogy between the asymptotic comparison of two functions *f* and *g* and the comparison of two real numbers *a* and *b*
+<!-- _class: long-title -->
+
+# Analogy between the asymptotic comparison of two functions *f* and *g* and the comparison of two real numbers *a* and *b*
 
 ![w:1039px Picture 4](assets/image55.png)
 
@@ -594,7 +595,7 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## pasuje
+# pasuje
 
 - 0
 - 1
@@ -616,7 +617,7 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-## bubble sort
+# bubble sort
 
 - 1
 - 2
@@ -733,15 +734,9 @@ Algorithms that have the same time complexity for all input cases: For example, 
 
 ---
 
+<!-- _class: caption-slide -->
+
 # Thank You
-
----
-
-<!-- pptx2marp: slide 54 has no extractable text or images -->
-
----
-
-<!-- pptx2marp: slide 55 has no extractable text or images -->
 
 ---
 
@@ -760,11 +755,11 @@ Algorithms that have the same time complexity for all input cases: For example, 
 
 ---
 
-## Algorithm
+# Algorithm
 
 ---
 
-## Insertion sort
+# Insertion sort
 
 ---
 
@@ -803,7 +798,7 @@ int * binadd(int arrA[], int arrB[], int n)
 
 ---
 
-## Analyzing algorithms
+# Analyzing algorithms
 
 - For most of this course, we shall assume a generic one processor, **random-access machine** (RAM) model of computation as our implementation technology and understand that our algorithms will be implemented as computer programs. In the RAM model, **instructions are executed one after another**, with no concurrent operations.
 - The data types in the RAM model are integer and floating point (for storing real numbers).
@@ -811,7 +806,7 @@ int * binadd(int arrA[], int arrB[], int n)
 
 ---
 
-## Analyzing algorithms
+# Analyzing algorithms
 
 Real computers contain instructions not listed above, and such instructions represent a gray area in the RAM model.
 
@@ -821,7 +816,7 @@ Therefore, such computers can compute 2k in one constant-time instruction by shi
 
 ---
 
-## The best notion for input size
+# The best notion for input size
 
 The best notion for **input size** depends on the problem being studied. For many problems, such as sorting or computing discrete Fourier transforms, the most natural measure is **the number of items in the input**—for example, the array size n for sorting.
 
@@ -829,7 +824,7 @@ For many other problems, such as multiplying two integers, the best measure of i
 
 ---
 
-## Running time
+# Running time
 
 The best notion for **input size** depends on the problem being studied. For many problems, such as sorting or computing discrete Fourier transforms, the most natural measure is **the number of items in the input**—for example, the array size n for sorting.
 
@@ -837,7 +832,7 @@ For many other problems, such as multiplying two integers, the best measure of i
 
 ---
 
-## loop invariant
+# loop invariant
 
 - Loop condition that always holds
 - Loop truth
@@ -850,7 +845,3 @@ For many other problems, such as multiplying two integers, the best measure of i
 - zrobic program ktory, ktory mierzy czas jego dzialania, poszukac w c++ funkcji ktora ten czas mierzy,
 - uwzglednic
 - podzial przedzialu na m = l + (r -1)/2; // gdzie l jest minimalnym indeksem, a r jest maksymalnym, daje nam przesuniecie o 1 w prawo wzgledem (l + r) /2 i chroni nas przed przepelnieniem przy indeksach bliskich rozmiarowi typu int.
-
----
-
-<!-- pptx2marp: slide 67 has no extractable text or images -->

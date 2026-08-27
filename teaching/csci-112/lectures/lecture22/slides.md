@@ -13,6 +13,8 @@ title: "CSSI112lec 22"
 
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 22
@@ -25,7 +27,7 @@ title: "CSSI112lec 22"
 
 ---
 
-## Outline
+# Outline
 
 - Review
 - Standard C Library Overview
@@ -38,7 +40,9 @@ title: "CSSI112lec 22"
 
 ---
 
-## 1. Character Classification and Conversion (&lt;ctype.h&gt;) Used for testing and converting characters.
+# 1. Character Classification and Conversion (&lt;ctype.h&gt;)
+
+Used for testing and converting characters.
 
 |Function|Description|Example|
 |---|---|---|
@@ -56,7 +60,9 @@ title: "CSSI112lec 22"
 
 ---
 
-## 2. String Handling (&lt;string.h&gt;) Used for manipulating null-terminated character arrays.
+# 2. String Handling (&lt;string.h&gt;)
+
+Used for manipulating null-terminated character arrays.
 
 |Function|Description|Example|
 |---|---|---|
@@ -73,7 +79,9 @@ title: "CSSI112lec 22"
 
 ---
 
-## 3. Memory Handling (&lt;string.h&gt;) Used for working with raw memory blocks.
+# 3. Memory Handling (&lt;string.h&gt;)
+
+Used for working with raw memory blocks.
 
 |Function|Description|Example|
 |---|---|---|
@@ -85,7 +93,9 @@ title: "CSSI112lec 22"
 
 ---
 
-## 4. Input / Output Functions (&lt;stdio.h&gt;) Work with files and streams.
+# 4. Input / Output Functions (&lt;stdio.h&gt;)
+
+Work with files and streams.
 
 |Function|Description|Example|
 |---|---|---|
@@ -109,7 +119,9 @@ title: "CSSI112lec 22"
 
 ---
 
-## 5. Conversion Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
+# 5. Conversion Functions (&lt;stdlib.h&gt;)
+
+Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -122,7 +134,9 @@ title: "CSSI112lec 22"
 
 ---
 
-## 6. Math Functions (&lt;math.h&gt;) Convert strings to numbers.
+# 6. Math Functions (&lt;math.h&gt;)
+
+Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -138,7 +152,9 @@ title: "CSSI112lec 22"
 
 ---
 
-## 7. Utility Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
+# 7. Utility Functions (&lt;stdlib.h&gt;)
+
+Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -153,7 +169,9 @@ title: "CSSI112lec 22"
 
 ---
 
-## 8. Diagnostics and Assertions (&lt;assert.h&gt;) Useful for debugging and safety.
+# 8. Diagnostics and Assertions (&lt;assert.h&gt;)
+
+Useful for debugging and safety.
 
 |Function / Macro|Description|Example|
 |---|---|---|
@@ -162,7 +180,7 @@ title: "CSSI112lec 22"
 
 ---
 
-## Standard C Library Overview
+# Standard C Library Overview
 
 - Character Classification and Conversion (&lt;ctype.h&gt;)
 - String Handling (&lt;string.h&gt;)
@@ -185,7 +203,9 @@ title: "CSSI112lec 22"
 
 ---
 
-## 9. Time and Date Functions (&lt;time.h&gt;) Work with clocks and timestamps.
+# 9. Time and Date Functions (&lt;time.h&gt;)
+
+Work with clocks and timestamps.
 
 |Function|Description|Example|
 |---|---|---|
@@ -200,7 +220,7 @@ title: "CSSI112lec 22"
 
 ---
 
-## time(time\_t \*) – Returns the current calendar time
+# time(time\_t \*) – Returns the current calendar time
 
 - (seconds since January 1, 1970 — Unix epoch).
 
@@ -219,7 +239,7 @@ int main()
 
 - time()
 
-```c
+```text
 Header: <time.h>
 ```
 
@@ -236,16 +256,15 @@ int main()
 }
 ```
 
-```c
+**Result:**
+
+```text
 Now = 1763952307
-
 ```
-
-- Result:
 
 ---
 
-## time() Function and the Unix Epoch
+# time() Function and the Unix Epoch
 
 **The Unix Epoch and time\_t**
 
@@ -262,7 +281,7 @@ Now = 1763952307
 
 ---
 
-## time() Function and the Unix Epoch
+# time() Function and the Unix Epoch
 
 |**Call Variant**|**Argument Purpose**|**Operation Description**|
 |---|---|---|
@@ -271,7 +290,7 @@ Now = 1763952307
 
 ---
 
-## time() Function and the Unix Epoch
+# time() Function and the Unix Epoch
 
 Why a Signed Integer for time\_t?
 
@@ -283,7 +302,7 @@ Why a Signed Number (signed) Was Used?
 
 ---
 
-## Seconds alone tell you nothing about the calendar
+# Seconds alone tell you nothing about the calendar
 
 We cannot look at it and immediately know the year, month, day, or even the hour. To understand the calendar date, you would need to manually account for:
 
@@ -295,16 +314,15 @@ We cannot look at it and immediately know the year, month, day, or even the hour
 
 Doing this manually is error-prone and extremely complicated. Because of this, C provides functions that can convert raw seconds into a structured, human-readable calendar form.
 
-```c
+**Result:**
+
+```text
 Now = 1763952307
-
 ```
-
-- Result:
 
 ---
 
-## localtime() – Converting Seconds Into a Calendar Structure
+# localtime() – Converting Seconds Into a Calendar Structure
 
 - 1900?
 
@@ -324,18 +342,17 @@ int main()
 
 - localtime(time\_t \*)
 
-```c
+```text
 Header: <time.h>
 ```
 
-```c
-Year: 2025
+**Result:**
 
+```text
+Year: 2025
 ```
 
-- Result:
-
-```c
+```text
 localtime() transforms time_t into a struct tm, which contains:
 int tm_sec;
 int tm_min;
@@ -350,7 +367,7 @@ int tm_isdst;
 
 ---
 
-## Why does struct tm store the year as *years since 1900*?
+# Why does struct tm store the year as *years since 1900*?
 
 Historical reason — backward compatibility
 
@@ -367,7 +384,7 @@ When the struct tm type was defined, the designers decided to:
 
 ---
 
-## Summary
+# Summary
 
 - struct tm originates from early systems with extremely limited memory.
 - The year used to be stored in **two digits**, so an offset of **1900** was added.
@@ -376,7 +393,7 @@ When the struct tm type was defined, the designers decided to:
 
 ---
 
-## struct tm
+# struct tm
 
 - **Leap second**
 
@@ -411,7 +428,7 @@ struct tm {
 
 ---
 
-## struct tm
+# struct tm
 
 ```c
 #include <stdio.h>
@@ -435,7 +452,9 @@ int main()
 }
 ```
 
-```c
+**Result:**
+
+```text
 Sec: 57
 Min: 7
 Hour: 21
@@ -447,11 +466,9 @@ Day of the year: 326
 Daylight Saving Time flag: 0
 ```
 
-- Result:
-
 ---
 
-## clock() – Returns the number of CPU clock ticks since the program started
+# clock() – Returns the number of CPU clock ticks since the program started
 
 - Used for measuring **CPU time**, not real time.
 
@@ -473,18 +490,17 @@ int main()
 
 - clock()
 
-```c
+```text
 Header: <time.h>
 ```
 
-```c
-CPU time = 0.895000 seconds
+**Result:**
 
+```text
+CPU time = 0.895000 seconds
 ```
 
-- Result:
-
-```c
+```text
 #define CLOCKS_PER_SEC ((clock_t)(1000))
 Number of clock ticks per second. A clock tick is the unit by which
 processor time is measured and is returned by 'clock'.
@@ -494,7 +510,7 @@ Expands to:
 
 ---
 
-## Understanding clock() in C
+# Understanding clock() in C
 
 **What clock() Was Originally Designed For**
 
@@ -505,7 +521,7 @@ Expands to:
 
 ---
 
-## What clock() Actually Measures
+# What clock() Actually Measures
 
 - It does not measure real-world (wall-clock) time.
 - It measures CPU time used by the process, NOT time spent waiting.
@@ -516,7 +532,7 @@ Expands to:
 
 ---
 
-## Why clock() No Longer Corresponds to Real Seconds
+# Why clock() No Longer Corresponds to Real Seconds
 
 - Modern CPUs constantly change frequency:
   - turbo boost
@@ -529,7 +545,7 @@ Expands to:
 
 ---
 
-## The Real Purpose of clock()
+# The Real Purpose of clock()
 
 - Its true purpose remains:
   - **measure CPU usage**,
@@ -542,7 +558,7 @@ Expands to:
 
 ---
 
-## difftime() – Returns the difference between two time\_t values in seconds: t1 − t2
+# difftime() – Returns the difference between two time\_t values in seconds: t1 − t2
 
 - Measuring Wall-Clock Time Differences: It is ideal for measuring real-world time intervals (wall-clock time) between two points (e.g., the start and end of some operation).
 - Lack of CPU Time Precision: It should not be used for measuring CPU time or for micro-profiling, as it is based on the time\_t type, which typically only has second-level precision.
@@ -567,20 +583,19 @@ int main()
 
 - difftime(int, int)
 
-```c
+```text
 Header: <time.h>
 ```
 
-```c
+**Result:**
+
+```text
 Real time = 1.000000 seconds
-
 ```
-
-- Result:
 
 ---
 
-## mktime() – Converts a filled struct tm into a time\_t
+# mktime() – Converts a filled struct tm into a time\_t
 
 - Also automatically normalizes values (e.g., month = 13 → next year).
 
@@ -603,20 +618,19 @@ int main()
 
 - mktime(\*tm)
 
-```c
+```text
 Header: <time.h>
 ```
 
-```c
+**Result:**
+
+```text
 Epoch time = 1766559600
-
 ```
-
-- Result:
 
 ---
 
-## asctime() – Converts a struct tm into a human-readable string
+# asctime() – Converts a struct tm into a human-readable string
 
 - Returns a static string (NOT thread safe).
 
@@ -639,20 +653,19 @@ int main()
 
 - asctime(\*tm)
 
-```c
+```text
 Header: <time.h>
 ```
 
-```c
+**Result:**
+
+```text
 Sun Dec 24 00:00:00 2025
-
 ```
-
-- Result:
 
 ---
 
-## ctime() – Converts time\_t directly into a readable string
+# ctime() – Converts time\_t directly into a readable string
 
 - (similar to asctime, also not thread-safe).
 
@@ -675,19 +688,19 @@ int main()
 
 - ctime(\*t)
 
-```c
+```text
 Header: <time.h>
 ```
 
-```c
+**Result:**
+
+```text
 Now: Sun Nov 23 21:55:04 2025
 ```
 
-- Result:
-
 ---
 
-## strftime() – Formats a struct tm into a custom string according to fmt
+# strftime() – Formats a struct tm into a custom string according to fmt
 
 - (similar to asctime, also not thread-safe).
 
@@ -711,15 +724,15 @@ int main()
 
 - strftime(buf, n, fmt, \*tm)
 
-```c
+```text
 Header: <time.h>
 ```
 
-```c
+**Result:**
+
+```text
 Formatted date = 2025-11-23 21:58:37
 ```
-
-- Result:
 
 ---
 
@@ -727,7 +740,9 @@ Formatted date = 2025-11-23 21:58:37
 
 ---
 
-## 10. Variable Argument Lists (&lt;stdarg.h&gt;) For functions that accept a variable number of parameters.
+# 10. Variable Argument Lists (&lt;stdarg.h&gt;)
+
+For functions that accept a variable number of parameters.
 
 |Macro|Description|Example|
 |---|---|---|
@@ -737,7 +752,7 @@ Formatted date = 2025-11-23 21:58:37
 
 ---
 
-## Variadic Functions (stdarg.h)
+# Variadic Functions (stdarg.h)
 
 - Some functions can accept a **variable number of arguments**.
 - Classic examples: printf(), scanf(), fprintf().
@@ -750,7 +765,7 @@ Formatted date = 2025-11-23 21:58:37
 
 ---
 
-## How variadic functions work in C
+# How variadic functions work in C
 
 A variadic function has the following form: int example(int fixed\_param, ...);
 
@@ -767,7 +782,7 @@ Therefore, the programmer must provide enough **context** for the function to de
 
 ---
 
-## The va\_list mechanism
+# The va\_list mechanism
 
 - **1. va\_list**
   - A special type that represents the current position inside the variable argument list. va\_list args;
@@ -786,7 +801,7 @@ Therefore, the programmer must provide enough **context** for the function to de
 
 ---
 
-## Variadic Functions - example
+# Variadic Functions - example
 
 **Explanation:**
 
@@ -807,16 +822,15 @@ int main()
 }
 ```
 
-```c
+```text
 Header: <stdarg.h>
 ```
 
-```c
+**Result:**
+
+```text
 100
-
 ```
-
-- Result:
 
 ```c
 int sum_ints(int count, ...)
@@ -835,7 +849,7 @@ int sum_ints(int count, ...)
 
 ---
 
-## Variadic Functions - example
+# Variadic Functions - example
 
 Because C does not know the types of the variable arguments, the programmer must encode them manually.
 
@@ -847,7 +861,7 @@ Because C does not know the types of the variable arguments, the programmer must
 - Using the wrong type in va\_arg → undefined behavior
 - Cannot be used to inspect arguments at runtime (no reflection)
 
-```c
+```text
 Header: <stdarg.h>
 ```
 
@@ -885,7 +899,9 @@ void print_values(int count, ...)
 
 ---
 
-## Most Common System Libraries in Windows (WinAPI) These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
+# Most Common System Libraries in Windows (WinAPI)
+
+These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
 
 |Library|Description|Typical Functions|
 |---|---|---|

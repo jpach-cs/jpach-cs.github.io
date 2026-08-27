@@ -5,13 +5,14 @@ paginate: true
 title: "Data Structures & Algorithms"
 ---
 
+<!-- _class: lead -->
+
 # Data Structures &amp; Algorithms
 
-*Lecture 1*
-
+## Lecture 1
 ---
 
-## In 136, we covered
+# In 136, we covered
 
 - Objects and classes, Abstract Data Types – lots of coverage.  I required class and header files in most assignments
 - Time and Space complexity – a discussion was included in each exercise.  Good coverage of constant time, linear, n2, n3, with loops and nested loops.  Didn’t do any of the math.
@@ -27,7 +28,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 - Review
   - Navigating the Command Line
@@ -38,13 +39,13 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## Review
+# Review
 
-- Navigating the Command Line
+Navigating the Command Line
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 1: Opening the Command Prompt
+# Navigating the Command Line: Windows vs. Linux<br>Slide 1: Opening the Command Prompt
 
 - Windows:
   - Cmd: The most commonly used command to open the command prompt.
@@ -60,9 +61,9 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 1: Opening the Command Prompt - Example
+# Navigating the Command Line: Windows vs. Linux<br>Slide 1: Opening the Command Prompt - Example
 
-```c
+```console
 jacob@raspberrypi:~ $ pwd
 /home/jacob
 jacob@raspberrypi:~ $
@@ -76,7 +77,7 @@ jacob@raspberrypi:~ $
 
 ```
 
-```c
+```console
 Microsoft Windows [Version 10.0.22631.4602]
 (c) Microsoft Corporation. All rights reserved.
 
@@ -107,7 +108,7 @@ C:\Users\Jacob>
 
 ---
 
-## Differences in Command Prompt Messages Between Windows and Linux
+# Differences in Command Prompt Messages Between Windows and Linux
 
 The command prompt in different operating systems displays various information, which stems from differences in their architecture and design philosophy.
 
@@ -121,13 +122,13 @@ The command prompt in different operating systems displays various information, 
 - Most often presents the username and hostname (device name).
 - Example: user@computer:~$ Purpose: Informs about the currently logged-in user and the machine they are working on.
 
-```c
+```console
  C:\Users\Jacob>
 
 
 ```
 
-```c
+```console
  jacob@raspberrypi:~ $
 
 
@@ -135,7 +136,7 @@ The command prompt in different operating systems displays various information, 
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management
+# Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management
 
 - Windows:
   - dir:    Lists files and directories in the current directory.
@@ -153,11 +154,13 @@ The command prompt in different operating systems displays various information, 
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management – Example(dir)
+<!-- _class: long-title -->
+
+# Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management – Example(dir)
 
 - dir:    Lists files and directories in the current directory.
 
-```c
+```console
 jacob@raspberrypi:~ $ ls
 Bookshelf  Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
 jacob@raspberrypi:~ $ dir
@@ -180,7 +183,7 @@ jacob@raspberrypi:~ $
 
 ```
 
-```c
+```console
 C:\Users\Jacob>dir
 12/19/2024  12:14 PM    <DIR>          .
 09/05/2023  09:06 AM    <DIR>          ..
@@ -211,12 +214,14 @@ C:\Users\Jacob>
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management – Example(cd/cd..)
+<!-- _class: long-title -->
+
+# Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management – Example(cd/cd..)
 
 - cd:    Changes the current directory.
 - cd..:    Moves up one directory level.
 
-```c
+```console
 jacob@raspberrypi:~ $ cd Desktop
 jacob@raspberrypi:~/Desktop $ cd ..
 jacob@raspberrypi:~ $ cd Desktop
@@ -233,7 +238,7 @@ jacob@raspberrypi:/ $
 
 ```
 
-```c
+```console
 C:\Users\Jacob>cd Desktop
 C:\Users\Jacob\Desktop>cd..
 C:\Users\Jacob>cd Desktop
@@ -320,7 +325,7 @@ C:\>
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 3: Text Manipulation and Output
+# Navigating the Command Line: Windows vs. Linux<br>Slide 3: Text Manipulation and Output
 
 - Windows:
   - echo: Displays a message on the screen.
@@ -331,11 +336,11 @@ C:\>
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 3: Text Manipulation and Output - Example
+# Navigating the Command Line: Windows vs. Linux<br>Slide 3: Text Manipulation and Output - Example
 
 - echo: Displays a message on the screen.
 
-```c
+```console
 jacob@raspberrypi:~ $ echo Hello World!
 Hello World!
 jacob@raspberrypi:~ $ echo "Hello World!"
@@ -350,7 +355,7 @@ jacob@raspberrypi:~ $
 
 ```
 
-```c
+```console
 C:\Users\Jacob>echo Hello World!
 Hello World!
 C:\Users\Jacob> echo "Hello World!"
@@ -369,7 +374,7 @@ C:\Users\Jacob>
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 4: Hello, World! and Redirection
+# Navigating the Command Line: Windows vs. Linux<br>Slide 4: Hello, World! and Redirection
 
 - Windows:
   - echo Hello, world!
@@ -382,12 +387,12 @@ C:\Users\Jacob>
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 4: Hello, World! and Redirection - Example
+# Navigating the Command Line: Windows vs. Linux<br>Slide 4: Hello, World! and Redirection - Example
 
 - The simplest way to create a new file.
 - Redirection works similarly in both systems, using the &gt; symbol to overwrite a file and &gt;&gt; to append to a file.
 
-```c
+```console
 jacob@raspberrypi:~ echo Hello world! > myfile.txt
 jacob@raspberrypi:~ $
 
@@ -395,7 +400,7 @@ jacob@raspberrypi:~ $
 
 ```
 
-```c
+```console
 C:\Users\Jacob>echo Hello world! > myfile.txt
 C:\Users\Jacob>
 
@@ -403,7 +408,7 @@ C:\Users\Jacob>
 
 ```
 
-```c
+```text
 Hello world!
 
 
@@ -413,7 +418,9 @@ myfile.txt
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 5: Creating and Deleting Files and Directories
+<!-- _class: long-title -->
+
+# Navigating the Command Line: Windows vs. Linux<br>Slide 5: Creating and Deleting Files and Directories
 
 - Windows:
   - copy:    Copies files.
@@ -426,7 +433,9 @@ myfile.txt
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 5: Creating and Deleting Files and Directories – Example(copies, deletes, makes)
+<!-- _class: long-title -->
+
+# Navigating the Command Line: Windows vs. Linux<br>Slide 5: Creating and Deleting Files and Directories – Example(copies, deletes, makes)
 
 - copy:    Copies files.
 - del:    Deletes files.
@@ -435,7 +444,7 @@ myfile.txt
 - rm:    Removes files or directories.
 - mkdir:    Makes a new directory.
 
-```c
+```console
 jacob@raspberrypi:~ $ mkdir Folder
 jacob@raspberrypi:~ $ ls
 Bookshelf  Desktop  Documents  Downloads  Folder  Music  Pictures  Public  Templates  Videos
@@ -444,13 +453,13 @@ Bookshelf  Desktop  Documents  Downloads  Folder  Music  Pictures  Public  Templ
 
 ```
 
-```c
+```console
 jacob@raspberrypi:~ $ cd Folder
 jacob@raspberrypi:~/Folder $ echo > empty.txt
 jacob@raspberrypi:~/Folder $ cp empty.txt copyEmpty.txt
 ```
 
-```c
+```console
 jacob@raspberrypi:~/Folder $ ls
 copyEmpty.txt  empty.txt
 
@@ -460,12 +469,12 @@ copyEmpty.txt  empty.txt
 
 ```
 
-```c
+```console
 jacob@raspberrypi:~/Folder $ rm copyEmpty.txt
 jacob@raspberrypi:~/Folder $
 ```
 
-```c
+```console
 C:\Users\Jacob>md Folder
 C:\Users\Jacob>dir
 ...
@@ -475,13 +484,13 @@ C:\Users\Jacob>dir
 ...
 ```
 
-```c
+```console
 C:\Users\Jacob> cd Folder
 C:\Users\Jacob\Folder> echo. > empty.txt
 C:\Users\Jacob\Folder> copy empty.txt copyEmpty.txt
 ```
 
-```c
+```console
 C:\Users\Jacob\Folder> dir
 ...
 01/04/2025  12:22 PM    <DIR>          .
@@ -491,14 +500,14 @@ C:\Users\Jacob\Folder> dir
 ...
 ```
 
-```c
+```console
 C:\Users\Jacob\Folder> del copyEmpty.txt
 C:\Users\Jacob\Folder>
 ```
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 6: Executing Compiled Programs
+# Navigating the Command Line: Windows vs. Linux<br>Slide 6: Executing Compiled Programs
 
 - Windows:
   - To run a compiled program, you usually just type the program name, followed by the .exe extension: program\_name.exe.
@@ -509,11 +518,11 @@ C:\Users\Jacob\Folder>
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 6: Executing Compiled Programs – Example
+# Navigating the Command Line: Windows vs. Linux<br>Slide 6: Executing Compiled Programs – Example
 
 - To run a compiled program, you usually just type the program name, followed by the .exe extension: program\_name.exe.
 
-```c
+```console
 jacob@raspberrypi:~ $cd /
 jacob@raspberrypi:/ $ cd /usr/bin
 jacob@raspberrypi:/usr/bin $ ./ping www.google.com
@@ -532,7 +541,7 @@ rtt min/avg/max/mdev = 16.013/16.068/16.192/0.069 ms
 jacob@raspberrypi:/usr/bin $
 ```
 
-```c
+```console
 C:\Users\Jacob>cd C:\Windows\System32
 C:\Windows\System32>ping.exe www.google.com
 
@@ -560,8 +569,9 @@ C:\Windows\System32>
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 7: Additional tools
+# Navigating the Command Line: Windows vs. Linux<br>Slide 7: Additional tools
 
+```text
 Windows:                             Linux:
 
 cls                                 clear
@@ -569,6 +579,7 @@ cls                                 clear
 rename                            mv
 
 /h -h                                --h
+```
 
 - Instead of copying a file to a new name, you can use a command to rename the file. The syntax is identical to that of copying.
 - To clear the console/terminal window, use the appropriate command, such as cls or clear.
@@ -576,7 +587,7 @@ rename                            mv
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 8: Basic Text Editing
+# Navigating the Command Line: Windows vs. Linux<br>Slide 8: Basic Text Editing
 
 - Windows:
   - notepad/notepad++:
@@ -589,7 +600,9 @@ rename                            mv
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 8: Basic Text Editing Windows: notepad/notepad++:         Linux: nano:
+# Navigating the Command Line: Windows vs. Linux<br>Slide 8: Basic Text Editing
+
+Windows: notepad/notepad++:         Linux: nano:
 
 ![w:486px Picture 2](assets/image27.png)
 
@@ -597,7 +610,7 @@ rename                            mv
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 9: IP address
+# Navigating the Command Line: Windows vs. Linux<br>Slide 9: IP address
 
 An IP address is like a unique mailing address for every device connected to the internet. It allows computers to locate and communicate with each other. Think of it as a numerical label assigned to each device, making it possible for data to be sent to the correct destination.
 
@@ -608,11 +621,13 @@ An IP address is like a unique mailing address for every device connected to the
 
 ---
 
-## Navigating the Command Line: Windows vs. Linux<br>Slide 9: IP address – How you can get your IP address
+<!-- _class: long-title -->
+
+# Navigating the Command Line: Windows vs. Linux<br>Slide 9: IP address – How you can get your IP address
 
 - ipconfig
 
-```c
+```console
 jacob@raspberrypi:~ $ ip addr
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -631,7 +646,7 @@ jacob@raspberrypi:~ $ ip addr
 jacob@raspberrypi:~
 ```
 
-```c
+```console
 C:\Users\Jacob>ipconfig
 ...
 Ethernet adapter Ethernet 4:
@@ -657,26 +672,30 @@ C:\Users\Jacob>
 
 ---
 
-## Compiler
+# Compiler
 
 ---
 
-## … a few words about a compiler During this semester, we will work with multiple programming languages and tools. We will start by refreshing our knowledge of the C language (the ancestor of C++, C#, Java, etc.), and then focus primarily on Python. Therefore, it is necessary to review compiler concepts, including GCC, one of the most popular C compilers.
+# … a few words about a compiler
+
+During this semester, we will work with multiple programming languages and tools. We will start by refreshing our knowledge of the C language (the ancestor of C++, C#, Java, etc.), and then focus primarily on Python. Therefore, it is necessary to review compiler concepts, including GCC, one of the most popular C compilers.
 
 ---
 
-## Compiler vs Interpreter
+# Compiler vs Interpreter
 
 - A compiler takes the entire source code and translates it into a machine code file, often called an executable. This executable file contains instructions that the computer's processor can directly execute. Once compiled, the program can run independently without the need for the original source code or a compiler.
 - An interpreter translates the source code line by line as the program is running. It doesn't create a separate executable file. Instead, it uses a virtual machine to execute the translated code. The virtual machine provides an environment that mimics a real computer, allowing the program to run even if the underlying hardware architecture is different
 
 ---
 
-## Compiler vs Interpreter Think of a compiler as a translator who translates an entire book from one language to another before you start reading it. An interpreter, on the other hand, is a translator who translates each sentence as you read it. A compiler translates the entire program at once, while an interpreter translates it line by line.
+# Compiler vs Interpreter
+
+Think of a compiler as a translator who translates an entire book from one language to another before you start reading it. An interpreter, on the other hand, is a translator who translates each sentence as you read it. A compiler translates the entire program at once, while an interpreter translates it line by line.
 
 ---
 
-## How does a C program executes?
+# How does a C program executes?
 
 - C code
 - Preprocessing
@@ -701,7 +720,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## Compilers
+# Compilers
 
 - GCC – GNU Compiler Collection
 - Microsoft Compiler C/C++
@@ -709,7 +728,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## GCC – GNU Compiler Collection
+# GCC – GNU Compiler Collection
 
 - GCC is a collection of compilers from the GNU Project that support various programming languages, hardware architectures and operating systems. The Free Software Foundation (FSF) distributes GCC as free software under the GNU General Public License (GNU GPL).
 - GNU = ‘GNU's not Unix!’ The name was chosen intentionally to highlight the fact that although the GNU operating system draws inspiration from Unix, it is entirely self-contained and does not depend on any Unix source code.
@@ -717,7 +736,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## GCC on Windows - How does it work?
+# GCC on Windows - How does it work?
 
 - Open Source: One of the fundamental principles of the GNU project is open source. This means that anyone can download, modify, and distribute the GCC code. As a result, the GCC compiler has been adapted to work on various operating systems, including Windows.
 - Compiler as a tool: GCC is primarily a tool, and tools are not usually tied to a specific operating system. Of course, there may be some dependencies and specifications for different platforms, but the core functionality of the compiler remains the same.
@@ -726,7 +745,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## A summary
+# A summary
 
 *Although GNU is primarily associated with Unix-like systems, the ideas of free software and open source have allowed GNU tools, such as GCC, to be ported to other platforms, including Windows.*
 
@@ -734,13 +753,13 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## MinGW
+# MinGW
 
-- In your personal computer
+In your personal computer
 
 ---
 
-## Steps required to use the GCC compiler with MinGW
+# Steps required to use the GCC compiler with MinGW
 
 - Download the MinGW archive from the course.
 - Extract MinGW to the C:\ directory so that the folder structure looks like this: C:\MinGW\bin.
@@ -748,7 +767,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## Steps to Add MinGW GCC to System PATH on Windows
+# Steps to Add MinGW GCC to System PATH on Windows
 
 - Locate the MinGW bin folder
   - Typically, it’s in:
@@ -769,7 +788,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## Steps to Add MinGW GCC to System PATH on Windows
+# Steps to Add MinGW GCC to System PATH on Windows
 
 - Locate the MinGW bin folder
   - C:\MinGW\bin
@@ -786,7 +805,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## Steps to Add MinGW GCC to System PATH on Windows
+# Steps to Add MinGW GCC to System PATH on Windows
 
 - Locate the MinGW bin folder
   - C:\MinGW\bin
@@ -801,7 +820,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## Steps to Add MinGW GCC to System PATH on Windows
+# Steps to Add MinGW GCC to System PATH on Windows
 
 - Under System variables, find and select Path.
   - Click Edit.
@@ -815,7 +834,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## MinGW
+# MinGW
 
 ![w:501px Content Placeholder 4](assets/image33.png)
 
@@ -823,15 +842,13 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## Process
-
-- of compilation
+# Process of compilation
 
 <!-- Aj di iii -->
 
 ---
 
-## Steps required to prepare the C code from the course
+# Steps required to prepare the C code from the course
 
 - Download the C code archive from the Canvas course.
 - Extract the folder, for example, to your Desktop.
@@ -839,32 +856,33 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## Process of compilation
+# Process of compilation
 
-- Compile main.c into an object file main.o:
-- Link the object file main.o into an executable main.exe:
+Compile main.c into an object file main.o:
 
-```c
+```console
 gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 ```
 
-```c
+```console
 # 1) Compile main.c into an object file main.o (no linking).
 #    Includes debug symbols (-g), enables most warnings (-Wall), uses the C99 standard (-std=c99),
 #    and enforces strict standard conformance (-pedantic).
 ```
 
-```c
+Link the object file main.o into an executable main.exe:
+
+```console
 gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 ```
 
-```c
+```console
 # 2) Link the object file into an executable named main.exe.
 ```
 
 ---
 
-## How does a C program executes?
+# How does a C program executes?
 
 - C code
 - Preprocessing
@@ -889,7 +907,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## How does a C program executes?
+# How does a C program executes?
 
 - C code
 - Preprocessing
@@ -914,28 +932,28 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## Process of compilation
+# Process of compilation
 
-- Compile and link in one step (from main.c directly to main.exe):
+Compile and link in one step (from main.c directly to main.exe):
 
-```c
+```console
 gcc -g -Wall -std=c99 -pedantic main.c -o main.exe
 ```
 
-```c
+```console
 # 3) Compile and link in one step: from main.c directly to main.exe,
 #    with the same diagnostic/standard flags as in step 1.
 ```
 
 ---
 
-## IDE
+# IDE
 
 <!-- Aj di iii -->
 
 ---
 
-## IDE (Integrated Development Environment)
+# IDE (Integrated Development Environment)
 
 An IDE combines many tools essential for a programmer's work, such as:
 
@@ -949,7 +967,7 @@ An IDE combines many tools essential for a programmer's work, such as:
 
 ---
 
-## IDE
+# IDE
 
 - Code::Blocks
 - Visual Studio Code
@@ -965,22 +983,24 @@ An IDE combines many tools essential for a programmer's work, such as:
 
 ---
 
-## Visual Studio Code – a few facts VS Code is not a full-fledged IDE but rather a code editor. However, it is often considered an IDE because it includes a built-in file manager, and its extension system allows you to easily add features such as a debugger, compiler, or interpreter.
+# Visual Studio Code – a few facts
+
+VS Code is not a full-fledged IDE but rather a code editor. However, it is often considered an IDE because it includes a built-in file manager, and its extension system allows you to easily add features such as a debugger, compiler, or interpreter.
 
 ---
 
-## Positional notation
+# Positional notation
 
 ---
 
-## Bit &amp; Byte
+# Bit &amp; Byte
 
 - A **bit** is the smallest unit of data in a computer, representing a single binary value: either a **0** or a **1**.
 - A **byte** is a group of eight bits. A single byte can represent a wide range of values, such as a single character (like the letter 'A' or the symbol '@') or an integer from 0 to 255.
 
 ---
 
-## Base of the numeral system
+# Base of the numeral system
 
 - In mathematical numeral systems the radix r is usually the number of unique digits, including zero, that a positional numeral system uses to represent numbers.
 - The highest symbol of a positional numeral system usually has the value one less than the value of the radix of that numeral system. The standard positional numeral systems differ from one another only in the base they use.
@@ -990,13 +1010,13 @@ An IDE combines many tools essential for a programmer's work, such as:
 
 ---
 
-## Binary numeral system
+# Binary numeral system
 
 ![w:238px Picture 5](assets/image38.png)
 
 ---
 
-## Converting decimal numbers to binary
+# Converting decimal numbers to binary
 
 Steps:
 
@@ -1008,7 +1028,7 @@ Steps:
 
 ---
 
-## Converting decimal numbers to binary – example 12310
+# Converting decimal numbers to binary – example 12310
 
 - 123 / 2 = 61 (remainder 1)
 - Write down a 1.
@@ -1027,7 +1047,7 @@ Steps:
 
 ---
 
-## Converting binary numbers to oct – example 1111011(2)
+# Converting binary numbers to oct – example 1111011(2)
 
 - 001.111.011    = 1.7.3
 - 0111.1011    = 7.B
@@ -1053,7 +1073,7 @@ Steps:
 
 ---
 
-## Binary numeral system (Unsigned arithmetic)
+# Binary numeral system (Unsigned arithmetic)
 
 |||||||||||
 |---|---|---|---|---|---|---|---|---|---|
@@ -1085,7 +1105,7 @@ least significant bit
 
 ---
 
-## Data in a computer can essentially be stored using two standards
+# Data in a computer can essentially be stored using two standards
 
 - integers represented in binary,
 - real (floating-point) numbers stored according to the IEEE 754 standard.
@@ -1094,11 +1114,11 @@ Everything else is a combination or interpretation based on these two fundamenta
 
 ---
 
-## Symbolic Name
+# Symbolic Name
 
 ---
 
-## What is an address?
+# What is an address?
 
 **Address of University:**
 
@@ -1108,7 +1128,7 @@ Everything else is a combination or interpretation based on these two fundamenta
 
 ---
 
-## What is an address?
+# What is an address?
 
 - Address is an identifier <br>(symbolic name) of location
 - A place to locate what we refer to
@@ -1121,7 +1141,7 @@ Everything else is a combination or interpretation based on these two fundamenta
 
 ---
 
-## What is a name of variable?
+# What is a name of variable?
 
 ```c
 int main()
@@ -1141,7 +1161,7 @@ In C:
 
 ---
 
-## What is a name of variable?
+# What is a name of variable?
 
 In C:
 
@@ -1161,7 +1181,7 @@ int main()
 
 ---
 
-## Symbolic names will be used in
+# Symbolic names will be used in
 
 - Variables:    Symbolic names will be used to identify and refer to data stored in variables. This<br>    allows for more meaningful and descriptive code compared to using arbitrary names or <br>    identifiers.
 - Arrays:     Symbolic names will be used to identify collections of related data elements. Arrays can be used <br>    to store multiple values of the same data type.
@@ -1172,7 +1192,7 @@ int main()
 
 ---
 
-## Restrictions on symbolic name
+# Restrictions on symbolic name
 
 - The first character must be a letter, underscore "\_", or special character “@, #, $”\*
 - The remaining characters can be letters, digits, underscores
@@ -1183,7 +1203,7 @@ int main()
 
 ---
 
-## camelCase vs snake\_case for symbolic names
+# camelCase vs snake\_case for symbolic names
 
 - camelCase starts each word with a capital letter, except for the first word.
   - For example, thisIsCamelCase.
@@ -1200,7 +1220,7 @@ Constants, which are values that don't change, are usually written in all upperc
 
 ---
 
-## Symbolic names will be used in
+# Symbolic names will be used in
 
 - Variables:    Symbolic names will be used to identify and refer to data stored in variables. This<br>    allows for more meaningful and descriptive code compared to using arbitrary names or <br>    identifiers.
 
@@ -1216,7 +1236,7 @@ Constants, which are values that don't change, are usually written in all upperc
 
 ---
 
-## Declaring and initializing variables
+# Declaring and initializing variables
 
 ```c
 int main()
@@ -1242,7 +1262,7 @@ int main()
 
 ---
 
-## Declaring and initializing variables
+# Declaring and initializing variables
 
 ```c
 int main()
@@ -1263,7 +1283,7 @@ int == long int
 
 ---
 
-## Declaring and initializing variables
+# Declaring and initializing variables
 
 ```c
 int main()
@@ -1286,7 +1306,7 @@ long  == long int == int
 
 ---
 
-## Declaring and initializing variables
+# Declaring and initializing variables
 
 ```c
 int main()
@@ -1300,7 +1320,7 @@ int main()
 
 ---
 
-## Declaring and initializing variables
+# Declaring and initializing variables
 
 - Any variable must be declared before use.
 - Unlike Python, C requires explicit type declaration for variables\*
@@ -1312,13 +1332,15 @@ int main()
 
 ---
 
-## Two words about floating-point representation Operations on real numbers are recorded with only a certain degree of precision, and therefore there is a very high probability that the result of (a + b – c) will not be the same as (a - c + b) ! This means that using real numbers requires careful consideration.
+# Two words about floating-point representation
+
+Operations on real numbers are recorded with only a certain degree of precision, and therefore there is a very high probability that the result of (a + b – c) will not be the same as (a - c + b) ! This means that using real numbers requires careful consideration.
 
 <!-- but more on that in another course - namely, computer architecture. -->
 
 ---
 
-## A few words about pointers
+# A few words about pointers
 
 - **POINTERS ARE TREATED AS FIRST-CLASS DATA TYPES**
 - We can create a pointer to **any** data type using the \* operator between the existing data type and the symbolic name. Unary Operator &amp; returns memory locations
@@ -1344,7 +1366,7 @@ asterisk -->
 
 ---
 
-## Summary of memory size of data types
+# Summary of memory size of data types
 
 |Type|Memory size in bytes / bits|
 |---|---|
@@ -1362,7 +1384,7 @@ asterisk -->
 
 ---
 
-## Symbolic names will be used in
+# Symbolic names will be used in
 
 - Variables:    Symbolic names will be used to identify and refer to data stored in variables. This<br>    allows for more meaningful and descriptive code compared to using arbitrary names or <br>    identifiers.
 
@@ -1378,19 +1400,21 @@ asterisk -->
 
 ---
 
-## Arrays
+# Arrays
 
 This statement reserves space in memory for 10 integers and creates an 'unchanging address of memory' that points to the beginning of this array\*. You can use this symbolic name to access individual elements of the array using square brackets and the appropriate index.
 
 The values of array will be undefined, meaning they can hold any random value.
 
-int a\[10\];
+```c
+int a[10];
+```
 
 \*Array indexing starts from 0.
 
 ---
 
-## Arrays
+# Arrays
 
 - When you specify the size of an array in square brackets, it is created with that exact size.
 - If you omit the size but provide initial values, the compiler counts them and creates an array of that size.
@@ -1410,7 +1434,7 @@ int a\[10\];
 
 ---
 
-## Do you remember?
+# Do you remember?
 
 - Code
 - Preprocessor
@@ -1429,7 +1453,7 @@ int main()
 
 ---
 
-## Hello World
+# Hello World
 
 ```c
 #include <stdio.h>
@@ -1445,7 +1469,7 @@ int main()
 
 ---
 
-## Example of an array
+# Example of an array
 
 ```c
 int main()
@@ -1468,7 +1492,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Hello World
 Hello World
 Hello World
@@ -1478,11 +1504,9 @@ Hello World
 Hello World
 ```
 
-Result:
-
 ---
 
-## Arrays
+# Arrays
 
 - When you specify the size of an array in square brackets, it is created with that exact size.
 - If you omit the size but provide initial values, the compiler counts them and creates an array of that size.
@@ -1502,7 +1526,7 @@ Result:
 
 ---
 
-## Question: How do we know which letter goes with which number?
+# Question: How do we know which letter goes with which number?
 
 ```c
 int main()
@@ -1513,18 +1537,18 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Hello World
 
 
 
 ```
 
-Result:
-
 ---
 
-## ASCII Table
+# ASCII Table
 
 American Standard Code for Information Interchange
 
@@ -1534,7 +1558,7 @@ American Standard Code for Information Interchange
 - \t equals 11
 - White\_Space equals 32
 
-```c
+```text
  Val Char                            Val  Char     Val  Char     Val  Char
 ---------                            ---------     ---------     ----------
   0  NUL (null)                      32  SPACE     64  @         96  `
@@ -1576,7 +1600,7 @@ American Standard Code for Information Interchange
 
 ---
 
-## Multi-dimensional arrays
+# Multi-dimensional arrays
 
 - One dimension:
 - Two dimensions:
@@ -1597,7 +1621,7 @@ American Standard Code for Information Interchange
 
 ---
 
-## Symbolic names will be used in
+# Symbolic names will be used in
 
 - Variables:    Symbolic names will be used to identify and refer to data stored in variables. This<br>    allows for more meaningful and descriptive code compared to using arbitrary names or <br>    identifiers.
 
@@ -1613,7 +1637,7 @@ American Standard Code for Information Interchange
 
 ---
 
-## Every line of code in C can have its own label
+# Every line of code in C can have its own label
 
 ```c
 int main()
@@ -1632,7 +1656,7 @@ label8:    return 0;
 
 ---
 
-## Every line of code in C can have its own label
+# Every line of code in C can have its own label
 
 ```c
 int main()
@@ -1651,11 +1675,11 @@ label8:    return 0;
 
 ---
 
-## Memory
+# Memory
 
 ---
 
-## What is an array?
+# What is an array?
 
 An array is a contiguous, homogeneous region of RAM whose size is determined at declaration and depends on the number of elements and the size of each element. Array elements are stored in consecutive memory cells (bytes), and access to them is done using an index that specifies the position of the element relative to the beginning of the array.
 
@@ -1663,7 +1687,7 @@ An array is a contiguous, homogeneous region of RAM whose size is determined at 
 
 ---
 
-## Size scale
+# Size scale
 
 - Hypothetically, 32-bit processors had the ability to use up to 4GB of RAM. However, in practice, the first 32-bit processors were introduced in the 1990s, when the standard RAM for an entire computer was between 8 MB and 16 MB. This represented only 0.001953125% of the theoretical maximum memory capacity. Since everything running—the operating system and all programs (including background tasks)—had to fit into this RAM, it’s easy to see how little space was left for our program. In the best-case scenario, our program might get a few megabytes for everything, and even less for the stack to store data.
 - If one integer variable in a 32-bit architecture occupied 4 bytes, it means that an array of 1024 numbers would occupy 4096 bytes.
@@ -1673,7 +1697,7 @@ An array is a contiguous, homogeneous region of RAM whose size is determined at 
 
 ---
 
-## What is a memory(RAM) -stack?
+# What is a memory(RAM) -stack?
 
 In reality, memory(stack) is a one-dimensional, continuous memory area that we can reference with byte-level accuracy through addresses.
 
@@ -1683,7 +1707,7 @@ While the specifics of how a stack works—the mechanism of pushing and popping 
 
 ---
 
-## What is a memory(RAM) -stack?
+# What is a memory(RAM) -stack?
 
 Now that you've visualized this sequence, we can reiterate that the essence of memory allocation and deallocation is similar to the concept of a stack of cards or plates. That is, we can only access the topmost element; we cannot remove cards from the middle to free up memory. We must do so sequentially.
 
@@ -1691,7 +1715,7 @@ Now that you've visualized this sequence, we can reiterate that the essence of m
 
 ---
 
-## A stack
+# A stack
 
 - A **stack** is a region of memory that works like a stack of cards. When you add a new card to the stack, you place it on top. When you remove a card, you take it from the top. This is how a **stack** in computer memory works. When you declare a local variable in a function or call another function, information about it is "pushed" onto the top of the stack. When the function finishes executing, this information is "popped" off the stack. The stack follows a LIFO (Last In, First Out) principle, meaning the last element added is the first one removed.
 - The stack is used to store local function variables, return addresses, and other data related to the program's execution.
@@ -1699,15 +1723,19 @@ Now that you've visualized this sequence, we can reiterate that the essence of m
 
 ---
 
-## One more time When we present the stack as a pile of plates or cards, it's actually quite misleading. In reality, the stack is a one-dimensional, continuous memory area that we can reference with byte-level accuracy through addresses. While it's true that the push and pop operations can parallel the idea of stacking or removing plates or cards, the mistake lies in assuming you can place an entire array, which could be quite large. In this case, the metaphor hinders understanding rather than helping. There's also no issue with placing a whole array on the stack and later retrieving just a portion of it rather than the entire thing.
+# One more time
+
+When we present the stack as a pile of plates or cards, it's actually quite misleading. In reality, the stack is a one-dimensional, continuous memory area that we can reference with byte-level accuracy through addresses. While it's true that the push and pop operations can parallel the idea of stacking or removing plates or cards, the mistake lies in assuming you can place an entire array, which could be quite large. In this case, the metaphor hinders understanding rather than helping. There's also no issue with placing a whole array on the stack and later retrieving just a portion of it rather than the entire thing.
 
 ---
 
-## An address of memory This is a great place to explain the concept of a memory address. Imagine RAM as a long sequence of bits. Each variable occupies a specific location in this sequence, and the address indicates exactly where it is. For the computer to know how much space to allocate for data, we need to determine the size of arrays beforehand. This is why the size of an array must be known before the program is run. The heap is another area of memory that allows for more flexible memory management.
+# An address of memory
+
+This is a great place to explain the concept of a memory address. Imagine RAM as a long sequence of bits. Each variable occupies a specific location in this sequence, and the address indicates exactly where it is. For the computer to know how much space to allocate for data, we need to determine the size of arrays beforehand. This is why the size of an array must be known before the program is run. The heap is another area of memory that allows for more flexible memory management.
 
 ---
 
-## Without going into details
+# Without going into details
 
 - Computer memory is structured in a stack-oriented way. In the processor, there is a special memory cell — a register — called the Stack Pointer (SP), which holds the address of the first location in RAM. It's important to know that stack addresses decrease. This means an empty stack starts at the maximum value. The size of this number depends on the architecture, but in a 32-bit environment, it is typically a 32-bit unsigned integer.
 - It’s worth mentioning that the stack is **never completely empty**. Even in a freshly initialized program, the stack contains system-level data such as return addresses, environment setup, and possibly function call frames from the runtime. This means the stack always has some structure and content, even before user-defined variables are added.
@@ -1716,25 +1744,27 @@ Now that you've visualized this sequence, we can reiterate that the essence of m
 
 ---
 
-## Good
-
-- To know
+# Good To know
 
 ---
 
-## Function arguments Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
+# Function arguments
+
+Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
 
 ---
 
-## by the Value Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
+# by the Value
 
-```c
+Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
+
+Result:
+
+```text
 5
 5
 
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -1759,7 +1789,9 @@ int main()
 
 ---
 
-## by the Reference Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
+# by the Reference
+
+Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
 
 ```c
 #include <stdio.h>
@@ -1782,31 +1814,31 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 5
 6
 
 ```
 
-- Result:
+---
+
+# Questions?
 
 ---
 
-## Questions?
+<!-- _class: caption-slide -->
+
+# Thank You
 
 ---
 
-## Thank
-
-- You
+# unit tests
 
 ---
 
-## unit tests
-
----
-
-## What are Unit Tests
+# What are Unit Tests
 
 Unit tests are automated checks of small parts of a program (such as functions or procedures) to verify that they work correctly. The idea is to test whether a given function returns the correct result for specific input values.
 
@@ -1817,14 +1849,14 @@ Unit tests are automated checks of small parts of a program (such as functions o
 
 ---
 
-## Exit code / return code / status code
+# Exit code / return code / status code
 
 - The program returned exit code 0, which means it ran successfully.
 - A non-zero exit code usually indicates an error or failure.
 
 ---
 
-## assert()
+# assert()
 
 - In structurally or imperatively oriented programming, function names are typically nouns — for example, sum(), pow(), or strlen().
 - In object-oriented programming, we create instances of objects represented by nouns, but the methods invoked on those objects are usually verbs, describing actions performed on the instance — for example, trash.clean().
@@ -1832,21 +1864,19 @@ Unit tests are automated checks of small parts of a program (such as functions o
 
 ---
 
-## assert()
+# assert()
 
 - The original intent behind assert() was to allow developers to write code like:
 
+```c
 sum(a, b);
 
-assert(a &gt; 0);
+assert(a > 0);
+```
 
 - These statements were meant to halt program execution if the condition was not met. In short, they served as additional safeguards to help speed up debugging.
 - Over time, most programming languages adopted dedicated unit testing frameworks — even C, thanks to the Unity library. Unity was designed with a plan-driven approach in mind, enabling developers to write tests before implementing the actual code.
 
 ---
 
-<!-- pptx2marp: slide 113 has no extractable text or images -->
-
----
-
-- ***I assert that x equals 1.***
+***I assert that x equals 1.***

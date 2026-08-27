@@ -16,6 +16,8 @@ title: "CSSI112lec 19"
 
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 19
@@ -28,7 +30,7 @@ title: "CSSI112lec 19"
 
 ---
 
-## Outline
+# Outline
 
 - Review
 - Static Memory
@@ -42,7 +44,9 @@ title: "CSSI112lec 19"
 
 ---
 
-## 1. Character Classification and Conversion (&lt;ctype.h&gt;) Used for testing and converting characters.
+# 1. Character Classification and Conversion (&lt;ctype.h&gt;)
+
+Used for testing and converting characters.
 
 |Function|Description|Example|
 |---|---|---|
@@ -60,7 +64,9 @@ title: "CSSI112lec 19"
 
 ---
 
-## 2. String Handling (&lt;string.h&gt;) Used for manipulating null-terminated character arrays.
+# 2. String Handling (&lt;string.h&gt;)
+
+Used for manipulating null-terminated character arrays.
 
 |Function|Description|Example|
 |---|---|---|
@@ -77,7 +83,9 @@ title: "CSSI112lec 19"
 
 ---
 
-## 3. Memory Handling (&lt;string.h&gt;) Used for working with raw memory blocks.
+# 3. Memory Handling (&lt;string.h&gt;)
+
+Used for working with raw memory blocks.
 
 |Function|Description|Example|
 |---|---|---|
@@ -89,7 +97,7 @@ title: "CSSI112lec 19"
 
 ---
 
-## When we run a program
+# When we run a program
 
 - ...
 - ...
@@ -108,13 +116,14 @@ int main()
 }
 ```
 
-```c
+**Result:**
+
+```text
 x    equals 6422292.
 y    equals 6422288.
 z    equals 6422284.
 ```
 
-- Result:
 - 0061FF10
 - (6,422,288)
 - 0061FF0C
@@ -128,7 +137,7 @@ z    equals 6422284.
 
 - 0061FF10
 
-```c
+```text
 (Stack Pointer)
 ```
 
@@ -136,7 +145,7 @@ z    equals 6422284.
 
 ---
 
-## Take a closer look at this fragment of memory
+# Take a closer look at this fragment of memory
 
 - ...
 - 0061FF14
@@ -154,13 +163,14 @@ int main()
 }
 ```
 
-```c
+**Result:**
+
+```text
 x    equals 6422292.
 y    equals 6422288.
 z    equals 6422284.
 ```
 
-- Result:
 - 0061FF10
 - (6,422,288)
 - 0061FF0C
@@ -171,7 +181,7 @@ z    equals 6422284.
 
 - 0061FF10
 
-```c
+```text
 (Stack Pointer)
 ```
 
@@ -198,7 +208,7 @@ z    equals 6422284.
 
 ---
 
-## Take a closer look at this fragment of memory
+# Take a closer look at this fragment of memory
 
 ```c
 int main()
@@ -228,7 +238,7 @@ Data storage in RAM in Windows systems follows the little-endian standard, which
 
 ---
 
-## malloc() &amp; free() – Allocating/Deallocating a block of memory
+# malloc() &amp; free() – Allocating/Deallocating a block of memory
 
 - To use dynamic memory allocation functions like malloc, you need to include the stdlib.h library.
 - Malloc and free are always used together.
@@ -263,19 +273,19 @@ int main()
 }
 ```
 
-```c
+**Result:**
+
+```text
 Address of stackVariable: 0062ff14
 Address of heapValue: 00c41808
 The value of dynamicVariable is = 5
-
 ```
 
-- Result:
 - Malloc expects only one argument, the number of bytes to be allocated.
 
 ---
 
-## Memory
+# Memory
 
 |B|B|B|B|B|B|B|
 |---|---|---|---|---|---|---|
@@ -291,7 +301,7 @@ The value of dynamicVariable is = 5
 - (6,422,292)
 - FFFFFFFE
 
-```c
+```text
 (4,294,967,295)
 ```
 
@@ -320,7 +330,7 @@ The value of dynamicVariable is = 5
 
 ---
 
-## malloc() – An array
+# malloc() – An array
 
 - Malloc does not require static values for allocation.
 - Malloc expects only one argument, the number of bytes to be allocated.
@@ -355,7 +365,9 @@ int main()
 }
 ```
 
-```c
+**Result:**
+
+```text
 Address of stackArray[0]:        06487768
 Address of stackArray[1]:        06487772
 Address of stackArray[2]:        06487776
@@ -363,14 +375,11 @@ Address of stackArray[2]:        06487776
 Address of heapArray[0]:         06559344
 Address of heapArray[1]:         06559348
 Address of heapArray[2]:         06559352
-
 ```
-
-- Result:
 
 ---
 
-## Summary
+# Summary
 
 When a process is allocated memory for itself, it is copied into RAM, and the stack is placed at the end of this allocated block. Dynamic memory—the heap—is located "outside" of this process's memory space. The operating system assigns an additional block of memory for malloc(), which is why addresses in the heap can be larger than those within the process's memory.
 
@@ -378,7 +387,7 @@ When a program that utilizes dynamically allocated memory crashes and fails to d
 
 ---
 
-## calloc()
+# calloc()
 
 - calloc() is similar to malloc() but additionally initializes the allocated memory to zero.
 - calloc() is slower than malloc() due to this extra operation. However, calloc() is more efficient when you need an array filled with zeros.
@@ -413,7 +422,9 @@ int main()
 }
 ```
 
-```c
+**Result:**
+
+```text
 The value of heapArray1[0]:      00000000
 The value of heapArray1[1]:      00000000
 The value of heapArray1[2]:      00000000
@@ -421,21 +432,17 @@ The value of heapArray1[2]:      00000000
 The value of heapArray2[0]:      -1163005939
 The value of heapArray2[1]:      -1163005939
 The value of heapArray2[2]:      -1163005939
-
 ```
-
-- Result:
 
 ---
 
-## realloc()
+# realloc()
 
-```c
+```text
 Data loss: When reducing the size of a block, data located outside the new, smaller block will be lost.
 Data movement: realloc() may move the entire memory block to a new location, so always update the pointer.
 Freeing memory: If realloc() is successful, the original block will be automatically freed.
 void *realloc(void *ptr, size_t new_size);
-
 ```
 
 ```c
@@ -470,12 +477,11 @@ int main()
 }
 ```
 
-```c
+**Result:**
+
+```text
 Successful allocation, update the pointer
-
 ```
-
-- Result:
 
 What does realloc() return?
 
@@ -484,7 +490,7 @@ What does realloc() return?
 
 ---
 
-## Summary
+# Summary
 
 When a process is allocated memory for itself, it is copied into RAM, and the stack is placed at the end of this allocated block. Dynamic memory—the heap—is located "outside" of this process's memory space. The operating system assigns an additional block of memory for malloc, which is why addresses in the heap can be larger than those within the process's memory.
 
@@ -492,7 +498,7 @@ When a program that utilizes dynamically allocated memory crashes and fails to d
 
 ---
 
-## Memory fragmentation
+# Memory fragmentation
 
 Memory fragmentation is a problem that can occur when memory is repeatedly allocated and deallocated using functions like malloc and free. Imagine RAM memory as a long tape, on which pieces of memory are allocated. Over time, as we free some pieces, empty spaces are created between the occupied fragments. These free spaces may be too small to accommodate new, larger memory blocks, even if the total amount of free memory is sufficient. This phenomenon is called fragmentation.
 
@@ -505,7 +511,7 @@ Memory fragmentation is a problem that can occur when memory is repeatedly alloc
 
 ---
 
-## Consequences of fragmentation
+# Consequences of fragmentation
 
 - Memory leaks:
   - If memory is not managed carefully, fragmentation can lead to memory leaks, which is a situation where a program no longer frees unnecessary memory, which over time can lead to application crashes.
@@ -516,7 +522,7 @@ Memory fragmentation is a problem that can occur when memory is repeatedly alloc
 
 ---
 
-## Summary
+# Summary
 
 - Memory fragmentation is a serious problem that can negatively impact the performance and stability of programs. Understanding the causes of fragmentation and applying appropriate memory management techniques is key to creating efficient applications.
 - To counteract the problem of memory fragmentation, a good programming practice is to use realloc() instead of malloc() or alloc() when working with the same data and needing to change its size.
@@ -527,7 +533,7 @@ Memory fragmentation is a problem that can occur when memory is repeatedly alloc
 
 ---
 
-## Standard C Library Overview
+# Standard C Library Overview
 
 - Character Classification and Conversion (&lt;ctype.h&gt;)
 - String Handling (&lt;string.h&gt;)
@@ -546,7 +552,9 @@ Memory fragmentation is a problem that can occur when memory is repeatedly alloc
 
 ---
 
-## 4. Input / Output Functions (&lt;stdio.h&gt;) Work with files and streams.
+# 4. Input / Output Functions (&lt;stdio.h&gt;)
+
+Work with files and streams.
 
 |Function|Description|Example|
 |---|---|---|
@@ -570,7 +578,7 @@ Memory fragmentation is a problem that can occur when memory is repeatedly alloc
 
 ---
 
-## Standard Streams in C
+# Standard Streams in C
 
 - C provides three predefined file streams that are automatically opened when a program starts:
 - Each of these is a FILE \* object defined in **&lt;stdio.h&gt;**, just like any file opened with fopen().
@@ -583,13 +591,13 @@ Memory fragmentation is a problem that can occur when memory is repeatedly alloc
 
 ---
 
-## Standard Streams in C
+# Standard Streams in C
 
 - stdout and stderr are both used for output, but stderr is not buffered by default <br>— this means error messages appear immediately, even if the program crashes afterward.
 - You can redirect them independently in the command line:
 - You can also explicitly write to these streams:
 
-```c
+```console
 ./program > output.txt       # redirects stdout
 ./program 2> errors.txt      # redirects stderr
 ./program > all.txt 2>&1     # redirects both
@@ -602,10 +610,17 @@ fprintf(stderr, "Error message\n");
 
 ---
 
-## fopen()    – Opens a file and returns a FILE\* pointer..<br>fclose()    – Closes an open file. Always close files when done Typically used for initializing arrays or structs.
+<!-- _class: long-title -->
 
-- Hello, file!
-- Result:
+# fopen()    – Opens a file and returns a FILE\* pointer..<br>fclose()    – Closes an open file. Always close files when done
+
+Typically used for initializing arrays or structs.
+
+**Result:**
+
+```text
+Hello, file!
+```
 
 ```c
 #include <stdio.h>
@@ -625,13 +640,13 @@ int main()
 }
 ```
 
-```c
+```text
 Header: <stdio.h>
 ```
 
 ---
 
-## fflush()– Flushes the output buffer to the file immediately (useful before closing or switching)
+# fflush()– Flushes the output buffer to the file immediately (useful before closing or switching)
 
 - In C: Use fflush(file\_pointer) before closing critical files to guarantee data integrity. You are essentially clearing out anything that might be stuck in the buffer right before the file handle is released.
 - In C++: std::endl is equivalent to the sequence of inserting a newline (\n) followed by a flush(). It is convenient, but using a simple \n is faster when immediate flushing is not strictly required.
@@ -652,26 +667,28 @@ int main()
 
 - fflush(fp)
 
-```c
+```text
 Header: <stdio.h>
 ```
 
 ---
 
-## clearerr(fp)     – Clears the EOF and error indicators.<br>ferror(fp)     – Checks for file I/O errors. Returns non-zero if an error occurred
+<!-- _class: long-title -->
+
+# clearerr(fp)     – Clears the EOF and error indicators.<br>ferror(fp)     – Checks for file I/O errors. Returns non-zero if an error occurred
 
 - Within the FILE structure managed by the standard C library (for I/O streams), there is an internal error pointer (flag) that is set when a persistent error occurs during an input/output operation.
 - Setting the Flag: When you call an I/O function (e.g., fread(), fwrite(), fgetc()) and that operation encounters an error—for instance, a disk read error—the system sets the internal error flag for that specific stream (FILE \*).
 - Effect on Operation: Once the flag is set, most subsequent I/O operations on that stream will immediately fail (or return an error) until the flag is reset. This prevents attempts at further operations on a corrupted stream.
 - Resetting: If you determine the error was temporary or you want to reset the stream's state to attempt to continue operations, you use the function clearerr(stream).
 
-```c
+**Result:**
+
+```text
 0
 1
 0
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -702,13 +719,13 @@ int main()
 
 - clearerr(fp) / ferror(fp)
 
-```c
+```text
 Header: <stdio.h>
 ```
 
 ---
 
-## feof() – Checks if the end of the file has been reached. Returns non-zero (true) if EOF is set
+# feof() – Checks if the end of the file has been reached. Returns non-zero (true) if EOF is set
 
 ```c
 #include <stdio.h>
@@ -730,11 +747,11 @@ int main()
 
 - feof(fp)
 
-```c
+```text
 Header: <stdio.h>
 ```
 
-```c
+```text
 #define EOF (-1)
 Returned by various functions on end of file condition or error.
 Expands to:
@@ -743,7 +760,7 @@ Expands to:
 
 ---
 
-## perror() – Prints a human-readable error message related to the last I/O failure
+# perror() – Prints a human-readable error message related to the last I/O failure
 
 ```c
 #include <stdio.h>
@@ -760,21 +777,19 @@ int main()
 
 - perror(msg)
 
-```c
+```text
 Header: <stdio.h>
 ```
 
-```c
-Error opening file: No such file or directory
-```
+**Result(stderr):**
 
-```c
-Result(stderr):
+```text
+Error opening file: No such file or directory
 ```
 
 ---
 
-## freopen() – Reopens an existing stream (e.g., redirect stdin or stdout)
+# freopen() – Reopens an existing stream (e.g., redirect stdin or stdout)
 
 ```c
 #include <stdio.h>
@@ -791,31 +806,29 @@ int main()
 
 - freopen(…)
 
-```c
+```text
 Header: <stdio.h>
 ```
 
-```c
-Result(stdout):
-```
+**Result(stdout):**
 
-```c
+**Result(output.txt):**
+
+```text
 This will be written to output.txt!
-
-```
-
-```c
-Result(output.txt):
 ```
 
 ---
 
-## tmpfile() – Creates a temporary file that is automatically deleted when closed or program ends
+# tmpfile() – Creates a temporary file that is automatically deleted when closed or program ends
 
 - On **Unix-like systems** such as Linux and macOS, temporary files are typically placed in the **/tmp** directory. Conversely, on **Windows systems**, the location is defined by environment variables like **%TEMP%** or **%TMP%** for the current user, usually resolving to a path within the user's local application data folder (C:\Users\\[UserName\]\AppData\Local\Temp)
 - The function's true value lies in how it manages the file lifecycle. First, it ensures the file is created with a **Unique Name**, effectively preventing naming collisions with other running programs. Second, the file is opened in a robust **Binary Read and Write mode** ("wb+"). Most importantly, the file is **automatically marked for deletion** (or *unlinked*) the moment the associated stream is closed using fclose(), or when the program terminates normally by calling exit(). This automatic cleanup guarantees the file is created in a safe location where the operating system has **write permissions** and ensures the resource **disappears** when no longer needed, making it fundamentally safer and cleaner than manually managing temporary files in the program's executable directory.
-- Temporary data
-- Result(temp\*):
+**Result(temp\*):**
+
+```text
+Temporary data
+```
 
 ```c
 #include <stdio.h>
@@ -833,7 +846,7 @@ int main()
 
 - tmpfile()
 
-```c
+```text
 Header: <stdio.h>
 ```
 
@@ -841,13 +854,13 @@ Header: <stdio.h>
 
 ---
 
-## tmpnam() – Generates a unique temporary filename (does not create the file)
+# tmpnam() – Generates a unique temporary filename (does not create the file)
 
-```c
+**Result(temp\*):**
+
+```text
 Temporary filename: \s3r4.
 ```
-
-- Result(temp\*):
 
 ```c
 #include <stdio.h>
@@ -864,21 +877,20 @@ int main()
 
 - tmpnam(char\*)
 
-```c
+```text
 Header: <stdio.h>
 ```
 
-\#define L\_tmpnam (16)
-
+```text
+#define L_tmpnam (16)
 The maximum size of name (including NUL) that will be put in the user supplied buffer caName for tmpnam. Inferred from the size of the static buffer returned by tmpnam when passed a NULL argument. May actually be smaller.
-
 Expands to:
-
 (16)
+```
 
 ---
 
-## rename()    – Changes a file’s name.<br>remove()    – Deletes a file from disk
+# rename()    – Changes a file’s name.<br>remove()    – Deletes a file from disk
 
 ```c
 #include <stdio.h>
@@ -896,7 +908,7 @@ int main()
 
 - rename(old, new) /remove(name)
 
-```c
+```text
 Header: <stdio.h>
 ```
 
@@ -913,7 +925,9 @@ Header: <stdio.h>
 
 ---
 
-## 5. Conversion Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
+# 5. Conversion Functions (&lt;stdlib.h&gt;)
+
+Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -926,7 +940,9 @@ Header: <stdio.h>
 
 ---
 
-## 6. Math Functions (&lt;math.h&gt;) Convert strings to numbers.
+# 6. Math Functions (&lt;math.h&gt;)
+
+Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -942,7 +958,9 @@ Header: <stdio.h>
 
 ---
 
-## 7. Utility Functions (&lt;stdlib.h&gt;) Convert strings to numbers.
+# 7. Utility Functions (&lt;stdlib.h&gt;)
+
+Convert strings to numbers.
 
 |Function|Description|Example|
 |---|---|---|
@@ -958,7 +976,9 @@ Header: <stdio.h>
 
 ---
 
-## 8. Diagnostics and Assertions (&lt;assert.h&gt;) Useful for debugging and safety.
+# 8. Diagnostics and Assertions (&lt;assert.h&gt;)
+
+Useful for debugging and safety.
 
 |Function / Macro|Description|Example|
 |---|---|---|
@@ -967,7 +987,9 @@ Header: <stdio.h>
 
 ---
 
-## 9. Time and Date Functions (&lt;time.h&gt;) Work with clocks and timestamps.
+# 9. Time and Date Functions (&lt;time.h&gt;)
+
+Work with clocks and timestamps.
 
 |Function|Description|Example|
 |---|---|---|
@@ -982,7 +1004,9 @@ Header: <stdio.h>
 
 ---
 
-## 10. Variable Argument Lists (&lt;stdarg.h&gt;) For functions that accept a variable number of parameters.
+# 10. Variable Argument Lists (&lt;stdarg.h&gt;)
+
+For functions that accept a variable number of parameters.
 
 |Macro|Description|Example|
 |---|---|---|
@@ -992,7 +1016,9 @@ Header: <stdio.h>
 
 ---
 
-## 1. Character Classification and Conversion (&lt;ctype.h&gt;) Used for testing and converting characters.
+# 1. Character Classification and Conversion (&lt;ctype.h&gt;)
+
+Used for testing and converting characters.
 
 |Function|Description|Example|
 |---|---|---|
@@ -1010,7 +1036,9 @@ Header: <stdio.h>
 
 ---
 
-## Most Common System Libraries in Windows (WinAPI) These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
+# Most Common System Libraries in Windows (WinAPI)
+
+These headers are provided with the Windows SDK and are available in compilers such as MinGW, MSVC, and others for the Windows platform.
 
 |Library|Description|Typical Functions|
 |---|---|---|
@@ -1027,13 +1055,13 @@ Header: <stdio.h>
 
 ---
 
-## Historia C
+# Historia C
 
 - ?
 
 ---
 
-## Syllabus - Textbooks
+# Syllabus - Textbooks
 
 - Brian W. Kernighan, Dennis M. Ritchie. C Programming Language, 2nd Edition. Prentice Hall, 1988
 - Seacord, R. C. (2024). Effective C: An Introduction to Professional C Programming. No Starch Press, Inc. (Optional)

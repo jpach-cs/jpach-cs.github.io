@@ -5,6 +5,8 @@ paginate: true
 title: "CSCI 112  Programming with C"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 12
@@ -17,7 +19,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Outline
+# Outline
 
 - Review
 - &gt;&gt; &amp; &lt;&lt;
@@ -32,20 +34,19 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Command-Line Arguments
+# Command-Line Arguments
 
 - Command-line arguments start after a whitespace character, such as a space (ASCII 32), and are treated as strings. Each word separated by a space is considered a separate argument.
 - However, if you want to pass an argument that contains spaces as a single string, you need to enclose it in quotes.
 
-argc:    Always greater than or equal to 1 (the first argument is the program’s name).
-
+- argc:    Always greater than or equal to 1 (the first argument is the program’s name).
 - argv\[\]:
   - argv\[0\]: The name of the program.
   - argv\[1\] to argv\[argc-1\]: The actual arguments passed by the user.
 
 ---
 
-## Examples
+# Examples
 
 ```c
 #include <stdio.h>
@@ -58,7 +59,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+```console
 C:\...\C>main.exe text
 text
 ```
@@ -79,7 +80,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+```console
 C:\...\C>main.exe text1 text2
 text1
 text2
@@ -99,7 +100,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+```console
 C:\...\C>main.exe "text1 text2"
 text1 text2
 ```
@@ -109,7 +110,7 @@ text1 text2
 
 ---
 
-## Examples
+# Examples
 
 ```c
 #include <stdio.h>
@@ -123,7 +124,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+```console
 C:\...\C>main.exe text1 text2
 Argument 1: tex1
 Argument 2: text2
@@ -146,7 +147,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+```console
 C:\...\C>main.exe 1 2
 Sum: 3
 
@@ -157,32 +158,31 @@ Sum: 3
 
 ---
 
-## Source code &amp; header files
+# Source code &amp; header files
 
 To improve code readability, C allows for the separation of functions, data structures, and global variables into separate files. This makes the code more clear and easier to maintain.
 
-- header file:
-
-(with a .h extension) contains prototypes of functions, global variables, and structures that are used in multiple source files, providing a way to share information
-
-- source code file:
-
-(with a .c extension) contains the actual implementation of the program's logic, such as function definitions and variable declarations.
+- header file: (with a .h extension) contains prototypes of functions, global variables, and structures that are used in multiple source files, providing a way to share information
+- source code file: (with a .c extension) contains the actual implementation of the program's logic, such as function definitions and variable declarations.
 
 To make functions defined in other files visible in a file, it is sufficient to include the header file using #include "name\_of\_header.h". There is no need to include files with the .c extension.
 
 ---
 
-## Example
+# Example
 
 - All files are in the same folder
 - It's worth noting that header file names and implementation file names don't have to be identical, although this convention is often used to improve project readability
+
+File: funs.h
 
 ```c
 
 int sum(int, int);
 int difference(int, int);
 ```
+
+File: funs.c
 
 ```c
 #include "funs.h"
@@ -197,6 +197,8 @@ int difference(int a, int b)
 }
 ```
 
+File: main.c
+
 ```c
 #include <stdio.h>
 #include "funs.h"
@@ -209,21 +211,17 @@ int main()
 }
 ```
 
-- File: funs.h
-- File: funs.c
-- File: main.c
+Result:
 
-```c
+```text
 Sum of 5 and 3 equals 8
 
 
 ```
 
-- Result:
-
 ---
 
-## Review - preprocessor directive - #ifndef
+# Review - preprocessor directive - #ifndef
 
 - Checks if a macro is not defined.
 
@@ -241,24 +239,26 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 MAX_SIZE is 100
 
 ```
 
-- Result:
-
 ---
 
-## Example Every source file that includes a header will have its contents inserted during compilation. If multiple files include the same header that contains definitions, the linker will report multiple definition errors because the same code is compiled more than once. To prevent this, header files should use include guards (#ifndef, #define, #endif)
+# Example
+
+Every source file that includes a header will have its contents inserted during compilation. If multiple files include the same header that contains definitions, the linker will report multiple definition errors because the same code is compiled more than once. To prevent this, header files should use include guards (#ifndef, #define, #endif)
+
+File: funs.h
 
 ```c
 
 int sum(int, int);
 int difference(int, int);
 ```
-
-- File: funs.h
 
 ```c
 #include <stdio.h>
@@ -285,14 +285,18 @@ int main()
 
 ---
 
-## Summary *Of all the directives regarding compilation and makefiles, the* #ifndef *directive seems to be the most commonly used, as it prevents the same file from being included more than once in the final output. As can easily be seen, many different files can use the same library.*
+# Summary
+
+*Of all the directives regarding compilation and makefiles, the* #ifndef *directive seems to be the most commonly used, as it prevents the same file from being included more than once in the final output. As can easily be seen, many different files can use the same library.*
 
 ---
 
-## Example
+# Example
 
 - All files are in the same folder
 - It's worth noting that header file names and implementation file names don't have to be identical, although this convention is often used to improve project readability
+
+File: funs.h
 
 ```c
 //func.h
@@ -302,6 +306,8 @@ int main()
   int difference(int, int);
 #endif
 ```
+
+File: funs.c
 
 ```c
 #include "funs.h"
@@ -316,6 +322,8 @@ int difference(int a, int b)
 }
 ```
 
+File: main.c
+
 ```c
 #include <stdio.h>
 #include "funs.h"
@@ -328,21 +336,17 @@ int main()
 }
 ```
 
-- File: funs.h
-- File: funs.c
-- File: main.c
+Result:
 
-```c
+```text
 Sum of 5 and 3 equals 8
 
 
 ```
 
-- Result:
-
 ---
 
-## extern keyword
+# extern keyword
 
 - In a single code block, we cannot declare two variables with the same name.
 - An inner block allows us to declare a variable with the same name inside it, which shadows the variable from the outer block but doesn't destroy it. After the inner block ends, we can access the first variable again.
@@ -351,7 +355,9 @@ Sum of 5 and 3 equals 8
 
 ---
 
-## extern keyword
+# extern keyword
+
+File: funs.h
 
 ```c
 //func.h
@@ -361,6 +367,8 @@ Sum of 5 and 3 equals 8
   int difference(int, int);
 #endif
 ```
+
+File: funs.c
 
 ```c
 #include "funs.h"
@@ -376,6 +384,8 @@ int difference()
 }
 ```
 
+File: main.c
+
 ```c
 #include <stdio.h>
 #include "funs.h“
@@ -389,21 +399,19 @@ int main()
 }
 ```
 
-- File: funs.h
-- File: funs.c
-- File: main.c
+Result:
 
-```c
+```text
 Sum of 5 and 3 equals 8
 
 
 ```
 
-- Result:
-
 ---
 
-## static keyword
+# static keyword
+
+File: funs.h
 
 ```c
 //func.h
@@ -413,6 +421,8 @@ Sum of 5 and 3 equals 8
   int difference(int, int);
 #endif
 ```
+
+File: funs.c
 
 ```c
 #include "funs.h"
@@ -428,6 +438,8 @@ int difference()
 }
 ```
 
+File: main.c
+
 ```c
 #include <stdio.h>
 #include "funs.h“
@@ -441,21 +453,17 @@ int main()
 }
 ```
 
-- File: funs.h
-- File: funs.c
-- File: main.c
+Result:
 
-```c
+```text
 Sum of 5 and 3 equals 6
 
 
 ```
 
-- Result:
-
 ---
 
-## static keyword
+# static keyword
 
 - static keyword has two meanings, depending on where the static variable\* is declared:
 - Outside a function, static variables only visible within that file, not globally
@@ -468,7 +476,7 @@ Sum of 5 and 3 equals 6
 
 ---
 
-## static keyword
+# static keyword
 
 ```c
 #include <stdio.h>
@@ -490,13 +498,13 @@ void ticketSale()
 }
 ```
 
-```c
+Result:
+
+```text
 There are currently 1 tickets sold.
 There are currently 1 tickets sold.
 There are currently 1 tickets sold.
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -518,42 +526,43 @@ void ticketSale()
 }
 ```
 
-```c
+Result:
+
+```text
 There are currently 1 tickets sold.
 There are currently 2 tickets sold.
 There are currently 3 tickets sold.
 ```
 
-- Result:
-
 ---
 
-## Process of compilation
+# Process of compilation
 
-- Compile main.c into an object file main.o:
-- Link the object file main.o into an executable main.exe:
+Compile main.c into an object file main.o:
 
-```c
+```console
 gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 ```
 
-```c
+```console
 # 1) Compile main.c into an object file main.o (no linking).
 #    Includes debug symbols (-g), enables most warnings (-Wall), uses the C99 standard (-std=c99),
 #    and enforces strict standard conformance (-pedantic).
 ```
 
-```c
+Link the object file main.o into an executable main.exe:
+
+```console
 gcc -g main.o -o main.exe
 ```
 
-```c
+```console
 # 2) Link the object file into an executable named main.exe.
 ```
 
 ---
 
-## How does a C program executes?
+# How does a C program executes?
 
 - C code
 - Preprocessing
@@ -578,22 +587,22 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## Process of compilation
+# Process of compilation
 
-- Compile and link in one step (from main.c directly to main.exe):
+Compile and link in one step (from main.c directly to main.exe):
 
-```c
+```console
 gcc -g -Wall -std=c99 -pedantic main.c -o main.exe
 ```
 
-```c
+```console
 # 3) Compile and link in one step: from main.c directly to main.exe,
 #    with the same diagnostic/standard flags as in step 1.
 ```
 
 ---
 
-## How does a C program executes?
+# How does a C program executes?
 
 - C code
 - Preprocessing
@@ -618,7 +627,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## About flags
+# About flags
 
 - The -g flag tells the compiler to include debugging information in the output. Without it, setting breakpoints in the compiled file would not be possible. This flag should be disabled in the final compilation of the application after the development process is complete.
 - The flags -Wall, -std, and -pedantic are compiler-specific and only necessary during the creation of object files. The -c and -o flags indicate source and object files, respectively.
@@ -626,7 +635,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## Introduction to Makefile
+# Introduction to Makefile
 
 - What is a Makefile?
   - A Makefile is a script(program) used by the mingw32-make build automation tool to compile and link programs.
@@ -639,9 +648,9 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-## An example of makefile
+# An example of makefile
 
-```c
+```make
 CC = gcc
 CFLAGS = -g -Wall -Wextra -std=c99 -pedantic
 OBJS = main.o unity.o
@@ -673,7 +682,7 @@ Key Components:
 
 ---
 
-## Some examples
+# Some examples
 
 ```c
 int main()
@@ -704,7 +713,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 y equals 5.
 
 &y              equals 6422292.
@@ -724,8 +735,6 @@ pp              equals 6422288.
 *&*pp           equals 6422296.
 **pp            equals 5.
 ```
-
-- Result:
 
 ||Memory Addresses and Values|||
 |---|---|---|---|
@@ -792,16 +801,16 @@ Use parentheses to override order of evaluation -->
 
 ---
 
-## Bitwise AND, OR, XOR
+# Bitwise AND, OR, XOR
 
-```c
+Result:
+
+```text
 a | b = 13
 a & b = 4
 a ^ b = 9
 
 ```
-
-- Result:
 
 ```c
 int main()
@@ -823,7 +832,7 @@ int main()
 
 ---
 
-## Example
+# Example
 
 |Index|7|6|5|4|3|2|1|0|Result|
 |---|---|---|---|---|---|---|---|---|---|
@@ -836,7 +845,7 @@ int main()
 
 ---
 
-## Example
+# Example
 
 |Index|7|6|5|4|3|2|1|0|Result|
 |---|---|---|---|---|---|---|---|---|---|
@@ -849,7 +858,7 @@ int main()
 
 ---
 
-## Example
+# Example
 
 |Index|7|6|5|4|3|2|1|0|Result|
 |---|---|---|---|---|---|---|---|---|---|
@@ -862,7 +871,7 @@ int main()
 
 ---
 
-## Example
+# Example
 
 |Index|7|6|5|4|3|2|1|0|Result|
 |---|---|---|---|---|---|---|---|---|---|
@@ -910,16 +919,16 @@ Use parentheses to override order of evaluation -->
 
 ---
 
-## Bitwise left shift(&lt;&lt;) and right shift(&gt;&gt;)
+# Bitwise left shift(&lt;&lt;) and right shift(&gt;&gt;)
 
-```c
+Result:
+
+```text
 a >> b = ?
 a << b = ?
 
 
 ```
-
-- Result:
 
 ```c
 int main()
@@ -938,7 +947,7 @@ int main()
 
 ---
 
-## Example
+# Example
 
 |Index|7|6|5|4|3|2|1|0|Result|
 |---|---|---|---|---|---|---|---|---|---|
@@ -950,7 +959,7 @@ int main()
 
 ---
 
-## Example
+# Example
 
 |Index|7|6|5|4|3|2|1|0|Result|
 |---|---|---|---|---|---|---|---|---|---|
@@ -962,7 +971,7 @@ int main()
 
 ---
 
-## Example
+# Example
 
 |Index|7|6|5|4|3|2|1|0|Result|
 |---|---|---|---|---|---|---|---|---|---|
@@ -974,16 +983,16 @@ int main()
 
 ---
 
-## Bitwise left shift(&lt;&lt;) and right shift(&gt;&gt;)
+# Bitwise left shift(&lt;&lt;) and right shift(&gt;&gt;)
 
-```c
+Result:
+
+```text
 a >> b = 1
 a << b = 16
 
 
 ```
-
-- Result:
 
 ```c
 int main()
@@ -1000,7 +1009,7 @@ int main()
 
 ---
 
-## Bitwise Left Shift &amp; Right Shift - summary
+# Bitwise Left Shift &amp; Right Shift - summary
 
 - The left shift &lt;&lt; moves all bits in a number to the left by a specified number of positions.→ Each shift left multiplies the value by 2.
 - The right shift &gt;&gt; moves all bits to the right by a specified number of positions.→ Each shift right divides the value by 2 (for unsigned types).
@@ -1019,14 +1028,16 @@ int main()
 
 ---
 
-## typedef keyword
+# typedef keyword
 
 - C provides a facility called typedef for creating new data type names.
 - typedef can be used with functions and structs etc.
 
 Syntax:
 
-typedef &lt;type&gt; Symbolic\_name
+```c
+typedef <type> Symbolic_name
+```
 
 ```c
 #include <stdio.h>
@@ -1053,12 +1064,12 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+Result:
+
+```text
 0A
 
 ```
-
-- Result:
 
 ---
 
@@ -1066,7 +1077,7 @@ int main(int argc, char *argv[])
 
 ---
 
-## Foreword - signature of function
+# Foreword - signature of function
 
 Although the concept of a signature officially emerged in the context of methods in C++, it can be argued that functions in C have their own signatures, meaning a unique identifier composed of:
 
@@ -1076,9 +1087,11 @@ Although the concept of a signature officially emerged in the context of methods
 
 ---
 
-## Function pointer
+# Function pointer
 
-- int (\*operation)(int, int);
+```c
+int (*operation)(int, int);
+```
 
 *Function pointers are used to store the memory address of a function. For a function pointer to be correctly used, the signature of the function it points to must exactly match the signature of the pointer itself. This means the return type and the list of arguments (including their types and order) must be identical.*
 
@@ -1092,7 +1105,7 @@ return-type (*function-name-pointer) (only type of parameter declarations, if an
 
 ---
 
-## Function pointer
+# Function pointer
 
 ```c
 #include <stdio.h>
@@ -1125,16 +1138,16 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Result of addition: 8
 Result of subtraction: 2
 ```
 
-- Result:
-
 ---
 
-## Function pointer with typdef
+# Function pointer with typdef
 
 ```c
 #include <stdio.h>
@@ -1165,12 +1178,12 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Result of addition: 8
 Result of subtraction: 2
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -1209,10 +1222,12 @@ int main()
 
 ---
 
-## Structures
+# Structures
 
 - Structures are user-defined data types that group together variables of different data types.
 - A structure is a collection of one or more variables, possibly of different types, grouped together under single symbolic\_name for convenient handling.
+
+Syntax:
 
 ```c
 struct symbolic_name1
@@ -1221,12 +1236,11 @@ struct symbolic_name1
 }<symbolic_name2, ...>;
 ```
 
-- Syntax:
 - Everything that is in angle brackets &lt;&gt; is optional.
 
 ---
 
-## An example
+# An example
 
 ```c
 #include <stdio.h>
@@ -1265,7 +1279,9 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+Result:
+
+```text
 1
 2
 2
@@ -1276,11 +1292,7 @@ int main(int argc, char *argv[])
 
 ```
 
-- Result:
-
-```c
-To access members of a structure, we use the dot operator. When accessing a member through a pointer, we must use the dereferencing operator (*) followed by the member access operator (.), enclosed in parentheses: (*symbolic_name).field. Alternatively, we can use the arrow operator (->), which is equivalent to symbolic_name->field.
-```
+To access members of a structure, we use the dot operator. When accessing a member through a pointer, we must use the dereferencing operator (\*) followed by the member access operator (.), enclosed in parentheses: (\*symbolic\_name).field. Alternatively, we can use the arrow operator (-&gt;), which is equivalent to symbolic\_name-&gt;field.
 
 ---
 
@@ -1354,7 +1366,7 @@ Use parentheses to override order of evaluation -->
 
 ---
 
-## A summary
+# A summary
 
 - Structures are user-defined data types that group together variables of different data types. They provide a way to create custom data types tailored to specific needs.
 - **Components:** Structures consist of members (or fields), which can be of different data types.
@@ -1368,7 +1380,7 @@ Use parentheses to override order of evaluation -->
 
 ---
 
-## typedef &amp; struct
+# typedef &amp; struct
 
 Normally, when we define a struct, we can also declare global variables or pointers immediately after the closing brace:
 
@@ -1395,7 +1407,7 @@ struct
 
 ---
 
-## typedef &amp; struct
+# typedef &amp; struct
 
 Alternatively, we can use **typedef** to create an **alias** for a structure type:
 
@@ -1420,7 +1432,7 @@ Point symbolic_name;
 
 ---
 
-## typedef &amp; struct - Summary
+# typedef &amp; struct - Summary
 
 |Form|Description|Example|
 |---|---|---|
@@ -1434,7 +1446,7 @@ Point symbolic_name;
 
 ---
 
-## Padding
+# Padding
 
 - **What is padding in structures?**
   - Padding is extra space (or "padding") that a compiler adds to a structure to align its members on specific memory addresses. This alignment is often done to improve memory access performance, especially for data types like integers and floating-point numbers.
@@ -1446,7 +1458,7 @@ Point symbolic_name;
 
 ---
 
-## An example - padding
+# An example - padding
 
 ```c
 #include <stdio.h>
@@ -1480,7 +1492,9 @@ int main(int argc, char *argv[])
 }
 ```
 
-```c
+Result:
+
+```text
 Size of a struct Example is = 12
 Size of a struct Example is = 8
 Struct Example1:
@@ -1493,11 +1507,9 @@ Address of variable c = 6487822
 Address of variable i = 6487824
 ```
 
-- Result:
-
 ---
 
-## A summary on padding
+# A summary on padding
 
 - Even though memory was scarce when the C language was invented and every byte was precious, processors were even slower. Every machine instruction that could be saved while maintaining program functionality sped up the program. Therefore, the padding mechanism is a compromise between memory efficiency and program speed. Instead of calculating the memory address and saving one byte, it was better to perform a simple shift trick to make the variable addresses multiples of two. This is because, instead of multiplying (which is a relatively expensive operation for a processor), a bitwise shift can be used, which is extremely cheap. Thus, padding allows for an increase in the required space for storing a structure, but significantly speeds up access to structure members.
 - Another important point is that the sizeof() operator does not return the minimum size of the structure, but the actual size after taking into account the padding mechanism. To counteract memory waste, you can change the order of variable declarations in the structure as shown in the example.

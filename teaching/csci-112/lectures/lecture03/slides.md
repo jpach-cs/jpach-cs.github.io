@@ -5,6 +5,8 @@ paginate: true
 title: "CSCI 112  Programming with C"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 3
@@ -17,13 +19,13 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Outline
+# Outline
 
 - Review
 - Operators:
   - Unary, Binary, Ternary
-  - Relational &amp; logical
-- Statements &amp; expressions
+  - Relational & logical
+- Statements & expressions
 - Block
 
 ---
@@ -32,7 +34,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Symbolic names will be used in
+# Symbolic names will be used in
 
 - Variables:    Symbolic names will be used to identify and refer to data stored in variables. This<br>    allows for more meaningful and descriptive code compared to using arbitrary names or <br>    identifiers.
 - Arrays:     Symbolic names will be used to identify collections of related data elements. Arrays can be used <br>    to store multiple values of the same data type.
@@ -42,18 +44,21 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Arrays
+# Arrays
 
 This statement reserves space in memory for 10 integers and creates an 'unchanging address of memory' that points to the beginning of this array\*. You can use this symbolic name to access individual elements of the array using square brackets and the appropriate index.
 
 The values of array will be undefined, meaning they can hold any random value.
 
-- int a\[10\];
-- \*Array indexing starts from 0.
+```c
+int a[10];
+```
+
+\*Array indexing starts from 0.
 
 ---
 
-## Arrays
+# Arrays
 
 - When you specify the size of an array in square brackets, it is created with that exact size.
 - If you omit the size but provide initial values, the compiler counts them and creates an array of that size.
@@ -63,12 +68,14 @@ The values of array will be undefined, meaning they can hold any random value.
 <type> symbolic_name[size];
 ```
 
-- &lt;type&gt; symbolic\_name\[\] = {value1, value2, value3};
-- &lt;type&gt; symbolic\_name\[size\] = {value1, value2};
+```c
+<type> symbolic_name[] = {value1, value2, value3};
+<type> symbolic_name[size] = {value1, value2};
+```
 
 ---
 
-## Example of an array
+# Example of an array
 
 ```c
 int main()
@@ -91,7 +98,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Hello World
 Hello World
 Hello World
@@ -101,11 +110,9 @@ Hello World
 Hello World
 ```
 
-- Result:
-
 ---
 
-## Arrays
+# Arrays
 
 - When you specify the size of an array in square brackets, it is created with that exact size.
 - If you omit the size but provide initial values, the compiler counts them and creates an array of that size.
@@ -115,12 +122,14 @@ Hello World
 <type> symbolic_name[size];
 ```
 
-- &lt;type&gt; symbolic\_name\[\] = {value1, value2, value3};
-- &lt;type&gt; symbolic\_name\[size\] = {value1, value2};
+```c
+<type> symbolic_name[] = {value1, value2, value3};
+<type> symbolic_name[size] = {value1, value2};
+```
 
 ---
 
-## Question: How do we know which letter goes with which number?
+# Question: How do we know which letter goes with which number?
 
 ```c
 int main()
@@ -131,18 +140,15 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Hello World
-
-
-
 ```
-
-- Result:
 
 ---
 
-## ASCII Table
+# ASCII Table
 
 American Standard Code for Information Interchange
 
@@ -152,7 +158,7 @@ American Standard Code for Information Interchange
 - \t equals 11
 - White\_Space equals 32
 
-```c
+```text
  Val Char                            Val  Char     Val  Char     Val  Char
 ---------                            ---------     ---------     ----------
   0  NUL (null)                      32  SPACE     64  @         96  `
@@ -194,7 +200,7 @@ American Standard Code for Information Interchange
 
 ---
 
-## Multi-dimensional arrays
+# Multi-dimensional arrays
 
 - One dimension:
 - Two dimensions:
@@ -215,17 +221,19 @@ American Standard Code for Information Interchange
 
 ---
 
+# Basic operators
+
 |Priority / Operator||Description|Associativity|Example|Result|
 |---|---|---|---|---|---|
 |1|()|Parentheses|Left-to-right|2 \* (x + y)|-2|
-|2|++, --|Prefix &amp; postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
-||\*, &amp;|Indirection (dereference); Address-of||z = &amp;x; \*z;|6422276; 5|
+|2|++, --|Prefix & postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
+||\*, &|Indirection (dereference); Address-of||z = &x; \*z;|6422276; 5|
 ||(type)|Cast||(int)3.0f|3|
 |3|\*, /, %|Multiplication, division, and remainder|Left-to-right|6/2 % 2|1|
 |4|+, -|Addition and subtraction||1 + 2; 3 - 1|3, 2|
 |6|&lt;, &lt;=, &gt;, &gt;=|For relational operators &lt;, &gt; and ≤, ≥ respectively||x&lt;y; x&lt;=y; x&gt;y; x&gt;=y|1, 1, 0 ,0|
 |7|==, !=|For relational = and ≠ respectively||x == y, x != 1|1, 0|
-|11|&amp;&amp;|Logical AND||1 &amp;&amp; 0|0|
+|11|&&|Logical AND||1 && 0|0|
 |12|\|\||Logical OR||1 \|\| 0|1|
 |14|=|Simple assignment|Right-to-left|x  = y;|-6|
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
@@ -238,7 +246,6 @@ int main()
 }
 ```
 
-- Basic operators
 
 <!-- perentysys; esiszewitiwy
 Use parentheses to override order of evaluation -->
@@ -249,13 +256,15 @@ Use parentheses to override order of evaluation -->
 
 ---
 
-## Two words about floating-point representation Operations on real numbers are recorded with only a certain degree of precision, and therefore there is a very high probability that the result of (a + b – c) will not be the same as (a - c + b) ! This means that using real numbers requires careful consideration.
+# Two words about floating-point representation
+
+Operations on real numbers are recorded with only a certain degree of precision, and therefore there is a very high probability that the result of (a + b – c) will not be the same as (a - c + b) ! This means that using real numbers requires careful consideration.
 
 <!-- but more on that in another course - namely, computer architecture. -->
 
 ---
 
-## What is Casting?
+# What is Casting?
 
 The process of converting a value of one data type to another.
 
@@ -272,7 +281,7 @@ The purpose:
 
 ---
 
-## Explicit Casting
+# Explicit Casting
 
 ```c
 int main()
@@ -287,7 +296,7 @@ int main()
 }
 ```
 
-```c
+```text
 1
 2
 3
@@ -314,7 +323,7 @@ asterisk -->
 
 ---
 
-## Implicit Casting
+# Implicit Casting
 
 - Automatic conversion performed by the compiler.
 - Automatic casting will always cast to a wider type to never lose information.
@@ -330,7 +339,7 @@ asterisk -->
 
 ---
 
-## Operators
+# Operators
 
 - Operators specify what is to be done to variables (also pointers or labels)
 - Operators can be:
@@ -352,17 +361,19 @@ int main()
 
 ---
 
+# Basic operators
+
 |Priority / Operator||Description|Associativity|Example|Result|
 |---|---|---|---|---|---|
 |1|()|Parentheses|Left-to-right|2 \* (x + y)|-2|
-|2|++, --|Prefix &amp; postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
-||\*, &amp;|Indirection (dereference); Address-of||z = &amp;x; \*z;|6422276; 5|
+|2|++, --|Prefix & postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
+||\*, &|Indirection (dereference); Address-of||z = &x; \*z;|6422276; 5|
 ||(type)|Cast||(int)3.0f|3|
 |3|\*, /, %|Multiplication, division, and remainder|Left-to-right|6/2 % 2|1|
 |4|+, -|Addition and subtraction||1 + 2; 3 - 1|3, 2|
 |6|&lt;, &lt;=, &gt;, &gt;=|For relational operators &lt;, &gt; and ≤, ≥ respectively||x&lt;y; x&lt;=y; x&gt;y; x&gt;=y|1, 1, 0 ,0|
 |7|==, !=|For relational = and ≠ respectively||x == y, x != 1|1, 0|
-|11|&amp;&amp;|Logical AND||1 &amp;&amp; 0|0|
+|11|&&|Logical AND||1 && 0|0|
 |12|\|\||Logical OR||1 \|\| 0|1|
 |14|=|Simple assignment|Right-to-left|x  = y;|-6|
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
@@ -375,24 +386,25 @@ int main()
 }
 ```
 
-- Basic operators
 
 <!-- perentysys; esiszewitiwy
 Use parentheses to override order of evaluation -->
 
 ---
 
+# Basic operators
+
 |Priority / Operator||Description|Associativity|Example|Result|
 |---|---|---|---|---|---|
 |1|()|Parentheses|Left-to-right|2 \* (x + y)|-2|
-|2|++, --|Prefix &amp; postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
-||\*, &amp;|Indirection (dereference); Address-of||z = &amp;x; \*z;|6422276; 5|
+|2|++, --|Prefix & postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
+||\*, &|Indirection (dereference); Address-of||z = &x; \*z;|6422276; 5|
 ||(type)|Cast||(int)3.0f|3|
 |3|\*, /, %|Multiplication, division, and remainder|Left-to-right|6/2 % 2|1|
 |4|+, -|Addition and subtraction||1 + 2; 3 - 1|3, 2|
 |6|&lt;, &lt;=, &gt;, &gt;=|For relational operators &lt;, &gt; and ≤, ≥ respectively||x&lt;y; x&lt;=y; x&gt;y; x&gt;=y|1, 1, 0 ,0|
 |7|==, !=|For relational = and ≠ respectively||x == y, x != 1|1, 0|
-|11|&amp;&amp;|Logical AND||1 &amp;&amp; 0|0|
+|11|&&|Logical AND||1 && 0|0|
 |12|\|\||Logical OR||1 \|\| 0|1|
 |14|=|Simple assignment|Right-to-left|x  = y;|-6|
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
@@ -405,28 +417,27 @@ int main()
 }
 ```
 
-- Basic operators
 
 <!-- perentysys; esiszewitiwy
 Use parentheses to override order of evaluation -->
 
 ---
 
-## Basics of mathematics
+# Basics of mathematics
 
 - From basic mathematics, it is known that multiplication has higher precedence than addition, and this precedence can be changed using parentheses. These rules work exactly the same way in the C language as in mathematics.
 - However, because the representation of integers differs from floating-point numbers, as mentioned earlier, when a floating-point number is involved in an operation with an integer, the integer is implicitly cast to a floating-point number.
 
 ---
 
-## Basics of mathematics
+# Basics of mathematics
 
 - Another important point is the division operator /. When used with integers, it performs integer division, meaning that 5 / 3 results in 1. If at least one operand is a floating-point number, the division produces a floating-point result, so 5 / 3 evaluates to approximately 1.6666.
 - Finally, there is the modulo operator %, which returns the remainder of integer division. For example, 5 % 2 equals 1.
 
 ---
 
-## Example - division
+# Example - division
 
 ```c
 // Declarations
@@ -455,7 +466,9 @@ printf("\nFloat / Float:\n");
 printf("a / b = %f\n", a / b); // normal float division
 ```
 
-```c
+Result:
+
+```text
 Integers:
 x = 5
 y = 3
@@ -476,21 +489,21 @@ Float / Float:
 a / b = 1.666667
 ```
 
-- Result:
-
 ---
+
+# Increment (++) & decrement (--) operator & Assignment by sum
 
 |Priority / Operator||Description|Associativity|Example|Result|
 |---|---|---|---|---|---|
 |1|()|Parentheses|Left-to-right|2 \* (x + y)|-2|
-|2|++, --|Prefix &amp; postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
-||\*, &amp;|Indirection (dereference); Address-of||z = &amp;x; \*z;|6422276; 5|
+|2|++, --|Prefix & postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
+||\*, &|Indirection (dereference); Address-of||z = &x; \*z;|6422276; 5|
 ||(type)|Cast||(int)3.0f|3|
 |3|\*, /, %|Multiplication, division, and remainder|Left-to-right|6/2 % 2|1|
 |4|+, -|Addition and subtraction||1 + 2; 3 - 1|3, 2|
 |6|&lt;, &lt;=, &gt;, &gt;=|For relational operators &lt;, &gt; and ≤, ≥ respectively||x&lt;y; x&lt;=y; x&gt;y; x&gt;=y|1, 1, 0 ,0|
 |7|==, !=|For relational = and ≠ respectively||x == y, x != 1|1, 0|
-|11|&amp;&amp;|Logical AND||1 &amp;&amp; 0|0|
+|11|&&|Logical AND||1 && 0|0|
 |12|\|\||Logical OR||1 \|\| 0|1|
 |14|=|Simple assignment|Right-to-left|x  = y;|-6|
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
@@ -503,14 +516,13 @@ int main()
 }
 ```
 
-- Increment (++) &amp; decrement (--) operator &amp; Assignment by sum
 
 <!-- perentysys; esiszewitiwy
 Use parentheses to override order of evaluation -->
 
 ---
 
-## Increment (++) &amp; decrement (--) operator &amp; Assignment by sum
+# Increment (++) & decrement (--) operator & Assignment by sum
 
 - Prefix increment ++ and decrement -- operators increase (decrease) the operand's value first, then use the new value.
 - Postfix increment ++ and decrement -- operators use the operand's current value first, then increase (decrease) the operand's value.
@@ -562,21 +574,23 @@ int main()
 
 ---
 
-# Relational &amp; logical operators
+# Relational & logical operators
 
 ---
+
+# Relational & logical operators &lt;, &lt;=, &gt;, &gt;=, ==, !=, &&, ||
 
 |Priority / Operator||Description|Associativity|Example|Result|
 |---|---|---|---|---|---|
 |1|()|Parentheses|Left-to-right|2 \* (x + y)|-2|
-|2|++, --|Prefix &amp; postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
-||\*, &amp;|Indirection (dereference); Address-of||z = &amp;x; \*z;|6422276; 5|
+|2|++, --|Prefix & postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
+||\*, &|Indirection (dereference); Address-of||z = &x; \*z;|6422276; 5|
 ||(type)|Cast||(int)3.0f|3|
 |3|\*, /, %|Multiplication, division, and remainder|Left-to-right|6/2 % 2|1|
 |4|+, -|Addition and subtraction||1 + 2; 3 - 1|3, 2|
 |6|&lt;, &lt;=, &gt;, &gt;=|For relational operators &lt;, &gt; and ≤, ≥ respectively||x&lt;y; x&lt;=y; x&gt;y; x&gt;=y|1, 1, 0 ,0|
 |7|==, !=|For relational = and ≠ respectively||x == y, x != 1|1, 0|
-|11|&amp;&amp;|Logical AND||1 &amp;&amp; 0|0|
+|11|&&|Logical AND||1 && 0|0|
 |12|\|\||Logical OR||1 \|\| 0|1|
 |14|=|Simple assignment|Right-to-left|x  = y;|-6|
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
@@ -589,13 +603,12 @@ int main()
 }
 ```
 
-- Relational &amp; logical operators &lt;, &lt;=, &gt;, &gt;=, ==, !=, &amp;&amp;, ||
 
 <!-- Use parentheses to override order of evaluation -->
 
 ---
 
-## Relational &amp; logical operators <br>&lt;, &lt;=, &gt;, &gt;=, ==, !=, &amp;&amp;, ||
+# Relational & logical operators <br>&lt;, &lt;=, &gt;, &gt;=, ==, !=, &&, ||
 
 - Relational and logical operators return 1 for a true condition and 0 for a false condition. The result type of these operators is int (integer).
 - In if and while statements, the C language considers the logical value of the conditional expression. This means that any value other than 0 (including positive, negative, characters, pointers, etc.) will be treated as true, while the value 0 will be treated as false.
@@ -616,28 +629,28 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 0
 1
-
-
 ```
 
-- Result:
-
 ---
+
+# Basic operators
 
 |Priority / Operator||Description|Associativity|Example|Result|
 |---|---|---|---|---|---|
 |1|()|Parentheses|Left-to-right|2 \* (x + y)|-2|
-|2|++, --|Prefix &amp; postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
-||\*, &amp;|Indirection (dereference); Address-of||z = &amp;x; \*z;|6422276; 5|
+|2|++, --|Prefix & postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
+||\*, &|Indirection (dereference); Address-of||z = &x; \*z;|6422276; 5|
 ||(type)|Cast||(int)3.0f|3|
 |3|\*, /, %|Multiplication, division, and remainder|Left-to-right|6/2 % 2|1|
 |4|+, -|Addition and subtraction||1 + 2; 3 - 1|3, 2|
 |6|&lt;, &lt;=, &gt;, &gt;=|For relational operators &lt;, &gt; and ≤, ≥ respectively||x&lt;y; x&lt;=y; x&gt;y; x&gt;=y|1, 1, 0 ,0|
 |7|==, !=|For relational = and ≠ respectively||x == y, x != 1|1, 0|
-|11|&amp;&amp;|Logical AND||1 &amp;&amp; 0|0|
+|11|&&|Logical AND||1 && 0|0|
 |12|\|\||Logical OR||1 \|\| 0|1|
 |14|=|Simple assignment|Right-to-left|x  = y;|-6|
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
@@ -650,17 +663,16 @@ int main()
 }
 ```
 
-- Basic operators
 
 <!-- Use parentheses to override order of evaluation -->
 
 ---
 
-# Statements &amp; expressions
+# Statements & expressions
 
 ---
 
-## C language is a procedural programming language
+# C language is a procedural programming language
 
 - Imperative programming is a programming paradigm that uses **statements to change a program's state**.
 - It is like giving the computer instructions step by step on what to do.
@@ -668,7 +680,7 @@ int main()
 
 ---
 
-## C language is a procedural programming language
+# C language is a procedural programming language
 
 - Procedural programming is a type of imperative programming that breaks down a program into smaller, independent procedures (functions).
 - This makes the program more organized and easier to maintain.
@@ -677,7 +689,7 @@ int main()
 
 ---
 
-## C language is a procedural programming language
+# C language is a procedural programming language
 
 - Object-oriented programming further extends the concepts of procedural programming by organizing code into objects that encapsulate data and behavior.
 - Imperative programming
@@ -686,7 +698,7 @@ int main()
 
 ---
 
-## Statement &amp; expression
+# Statement & expression
 
 In computer science, a **statement** is a complete instruction that can modify the state of a program, such as assigning a value to a variable, calling a function, or jumping to a different part of the code. Statements do not produce a value on their own.
 
@@ -696,7 +708,7 @@ An **expression**, on the other hand, is a combination of variables, constants, 
 
 ---
 
-## Null / empty statement
+# Null / empty statement
 
 - A single semicolon ; in C language is a statement called a null statement or empty statement.
 - A semicolons ; are used to terminate statements
@@ -714,7 +726,7 @@ int main()
 
 ---
 
-## Conclusions
+# Conclusions
 
 - *In C, a code line is not the same as a statement*
 - *An entire program can be written in a single line*
@@ -727,7 +739,7 @@ int main()
 
 ---
 
-## Block &amp; complex(compound) statements
+# Block & complex(compound) statements
 
 - Block can be:
   - substitute for simple statement,
@@ -746,7 +758,7 @@ Przypisanie jest rownoczesnie statement I -->
 
 ---
 
-## Blocks &amp; complex(compound) statements
+# Blocks & complex(compound) statements
 
 ```c
 int main()
@@ -765,18 +777,18 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Hello world
 Bye world
 Aloha world
 Hello world
 ```
 
-- Result:
-
 ---
 
-## Statement &amp; expression
+# Statement & expression
 
 - A **statement** can modify the state of a program, such as assigning a value to a variable, calling a function, or jumping to a different part of the code.
 - Statements do not produce a value on their own.
@@ -785,7 +797,7 @@ Hello world
 
 ---
 
-## Consequences
+# Consequences
 
 |Priority / Operator||Expression|Statement|
 |---|---|---|---|
@@ -794,22 +806,22 @@ Hello world
 ||-&gt;|√|×|
 |2|++, --|√|√|
 ||+, -, !, ~ (unary)|√|×|
-||\*, &amp; , &amp;&amp;  (unary)|√|×|
+||\*, & , &&  (unary)|√|×|
 ||(type), sizeof|√|×|
 |3|\*, /, %|√|×|
 |4|+, -|√|×|
 |5|&lt;&lt;,  &gt;&gt;|√|×|
 |6|&lt;, &lt;=, &gt;, &gt;=|√|×|
 |7|==, !=|√|×|
-|8|&amp;|√|×|
+|8|&|√|×|
 |9|^|√|×|
 |10|\||√|×|
-|11|&amp;&amp;|√|×|
+|11|&&|√|×|
 |12|\|\||√|×|
 |13|?:|√|×|
 |14|=|√|√|
 ||+=, -=, \*=, /=, %=|√|√|
-||&lt;&lt;=, &gt;&gt;=, &amp;=, ^=, \|=|√|√|
+||&lt;&lt;=, &gt;&gt;=, &=, ^=, \|=|√|√|
 |15|,|√|×|
 
 - In the Python language, there is not a single operator that is both a statement and an expression.
@@ -820,25 +832,37 @@ Hello world
 
 ---
 
-## Consequences
+# Consequences
 
 - The underscore \_ in Python (and C#) does not require the declaration of this variable, because it is not a variable, but only an indication to the compiler that this is a conscious rejection of the value returned by a function. It does not change anything - it is just a stylistic trick to improve code readability.
 - This makes sense only because assignment in Python is not an expression and does not return a value by itself, but in C it is not like that.
 
-def sq(n):<br>    print(n \*\* 3)<br>    return n \*\* 3<br><br>\_ = sq(3)
+Python:
 
+```python
+def sq(n):
+    print(n ** 3)
+    return n ** 3
+
+_ = sq(3)
+```
+
+```python
 sq(3)
+```
 
-- Python:
-- 27
-- 27
-- Result:
+Result:
+
+```text
+27
+27
+```
 
 <!-- Use parentheses to override order of evaluation -->
 
 ---
 
-## Consequences
+# Consequences
 
 - In the C language, every assignment after assigning a value to a variable (pointer, label), since it is also an expression, will generate a value again, which will be ignored by the compiler at the end
 - We can use the underscore \_ discard in C, but you need to declare the variable beforehand. It's a great mechanism that improves the readability of the programmer's intent.

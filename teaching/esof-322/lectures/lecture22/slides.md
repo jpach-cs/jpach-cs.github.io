@@ -5,19 +5,20 @@ paginate: true
 title: "Software Engineering"
 ---
 
+<!-- _class: lead -->
+
 # Software Engineering
 
-*Lecture 22*
-
+## Lecture 22
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 - UML Sequence diagrams
 
 ---
 
-## From The author of textbook
+# From The author of textbook
 
 …I therefore concentrate on these five UML diagram types here:
 
@@ -38,7 +39,7 @@ title: "Software Engineering"
 
 ---
 
-## Introduction — What Are Sequence Diagrams?
+# Introduction — What Are Sequence Diagrams?
 
 - Sequence diagrams are one of the **interaction diagrams** in UML.<br>They show **how processes, objects, and actors interact over time** to accomplish a specific behavior in a system.
 - They are most commonly used to **visualize scenarios derived from use cases**, and are therefore a natural continuation of activity diagrams and class diagrams.
@@ -48,7 +49,7 @@ title: "Software Engineering"
 
 ---
 
-## Connection to Use Cases and the 4+1 Model
+# Connection to Use Cases and the 4+1 Model
 
 - Sequence diagrams are **typically associated with use case realizations** within the **4+1 architectural view model**.
 - They realize the *Use Case View* by showing how actors and the system cooperate to achieve the main success scenario.
@@ -62,7 +63,7 @@ This means:
 
 ---
 
-## Sequence diagrams emphasize
+# Sequence diagrams emphasize
 
 - **Order of events in time**
 - **Messages exchanged** between actors and system components
@@ -74,7 +75,7 @@ Each diagram starts at the top (first message) and proceeds downward in time.<br
 
 ---
 
-## Core Elements of Sequence Diagrams (UML vs Mermaid)
+# Core Elements of Sequence Diagrams (UML vs Mermaid)
 
 |**Concept**|**UML Description**|**Mermaid Syntax Equivalent**|
 |---|---|---|
@@ -95,7 +96,7 @@ Each diagram starts at the top (first message) and proceeds downward in time.<br
 
 ---
 
-## Mermaid Class Diagram Syntax
+# Mermaid Class Diagram Syntax
 
 - All class diagrams must start with this directive.
 - For vsc
@@ -121,7 +122,9 @@ Unlike the **Graph** (Flowchart) diagram, you cannot change the rendering direct
 
 ---
 
-## Mermaid Class Diagram Syntax Sequence diagrams ignore whitespace between actors, objects, and other elements. This means you can freely add tabs and spaces to improve readability.
+# Mermaid Class Diagram Syntax
+
+Sequence diagrams ignore whitespace between actors, objects, and other elements. This means you can freely add tabs and spaces to improve readability.
 
 ````
 ```mermaid
@@ -161,7 +164,7 @@ sequenceDiagram
 
 ---
 
-## Another example
+# Another example
 
 ````
 ```mermaid
@@ -185,6 +188,6 @@ sequenceDiagram
 
 ---
 
-# Thank
+<!-- _class: caption-slide -->
 
-*You!*
+# Thank You!

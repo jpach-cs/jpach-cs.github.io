@@ -5,6 +5,8 @@ paginate: true
 title: "CSCI 112  Programming with C"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 8
@@ -17,13 +19,13 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Outline
+# Outline
 
 - Review
 - Operators
-  - &amp; address-of
+  - & address-of
   - \* Indirection (dereference)
-- Left-to-right &amp; right-to-left associativity
+- Left-to-right & right-to-left associativity
 - Preprocessor
 - Buffered input
 
@@ -33,7 +35,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## while loop
+# while loop
 
 ```c
 while (expression1)
@@ -41,14 +43,6 @@ while (expression1)
 ```
 
 A while loop repeatedly executes statement1 based on the logical outcome of expression1 as long as expression1 evaluates to true.
-
-```c
-a value of i is: 0
-a value of i is: 1
-a value of i is: 2
-```
-
-- Result:
 
 ```c
 int main()
@@ -62,6 +56,14 @@ int main()
 }
 ```
 
+Result:
+
+```text
+a value of i is: 0
+a value of i is: 1
+a value of i is: 2
+```
+
 ```c
 int main()
 {
@@ -71,11 +73,11 @@ int main()
 }
 ```
 
-- OR
+OR
 
 ---
 
-## for loop
+# for loop
 
 ```c
 for (expression1; expression2; expression3)
@@ -87,14 +89,6 @@ for (expression1; expression2; expression3)
 - Any of the three part can be omitted, although the semicolons must be remain. If expression2 is not present, it is taken as permanently true.
 
 ```c
-a value of i is: 0
-a value of i is: 1
-a value of i is: 2
-```
-
-- Result:
-
-```c
 int main()
 {
   for (int i = 0; i < 4; i++ )
@@ -102,9 +96,17 @@ int main()
 }
 ```
 
+Result:
+
+```text
+a value of i is: 0
+a value of i is: 1
+a value of i is: 2
+```
+
 ---
 
-## The for loop is equivalent to while loop
+# The for loop is equivalent to while loop
 
 ```c
 expression1;
@@ -124,7 +126,7 @@ for (expression1; expression2; expression3)
 
 ---
 
-## “Infinity” loop
+# “Infinity” loop
 
 ```c
 while (true)
@@ -142,7 +144,7 @@ for (;;)
 
 ---
 
-## break &amp; continue keywords
+# break & continue keywords
 
 - break and continue offer distinct ways to control loop flow.
 - break instantly terminates the loop it's in, while continue jumps to the next iteration.
@@ -161,16 +163,15 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 1 2 3 4
-
 ```
-
-- Result:
 
 ---
 
-## break &amp; continue keywords
+# break & continue keywords
 
 - break and continue offer distinct ways to control loop flow.
 - break instantly terminates the loop it's in, while continue jumps to the next iteration.
@@ -191,16 +192,15 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 1 3 5 7 9
-
 ```
-
-- Result:
 
 ---
 
-## goto statement in loops
+# goto statement in loops
 
 - goto provides a convenient way to exit from nested blocks
 
@@ -254,7 +254,7 @@ int main()
 
 ---
 
-## Prototype &amp; its Function
+# Prototype & its Function
 
 - In contrast to function implementations, function prototypes are terminated with a semicolon(;)
 - A minimal prototype must precede the function definition, and it is standard to list function prototypes alphabetically after preprocessor directives within a file
@@ -273,7 +273,7 @@ return-type function-name (only type of parameter declarations, if any);
 
 ---
 
-## Prototype &amp; its Function
+# Prototype & its Function
 
 - The return type can be any of the data types presented in the previous material, and additionally, void can be used if no value is to be returned.
 - The function name is symbolic\_name.
@@ -292,7 +292,7 @@ return-type function-name (only type of parameter declarations, if any);
 
 ---
 
-## Prototype &amp; its Function
+# Prototype & its Function
 
 ```c
 #include <stdio.h>
@@ -334,7 +334,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Text from myFuntion1
 incremented n from myFuntion2 equals 3
 result of myFuntion2 equals 1
@@ -342,14 +344,13 @@ n from myFuntion3 equals 2
 result of myFuntion3 equals 27
 ```
 
-- Result:
 - Correct exit
 
 <!-- Green comment! -->
 
 ---
 
-## Variables
+# Variables
 
 - variable scope    –    the region in which a variable is valid;
 
@@ -367,7 +368,9 @@ global variable    –    declared outside of functions, is accessible from any 
 
 ---
 
-## global vs local We don't have direct access to a shadowed variable. The only way to access it is through a pointer.
+# global vs local
+
+We don't have direct access to a shadowed variable. The only way to access it is through a pointer.
 
 ```c
 #include <stdio.h>
@@ -389,24 +392,24 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 x equals 5 that is read by function myFunction
 x equals 3 that is read by function main
 x equals 5 that is read by function main
 ```
 
-- Result:
-
 ---
 
-## Summary - variable scope
+# Summary - variable scope
 
 - Global variables are accessible throughout a program, but they can be temporarily hidden by a local variable declared within a nested block, such as a function, for loop, while loop, or even an if statement.
 - This is known as "variable shadowing," and within the local variable's scope, any reference to that variable name will refer to the local one. The global variable remains inaccessible until the local variable's block is exited and the local variable is released from memory. At that point, access to the global variable is restored.
 
 ---
 
-# Operator &amp; address-of
+# Operator & address-of
 
 ---
 
@@ -415,24 +418,24 @@ x equals 5 that is read by function main
 |1|(), \[\]|Parentheses; Array subscript|Left-to-right|arr\[0\] \* (x + y)|1|
 ||.|Structure and union member access||point.x|1|
 ||-&gt;|Structure and union member access through pointer||ppoint-&gt;x|1|
-|2|++, --|Prefix &amp; postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
+|2|++, --|Prefix & postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
 ||+, -, !, ~|(Unary) plus and minus; Logical NOT and bitwise NOT||y =-y; y =+y; !x; ~;x|6, -6,0, -6|
-||\*, &amp; , &amp;&amp;|Indirection (dereference); Address-of; Address-of labels||z = &amp;x; \*z;|6422276; 5|
+||\*, & , &&|Indirection (dereference); Address-of; Address-of labels||z = &x; \*z;|6422276; 5|
 ||(type), sizeof|Cast, Size-of||(int)3.0f; sizeof(x);|3, 4|
 |3|\*, /, %|Multiplication, division, and remainder|Left-to-right|6/2 % 2|1|
 |4|+, -|Addition and subtraction||1 + 2; 3 - 1|3, 2|
 |5|&lt;&lt;,  &gt;&gt;|Bitwise left shift and right shift||4 &lt;&lt; 1; 4 &gt;&gt; 2|8, 1|
 |6|&lt;, &lt;=, &gt;, &gt;=|For relational operators &lt;, &gt; and ≤, ≥ respectively||x&lt;y; x&lt;=y; x&gt;y; x&gt;=y|1, 1, 0 ,0|
 |7|==, !=|For relational = and ≠ respectively||x == y, x != 1|1, 0|
-|8|&amp;|Bitwise AND||7 &amp; 3|3|
+|8|&|Bitwise AND||7 & 3|3|
 |9|^|Bitwise XOR (exclusive or)||255 ^ 0|255|
 |10|\||Bitwise OR (inclusive or)||7 \| 3|7|
-|11|&amp;&amp;|Logical AND||1 &amp;&amp; 0|0|
+|11|&&|Logical AND||1 && 0|0|
 |12|\|\||Logical OR||1 \|\| 0|1|
 |13|?:|Ternary conditional|Right-to-left|x  = (x &gt; y) ? y : x;|-6|
 |14|=|Simple assignment||x  = y;|-6|
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
-||&lt;&lt;=, &gt;&gt;=, &amp;=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
+||&lt;&lt;=, &gt;&gt;=, &=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
 ```c
@@ -450,24 +453,24 @@ Use parentheses to override order of evaluation -->
 |1|(), \[\]|Parentheses; Array subscript|Left-to-right|arr\[0\] \* (x + y)|1|
 ||.|Structure and union member access||point.x|1|
 ||-&gt;|Structure and union member access through pointer||ppoint-&gt;x|1|
-|2|++, --|Prefix &amp; postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
+|2|++, --|Prefix & postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
 ||+, -, !, ~|(Unary) plus and minus; Logical NOT and bitwise NOT||y =-y; y =+y; !x; ~;x|6, -6,0, -6|
-||\*, &amp; , &amp;&amp;|Indirection (dereference); **Address-of; Address-of labels**||z = &amp;x; \*z;|6422276; 5|
+||\*, & , &&|Indirection (dereference); **Address-of; Address-of labels**||z = &x; \*z;|6422276; 5|
 ||(type), sizeof|Cast, Size-of||(int)3.0f; sizeof(x);|3, 4|
 |3|\*, /, %|Multiplication, division, and remainder|Left-to-right|6/2 % 2|1|
 |4|+, -|Addition and subtraction||1 + 2; 3 - 1|3, 2|
 |5|&lt;&lt;,  &gt;&gt;|Bitwise left shift and right shift||4 &lt;&lt; 1; 4 &gt;&gt; 2|8, 1|
 |6|&lt;, &lt;=, &gt;, &gt;=|For relational operators &lt;, &gt; and ≤, ≥ respectively||x&lt;y; x&lt;=y; x&gt;y; x&gt;=y|1, 1, 0 ,0|
 |7|==, !=|For relational = and ≠ respectively||x == y, x != 1|1, 0|
-|8|&amp;|Bitwise AND||7 &amp; 3|3|
+|8|&|Bitwise AND||7 & 3|3|
 |9|^|Bitwise XOR (exclusive or)||255 ^ 0|255|
 |10|\||Bitwise OR (inclusive or)||7 \| 3|7|
-|11|&amp;&amp;|Logical AND||1 &amp;&amp; 0|0|
+|11|&&|Logical AND||1 && 0|0|
 |12|\|\||Logical OR||1 \|\| 0|1|
 |13|?:|Ternary conditional|Right-to-left|x  = (x &gt; y) ? y : x;|-6|
 |14|=|Simple assignment||x  = y;|-6|
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
-||&lt;&lt;=, &gt;&gt;=, &amp;=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
+||&lt;&lt;=, &gt;&gt;=, &=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
 ```c
@@ -480,7 +483,7 @@ Use parentheses to override order of evaluation -->
 
 ---
 
-## What is an address?
+# What is an address?
 
 - Address is an identifier <br>(symbolic name) of location
 - **A place to locate what we refer to**
@@ -491,7 +494,9 @@ Use parentheses to override order of evaluation -->
 
 ---
 
-## Every symbolic name… Every symbolic name — whether for a variable, array, function, or label — refers to a specific memory location. Once assigned (declared/initialized), the content at that memory location can change, but the address itself remains fixed for the lifetime of that entity. For example, a variable declared within a block will always occupy the same memory address until the block ends.
+# Every symbolic name…
+
+Every symbolic name — whether for a variable, array, function, or label — refers to a specific memory location. Once assigned (declared/initialized), the content at that memory location can change, but the address itself remains fixed for the lifetime of that entity. For example, a variable declared within a block will always occupy the same memory address until the block ends.
 
 ```c
 #include <stdio.h>
@@ -505,19 +510,18 @@ int main()
 }
 ```
 
-```c
-Address of y       = 6487800
-Address of y       = 6487800
+Result:
 
+```text
+Address of y       = 6487800
+Address of y       = 6487800
 ```
-
-- Result:
 
 ---
 
-## Extended example
+# Extended example
 
-- Warning…
+Warning…
 
 Should be %p
 
@@ -537,16 +541,15 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Address of x                   = 6487836
 Address of arr1 (array name)   = 6487808
 Address of arr1 (array itself) = 6487808
 Address of function myFunction = 4199493
 Address of label1:             = 4199573
-
 ```
-
-- Result:
 
 ```c
 int myFunction()
@@ -557,35 +560,36 @@ int myFunction()
 
 ---
 
-## Extended example - description
+# Extended example - description
 
-- When a variable, a symbolic name, is declared, it is allocated a static location in RAM. Its value can be changed, but for its entire lifetime, it cannot be deleted or moved. It will always refer to the same specific memory cell. For example, with int x = 5;, we can change its value later, like x = 3;, but the address &amp;x will always point to the same memory location.
+- When a variable, a symbolic name, is declared, it is allocated a static location in RAM. Its value can be changed, but for its entire lifetime, it cannot be deleted or moved. It will always refer to the same specific memory cell. For example, with int x = 5;, we can change its value later, like x = 3;, but the address &x will always point to the same memory location.
 - The same principle applies to arrays. That is why we must initialize an array in a single line, like int arr1\[7\] = {1, 2, 3, 4, 5, 6, 7};.
 
 ---
 
-## Extended example - description
+# Extended example - description
 
 - We cannot declare and then initialize it on separate lines, such as:
 
-int arr1\[7\];
-
-arr1\[7\] = {1, 2, 3, 4, 5, 6, 7}; // This is invalid
+```c
+int arr1[7];
+arr1[7] = {1, 2, 3, 4, 5, 6, 7}; // This is invalid
+```
 
 - The first line is a shorthand for the compiler. The compiler, before the code is actually executed, performs a loop-like operation to initialize the array, assigning each value to its corresponding memory location. Because of this, initialization cannot be split into two separate steps.
 
 ---
 
-## Extended example - description
+# Extended example - description
 
 - The symbolic name of an array represents a fixed memory address — specifically, the location where the array begins in memory. You can think of it as a label that always refers to the same starting point of the array.
 - This address is read-only: once the array is declared, you cannot change where it begins. The name of the array and the address of its first element are essentially the same in expressions. Because the array name itself stands for a memory location, you can't reassign it to refer to a different place in memory.
 
 ---
 
-## Extended example
+# Extended example
 
-- Warning…
+Warning…
 
 Should be %p
 
@@ -605,22 +609,21 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Address of x                   = 6487836
 Address of arr1 (array name)   = 6487808
 Address of arr1 (array itself) = 6487808
 Address of function myFunction = 4199493
 Address of label1:             = 4199573
-
 ```
-
-- Result:
 
 ---
 
-## Extended example
+# Extended example
 
-- Warning…
+Warning…
 
 Should be %p
 
@@ -640,20 +643,19 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Address of x                   = 6487836
 Address of arr1 (array name)   = 0062ff00
 Address of arr1 (array itself) = 0062ff00
 Address of function myFunction = 4199493
 Address of label1:             = 4199573
-
 ```
-
-- Result:
 
 ---
 
-## Extended example
+# Extended example
 
 ```c
 #include <stdio.h>
@@ -671,20 +673,19 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Address of x                   = 0062ff1c
 Address of arr1 (array name)   = 0062ff00
 Address of arr1 (array itself) = 0062ff00
 Address of function myFunction = 00401445
 Address of label1:             = 00401495
-
 ```
-
-- Result:
 
 ---
 
-|Type &amp; Specifier||Origin|Argument type||Description||
+|Type & Specifier||Origin|Argument type||Description||
 |---|---|---|---|---|---|---|
 ||||**printf**|**scanf**|**printf**|**scanf**|
 |integer|d|decimal|int|int \*|signed decimal notation||
@@ -709,17 +710,17 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 
 ---
 
-## Extended example - description
+# Extended example - description
 
-- When printf receives an address using the &amp; operator, it prints the address of a 32-bit <br>(or platform-dependent) integer. To display addresses correctly without compiler warnings, the %p format specifier should be used, which is specifically designed for pointer values.
+- When printf receives an address using the & operator, it prints the address of a 32-bit <br>(or platform-dependent) integer. To display addresses correctly without compiler warnings, the %p format specifier should be used, which is specifically designed for pointer values.
 - Once a variable is declared within a block, the compiler has already reserved a specific memory location for it. Redeclaring the same variable name in the same scope is illegal because that memory is already allocated and associated with the original symbolic name. It would cause a compile-time error.
 
 ---
 
-## Operator &amp; address-of
+# Operator & address-of
 
-- The single ampersand symbol, &amp;, is a unary operator used to get the **memory address** of a variable. Think of it as asking, "Where in the computer's memory is this variable physically located?"
-- When you use &amp; before a variable's name (symbolic name), the operator returns the exact location of that variable in memory. This location is just a number that tells you where the variable's data is stored.
+- The single ampersand symbol, &, is a unary operator used to get the **memory address** of a variable. Think of it as asking, "Where in the computer's memory is this variable physically located?"
+- When you use & before a variable's name (symbolic name), the operator returns the exact location of that variable in memory. This location is just a number that tells you where the variable's data is stored.
 
 ---
 
@@ -727,15 +728,15 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 
 ---
 
-## Operator \* Indirection (dereference)
+# Operator \* Indirection (dereference)
 
 - The asterisk symbol, \*, is a unary operator used to access the actual value stored at a specific location in memory. Think of it as asking, "What is stored at this address?"
-- When you use \* before something that represents a memory location — for example, a result you got using the &amp; operator — the \* operator lets you look inside that location and see the value stored there.
+- When you use \* before something that represents a memory location — for example, a result you got using the & operator — the \* operator lets you look inside that location and see the value stored there.
 - This operation **only** makes semantic sense when applied to variables and arrays — that is, to objects that occupy space in memory and hold meaningful data. It does not apply to labels, which are used for program control flow and do not have a retrievable memory location, nor to functions, which are executed rather than accessed for stored values.
 
 ---
 
-## Extended example
+# Extended example
 
 ```c
 #include <stdio.h>
@@ -754,15 +755,15 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Value at address of x                    = 5
 Value at address of arr1 (array name)    = 9
 Value at address of arr1 (array name)    = 10
 Value at address of arr1 (array name)    = 8
-
 ```
 
-- Result:
 - Priority!!!
 
 ---
@@ -772,24 +773,24 @@ Value at address of arr1 (array name)    = 8
 |1|(), \[\]|Parentheses; Array subscript|Left-to-right|arr\[0\] \* (x + y)|1|
 ||.|Structure and union member access||point.x|1|
 ||-&gt;|Structure and union member access through pointer||ppoint-&gt;x|1|
-|2|++, --|Prefix &amp; postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
+|2|++, --|Prefix & postfix increment and decrement|Right-to-left|++x; x--; x;|6, 6, 5|
 ||+, -, !, ~|(Unary) plus and minus; Logical NOT and bitwise NOT||y =-y; y =+y; !x; ~;x|6, -6,0, -6|
-||\*, &amp; , &amp;&amp;|Indirection (dereference); Address-of; Address-of labels||z = &amp;x; \*z;|6422276; 5|
+||\*, & , &&|Indirection (dereference); Address-of; Address-of labels||z = &x; \*z;|6422276; 5|
 ||(type), sizeof|Cast, Size-of||(int)3.0f; sizeof(x);|3, 4|
 |3|\*, /, %|Multiplication, division, and remainder|Left-to-right|6/2 % 2|1|
 |4|+, -|Addition and subtraction||1 + 2; 3 - 1|3, 2|
 |5|&lt;&lt;,  &gt;&gt;|Bitwise left shift and right shift||4 &lt;&lt; 1; 4 &gt;&gt; 2|8, 1|
 |6|&lt;, &lt;=, &gt;, &gt;=|For relational operators &lt;, &gt; and ≤, ≥ respectively||x&lt;y; x&lt;=y; x&gt;y; x&gt;=y|1, 1, 0 ,0|
 |7|==, !=|For relational = and ≠ respectively||x == y, x != 1|1, 0|
-|8|&amp;|Bitwise AND||7 &amp; 3|3|
+|8|&|Bitwise AND||7 & 3|3|
 |9|^|Bitwise XOR (exclusive or)||255 ^ 0|255|
 |10|\||Bitwise OR (inclusive or)||7 \| 3|7|
-|11|&amp;&amp;|Logical AND||1 &amp;&amp; 0|0|
+|11|&&|Logical AND||1 && 0|0|
 |12|\|\||Logical OR||1 \|\| 0|1|
 |13|?:|Ternary conditional|Right-to-left|x  = (x &gt; y) ? y : x;|-6|
 |14|=|Simple assignment||x  = y;|-6|
 ||+=, -=, \*=, /=, %=|Assignment by sum, difference, product, quotient, remainder||x+=1; x-=1; //etc.|6, 5|
-||&lt;&lt;=, &gt;&gt;=, &amp;=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
+||&lt;&lt;=, &gt;&gt;=, &=, ^=, \|=|Assignment by bitwise left shift, right shift, AND, XOR, OR||3&lt;&lt;=1, 8&gt;&gt;=2 //etc.|6, 2|
 |15|,|Comma|Left-to-right|x = 3, y = 1;|3|
 
 ```c
@@ -802,17 +803,17 @@ Use parentheses to override order of evaluation -->
 
 ---
 
-# Left-to-right &amp; right-to-left associativity
+# Left-to-right & right-to-left associativity
 
 ---
 
-## Left-to-right &amp; right-to-left associativity
+# Left-to-right & right-to-left associativity
 
 |Priority||Ass.|
 |---|---|---|
 |1|()|LR|
 |2|++, --|RL|
-||\*, &amp;||
+||\*, &||
 ||(type)||
 |3|\*, /, %|LR|
 |4|+, -||
@@ -838,14 +839,12 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 6
 4
-
-
 ```
-
-- Result:
 
 ```c
 x += y = 3 + x * y;			/* 2 */
@@ -870,11 +869,11 @@ Left-to-right associativity means that when there are two operators with the sam
 
 ---
 
-## Summary for associativity and \*&amp;
+# Summary for associativity and \*&
 
-- The associativity of the \* and &amp; operators is right-to-left (R–L), similar to assignment, but unlike arithmetic or logical operations, which we’re more familiar with.
-- This means that using them together — like in \*&amp;x — works correctly: first, the address of x is obtained, and then the value stored at that address is retrieved.
-- You could say that \*&amp; cancels itself out, and logically that’s true. However, it’s a relatively costly operation: instead of directly accessing the value, the program first computes the address from the symbolic name, and then accesses the value from that location.
+- The associativity of the \* and & operators is right-to-left (R–L), similar to assignment, but unlike arithmetic or logical operations, which we’re more familiar with.
+- This means that using them together — like in \*&x — works correctly: first, the address of x is obtained, and then the value stored at that address is retrieved.
+- You could say that \*& cancels itself out, and logically that’s true. However, it’s a relatively costly operation: instead of directly accessing the value, the program first computes the address from the symbolic name, and then accesses the value from that location.
 - The compiler may optimize this during compilation and simplify it to just x, but relying on such optimizations is considered poor practice. It reflects a lack of foundational understanding — similar to blindly trusting automatic type casting.
 
 ---
@@ -883,7 +882,7 @@ Left-to-right associativity means that when there are two operators with the sam
 
 ---
 
-## Hello World
+# Hello World
 
 - Code
 - Preprocessor
@@ -901,7 +900,7 @@ int main()
 
 ---
 
-## The Pre-processor
+# The Pre-processor
 
 The C Preprocessor runs before the C program is compiled properly. It is a separate program from the compiler programs and, in theory, could be used on any file not just C source files. Its main uses are macro substitution, file inclusion and conditional compilation.
 
@@ -911,7 +910,7 @@ eg.: #include&lt;stdio.h&gt;
 
 ---
 
-## The C compiler process has four main phases
+# The C compiler process has four main phases
 
 - **Preprocessing**: The preprocessor modifies the source code by performing:
   - **Macro substitution**
@@ -927,7 +926,7 @@ eg.: #include&lt;stdio.h&gt;
 
 ---
 
-## Preprocessor directives - macro substitution
+# Preprocessor directives - macro substitution
 
 - A macro is a symbolic name that represents a sequence of tokens. It's like creating a shorthand that expands to a longer expression whenever it's encountered in the code.
 - Macros allow us to define constants whose values cannot be changed during program execution.
@@ -941,16 +940,15 @@ eg.: #include&lt;stdio.h&gt;
 
 ---
 
-## Preprocessor directives - macro substitution
+# Preprocessor directives - macro substitution
 
 ```c
 #define symbolic_name replaced_text
+```
+
 Macros are not terminated with semicolons, unlike regular code statements, making them easily distinguishable.
 
-
-
 Writing macro-defined constants in uppercase is a best practice to emphasize their immutable nature. While the compiler won't complain, these values cannot be changed during runtime and are not accessible for debugging.
-```
 
 ```c
 #define PI 3.14159
@@ -966,13 +964,6 @@ int main()
 ```
 
 ```c
-abcde
-3.641590
-```
-
-- Result:
-
-```c
 #define PI 3.14159
 #define some_text "abcde"
 
@@ -985,9 +976,16 @@ int main()
 }
 ```
 
+Result:
+
+```text
+abcde
+3.641590
+```
+
 ---
 
-## Preprocessor directives - macro substitution
+# Preprocessor directives - macro substitution
 
 ```c
 #define symbolic_name replaced_text
@@ -1014,14 +1012,6 @@ int main()
 ```
 
 ```c
-abcde
-25
-Hello
-```
-
-- Result:
-
-```c
 #include <stdio.h>
 int main()
 {
@@ -1034,9 +1024,17 @@ int main()
 }
 ```
 
+Result:
+
+```text
+abcde
+25
+Hello
+```
+
 ---
 
-## Preprocessor directives - macro substitution
+# Preprocessor directives - macro substitution
 
 ```c
 #define symbolic_name replaced_text
@@ -1058,14 +1056,6 @@ int main()
 ```
 
 ```c
-cde
-aab
-
-```
-
-- Result:
-
-```c
 #include <stdio.h>
 int main()
 {
@@ -1074,11 +1064,18 @@ int main()
 }
 ```
 
+Result:
+
+```text
+cde
+aab
+```
+
 - It works because it's a ternary operator!
 
 ---
 
-## Conditional compilation
+# Conditional compilation
 
 ```c
 #if (conditional1)
@@ -1111,7 +1108,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 A value of arr[0] =  41
 A value of arr[1] =  67
 A value of arr[2] =  34
@@ -1122,14 +1121,11 @@ A value of arr[6] =  78
 A value of arr[7] =  58
 A value of arr[8] =  62
 A value of arr[9] =  64
-
 ```
-
-- Result:
 
 ---
 
-## Built-in constants in C - examples
+# Built-in constants in C - examples
 
 \_\_FILE\_\_    name of the file being compiled
 
@@ -1148,19 +1144,19 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 11:24:35
 C:\Users\Jakub\Desktop\CSCI112\main.c
 Sep 26 2024
 ```
 
-- Result:
-
 ---
 
-## File inclusion
+# File inclusion
 
-```c
+```text
 Using <> (angle brackets)	–	e.g. #include <file_name.h>
 Using "" (double quotes)	–	e.g. #include "file_name.h"
 
@@ -1168,7 +1164,7 @@ Using "" (double quotes)	–	e.g. #include "file_name.h"
 
 ---
 
-## File inclusion - &lt;&gt; (angle brackets)
+# File inclusion - &lt;&gt; (angle brackets)
 
 - Using Standard library search:
   - When you use angle brackets, the compiler searches for the file in the standard system directories where the compiler expects to find header files for the standard C library.
@@ -1177,7 +1173,7 @@ Using "" (double quotes)	–	e.g. #include "file_name.h"
 
 ---
 
-## File inclusion - "" (double quotes)
+# File inclusion - "" (double quotes)
 
 - Local search:
   - When you use double quotes around a filename in an #include directive, the compiler first searches for the file in the same directory as the current file.
@@ -1186,7 +1182,7 @@ Using "" (double quotes)	–	e.g. #include "file_name.h"
 
 ---
 
-## Summary: How the C Preprocessor Works
+# Summary: How the C Preprocessor Works
 
 - The preprocessor works like a “Find and Replace” tool in a text editor — it searches for specific strings (like constant names) and **replaces them with defined values** before the actual compilation begins. This means you cannot debug constants or change their values during runtime, because the source code has already been transformed — as if you manually replaced every occurrence of the name with its value.
 - **Conditional compilation** allows the program to check whether a constant has been defined (#ifdef, #ifndef) and **include or skip parts of the code** accordingly. This is useful for writing code that adapts to different configurations, platforms, or versions.
@@ -1197,7 +1193,7 @@ Using "" (double quotes)	–	e.g. #include "file_name.h"
 
 ---
 
-## Fundamental Functions for Input and Output
+# Fundamental Functions for Input and Output
 
 - Data Output for Screen:
   - putchar\*    -    (put\[ \]char\[acter\]):    Displays a single character on the screen.
@@ -1213,18 +1209,20 @@ Using "" (double quotes)	–	e.g. #include "file_name.h"
 
 ---
 
-## Getchar() &amp; scanf()
+# Getchar() & scanf()
 
 - Using getche() allows you to read a character from the keyboard **without waiting for the Enter key**. This has consequences: without more advanced logic, the user cannot correct mistakes. For example, pressing Backspace doesn't erase the previous character — it's just another ASCII code. To handle this properly, you'd need to implement logic that detects Backspace and reverts the previous input.
 - To simplify user interaction, the system uses an **input buffer**. Keystrokes are stored in this buffer before being passed to the program. This solves some problems, but introduces others: when waiting for Enter to confirm input, remember that Enter is actually **two ASCII characters** — CR (Carriage Return, 13) and LF (Line Feed, 10). As a result, one of these characters may remain in the buffer, causing the next call to getchar() or scanf() to behave incorrectly — it might read leftover input.
 
 ---
 
-## Getchar() &amp; scanf()
+# Getchar() & scanf()
 
 - To avoid this, you should **clear the input buffer** before reading new data. Since standard functions don’t do this automatically, the simplest solution is to define a macro:
 
-\#define clearBuffer() while (getchar() != '\n’);
+```c
+#define clearBuffer() while (getchar() != '\n’);
+```
 
 - and call clearBuffer() after each keyboard input operation.
 
@@ -1237,7 +1235,7 @@ Using "" (double quotes)	–	e.g. #include "file_name.h"
 
 ---
 
-## printf and scanf format specification
+# printf and scanf format specification
 
 - Optional:
   - Flags    -    modifiers that alter the formatting or scanning behavior.
@@ -1247,15 +1245,15 @@ Using "" (double quotes)	–	e.g. #include "file_name.h"
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-```c
+```text
 Format =  %[flags][width][.precision][modifier]<type>
 ```
 
 ---
 
-## Basic types
+# Basic types
 
-|Type &amp; Specifier||Origin|Argument type||Description||
+|Type & Specifier||Origin|Argument type||Description||
 |---|---|---|---|---|---|---|
 ||||**printf**|**scanf**|**printf**|**scanf**|
 |integer|d|decimal|int|int \*|signed decimal notation||
@@ -1269,7 +1267,7 @@ Format =  %[flags][width][.precision][modifier]<type>
 
 ---
 
-## Width
+# Width
 
 ```c
 int main()
@@ -1287,7 +1285,7 @@ int main()
 
 ---
 
-## Precision
+# Precision
 
 ```c
 int main()
@@ -1305,7 +1303,7 @@ int main()
 
 ---
 
-## Flags
+# Flags
 
 - \+ : Always display the sign of a number, even if it's positive.
 - \- : Left-justify the output within the given field width.
@@ -1316,7 +1314,7 @@ int main()
 
 ---
 
-## Modifies
+# Modifies
 
 ```c
 int main()
@@ -1335,7 +1333,7 @@ int main()
 
 ---
 
-## Declaring and initializing arrays
+# Declaring and initializing arrays
 
 ```c
 int main()
@@ -1362,11 +1360,11 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 First element (index 0) of array a equals 4201200.
 Second(index 1) element of array b equals 2.
 Second(index 1) element of array b equals 2.
 Sixth(index 5) element of array c equals 0.
 ```
-
-- Result:

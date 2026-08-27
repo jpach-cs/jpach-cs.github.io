@@ -5,29 +5,30 @@ paginate: true
 title: "CSCI 232  Data Structures & Algorithms"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 232 <br>Data Structures &amp; Algorithms
 
-*Lecture 20*
-
-- Dr. Jakub L. Pach
+## Lecture 20
+Dr. Jakub L. Pach
 
 ---
 
-## Foreword
+# Foreword
 
 - Last quiz didn’t count. It showed me that I didn’t explain this part well enough — so we’ll go through it together and make sure everyone really gets it.
 - We will repeat the test you took this Monday. Today, I’ll show you exactly how to calculate everything, and you will retake it next Monday (11/17/2025).
 
 ---
 
-## Outline
+# Outline
 
 - Review
 - Theory quiz
 
 ---
 
-## Review
+# Review
 
 ```c
     //complex operators
@@ -72,7 +73,7 @@ Each one example illustrates the proper relationship for the given asymptotic cl
 
 ---
 
-## Algorithm 2: Linear Time
+# Algorithm 2: Linear Time
 
 ```c
 int sumArray(int A[], int n)
@@ -112,7 +113,7 @@ int sumArray(int A[], int n)
 
 ---
 
-## Algorithm 2: Linear Time
+# Algorithm 2: Linear Time
 
 ```c
 int sumArray(int A[], int n)
@@ -169,7 +170,7 @@ c7    Returning from a method.
 
 ---
 
-## Algorithm 2: Linear Time
+# Algorithm 2: Linear Time
 
 ```c
 int sumArray(int A[], int n)
@@ -217,7 +218,3 @@ c7    Returning from a method.
 - The task is therefore to identify all **primitive operations** in the code, count their occurrences, fill in the corresponding fields, and then determine **T\_best(n)**, **T\_worst(n)**, **O(n)**, and **Ω(n)** as shown in this example.
 
 <!-- Each iteration does a few simple operations — comparison, indexing, and addition.<br>Because the loop runs n times, the total time grows linearly. -->
-
----
-
-<!-- pptx2marp: slide 9 has no extractable text or images -->

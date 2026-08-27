@@ -5,13 +5,14 @@ paginate: true
 title: "Data Structures & Algorithms"
 ---
 
+<!-- _class: lead -->
+
 # Data Structures &amp; Algorithms
 
-*Lecture 6*
-
+## Lecture 6
 ---
 
-## In 136, we covered
+# In 136, we covered
 
 - Objects and classes, Abstract Data Types – lots of coverage.  I required class and header files in most assignments
 - Time and Space complexity – a discussion was included in each exercise.  Good coverage of constant time, linear, n2, n3, with loops and nested loops.  Didn’t do any of the math.
@@ -27,7 +28,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
 - Stack
 - Queue
@@ -35,20 +36,18 @@ title: "Data Structures & Algorithms"
 
 ---
 
-## Stack
-
-- (LIFO – Last In, First Out)
+# Stack (LIFO – Last In, First Out)
 
 ---
 
-## Stack (LIFO – Last In, First Out)
+# Stack (LIFO – Last In, First Out)
 
 - Last element pushed is the first to be popped.
 - Operations:
   - push(x) → add to the top
   - pop() → remove from the top
 
-```c
+```text
 Stack (LIFO):
 
    +-----+
@@ -67,20 +66,18 @@ pop()   => removes D from the top
 
 ---
 
-## Queue
-
-- (FIFO – First In, First Out)
+# Queue (FIFO – First In, First Out)
 
 ---
 
-## Queue (FIFO – First In, First Out)
+# Queue (FIFO – First In, First Out)
 
 - First element enqueued is the first to be dequeued.
 - Operations:
   - enqueue(x) → add to the rear
   - dequeue() → remove from the front
 
-```c
+```text
 Queue (FIFO):
 
 Front -> +-----+     +-----+     +-----+     +-----+ <- Rear
@@ -93,7 +90,7 @@ dequeue()  => removes A from the front
 
 ---
 
-## Stack &amp; Queue
+# Stack &amp; Queue
 
 The difference between a stack and a queue is not in the underlying structure—they both work on linked lists—but in the way elements are added and removed.
 
@@ -107,16 +104,14 @@ The difference between a stack and a queue is not in the underlying structure—
 
 ---
 
-## working
-
-- with code
+# working with code
 
 ---
 
-## Questions?
+# Questions?
 
 ---
 
-## Thank
+<!-- _class: caption-slide -->
 
-- You
+# Thank You

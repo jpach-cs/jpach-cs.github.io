@@ -10,7 +10,7 @@
 #
 # Usage:
 #   docker compose -f tests/e2e/docker-compose.selenium.yml up -d
-#   E2E_BASE_URL=http://host.docker.internal:8082 python3 -m pytest tests/e2e
+#   python3 -m pytest tests/e2e          # site on http://localhost:8082 by default
 #   docker compose -f tests/e2e/docker-compose.selenium.yml down
 
 services:

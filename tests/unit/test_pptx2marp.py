@@ -563,11 +563,16 @@ def test_normalize_list_indentation_resets_at_non_list_blocks():
 def test_assemble_slide():
     '''Assemble slide.'''
     markdown, char_count, empty = pptx2marp.assemble_slide(1, ('Title', 'ctrTitle'), 'Sub', ['- a'], 'note')
-    assert markdown == '# Title\n\n*Sub*\n\n- a\n\n<!-- note -->'
-    assert char_count == len('# Title') + len('*Sub*') + len('- a') + len('<!-- note -->')
+    assert markdown == "<!-- _class: lead -->\n\n# Title\n\n## Sub\n\n- a\n\n<!-- note -->"
+    assert char_count == (
+        len('<!-- _class: lead -->') + len('# Title') + len('## Sub') + len('- a') + len('<!-- note -->')
+    )
     assert not empty
+    # Every slide title is an h1; only the deck's opening slide takes the lead class.
     markdown, _, empty = pptx2marp.assemble_slide(2, ('Title', 'title'), None, [], None)
-    assert markdown == '## Title' and not empty
+    assert markdown == '# Title' and not empty
+    markdown, _, _ = pptx2marp.assemble_slide(2, ('Title', 'ctrTitle'), None, [], None)
+    assert markdown == '# Title'
     markdown, _, empty = pptx2marp.assemble_slide(3, (None, None), None, [], None)
     assert markdown == '<!-- pptx2marp: slide 3 has no extractable text or images -->'
     assert empty
@@ -651,8 +656,8 @@ def test_convert_deck_end_to_end(tmp_path):
     assert result.stats.text_chars > 0
     assert result.markdown == (
         '---\nmarp: true\ntheme: pach\npaginate: true\ntitle: "Deck: \\"Title\\""\n---\n\n'
-        '# Deck: "Title"\n\n*Author*\n\n---\n\n'
-        '## Second\n\n- point\n\n![Picture](assets/img.png)\n\n'
+        '<!-- _class: lead -->\n\n# Deck: "Title"\n\n## Author\n\n---\n\n'
+        '# Second\n\n- point\n\n![Picture](assets/img.png)\n\n'
         '<!-- hint -->\n'
     )
 
@@ -663,7 +668,7 @@ def test_convert_deck_title_falls_back_to_filename(tmp_path):
               slide_xml(shape_xml(para(run('Late')), ph_type='title'))]
     result = convert(tmp_path, simple_deck(slides), name='my_deck-01.pptx')
     assert 'title: "my deck 01"' in result.markdown
-    assert '## Late' in result.markdown
+    assert '# Late' in result.markdown
 
 
 def test_convert_deck_only_first_title_and_subtitle_per_slide(tmp_path):
@@ -673,9 +678,9 @@ def test_convert_deck_only_first_title_and_subtitle_per_slide(tmp_path):
         shape_xml(para(run('S1')), ph_type='subTitle'), shape_xml(para(run('S2')), ph_type='subTitle'),
     )]
     result = convert(tmp_path, simple_deck(slides))
-    assert '## First' in result.markdown
+    assert '# First' in result.markdown
     assert 'Second' not in result.markdown
-    assert '*S1*' in result.markdown and 'S2' not in result.markdown
+    assert '## S1' in result.markdown and 'S2' not in result.markdown
 
 
 def test_convert_deck_handles_broken_slides(tmp_path):

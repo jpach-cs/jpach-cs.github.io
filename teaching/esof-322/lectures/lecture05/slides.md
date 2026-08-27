@@ -5,31 +5,28 @@ paginate: true
 title: "Software Engineering"
 ---
 
+<!-- _class: lead -->
+
 # Software Engineering
 
-*Lecture 5*
+## Lecture 5
 
 ---
 
-## Today’s Agenda
+# Today’s Agenda
 
-Unit test
-
-Engine Unity for C
-
-Forking on GitHub
-
-Working with code
+- Unit test
+- Engine Unity for C
+- Forking on GitHub
+- Working with code
 
 ---
 
-# unit
-
-*tests*
+# unit tests
 
 ---
 
-## What are Unit Tests
+# What are Unit Tests
 
 Unit tests are automated checks of small parts of a program (such as functions or procedures) to verify that they work correctly. The idea is to test whether a given function returns the correct result for specific input values.
 
@@ -40,7 +37,7 @@ Unit tests are automated checks of small parts of a program (such as functions o
 
 ---
 
-## Introduction to Unity Test in C
+# Introduction to Unity Test in C
 
 When we write programs, we need a way to check if our code works correctly. There are two common tools for this in C:
 
@@ -49,25 +46,25 @@ When we write programs, we need a way to check if our code works correctly. Ther
 
 ---
 
-## What is an assert?
+# What is an assert?
 
 - Assert() is a built-in tool in C. (#include &lt;assert.h&gt;)
 - It is mainly used by the programmer while writing code to check if assumptions are correct.
 - If the condition in assert is false, the program immediately stops (crashes). Example:
 - Good for debugging, **but not suitable for automated testing**, because once it fails, the program cannot continue.
 
-```
+```c
 #include <assert.h>
 int divide(int a, int b)
 {
-    assert(b != 0);  // program will stop if b == 0
-    return a / b;
+    assert(b != 0);  // program will stop if b == 0
+    return a / b;
 }
 ```
 
 ---
 
-## Word – 'assert'
+# Word – 'assert'
 
 - In structurally or imperatively oriented programming, function names are typically nouns — for example, sum(), pow(), or strlen().
 - In object-oriented programming, we create instances of objects represented by nouns, but the methods invoked on those objects are usually verbs, describing actions performed on the instance — for example, trash.clean().
@@ -77,32 +74,33 @@ Conceptually, it’s as if the programmer is saying: “I assert that x equals 1
 
 ---
 
-## Word – 'assert'
+# Word – 'assert'
 
 - The original intent behind assert() was to allow developers to write code like:
 
+```c
 sum(a, b);
-
-assert(a &gt; 0);
+assert(a > 0);
+```
 
 - These statements were meant to halt program execution if the condition was not met. In short, they served as additional safeguards to help speed up debugging.
 - Over time, **most programming languages adopted dedicated unit testing frameworks** — even C, thanks to the Unity library. Unity was designed with **a plan-driven** approach in mind, enabling developers to write tests before implementing the actual code.
 
 ---
 
-## Exit code / return code / status code
+# Exit code / return code / status code
 
 - The program returned exit code 0, which means it ran successfully.
 - A non-zero exit code usually indicates an error or failure.
 
-```
+```c
 int main(int argc, char *argv[])
 {
-    return 0; // cmd/powershell:  echo $LASTEXITCODE
+    return 0; // cmd/powershell:  echo $LASTEXITCODE
 }
 ```
 
-```
+```console
 C:>main.exe
 C:>echo $LASTEXITCODE
 0
@@ -111,32 +109,32 @@ C:>
 
 ---
 
-## What is Unity Test?
+# What is Unity Test?
 
 - Unity Test is a unit testing framework for C.
 - It allows us to test functions in a safe and controlled way.
 - Unlike assert, Unity Test does not stop the program when a test fails. Instead, it records the failure and continues with other tests.
 - This way we get a summary of all passed and failed tests at the end. Example test with Unity:
 
-```
+```c
 #include "unity.h"
 void test_addition(void)
 {
-    TEST_ASSERT_EQUAL(4, 2 + 2);  // this will pass
-    TEST_ASSERT_EQUAL(5, 2 + 2);  // this will fail, but program continues
+    TEST_ASSERT_EQUAL(4, 2 + 2);  // this will pass
+    TEST_ASSERT_EQUAL(5, 2 + 2);  // this will fail, but program continues
 }
 ```
 
 ---
 
-## The difference: assert vs. Unity Test
+# The difference: assert vs. Unity Test
 
 - Assert() → for the programmer, during development, to catch bugs early.
 - Unity Test → for systematic testing of finished functions, with clear reports.
 
 ---
 
-## Error handling in C
+# Error handling in C
 
 - C has no exceptions (like in Java or Python).
 - Instead, functions use special return values to signal errors:
@@ -146,21 +144,21 @@ void test_addition(void)
   - 0 = success
   - non-zero = error
 
-```
+```c
 int findElement(int arr[], int size, int target)
 {
-    for(int i = 0; i < size; i++)
-    {
-        if(arr[i] == target)
-            return i;  // found, return index
-    }
-    return -1;  // not found → error
+    for(int i = 0; i < size; i++)
+    {
+        if(arr[i] == target)
+            return i;  // found, return index
+    }
+    return -1;  // not found → error
 }
 ```
 
 ---
 
-## Summary
+# Summary
 
 - Use assert inside your code while developing → catches programmer mistakes early.
 - Use Unity Test to run proper unit tests on your functions.
@@ -168,7 +166,7 @@ int findElement(int arr[], int size, int target)
 
 ---
 
-## Introduction to Unity Test Framework in C
+# Introduction to Unity Test Framework in C
 
 Unity is a lightweight testing framework for the C language. It allows us to write **unit tests** that check whether our functions work as expected.
 
@@ -180,7 +178,7 @@ When using Unity, every test file usually has three important parts:
 
 ---
 
-## Common Unity Assertions
+# Common Unity Assertions
 
 Assertions are the heart of testing. They compare the expected result with the actual result and tell us if the test passed or failed. Some of the most common are:
 
@@ -199,7 +197,7 @@ Assertions are the heart of testing. They compare the expected result with the a
 
 ---
 
-## Common Unity Assertions
+# Common Unity Assertions
 
 - TEST\_ASSERT\_EQUAL(expected, actual)
   - – check if two integers are the same.
@@ -210,7 +208,7 @@ Assertions are the heart of testing. They compare the expected result with the a
 
 ---
 
-## Common Unity Assertions
+# Common Unity Assertions
 
 - TEST\_ASSERT\_FLOAT\_WITHIN(delta, expected, actual)
   - – check if two floating-point numbers are equal within a tolerance.
@@ -221,7 +219,7 @@ Assertions are the heart of testing. They compare the expected result with the a
 
 ---
 
-## Understanding setUp() and tearDown()
+# Understanding setUp() and tearDown()
 
 In Unity, the function setUp() is always called before each test. You use it to prepare the environment: initialize variables, reset arrays, or allocate memory.
 
@@ -238,7 +236,7 @@ This makes every test independent, safe, and repeatable.
 
 ---
 
-## An Introduction to Forking on GitHub
+# An Introduction to Forking on GitHub
 
 Let's break down the fundamentals of forking on GitHub. This is one of the most important concepts for collaborating on open-source projects.
 
@@ -248,7 +246,7 @@ Let's break down the fundamentals of forking on GitHub. This is one of the most 
 
 ---
 
-## An Introduction to Forking on GitHub
+# An Introduction to Forking on GitHub
 
 - Cloning the Repository to Your Computer
 
@@ -263,7 +261,7 @@ Once you have your copy (the fork), the next step is to bring it down to your lo
 
 ---
 
-## An Introduction to Forking on GitHub
+# An Introduction to Forking on GitHub
 
 - Working on Your Code and Pushing Changes
 
@@ -275,18 +273,18 @@ The steps are as follows:
 - Commit your changes (commit):
 - Push the changes to GitHub (push):
 
-```
+```bash
 git add .
 git commit -m "Brief description of my changes"
 ```
 
-```
+```bash
 git push origin main
 ```
 
 ---
 
-## An Introduction to Forking on GitHub
+# An Introduction to Forking on GitHub
 
 - Summary
 
@@ -300,18 +298,16 @@ The steps are as follows:
 
 ---
 
-# working
-
-*with code*
+# working with code
 
 ---
 
-## Working with code
+# Working with code
 
 - <https://github.com/jpach-cs/C_tests>
 
 ---
 
-# Thank
+<!-- _class: caption-slide -->
 
-*You!*
+# Thank You!

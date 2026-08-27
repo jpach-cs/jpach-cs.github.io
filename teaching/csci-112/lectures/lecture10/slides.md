@@ -5,6 +5,8 @@ paginate: true
 title: "CSCI 112  Programming with C"
 ---
 
+<!-- _class: lead -->
+
 # CSCI 112<br><br>Programming with C
 
 - Lecture 10
@@ -17,7 +19,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Outline
+# Outline
 
 - Review
 - Pointer operations
@@ -29,7 +31,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-## Preprocessor directives - macro substitution
+# Preprocessor directives - macro substitution
 
 ```c
 #define symbolic_name replaced_text
@@ -50,13 +52,13 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 cde
 aab
 
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -71,7 +73,7 @@ int main()
 
 ---
 
-## Basics of
+# Basics of
 
 - The important difference between printf and scanf is that scanf requires its arguments to be location in memory.
 - The ampersand operator &amp; is a unary operator that returns the memory address, which is the location in memory where a variable is stored.
@@ -87,12 +89,12 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Enter x value : 1
 Value of x = 1
 ```
-
-- Result:
 
 ```c
 int printf (char format[],  arg1,  arg2 ,...);
@@ -104,7 +106,7 @@ int scanf  (char format[], *arg1, *arg2 ,...);
 
 ---
 
-## const keyword
+# const keyword
 
 - We can use const before declaration (and initialization):
   - Array:    Prevents changing the content of the array.
@@ -117,7 +119,7 @@ int scanf  (char format[], *arg1, *arg2 ,...);
 
 ---
 
-## const keyword
+# const keyword
 
 - const prevents changing the value after its initialization, but it allows debugging.
 - In a function definition, const allows control over changing the argument values.
@@ -127,7 +129,7 @@ int scanf  (char format[], *arg1, *arg2 ,...);
 
 ---
 
-## Declaring and initializing arrays
+# Declaring and initializing arrays
 
 ```c
 int main()
@@ -154,36 +156,40 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 First element (index 0) of array a equals 4201200.
 Second(index 1) element of array b equals 2.
 Second(index 1) element of array b equals 2.
 Sixth(index 5) element of array c equals 0.
 ```
 
-- Result:
-
 ---
 
-## Summary - The \* operator works in **three different ways**
+# Summary - The \* operator works in **three different ways**
 
 - **Binary multiplication operator**
 
-a \* b;  // multiplies a and b
+```c
+a * b;  // multiplies a and b
+```
 
 - **Unary dereference operator** – used to access the value stored at a given memory address:
 
+```c
 int x = 5;
-
-int \* y =&amp;x;
-
-y = \*ptr + 1;
+int * y =&x;
+y = *ptr + 1;
+```
 
 - **Pointer declaration**
 
 – when used in a declaration, it indicates that the variable is a pointer, not a simple type:
 
-int \* x;  // x is a pointer to an int
+```c
+int * x;  // x is a pointer to an int
+```
 
 This applies to **local variables, global variables, and function parameters** (including arrays).
 
@@ -191,7 +197,7 @@ This applies to **local variables, global variables, and function parameters** (
 
 ---
 
-## Some examples
+# Some examples
 
 ```c
 int main()
@@ -215,7 +221,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 y equals 7.
 
 &y              equals 6422292.
@@ -230,8 +238,6 @@ p               equals 6422296.
 *p              equals 5.
 
 ```
-
-- Result:
 
 ||Memory Addresses and Values|||
 |---|---|---|---|
@@ -251,7 +257,7 @@ p               equals 6422296.
 
 ---
 
-## Consequences
+# Consequences
 
 - Each variable declared has a lower address\*. This is due to the computer's memory architecture. The stack grows downward, so when it's empty, the address is at its maximum value (e.g., FFFFFF). Every time a value is pushed onto the stack, the address is decremented by the size of the data type.
 - The \* and &amp; operators are right-associative, so parentheses are not strictly necessary.
@@ -262,21 +268,23 @@ p               equals 6422296.
 
 ---
 
-## Function arguments Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
+# Function arguments
+
+Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
 
 ---
 
-## by the Value
+# by the Value
 
 - Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
 
-```c
+Result:
+
+```text
 5
 5
 
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -301,17 +309,17 @@ int main()
 
 ---
 
-## by the Reference
+# by the Reference
 
 - Function arguments are always **copies** of our variables, and **not** the same memory areas, a function argument, even though it has the same value, is a completely different variable!
 
-```c
+Result:
+
+```text
 5
 6
 
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -336,7 +344,9 @@ int main()
 
 ---
 
-## Relations between pointers and arrays **So, what does it mean?**
+# Relations between pointers and arrays
+
+**So, what does it mean?**
 
 ```c
 int main()
@@ -353,7 +363,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 x    equals 6422292.
 y    equals 6422288.
 z    equals 6422284.
@@ -362,11 +374,9 @@ pointer* equals 7.
 pointer[1] equals 5.
 ```
 
-- Result:
-
 ---
 
-## So, what does it mean?
+# So, what does it mean?
 
 ```c
 int a[10];
@@ -380,7 +390,7 @@ For example, if the array stores char values, the index is multiplied by 1, and 
 
 ---
 
-## Conclusions
+# Conclusions
 
 - The expression a\[i\] is transformed by the compiler into the form \*(a+i).
 - The square brackets following the symbolic\_name do not provide any information about whether we are referring to an array.
@@ -390,7 +400,7 @@ For example, if the array stores char values, the index is multiplied by 1, and 
 
 ---
 
-## const keyword in Array &amp; Pointer
+# const keyword in Array &amp; Pointer
 
 - We can use const before declaration (and initialization):
   - Array: Prevents changing the content of the array.
@@ -403,7 +413,7 @@ For example, if the array stores char values, the index is multiplied by 1, and 
 
 ---
 
-## const keyword in Pointer
+# const keyword in Pointer
 
 ```c
 int main()
@@ -423,17 +433,17 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 x = 5, y = 7, z = 1
 
 
 ```
 
-- Result:
-
 ---
 
-## const keyword in Array
+# const keyword in Array
 
 ```c
 #include <stdio.h>
@@ -450,11 +460,13 @@ int main()
 
 ---
 
-## Conclusions
+# Conclusions
 
 There are no restrictions on passing an array as a function parameter. However, there's a common misconception: when we write int arr\[\], it may seem like the entire array is copied and we get access to an identical copy. This is not true. The square bracket syntax is primarily a hint for the programmer, as the compiler internally treats it as int const \*arr.
 
-```c
+Result:
+
+```text
 1
 2
 3
@@ -464,8 +476,6 @@ There are no restrictions on passing an array as a function parameter. However, 
 7
 
 ```
-
-- Result:
 
 ```c
 #include <stdio.h>
@@ -504,7 +514,7 @@ void byTheReference(int const * arr, int n)
 
 ---
 
-## The valid pointer operations are
+# The valid pointer operations are
 
 - Assignment of pointers to the same type,
 - Adding or subtracting a pointer and an integer,
@@ -514,7 +524,9 @@ void byTheReference(int const * arr, int n)
 
 ---
 
-## Subtracting two pointers The result of subtracting two pointers is the difference in their array indices, not the actual difference in their memory locations
+# Subtracting two pointers
+
+The result of subtracting two pointers is the difference in their array indices, not the actual difference in their memory locations
 
 ```c
 #include <stdio.h>
@@ -535,17 +547,19 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Length of [Hello world!] equals 12
 
 
 ```
 
-- Result:
-
 ---
 
-## Comparing two pointers Comparing pointers to strings in C can be significantly optimized, especially when there's a high probability that two strings are identical and point to the same memory location
+# Comparing two pointers
+
+Comparing pointers to strings in C can be significantly optimized, especially when there's a high probability that two strings are identical and point to the same memory location
 
 ```c
 #include <stdio.h>
@@ -568,19 +582,19 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Str1 and str2 point to the same string
 
 
 ```
 
-- Result:
-
 <!-- Jesli mamy dwa element tej samej tablicy, i chcemy znalezc element srodkowy tej tablicy mozemy odjac od siebie adresy I uzyskamy od tego element srodkowy -->
 
 ---
 
-## Comparing two pointers
+# Comparing two pointers
 
 - Array elements are pushed onto the stack in reverse order to ensure that element addresses increase.
 - If we compare two elements of an array using two pointers, and we don't know which one is closer to the beginning and which one is closer to the end, the one with the higher address value will be closer to the end, and the one with the lower address value will be closer to the beginning of the array.
@@ -616,7 +630,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 6422292.
 6422288.
 6422284.
@@ -634,13 +650,13 @@ int main()
 l1 is closer to the beginning
 ```
 
-- Result:
-
 <!-- Jesli mamy dwa element tej samej tablicy, i chcemy znalezc element srodkowy tej tablicy mozemy odjac od siebie adresy I uzyskamy od tego element srodkowy -->
 
 ---
 
-## Assigning or comparing to zero (NULL = ‘\0’) Trying to use a null pointer will crash the program.
+# Assigning or comparing to zero (NULL = ‘\0’)
+
+Trying to use a null pointer will crash the program.
 
 ```c
 #include <stdio.h>
@@ -661,12 +677,12 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 Words of different lengths
 
 ```
-
-- Result:
 
 ---
 
@@ -674,7 +690,7 @@ Words of different lengths
 
 ---
 
-## printf and scanf format specification
+# printf and scanf format specification
 
 - Optional:
   - Flags    -    modifiers that alter the formatting or scanning behavior.
@@ -684,13 +700,13 @@ Words of different lengths
 - Required:
   - Type    -    specifies the data type of the variable to be formatted or scanned.
 
-```c
+```text
 Format =  %[flags][width][.precision][modifier]<type>
 ```
 
 ---
 
-## Basic types
+# Basic types
 
 |Type &amp; Specifier||Origin|Argument type||Description||
 |---|---|---|---|---|---|---|
@@ -706,7 +722,7 @@ Format =  %[flags][width][.precision][modifier]<type>
 
 ---
 
-## Width
+# Width
 
 ```c
 int main()
@@ -724,7 +740,7 @@ int main()
 
 ---
 
-## Precision
+# Precision
 
 ```c
 int main()
@@ -742,7 +758,7 @@ int main()
 
 ---
 
-## Flags
+# Flags
 
 - \+ : Always display the sign of a number, even if it's positive.
 - \- : Left-justify the output within the given field width.
@@ -753,7 +769,7 @@ int main()
 
 ---
 
-## Modifies
+# Modifies
 
 ```c
 int main()
@@ -797,7 +813,7 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 
 ---
 
-## Scanf -Basic Types and Width Specifier
+# Scanf -Basic Types and Width Specifier
 
 ```c
 #include <stdio.h>
@@ -827,7 +843,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 1. Basic Reads and Width:
 Enter Age (2 digits max, e.g., 35): 2222222
 Enter First Initial: a
@@ -835,14 +853,13 @@ Enter Weight (e.g., 75.5): 76.2
 Results: Age: 22, Initial: a, Weight: 76.2
 ```
 
-- Result:
 - This exercise focuses on the fundamental type specifiers (%d, %c, %f) and introduces the **width** modifier (%2d).
 
 <!-- Jesli mamy dwa element tej samej tablicy, i chcemy znalezc element srodkowy tej tablicy mozemy odjac od siebie adresy I uzyskamy od tego element srodkowy -->
 
 ---
 
-## Scanf -Length Modifiers (h and l)
+# Scanf -Length Modifiers (h and l)
 
 ```c
 #include <stdio.h>
@@ -872,7 +889,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 2. Length Modifiers (long/short):
 Enter a small integer (short): 25
 Enter a large integer (long): 66000
@@ -880,9 +899,9 @@ Enter a large integer (long): 66000
 Results: Short: 25, Long: 66000
 ```
 
-- Result:
+Result:
 
-```c
+```text
 2. Length Modifiers (long/short):
 Enter a small integer (short): 67 000
 Enter a large integer (long): 1
@@ -890,14 +909,13 @@ Enter a large integer (long): 1
 Results: Short: 67, Long: 1
 ```
 
-- Result:
 - This exercise demonstrates the length modifiers for integers: **h** (for short) and **l** (for long). These are essential for matching the format specifier to the variable type.
 
 <!-- Jesli mamy dwa element tej samej tablicy, i chcemy znalezc element srodkowy tej tablicy mozemy odjac od siebie adresy I uzyskamy od tego element srodkowy -->
 
 ---
 
-## Scanf - Common Errors 1 and Pitfalls
+# Scanf - Common Errors 1 and Pitfalls
 
 ```c
 #include <stdio.h>
@@ -922,7 +940,7 @@ int main()
 
 ---
 
-## Scanf - Common Errors 2 and Pitfalls
+# Scanf - Common Errors 2 and Pitfalls
 
 ```c
 #include <stdio.h>
@@ -952,7 +970,7 @@ int main()
 
 ---
 
-## Scanf - Best Practice: Reading Multiple Variables
+# Scanf - Best Practice: Reading Multiple Variables
 
 ```c
 #include <stdio.h>
@@ -973,20 +991,20 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 5. BEST PRACTICE: Reading multiple variables with one scanf call.
 Enter the date in DD MM YYYY format (separated by spaces/Enter): 2 08 1988
 
 Result: Date: 1988-8-2
 ```
 
-- Result:
-
 <!-- Jesli mamy dwa element tej samej tablicy, i chcemy znalezc element srodkowy tej tablicy mozemy odjac od siebie adresy I uzyskamy od tego element srodkowy -->
 
 ---
 
-## Scanf - Summary of Best Practices
+# Scanf - Summary of Best Practices
 
 - Always use &amp;: Remember that scanf requires the address of the variable (&amp;variable) to store the new value.
 - Use clearBuffer(): Call the macro AFTER EVERY scanf call, unless you are reading multiple numeric variables in one go.
@@ -1005,7 +1023,7 @@ Result: Date: 1988-8-2
 
 ---
 
-## Some examples
+# Some examples
 
 ```c
 int main()
@@ -1036,7 +1054,9 @@ int main()
 }
 ```
 
-```c
+Result:
+
+```text
 y equals 5.
 
 &y              equals 6422292.
@@ -1056,8 +1076,6 @@ pp              equals 6422288.
 *&*pp           equals 6422296.
 **pp            equals 5.
 ```
-
-- Result:
 
 ||Memory Addresses and Values|||
 |---|---|---|---|
