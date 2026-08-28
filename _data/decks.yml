@@ -1,0 +1,373 @@
+# Catalog of every slide deck published under teaching/<course>/.
+#
+# The course index pages render their deck lists from this file through
+# _includes/deck-lists.html, so a deck is described in exactly one place
+# instead of being retyped into four near-identical hand-maintained lists.
+# tests/content/test_deck_catalog.py keeps this file and the directories on
+# disk in lockstep: every deck directory must be listed here, every entry
+# must point at a directory that exists, and `source` must match what is
+# actually in that directory.
+#
+# Fields per deck:
+#   dir     directory name under teaching/<course>/<section>/
+#   label   short position name shown in bold, e.g. "Lecture 05"
+#   title   what the deck actually covers, read off its own content
+#   source  "slides"  a teaching/**/slides.md Marp source; the build renders
+#                     index.html and index.pdf and copies slides.md alongside
+#                     them, so all three formats are linked
+#           "legacy"  no source, only the index.html and index.pdf committed
+#                     before the render pipeline existed (see CONTRIBUTING.md)
+#
+# Titles here are descriptive, not aspirational: a deck is named for the
+# material it contains. Where that disagrees with the course it sits in, the
+# index makes the mismatch visible rather than hiding it behind a placeholder.
+
+# Section directory names, in the order the course pages present them, paired
+# with the heading each one gets.
+sections:
+  - dir: lectures
+    heading: Lecture Slides
+  - dir: laboratories
+    heading: Laboratories
+  - dir: assignments
+    heading: Assignments
+
+courses:
+  csci-112:
+    lectures:
+      - dir: lecture01-intro
+        label: Course Introduction
+        title: Syllabus, Grading, and Course Logistics
+        source: slides
+      - dir: lecture01
+        label: Lecture 01
+        title: Introduction, the History of C, and Hello World
+        source: slides
+      - dir: lecture02
+        label: Lecture 02
+        title: Boolean Logic, ASCII, Variables, Arrays, and Pointers
+        source: slides
+      - dir: lecture03
+        label: Lecture 03
+        title: Operators, Statements, Expressions, and Blocks
+        source: slides
+      - dir: lecture04
+        label: Lecture 04
+        title: Boolean Algebra, Arrays, Bitwise Operators, and Input/Output
+        source: slides
+      - dir: lecture05
+        label: Lecture 05
+        title: "Control Flow: the if Statement and printf"
+        source: slides
+      - dir: lecture06
+        label: Lecture 06
+        title: ASCII Input and Output, switch, goto, and the Ternary Operator
+        source: slides
+      - dir: lecture07
+        label: Lecture 07
+        title: Loops, Functions, and Global and Local Variables
+        source: slides
+      - dir: lecture08
+        label: Lecture 08
+        title: Address-of and Indirection, the Preprocessor, and Buffered Input
+        source: slides
+      - dir: lecture09
+        label: Lecture 09
+        title: const, Pointers, and Function Arguments
+        source: slides
+      - dir: lecture10
+        label: Lecture 10
+        title: Pointer Operations and scanf
+        source: slides
+      - dir: lecture11
+        label: Lecture 11
+        title: Command-Line Arguments, Multiple Source Files, and Makefiles
+        source: slides
+      - dir: lecture12
+        label: Lecture 12
+        title: Shift Operators, typedef, Function Pointers, and Structures
+        source: slides
+      - dir: lecture13
+        label: Lecture 13
+        title: sscanf and sprintf, Unit Tests, and Debugging
+        source: slides
+      - dir: lecture14
+        label: Lecture 14
+        title: Unit Tests by Example, and Debugging
+        source: slides
+      - dir: lecture15
+        label: Lecture 15
+        title: Unions, Enums, Bit-Fields, and File Input/Output
+        source: slides
+      - dir: lecture16
+        label: Lecture 16
+        title: File Input/Output and Lists
+        source: slides
+      - dir: lecture17
+        label: Lecture 17
+        title: "The Standard C Library: ctype.h and string.h"
+        source: slides
+      - dir: lecture18
+        label: Lecture 18
+        title: Static Memory, Dynamic Allocation, and string.h
+        source: slides
+      - dir: lecture19
+        label: Lecture 19
+        title: Dynamic Memory Allocation and stdio.h
+        source: slides
+      - dir: lecture20
+        label: Lecture 20
+        title: "The Standard C Library: stdlib.h and math.h"
+        source: slides
+      - dir: lecture21
+        label: Lecture 21
+        title: "The Standard C Library: stdlib.h, assert.h, and stdio.h"
+        source: slides
+      - dir: lecture22
+        label: Lecture 22
+        title: "The Standard C Library: time.h and stdarg.h"
+        source: slides
+    laboratories:
+      - dir: lab01
+        label: Lab 01
+        title: Course Guide, Class Rules, and Grading
+        source: slides
+      - dir: lab02
+        label: Lab 02
+        title: The Anatomy and Philosophy of Debugging
+        source: slides
+    assignments:
+      - dir: ass01
+        label: Assignment 01
+        title: Command Line Basics
+        source: legacy
+
+  csci-232:
+    lectures:
+      - dir: lecture01-intro
+        label: Course Introduction
+        title: Syllabus, Grading, and Course Logistics
+        source: slides
+      - dir: lecture01
+        label: Lecture 01
+        title: Introduction, Syllabus, and Canvas
+        source: slides
+      - dir: lecture02
+        label: Lecture 02
+        title: The Integrated Development Environment
+        source: slides
+      - dir: lecture05
+        label: Lecture 05
+        title: Unit Testing with Unity, and Forking on GitHub
+        source: slides
+      - dir: lecture06
+        label: Lecture 06
+        title: Stacks and Queues
+        source: slides
+      - dir: lecture07
+        label: Lecture 07
+        title: Algorithms, P versus NP, and Bubble Sort
+        source: slides
+      - dir: lecture08
+        label: Lecture 08
+        title: Doubly Linked Lists and Insertion Sort
+        source: slides
+      - dir: lecture09
+        label: Lecture 09
+        title: Compilers and Makefiles
+        source: slides
+      - dir: lecture10
+        label: Lecture 10
+        title: Makefiles, Continued
+        source: slides
+      - dir: lecture11
+        label: Lecture 11
+        title: Logarithms, Asymptotes, and Asymptotic Notation
+        source: slides
+      - dir: lecture12
+        label: Lecture 12
+        title: Proving Algorithm Correctness and the RAM Model
+        source: slides
+      - dir: lecture13
+        label: Lecture 13
+        title: "Analyzing Algorithms: Counting Primitive Operations"
+        source: slides
+      - dir: lecture14
+        label: Lecture 14
+        title: Trees and Binary Trees
+        source: slides
+      - dir: lecture15
+        label: Lecture 15
+        title: "Asymptotic Notation: Big-O, Big-Omega, and Big-Theta"
+        source: slides
+      - dir: lecture16
+        label: Lecture 16
+        title: "Asymptotic Notation: Little-oh, Little-omega, and Growth Rates"
+        source: slides
+      - dir: lecture17
+        label: Lecture 17
+        title: Merge Sort
+        source: slides
+      - dir: lecture18
+        label: Lecture 18
+        title: Heap Sort
+        source: slides
+      - dir: lecture19
+        label: Lecture 19
+        title: Analyzing Algorithm Complexity by Example
+        source: slides
+      - dir: lecture20
+        label: Lecture 20
+        title: Complexity Review and Quiz Retake
+        source: slides
+    laboratories:
+      - dir: lab01
+        label: Lab 01
+        title: The Command Line, Positional Notation, and Compilation
+        source: slides
+      - dir: lab03
+        label: Lab 03
+        title: Pointers, Arrays, and List Basics
+        source: slides
+      - dir: lab04
+        label: Lab 04
+        title: Best Practices for Pointers and Linked Lists
+        source: slides
+
+  csci-446:
+    lectures:
+      - dir: lecture01-intro
+        label: Course Introduction
+        title: Syllabus, Grading, and Course Logistics
+        source: slides
+      - dir: lecture02
+        label: Lecture 02
+        title: The Integrated Development Environment
+        source: slides
+    laboratories:
+      - dir: lab01
+        label: Lab 01
+        title: Course Guide, Class Rules, and Grading
+        source: slides
+      - dir: lab02
+        label: Lab 02
+        title: The Anatomy and Philosophy of Debugging
+        source: slides
+    assignments:
+      - dir: ass01
+        label: Assignment 01
+        title: Command Line Basics
+        source: legacy
+
+  esof-322:
+    lectures:
+      - dir: lecture01-intro
+        label: Course Introduction
+        title: Syllabus, Grading, and Course Logistics
+        source: slides
+      - dir: lecture02
+        label: Lecture 02
+        title: The History of Git, the Command Line, and Git Settings
+        source: slides
+      - dir: lecture03
+        label: Lecture 03
+        title: ".gitignore, Branches, Merging, git diff, and git stash"
+        source: slides
+      - dir: lecture04
+        label: Lecture 04
+        title: Class Canceled - Guided Git Video Tutorial
+        source: slides
+      - dir: lecture05
+        label: Lecture 05
+        title: Unit Testing with Unity, and Forking on GitHub
+        source: slides
+      - dir: lecture06
+        label: Lecture 06
+        title: Git Branches, diff, and stash
+        source: slides
+      - dir: lecture07
+        label: Lecture 07
+        title: Git rebase and reset, and Common Git Scenarios
+        source: slides
+      - dir: lecture08
+        label: Lecture 08
+        title: Git revert, and Git Best Practices
+        source: slides
+      - dir: lecture09
+        label: Lecture 09
+        title: "GitHub: SSH, Creating a Repository, push, fetch, and pull"
+        source: slides
+      - dir: lecture10
+        label: Lecture 10
+        title: GitHub Pages and Markdown
+        source: slides
+      - dir: lecture11
+        label: Lecture 11
+        title: Compilers and Makefiles
+        source: slides
+      - dir: lecture12
+        label: Lecture 12
+        title: Makefiles, Continued
+        source: slides
+      - dir: lecture13
+        label: Lecture 13
+        title: Modular Makefiles, Automatic Variables, and Debugging
+        source: slides
+      - dir: lecture14
+        label: Lecture 14
+        title: Chapters 1 and 2 - Introduction and Software Processes
+        source: slides
+      - dir: lecture15
+        label: Lecture 15
+        title: Chapter 3 - Agile Software Development
+        source: slides
+      - dir: lecture16
+        label: Lecture 16
+        title: Chapter 4 - Requirements Engineering
+        source: slides
+      - dir: lecture17
+        label: Lecture 17
+        title: Chapter 5 - System Modeling
+        source: slides
+      - dir: lecture18
+        label: Lecture 18
+        title: Memory Integrity Checks and Code Injection Defense
+        source: slides
+      - dir: lecture19
+        label: Lecture 19
+        title: Software Security
+        source: slides
+      - dir: lecture20
+        label: Lecture 20
+        title: Flowcharts and Mermaid
+        source: slides
+      - dir: lecture21
+        label: Lecture 21
+        title: Composition versus Aggregation, and UML Class Diagrams
+        source: slides
+      - dir: lecture22
+        label: Lecture 22
+        title: UML Sequence Diagrams
+        source: slides
+      - dir: lecture23
+        label: Lecture 23
+        title: UML Use Case Diagrams
+        source: slides
+      - dir: lecture24
+        label: Lecture 24
+        title: UML State Machine Diagrams
+        source: slides
+    laboratories:
+      - dir: lab01
+        label: Lab 01
+        title: Course Guide, Class Rules, and Grading
+        source: slides
+      - dir: lab02
+        label: Lab 02
+        title: The Anatomy and Philosophy of Debugging
+        source: slides
+    assignments:
+      - dir: ass01
+        label: Assignment 01
+        title: Command Line Basics
+        source: legacy

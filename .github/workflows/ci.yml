@@ -1,0 +1,219 @@
+# Continuous integration for the course site.
+#
+# Jobs, cheapest first:
+#   python   lint (pylint, pyright) and unit-test tools/ with a 95% coverage gate
+#   lint     one step per file type: yamllint, shellcheck, actionlint, hadolint,
+#            taplo, stylelint, xmllint (svg), ruby -c (Gemfile)
+#   markdown markdownlint over every .md; red on upstream content, see below
+#   content  tests/content: static checks over the committed site (PDF integrity,
+#            deck branding, index links). Known defects are documented in
+#            tests/README.md; see continue-on-error below.
+#   e2e      builds the site image, drives it with Selenium (tests/e2e)
+#
+#   deploy   on push to main: build the site image (Marp render + Jekyll), pull
+#            _site out of it, and publish it to GitHub Pages
+#
+# The deploy job only takes effect once the repository's Pages source is set to
+# "GitHub Actions" (Settings > Pages > Build and deployment). Until then the
+# native Pages Jekyll build keeps publishing, and it cannot render Marp decks
+# or PDFs - which is why rendered output is generated here instead of committed.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  PYTHON_VERSION: "3.13"
+
+jobs:
+  python:
+    name: Lint and unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: tests/requirements.txt
+      - run: pip install -r tests/requirements.txt
+      - name: pylint
+        run: python3 -m pylint tools tests
+      - name: pyright
+        run: python3 -m pyright tools tests
+      - name: Unit tests with coverage gate
+        run: python3 -m pytest tests/unit --cov --cov-report=term-missing
+
+  lint:
+    name: Static linters
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: yamllint (every .yml/.yaml in the repo)
+        run: pipx run yamllint==1.37.1 .
+      - name: shellcheck (tools/*.sh)
+        run: find tools -name '*.sh' -print0 | xargs -0 shellcheck
+      - name: actionlint (this workflow, including embedded shell)
+        run: docker run --rm -v "$PWD:/repo" -w /repo rhysd/actionlint:1.7.12 -color
+      - name: hadolint (Dockerfile)
+        run: docker run --rm -i hadolint/hadolint:v2.14.0 < Dockerfile
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: taplo (pyproject.toml)
+        run: npm run lint:toml
+      - name: stylelint (assets/marp/theme.css)
+        run: npm run lint:css
+      - name: xmllint (every .svg is well-formed XML)
+        run: |
+          sudo apt-get update && sudo apt-get install -y libxml2-utils
+          find . -name '*.svg' -not -path './_site/*' -print0 | xargs -0 xmllint --noout
+      - name: Gemfile syntax
+        run: ruby -c Gemfile
+
+  markdown:
+    name: markdownlint
+    runs-on: ubuntu-latest
+    # Every markdown file this fork added is clean. The remaining findings are
+    # all in upstream content (teaching/*/syllabus.md and friends) and are
+    # addressed the same way as the content job: reported, not blocking, until
+    # fixed. Flip to false once `markdownlint-cli2 "**/*.md"` is green.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run lint:md
+
+  content:
+    name: Content integrity
+    runs-on: ubuntu-latest
+    # The committed site currently has real defects these tests are designed to
+    # catch (a 6-byte "PDF", two lecture decks branded for the wrong course,
+    # two schedule pages with copy-pasted headings, and index pages linking
+    # lectures and labs that do not exist). There is deliberately no allowlist:
+    # the tests stay red until the content is fixed. Until then this job reports
+    # without blocking; flip to false once tests/content is green.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: tests/requirements.txt
+      - run: pip install -r tests/requirements.txt
+      - run: python3 -m pytest tests/content -v
+
+  e2e:
+    name: End to end (Selenium)
+    runs-on: ubuntu-latest
+    needs: [python]
+    env:
+      WEB_PORT: "8082"
+      E2E_BASE_URL: http://localhost:8082
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: tests/requirements.txt
+      - run: pip install -r tests/requirements.txt
+      - name: Build and start the site
+        run: docker compose up --build -d --wait
+      - name: Start Selenium
+        run: docker compose -f tests/e2e/docker-compose.selenium.yml up -d --wait
+      - name: Wait for the site
+        run: |
+          for _ in $(seq 1 30); do
+            curl -fsS "$E2E_BASE_URL/" > /dev/null && exit 0
+            sleep 2
+          done
+          echo "site did not come up on $E2E_BASE_URL" >&2
+          docker compose logs
+          exit 1
+      - run: python3 -m pytest tests/e2e -v
+      - name: Container logs on failure
+        if: failure()
+        run: |
+          docker compose logs
+          docker compose -f tests/e2e/docker-compose.selenium.yml logs
+      - name: Tear down
+        if: always()
+        run: |
+          docker compose -f tests/e2e/docker-compose.selenium.yml down
+          docker compose down
+
+  security:
+    name: Security (pip-audit, Trivy)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: pip-audit (tests/requirements.txt against the PyPI advisory database)
+        uses: pypa/gh-action-pip-audit@v1.1.0
+        with:
+          inputs: tests/requirements.txt
+      - name: Trivy, repository (dependency CVEs, secrets, Dockerfile and workflow misconfiguration)
+        uses: aquasecurity/trivy-action@0.36.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          scanners: vuln,secret,misconfig
+          severity: HIGH,CRITICAL
+          exit-code: '1'
+          skip-dirs: node_modules
+      - name: Build the site image
+        run: docker build -t site-web .
+      - name: Trivy, site image (OS packages of what is actually served)
+        uses: aquasecurity/trivy-action@0.36.0
+        with:
+          scan-type: image
+          image-ref: site-web
+          severity: HIGH,CRITICAL
+          exit-code: '1'
+          ignore-unfixed: true
+
+  deploy:
+    name: Deploy to GitHub Pages
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [python, lint, e2e, security]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Build the site (same Dockerfile as local and e2e)
+        run: docker build --target builder -t site-builder .
+      - name: Extract _site from the image
+        run: |
+          container=$(docker create site-builder)
+          docker cp "$container:/site/_site" ./_site
+          docker rm "$container"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

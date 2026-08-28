@@ -1,0 +1,24 @@
+{%- comment -%}
+Renders every deck section for one course, from the catalog in _data/decks.yml.
+
+Usage, from teaching/<course>/index.md:
+    {% include deck-lists.html course="csci-232" %}
+
+Emits markdown rather than HTML so the surrounding page keeps one voice, and
+so a section with no decks emits nothing at all instead of an empty heading.
+Every course page draws on the same catalog, so a deck's name and the set of
+formats it is published in are written down once, not once per course page.
+{%- endcomment -%}
+{%- assign catalog = site.data.decks.courses[include.course] -%}
+{%- for section in site.data.decks.sections -%}
+{%- assign decks = catalog[section.dir] -%}
+{%- if decks and decks.size > 0 %}
+
+## {{ section.heading }}
+
+{% for deck in decks -%}
+{%- assign base = '/teaching/' | append: include.course | append: '/' | append: section.dir | append: '/' | append: deck.dir | append: '/' -%}
+* __{{ deck.label }}: {{ deck.title }}__ — [HTML]({{ base | relative_url }}) \| [PDF]({{ base | append: 'index.pdf' | relative_url }}){% if deck.source == 'slides' %} \| [Markdown]({{ base | append: 'slides.md' | relative_url }}){% endif %}
+{% endfor -%}
+{%- endif -%}
+{%- endfor -%}

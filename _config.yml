@@ -1,6 +1,29 @@
 title: Jacob L. Pach
-#logo
+# logo
 show_downloads: false
 theme: jekyll-theme-hacker
-#devlopr-jekyll
+# devlopr-jekyll
 description: jpach@mtech.edu
+
+# Files that support local development but are not part of the published site.
+# Restates Jekyll's defaults, since setting `exclude` replaces them.
+exclude:
+  - .sass-cache
+  - .jekyll-cache
+  - gemfiles
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - Dockerfile
+  - docker-compose.yml
+  - tests/
+  - CONTRIBUTING.md
+  - pyproject.toml
+  - package.json
+  - package-lock.json
+  - tools/
+  - teaching/**/slides.md

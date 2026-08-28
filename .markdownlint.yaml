@@ -1,0 +1,3 @@
+# Matches the line-length rule in the umbrella AGENTS.md.
+line-length:
+  line_length: 120

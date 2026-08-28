@@ -1,0 +1,36 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        PAGES_REPO_NWO: jpach-cs/jpach-cs.github.io
+    ports:
+      # Override locally if 8080 is taken: WEB_PORT=8081 docker compose up
+      # The image is nginx-unprivileged, which listens on 8080, not 80.
+      - "${WEB_PORT:-8080}:8080"
+    volumes: []
+    restart: unless-stopped
+    healthcheck:
+      # The alpine image ships busybox wget; `docker compose up --wait` blocks on this.
+      # 127.0.0.1, not localhost: the unprivileged image listens on IPv4 only
+      # (its entrypoint cannot enable IPv6 in the config as a non-root user),
+      # and localhost resolves to ::1 first inside the container.
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  # Renders teaching/**/slides.md into HTML and PDF in place, without the
+  # rest of the Jekyll build. Bind-mounts the repo so output lands on the
+  # host for authoring: `docker compose run --rm marp`. Not started by
+  # `docker compose up`; the "web" image renders decks on its own as part of
+  # its build (see the "marp-render" stage in Dockerfile).
+  marp:
+    build:
+      context: .
+      target: marp-render
+    entrypoint: ["/bin/sh", "tools/render-decks.sh"]
+    volumes:
+      - .:/home/marp/app
+    profiles:
+      - tools

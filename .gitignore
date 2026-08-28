@@ -1,1 +1,21 @@
 jpach-cs.github.io.code-workspace
+
+# Marp decks render at build time (see CONTRIBUTING.md); only their markdown
+# source at teaching/**/slides.md is tracked. This does not affect PDFs
+# already committed under teaching/ from before the render pipeline existed -
+# see CONTRIBUTING.md.
+teaching/**/*.pdf
+
+# Python cache from running tests/ (pytest, poppler pdftotext helpers).
+__pycache__/
+.pytest_cache/
+.coverage
+
+# Node linters from package.json (stylelint, markdownlint, taplo).
+node_modules/
+
+# robert.7z holds the 65 PowerPoint sources the decks were converted from
+# (34 MB), and robert/ is where `7zz x robert.7z` extracts them. Neither is
+# published; the markdown under teaching/ is the committed form.
+*.7z
+/robert/

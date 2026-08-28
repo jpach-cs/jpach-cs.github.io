@@ -1,0 +1,19 @@
+# Python tooling configuration for tests/ and tools/. The site itself is Jekyll;
+# this file is excluded from the published output in _config.yml.
+
+[tool.pytest.ini_options]
+testpaths = ["tests/unit", "tests/content"]
+
+[tool.coverage.run]
+source = ["tools"]
+branch = true
+
+[tool.coverage.report]
+fail_under = 95
+show_missing = true
+skip_covered = false
+exclude_also = ["if __name__ == '__main__':"]
+
+[tool.pyright]
+include = ["tools", "tests"]
+extraPaths = ["tools", "tests/content", "tests/e2e"]
