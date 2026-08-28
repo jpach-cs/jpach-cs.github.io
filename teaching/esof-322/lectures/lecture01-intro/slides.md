@@ -138,7 +138,6 @@ My aim is to combine theory with practice—similar to how computer architecture
 
 *Sommerville, I. (2016). Software engineering 10th Edition. ISBN-10, 1292096136 (Main)*
 
-
 ---
 
 # Road Trip

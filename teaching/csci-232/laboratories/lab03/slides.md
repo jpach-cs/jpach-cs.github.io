@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "Data Structures & Algorithms"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Data Structures &amp; Algorithms
 
@@ -177,7 +178,7 @@ pp              equals 6422288.
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Relations between pointers and arrays
 
@@ -311,7 +312,7 @@ pointer[1] equals 5.
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # So, what does it mean?
 
@@ -513,6 +514,6 @@ return 0;
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You

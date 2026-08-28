@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 112<br><br>Programming with C
 
@@ -16,7 +17,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Outline
 
@@ -35,7 +36,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # if-else statement
 

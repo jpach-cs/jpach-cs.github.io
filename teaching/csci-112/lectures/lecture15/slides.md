@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 112<br><br>Programming with C
 
@@ -423,7 +424,7 @@ OK
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Summary and Best Practices
 
@@ -552,7 +553,7 @@ Unions in C are a mechanism that allows different data types to be stored in the
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # A summary on unions:
 
@@ -582,7 +583,7 @@ enums symbolic_name1
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # 1 example
 
@@ -632,7 +633,7 @@ These constants are often used to represent a fixed set of values, such as days 
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # 2 example
 
@@ -692,7 +693,7 @@ enums symbolic_name1
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # 3 example
 
@@ -828,7 +829,7 @@ Give me a number
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # Opening and closing files
 
@@ -869,7 +870,7 @@ file path/file name
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # const char \*filename
 

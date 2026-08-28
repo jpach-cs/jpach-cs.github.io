@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Software Engineering
 
@@ -111,7 +112,7 @@ git commit
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # Summary
 
@@ -132,7 +133,7 @@ In short, branches allow safe and parallel development, merging combines work fr
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Introduction to git diff
 
@@ -295,7 +296,7 @@ git stash clear	# Delete all stashes
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Introduction to git stash
 
@@ -364,7 +365,7 @@ git stash save "WIP: fixing login bug"
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Renaming Files in Git – Important Note
 
@@ -431,6 +432,6 @@ On branch master
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You!

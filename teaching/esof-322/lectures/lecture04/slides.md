@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Software Engineering
 
@@ -14,7 +15,7 @@ title: "Software Engineering"
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # An unexpected family emergency
 
@@ -32,6 +33,6 @@ Thank you for your understanding.
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You!

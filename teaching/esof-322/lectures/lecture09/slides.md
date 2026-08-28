@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Software Engineering
 
@@ -56,7 +57,7 @@ GitHub
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Authentication: University vs. Home PCs
 
@@ -90,7 +91,7 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Adding an SSH Key to GitHub
 
@@ -126,7 +127,7 @@ ssh-add c:/Users/YOU/.ssh/id_ed25519
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # How to Create a New Repository on GitHub
 
@@ -145,7 +146,7 @@ ssh-add c:/Users/YOU/.ssh/id_ed25519
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # From master to main – Why the Change?
 
@@ -170,6 +171,6 @@ git branch -m master main
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You!

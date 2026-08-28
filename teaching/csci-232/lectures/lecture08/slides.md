@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "Data Structures & Algorithms"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Data Structures &amp; Algorithms
 
@@ -25,7 +26,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Introduction to Doubly Linked Lists
 
@@ -39,7 +40,7 @@ Unlike a **Singly Linked List**, which can only be traversed forward, the DLL al
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Key Advantages of the Doubly Linked List
 
@@ -53,7 +54,7 @@ The addition of the PrevPtr dramatically increases the flexibility and efficienc
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # DLL as LIFO (Stack) and FIFO (Queue)
 
@@ -68,7 +69,7 @@ This dual efficiency **drastically streamlines the implementation of various dat
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # The Trade-Off: Increased Memory Consumption
 
@@ -87,7 +88,7 @@ The primary drawback of the Doubly Linked List is its memory overhead:
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # Insertion sort
 
@@ -150,6 +151,6 @@ Algorithm insertionSort (A, n):
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You

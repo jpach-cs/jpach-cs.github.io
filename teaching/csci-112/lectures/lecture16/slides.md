@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 112<br><br>Programming with C
 
@@ -106,7 +107,7 @@ enums symbolic_name1
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # 2 example
 
@@ -147,7 +148,7 @@ If we don't specify a value for an enumeration field, the default value is 0. Th
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # 3 example
 
@@ -278,7 +279,7 @@ Give me a number
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # Opening and closing files
 
@@ -315,7 +316,7 @@ Always check if fopen() returned NULL, indicating failure (e.g., file not found)
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # const char \*filename
 
@@ -444,7 +445,7 @@ int main(int argc, char *argv[])
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # fseek() function
 
@@ -468,7 +469,7 @@ SEEK\_END:     Start from the end of the file(2).
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # ftell() and rewind() functions
 
@@ -636,7 +637,7 @@ Example: 	int chars_written = fprintf(file_pointer, "Integer: %d, Float: %f\n", 
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Introduction to Linked Lists
 
@@ -665,7 +666,7 @@ Now, what if our customer wants to add yet another product? As you can see, this
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Introduction to Linked Lists
 
@@ -788,7 +789,7 @@ for (Node *current = headPtr; current != NULL; current = current->nextPtr)
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # What Happens in the Loop
 

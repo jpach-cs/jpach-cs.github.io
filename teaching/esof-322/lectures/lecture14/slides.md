@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Software Engineering
 
@@ -367,7 +368,7 @@ title: "Software Engineering"
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # A Personal Testament to the Value of Ethics in Software Engineering
 
@@ -380,7 +381,7 @@ Operating on large collections of data is at the core of Computer Science. In th
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # A Personal Testament to the Value of Ethics in Software Engineering
 
@@ -392,7 +393,7 @@ Operating on large collections of data is at the core of Computer Science. In th
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # A Personal Testament to the Value of Ethics in Software Engineering
 
@@ -405,7 +406,7 @@ Operating on large collections of data is at the core of Computer Science. In th
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # A Personal Testament to the Value of Ethics in Software Engineering
 
@@ -418,7 +419,7 @@ Operating on large collections of data is at the core of Computer Science. In th
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Case studies
 
@@ -1106,7 +1107,7 @@ In agile methods, requirements specification is not a separate activity but is s
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Process improvement activities
 
@@ -1146,7 +1147,7 @@ In agile methods, requirements specification is not a separate activity but is s
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # The SEI capability maturity model
 

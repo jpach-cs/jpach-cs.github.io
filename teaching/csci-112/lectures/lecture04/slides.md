@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 112<br><br>Programming with C
 
@@ -16,7 +17,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Outline
 
@@ -117,7 +118,7 @@ a / b = 1.666667
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Increment (++) & decrement (--) operator & Assignment by sum
 
@@ -465,7 +466,7 @@ Use parentheses to override order of evaluation -->
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Logical vs Bitwise Operators
 
@@ -654,7 +655,7 @@ Input and output functions in C are not available by default — you need to inc
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Input / Output
 
@@ -685,7 +686,7 @@ Getche() - (get[ ]char[acter with echo])
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # putchar() & getche() without '\n'
 
@@ -718,7 +719,7 @@ aaBB
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # putchar() & getche()
 
@@ -767,7 +768,7 @@ B
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # char issue
 

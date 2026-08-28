@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "Data Structures & Algorithms"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Data Structures &amp; Algorithms
 
@@ -87,7 +88,7 @@ int arrayMax(int A[], int n)
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # Using pseudo-code to prove algorithm correctness
 
@@ -108,7 +109,7 @@ Algorithm arrayMax(A, n):
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # These constructs include the following:
 
@@ -124,7 +125,7 @@ Algorithm arrayMax(A, n):
 
 ---
 
-<!-- _class: fit-40 -->
+<!-- _class: compact fit-40 -->
 
 # The random access machine (RAM) model
 
@@ -140,7 +141,7 @@ If we wish to analyze a particular algorithm without performing experiments on i
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # The random access machine (RAM) model
 
@@ -148,7 +149,7 @@ Specifically, a primitive operation corresponds to a low-level instruction with 
 
 ---
 
-<!-- _class: fit-40 -->
+<!-- _class: compact fit-40 -->
 
 # The random access machine (RAM) model
 
@@ -170,7 +171,7 @@ c7    Returning from a method.
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # RAM machine model definition
 
@@ -628,7 +629,7 @@ The figure schematically shows how, depending on the input distribution, the run
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # Average-case and worst-case analysis
 
@@ -669,6 +670,6 @@ int arrayMax(int A[], int n)
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You

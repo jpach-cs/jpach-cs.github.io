@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Software Engineering
 
@@ -25,7 +26,7 @@ title: "Software Engineering"
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # What is a Flowchart?
 
@@ -100,7 +101,7 @@ title: "Software Engineering"
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Exporting Diagrams to PNG or SVG
 
@@ -298,7 +299,7 @@ style B fill:#f9f,stroke:#333,stroke-width:2px
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Practical Lesson: Dealing with Special Characters and Vague Errors
 
@@ -343,6 +344,6 @@ style B fill:#f9f,stroke:#333,stroke-width:2px
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You!

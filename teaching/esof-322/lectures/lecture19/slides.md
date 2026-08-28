@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Software Engineering
 
@@ -51,7 +52,7 @@ The name ***canary*** refers to a historical method of warning used in coal mine
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Canary - Transfer to Computer Science
 
@@ -99,7 +100,7 @@ Making code analysis difficult for reverse engineers through **obfuscation** (e.
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # 3) Performance and Practical Trade-offs
 
@@ -119,7 +120,7 @@ Continuous, full verification is often too computationally expensive and introdu
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Summary of Data Masking Techniques in Memory
 
@@ -131,7 +132,7 @@ Continuous, full verification is often too computationally expensive and introdu
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # My summary
 
@@ -141,7 +142,7 @@ Continuous, full verification is often too computationally expensive and introdu
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # My summary
 
@@ -150,6 +151,6 @@ Continuous, full verification is often too computationally expensive and introdu
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You!

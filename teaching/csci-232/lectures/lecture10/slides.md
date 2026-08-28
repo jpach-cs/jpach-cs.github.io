@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "Data Structures & Algorithms"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Data Structures &amp; Algorithms
 
@@ -26,7 +27,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # What is Make - ? (mingw32-make.exe)
 
@@ -45,7 +46,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Compiler vs Interpreter
 
@@ -54,7 +55,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # How does a C program executes?
 
@@ -81,7 +82,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Compilers
 
@@ -145,7 +146,7 @@ gcc -g main.o -o main.exe
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # How does a C program executes?
 
@@ -187,7 +188,7 @@ gcc -g -Wall -std=c99 -pedantic main.c -o main.exe
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # How does a C program executes?
 
@@ -214,7 +215,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # About flags
 
@@ -224,7 +225,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # What Does a Make Rule Look Like
 
@@ -249,7 +250,7 @@ target … : prerequisites …
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Simplest makefile
 
@@ -273,7 +274,7 @@ build: #The comment preceded by a hashmark
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Simplest makefile
 
@@ -291,7 +292,7 @@ build_obj:
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Simplest makefile
 
@@ -366,7 +367,7 @@ gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 
 ---
 
-<!-- _class: fit-40 -->
+<!-- _class: compact fit-40 -->
 
 # Headers and the Compilation Process – Key Rules
 
@@ -387,7 +388,7 @@ The key distinction: Headers are dependencies in the Makefile, but not arguments
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # makefile
 
@@ -411,7 +412,7 @@ gcc -g main.o other.o -o main.exe
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # makefile
 
@@ -435,7 +436,7 @@ gcc -g main.o other.o -o main.exe
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # The Nature of Make Targets
 
@@ -447,7 +448,7 @@ Targets in a Makefile can fall into several categories:
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # How Make Treats Targets (The Decision-Making Process)
 
@@ -459,7 +460,7 @@ If a target is **not listed** in the **.PHONY** directive, make treats the targe
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Why This Still Matters
 
@@ -467,7 +468,7 @@ While computational power is high today, this timestamp logic is still crucial, 
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # Fully Functional Makefile: A Summary
 
@@ -491,7 +492,7 @@ clean:
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # Fully Functional Makefile: A Summary
 
@@ -515,7 +516,7 @@ clean:
 
 ---
 
-<!-- _class: fit-40 -->
+<!-- _class: compact fit-40 -->
 
 # Fully Functional Makefile: A Summary
 
@@ -538,7 +539,7 @@ clean:
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # Modify and Run
 
@@ -558,7 +559,7 @@ mingw32-make
 
 ---
 
-<!-- _class: fit-40 -->
+<!-- _class: compact fit-40 -->
 
 # Variables and Assignment in Makefiles
 
@@ -609,7 +610,7 @@ clean:
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # extension
 
@@ -638,7 +639,7 @@ clean:
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Conditional Shell Detection in Make
 
@@ -881,7 +882,7 @@ clean:
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Splitting a Project into Directories with Makefile
 
@@ -897,7 +898,7 @@ clean:
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # Splitting a Project into Directories with Makefile
 
@@ -917,7 +918,7 @@ clean:
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Splitting a Project into Directories with Makefile
 
@@ -995,7 +996,7 @@ clean:
 
 ---
 
-<!-- _class: fit-40 -->
+<!-- _class: compact fit-40 -->
 
 # Adding a Dedicated inc/ Directory for Headers
 
@@ -1042,7 +1043,7 @@ clean:
 
 ---
 
-<!-- _class: fit-40 -->
+<!-- _class: compact fit-40 -->
 
 # Make is extremely sensitive to spaces.
 
@@ -1166,7 +1167,7 @@ clean:
 
 ---
 
-<!-- _class: fit-30 -->
+<!-- _class: compact fit-30 -->
 
 # Adding a Dedicated bin/
 
@@ -1221,6 +1222,6 @@ clean:
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You

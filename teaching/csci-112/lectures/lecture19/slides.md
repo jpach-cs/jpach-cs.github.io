@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSSI112lec 19"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 112<br><br>Programming with C
 
@@ -316,7 +317,7 @@ The value of dynamicVariable is = 5
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # malloc() – An array
 
@@ -367,7 +368,7 @@ Address of heapArray[2]:         06559352
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Summary
 
@@ -377,7 +378,7 @@ When a program that utilizes dynamically allocated memory crashes and fails to d
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # calloc()
 
@@ -482,7 +483,7 @@ What does realloc() return?
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Summary
 
@@ -492,7 +493,7 @@ When a program that utilizes dynamically allocated memory crashes and fails to d
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Memory fragmentation
 
@@ -507,7 +508,7 @@ Memory fragmentation is a problem that can occur when memory is repeatedly alloc
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Consequences of fragmentation
 
@@ -531,7 +532,7 @@ Memory fragmentation is a problem that can occur when memory is repeatedly alloc
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Standard C Library Overview
 
@@ -610,7 +611,7 @@ fprintf(stderr, "Error message\n");
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # fopen()    – Opens a file and returns a FILE\* pointer..<br>fclose()    – Closes an open file. Always close files when done.
 
@@ -646,7 +647,7 @@ Header: <stdio.h>
 
 ---
 
-<!-- _class: fit-60 long-title -->
+<!-- _class: compact fit-60 long-title -->
 
 # fflush()– Flushes the output buffer to the file immediately (useful before closing or switching).
 
@@ -675,7 +676,7 @@ Header: <stdio.h>
 
 ---
 
-<!-- _class: long-title fit-60 -->
+<!-- _class: compact long-title fit-60 -->
 
 # clearerr(fp)     – Clears the EOF and error indicators.<br>ferror(fp)     – Checks for file I/O errors. Returns non-zero if an error occurred.
 
@@ -822,7 +823,7 @@ This will be written to output.txt!
 
 ---
 
-<!-- _class: fit-50 long-title -->
+<!-- _class: compact fit-50 long-title -->
 
 # tmpfile() – Creates a temporary file that is automatically deleted when closed or program ends.
 

@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 112<br><br>Programming with C
 
@@ -29,7 +30,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # Opening and closing files
 
@@ -51,7 +52,7 @@ Error Handling:
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # const char \*filename
 
@@ -180,7 +181,7 @@ int main(int argc, char *argv[])
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # fseek() function
 
@@ -204,7 +205,7 @@ SEEK\_END:     Start from the end of the file(2).
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # ftell() and rewind() functions
 
@@ -435,7 +436,7 @@ for (Node *current = headPtr; current != NULL; current = current->nextPtr)
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # What Happens in the Loop
 
@@ -472,7 +473,7 @@ current->value
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Standard C Library Overview
 
@@ -926,7 +927,7 @@ Used for manipulating null-terminated character arrays.
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # strcpy() – copy a string
 
@@ -956,7 +957,7 @@ int main(void)
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # strncpy() – copy with length limit
 
@@ -987,7 +988,7 @@ int main(void)
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # strcmp() – compare strings
 
@@ -1015,7 +1016,7 @@ int main(void)
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # strcmp() – compare strings
 
@@ -1046,7 +1047,7 @@ int main(void)
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # strlen() – get string length
 
@@ -1073,7 +1074,7 @@ int main(void)
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # strchr() and strrchr() – find a character in a string
 
@@ -1105,7 +1106,7 @@ int main(void)
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # strstr() – find substring
 
@@ -1136,7 +1137,7 @@ int main(void)
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # strtok() – split string into tokens
 
@@ -1224,7 +1225,7 @@ strtok(NULL, ",");
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # A simplified version (conceptually) looks something like this:
 

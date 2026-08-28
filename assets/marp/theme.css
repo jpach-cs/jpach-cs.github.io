@@ -54,7 +54,7 @@
   --h1-size: 40px;
   --h2-size: 1.2em;
   --h3-size: 0.9em;
-  --body-size: 24px; /* was 28px; see "Sizing" below */
+  --body-size: 28px; /* the author's size; `compact` decks run at 24px, see "Sizing" below */
   --code-base-size: 0.85em;
 
   /* Zasoby (Assety) */
@@ -196,26 +196,37 @@ section {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-size: var(--body-size);
-  padding: 140px 80px 50px;
+  padding: 160px 80px 80px;
   justify-content: flex-start;
 }
 
 /*
- * Sizing. PowerPoint fits a text box to its slide by shrinking the type; Marp
- * does not, and at the theme's original 28px on a 720px slide, 41 percent of
- * the converted slides ran off the bottom (measured in a browser across all
- * 65 decks). 24px is the same proportion of the slide as PowerPoint's 18pt
- * body default on a 7.5in slide, so it is what the author's slides were
- * designed around; together with the tighter list, table and padding values
- * below it fits about half of those slides with nothing else changed.
+ * Sizing. The author's hand-written decks are set at 28px with his padding,
+ * list and table metrics, and the rules above and below carry those exactly.
+ *
+ * The decks converted from PowerPoint are different: PowerPoint fits a text
+ * box to its slide by shrinking the type, Marp does not, and at 28px on a
+ * 720px slide 41 percent of the converted slides ran off the bottom (measured
+ * in a browser across all 65 decks). Those decks declare `class: compact`,
+ * which sets 24px - the same proportion of the slide as PowerPoint's 18pt
+ * body default on a 7.5in slide - with tighter list, table, image and padding
+ * values; that fits about half of those slides with nothing else changed.
+ * The class is repeated on every per-slide `_class` line, since a slide-level
+ * `_class` replaces the deck-level `class`.
  *
  * The rest is PowerPoint's per-box autofit, which the .pptx records as
  * `<a:normAutofit fontScale="77500"/>`. The converter turns a slide's
- * smallest scale into one of these classes, so a slide the author let
+ * smallest scale into one of the `fit-*` classes, so a slide the author let
  * PowerPoint shrink to 70 percent is shrunk to 70 percent here too. What is
  * left after that is content no font size can fit, which is the author's
  * to split.
  */
+section.compact {
+  --body-size: 24px;
+
+  padding: 140px 80px 50px;
+}
+
 section.fit-90 { font-size: calc(var(--body-size) * 0.9); }
 section.fit-80 { font-size: calc(var(--body-size) * 0.8); }
 section.fit-70 { font-size: calc(var(--body-size) * 0.7); }
@@ -223,14 +234,6 @@ section.fit-60 { font-size: calc(var(--body-size) * 0.6); }
 section.fit-50 { font-size: calc(var(--body-size) * 0.5); }
 section.fit-40 { font-size: calc(var(--body-size) * 0.4); }
 section.fit-30 { font-size: calc(var(--body-size) * 0.3); }
-
-section img {
-  /* A screenshot emitted at its PowerPoint width keeps that width; its height
-   * is capped so it cannot push the rest of the slide off the bottom. */
-  max-height: 460px;
-  object-fit: contain;
-  object-position: left top;
-}
 
 /* 3. TYPOGRAFIA (H1, H2, H3) */
 h1 {
@@ -300,7 +303,7 @@ section ul {
 
 section ul li {
   position: relative;
-  margin-bottom: 6px;
+  margin-bottom: 12px;
   padding-left: 0.35em;
 }
 
@@ -396,12 +399,9 @@ section footer {
 
 section.lead header,
 section.lead footer,
-section.lead::before,
 section.lead::after {
-  /* No footer or page number on the title slide, as the reference's
-   * `_paginate: skip` did. The MT icon the rule below positions is also
-   * off: the reference never displayed it, and at 200px it sits on top of
-   * the subtitle. */
+  /* No footer or page number on the title slide, as the author's decks
+   * carry `_paginate: skip` there. */
   display: none;
 }
 
@@ -427,10 +427,12 @@ section.lead {
 }
 
 section.lead::before {
-  display: none; /* see above; the author's placement is kept for reference */
+  /* The MT icon, top centre. The author's rule says `bottom: 100px`, but the
+   * base rule's `top` wins over it, and top centre is where every one of his
+   * title slides shows the icon. */
+  display: block;
   content: "";
   position: absolute;
-  top: auto; /* the base rule's top: 3px would otherwise win over bottom */
   bottom: 100px; /* Umieszczone nad stopką z autorem */
   left: 50%;
   transform: translateX(-50%); /* Centrowanie poziome */
@@ -592,6 +594,8 @@ section.code-description > ol,
 section.code-description > p {
   margin-top: 80px;
   margin-left: 10px;
+  margin-right: 15px;
+  text-align: justify;
 }
 
 /* ---------------- CLEANUP ---------------- */
@@ -650,8 +654,8 @@ section.code-description::after {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 0.6em 0;
-  font-size: 0.9em; /* scales with the slide's body size and `fit-*` class */
+  margin: 1.5em 0;
+  font-size: 28px;
 }
 
 /* Remove outer borders */
@@ -666,7 +670,7 @@ table thead th {
   background-color: var(--color-primary); /* deep green */
   color: #fff;
   text-align: left;
-  padding: 0.4em 0.6em;
+  padding: 18px 20px;
   font-weight: 700;
 }
 
@@ -674,12 +678,8 @@ table thead th {
 table tbody td {
   background-color: var(--color-white); /* light cream */
   color: #222;
-  padding: 0.4em 0.6em;
+  padding: 20px;
   border-bottom: 1px solid #ddd;
-}
-
-/* Optional: monospace for code-like columns */
-table tbody td:first-child {
   font-family: var(--font-code);
 }
 
@@ -687,4 +687,35 @@ table tbody td:first-child {
 section pre mark,
 section code .highlight-line {
   color: #f00 !important;
+}
+
+/* 10. COMPACT: the metrics the PowerPoint-converted decks run at (see "Sizing") */
+section.compact ul li {
+  margin-bottom: 6px;
+}
+
+section.compact img {
+  /* A screenshot emitted at its PowerPoint width keeps that width; its height
+   * is capped so it cannot push the rest of the slide off the bottom. */
+  max-height: 460px;
+  object-fit: contain;
+  object-position: left top;
+}
+
+section.compact table {
+  margin: 0.6em 0;
+  font-size: 0.9em; /* scales with the slide's body size and `fit-*` class */
+}
+
+section.compact table thead th,
+section.compact table tbody td {
+  padding: 0.4em 0.6em;
+}
+
+section.compact table tbody td {
+  font-family: var(--font-body);
+}
+
+section.compact table tbody td:first-child {
+  font-family: var(--font-code);
 }

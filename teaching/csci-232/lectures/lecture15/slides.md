@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "CSCI 232  Data Structures & Algorithms"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 232 <br>Data Structures &amp; Algorithms
 
@@ -57,7 +58,7 @@ normalnie jest n+1 -->
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Asymptotic notation
 
@@ -65,7 +66,7 @@ normalnie jest n+1 -->
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # The O(n) "big-oh" notation
 
@@ -143,7 +144,7 @@ normalnie jest n+1 -->
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # Analogy between the asymptotic comparison of two functions *f* and *g* and the comparison of two real numbers *a* and *b*
 
@@ -243,6 +244,6 @@ normalnie jest n+1 -->
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You

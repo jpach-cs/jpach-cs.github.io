@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 112<br><br>Programming with C
 
@@ -31,7 +32,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Command-Line Arguments
 
@@ -168,7 +169,7 @@ To make functions defined in other files visible in a file, it is sufficient to 
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Example
 
@@ -249,7 +250,7 @@ MAX_SIZE is 100
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Example
 
@@ -294,7 +295,7 @@ int main()
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Example
 
@@ -351,7 +352,7 @@ Sum of 5 and 3 equals 8
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # extern keyword
 
@@ -634,7 +635,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # About flags
 
@@ -644,7 +645,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Introduction to Makefile
 
@@ -659,7 +660,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # An example of makefile
 
@@ -942,7 +943,7 @@ int main()
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Bitwise Left Shift &amp; Right Shift - summary
 
@@ -963,7 +964,7 @@ int main()
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # typedef keyword
 
@@ -1014,7 +1015,7 @@ Result:
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Foreword - signature of function
 
@@ -1179,7 +1180,7 @@ struct symbolic_name1
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # An example
 
@@ -1321,7 +1322,7 @@ Use parentheses to override order of evaluation -->
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # typedef &amp; struct
 

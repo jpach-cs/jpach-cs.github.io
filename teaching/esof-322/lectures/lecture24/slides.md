@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Software Engineering
 
@@ -20,7 +21,7 @@ title: "Software Engineering"
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # From The author of textbook
 
@@ -39,7 +40,7 @@ title: "Software Engineering"
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # UML state \[machine\] diagrams
 
@@ -59,7 +60,7 @@ title: "Software Engineering"
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Occam's razor
 
@@ -70,7 +71,7 @@ title: "Software Engineering"
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Introduction — What Are state machine Diagrams?
 
@@ -80,7 +81,7 @@ title: "Software Engineering"
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Introduction to State Machine Diagrams (UML)
 
@@ -132,7 +133,7 @@ State diagrams are perfect when modeling systems where:
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Core UML Definitions
 
@@ -367,7 +368,7 @@ state Downloading {
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Practical Tips
 
@@ -388,7 +389,7 @@ state Downloading {
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # but
 
@@ -417,6 +418,6 @@ s2: exit #58; finalize()
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You!

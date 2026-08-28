@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 112<br><br>Programming with C
 
@@ -16,7 +17,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Outline
 
@@ -68,7 +69,7 @@ Length of [Hello world!] equals 12
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Comparing two pointers
 
@@ -107,7 +108,7 @@ Str1 and str2 point to the same string
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Comparing two pointers
 
@@ -392,7 +393,7 @@ Result: Date: 1988-8-2
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Scanf - Summary of Best Practices
 
@@ -442,7 +443,7 @@ Words of different lengths
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Command-Line Arguments
 
@@ -457,7 +458,7 @@ argv[]:	Argument vector, an array of strings (character pointers) representing t
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Command-Line Arguments
 
@@ -598,7 +599,7 @@ To make functions defined in other files visible in a file, it is sufficient to 
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Source code &amp; header files
 
@@ -609,7 +610,7 @@ To make functions defined in other files visible in a file, it is sufficient to 
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Example
 
@@ -690,7 +691,7 @@ MAX_SIZE is 100
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Example
 
@@ -735,7 +736,7 @@ int main()
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Example
 
@@ -792,7 +793,7 @@ Sum of 5 and 3 equals 8
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # extern keyword
 
@@ -1017,7 +1018,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Compilers
 
@@ -1147,7 +1148,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # About flags
 
@@ -1161,7 +1162,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Introduction to Makefile
 
@@ -1191,7 +1192,7 @@ TARGET: DEPENDENCIES
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # An example of makefile
 

@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Software Engineering
 
@@ -25,7 +26,7 @@ title: "Software Engineering"
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # What is Make - ? (mingw32-make.exe)
 
@@ -211,7 +212,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # What Does a Make Rule Look Like
 
@@ -258,7 +259,7 @@ build: #The comment preceded by a hashmark
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Simplest makefile
 
@@ -276,7 +277,7 @@ build_obj:
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Simplest makefile
 
@@ -351,7 +352,7 @@ gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Headers and the Compilation Process – Key Rules
 
@@ -372,7 +373,7 @@ The key distinction: Headers are dependencies in the Makefile, but not arguments
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # makefile
 
@@ -395,7 +396,7 @@ gcc -g main.o other.o -o main.exe
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # makefile
 
@@ -429,7 +430,7 @@ Targets in a Makefile can fall into several categories:
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # How Make Treats Targets (The Decision-Making Process)
 
@@ -447,7 +448,7 @@ While computational power is high today, this timestamp logic is still crucial, 
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Fully Functional Makefile: A Summary
 
@@ -471,7 +472,7 @@ clean:
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Fully Functional Makefile: A Summary
 
@@ -495,7 +496,7 @@ clean:
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Fully Functional Makefile: A Summary
 
@@ -518,7 +519,7 @@ clean:
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Modify and Run
 
@@ -538,7 +539,7 @@ mingw32-make
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Variables and Assignment in Makefiles
 
@@ -589,7 +590,7 @@ clean:
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # extension
 
@@ -618,7 +619,7 @@ clean:
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # Conditional Shell Detection in Make
 
@@ -719,7 +720,7 @@ clean:
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Summary
 
@@ -758,6 +759,6 @@ clean:
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You!

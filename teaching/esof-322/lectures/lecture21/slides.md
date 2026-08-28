@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Software Engineering
 
@@ -39,7 +40,7 @@ The Core Concept: Lifetime Dependency
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Composition vs Aggregation
 
@@ -110,7 +111,7 @@ Unlike the **Graph** (Flowchart) diagram, you cannot change the rendering direct
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Mermaid Class Diagram Syntax
 
@@ -272,7 +273,7 @@ note "This is a simple comment"
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Hints and Best Practices
 
@@ -285,6 +286,6 @@ note "This is a simple comment"
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You!

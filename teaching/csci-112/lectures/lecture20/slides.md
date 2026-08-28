@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSSI112lec 20"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 112<br><br>Programming with C
 
@@ -108,7 +109,7 @@ Work with files and streams.
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Standard C Library Overview
 
@@ -182,7 +183,7 @@ You entered age: 42
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # atol() – Convert string to long
 
@@ -217,7 +218,7 @@ File size: 1048576 bytes
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # atof() – Convert string to double
 
@@ -252,7 +253,7 @@ Body temperature: 36.6°C
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # strtol() – Convert string to long (with base and error checking)
 
@@ -324,7 +325,7 @@ Parsed ID: 4294967295
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # strtod() – Convert string to double (with error checking)
 
@@ -397,7 +398,7 @@ Convert strings to numbers.
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # abs() – Absolute value (for int)
 
@@ -555,7 +556,7 @@ sin(30°) = 0.50, cos(30°) = 0.87
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # ceil(x), floor(x), round(x) – Rounding operations
 
@@ -653,7 +654,7 @@ Remaining hours after full shifts: 1.5
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # hypot(x, y) – √(x² + y²) “Hypotenuse” - Euclidean Distance Function - Hypotenuse Calculation Function
 

@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 112<br><br>Programming with C
 
@@ -55,7 +56,7 @@ int main()
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Bitwise Left Shift &amp; Right Shift - summary
 
@@ -72,7 +73,7 @@ int main()
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # typedef keyword
 
@@ -226,7 +227,7 @@ struct symbolic_name1
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # An example
 
@@ -298,7 +299,7 @@ To access members of a structure, we use the dot operator. When accessing a memb
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # typedef &amp; struct
 
@@ -565,7 +566,7 @@ While sprintf and printf are very useful for formatting text, they suffer from a
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Summary
 
@@ -600,7 +601,7 @@ When we write programs, we need a way to check if our code works correctly. Ther
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # What is an assert?
 
@@ -620,7 +621,7 @@ int divide(int a, int b)
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Word – 'assert'
 
@@ -636,7 +637,7 @@ assert(x==1);
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Word – 'assert'
 
@@ -730,7 +731,7 @@ int findElement(int arr[], int size, int target)
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Introduction to Unity Test Framework in C
 
@@ -744,7 +745,7 @@ When using Unity, every test file usually has three important parts:
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Common Unity Assertions
 
@@ -787,7 +788,7 @@ Assertions are the heart of testing. They compare the expected result with the a
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # Understanding setUp() and tearDown()
 

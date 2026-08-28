@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Chapter 3 – Agile Software Development"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Chapter 3 – Agile Software Development
 

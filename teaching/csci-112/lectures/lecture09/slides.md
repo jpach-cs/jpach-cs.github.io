@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 112<br><br>Programming with C
 
@@ -126,7 +127,7 @@ Left-to-right associativity means that when there are two operators with the sam
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Summary for associativity and \*&amp;
 
@@ -137,7 +138,7 @@ Left-to-right associativity means that when there are two operators with the sam
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # The Pre-processor
 
@@ -149,7 +150,7 @@ eg.: #include&lt;stdio.h&gt;
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # The C compiler process has four main phases
 
@@ -163,7 +164,7 @@ eg.: #include&lt;stdio.h&gt;
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Preprocessor directives - macro substitution
 
@@ -390,7 +391,7 @@ Using "" (double quotes)	–	e.g. #include "file_name.h"
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Summary: How the C Preprocessor Works
 
@@ -419,7 +420,7 @@ Using "" (double quotes)	–	e.g. #include "file_name.h"
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Getchar() &amp; scanf()
 
@@ -440,7 +441,7 @@ Using "" (double quotes)	–	e.g. #include "file_name.h"
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Basics of
 
@@ -474,7 +475,7 @@ int scanf  (char format[], *arg1, *arg2 ,...);
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Basics of
 
@@ -611,7 +612,7 @@ To be able to explain something in their sleep – odpowiedziec o 4 and ranem --
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Summary - The \* operator works in **three different ways**
 
@@ -703,7 +704,7 @@ p               equals 6422296.
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Consequences
 
@@ -967,7 +968,7 @@ pointer[1] equals 5.
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # So, what does it mean?
 
@@ -1079,7 +1080,7 @@ x = 5, y = 7, z = 1
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # const keyword in Array
 

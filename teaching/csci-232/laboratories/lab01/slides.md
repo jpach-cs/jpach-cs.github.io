@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "Data Structures & Algorithms"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Data Structures &amp; Algorithms
 
@@ -14,7 +15,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Today’s Agenda
 
@@ -49,7 +50,7 @@ Navigating the Command Line
 
 ---
 
-<!-- _class: long-title fit-50 -->
+<!-- _class: compact long-title fit-50 -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 1: Opening the Command Prompt - Example
 
@@ -98,7 +99,7 @@ C:\Users\Jacob>
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Differences in Command Prompt Messages Between Windows and Linux
 
@@ -128,7 +129,7 @@ The command prompt in different operating systems displays various information, 
 
 ---
 
-<!-- _class: long-title fit-80 -->
+<!-- _class: compact long-title fit-80 -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management
 
@@ -148,7 +149,7 @@ The command prompt in different operating systems displays various information, 
 
 ---
 
-<!-- _class: long-title fit-90 -->
+<!-- _class: compact long-title fit-90 -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management – Example(dir)
 
@@ -208,7 +209,7 @@ C:\Users\Jacob>
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management – Example(cd/cd..)
 
@@ -330,7 +331,7 @@ C:\>
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 3: Text Manipulation and Output - Example
 
@@ -383,7 +384,7 @@ C:\Users\Jacob>
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 4: Hello, World! and Redirection - Example
 
@@ -416,7 +417,7 @@ myfile.txt
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 5: Creating and Deleting Files and Directories
 
@@ -431,7 +432,7 @@ myfile.txt
 
 ---
 
-<!-- _class: long-title fit-80 -->
+<!-- _class: compact long-title fit-80 -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 5: Creating and Deleting Files and Directories – Example(copies, deletes, makes)
 
@@ -516,7 +517,7 @@ C:\Users\Jacob\Folder>
 
 ---
 
-<!-- _class: long-title fit-80 -->
+<!-- _class: compact long-title fit-80 -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 6: Executing Compiled Programs – Example
 
@@ -587,7 +588,7 @@ rename                            mv
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 8: Basic Text Editing
 
@@ -601,7 +602,7 @@ rename                            mv
 **Note:** There are many other text editors available for both Windows and Linux.
 
 ---
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 8: Basic Text Editing
 
@@ -624,7 +625,7 @@ An IP address is like a unique mailing address for every device connected to the
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 9: IP address – How you can get your IP address
 
@@ -685,7 +686,7 @@ During this semester, we will work with multiple programming languages and tools
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Compiler vs Interpreter
 
@@ -700,7 +701,7 @@ Think of a compiler as a translator who translates an entire book from one langu
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # How does a C program executes?
 
@@ -735,7 +736,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # GCC – GNU Compiler Collection
 
@@ -745,7 +746,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # GCC on Windows - How does it work?
 
@@ -778,7 +779,7 @@ In your personal computer
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Steps to Add MinGW GCC to System PATH on Windows:
 
@@ -895,7 +896,7 @@ gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # How does a C program executes?
 
@@ -922,7 +923,7 @@ These steps are essential for transforming your C code into an executable progra
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # How does a C program executes?
 
@@ -984,7 +985,7 @@ An IDE combines many tools essential for a programmer's work, such as:
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # IDE
 
@@ -1019,7 +1020,7 @@ VS Code is not a full-fledged IDE but rather a code editor. However, it is often
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Base of the numeral system
 
@@ -1057,7 +1058,7 @@ Steps:
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Converting decimal numbers to binary – example 12310
 
@@ -1104,7 +1105,7 @@ Steps:
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Binary numeral system (Unsigned arithmetic)
 
@@ -1218,7 +1219,7 @@ int main()
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Symbolic names will be used in:
 
@@ -1242,7 +1243,7 @@ int main()
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # camelCase vs snake\_case for symbolic names
 
@@ -1261,7 +1262,7 @@ Constants, which are values that don't change, are usually written in all upperc
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Symbolic names will be used in:
 
@@ -1357,7 +1358,7 @@ Operations on real numbers are recorded with only a certain degree of precision,
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # A few words about pointers
 
@@ -1403,7 +1404,7 @@ asterisk -->
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Symbolic names will be used in:
 
@@ -1435,7 +1436,7 @@ int a[10];
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Arrays
 
@@ -1529,7 +1530,7 @@ Hello World
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Arrays
 
@@ -1646,7 +1647,7 @@ American Standard Code for Information Interchange
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Symbolic names will be used in:
 
@@ -1714,7 +1715,7 @@ An array is a contiguous, homogeneous region of RAM whose size is determined at 
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Size scale
 
@@ -1726,7 +1727,7 @@ An array is a contiguous, homogeneous region of RAM whose size is determined at 
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # What is a memory(RAM) -stack?
 
@@ -1746,7 +1747,7 @@ Now that you've visualized this sequence, we can reiterate that the essence of m
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # A stack
 
@@ -1756,7 +1757,7 @@ Now that you've visualized this sequence, we can reiterate that the essence of m
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # One more time
 
@@ -1770,7 +1771,7 @@ This is a great place to explain the concept of a memory address. Imagine RAM as
 
 ---
 
-<!-- _class: fit-40 -->
+<!-- _class: compact fit-40 -->
 
 # Without going into details
 
@@ -1865,6 +1866,6 @@ Result:
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You

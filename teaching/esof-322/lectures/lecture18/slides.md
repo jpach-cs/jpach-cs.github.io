@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Software Engineering
 
@@ -21,7 +22,7 @@ title: "Software Engineering"
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Memory Integrity and Anti-Tampering Techniques
 
@@ -65,7 +66,7 @@ void check_health_integrity()
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # Defensive Techniques
 
@@ -230,7 +231,7 @@ clean:
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Modular Makefile
 
@@ -284,7 +285,7 @@ clean:
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Organizing Makefiles in mk/ Directory
 
@@ -389,7 +390,7 @@ main.o: main.c
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Automatic Variables - $&lt; – The First Dependency
 
@@ -419,7 +420,7 @@ app: main.o utils.o
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Automatic Variables - $? – Newer Dependencies
 
@@ -478,7 +479,7 @@ app: main.o utils.o
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Using Dependency Files (.d / .p)
 
@@ -538,7 +539,7 @@ make debug flags:
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Example Usage - debug
 
@@ -567,6 +568,6 @@ make -d
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You!

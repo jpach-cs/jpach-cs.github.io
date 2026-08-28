@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Chapter 4 – Requirements Engineering"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Chapter 4 – Requirements Engineering
 
@@ -689,7 +690,7 @@ System requirements are expanded versions of the user requirements that soft war
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Guidelines for writing requirements
 
@@ -699,7 +700,7 @@ System requirements are expanded versions of the user requirements that soft war
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Guidelines for writing requirements
 
@@ -992,7 +993,7 @@ A number of large organizations, such as the U.S. Department of Defense and the 
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Requirements checking
 
@@ -1035,7 +1036,7 @@ Test-case generation Requirements should be testable. If the tests for the requi
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Requirements validation techniques
 
@@ -1123,7 +1124,7 @@ Some requirements are more susceptible to change than others. Enduring requireme
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Requirements management planning
 

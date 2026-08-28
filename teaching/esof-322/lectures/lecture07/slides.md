@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Software Engineering
 
@@ -24,7 +25,7 @@ Git
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Git Rebase vs. Merge
 
@@ -53,7 +54,7 @@ A---B---C---D---M  (main)
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Git Rebase vs. Merge
 
@@ -235,7 +236,7 @@ git checkout -- filename  # Discard changes
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Accidentally adding files that should not be tracked
 
@@ -325,7 +326,7 @@ git commit -m "WIP“
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Common mistakes
 
@@ -338,6 +339,6 @@ Practice these **on a test repository** first. Small mistakes in a test repo are
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You!

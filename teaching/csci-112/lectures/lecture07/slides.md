@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 112<br><br>Programming with C
 
@@ -447,7 +448,7 @@ int main()
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # for loop
 
@@ -711,7 +712,7 @@ int main()
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Summary of the Difference Between for and while Loops
 
@@ -830,7 +831,7 @@ int main()
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Functions, return, and Casting
 
@@ -839,7 +840,7 @@ int main()
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Prototype & its Function - myFunction1
 
@@ -875,7 +876,7 @@ Text from myFuntion1
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Prototype & its Function - myFunction1
 
@@ -911,7 +912,7 @@ Text from myFuntion1
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Prototype & its Function – myFunction2
 
@@ -945,7 +946,7 @@ result of myFuntion2 equals 1
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Prototype & its Function – myFunction2
 
@@ -1152,7 +1153,7 @@ x equals 5 that is read by function main
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Summary - variable scope
 

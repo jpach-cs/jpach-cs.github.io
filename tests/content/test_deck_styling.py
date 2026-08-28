@@ -30,6 +30,8 @@ from repo import TEACHING_ROOT
 # name a class the theme has no rule for - it would silently do nothing.
 THEME_CLASSES = frozenset({
     'lead', 'caption-slide', 'code-description', 'small-code', 'tiny-code', 'long-title',
+    # The tighter metrics the PowerPoint-converted decks run at; deck-level and on every _class line.
+    'compact',
     # PowerPoint's autofit shrink factor, carried over by the converter.
     'fit-90', 'fit-80', 'fit-70', 'fit-60', 'fit-50', 'fit-40', 'fit-30',
 })

@@ -150,6 +150,7 @@ any other (a class the theme has no rule for silently does nothing):
 | `lead` | The deck's title slide. Recentres the title and sizes the `h2` subtitle. Exactly one per deck. |
 | `caption-slide` | A divider slide: white title on a filled background. Used for the closing "Thank You" slide. |
 | `long-title` | A slide whose title is a whole caption sentence. Steps the type down and lets the title bar grow. |
+| `compact` | The metrics the PowerPoint-converted decks run at (24px body, tighter padding, lists, tables, capped image height). Declared deck-wide by those decks and repeated on each of their `_class` lines, because a slide's `_class` replaces the deck's `class`. Hand-written decks do not use it: the theme's defaults are the author's own metrics. |
 | `fit-90` to `fit-30` | Body type scaled by PowerPoint's autofit factor for the slide; set by the converter. |
 | `code-description` | Two-column layout, code on the left and prose on the right. |
 | `small-code`, `tiny-code` | Reduce `--code-base-size` on a slide with a large code block. |

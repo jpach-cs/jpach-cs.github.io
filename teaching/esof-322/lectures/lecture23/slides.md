@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Software Engineering
 
@@ -20,7 +21,7 @@ title: "Software Engineering"
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # From The author of textbook
 
@@ -39,7 +40,7 @@ title: "Software Engineering"
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # UML Use case diagrams
 
@@ -144,7 +145,7 @@ Formal model describing complete interactions:
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # How to Create Use Case Diagrams (Step-by-Step)
 
@@ -174,7 +175,7 @@ Formal model describing complete interactions:
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Use cases in the Mentcare system involving the role ‘Medical Receptionist’
 
@@ -292,6 +293,6 @@ flowchart LR
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You!

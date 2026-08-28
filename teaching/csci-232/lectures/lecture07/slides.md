@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "Data Structures & Algorithms"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Data Structures &amp; Algorithms
 
@@ -26,7 +27,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Algorithm
 
@@ -35,7 +36,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Algorithm
 
@@ -43,7 +44,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Algorithm
 
@@ -55,7 +56,7 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Practical applications of algorithms:
 
@@ -72,7 +73,7 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Two characteristics that are common to many interesting algorithmic problems:
 
@@ -87,7 +88,7 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Hard problems
 
@@ -103,7 +104,7 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # NP vs P
 
@@ -113,7 +114,7 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # NP-complete example
 
@@ -125,7 +126,7 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # An algorithm can be represented in at least three ways:
 
@@ -140,7 +141,7 @@ An algorithm is said to be **correct** if, for every input instance, it halts wi
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Pseudocode resembles a programming language like Pascal\*
 
@@ -270,7 +271,7 @@ end;
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Advantages and Disadvantages of Flowchart Algorithm Representation
 
@@ -285,7 +286,7 @@ end;
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Advantages and Disadvantages of Bullet point description of Algorithm Representation
 
@@ -302,7 +303,7 @@ end;
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Advantages and Disadvantages of Pseudocode of Algorithm Representation
 
@@ -320,7 +321,7 @@ end;
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Bubble sort
 
@@ -328,7 +329,7 @@ Bubble sort is a simple sorting algorithm that works by repeatedly stepping thro
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # Bubble sort
 
@@ -348,7 +349,7 @@ Bubble sort is a simple sorting algorithm that works by repeatedly stepping thro
 
 ---
 
-<!-- _class: fit-40 -->
+<!-- _class: compact fit-40 -->
 
 # Bubble sort
 
@@ -469,6 +470,6 @@ void swap(int* xPointer, int* yPointer)
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You

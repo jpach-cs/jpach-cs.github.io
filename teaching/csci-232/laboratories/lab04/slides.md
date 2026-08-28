@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "Data Structures & Algorithms"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Data Structures &amp; Algorithms
 
@@ -18,7 +19,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # When working with linked lists in C, it’s important to follow a few key principles to avoid logical and memory-related errors.
 
@@ -33,7 +34,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # 1. Designing Pointer-Based Linked Lists
 
@@ -56,7 +57,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # 2. Passing by Reference vs Returning Head
 
@@ -117,7 +118,7 @@ free(p);
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # 5. Passing by Reference vs Returning Head
 
@@ -312,7 +313,7 @@ void printIntArrayBackward(int *arr, int N)
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # 11. Debugging Linked Lists in C
 
@@ -327,7 +328,7 @@ void printIntArrayBackward(int *arr, int N)
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # 12. Designing Functions for Linked Lists in C — Two Approaches
 
@@ -360,7 +361,7 @@ struct Node * insertAtBeginning(struct Node *head, struct Node *newNode)
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # 12. Designing Functions for Linked Lists in C — Two Approaches
 
@@ -733,6 +734,6 @@ int DeleteValue(struct Node **headPointer, int value)
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You

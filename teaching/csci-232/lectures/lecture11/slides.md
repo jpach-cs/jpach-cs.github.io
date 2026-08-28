@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "Data Structures & Algorithms"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Data Structures &amp; Algorithms
 
@@ -47,7 +48,7 @@ y is the **function value** -->
 
 ---
 
-<!-- _class: fit-40 -->
+<!-- _class: compact fit-40 -->
 
 # Logarithmic and Exponential Rules (The Fundamentals)
 
@@ -64,7 +65,7 @@ y is the **function value** -->
 
 ---
 
-<!-- _class: fit-40 -->
+<!-- _class: compact fit-40 -->
 
 # Examples
 
@@ -187,7 +188,7 @@ Four to the power n divided by two to the power 2n simplifies to two to the powe
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Asymptotic notation
 
@@ -197,7 +198,7 @@ Four to the power n divided by two to the power 2n simplifies to two to the powe
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Asymptotic notation
 
@@ -205,7 +206,7 @@ Four to the power n divided by two to the power 2n simplifies to two to the powe
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Asymptotic notation
 
@@ -326,7 +327,7 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Efficiency – an example.
 
@@ -336,7 +337,7 @@ A function f(n) belongs to the set Θ(g(n)) if there exist positive constants c1
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Efficiency – an example.
 
@@ -358,6 +359,6 @@ By using an algorithm whose running time grows more slowly, even with a poor com
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You

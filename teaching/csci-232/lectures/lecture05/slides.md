@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "Data Structures & Algorithms"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Data Structures &amp; Algorithms
 
@@ -27,7 +28,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # What are Unit Tests
 
@@ -49,7 +50,7 @@ When we write programs, we need a way to check if our code works correctly. Ther
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # What is an assert?
 
@@ -69,7 +70,7 @@ int divide(int a, int b)
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Word – 'assert'
 
@@ -81,7 +82,7 @@ Conceptually, it’s as if the programmer is saying: “I assert that x equals 1
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Word – 'assert'
 
@@ -114,7 +115,7 @@ C:>
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # What is Unity Test?
 
@@ -141,7 +142,7 @@ void test_addition(void)
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Error handling in C
 
@@ -175,7 +176,7 @@ int findElement(int arr[], int size, int target)
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Introduction to Unity Test Framework in C
 
@@ -189,7 +190,7 @@ When using Unity, every test file usually has three important parts:
 
 ---
 
-<!-- _class: fit-30 -->
+<!-- _class: compact fit-30 -->
 
 # Common Unity Assertions
 
@@ -210,7 +211,7 @@ Assertions are the heart of testing. They compare the expected result with the a
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Common Unity Assertions
 
@@ -223,7 +224,7 @@ Assertions are the heart of testing. They compare the expected result with the a
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Common Unity Assertions
 
@@ -236,7 +237,7 @@ Assertions are the heart of testing. They compare the expected result with the a
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Understanding setUp() and tearDown()
 
@@ -255,7 +256,7 @@ This makes every test independent, safe, and repeatable.
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # An Introduction to Forking on GitHub
 
@@ -267,7 +268,7 @@ Let's break down the fundamentals of forking on GitHub. This is one of the most 
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # An Introduction to Forking on GitHub
 
@@ -284,7 +285,7 @@ Once you have your copy (the fork), the next step is to bring it down to your lo
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # An Introduction to Forking on GitHub
 
@@ -309,7 +310,7 @@ git push origin main
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # An Introduction to Forking on GitHub
 
@@ -339,6 +340,6 @@ The steps are as follows:
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You

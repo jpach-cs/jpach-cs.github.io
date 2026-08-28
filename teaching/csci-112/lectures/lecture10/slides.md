@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 112<br><br>Programming with C
 
@@ -89,7 +90,7 @@ Sixth(index 5) element of array c equals 0.
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Summary - The \* operator works in **three different ways**
 
@@ -181,7 +182,7 @@ p               equals 6422296.
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Consequences
 
@@ -302,7 +303,7 @@ pointer[1] equals 5.
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # So, what does it mean?
 
@@ -371,7 +372,7 @@ x = 5, y = 7, z = 1
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # const keyword in Array
 
@@ -487,7 +488,7 @@ Length of [Hello world!] equals 12
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Comparing two pointers
 
@@ -526,7 +527,7 @@ Str1 and str2 point to the same string
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Comparing two pointers
 

@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Software Engineering
 
@@ -125,7 +126,7 @@ clean:
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Splitting a Project into Directories with Makefile
 
@@ -141,7 +142,7 @@ clean:
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Splitting a Project into Directories with Makefile
 
@@ -161,7 +162,7 @@ clean:
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Splitting a Project into Directories with Makefile
 
@@ -239,7 +240,7 @@ clean:
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # Adding a Dedicated inc/ Directory for Headers
 
@@ -286,7 +287,7 @@ clean:
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Make is extremely sensitive to spaces.
 
@@ -410,7 +411,7 @@ clean:
 
 ---
 
-<!-- _class: fit-40 -->
+<!-- _class: compact fit-40 -->
 
 # Adding a Dedicated bin/
 
@@ -461,6 +462,6 @@ clean:
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You!

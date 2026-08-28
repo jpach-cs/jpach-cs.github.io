@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 112<br><br>Programming with C
 
@@ -16,7 +17,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Outline
 
@@ -30,7 +31,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Some basic facts about the course
 
@@ -115,7 +116,7 @@ In the past, textbooks were the primary source of knowledge in higher education.
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # ANSI(C89) vs C99
 
@@ -124,7 +125,7 @@ In the past, textbooks were the primary source of knowledge in higher education.
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Syllabus<br>Class Rules
 
@@ -162,7 +163,7 @@ Each lab may include the following components: entrance quiz, assignment, and br
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Syllabus – Laboratory Rules
 
@@ -192,7 +193,7 @@ You are encouraged to work in teams and use many resources including books and t
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Syllabus<br>Declaration of authorship
 
@@ -231,7 +232,7 @@ Lecture & Laboratory:
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Meaning of words
 
@@ -302,7 +303,7 @@ Windows
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Conclusions
 
@@ -310,7 +311,7 @@ These doors and those doors serve their purpose, these windows and those windows
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Compiler vs Interpreter
 
@@ -340,7 +341,7 @@ Similarly, in music, we first learn to read sheet music, and only after masterin
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Positional notation <br>(place-value notation, positional numeral system)
 
@@ -453,7 +454,7 @@ So, we converted 123 to binary by successively checking which powers of 2 are pr
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Binary numeral system (Unsigned arithmetic)
 
@@ -588,7 +589,7 @@ printf("%s", string);
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Indentation & parentheses
 

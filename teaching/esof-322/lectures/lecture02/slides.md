@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Software Engineering
 
@@ -41,7 +42,7 @@ title: "Software Engineering"
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # 1. CVS – Concurrent Versions System (c. 1990–2008)
 
@@ -61,7 +62,7 @@ One of the first widely used version control systems.
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # 2. BitKeeper (2000–2018)
 
@@ -86,7 +87,7 @@ From 2002, it was **free for the Linux community** under a special license.
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # 3. The Birth of Git (2005)
 
@@ -118,7 +119,7 @@ After losing BitKeeper, Linus Torvalds set requirements for a new tool:
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # What is Git? (Simple Definition for Beginners)
 
@@ -191,7 +192,7 @@ In Agile development, where code changes often and quality can drop over time, G
 
 ---
 
-<!-- _class: long-title fit-50 -->
+<!-- _class: compact long-title fit-50 -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 1: Opening the Command Prompt - Example
 
@@ -227,7 +228,7 @@ C:\Users\Jacob>
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Differences in Command Prompt Messages Between Windows and Linux
 
@@ -255,7 +256,7 @@ Default message:
 
 ---
 
-<!-- _class: long-title fit-80 -->
+<!-- _class: compact long-title fit-80 -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management
 
@@ -275,7 +276,7 @@ Default message:
 
 ---
 
-<!-- _class: long-title fit-90 -->
+<!-- _class: compact long-title fit-90 -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management – Example(dir)
 
@@ -317,7 +318,7 @@ C:\Users\Jacob>
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 2: Basic Navigation and Directory Management – Example(cd/cd..)
 
@@ -426,7 +427,7 @@ C:\>
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 3: Text Manipulation and Output - Example
 
@@ -473,7 +474,7 @@ C:\Users\Jacob>
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 4: Hello, World! and Redirection - Example
 
@@ -498,7 +499,7 @@ Hello world!
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 5: Creating and Deleting Files and Directories
 
@@ -513,7 +514,7 @@ Hello world!
 
 ---
 
-<!-- _class: long-title fit-80 -->
+<!-- _class: compact long-title fit-80 -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 5: Creating and Deleting Files and Directories – Example(copies, deletes, makes)
 
@@ -590,7 +591,7 @@ C:\Users\Jacob\Folder>
 
 ---
 
-<!-- _class: long-title fit-80 -->
+<!-- _class: compact long-title fit-80 -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 6: Executing Compiled Programs – Example
 
@@ -652,7 +653,7 @@ rename                            mv
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 8: Basic Text Editing
 
@@ -666,7 +667,7 @@ rename                            mv
 **Note:** There are many other text editors available for both Windows and Linux.
 
 ---
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 8: Basic Text Editing
 
@@ -689,7 +690,7 @@ An IP address is like a unique mailing address for every device connected to the
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # Navigating the Command Line: Windows vs. Linux<br>Slide 9: IP address – How you can get your IP address.
 
@@ -842,7 +843,7 @@ Options:
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Why Git Works on Multiple Consoles in Windows
 
@@ -867,7 +868,7 @@ Regardless of which console you use, Git follows the Linux/Unix convention for 
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # You should see…
 
@@ -900,6 +901,6 @@ git config --global core.autocrlf true           # Handles line endings (importa
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You!

@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 112<br><br>Programming with C
 
@@ -406,7 +407,7 @@ Data storage in RAM in Windows systems follows the little-endian standard, which
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Introduction to dynamic memory allocation
 
@@ -647,7 +648,7 @@ an example value
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # malloc() – An array
 
@@ -698,7 +699,7 @@ Address of heapArray[2]:         06559352
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Summary
 
@@ -708,7 +709,7 @@ When a program that utilizes dynamically allocated memory crashes and fails to d
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # calloc()
 
@@ -813,7 +814,7 @@ What does realloc() return?
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Summary
 
@@ -823,7 +824,7 @@ When a program that utilizes dynamically allocated memory crashes and fails to d
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Memory fragmentation
 
@@ -838,7 +839,7 @@ Memory fragmentation is a problem that can occur when memory is repeatedly alloc
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Consequences of fragmentation
 
@@ -862,7 +863,7 @@ Memory fragmentation is a problem that can occur when memory is repeatedly alloc
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Standard C Library Overview
 
@@ -930,7 +931,7 @@ int main(void)
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # memcpy()– Copies n bytes from source to destination.
 
@@ -961,7 +962,7 @@ int main(void)
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # memmove()– Copies n bytes from source to destination, but safe!
 
@@ -992,7 +993,7 @@ int main(void)
 
 ---
 
-<!-- _class: fit-40 -->
+<!-- _class: compact fit-40 -->
 
 # memcmp()– Compares two memory blocks byte by byte.
 
@@ -1030,7 +1031,7 @@ Header: <string.h>
 
 ---
 
-<!-- _class: fit-40 -->
+<!-- _class: compact fit-40 -->
 
 # memcmp()– Compares two memory blocks byte by byte.
 

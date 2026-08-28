@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "Data Structures & Algorithms"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Data Structures &amp; Algorithms
 
@@ -22,7 +23,7 @@ title: "Data Structures & Algorithms"
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Some basic facts about the course
 
@@ -45,7 +46,7 @@ Other times by appointment
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Syllabus - Course Description
 
@@ -53,7 +54,7 @@ Operating on large collections of data is at the core of Computer Science. In th
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # …a few words
 
@@ -62,7 +63,7 @@ Operating on large collections of data is at the core of Computer Science. In th
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Syllabus - Textbook
 
@@ -76,7 +77,7 @@ Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein. Introd
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Syllabus - Grading
 
@@ -91,7 +92,7 @@ Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein. Introd
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Syllabus<br>Class Rules
 
@@ -104,7 +105,7 @@ Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein. Introd
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Syllabus<br>Declaration of authorship
 
@@ -112,7 +113,7 @@ Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein. Introd
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Syllabus<br>Comments
 
@@ -146,7 +147,7 @@ I acknowledge that I have worked on this assignment independently, except where 
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # IDE
 
@@ -168,6 +169,6 @@ I acknowledge that I have worked on this assignment independently, except where 
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You

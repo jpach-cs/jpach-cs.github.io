@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 112<br><br>Programming with C
 
@@ -31,7 +32,7 @@ title: "CSCI 112  Programming with C"
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Symbolic names will be used in:
 
@@ -57,7 +58,7 @@ int a[10];
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Arrays
 
@@ -113,7 +114,7 @@ Hello World
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Arrays
 
@@ -266,7 +267,7 @@ Operations on real numbers are recorded with only a certain degree of precision,
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # What is Casting?
 
@@ -285,7 +286,7 @@ The purpose:
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Explicit Casting
 
@@ -329,7 +330,7 @@ asterisk -->
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Implicit Casting
 
@@ -527,7 +528,7 @@ Use parentheses to override order of evaluation -->
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Increment (++) & decrement (--) operator & Assignment by sum
 

@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Software Engineering
 
@@ -49,7 +50,7 @@ This is my first GitHub Pages project.
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Setting Up GitHub Pages with Markdown
 
@@ -83,7 +84,7 @@ description: MarkDown
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Setting Up GitHub Pages with Markdown
 
@@ -156,7 +157,7 @@ After updating the changes in the \_config.yml and README.md files, GitHub’s s
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Core Markdown Features
 
@@ -191,7 +192,7 @@ the same level 5
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Core Markdown Features
 
@@ -273,7 +274,7 @@ Note: Markdown itself does not support cell merging; for that, you need to embed
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Core Markdown Features
 
@@ -301,6 +302,6 @@ def hello():
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You!

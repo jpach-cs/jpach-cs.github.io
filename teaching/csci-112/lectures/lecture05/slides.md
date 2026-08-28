@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSCI 112  Programming with C"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 112<br><br>Programming with C
 
@@ -189,7 +190,7 @@ FLT_MAX            = 3.402823e+038
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # putchar() & getche() without '\n'
 
@@ -222,7 +223,7 @@ aaBB
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # putchar() & getche()
 
@@ -301,7 +302,7 @@ int printf (char format[], arg1, arg2 ,...);
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # if-else statement
 
@@ -609,7 +610,7 @@ int main()
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Conclusions
 

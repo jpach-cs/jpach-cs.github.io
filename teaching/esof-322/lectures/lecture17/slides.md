@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Chapter 5 – System Modeling"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Chapter 5 – System Modeling
 
@@ -24,7 +25,7 @@ title: "Chapter 5 – System Modeling"
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Types of System Modeling
 
@@ -435,7 +436,7 @@ In a generalization, the attributes and operations associated with higher-level 
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Data flow diagrams
 
@@ -618,7 +619,7 @@ You may use a table to list the states and events that stimulate state transitio
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Model driven architecture
 
@@ -628,7 +629,7 @@ You may use a table to list the states and events that stimulate state transitio
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # but...
 
@@ -642,7 +643,7 @@ This means that from a model (e.g., UML, SysML, or another abstract system descr
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Types of model
 

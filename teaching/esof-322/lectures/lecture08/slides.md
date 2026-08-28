@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "ESOF 322 | Software Engineering | J. L. Pach"
 title: "Software Engineering"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # Software Engineering
 
@@ -27,7 +28,7 @@ Git
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Practical Scenario – Restoring a Broken File Locally
 
@@ -39,7 +40,7 @@ Git
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Practical Scenario – Restoring a Broken File Locally
 
@@ -54,7 +55,7 @@ git checkout <commit-id> -- path/to/file
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Practical Scenario – Restoring a Broken File Locally
 
@@ -68,7 +69,7 @@ git diff
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Practical Scenario – Restoring a Broken File Locally
 
@@ -79,7 +80,7 @@ git diff
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Practical Scenario – Restoring a Broken File Locally
 
@@ -108,7 +109,7 @@ git commit -m "Fix broken functionality in <file>"
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # When to Use git revert - Use Cases for git revert
 
@@ -169,7 +170,7 @@ A --- B --- C --- D --- C'
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Best Practices for Commits and Branching
 
@@ -188,7 +189,7 @@ A --- B --- C --- D --- C'
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # Consequences / Why It Matters
 
@@ -205,6 +206,6 @@ A --- B --- C --- D --- C'
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You!

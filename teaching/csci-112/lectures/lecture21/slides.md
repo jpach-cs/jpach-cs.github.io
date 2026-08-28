@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSSI112lec 21"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 112<br><br>Programming with C
 
@@ -142,7 +143,7 @@ Convert strings to numbers.
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Standard C Library Overview
 
@@ -226,7 +227,7 @@ Header: <stdlib.h>
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # But…
 
@@ -257,7 +258,7 @@ Header: <stdlib.h>
 ```
 
 ---
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # srand(unsigned int seed) – Sets the starting point (seed) for the pseudo-random generator.
 
@@ -353,7 +354,7 @@ Header: < stdlib.h>
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # atexit() – Registers a function to be called automatically when the program exits (via return or exit() — but NOT abort()).
 
@@ -437,7 +438,7 @@ In the example, we register three cleanup functions: one that closes a file, one
 During the program’s execution, we open a file and allocate memory. Even if something goes wrong and the program ends early using exit(), all the registered cleanup functions will still run. This guarantees that the file is properly closed and the memory is freed, no matter how the program exits.
 
 ---
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # system(const char command) – Executes a shell command as if typed in the terminal/console.
 
@@ -470,7 +471,7 @@ Header: < stdlib.h>
 
 ---
 
-<!-- _class: long-title fit-50 -->
+<!-- _class: compact long-title fit-50 -->
 
 # bsearch() – Binary search on a sorted array.<br>Returns pointer to the found element or NULL if not found.
 
@@ -522,7 +523,7 @@ Found 7 at index 4.
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # bsearch() – Binary search on a sorted array.<br>Returns pointer to the found element or NULL if not found.
 
@@ -557,7 +558,7 @@ Header: < stdlib.h>
 
 ---
 
-<!-- _class: long-title fit-50 -->
+<!-- _class: compact long-title fit-50 -->
 
 # qsort() – General-purpose quicksort provided by the standard library.<br>Sorts any array given element size and comparator.
 
@@ -628,7 +629,7 @@ Useful for debugging and safety.
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # assert() – tops the program immediately if the given expression evaluates to false.
 
@@ -656,7 +657,7 @@ Header: <assert.h>
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # \_\_FILE\_\_ and \_\_LINE\_\_ - These are built-in preprocessor macros that expand to the current source file name and current line number.
 

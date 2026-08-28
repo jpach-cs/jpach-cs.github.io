@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 232 | Algorithms & Data Structures | J. L. Pach"
 title: "CSCI 232  Data Structures & Algorithms"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 232 <br>Data Structures &amp; Algorithms
 
@@ -20,7 +21,7 @@ Dr. Jakub L. Pach
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # Analogy between the asymptotic comparison of two functions *f* and *g* and the comparison of two real numbers *a* and *b*
 
@@ -28,7 +29,7 @@ Dr. Jakub L. Pach
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # An ordered list of simple functions such that if a function f(n) precedes a function g(n) in the list, then f(n) is o(g(n)). Using common terminology, the function, logc n, for any c&gt;0, is also polylogarithmic, and the functions, n2 and n3, are also polynomial.
 
@@ -63,7 +64,7 @@ Dr. Jakub L. Pach
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # An ordered list of simple functions such that if a function f(n) precedes a function g(n) in the list, then f(n) is o(g(n)). Using common terminology, the function, logc n, for any c&gt;0, is also polylogarithmic, and the functions, n2 and n3, are also polynomial.
 
@@ -105,7 +106,7 @@ Dr. Jakub L. Pach
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # Maximum size of a problem that can be solved in one second, one minute, and one hour, for various running times measured in microseconds.
 
@@ -115,7 +116,7 @@ Dr. Jakub L. Pach
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # Increase in the maximum size of a problem that can be solved in a certain fixed amount of time, by using a computer that is 256 times faster than the previous one, for various running times of the algorithm. Each entry is given as a function of m, the previous maximum problem size.
 
@@ -133,7 +134,7 @@ Dr. Jakub L. Pach
 
 ---
 
-<!-- _class: long-title -->
+<!-- _class: compact long-title -->
 
 # An ordered list of simple functions such that if a function f(n) precedes a function g(n) in the list, then f(n) is o(g(n)). Using common terminology, the function, logc n, for any c&gt;0, is also polylogarithmic, and the functions, n2 and n3, are also polynomial.
 
@@ -147,6 +148,6 @@ Dr. Jakub L. Pach
 
 ---
 
-<!-- _class: caption-slide -->
+<!-- _class: compact caption-slide -->
 
 # Thank You

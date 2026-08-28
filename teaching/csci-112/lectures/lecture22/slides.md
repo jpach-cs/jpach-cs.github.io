@@ -2,11 +2,12 @@
 marp: true
 theme: pach
 paginate: true
+class: compact
 footer: "CSCI 112 | Programming with C | J. L. Pach"
 title: "CSSI112lec 22"
 ---
 
-<!-- _class: lead -->
+<!-- _class: compact lead -->
 
 # CSCI 112<br><br>Programming with C
 
@@ -169,7 +170,7 @@ Useful for debugging and safety.
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Standard C Library Overview
 
@@ -255,7 +256,7 @@ Now = 1763952307
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # time() Function and the Unix Epoch
 
@@ -283,7 +284,7 @@ Now = 1763952307
 
 ---
 
-<!-- _class: fit-90 -->
+<!-- _class: compact fit-90 -->
 
 # time() Function and the Unix Epoch
 
@@ -297,7 +298,7 @@ Why a Signed Number (signed) Was Used?
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Seconds alone tell you nothing about the calendar.
 
@@ -319,7 +320,7 @@ Now = 1763952307
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # localtime() – Converting Seconds Into a Calendar Structure.
 
@@ -366,7 +367,7 @@ int tm_isdst;
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # Why does struct tm store the year as *years since 1900*?
 
@@ -394,7 +395,7 @@ When the struct tm type was defined, the designers decided to:
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # struct tm
 
@@ -561,7 +562,7 @@ Expands to:
 
 ---
 
-<!-- _class: fit-50 -->
+<!-- _class: compact fit-50 -->
 
 # difftime() – Returns the difference between two time\_t values in seconds: t1 − t2.
 
@@ -757,7 +758,7 @@ For functions that accept a variable number of parameters.
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Variadic Functions (stdarg.h)
 
@@ -772,7 +773,7 @@ For functions that accept a variable number of parameters.
 
 ---
 
-<!-- _class: fit-70 -->
+<!-- _class: compact fit-70 -->
 
 # How variadic functions work in C
 
@@ -791,7 +792,7 @@ Therefore, the programmer must provide enough **context** for the function to de
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # The va\_list mechanism
 
@@ -812,7 +813,7 @@ Therefore, the programmer must provide enough **context** for the function to de
 
 ---
 
-<!-- _class: fit-80 -->
+<!-- _class: compact fit-80 -->
 
 # Variadic Functions - example
 
@@ -862,7 +863,7 @@ int sum_ints(int count, ...)
 
 ---
 
-<!-- _class: fit-60 -->
+<!-- _class: compact fit-60 -->
 
 # Variadic Functions - example
 
