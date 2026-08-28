@@ -58,8 +58,8 @@ TUTAJ WPISZ TO, CO CHCESZ POWIEDZIEĆ:
 
 <div class="justify lh-10">
 
-- **Definition:** Debugging is the process of identifying, analyzing, and removing errors (bugs) in source code.<br>
-![h:150](bug.jpg)
+- **Definition:** Debugging is the process of identifying, analyzing, and removing errors (bugs) in source code.
+  ![h:150](bug.jpg)
 - **Where does the name come from?** The term **bug** in computing was popularized by pioneer programmer Grace Hopper in 1947. While working on the Harvard Mark II computer, a literal moth was found stuck in an electromechanical relay. Although the term existed earlier in engineering, this event became a permanent legend in computer science.
 
 </div>

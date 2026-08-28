@@ -113,7 +113,7 @@ This course introduces the processes and practices of software engineering. Topi
 
 ##
 
-I defended my Master’s thesis in Computer Science in 2012. At that time, many of the key concepts in software engineering were already well established. I studied UML, design patterns, and used the very same textbook that we will be referencing in this course. However, since then, the field has changed dramatically. Tools like GIT and GitHub, JSON as a standard communication format, Visual Studio Code, makefiles, and many others have not only evolved but have become industry standards rather than curiosities.<br>
+I defended my Master’s thesis in Computer Science in 2012. At that time, many of the key concepts in software engineering were already well established. I studied UML, design patterns, and used the very same textbook that we will be referencing in this course. However, since then, the field has changed dramatically. Tools like GIT and GitHub, JSON as a standard communication format, Visual Studio Code, makefiles, and many others have not only evolved but have become industry standards rather than curiosities.
 When I took this course, it was taught in a very theoretical way. My lecturer had never worked in a software company, and Sommerville’s textbook—while a gold standard in the field—often felt too abstract and impractical. I personally remember the course as more of an obligation than an inspiration, with an overwhelming focus on UML without showing its real-world applications.
 
 </div>
@@ -126,8 +126,8 @@ When I took this course, it was taught in a very theoretical way. My lecturer ha
 
 ##
 
-That is why I want to approach this course differently. My goal is to make theory and practice complement each other. Sommerville discusses many important issues, but often at the level of a software engineer as a career role—positions that are usually reached after many years of experience, climbing from junior to senior developer and eventually to architect or engineer.<br>
-What you need right now are practical skills: working with tools, understanding and improving existing code, and adding functionality based on documentation rather than creating it from scratch. For this reason, we will put more emphasis on problem-solving than on dry theory.<br>
+That is why I want to approach this course differently. My goal is to make theory and practice complement each other. Sommerville discusses many important issues, but often at the level of a software engineer as a career role—positions that are usually reached after many years of experience, climbing from junior to senior developer and eventually to architect or engineer.
+What you need right now are practical skills: working with tools, understanding and improving existing code, and adding functionality based on documentation rather than creating it from scratch. For this reason, we will put more emphasis on problem-solving than on dry theory.
 My aim is to combine theory with practice—similar to how computer architecture is best understood: knowledge of registers and assembly language only makes sense when you truly understand how the x86 processor works.
 
 </div>
@@ -136,7 +136,7 @@ My aim is to combine theory with practice—similar to how computer architecture
 
 # Textbooks
 
-*Sommerville, I. (2016). Software engineering 10th Edition. ISBN-10, 1292096136 (Main)*
+*Sommerville, I. (2016). Software engineering 10th Edition. ISBN-10, 1292096136 (Main)*
 
 ---
 
@@ -200,8 +200,8 @@ My aim is to combine theory with practice—similar to how computer architecture
 - **Quizzes (25%)**:
   - Entrance Quizzes: Short quizzes (5-10 minutes) may be given at the beginning of some classes to assess understanding of the previous material.
   - Two Major Quizzes: 50-minute quizzes administered throughout the semester. Each student will have one opportunity to retake each quiz at the end of the semester.
-- **Assignments (75%)**: Regular, individual assignments will primarily be completed during class time;<br>
-The final grade will be calculated as a weighted average of the scores obtained in each component.\*\*
+- **Assignments (75%)**: Regular, individual assignments will primarily be completed during class time;
+  The final grade will be calculated as a weighted average of the scores obtained in each component.\*\*
 
 ---
 
@@ -342,7 +342,7 @@ or:
 
 <div class="justify lh-30">
 
-The purpose of this requirement is not to prohibit the use of external resources. Its purpose is to ensure that the origin of significant assistance is honestly acknowledged.<br>
+The purpose of this requirement is not to prohibit the use of external resources. Its purpose is to ensure that the origin of significant assistance is honestly acknowledged.
 Students are **not required to document ordinary searches or routine consultation of documentation** that do not materially contribute to the submitted work.
 
 </div>
@@ -367,7 +367,7 @@ Students are **not required to document ordinary searches or routine consultatio
 
 # Responsibility for Submitted Work
 
-The purpose of such a review is to establish that the student understands and is responsible for the submitted work.<br>
+The purpose of such a review is to establish that the student understands and is responsible for the submitted work.
 A student's inability to explain substantial portions of submitted work, particularly after reasonable questioning and clarification, may be considered as evidence when determining whether the work was genuinely authored by the student. Such evidence will be evaluated together with the other available evidence in accordance with the Montana Tech Student Code of Conduct.
 
 </div>
@@ -401,9 +401,9 @@ By submitting an assignment, the student declares that:
 
 # Canvas
 
-## Lecture & Laboratory:<br><br>
+## Lecture & Laboratory:
 
-### (74801) CSCI 446: Artificial Intelligence <br><br><br>
+### (74801) CSCI 446: Artificial Intelligence
 
 ## Check if you are registered for the course and have access to it!
 

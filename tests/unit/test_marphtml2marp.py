@@ -76,9 +76,26 @@ def test_inline_markup_round_trips():
     )
 
 
+def test_breaks_render_as_newlines_since_marp_sets_breaks_true():
+    '''A <br> in a paragraph or list item becomes a plain newline; each line is protected.'''
+    assert body_of(section('<p>a<br />- b</p>')) == 'a\n\\- b'
+    assert body_of(section('<ul><li>x<br />y line</li></ul>')) == '- x\n  y line'
+
+
+def test_breaks_stay_literal_where_markdown_cannot_hold_a_newline():
+    '''Headings and table cells keep a literal <br>.'''
+    assert body_of(section('<h1>Bit<br />Byte</h1>')) == '# Bit<br>Byte'
+
+
 def test_prose_is_escaped_so_markdown_does_not_reparse_it():
     '''Prose is escaped so markdown does not reparse it.'''
     assert body_of(section('<p>a * b _c_ `d` &lt;stdio.h&gt; [e]</p>')) == r'a \* b \_c\_ \`d\` \<stdio.h> \[e\]'
+
+
+def test_source_markup_newlines_are_spaces_not_breaks():
+    '''Source markup newlines are spaces, not breaks.'''
+    assert body_of(section('<p>a\n   b<br />\nc</p>')) == 'a b\nc'
+    assert body_of(section('<ul><li>x<br />\ny</li></ul>')) == '- x\n  y'
 
 
 def test_code_span_uses_a_longer_fence_than_its_content_and_drops_padding():
@@ -283,3 +300,19 @@ def test_main_honours_out_and_theme(tmp_path: Path):
 def test_heading_levels(tag: str):
     '''Heading levels.'''
     assert body_of(section(f'<{tag}>x</{tag}>')) == f'{"#" * int(tag[1])} x'
+
+
+def test_scoped_style_blocks_are_recovered():
+    '''Scoped style blocks are recovered.'''
+    markup = document(
+        '<style>div#p > section[data-marpit-scope-aBc] .columns{display:flex;gap:30px}'
+        'section[data-marpit-scope-aBc]{font-size:20px}'
+        'section[data-marpit-scope-aBc] div#p section.x{--marpit-root-font-size: 0.5em}'
+        'section[data-marpit-scope-other] .y{color:red}</style>'
+        + section('<h1>A</h1>', **{'data_marpit_scope_aBc': ''}) + section('<h1>B</h1>')
+    )
+    deck = m.recover_deck(markup)
+    assert m.render_slide(deck.slides[0]) == (
+        '<style scoped>\n.columns { display:flex; gap:30px }\nsection { font-size:20px }\n</style>\n\n# A'
+    )
+    assert deck.slides[1].style == ''

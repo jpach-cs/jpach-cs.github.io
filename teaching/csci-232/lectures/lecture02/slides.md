@@ -45,11 +45,11 @@ J. L. Pach
 
 <div class="card justify">
 
-One of the first widely used version control systems.<br>
+One of the first widely used version control systems.
 **Characteristics**:
 
-- Managed versions of individual files, not entire projects.
-- Centralized model – a single main repository.
+- Managed versions of individual files, not entire projects.
+- Centralized model – a single main repository.
 
 **Limitations**:
 
@@ -66,8 +66,8 @@ One of the first widely used version control systems.<br>
 
 <div class="card justify">
 
-A **commercial**, distributed version control system known for speed.<br>
-From 2002, it was **free for the Linux community** under a special license.
+A **commercial**, distributed version control system known for speed.
+From 2002, it was **free for the Linux community** under a special license.
 
 **Why it mattered:**
 
@@ -75,8 +75,8 @@ From 2002, it was **free for the Linux community** under a special license.
 
 **Crisis in 2005:**
 
-- Andrew Tridgell created a tool called SourcePuller by reverse-engineering BitKeeper’s protocol.
-- BitMover (Larry McVoy’s company) considered this a license violation and revoked free access.
+- Andrew Tridgell created a tool called SourcePuller by reverse-engineering BitKeeper’s protocol.
+- BitMover (Larry McVoy’s company) considered this a license violation and revoked free access.
 
 </div>
 
@@ -89,7 +89,7 @@ From 2002, it was **free for the Linux community** under a special license.
 **What happened next:**
 
 - In 2016, BitKeeper was open-sourced under the Apache 2.0 license.
-- Last release: 2018.
+- Last release: 2018.
 - Today, it’s practically abandoned—Git completely replaced it.
 
 </div>
@@ -103,8 +103,8 @@ From 2002, it was **free for the Linux community** under a special license.
 After losing BitKeeper, Linus Torvalds set requirements for a new tool:
 
 - **Free and open source.**
-- **Distributed** (every user has the full history).
-- **Extremely fast** (apply a patch in \<3 seconds).
+- **Distributed** (every user has the full history).
+- **Extremely fast** (apply a patch in \<3 seconds).
 - **Resilient to corruption.**
 
 **Timeline**:
@@ -123,8 +123,8 @@ After losing BitKeeper, Linus Torvalds set requirements for a new tool:
 The name **\*Git**\*:
 
 - *Global Information Tracker* (when it works well).
-- \*Goddamn Idiotic Truckload of \*\*\*\_\_ (when it doesn’t).<br>
-Officially: *the stupid content tracker.*
+- \*Goddamn Idiotic Truckload of \*\*\*\_\_ (when it doesn’t).
+  Officially: *the stupid content tracker.*
 
 </div>
 
@@ -185,7 +185,7 @@ But **Git** does more than that:
 
 <div class="card justify lh-20">
 
-- In Windows command-line environments such as Command Prompt (cmd) (and the more modern PowerShell), you typically run programs by typing their name, for example:
+- In Windows command-line environments such as Command Prompt (cmd) (and the more modern PowerShell), you typically run programs by typing their name, for example:
 
 `ping`
 
@@ -265,17 +265,22 @@ Since Git was originally developed to manage the Linux kernel and is open source
 
 ---
 
+<style scoped>
+table tbody td { padding:0!important }
+table { width:100%; margin:0.8em 0; font-size:26px }
+</style>
+
 # Why Git Works
 
 ## on Multiple Consoles in Windows
 
 <div class="card justify lh-10">
 
-Regardless of which console you use, Git follows the Linux/Unix convention for command-line options:
+Regardless of which console you use, Git follows the Linux/Unix convention for command-line options:
 
-- A single dash (-) for short, single-letter options (which can often be combined).
+- A single dash (-) for short, single-letter options (which can often be combined).
 
-- A double dash (--) for long, descriptive options (which cannot be combined).
+- A double dash (--) for long, descriptive options (which cannot be combined).
 
   | Console | Typical Use | Linux Commands Supported? |
   | --- | --- | --- |
@@ -401,12 +406,12 @@ Each line shows the status and the filename, making it ideal for fast reviews du
 
 <div class="card justify lh-10">
 
-- **Directory / Working Space**<br>
-This is where you actively edit files. Changes made here are not yet tracked by Git unless added to the staging area. It reflects your current work-in-progress.
-- **Staging Area**<br>
-Also known as the index (“checkpoint”), this is a preparation zone where you place changes that you intend to commit. It allows you to selectively group changes before saving them to the repository.
-- **Repository**<br>
-This is the permanent storage area where committed changes are saved. It contains the full history of your project and allows you to track, revert, or collaborate on code over time.
+- **Directory / Working Space**
+  This is where you actively edit files. Changes made here are not yet tracked by Git unless added to the staging area. It reflects your current work-in-progress.
+- **Staging Area**
+  Also known as the index (“checkpoint”), this is a preparation zone where you place changes that you intend to commit. It allows you to selectively group changes before saving them to the repository.
+- **Repository**
+  This is the permanent storage area where committed changes are saved. It contains the full history of your project and allows you to track, revert, or collaborate on code over time.
 
 </div>
 
@@ -448,7 +453,7 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-Git has detected a new file, `firsFile.txt`, but it is untracked, meaning it is not yet being monitored by Git, and  suggests using `git add <file>` to start tracking the file and include it in the next commit.  This is a typical state right after creating a new file in a freshly initialized repository.
+Git has detected a new file, `firsFile.txt`, but it is untracked, meaning it is not yet being monitored by Git, and suggests using `git add <file>` to start tracking the file and include it in the next commit. This is a typical state right after creating a new file in a freshly initialized repository.
 
 </div>
 
@@ -458,11 +463,11 @@ Git has detected a new file, `firsFile.txt`, but it is untracked, meaning it is 
 
 <div class="card justify lh-20">
 
-Git allows you to use patterns to add multiple files at once. Here’s what each one does: <br>
+Git allows you to use patterns to add multiple files at once. Here’s what each one does:
 
-- `git add *.*`   - Adds all files in the current directory that have a dot in their name - typically files with extensions (e.g., .txt, .js, .py). It won’t add files without extensions.
-- `git add *.txt`   - Adds only files with the .txt extension in the current directory. This is useful when you want to stage a specific type of file.
-- `git add .`   - Adds all changes in the current directory and subdirectories - including new, modified, and deleted files. This is the most comprehensive option and is commonly used when you're ready to stage everything.
+- `git add *.*` - Adds all files in the current directory that have a dot in their name - typically files with extensions (e.g., .txt, .js, .py). It won’t add files without extensions.
+- `git add *.txt` - Adds only files with the .txt extension in the current directory. This is useful when you want to stage a specific type of file.
+- `git add .` - Adds all changes in the current directory and subdirectories - including new, modified, and deleted files. This is the most comprehensive option and is commonly used when you're ready to stage everything.
 
 </div>
 
@@ -472,9 +477,9 @@ Git allows you to use patterns to add multiple files at once. Here’s what each
 
 <div class="card justify lh-20">
 
-Although Git offers graphical interfaces and many conveniences — including the ability to add multiple files at once using patterns like git add . — in practice, especially early in your Git journey (and even later as a professional), it's often safer to add files individually or in a carefully reviewed list.<br>
-**Why?**<br>
-Bulk adding (`git add .` or `git add *.txt`) can easily include unintended changes.<br>
+Although Git offers graphical interfaces and many conveniences — including the ability to add multiple files at once using patterns like git add . — in practice, especially early in your Git journey (and even later as a professional), it's often safer to add files individually or in a carefully reviewed list.
+**Why?**
+Bulk adding (`git add .` or `git add *.txt`) can easily include unintended changes.
 Mistakes in staging can lead to confusing commits or even bugs. While it's possible to revert to a previous commit, it’s more complex than simply taking a moment to review and add files intentionally.
 
 </div>
@@ -487,8 +492,6 @@ Mistakes in staging can lead to confusing commits or even bugs. While it's possi
 
 - When you run git commit, Git opens your default text editor (like Notepad or VSC) and waits for you to enter a commit message. This message should briefly describe the changes you’re saving to the repository.
 - The message is important because it becomes part of the project’s history and helps others (and your future self) understand what was changed and why.
-
-<br>
 
 ```powershell
 $ git commit
@@ -509,7 +512,7 @@ It’s important to be consistent in how you write commit messages. Two common s
 - **Past tense**: Fixed bug in login form. Added validation to email field. This is also acceptable, but less common in collaborative projects.
 - **Avoid progressive tense** (e.g., “fixing”, “adding”) because it suggests an ongoing action, not a completed change.
 
-Use short, clear messages in the present tense to describe what your commit does. This keeps the project history clean and easy to read. Choose one style and be consistent.
+Use short, clear messages in the present tense to describe what your commit does. This keeps the project history clean and easy to read. Choose one style and be consistent.
 
 </div>
 
@@ -650,7 +653,7 @@ Date:   Thu Aug 28 20:09:17 2025 -0600
 
 <div class="card justify lh-10">
 
-This version shows a condensed list of commits, with:
+This version shows a condensed list of commits, with:
 
 - A shortened commit hash
 - The first line of the commit message
@@ -674,7 +677,7 @@ Use git log when you need full context, and git log --oneline when you want a qu
 
 <div class="card justify lh-20">
 
-Be careful when removing files that have already been committed. If, for example, firstFile.txt is no longer needed in future commits, and you delete it manually from the repository folder, Git won’t automatically recognize this change.<br>
+Be careful when removing files that have already been committed. If, for example, firstFile.txt is no longer needed in future commits, and you delete it manually from the repository folder, Git won’t automatically recognize this change.
 To inform Git that the file was intentionally removed, you must add the deletion using: `git add firstFile.txt`
 
 - This may seem counterintuitive, but it tells Git: *I want this deletion to be part of the next commit.* Once committed, the file will no longer exist in the current branch.
@@ -689,9 +692,9 @@ To inform Git that the file was intentionally removed, you must add the deletion
 
 <div class="card justify lh-25">
 
-Of course, you can always restore the file by checking out a previous commit where it still existed.
+Of course, you can always restore the file by checking out a previous commit where it still existed.
 
-Git tracks changes — including deletions — only when you explicitly stage them.<br>
+Git tracks changes — including deletions — only when you explicitly stage them.
 Use git add even for removed files to make the change part of your commit history.
 
 </div>
@@ -749,7 +752,7 @@ git commit -am "Your commit message here"
 
 <div class="card justify lh-20">
 
-The `.gitignore` file tells Git which files or directories to ignore — meaning they won’t be tracked, staged, or committed to the repository.<br>
+The `.gitignore` file tells Git which files or directories to ignore — meaning they won’t be tracked, staged, or committed to the repository.
 This is useful for:
 
 - Temporary files (e.g., .log, .tmp)
@@ -826,8 +829,8 @@ A branch in Git is like a separate line of development. It allows you to work on
 <div class="card justify lh-20">
 
 - The command git branch shows a list of all branches in your repository. The currently active branch is marked with an asterisk (\*) `git branch new_branch`
-- When working with a repository that has multiple branches, we can switch between them using two different commands. This is because modern versions of Git introduced standardized naming conventions, but the older commands were kept to ensure backward compatibility and to avoid forcing experienced users to relearn everything from scratch.<br>
-`$ git switch second_branch` or `$ git checkout second_branch`
+- When working with a repository that has multiple branches, we can switch between them using two different commands. This is because modern versions of Git introduced standardized naming conventions, but the older commands were kept to ensure backward compatibility and to avoid forcing experienced users to relearn everything from scratch.
+  `$ git switch second_branch` or `$ git checkout second_branch`
 
 </div>
 

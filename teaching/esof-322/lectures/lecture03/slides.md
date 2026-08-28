@@ -59,7 +59,7 @@ J. L. Pach
 
 <div class="card justify lh-20">
 
-The `.gitignore` file tells Git which files or directories to ignore — meaning they won’t be tracked, staged, or committed to the repository.<br>
+The `.gitignore` file tells Git which files or directories to ignore — meaning they won’t be tracked, staged, or committed to the repository.
 This is useful for:
 
 - Temporary files (e.g., .log, .tmp)
@@ -136,8 +136,8 @@ A branch in Git is like a separate line of development. It allows you to work on
 <div class="card justify lh-20">
 
 - The command git branch shows a list of all branches in your repository. The currently active branch is marked with an asterisk (\*) `git branch new_branch`
-- When working with a repository that has multiple branches, we can switch between them using two different commands. This is because modern versions of Git introduced standardized naming conventions, but the older commands were kept to ensure backward compatibility and to avoid forcing experienced users to relearn everything from scratch.<br>
-`$ git switch second_branch` or `$ git checkout second_branch`
+- When working with a repository that has multiple branches, we can switch between them using two different commands. This is because modern versions of Git introduced standardized naming conventions, but the older commands were kept to ensure backward compatibility and to avoid forcing experienced users to relearn everything from scratch.
+  `$ git switch second_branch` or `$ git checkout second_branch`
 
 </div>
 

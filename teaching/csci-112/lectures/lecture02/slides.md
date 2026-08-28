@@ -62,6 +62,16 @@ J. L. Pach
 
 ---
 
+<style scoped>
+table tbody td { padding:0!important }
+table { width:100%; margin:0.2em 0; font-size:26px }
+.columns { display:flex; align-items:center; gap:30px }
+.column-left { flex:0 0 auto }
+.column-right { flex:1; font-size:0.52em; line-height:1.35 }
+.column-right p { margin-bottom:12px }
+.footer-summary { font-size:0.6em; margin-top:15px }
+</style>
+
 # Boolean logic
 
 <div class="columns">
@@ -70,10 +80,10 @@ J. L. Pach
 
 | **Symbol** | **Logical operation** | **Operator** | **Notation** |
 | --- | --- | --- | --- |
-| ![AND Gate](and.svg) | Conjunction <br>("product" of x and y) | AND | x ∧ y |
-| ![OR Gate](or.svg) | Disjunction<br>("sum") of x and y) | OR | x ∨ y |
+| ![AND Gate](and.svg) | Conjunction <br>("product" of x and y) | AND | x ∧ y |
+| ![OR Gate](or.svg) | Disjunction<br>("sum") of x and y) | OR | x ∨ y |
 | ![NOT Gate](not.svg) | Negation<br>("the opposite") | NOT | ¬x |
-| ![XOR Gate](xor.svg) | Exclusive OR | XOR | x ⊻ y |
+| ![XOR Gate](xor.svg) | Exclusive OR | XOR | x ⊻ y |
 
 </div>
 
@@ -85,11 +95,15 @@ J. L. Pach
 
 </div>
 
-<br>
-
 **\*Watch out!** The conjunction symbol ^ from logic is **XOR** in C, not AND!
 
 ---
+
+<style scoped>
+table { margin:0.2em 0; font-size:26px }
+.columns { align-items:center }
+.column-right { line-height:1.35 }
+</style>
 
 # AND gate
 
@@ -116,13 +130,19 @@ J. L. Pach
 
 ---
 
+<style scoped>
+table { margin:0.2em 0; font-size:26px }
+.columns { align-items:center }
+.column-right { line-height:1.35 }
+</style>
+
 # OR gate
 
 <div class="columns">
 
 <div class="column-left">
 
-| **x** | **y** | **x ∨ y** |
+| **x** | **y** | **x ∨ y** |
 | --- | --- | --- |
 | 0 | 0 | 0 |
 | 0 | 1 | 1 |
@@ -140,6 +160,12 @@ J. L. Pach
 </div>
 
 ---
+
+<style scoped>
+table { margin:0.2em 0; font-size:26px }
+.columns { align-items:center }
+.column-right { line-height:1.35 }
+</style>
 
 # NOT gate
 
@@ -164,13 +190,19 @@ J. L. Pach
 
 ---
 
+<style scoped>
+table { margin:0.2em 0; font-size:26px }
+.columns { align-items:center }
+.column-right { line-height:1.35 }
+</style>
+
 # XOR gate
 
 <div class="columns">
 
 <div class="column-left">
 
-| **x** | **y** | **x ⊻ y** |
+| **x** | **y** | **x ⊻ y** |
 | --- | --- | --- |
 | 0 | 0 | 0 |
 | 0 | 1 | 1 |
@@ -265,8 +297,6 @@ printf("%s", string);
 char string[12] = "Hello world";
 printf("%s", string);
 ```
-
-<br>
 
 <div class="justify lh-25">
 
@@ -382,7 +412,8 @@ int main()
 
 ![Montana Tech | TeenLife w:500](mtech.svg)
 
-- Address is an identifier <br>(**symbolic name**) of location
+- Address is an identifier
+  (**symbolic name**) of location
 - A place to locate what we refer to
 
 ---
@@ -415,8 +446,8 @@ int main()
 
 - **Variables**: Symbolic names will be used to identify and refer to data stored in variables. This allows for more meaningful and descriptive code compared to using arbitrary names or identifiers.
 - **Arrays**: Symbolic names will be used to identify collections of related data elements. Arrays can be used to store multiple values of the same data type.
-- **Functions**: Symbolic names will be used to identify and call functions within the program. This helps in  organizing and structuring the code, making it easier to understand and maintain.
-- **Labels**\*:    Symbolic names will be used to mark specific locations or points within the program code. These labels can be used for various purposes, such as control flow statements, data references, or error handling.
+- **Functions**: Symbolic names will be used to identify and call functions within the program. This helps in organizing and structuring the code, making it easier to understand and maintain.
+- **Labels**\*: Symbolic names will be used to mark specific locations or points within the program code. These labels can be used for various purposes, such as control flow statements, data references, or error handling.
 
 </div>
 
@@ -589,6 +620,11 @@ asterisk
 
 ---
 
+<style scoped>
+table tbody td { padding:0!important }
+table { width:80%; margin:0.6em 0; font-size:23px }
+</style>
+
 # Summary of memory size of data types
 
 | Type | Memory size in bytes / bits |
@@ -612,7 +648,7 @@ asterisk
 <div class="justify lh-25">
 
 - Variables
-- **Arrays**:     Symbolic names will be used to identify collections of related data elements. Arrays can be used to store multiple values of the same data type.
+- **Arrays**: Symbolic names will be used to identify collections of related data elements. Arrays can be used to store multiple values of the same data type.
 - Functions:
 - Labels
 
@@ -628,7 +664,7 @@ asterisk
 
 ---
 
-# Arrays  - reserves space in memory
+# Arrays - reserves space in memory
 
 ```c
 
@@ -746,12 +782,12 @@ int main()
 
 - Text preceded by `#` is a preprocessor section, the first line gives access to standard input and output functions, this is a header.
 - Next, we have the main function defined, which returns an integer value. The `{}` brackets start and end the body of the main function.
-- The `printf`<br>
-function<br>
-displays<br>
-the string<br>
-`Hello world`<br>
-on the console.
+- The `printf`
+  function
+  displays
+  the string
+  `Hello world`
+  on the console.
 
 <div class="result-box">
 
@@ -763,13 +799,13 @@ Result
 
 <div class="result-content">
 
-Hello World <br>
-    Hello World <br>
-    Hello World <br>
-    Hello World <br>
-    Hello World <br>
-    Hello World <br>
-    Hello World <br>
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
 
 </div>
 
@@ -805,7 +841,7 @@ Hello World <br>
 
 # Question
 
-## How do we know which letter goes with which number?<br><br>
+## How do we know which letter goes with which number?
 
 ```c
 int main()

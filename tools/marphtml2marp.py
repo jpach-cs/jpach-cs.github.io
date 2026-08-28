@@ -116,9 +116,22 @@ def parse_html(markup: str) -> Node:
     return builder.root
 
 
+def paragraph_lines(text: str) -> str:
+    '''
+    A paragraph's inline run as source lines. Marp renders with `breaks: true`, so
+    each newline here renders as one line break; every line is protected against
+    being misread as a block marker.
+    '''
+    return '\n'.join(protect_leading_marker(line.strip()) for line in text.strip().split('\n'))
+
+
 def escape_inline(text: str) -> str:
-    '''Escape prose so Markdown does not read emphasis, code, links, or HTML tags into it.'''
-    return text.translate(INLINE_ESCAPES)
+    '''
+    Escape prose so Markdown does not read emphasis, code, links, or HTML tags into it.
+    Whitespace runs collapse to one space, as HTML rendering does: a newline in the
+    source markup is formatting, not a break - `<br>` alone produces a break.
+    '''
+    return re.sub(r'\s+', ' ', text).translate(INLINE_ESCAPES)
 
 
 def code_span(text: str) -> str:
@@ -177,7 +190,7 @@ class MarkdownEmitter:
             'i': lambda n: f'*{self.inline(n.children)}*',
             'code': lambda n: code_span(n.text()),
             'a': lambda n: f'[{self.inline(n.children)}]({n.attrs.get("href", "")})',
-            'br': lambda _: '<br>',
+            'br': lambda _: '\n',
             'img': image_markdown,
             'mjx-container': self.math,
             'span': lambda n: self.inline(n.children),
@@ -215,15 +228,17 @@ class MarkdownEmitter:
         text = self.inline(run).strip()
         run.clear()
         if text:
-            rendered.append(protect_leading_marker(text))
+            rendered.append(paragraph_lines(text))
 
     def block(self, node: Node) -> str:
         '''Render one block element to Markdown.'''
         if node.tag[0] == 'h' and node.tag[1:].isdigit():
-            return f'{"#" * int(node.tag[1:])} {self.inline(node.children).strip()}'
+            # A heading is one source line, so a break inside it must stay literal.
+            text = self.inline(node.children).strip().replace('\n', '<br>')
+            return f'{"#" * int(node.tag[1:])} {text}'
         handler = {
             'footer': lambda _: '',
-            'p': lambda n: protect_leading_marker(self.inline(n.children).strip()),
+            'p': lambda n: paragraph_lines(self.inline(n.children)),
             'ul': self.list_block,
             'ol': self.list_block,
             'pre': self.code_block,
@@ -290,7 +305,8 @@ class MarkdownEmitter:
         for the item's first line, or the continuation indent after a nested block; a
         continuation with no text is dropped, a marker line is kept even when empty.
         '''
-        text = self.inline(run).strip()
+        cont = '\n' + ' ' * (len(lead) + (0 if lead.endswith(' ') else 1))
+        text = cont.join(line.strip() for line in self.inline(run).strip().split('\n'))
         run.clear()
         if lead.endswith(' '):
             return [f'{lead}{text}'] if text else []
@@ -311,7 +327,7 @@ class MarkdownEmitter:
     def table(self, node: Node) -> str:
         '''A `<table>` to a GFM pipe table; the first row is the header.'''
         rows = [
-            [self.inline(cell.children).strip().replace('|', '\\|') for cell in row.children
+            [self.inline(cell.children).strip().replace('|', '\\|').replace('\n', '<br>') for cell in row.children
              if isinstance(cell, Node) and cell.tag in ('th', 'td')]
             for row in node.find_all('tr')
         ]
@@ -332,6 +348,7 @@ class Slide:
     paginate: str
     body: str
     note: str = ''
+    style: str = ''
     warnings: list = field(default_factory=list)
 
 
@@ -349,6 +366,37 @@ def slide_sections(root: Node) -> list:
     '''The `<section>` elements that are slides: those carrying Marp's data attributes.'''
     return [section for section in root.find_all('section') if 'data-class' in section.attrs
             or 'data-paginate' in section.attrs or 'data-marpit-pagination' in section.attrs]
+
+
+def scoped_style(markup: str, section: Node) -> str:
+    '''
+    The `<style scoped>` block a slide carried, walked back from Marpit's scoping.
+    Marpit turns such a block into rules whose selectors carry the slide's unique
+    `data-marpit-scope-*` attribute; stripping everything through that attribute
+    gives back the author's selector. The `--marpit-root-font-size` helper rules
+    Marpit derives from em font sizes are its own, not the author's, and are skipped.
+    '''
+    scope = next((name[len('data-marpit-scope-'):] for name in section.attrs if name.startswith('data-marpit-scope-')), '')
+    if not scope:
+        return ''
+    # html.parser lowercases attribute names; the marker in the CSS keeps its case.
+    match = re.search(re.escape(f'data-marpit-scope-{scope}'), markup, re.IGNORECASE)
+    if match is None:
+        return ''
+    marker = f'[{match.group(0)}]'
+    rules: list = []
+    for selector_text, body in re.findall(r'([^{}]+)\{([^{}]*)\}', markup):
+        if marker not in selector_text or '--marpit-root-font-size' in body:
+            continue
+        parts = [part.split(marker)[-1].strip() or 'section' for part in selector_text.split(',') if marker in part]
+        declarations = '; '.join(part.strip() for part in body.split(';') if part.strip())
+        rule = f'{", ".join(dict.fromkeys(parts))} {{ {declarations} }}'
+        if rule not in rules:
+            rules.append(rule)
+    if not rules:
+        return ''
+    joined = '\n'.join(rules)
+    return f'<style scoped>\n{joined}\n</style>'
 
 
 def notes_by_index(root: Node) -> dict:
@@ -375,7 +423,7 @@ def recover_deck(markup: str) -> Deck:
         body = '\n\n'.join(emitter.blocks(section.children))
         classes = [name for name in section.attrs.get('data-class', '').split() if name not in THEME_OWNED_CLASSES]
         deck.slides.append(Slide(classes, section.attrs.get('data-paginate', ''), body, notes.get(index, ''),
-                                 emitter.warnings))
+                                 scoped_style(markup, section), emitter.warnings))
     return deck
 
 
@@ -398,6 +446,8 @@ def render_slide(slide: Slide) -> str:
         parts.append(f'<!-- _class: {" ".join(slide.classes)} -->')
     if slide.paginate == 'skip':
         parts.append('<!-- _paginate: skip -->')
+    if slide.style:
+        parts.append(slide.style)
     if slide.body:
         parts.append(slide.body)
     if slide.note:

@@ -42,8 +42,10 @@ HEADING_PATTERN = re.compile(r'^(#{1,6})\s')
 FENCE_PATTERN = re.compile(r'^(`{3,}|~{3,})')
 
 # Marp themes are shared files, never inlined per deck; a `style:` front-matter
-# key or an inline <style> block would fork the theme for one deck.
-INLINE_STYLE_PATTERN = re.compile(r'<style\b', re.IGNORECASE)
+# key or a bare <style> block would fork the theme for one deck. `<style scoped>`
+# is different: it styles exactly one slide, which is how the author sizes a
+# stubborn table or column, so it is allowed.
+INLINE_STYLE_PATTERN = re.compile(r'<style\b(?!\s+scoped)', re.IGNORECASE)
 
 
 def deck_slides(path: Path) -> list[str]:

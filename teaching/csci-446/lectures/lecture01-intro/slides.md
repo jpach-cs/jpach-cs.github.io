@@ -138,10 +138,10 @@ These are the core elements that underpin intelligent systems — before we even
 
 ![Book h:100](book.svg)
 
-**Required:** *Russell, S. J., & Norvig, P. (2021). Artificial Intelligence: A Modern Approach (4th ed.).<br>
+**Required:** *Russell, S. J., & Norvig, P. (2021). Artificial Intelligence: A Modern Approach (4th ed.).
 Pearson.*
 
-**Optional:** *Moroney, L. (2021). AI and Machine Learning for On-Device Development: A Programmer's<br>
+**Optional:** *Moroney, L. (2021). AI and Machine Learning for On-Device Development: A Programmer's
 Guide. " O'Reilly Media, Inc.*
 
 **Optional:** *Situnayake, D., & Plunkett, J. (2023). AI at the Edge. " O'Reilly Media, Inc.*
@@ -157,8 +157,8 @@ Guide. " O'Reilly Media, Inc.*
 - **Quizzes (25%)**:
   - Entrance Quizzes: Short quizzes (5-10 minutes) may be given at the beginning of some classes to assess understanding of the previous material.
   - Two Major Quizzes: 50-minute quizzes administered throughout the semester. Each student will have one opportunity to retake each quiz at the end of the semester.
-- **Assignments (75%)**: Regular, individual assignments will primarily be completed during class time;<br>
-The final grade will be calculated as a weighted average of the scores obtained in each component.\*\*
+- **Assignments (75%)**: Regular, individual assignments will primarily be completed during class time;
+  The final grade will be calculated as a weighted average of the scores obtained in each component.\*\*
 
 </div>
 
@@ -301,7 +301,7 @@ or:
 
 <div class="justify lh-30">
 
-The purpose of this requirement is not to prohibit the use of external resources. Its purpose is to ensure that the origin of significant assistance is honestly acknowledged.<br>
+The purpose of this requirement is not to prohibit the use of external resources. Its purpose is to ensure that the origin of significant assistance is honestly acknowledged.
 Students are **not required to document ordinary searches or routine consultation of documentation** that do not materially contribute to the submitted work.
 
 </div>
@@ -326,7 +326,7 @@ Students are **not required to document ordinary searches or routine consultatio
 
 # Responsibility for Submitted Work
 
-The purpose of such a review is to establish that the student understands and is responsible for the submitted work.<br>
+The purpose of such a review is to establish that the student understands and is responsible for the submitted work.
 A student's inability to explain substantial portions of submitted work, particularly after reasonable questioning and clarification, may be considered as evidence when determining whether the work was genuinely authored by the student. Such evidence will be evaluated together with the other available evidence in accordance with the Montana Tech Student Code of Conduct.
 
 </div>
@@ -360,9 +360,9 @@ By submitting an assignment, the student declares that:
 
 # Canvas
 
-## Lecture & Laboratory:<br><br>
+## Lecture & Laboratory:
 
-### (74801) CSCI 446: Artificial Intelligence <br><br><br>
+### (74801) CSCI 446: Artificial Intelligence
 
 ## Check if you are registered for the course and have access to it!
 

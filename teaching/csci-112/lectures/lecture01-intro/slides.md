@@ -144,7 +144,7 @@ This course provides a comprehensive introduction to structured programming usin
 
 <div>
 
-![Dennis M. Ritchie](richie.png)<br>
+![Dennis M. Ritchie](richie.png)
 Dennis M. Ritchie
 
 </div>
@@ -329,7 +329,7 @@ or:
 
 <div class="justify lh-30">
 
-The purpose of this requirement is not to prohibit the use of external resources. Its purpose is to ensure that the origin of significant assistance is honestly acknowledged.<br>
+The purpose of this requirement is not to prohibit the use of external resources. Its purpose is to ensure that the origin of significant assistance is honestly acknowledged.
 Students are **not required to document ordinary searches or routine consultation of documentation** that do not materially contribute to the submitted work.
 
 </div>
@@ -354,7 +354,7 @@ Students are **not required to document ordinary searches or routine consultatio
 
 # Responsibility for Submitted Work
 
-The purpose of such a review is to establish that the student understands and is responsible for the submitted work.<br>
+The purpose of such a review is to establish that the student understands and is responsible for the submitted work.
 A student's inability to explain substantial portions of submitted work, particularly after reasonable questioning and clarification, may be considered as evidence when determining whether the work was genuinely authored by the student. Such evidence will be evaluated together with the other available evidence in accordance with the Montana Tech Student Code of Conduct.
 
 </div>
@@ -388,9 +388,9 @@ By submitting an assignment, the student declares that:
 
 # Canvas
 
-## Lecture & Laboratory:<br><br>
+## Lecture & Laboratory:
 
-### (72494) CSCI 112 Sec 01 :Programming with C <br><br><br>
+### (72494) CSCI 112 Sec 01 :Programming with C
 
 ## Check if you are registered for the course and have access to it!
 
@@ -412,7 +412,7 @@ By submitting an assignment, the student declares that:
 
 <div class="justify lh-20">
 
-Sometimes, when we look at the same thing, we see entirely different things. Therefore, to avoid misunderstandings, I will spend a considerable amount of time clarifying the nuances associated with translating the meanings of the concepts we will be using in our classes. All the material presented in this course will be of practical use.<br>
+Sometimes, when we look at the same thing, we see entirely different things. Therefore, to avoid misunderstandings, I will spend a considerable amount of time clarifying the nuances associated with translating the meanings of the concepts we will be using in our classes. All the material presented in this course will be of practical use.
 ![6](6.png)
 
 </div>
@@ -461,7 +461,7 @@ Think of a compiler as a translator who translates an entire book from one langu
 
 <div class="justify lh-25">
 
-Similarly, in music, we first learn to read sheet music, and only after mastering the basics can we investigate  into the history and evolution of musical notation. In this course, we'll follow a similar approach. We'll start by learning how to write code in C, and we'll save the history of the C language for later, once you have gained significant experience. Then, we can explore the origins of certain language constructs.
+Similarly, in music, we first learn to read sheet music, and only after mastering the basics can we investigate into the history and evolution of musical notation. In this course, we'll follow a similar approach. We'll start by learning how to write code in C, and we'll save the history of the C language for later, once you have gained significant experience. Then, we can explore the origins of certain language constructs.
 
 </div>
 
@@ -529,11 +529,11 @@ Similarly, in music, we first learn to read sheet music, and only after masterin
 
 # Binary numeral system ![base](base.png)
 
-$A = \sum_{i=0}^{n-1} R_i \cdot d^i$
+$$A = \sum_{i=0}^{n-1} R^i \cdot d_i$$
 
-$\overset{\scriptstyle 2\ \ 1\ \ 0}{123}_{(10)} = (10^2 \cdot 1) + (10^1 \cdot 2) + (10^0 \cdot 3)$
+$$\overset{\scriptstyle 2\ \ 1\ \ 0}{123}_{(10)} = (10^2 \cdot 1) + (10^1 \cdot 2) + (10^0 \cdot 3)$$
 
-$\overset{\scriptstyle 7\ \ 6\ \ 5\ \ 4\ \ 3\ \ 2\ \ 1\ \ 0}{\mathtt{0\,1\,1\,1\,1\,0\,1\,1}}_{(2)} = (2^7 \cdot 0) + (2^6 \cdot 1) + (2^5 \cdot 1) + (2^4 \cdot 1) + (2^3 \cdot 1) + (2^2 \cdot 0) + (2^1 \cdot 1) + (2^0 \cdot 1) = 123_{(10)}$
+$$\overset{\scriptstyle 7\ \ 6\ \ 5\ \ 4\ \ 3\ \ 2\ \ 1\ \ 0}{\mathtt{0\,1\,1\,1\,1\,0\,1\,1}}_{(2)} = (2^7 \cdot 0) + (2^6 \cdot 1) + (2^5 \cdot 1) + (2^4 \cdot 1) + (2^3 \cdot 1) + (2^2 \cdot 0) + (2^1 \cdot 1) + (2^0 \cdot 1) = 123_{(10)}$$
 
 ---
 
@@ -587,6 +587,11 @@ $123_{10}$
 
 ---
 
+<style scoped>
+table tbody td { padding:0!important }
+table { width:100%; margin:0.8em 0; font-size:16px }
+</style>
+
 # Converting binary numbers to oct
 
 $1111011_2$
@@ -616,8 +621,8 @@ $1111011_2$
 
 </div>
 
-001.111.011	= 1.7.3<br>
-0111.1011	= 7.B
+001.111.011 = 1.7.3
+0111.1011 = 7.B
 
 </div>
 

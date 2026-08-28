@@ -224,7 +224,7 @@ or:
 
 <div class="justify lh-30">
 
-The purpose of this requirement is not to prohibit the use of external resources. Its purpose is to ensure that the origin of significant assistance is honestly acknowledged.<br>
+The purpose of this requirement is not to prohibit the use of external resources. Its purpose is to ensure that the origin of significant assistance is honestly acknowledged.
 Students are **not required to document ordinary searches or routine consultation of documentation** that do not materially contribute to the submitted work.
 
 </div>
@@ -249,7 +249,7 @@ Students are **not required to document ordinary searches or routine consultatio
 
 # Responsibility for Submitted Work
 
-The purpose of such a review is to establish that the student understands and is responsible for the submitted work.<br>
+The purpose of such a review is to establish that the student understands and is responsible for the submitted work.
 A student's inability to explain substantial portions of submitted work, particularly after reasonable questioning and clarification, may be considered as evidence when determining whether the work was genuinely authored by the student. Such evidence will be evaluated together with the other available evidence in accordance with the Montana Tech Student Code of Conduct.
 
 </div>
@@ -454,13 +454,13 @@ jacob@raspberrypi:~ $
 
 ### Windows:
 
-- **Cmd:** The most commonly used command to open the command prompt.<br>
-To obtain the username and device name, we use the whoami command.
+- **Cmd:** The most commonly used command to open the command prompt.
+  To obtain the username and device name, we use the whoami command.
 
 ### Linux:
 
-- **Terminal:** A generic term for the window where commands are typed.<br>
-To obtain the current directory path, we use the pwd command.
+- **Terminal:** A generic term for the window where commands are typed.
+  To obtain the current directory path, we use the pwd command.
 
 ### Notes:
 
@@ -495,9 +495,9 @@ To obtain the current directory path, we use the pwd command.
 
 ## Windows:
 
-- `dir`:	Lists files and directories in the current directory.
+- `dir`: Lists files and directories in the current directory.
 - `cd`: Changes the current directory.
-- `cd..`:	Moves up one directory level.
+- `cd..`: Moves up one directory level.
 
 </div>
 
@@ -505,9 +505,9 @@ To obtain the current directory path, we use the pwd command.
 
 ## Linux:
 
-- `ls`:	Lists files and directories in the current directory.
-- `cd`:	Changes the current directory.
-- `cd ..`:	Moves up one directory level.
+- `ls`: Lists files and directories in the current directory.
+- `cd`: Changes the current directory.
+- `cd ..`: Moves up one directory level.
 
 </div>
 
@@ -520,13 +520,13 @@ Notes:
 
 ---
 
-# Example 1 -  `dir`,`ls`
+# Example 1 - `dir`,`ls`
 
 <div class="columns">
 
 <div class="card">
 
-`dir`:	Lists files and directories in the current directory.
+`dir`: Lists files and directories in the current directory.
 
 ```powershell
 C:\Users\Jacob>dir
@@ -549,7 +549,7 @@ C:\Users\Jacob>
 
 <div class="card">
 
-`ls`:	Lists files and directories in the current directory.
+`ls`: Lists files and directories in the current directory.
 
 ```bash
 jacob@raspberrypi:~ $ ls
@@ -569,7 +569,7 @@ jacob@raspberrypi:~ $
 
 ---
 
-# Example 2 -  `cd`, `cd..`
+# Example 2 - `cd`, `cd..`
 
 <div class="columns">
 
@@ -577,8 +577,8 @@ jacob@raspberrypi:~ $
 
 ## Windows
 
-- `cd`:	Changes the current directory.
-- `cd..`:	Moves up one directory level.
+- `cd`: Changes the current directory.
+- `cd..`: Moves up one directory level.
 
 ```powershell
 C:\Users\Jacob>cd Desktop
@@ -595,8 +595,8 @@ C:\>
 
 ## Linux
 
-- `cd`:	Changes the current directory.
-- `cd ..`:	Moves up one directory level.
+- `cd`: Changes the current directory.
+- `cd ..`: Moves up one directory level.
 
 ```bash
 jacob@raspberrypi:~ $ cd Desktop
@@ -729,15 +729,15 @@ Hello world
 
 ## Windows:
 
-`copy`:	Copies files.<br>
-`del`:	Deletes files.<br>
-`md`:	Makes a new directory.
+`copy`: Copies files.
+`del`: Deletes files.
+`md`: Makes a new directory.
 
 ## Linux:
 
-`cp`:	Copies files.<br>
-`rm`:	Removes files or directories.<br>
-`mkdir`:	Makes a new directory.
+`cp`: Copies files.
+`rm`: Removes files or directories.
+`mkdir`: Makes a new directory.
 
 ---
 
@@ -1026,7 +1026,7 @@ jacob@raspberrypi:~
 
 <div class="justify lh-15">
 
-Turning source code into a running program happens in two distinct steps:<br>
+Turning source code into a running program happens in two distinct steps:
 **Stage 1**: Compilation (.c $\rightarrow$ .o)
 
 - **What it does**: Translates your C source code into machine code (binary instructions for the CPU).
@@ -1066,6 +1066,14 @@ Turning source code into a running program happens in two distinct steps:<br>
 </div>
 
 ---
+
+<style scoped>
+.columns { display:flex; align-items:center; gap:30px }
+.column-left { flex:0 0 auto }
+.column-right { flex:1; font-size:0.52em; line-height:1.35 }
+.column-right p { margin-bottom:12px }
+.footer-summary { font-size:0.6em; margin-top:15px }
+</style>
 
 <div>
 
@@ -1108,8 +1116,8 @@ Turning source code into a running program happens in two distinct steps:<br>
 
 # Practical exercise - Compilation
 
-1. Create a new folder in your desktop.     ⏱ Time limit: 5 minutes
-2. Create a file named main.c inside it and fill it with the simplest possible code:
+1. Create a new folder in your desktop. ⏱ Time limit: 5 minutes
+2. Create a file named main.c inside it and fill it with the simplest possible code:
 
 ```c
 // main.c
@@ -1121,8 +1129,8 @@ int main()
 }
 ```
 
-1. Compile `main.c` with `cmd` into an object file `main.o`:<br>
-`gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o`
+1. Compile `main.c` with `cmd` into an object file `main.o`:
+   `gcc -g -Wall -std=c99 -pedantic -c main.c -o main.o`
 2. Link the object file `main.o` into an executable `main.exe`: `gcc -g main.o -o main.exe`
 
 ---
@@ -1170,12 +1178,12 @@ int main()
 
 # Behind the Magic: IDE vs. Manual Control
 
-- **Full Visual Studio**:<br>
-Hides complexity. Project types, targets, output folders, and dependencies are "clicked" into existence automatically.
-- **The Programmer's Reality**:<br>
-A professional must understand the underlying mechanics: a source file (`.c`) and a compiler (`gcc.exe`).
-- **VS Code**:<br>
-By default, it's just a text editor. To turn it into an **IDE** that compiles, runs, and debugs step-by-step, we need explicit configuration rules.
+- **Full Visual Studio**:
+  Hides complexity. Project types, targets, output folders, and dependencies are "clicked" into existence automatically.
+- **The Programmer's Reality**:
+  A professional must understand the underlying mechanics: a source file (`.c`) and a compiler (`gcc.exe`).
+- **VS Code**:
+  By default, it's just a text editor. To turn it into an **IDE** that compiles, runs, and debugs step-by-step, we need explicit configuration rules.
 
 The `.vscode folder`: Stores these rules in a specific format (JSON). For now, we will use ready-made templates — **we'll break them down piece by piece in upcoming weeks!**
 
