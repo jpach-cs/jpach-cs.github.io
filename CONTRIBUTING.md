@@ -179,31 +179,23 @@ Every deck directory under `teaching/` is in exactly one of two states:
   (`.gitignore` can't express "ignore this file only in directories that
   also have a `slides.md`"), so nothing stops `git add` from picking one up
   by accident - check `git status` before committing a deck.
-- **Committed legacy (no source yet)**: just `index.html` and `index.pdf`,
-  with no `slides.md`. The markdown source for these was never written -
-  only the rendered output exists. These 15 directories are still in this
-  state:
+- **Committed legacy (no source)**: just `index.html`, with no `slides.md`.
+  Three directories are in this state, and they are not slide decks: the
+  `assignments/ass01` page under `csci-112`, `csci-446` and `esof-322` is one
+  pandoc-rendered document (9 KB, titled "112ass01") committed three times.
+  Its markdown source was never committed.
 
-  - `csci-112/assignments/ass01`
-  - `csci-112/laboratories/lab01`
-  - `csci-112/laboratories/lab02`
-  - `csci-112/lectures/lecture01-intro`
-  - `csci-232/lectures/lecture01-intro`
-  - `csci-232/lectures/lecture02`
-  - `csci-446/assignments/ass01`
-  - `csci-446/laboratories/lab01`
-  - `csci-446/laboratories/lab02`
-  - `csci-446/lectures/lecture01-intro`
-  - `csci-446/lectures/lecture02`
-  - `esof-322/assignments/ass01`
-  - `esof-322/laboratories/lab01`
-  - `esof-322/laboratories/lab02`
-  - `esof-322/lectures/lecture01-intro`
-
-  Migrating one of these means reconstructing its markdown from the rendered
-  output (lossy - speaker intent, incremental builds, and any authoring
-  shortcuts are gone), not a mechanical move. Until someone does that for a
-  given directory, leave its `index.html`/`index.pdf` alone and committed.
+  Every other deck that used to be committed as rendered output has been
+  walked back to `slides.md` with `tools/marphtml2marp.py`. marp-cli's HTML
+  keeps the whole source: each `<section>` holds the slide's rendered markdown
+  and `data-*` attributes for the directives that applied to it, and the
+  speaker notes sit in `bespoke-marp-note` blocks. The recovery is exact for
+  text, code, tables, images and directives; only MathJax output loses its
+  TeX (the tool recovers the glyphs and warns, and the slide gets a hand
+  pass). Upstream's publishing automation still pushes `index.html` and
+  `index.pdf` for decks whose source lives only on the author's machine; when
+  one of those lands beside a `slides.md`, run the recovery tool on it, compare
+  the two, and keep whichever is newer as the source.
 
   This repository is `jpach-cs.github.io` - native GitHub Pages runs Jekyll
   only and does not run this repo's Dockerfile or Marp, so it can't render a

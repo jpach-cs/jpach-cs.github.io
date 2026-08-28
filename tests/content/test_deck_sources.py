@@ -32,6 +32,10 @@ MARP_TRUE_PATTERN = re.compile(r'^marp:\s*true\s*$', re.MULTILINE)
 # starts at the opening paren, so multi-line alt text ahead of it (common in
 # decks converted from PowerPoint) does not confuse it.
 ASSET_REFERENCE_PATTERN = re.compile(r'\(assets/([^)\s]+)\)')
+# Any image a deck references by a path relative to its own directory: `![...](x.svg)`
+# for the hand-authored decks, `![...](assets/x.png)` for the converted ones. Marp
+# alt text may carry size keywords, so the alt part is matched loosely.
+IMAGE_REFERENCE_PATTERN = re.compile(r'!\[[^\]]*\]\(([^)\s]+)\)')
 
 
 def discover_deck_sources() -> list[Path]:
@@ -65,11 +69,11 @@ def test_slides_have_marp_front_matter(slides_path: Path) -> None:
 
 @pytest.mark.parametrize('slides_path', DECK_SOURCES, ids=DECK_SOURCE_IDS)
 def test_referenced_assets_exist(slides_path: Path) -> None:
-    '''Every `assets/...` image a deck references must exist next to its source.'''
+    '''Every image a deck references by a relative path must exist next to its source.'''
     text = slides_path.read_text(encoding='utf-8')
     missing = sorted({
-        rel for rel in ASSET_REFERENCE_PATTERN.findall(text)
-        if not (slides_path.parent / 'assets' / rel).is_file()
+        rel for rel in IMAGE_REFERENCE_PATTERN.findall(text)
+        if '://' not in rel and not (slides_path.parent / rel).is_file()
     })
     assert not missing, (
         f'{slides_path.relative_to(TEACHING_ROOT)} references missing asset(s): '

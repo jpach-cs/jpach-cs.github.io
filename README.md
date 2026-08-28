@@ -50,6 +50,7 @@ check `git status` before staging a deck.
 | `_includes/deck-lists.html` | Renders the catalog onto a course page |
 | `assets/marp/theme.css` | The single shared Marp theme (`pach`) |
 | `tools/pptx2marp.py` | Converts a PowerPoint `.pptx` to Marp markdown, standard library only |
+| `tools/marphtml2marp.py` | Recovers `slides.md` from a marp-cli `index.html` render, standard library only |
 | `tools/render-decks.sh` | Renders every deck; run inside the marp-cli image by `docker compose` |
 | `tests/` | Unit, content-integrity, and end-to-end suites; see `tests/README.md` |
 | `.github/workflows/ci.yml` | Lint, test, build, and deploy to GitHub Pages |
@@ -77,6 +78,20 @@ contains equations as PowerPoint's own rendering of it. Read the result:
 PowerPoint carries no notion of "this text box is code" or "this shape is a
 section divider", so some slides need a hand pass. `CONTRIBUTING.md` lists the
 artifact classes that have come up and how each was handled.
+
+### Recovering a deck from its render
+
+```sh
+python3 tools/marphtml2marp.py teaching/esof-322/lectures/lecture03/index.html
+```
+
+For a deck that exists only as marp-cli's rendered `index.html` (the form
+upstream's automation publishes), this writes `slides.md` beside it: the slide
+markdown, the per-slide `_class`/`_paginate` directives, the footer and
+background colour, and the speaker notes as HTML comments. It warns on any
+MathJax expression, whose TeX is not recoverable from the render and must be
+retyped. Then delete the `index.html`/`index.pdf`, catalogue the deck as
+`source: slides`, and render it to check.
 
 ## Tests and linters
 

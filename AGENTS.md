@@ -84,6 +84,11 @@ browser; use it, or a Selenium script, to measure rather than assume.
 - Stage files by name. `git status` before committing a deck: the rendered
   `index.html` sits next to `slides.md` and is not gitignored.
 - Commit generated output never; commit `slides.md` and its `assets/`.
+- Upstream's automation commits rendered `index.html`/`index.pdf` for decks
+  authored on the professor's machine. When syncing, do not keep both a
+  `slides.md` and his render for one deck: recover his render with
+  `tools/marphtml2marp.py`, diff it against the existing source, keep the
+  newer content as `slides.md`, and drop the render.
 - No emoji anywhere in the repository. No lint suppressions; if a rule is wrong
   for a whole file type, change the configuration file and say why.
 

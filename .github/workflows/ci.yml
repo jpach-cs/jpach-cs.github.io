@@ -118,7 +118,6 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
           cache: pip
           cache-dependency-path: tests/requirements.txt
-      - run: sudo apt-get update && sudo apt-get install -y poppler-utils
       - run: pip install -r tests/requirements.txt
       - run: python3 -m pytest tests/content -v
 

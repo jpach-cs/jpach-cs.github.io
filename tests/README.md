@@ -26,7 +26,6 @@ tests/
   content/                  Layer 1 -- content integrity, no Docker
     repo.py                 finds the repo root, no hardcoded paths
     course_codes.py         "csci-232" <-> "CSCI 232" normalization
-    pdf_text.py             pdftotext wrapper, skips gracefully if missing
     link_resolver.py        resolves a Jekyll relative_url link to a source file
     test_pdf_integrity.py       (a) every PDF is a real PDF
     test_deck_branding.py       (b) lecture decks branded for their own course
@@ -63,8 +62,7 @@ exercising (grouped shapes, SmartArt, linked images, malformed rels, ...).
 
 ## Layer 1: content integrity (fast, no Docker)
 
-Pure Python plus one external binary (`pdftotext`, from poppler-utils) for the
-checks that need to read PDF text. Nothing here touches the network or Docker.
+Pure Python, no external binaries. Nothing here touches the network or Docker.
 This is the fastest feedback loop and should run on every commit.
 
 ### Run it
@@ -78,30 +76,16 @@ No `cd` required and no absolute paths anywhere -- `tests/content/repo.py`
 finds the repo root by walking up from itself looking for `_config.yml`, so
 this works from any checkout location, including a CI runner's workspace.
 
-`pdftotext` is a system package, not a pip package:
-
-```bash
-# Debian/Ubuntu (GitHub Actions ubuntu-latest runners):
-sudo apt-get update && sudo apt-get install -y poppler-utils
-
-# macOS:
-brew install poppler
-```
-
-If it is not installed, `test_deck_branding.py`'s two tests are **skipped**
-(not failed, not erroring) with a message saying so. `test_pdf_integrity.py`
-and `test_index_links.py` do not need it at all.
-
 ### What each check does, and what it finds today
 
 | Check | File | Finds today |
 | --- | --- | --- |
 | (a) Every PDF is really a PDF (magic bytes `%PDF-` + minimum size) | `test_pdf_integrity.py` | See below |
-| (b) Lecture decks are branded for their own course | `test_deck_branding.py` | See below |
-| (c) No placeholder "??" outline | `test_deck_branding.py` | See below |
+| (b) Lecture decks are branded for their own course | `test_deck_branding.py` | Passes |
+| (c) No placeholder "??" outline | `test_deck_branding.py` | Passes |
 | (d) Every local link in `teaching/**/index.md` resolves | `test_index_links.py` | **Fails** -- see below |
 | (j) Every `teaching/**/slides.md` opens with `marp: true` front matter | `test_deck_sources.py` | Passes |
-| (k) Every `assets/...` a `slides.md` references exists | `test_deck_sources.py` | Passes |
+| (k) Every image a `slides.md` references exists beside it | `test_deck_sources.py` | **Fails** -- see below |
 | (l) No directory has both a `slides.md` source and a committed `index.html` | `test_deck_sources.py` | Passes |
 | bonus: syllabus/schedule markdown branding | `test_markdown_branding.py` | See below |
 
@@ -109,19 +93,21 @@ Detail on each row above, keyed by check letter:
 
 * **(a)** `teaching/csci-232/assignments/ass01/index.pdf` is 6 bytes (a UTF-16LE
   BOM + CRLF), not a PDF at all.
-* **(b)** `teaching/csci-232/lectures/lecture02/index.pdf` and
-  `teaching/csci-446/lectures/lecture02/index.pdf` both say "CSCI 112 /
-  Programming with C".
-* **(c)** The same two lecture02 decks have an "OUTLINE:" section that is
-  literally "??".
+* **(b)**, **(c)** Both passed once the lecture02 decks were re-authored
+  upstream; they used to catch two decks branded "CSCI 112" under other
+  courses, each with an "OUTLINE:" of literally "??".
 * **(d)** 213 broken links today (missing Lecture/Lab 03-15 content across all
   four courses) -- see "Broken links are asserted, not allowlisted" below.
+* **(k)** `csci-446/laboratories/lab01`, `csci-446/laboratories/lab02` and
+  `csci-446/lectures/lecture02` were copied into CSCI 446 without their
+  figures: 26 SVG/JPEG files those decks reference do not exist in the
+  directory, so every one of those images is broken on the live site.
 * **bonus** `csci-446/schedule.md` and `esof-322/schedule.md` both read
   "Course Schedule — CSCI 232" (copy-pasted, never updated); `esof-322/
   syllabus.md`'s back-link points at `/teaching/csci-446/`.
 
 The course-code check in (b) is scoped to **lecture decks only**
-(`teaching/*/lectures/*/index.pdf`), not labs or assignments. The Git,
+(`teaching/*/lectures/*/slides.md`), not labs or assignments. The Git,
 debugging, and command-line labs are intentionally reused verbatim across all
 four courses and keep their original "CSCI 112" branding by design -- that is
 shared boilerplate, not a mislabel. Lecture decks are expected to be
@@ -131,7 +117,7 @@ in a shared lab is not.
 `test_markdown_branding.py` was not in the original spec for this suite. It
 exists because the same class of bug (copy-paste branding mismatch) showed up
 in markdown pages while exploring the site for the E2E layer, and it is exactly
-as cheap to catch with a regex over a markdown heading as it is over PDF text.
+as cheap to catch with a regex over a markdown heading as over a deck footer.
 It is kept in its own file so it is clear it is additional coverage.
 
 ### Broken links are asserted, not allowlisted (check d)
@@ -278,7 +264,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
-      - run: sudo apt-get update && sudo apt-get install -y poppler-utils
       - run: pip install -r tests/requirements.txt
       - run: python3 -m pytest tests/content -v
 
