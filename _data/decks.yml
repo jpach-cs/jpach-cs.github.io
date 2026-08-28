@@ -45,8 +45,8 @@ courses:
         source: slides
       - dir: lecture02
         label: Lecture 02
-        title: Binary and Octal Notation, the IDE, and Hello World
-        source: slides
+        title: Boolean Logic, ASCII, Variables, Arrays, and Pointers
+        source: legacy
       - dir: lecture03
         label: Lecture 03
         title: Operators, Statements, Expressions, and Blocks
@@ -271,8 +271,8 @@ courses:
         source: slides
       - dir: lecture03
         label: Lecture 03
-        title: "Git Basics: init, status, add, commit, log, and branch"
-        source: slides
+        title: ".gitignore, Branches, Merging, git diff, and git stash"
+        source: legacy
       - dir: lecture04
         label: Lecture 04
         title: Class Canceled - Guided Git Video Tutorial
