@@ -14,6 +14,17 @@ Welcome to my academic courses portal. Below you can find the active courses for
 * **Office Location:** MUS 103
 * **Office Hours:** Monday, Wednesday, Thursday 08:00 – 09:00 a.m. (Other times by appointment)
 
+## TA
+
+* **James Stroebe**
+  * **Where:** MUS 101 building 
+  * **Dates:**
+    *  Monday 12-2 pm
+    *  Tuesday 2.30-5pm
+    *  Wednesday 12-3pm
+    *  Thursday 2.30-5pm
+    *  Friday 12-5pm
+
 ## Active Courses (Fall 2026)
 
 ### 1. [CSCI 112 — Programming with C]({{ '/teaching/csci-112/' | relative_url }})
