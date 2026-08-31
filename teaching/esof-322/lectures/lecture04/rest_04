@@ -1,0 +1,380 @@
+---
+
+<!-- _class: caption-slide -->
+<!-- _paginate: skip -->
+
+# Part 4
+## Advanced Features
+
+---
+
+### Slide 21 — Detached HEAD in Worktrees ⭐
+
+```bash
+# Specific commit SHA
+git worktree add --detach ./review-v1 a1b2c3d4
+git worktree add -d ./review-v1 a1b2c3d4
+
+# Version tag
+git worktree add -d ./review-v2.0 v2.0.0
+
+# 3 commits before HEAD
+git worktree add -d ./review-previous HEAD~3
+```
+
+```
+/path/portfolio/main           abc1234  [main]
+/path/portfolio/review-v2.0    def5678  (detached HEAD)
+```
+
+**Use cases:**
+- Review old code without affecting any branch
+- Run tests against a specific released version
+- Debug regressions side-by-side
+
+> ⚠️ Avoid committing from detached HEAD — commits not on any branch
+> can be lost during garbage collection.
+> If needed: `git switch -c my-branch`
+
+---
+
+### Slide 22 — --orphan Flag ⭐
+
+```bash
+git worktree add --orphan gh-pages ./docs-site
+
+cd ./docs-site
+# On branch gh-pages — No commits yet
+
+echo "<!DOCTYPE html><html><body>Docs</body></html>" > index.html
+git add .
+git commit -m "initial: gh-pages setup"
+git push origin gh-pages
+```
+
+**Use cases:**
+- GitHub Pages (`gh-pages`) — no relation to source code
+- `wiki` branch separate from application code
+- Legal / license content maintained independently
+
+> ℹ️ `--orphan` in `git worktree add` introduced in **Git 2.36** (April 2022).
+> On older versions: `git checkout --orphan <branch>` first, then reference it.
+
+---
+
+### Slide 23 — --no-checkout ⭐
+
+```bash
+# Empty worktree directory
+git worktree add -n -b feature-sparse ./sparse-wt main
+
+# With sparse checkout:
+cd ./sparse-wt
+git sparse-checkout init --cone
+git sparse-checkout set src/ tests/
+git checkout
+
+ls
+# src/   tests/
+```
+
+**Use cases:**
+- CI/CD pipelines needing only specific files
+- Large monorepos — each worktree shows only relevant subset
+- Custom population scripts
+
+---
+
+### Slide 24 — Sparse Checkout + Worktrees ⭐
+
+```bash
+git clone --bare https://github.com/company/monorepo.git .git
+
+# Worktree 1: frontend only
+git worktree add -n -b feat-ui ./feat-ui main
+cd ./feat-ui
+git sparse-checkout init --cone
+git sparse-checkout set frontend/ shared/
+git checkout
+
+# Worktree 2: backend only
+cd ..
+git worktree add -n -b feat-api ./feat-api main
+cd ./feat-api
+git sparse-checkout init --cone
+git sparse-checkout set backend/ shared/
+git checkout
+
+# Worktree 3: full reference
+cd ..
+git worktree add ./main main
+```
+
+> Each worktree's config stored in `.git/worktrees/<name>/info/sparse-checkout`
+
+---
+
+### Slide 25 — Remote Tracking & --guess-remote ⭐
+
+```bash
+# Explicit tracking
+git worktree add --track -b feature-x ./feature-x origin/feature-x
+
+# Auto-detect tracking
+git worktree add --guess-remote ./feature-x feature-x
+
+# Set as global default
+git config --global worktree.guessRemote true
+```
+
+---
+
+### Slide 26 — Per-Worktree Configuration ⭐ (Git 2.34+)
+
+```bash
+git config extensions.worktreeConfig true
+
+# Work identity
+cd ./work-project
+git config --worktree user.email "alice@company.com"
+git config --worktree user.signingkey "WORK_GPG_KEY"
+
+# Personal identity
+cd ../personal-fork
+git config --worktree user.email "alice@personal.com"
+git config --worktree user.signingkey "PERSONAL_GPG_KEY"
+```
+
+```
+.git/
+├── config                      ← shared (all worktrees)
+├── config.worktree             ← main worktree overrides
+└── worktrees/
+    ├── work-project/
+    │   └── config.worktree     ← work overrides
+    └── personal-fork/
+        └── config.worktree     ← personal overrides
+```
+
+---
+
+### Slide 27 — Internal Structure: .git/worktrees/ ⭐
+
+```
+.git/
+└── worktrees/
+    └── feature-b/
+        ├── gitdir          ← path to .git FILE inside worktree
+        ├── commondir       ← path back to main .git/
+        ├── HEAD            ← checked-out branch here
+        ├── index           ← independent staging area
+        ├── ORIG_HEAD
+        ├── MERGE_HEAD      ← only during merge
+        ├── REBASE_HEAD     ← only during rebase
+        ├── locked          ← only if locked
+        └── config.worktree ← only if worktreeConfig enabled
+```
+
+```bash
+cat ~/portfolio/feature-b/.git
+# gitdir: /home/user/portfolio/.git/worktrees/feature-b
+
+git rev-parse --show-toplevel    # current worktree root
+git rev-parse --git-dir          # worktree-specific .git path
+git rev-parse --git-common-dir   # main shared .git/ path
+```
+
+---
+
+### Slide 28 — Hooks in Worktrees ⭐
+
+```
+.git/hooks/
+├── pre-commit    ← runs for ALL worktrees
+├── post-commit   ← runs for ALL worktrees
+├── pre-push      ← runs for ALL worktrees
+└── post-merge    ← runs for ALL worktrees
+```
+
+```bash
+#!/bin/bash
+
+# ❌ WRONG — hardcoded path:
+cd /home/user/portfolio && npm test
+
+# ✅ CORRECT — dynamic resolution:
+WORK_TREE=$(git rev-parse --show-toplevel)
+cd "$WORK_TREE" && npm test
+
+# ✅ For main .git/ path:
+GIT_COMMON=$(git rev-parse --git-common-dir)
+```
+
+> ⚠️ `$GIT_DIR` inside a linked worktree points to `.git/worktrees/<name>/`
+> NOT to `.git/` directly.
+
+---
+
+## Part 5 — Comparisons & Gotchas
+
+---
+
+### Slide 29 — Worktrees vs. Multiple Clones
+
+| Feature | Worktrees | Multiple Clones |
+|---------|-----------|----------------|
+| **Disk usage** | ✅ History stored once | ❌ Full `.git/` duplicated |
+| **`git fetch`** | ✅ One fetch updates all | ❌ Fetch each separately |
+| **Branch visibility** | ✅ All branches visible | ⚠️ Only fetched branches |
+| **Branch exclusivity** | ✅ Git prevents duplicates | ❌ Same branch in two clones |
+| **Stash sharing** | ✅ One shared stash list | ❌ Separate per clone |
+| **Config & hooks** | ✅ Single config | ❌ Configure each clone |
+| **Setup familiarity** | ⚠️ Learning curve | ✅ Plain `git clone` |
+| **True isolation** | ⚠️ Shared history | ✅ Fully independent |
+
+---
+
+### Slide 30 — Edge Cases & Common Gotchas ⭐
+
+```bash
+# 1. Stashes are repo-wide — name them explicitly
+git stash push -m "feature-b: WIP auth refactor"
+git stash push -m "hotfix: WIP rate limit fix"
+
+# 2. Cannot remove main worktree
+git worktree remove .
+# fatal: 'remove' is not allowed for a main worktree
+
+# 3. HEAD~ is relative to each worktree's own HEAD
+# feature-b: HEAD~1 = commit before feature-b tip
+# hotfix-99: HEAD~1 = commit before hotfix-99 tip
+
+# 4. Always prune after manual deletions
+git worktree list     # stale entry showing?
+git worktree prune    # clean it up
+
+# 5. Branch persists after worktree removal
+git worktree remove ./hotfix-99
+git branch -d hotfix-99    # still need this separately
+```
+
+---
+
+## Part 6 — Workflows & Use Cases
+
+---
+
+### Slide 31 — Agentic / AI Coding Workflows ⭐
+
+```bash
+# Parallel agent sessions
+git worktree add -b feat-login ./feat-login main
+git worktree add -b feat-dashboard ./feat-dashboard main
+
+# Terminal 1
+cd ./feat-login
+claude "Implement JWT login with refresh tokens"
+
+# Terminal 2 — simultaneously
+cd ./feat-dashboard
+claude "Implement analytics dashboard with Chart.js"
+
+# Zero interference ✅
+```
+
+**Custom slash command in Claude Code:**
+```
+/new-feature "add OAuth2 support"
+→ git worktree add -b feat-oauth2 ./feat-oauth2 main
+→ cd ./feat-oauth2
+→ begin implementation
+```
+
+---
+
+### Slide 32 — Best Practices
+
+```bash
+# 1. Always explicit base branch
+git worktree add -b feature-x ./feature-x main   # ✅
+git worktree add -b feature-x ./feature-x         # ⚠️ risky
+
+# 2. Mirror branch names in folder names
+git worktree add -b hotfix-auth ./hotfix-auth main
+
+# 3. Navigate to parent before creating
+cd ~/portfolio
+git worktree add -b feat-x ./feat-x main
+
+# 4. Clean up consistently
+git worktree remove ./hotfix-auth
+git branch -d hotfix-auth
+git worktree prune
+
+# 5. Lock removable media worktrees
+git worktree lock --reason "on external SSD" ./experiment
+
+# 6. Enable per-worktree config for multiple identities
+git config extensions.worktreeConfig true
+
+# 7. Set global autoSetupRemote for bare repos
+git config --global push.autoSetupRemote true
+```
+
+---
+
+## Quick Reference Cheat Sheet
+
+```bash
+# SETUP
+git clone --bare <url> .git
+
+# ADD WORKTREE
+git worktree add ./path                          # existing branch
+git worktree add ./path <branch>                 # existing branch explicit
+git worktree add -b <new> ./path main            # new branch from main ✅
+git worktree add -B <branch> ./path main         # create or reset
+git worktree add -d ./path <commit-or-tag>       # detached HEAD
+git worktree add --orphan <branch> ./path        # orphan branch
+git worktree add -n -b <branch> ./path main      # no checkout
+git worktree add --lock -b <branch> ./path main  # create and lock
+git worktree add --track -b <b> ./path o/<b>     # with remote tracking
+git worktree add --guess-remote ./path <branch>  # auto-detect tracking
+
+# LIST
+git worktree list                                # human-readable
+git worktree list -v                             # verbose
+git worktree list --porcelain                    # for scripts
+
+# REMOVE
+git worktree remove ./path                       # clean
+git worktree remove -f ./path                    # force
+git worktree remove -f -f ./path                 # force locked
+
+# PRUNE
+git worktree prune                               # remove stale
+git worktree prune -n                            # dry run
+git worktree prune --expire=now                  # immediate
+
+# LOCK / UNLOCK
+git worktree lock --reason "msg" ./path
+git worktree unlock ./path
+
+# MOVE / REPAIR
+git worktree move ./old ./new
+git worktree repair ./path
+
+# CONFIGURATION
+git config extensions.worktreeConfig true
+git config --worktree user.email "x@x.com"
+git config --global worktree.guessRemote true
+git config --global push.autoSetupRemote true
+
+# DIAGNOSTICS
+git rev-parse --show-toplevel
+git rev-parse --git-dir
+git rev-parse --git-common-dir
+git config --get core.bare
+```
+
+---
