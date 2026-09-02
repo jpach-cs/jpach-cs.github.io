@@ -24767,9 +24767,13 @@ section.blank h1 {
 }
 ;background-color:#fdfaf3;background-image:none;" data-marpit-pagination-total="41">
 <h1 id="explicit-casting">Explicit Casting</h1>
-<div class = "justify lh-10">
 <p>Manual conversion performed by the programmer using a cast operator.</p>
-<p><img src="cast01.svg" alt="" /></p>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-c"><span class="hljs-type">int</span>   a = <span class="hljs-number">5</span>;		<span class="hljs-comment">// 5</span>
+<span class="hljs-type">float</span> b = <span class="hljs-number">8.2f</span>;		<span class="hljs-comment">// 8.199999_81 &lt;--   </span>
+c = (<span class="hljs-type">int</span>)b + a;		<span class="hljs-comment">// 13</span>
+<span class="hljs-type">float</span> d = b + (<span class="hljs-type">float</span>)a;	<span class="hljs-comment">// 13.19999_98 &lt;--</span>
+</code></pre>
+<div class = "justify lh-10">
 <p>If we put a data type in parentheses before a symbolic name (variable), we perform a type cast of that variable to the specified type. When casting a <code>float</code> to an <code>int</code>, the number is <strong>truncated</strong>, which can <strong>lead to loss of information</strong>. In the opposite case, casting to a <strong>wider</strong> type is <strong>always safe and does not cause data loss</strong>, but casting to a narrower type may result in loss of information.</p>
 </div>
 <footer>CSCI 112 | Programming with C |  J. L. Pach</footer>
@@ -27090,23 +27094,18 @@ section.blank h1 {
 }
 ;background-color:#fdfaf3;background-image:none;" data-marpit-pagination-total="41">
 <h1 id="whats-the-difference">What’s the difference?</h1>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-c"><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>
-{
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-c">
   <span class="hljs-type">int</span>   a = <span class="hljs-number">5</span>;		<span class="hljs-comment">// 5</span>
   <span class="hljs-type">float</span> b = <span class="hljs-number">8.2f</span>;		<span class="hljs-comment">// 8.199999_81 &lt;--   </span>
   <span class="hljs-type">int</span>   c = b + a;		<span class="hljs-comment">// 13</span>
   <span class="hljs-type">float</span> d = b + a;		<span class="hljs-comment">// 13.19999_98 &lt;--</span>
-  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-}
+
 </code></pre>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-c"><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>
-{
-  <span class="hljs-type">int</span>   a = <span class="hljs-number">5</span>;		<span class="hljs-comment">// 5</span>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-c">  <span class="hljs-type">int</span>   a = <span class="hljs-number">5</span>;		<span class="hljs-comment">// 5</span>
   <span class="hljs-type">float</span> b = <span class="hljs-number">8.2f</span>;		<span class="hljs-comment">// 8.199999_81 &lt;--   </span>
   c = (<span class="hljs-type">int</span>)b + a;		<span class="hljs-comment">// 13</span>
   <span class="hljs-type">float</span> d = b + (<span class="hljs-type">float</span>)a;	<span class="hljs-comment">// 13.19999_98 &lt;--</span>
-  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; 
-}
+  
 </code></pre>
 <footer>CSCI 112 | Programming with C |  J. L. Pach</footer>
 </section>
