@@ -60,6 +60,7 @@ This course provides a comprehensive introduction to the C programming language.
 * __Assignment 04__ — [HTML]({{ '/teaching/csci-232/assignments/ass04/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/assignments/ass04/index.pdf' | relative_url }}) 
 * * __Assignment 05__ — [HTML]({{ '/teaching/csci-232/assignments/ass05/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/assignments/ass05/index.pdf' | relative_url }}) 
 
+
 ---
 
 *Montana Technological University — Department of Computer Science*
