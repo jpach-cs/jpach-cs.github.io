@@ -169,11 +169,76 @@
       vertical-align: middle;
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
 </head>
 <body>
-<h1 id="csci-112-assignment-6-structs-and-function-pointers">CSCI 112
-Assignment 6 – Structs and Function Pointers</h1>
+<h1 id="csci-112-assignment-arrays-and-loops">CSCI 112 Assignment –
+Arrays and Loops</h1>
 <p>Points: 10</p>
 <p>Automated tests will run on GitHub Actions after every push. Check
 the Actions tab to see which tests pass and which fail.</p>
@@ -181,15 +246,12 @@ the Actions tab to see which tests pass and which fail.</p>
 <h2 id="instructions">Instructions</h2>
 <ol type="1">
 <li><strong>Fork</strong> the repository on GitHub -
-<code>https://github.com/jpach-cs/112-ass06-template</code>.</li>
+<code>https://github.com/jpach-cs/112-ass05-template</code>.</li>
 <li>Clone your forked repository to your local machine.</li>
 <li>Open the file <code>code.h</code> and add:
 <ol type="1">
 <li>Include guards at the top: <code>#ifndef CODE_H</code>
 <code>#define CODE_H</code></li>
-<li>Define structs: <code>int_Point</code>, <code>double_Point</code>,
-<code>Calc</code> (with function pointers)</li>
-<li>Define typedef: <code>DoublePoint</code></li>
 <li>All function prototypes</li>
 <li>Include guards at the bottom: <code>#endif</code></li>
 </ol></li>
@@ -198,10 +260,12 @@ the Actions tab to see which tests pass and which fail.</p>
 <li>Implement every function listed below:
 <ul>
 <li>Read the comments above each function carefully.</li>
-<li>Follow the rules — use ONLY basic C syntax, no advanced
-libraries.</li>
-<li>Function pointers must be used correctly in
-<code>apply_operation()</code> and <code>init_calc()</code>.</li>
+<li>Follow the rules — use ONLY <code>if</code>, <code>switch</code>,
+<code>while</code>, <code>for</code>, <code>putchar()</code>,
+<code>getchar()</code>, <code>printf()</code>,
+<code>sprintf()</code>.</li>
+<li>Do NOT use <code>goto</code>, or any standard library
+functions.</li>
 </ul></li>
 <li>Test your implementation locally using <code>main.c</code>.</li>
 </ol></li>
@@ -213,124 +277,122 @@ results.</li>
 </ol>
 <h3 id="learning-objectives">Learning Objectives</h3>
 <p>After completing this lab, you will:</p>
-<ul>
-<li>Understand struct initialization</li>
-<li>Use pointers to structs correctly</li>
-<li>Implement function pointers and callbacks</li>
-<li>Pass functions as parameters</li>
-<li>Use typedef for type aliases</li>
-<li>Work with nested struct members containing function pointers</li>
-</ul>
+<p>Use <code>for</code> loops to iterate over arrays with known length
+Use <code>while</code> loops to search and converge on solutions
+Implement array manipulation functions (<code>min</code>,
+<code>max</code>, <code>sum</code>, <code>average</code>) Implement
+search algorithms (<code>linear_search</code>) Implement iterative
+mathematical algorithms (<code>heron</code> - Heron’s method) Work with
+multi-file C projects using header files with include guards.</p>
 <hr />
 <h2
-id="implement-6-functions-that-work-with-structs-and-function-pointers">Implement
-6 functions that work with structs and function pointers:</h2>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 20%" />
-<col style="width: 28%" />
-<col style="width: 28%" />
-</colgroup>
+id="implement-6-functions-that-work-with-arrays-and-use-iteration">Implement
+6 functions that work with arrays and use iteration:</h2>
+<table>
 <thead>
 <tr>
 <th>Function</th>
 <th>Purpose</th>
-<th>Key Concept</th>
+<th>Loop Type</th>
 <th>Return Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>init_int_point()</code></td>
-<td>Initialize int_Point struct</td>
-<td>Struct pointers</td>
-<td><code>void</code></td>
+<td><code>find_max()</code></td>
+<td>Find largest element</td>
+<td><code>for</code></td>
+<td><code>int</code></td>
 </tr>
 <tr>
-<td><code>init_double_point()</code></td>
-<td>Initialize double_Point struct</td>
-<td>Struct pointers</td>
-<td><code>void</code></td>
+<td><code>find_min()</code></td>
+<td>Find smallest element</td>
+<td><code>for</code></td>
+<td><code>int</code></td>
 </tr>
 <tr>
-<td><code>add()</code></td>
-<td>Add two floats</td>
-<td>Basic math</td>
-<td><code>float</code></td>
+<td><code>sum_array()</code></td>
+<td>Sum all elements</td>
+<td><code>for</code></td>
+<td><code>long</code></td>
 </tr>
 <tr>
-<td><code>sub()</code></td>
-<td>Subtract two floats</td>
-<td>Basic math</td>
-<td><code>float</code></td>
-</tr>
-<tr>
-<td><code>mul()</code></td>
-<td>Multiply two floats</td>
-<td>Basic math</td>
-<td><code>float</code></td>
-</tr>
-<tr>
-<td><code>divide()</code></td>
-<td>Divide two floats</td>
-<td>Basic math</td>
-<td><code>float</code></td>
-</tr>
-<tr>
-<td><code>apply_operation()</code></td>
-<td>Apply function pointer to array</td>
-<td>Function pointers (callback)</td>
+<td><code>average()</code></td>
+<td>Calculate mean</td>
+<td><code>for</code></td>
 <td><code>double</code></td>
 </tr>
 <tr>
-<td><code>init_calc()</code></td>
-<td>Initialize Calc struct with function pointers</td>
-<td>Function pointer assignment</td>
-<td><code>void</code></td>
+<td><code>linear_search()</code></td>
+<td>Find element index</td>
+<td><code>while</code></td>
+<td><code>int</code></td>
+</tr>
+<tr>
+<td><code>heron()</code></td>
+<td>Calculate square root</td>
+<td><code>while</code></td>
+<td><code>double</code></td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h1 id="background">Background</h1>
-<h2 id="structs-and-pointers">Structs and Pointers</h2>
-<p>When passing structs to functions, use pointers for modification:</p>
-<p>struct Point { int x; int y; };</p>
-<p>void init_point(struct Point *p, int x, int y) { p-&gt;x = x; // Use
-arrow operator -&gt; with pointers p-&gt;y = y; }</p>
-<h2 id="function-pointers">Function Pointers</h2>
-<p>A function pointer stores the address of a function. Declare it
-like:</p>
-<p>float (*operation)(float, float); // Pointer to function taking two
-floats, returning float</p>
-<p>Call the function through the pointer:</p>
-<p>float result = operation(a, b); // Just like calling a regular
-function</p>
-<p>IMPORTANT: When assigning a function to a pointer, use the function
-name directly (NO &amp;):</p>
-<p>operation = add; // Correct operation = &amp;add; // Also works but
-redundant</p>
-<h2 id="structs-with-function-pointers">Structs with Function
-Pointers</h2>
-<p>You can have struct members that are function pointers:</p>
-<p>struct Calc { float a; float b; float (<em>add)(float, float); float
-(</em>sub)(float, float); };</p>
-<p>// Then use it: calc.add(calc.a, calc.b);</p>
-<h2 id="typedef">Typedef</h2>
-<p>Create type aliases to simplify declarations:</p>
-<p>typedef struct double_Point { double x; double y; } DoublePoint;</p>
-<p>// Now you can use: DoublePoint p; instead of: struct double_Point
-p;</p>
-<h2 id="function-pointers-as-parameters">Function Pointers as
-Parameters</h2>
-<p>Pass functions as parameters to implement callbacks:</p>
-<p>double apply_operation(float <em>arr, int length, float
-(</em>operation)(float, float)) { float result = arr[0]; for (int i = 1;
-i &lt; length; i++) { result = operation(result, arr[i]); // Call the
-passed function } return (double)result; }</p>
-<p>// Usage: double sum = apply_operation(arr, 4, add); // Pass add
-function double product = apply_operation(arr, 4, mul); // Pass mul
-function</p>
+<h2 id="for-loops-vs-while-loops">For Loops vs While Loops</h2>
+<p>Use <code>for</code> loops when you know the iteration count:</p>
+<pre><code>for (int i = 0; i &lt; n; i++)
+{
+    // Process array[i]
+}</code></pre>
+<p>Use <code>while</code> loops when you don’t know when to stop:</p>
+<pre><code>int i = 0;
+while (i &lt; n)
+{
+    if (/* found it */)
+        return i;
+    i++;
+}</code></pre>
+<h2 id="include-guards">Include Guards</h2>
+<p>Header files must use include guards to prevent multiple
+inclusion:</p>
+<pre><code>#ifndef CODE_H
+#define CODE_H
+
+int find_max(int arr[], int n);
+// ... more prototypes
+
+#endif</code></pre>
+<h2 id="herons-method-for-square-root">Heron’s Method for Square
+Root</h2>
+<p>Background:</p>
+<p>Heron’s method iteratively improves an initial guess:</p>
+<pre><code>next_guess = (current_guess + x / current_guess) / 2.0</code></pre>
+<p>Stop when consecutive guesses differ by less than epsilon.</p>
+<p>Algorithm:</p>
+<ol type="1">
+<li>Start with initial guess: guess = x / 2.0</li>
+<li>Use while (1) loop (infinite loop with break):
+<ul>
+<li>Save current guess: prev_guess = guess</li>
+<li>Calculate next guess: guess = (guess + x / guess) / 2.0</li>
+<li>Calculate difference: diff = guess - prev_guess</li>
+<li>Make difference positive manually: if (diff &lt; 0) diff =
+-diff;</li>
+<li>If diff &lt; epsilon, break the loop</li>
+</ul></li>
+<li>Return the final guess</li>
+</ol>
+<p>Note: You cannot use fabs() - manually check if negative with if (x
+&lt; 0) x = -x;</p>
+<p>Example: heron(4.0, 0.0001); // Returns ≈ 2.0 heron(9.0, 0.0001); //
+Returns ≈ 3.0 heron(2.0, 0.0001); // Returns ≈ 1.414</p>
+<hr />
+<h2 id="header-comment-required-in-code.c">#Header comment — required in
+code.c</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Your Name</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">// CSCI 112 Fall 2026</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Programming Assignment #1</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">// I declare that I am the author of this work, take full responsibility for it, and have disclosed any material external assistance.</span></span></code></pre></div>
 <hr />
 <h1 id="only-for-testing">Only for testing</h1>
 <h2 id="local-testing-sandbox">Local Testing (Sandbox)</h2>
@@ -340,34 +402,20 @@ function</p>
 
 int main()
 {
-    // Test Step 1: int_Point
-    struct int_Point p1;
-    init_int_point(&amp;p1, 10, 20);
-    printf(&quot;int_Point: x=%d, y=%d\n&quot;, p1.x, p1.y);
-    // Test Step 2: double_Point
-    struct double_Point p2;
-    init_double_point(&amp;p2, 3.14, 2.71);
-    printf(&quot;double_Point: x=%f, y=%f\n&quot;, p2.x, p2.y);
-
-    // Test Step 4: Basic math operations
-    printf(&quot;add(5, 3) = %f\n&quot;, add(5.0f, 3.0f));
-    printf(&quot;sub(5, 3) = %f\n&quot;, sub(5.0f, 3.0f));
-    printf(&quot;mul(5, 3) = %f\n&quot;, mul(5.0f, 3.0f));
-    printf(&quot;divide(6, 2) = %f\n&quot;, divide(6.0f, 2.0f));
-
-    // Test Step 5: apply_operation with function pointers
-    float arr[] = {1.0f, 2.0f, 3.0f, 4.0f};
-    printf(&quot;Sum via apply_operation: %f\n&quot;, apply_operation(arr, 4, add));
-    printf(&quot;Product via apply_operation: %f\n&quot;, apply_operation(arr, 4, mul));
-
-    // Test Step 8: Calc struct with function pointers
-    struct Calc calc;
-    init_calc(&amp;calc);
-    calc.a = 10.0f;
-    calc.b = 5.0f;
-    printf(&quot;calc.add(10, 5) = %f\n&quot;, calc.add(calc.a, calc.b));
-    printf(&quot;calc.mul(10, 5) = %f\n&quot;, calc.mul(calc.a, calc.b));
-
+    int arr[] = {5, 2, 8, 1, 9};
+    printf(&quot;Max: %d\n&quot;, find_max(arr, 5));
+    printf(&quot;Min: %d\n&quot;, find_min(arr, 5));
+    printf(&quot;Sum: %ld\n&quot;, sum_array(arr, 5));
+    
+    float farr[] = {2.0f, 4.0f, 6.0f};
+    printf(&quot;Average: %f\n&quot;, average(farr, 3));
+    
+    printf(&quot;Search for 8: %d\n&quot;, linear_search(arr, 5, 8));
+    printf(&quot;Search for 7: %d\n&quot;, linear_search(arr, 5, 7));
+    
+    printf(&quot;Square root of 4: %f\n&quot;, heron(4.0, 0.0001));
+    printf(&quot;Square root of 2: %f\n&quot;, heron(2.0, 0.0001));
+    
     return 0;
 }</code></pre>
 </body>
