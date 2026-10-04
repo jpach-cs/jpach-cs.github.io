@@ -169,6 +169,71 @@
       vertical-align: middle;
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
 </head>
 <body>
@@ -295,9 +360,17 @@ id="implement-6-functions-that-work-with-structs-and-function-pointers">Implemen
 <h1 id="background">Background</h1>
 <h2 id="structs-and-pointers">Structs and Pointers</h2>
 <p>When passing structs to functions, use pointers for modification:</p>
-<p>struct Point { int x; int y; };</p>
-<p>void init_point(struct Point *p, int x, int y) { p-&gt;x = x; // Use
-arrow operator -&gt; with pointers p-&gt;y = y; }</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> Point </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> y<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> init_point<span class="op">(</span><span class="kw">struct</span> Point <span class="op">*</span>p<span class="op">,</span> <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    p<span class="op">-&gt;</span>x <span class="op">=</span> x<span class="op">;</span>  <span class="co">// Use arrow operator -&gt; with pointers</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    p<span class="op">-&gt;</span>y <span class="op">=</span> y<span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h2 id="function-pointers">Function Pointers</h2>
 <p>A function pointer stores the address of a function. Declare it
 like:</p>
@@ -313,62 +386,79 @@ redundant</p>
 <h2 id="structs-with-function-pointers">Structs with Function
 Pointers</h2>
 <p>You can have struct members that are function pointers:</p>
-<p>struct Calc { float a; float b; float (<em>add)(float, float); float
-(</em>sub)(float, float); };</p>
-<p>// Then use it: calc.add(calc.a, calc.b);</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> Calc </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> a<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> b<span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> <span class="op">(*</span>add<span class="op">)(</span><span class="dt">float</span><span class="op">,</span> <span class="dt">float</span><span class="op">);</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> <span class="op">(*</span>sub<span class="op">)(</span><span class="dt">float</span><span class="op">,</span> <span class="dt">float</span><span class="op">);</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Then use it:</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>calc<span class="op">.</span>add<span class="op">(</span>calc<span class="op">.</span>a<span class="op">,</span> calc<span class="op">.</span>b<span class="op">);</span></span></code></pre></div>
 <h2 id="typedef">Typedef</h2>
 <p>Create type aliases to simplify declarations:</p>
-<p>typedef struct double_Point { double x; double y; } DoublePoint;</p>
-<p>// Now you can use: DoublePoint p; instead of: struct double_Point
-p;</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> double_Point </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> x<span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> y<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> DoublePoint<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Now you can use: DoublePoint p;  instead of: struct double_Point p;</span></span></code></pre></div>
 <h2 id="function-pointers-as-parameters">Function Pointers as
 Parameters</h2>
 <p>Pass functions as parameters to implement callbacks:</p>
-<p>double apply_operation(float <em>arr, int length, float
-(</em>operation)(float, float)) { float result = arr[0]; for (int i = 1;
-i &lt; length; i++) { result = operation(result, arr[i]); // Call the
-passed function } return (double)result; }</p>
-<p>// Usage: double sum = apply_operation(arr, 4, add); // Pass add
-function double product = apply_operation(arr, 4, mul); // Pass mul
-function</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> apply_operation<span class="op">(</span><span class="dt">float</span> <span class="op">*</span>arr<span class="op">,</span> <span class="dt">int</span> length<span class="op">,</span> <span class="dt">float</span> <span class="op">(*</span>operation<span class="op">)(</span><span class="dt">float</span><span class="op">,</span> <span class="dt">float</span><span class="op">))</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> result <span class="op">=</span> arr<span class="op">[</span><span class="dv">0</span><span class="op">];</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> length<span class="op">;</span> i<span class="op">++)</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> operation<span class="op">(</span>result<span class="op">,</span> arr<span class="op">[</span>i<span class="op">]);</span>  <span class="co">// Call the passed function</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">(</span><span class="dt">double</span><span class="op">)</span>result<span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">// Usage:</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> sum <span class="op">=</span> apply_operation<span class="op">(</span>arr<span class="op">,</span> <span class="dv">4</span><span class="op">,</span> add<span class="op">);</span>       <span class="co">// Pass add function</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> product <span class="op">=</span> apply_operation<span class="op">(</span>arr<span class="op">,</span> <span class="dv">4</span><span class="op">,</span> mul<span class="op">);</span>   <span class="co">// Pass mul function</span></span></code></pre></div>
 <hr />
 <h1 id="only-for-testing">Only for testing</h1>
 <h2 id="local-testing-sandbox">Local Testing (Sandbox)</h2>
 <p>Create test cases in main.c:</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &quot;code.h&quot;
-
-int main()
-{
-    // Test Step 1: int_Point
-    struct int_Point p1;
-    init_int_point(&amp;p1, 10, 20);
-    printf(&quot;int_Point: x=%d, y=%d\n&quot;, p1.x, p1.y);
-    // Test Step 2: double_Point
-    struct double_Point p2;
-    init_double_point(&amp;p2, 3.14, 2.71);
-    printf(&quot;double_Point: x=%f, y=%f\n&quot;, p2.x, p2.y);
-
-    // Test Step 4: Basic math operations
-    printf(&quot;add(5, 3) = %f\n&quot;, add(5.0f, 3.0f));
-    printf(&quot;sub(5, 3) = %f\n&quot;, sub(5.0f, 3.0f));
-    printf(&quot;mul(5, 3) = %f\n&quot;, mul(5.0f, 3.0f));
-    printf(&quot;divide(6, 2) = %f\n&quot;, divide(6.0f, 2.0f));
-
-    // Test Step 5: apply_operation with function pointers
-    float arr[] = {1.0f, 2.0f, 3.0f, 4.0f};
-    printf(&quot;Sum via apply_operation: %f\n&quot;, apply_operation(arr, 4, add));
-    printf(&quot;Product via apply_operation: %f\n&quot;, apply_operation(arr, 4, mul));
-
-    // Test Step 8: Calc struct with function pointers
-    struct Calc calc;
-    init_calc(&amp;calc);
-    calc.a = 10.0f;
-    calc.b = 5.0f;
-    printf(&quot;calc.add(10, 5) = %f\n&quot;, calc.add(calc.a, calc.b));
-    printf(&quot;calc.mul(10, 5) = %f\n&quot;, calc.mul(calc.a, calc.b));
-
-    return 0;
-}</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;code.h&quot;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Test Step 1: int_Point</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">struct</span> int_Point p1<span class="op">;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    init_int_point<span class="op">(&amp;</span>p1<span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">);</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;int_Point: x=</span><span class="sc">%d</span><span class="st">, y=</span><span class="sc">%d\n</span><span class="st">&quot;</span><span class="op">,</span> p1<span class="op">.</span>x<span class="op">,</span> p1<span class="op">.</span>y<span class="op">);</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Test Step 2: double_Point</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">struct</span> double_Point p2<span class="op">;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    init_double_point<span class="op">(&amp;</span>p2<span class="op">,</span> <span class="fl">3.14</span><span class="op">,</span> <span class="fl">2.71</span><span class="op">);</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;double_Point: x=</span><span class="sc">%f</span><span class="st">, y=</span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> p2<span class="op">.</span>x<span class="op">,</span> p2<span class="op">.</span>y<span class="op">);</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Test Step 4: Basic math operations</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;add(5, 3) = </span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> add<span class="op">(</span><span class="fl">5.0</span><span class="bu">f</span><span class="op">,</span> <span class="fl">3.0</span><span class="bu">f</span><span class="op">));</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;sub(5, 3) = </span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> sub<span class="op">(</span><span class="fl">5.0</span><span class="bu">f</span><span class="op">,</span> <span class="fl">3.0</span><span class="bu">f</span><span class="op">));</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;mul(5, 3) = </span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> mul<span class="op">(</span><span class="fl">5.0</span><span class="bu">f</span><span class="op">,</span> <span class="fl">3.0</span><span class="bu">f</span><span class="op">));</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;divide(6, 2) = </span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> divide<span class="op">(</span><span class="fl">6.0</span><span class="bu">f</span><span class="op">,</span> <span class="fl">2.0</span><span class="bu">f</span><span class="op">));</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Test Step 5: apply_operation with function pointers</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> arr<span class="op">[]</span> <span class="op">=</span> <span class="op">{</span><span class="fl">1.0</span><span class="bu">f</span><span class="op">,</span> <span class="fl">2.0</span><span class="bu">f</span><span class="op">,</span> <span class="fl">3.0</span><span class="bu">f</span><span class="op">,</span> <span class="fl">4.0</span><span class="bu">f</span><span class="op">};</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Sum via apply_operation: </span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> apply_operation<span class="op">(</span>arr<span class="op">,</span> <span class="dv">4</span><span class="op">,</span> add<span class="op">));</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Product via apply_operation: </span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> apply_operation<span class="op">(</span>arr<span class="op">,</span> <span class="dv">4</span><span class="op">,</span> mul<span class="op">));</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Test Step 8: Calc struct with function pointers</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">struct</span> Calc calc<span class="op">;</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    init_calc<span class="op">(&amp;</span>calc<span class="op">);</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    calc<span class="op">.</span>a <span class="op">=</span> <span class="fl">10.0</span><span class="bu">f</span><span class="op">;</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    calc<span class="op">.</span>b <span class="op">=</span> <span class="fl">5.0</span><span class="bu">f</span><span class="op">;</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;calc.add(10, 5) = </span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> calc<span class="op">.</span>add<span class="op">(</span>calc<span class="op">.</span>a<span class="op">,</span> calc<span class="op">.</span>b<span class="op">));</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;calc.mul(10, 5) = </span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> calc<span class="op">.</span>mul<span class="op">(</span>calc<span class="op">.</span>a<span class="op">,</span> calc<span class="op">.</span>b<span class="op">));</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </body>
 </html>

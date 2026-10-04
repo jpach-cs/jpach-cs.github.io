@@ -340,33 +340,33 @@ id="implement-6-functions-that-work-with-arrays-and-use-iteration">Implement
 <h1 id="background">Background</h1>
 <h2 id="for-loops-vs-while-loops">For Loops vs While Loops</h2>
 <p>Use <code>for</code> loops when you know the iteration count:</p>
-<pre><code>for (int i = 0; i &lt; n; i++)
-{
-    // Process array[i]
-}</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Process array[i]</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Use <code>while</code> loops when you don’t know when to stop:</p>
-<pre><code>int i = 0;
-while (i &lt; n)
-{
-    if (/* found it */)
-        return i;
-    i++;
-}</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;</span> n<span class="op">)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="co">/* found it */</span><span class="op">)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> i<span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    i<span class="op">++;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h2 id="include-guards">Include Guards</h2>
 <p>Header files must use include guards to prevent multiple
 inclusion:</p>
-<pre><code>#ifndef CODE_H
-#define CODE_H
-
-int find_max(int arr[], int n);
-// ... more prototypes
-
-#endif</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifndef CODE_H</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#define CODE_H</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> find_max<span class="op">(</span><span class="dt">int</span> arr<span class="op">[],</span> <span class="dt">int</span> n<span class="op">);</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">// ... more prototypes</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif</span></span></code></pre></div>
 <h2 id="herons-method-for-square-root">Heron’s Method for Square
 Root</h2>
 <p>Background:</p>
 <p>Heron’s method iteratively improves an initial guess:</p>
-<pre><code>next_guess = (current_guess + x / current_guess) / 2.0</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>next_guess <span class="op">=</span> <span class="op">(</span>current_guess <span class="op">+</span> x <span class="op">/</span> current_guess<span class="op">)</span> <span class="op">/</span> <span class="fl">2.0</span></span></code></pre></div>
 <p>Stop when consecutive guesses differ by less than epsilon.</p>
 <p>Algorithm:</p>
 <ol type="1">
@@ -397,26 +397,27 @@ code.c</h2>
 <h1 id="only-for-testing">Only for testing</h1>
 <h2 id="local-testing-sandbox">Local Testing (Sandbox)</h2>
 <p>Create test cases in main.c:</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &quot;code.h&quot;
-
-int main()
-{
-    int arr[] = {5, 2, 8, 1, 9};
-    printf(&quot;Max: %d\n&quot;, find_max(arr, 5));
-    printf(&quot;Min: %d\n&quot;, find_min(arr, 5));
-    printf(&quot;Sum: %ld\n&quot;, sum_array(arr, 5));
-    
-    float farr[] = {2.0f, 4.0f, 6.0f};
-    printf(&quot;Average: %f\n&quot;, average(farr, 3));
-    
-    printf(&quot;Search for 8: %d\n&quot;, linear_search(arr, 5, 8));
-    printf(&quot;Search for 7: %d\n&quot;, linear_search(arr, 5, 7));
-    
-    printf(&quot;Square root of 4: %f\n&quot;, heron(4.0, 0.0001));
-    printf(&quot;Square root of 2: %f\n&quot;, heron(2.0, 0.0001));
-    
-    return 0;
-}</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;code.h&quot;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> arr<span class="op">[]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">5</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">9</span><span class="op">};</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Max: </span><span class="sc">%d\n</span><span class="st">&quot;</span><span class="op">,</span> find_max<span class="op">(</span>arr<span class="op">,</span> <span class="dv">5</span><span class="op">));</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Min: </span><span class="sc">%d\n</span><span class="st">&quot;</span><span class="op">,</span> find_min<span class="op">(</span>arr<span class="op">,</span> <span class="dv">5</span><span class="op">));</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Sum: </span><span class="sc">%ld\n</span><span class="st">&quot;</span><span class="op">,</span> sum_array<span class="op">(</span>arr<span class="op">,</span> <span class="dv">5</span><span class="op">));</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> farr<span class="op">[]</span> <span class="op">=</span> <span class="op">{</span><span class="fl">2.0</span><span class="bu">f</span><span class="op">,</span> <span class="fl">4.0</span><span class="bu">f</span><span class="op">,</span> <span class="fl">6.0</span><span class="bu">f</span><span class="op">};</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Average: </span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> average<span class="op">(</span>farr<span class="op">,</span> <span class="dv">3</span><span class="op">));</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Search for 8: </span><span class="sc">%d\n</span><span class="st">&quot;</span><span class="op">,</span> linear_search<span class="op">(</span>arr<span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">8</span><span class="op">));</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Search for 7: </span><span class="sc">%d\n</span><span class="st">&quot;</span><span class="op">,</span> linear_search<span class="op">(</span>arr<span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">7</span><span class="op">));</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Square root of 4: </span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> heron<span class="op">(</span><span class="fl">4.0</span><span class="op">,</span> <span class="fl">0.0001</span><span class="op">));</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Square root of 2: </span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> heron<span class="op">(</span><span class="fl">2.0</span><span class="op">,</span> <span class="fl">0.0001</span><span class="op">));</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </body>
 </html>
