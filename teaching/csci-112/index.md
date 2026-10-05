@@ -58,7 +58,8 @@ This course provides a comprehensive introduction to the C programming language.
 * __Assignment 02__ — [HTML]({{ '/teaching/csci-112/assignments/ass02/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/assignments/ass02/index.pdf' | relative_url }}) \| [skeleton.c]({{ '/teaching/csci-112/assignments/ass02/skeleton.c'  }})
 * __Assignment 03__ — [HTML]({{ '/teaching/csci-112/assignments/ass03/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/assignments/ass03/index.pdf' | relative_url }})
 * __Assignment 04__ — [HTML]({{ '/teaching/csci-112/assignments/ass04/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/assignments/ass04/index.pdf' | relative_url }})
-* * __Assignment 05__ — [HTML]({{ '/teaching/csci-112/assignments/ass05/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/assignments/ass05/index.pdf' | relative_url }})
+* __Assignment 05__ — [HTML]({{ '/teaching/csci-112/assignments/ass05/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/assignments/ass05/index.pdf' | relative_url }})
+* __Assignment 06__ — [HTML]({{ '/teaching/csci-112/assignments/ass06/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/assignments/ass06/index.pdf' | relative_url }})
 
 ---
 
