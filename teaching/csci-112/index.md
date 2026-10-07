@@ -39,18 +39,7 @@ This course provides a comprehensive introduction to the C programming language.
 * __Lab 01__ — [HTML]({{ '/teaching/csci-112/laboratories/lab01/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/laboratories/lab01/index.pdf' | relative_url }})
 * __Lab 02__ — [HTML]({{ '/teaching/csci-112/laboratories/lab02/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/laboratories/lab02/index.pdf' | relative_url }})
 * __Lab 03__ — [HTML]({{ '/teaching/csci-112/laboratories/lab03/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/laboratories/lab03/index.pdf' | relative_url }})
-* __Lab 04__ — [HTML]({{ '/teaching/csci-112/laboratories/lab04/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/laboratories/lab04/index.pdf' | relative_url }})
-* __Lab 05__ — [HTML]({{ '/teaching/csci-112/laboratories/lab05/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/laboratories/lab05/index.pdf' | relative_url }})
-* __Lab 06__ — [HTML]({{ '/teaching/csci-112/laboratories/lab06/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/laboratories/lab06/index.pdf' | relative_url }})
-* __Lab 07__ — [HTML]({{ '/teaching/csci-112/laboratories/lab07/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/laboratories/lab07/index.pdf' | relative_url }})
-* __Lab 08__ — [HTML]({{ '/teaching/csci-112/laboratories/lab08/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/laboratories/lab08/index.pdf' | relative_url }})
-* __Lab 09__ — [HTML]({{ '/teaching/csci-112/laboratories/lab09/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/laboratories/lab09/index.pdf' | relative_url }})
-* __Lab 10__ — [HTML]({{ '/teaching/csci-112/laboratories/lab10/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/laboratories/lab10/index.pdf' | relative_url }})
-* __Lab 11__ — [HTML]({{ '/teaching/csci-112/laboratories/lab11/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/laboratories/lab11/index.pdf' | relative_url }})
-* __Lab 12__ — [HTML]({{ '/teaching/csci-112/laboratories/lab12/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/laboratories/lab12/index.pdf' | relative_url }})
-* __Lab 13__ — [HTML]({{ '/teaching/csci-112/laboratories/lab13/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/laboratories/lab13/index.pdf' | relative_url }})
-* __Lab 14__ — [HTML]({{ '/teaching/csci-112/laboratories/lab14/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/laboratories/lab14/index.pdf' | relative_url }})
-* __Lab 15__ — [HTML]({{ '/teaching/csci-112/laboratories/lab15/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/laboratories/lab15/index.pdf' | relative_url }})
+
 
 ## Assignments
 
@@ -58,7 +47,8 @@ This course provides a comprehensive introduction to the C programming language.
 * __Assignment 02__ — [HTML]({{ '/teaching/csci-112/assignments/ass02/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/assignments/ass02/index.pdf' | relative_url }}) \| [skeleton.c]({{ '/teaching/csci-112/assignments/ass02/skeleton.c'  }})
 * __Assignment 03__ — [HTML]({{ '/teaching/csci-112/assignments/ass03/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/assignments/ass03/index.pdf' | relative_url }})
 * __Assignment 04__ — [HTML]({{ '/teaching/csci-112/assignments/ass04/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/assignments/ass04/index.pdf' | relative_url }})
-* * __Assignment 05__ — [HTML]({{ '/teaching/csci-112/assignments/ass05/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/assignments/ass05/index.pdf' | relative_url }})
+* __Assignment 05__ — [HTML]({{ '/teaching/csci-112/assignments/ass05/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/assignments/ass05/index.pdf' | relative_url }})
+* __Assignment 06__ — [HTML]({{ '/teaching/csci-112/assignments/ass06/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/assignments/ass06/index.pdf' | relative_url }})
 
 ---
 
