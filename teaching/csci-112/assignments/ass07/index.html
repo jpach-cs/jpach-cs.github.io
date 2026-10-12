@@ -283,19 +283,7 @@ make run: Prints &quot;Hello from Task 1!&quot;
 make clean: Removes &#39;program&#39;</code></pre>
 <h3 id="solution">Solution</h3>
 <div class="sourceCode" id="cb5"><pre
-class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">CC</span> <span class="ch">=</span><span class="st"> gcc</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">CFLAGS</span> <span class="ch">=</span><span class="st"> -Wall</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="dv">compile:</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="er">    </span><span class="ch">$$</span>(CC) <span class="ch">$$</span>(CFLAGS) main.c -o program</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="dv">run:</span><span class="dt"> compile</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="er">    </span>./program</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="dv">clean:</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="er">    </span>rm -f program</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ot">.PHONY:</span><span class="dt"> compile run clean</span></span></code></pre></div>
+class="sourceCode makefile"><code class="sourceCode makefile"></code></pre></div>
 <hr />
 <h2 id="task-2-multiple-source-files-15-min">Task 2: Multiple Source
 Files (15 min)</h2>
@@ -352,19 +340,7 @@ make run: Prints &quot;5 + 3 = 8&quot;
 make clean: Removes &#39;calculator&#39;</code></pre>
 <h3 id="solution-1">Solution</h3>
 <div class="sourceCode" id="cb12"><pre
-class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">CC</span> <span class="ch">=</span><span class="st"> gcc</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="dt">CFLAGS</span> <span class="ch">=</span><span class="st"> -Wall -std=c99</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="dv">build:</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="er">    </span><span class="ch">$$</span>(CC) <span class="ch">$$</span>(CFLAGS) main.c math.c -o calculator</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="dv">run:</span><span class="dt"> build</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="er">    </span>./calculator</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="dv">clean:</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="er">    </span>rm -f calculator</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="ot">.PHONY:</span><span class="dt"> build run clean</span></span></code></pre></div>
+class="sourceCode makefile"><code class="sourceCode makefile"></code></pre></div>
 <hr />
 <h2 id="task-3-object-files-dependencies-20-min">Task 3: Object Files
 &amp; Dependencies (20 min)</h2>
