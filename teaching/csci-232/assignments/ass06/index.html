@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>232ass06</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h2 id="part-1-class-doublenode">Part 1: Class
+<code>DoubleNode</code></h2>
+<p>A node is a <strong>class</strong>, not a <code>struct</code>. Every
+field is declared <strong>separately</strong>, with its own access
+modifier. The header <code>include/double_node.hpp</code> is given:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DoubleNode</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>   <span class="kw">private</span><span class="op">:</span> NodeValue   value<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>   <span class="kw">private</span><span class="op">:</span> DoubleNode <span class="op">*</span>prevPtr<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>   <span class="kw">private</span><span class="op">:</span> DoubleNode <span class="op">*</span>nextPtr<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  DoubleNode<span class="op">(</span>NodeValue newValue<span class="op">);</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  NodeValue   getValue<span class="op">()</span> <span class="at">const</span><span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  DoubleNode <span class="op">*</span>getPrev<span class="op">()</span> <span class="at">const</span><span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  DoubleNode <span class="op">*</span>getNext<span class="op">()</span> <span class="at">const</span><span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="dt">void</span> setPrev<span class="op">(</span>DoubleNode <span class="op">*</span>newPrevPtr<span class="op">);</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="dt">void</span> setNext<span class="op">(</span>DoubleNode <span class="op">*</span>newNextPtr<span class="op">);</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>   <span class="co">// given: copying a node is forbidden (explained in a later lecture)</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  DoubleNode<span class="op">(</span><span class="at">const</span> DoubleNode <span class="op">&amp;)</span> <span class="op">=</span> <span class="kw">delete</span><span class="op">;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  DoubleNode <span class="op">&amp;</span><span class="kw">operator</span><span class="op">=(</span><span class="at">const</span> DoubleNode <span class="op">&amp;)</span> <span class="op">=</span> <span class="kw">delete</span><span class="op">;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h3 id="reading-the-constructor-declaration">Reading the constructor
+declaration</h3>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">explicit</span> DoubleNode<span class="op">(</span>NodeValue newValue<span class="op">);</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">//                  ^^^^^^^^^ ^^^^^^^^</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">//                  type      parameter name</span></span></code></pre></div>
+<ul>
+<li><code>NodeValue</code> is the type
+<code>std::variant&lt;int, double, std::string&gt;</code>. The node can
+hold an <code>int</code>, a <code>double</code> or a
+<code>std::string</code>.</li>
+<li><code>newValue</code> is the value the caller wants to store. It is
+passed <strong>by value</strong>, so the constructor receives its own
+copy.</li>
+<li>The parameter is called <code>newValue</code>, not
+<code>value</code>, because the field is already called
+<code>value</code>. Two different things must not share one name.</li>
+<li>In the <code>.cpp</code> the definition starts with the class name
+and <code>::</code>:</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DoubleNode<span class="op">::</span>DoubleNode<span class="op">(</span>NodeValue newValue<span class="op">)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span> <span class="co">/* </span><span class="al">TODO</span><span class="co">: initialize all three fields */</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Calling it: <code>new DoubleNode(NodeValue{5})</code>,
+<code>new DoubleNode(NodeValue{2.5})</code>,
+<code>new DoubleNode(NodeValue{std::string("abc")})</code>.</p>
+<p><strong>Your task:</strong> implement the constructor, three getters
+and two setters in <code>src/double_node.cpp</code>.</p>
+<ul>
+<li>The constructor must initialize <strong>all three fields</strong>
+(use an initializer list). <code>value</code> gets
+<code>newValue</code>. A new node has no neighbours, so
+<code>prevPtr</code> and <code>nextPtr</code> are
+<code>nullptr</code>.</li>
+<li>Getters are <code>const</code>: they do not modify the node.</li>
+<li>A node does not know anything about the list. It does not print,
+search or delete.</li>
+</ul>
+<hr />
+<h2 id="part-2-class-doublylinkedlist">Part 2: Class
+<code>DoublyLinkedList</code></h2>
+<p>The list <strong>owns</strong> its nodes (composition). The header
+<code>include/doubly_linked_list.hpp</code> is given. It contains only a
+<strong>forward declaration</strong> <code>class DoubleNode;</code>. The
+real <code>#include "double_node.hpp"</code> belongs in your
+<code>.cpp</code>.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;optional&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;node_value.hpp&quot;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DoubleNode<span class="op">;</span>                           <span class="co">// forward declaration</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DoublyLinkedList</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>   <span class="kw">private</span><span class="op">:</span> DoubleNode <span class="op">*</span>headPtr<span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>   <span class="kw">private</span><span class="op">:</span> DoubleNode <span class="op">*</span>tailPtr<span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>   <span class="kw">private</span><span class="op">:</span> <span class="dt">int</span>         count<span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>   <span class="co">// internal building blocks: the caller never sees a node</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>   <span class="kw">private</span><span class="op">:</span> DoubleNode <span class="op">*</span>detachFirst<span class="op">();</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>   <span class="kw">private</span><span class="op">:</span> DoubleNode <span class="op">*</span>detachLast<span class="op">();</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>   <span class="kw">private</span><span class="op">:</span> DoubleNode <span class="op">*</span>detachValue<span class="op">(</span>NodeValue value<span class="op">);</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  DoublyLinkedList<span class="op">();</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="op">~</span>DoublyLinkedList<span class="op">();</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="dt">void</span> pushFrontValue<span class="op">(</span>NodeValue value<span class="op">);</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="dt">void</span> pushBackValue<span class="op">(</span>NodeValue value<span class="op">);</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="bu">std::</span>optional<span class="op">&lt;</span>NodeValue<span class="op">&gt;</span> popFrontValue<span class="op">();</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="bu">std::</span>optional<span class="op">&lt;</span>NodeValue<span class="op">&gt;</span> popBackValue<span class="op">();</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="dt">bool</span> deleteValue<span class="op">(</span>NodeValue value<span class="op">);</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="dt">bool</span> containsValue<span class="op">(</span>NodeValue value<span class="op">)</span> <span class="at">const</span><span class="op">;</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="dt">int</span>  printForward<span class="op">()</span> <span class="at">const</span><span class="op">;</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="dt">int</span>  printBackward<span class="op">()</span> <span class="at">const</span><span class="op">;</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="dt">int</span>  length<span class="op">()</span> <span class="at">const</span><span class="op">;</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>   <span class="co">// given: copying a list is forbidden</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  DoublyLinkedList<span class="op">(</span><span class="at">const</span> DoublyLinkedList <span class="op">&amp;)</span> <span class="op">=</span> <span class="kw">delete</span><span class="op">;</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  DoublyLinkedList <span class="op">&amp;</span><span class="kw">operator</span><span class="op">=(</span><span class="at">const</span> DoublyLinkedList <span class="op">&amp;)</span> <span class="op">=</span> <span class="kw">delete</span><span class="op">;</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<h3 id="composition-rule">Composition rule</h3>
+<blockquote>
+<p>The outside world works only with <strong>values</strong>. No public
+method may take, return or expose a <code>DoubleNode*</code>. Every
+<code>new</code> and every <code>delete</code> of a node happens
+<strong>inside</strong> the class.</p>
+</blockquote>
+<h3 id="private-methods">Private methods</h3>
+<table>
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr>
+<th>Method</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>detachFirst</code></td>
+<td>Unlink the first node and <strong>return it</strong>. Do not delete
+it. Fix <code>headPtr</code>, <code>tailPtr</code>, <code>count</code>.
+Clear the node’s own <code>prevPtr</code> and <code>nextPtr</code>.
+Return <code>nullptr</code> if the list is empty.</td>
+</tr>
+<tr>
+<td><code>detachLast</code></td>
+<td>Same for the last node. Use the tail’s <code>prev</code> link, so no
+walking is needed.</td>
+</tr>
+<tr>
+<td><code>detachValue</code></td>
+<td>Find the <strong>first</strong> node equal to <code>value</code> and
+unlink it. It can be the head, the tail, the only node or a middle node.
+Return <code>nullptr</code> if not found. Reuse <code>detachFirst</code>
+and <code>detachLast</code> where you can.</td>
+</tr>
+</tbody>
+</table>
+<p>The caller of a <code>detach*</code> method owns the returned node
+and must <code>delete</code> it.</p>
+<h3 id="public-methods">Public methods</h3>
+<table>
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr>
+<th>Method</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DoublyLinkedList()</code></td>
+<td>Empty list: <code>headPtr</code> and <code>tailPtr</code> are
+<code>nullptr</code>, <code>count</code> is <code>0</code>.</td>
+</tr>
+<tr>
+<td><code>~DoublyLinkedList()</code></td>
+<td>Delete <strong>all</strong> nodes (RAII). Save the next pointer
+<strong>before</strong> <code>delete</code>.</td>
+</tr>
+<tr>
+<td><code>pushFrontValue</code>, <code>pushBackValue</code></td>
+<td>Create a node with <code>new</code> and link it. Handle the
+<strong>empty list</strong> (the new node is both head and tail).</td>
+</tr>
+<tr>
+<td><code>popFrontValue</code>, <code>popBackValue</code></td>
+<td>Detach a node, read its value, <code>delete</code> the node, return
+the value. If the list is empty, return <code>std::nullopt</code>.</td>
+</tr>
+<tr>
+<td><code>deleteValue</code></td>
+<td>Remove the <strong>first</strong> node equal to <code>value</code>
+and free it. Return <code>true</code> if something was removed.</td>
+</tr>
+<tr>
+<td><code>containsValue</code></td>
+<td>Return <code>true</code> if any node holds <code>value</code>.</td>
+</tr>
+<tr>
+<td><code>printForward</code></td>
+<td>Print values from head to tail with <code>std::visit</code>. Return
+the number of printed values.</td>
+</tr>
+<tr>
+<td><code>printBackward</code></td>
+<td>Print values from tail to head using <code>prevPtr</code>. Return
+the number of printed values.</td>
+</tr>
+<tr>
+<td><code>length</code></td>
+<td>Return <code>count</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="using-stdoptional">Using <code>std::optional</code></h3>
+<p><code>std::optional&lt;NodeValue&gt;</code> is a box that holds
+<strong>either a <code>NodeValue</code> or nothing</strong>. It is a
+sibling of <code>std::variant</code>: with <code>variant</code> you
+check <strong>which type</strong> is inside, with <code>optional</code>
+you check <strong>whether anything</strong> is inside.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;optional&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>optional<span class="op">&lt;</span>NodeValue<span class="op">&gt;</span> full <span class="op">=</span> NodeValue<span class="op">{</span><span class="dv">5</span><span class="op">};</span>   <span class="co">// a value was assigned</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>optional<span class="op">&lt;</span>NodeValue<span class="op">&gt;</span> empty<span class="op">;</span>                 <span class="co">// nothing was assigned</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>full<span class="op">.</span>has_value<span class="op">();</span>     <span class="co">// true</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>empty<span class="op">.</span>has_value<span class="op">();</span>    <span class="co">// false</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>full<span class="op">.</span>value<span class="op">();</span>         <span class="co">// NodeValue{5}, the value inside the box</span></span></code></pre></div>
+<ul>
+<li>Assign a value, and <code>has_value()</code> is
+<code>true</code>.</li>
+<li>Assign nothing, and <code>has_value()</code> is
+<code>false</code>.</li>
+<li><code>empty = std::nullopt;</code> puts the box back to the
+“nothing” state.</li>
+</ul>
+<p>Check first, then open the box:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>full<span class="op">.</span>has_value<span class="op">())</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    NodeValue v <span class="op">=</span> full<span class="op">.</span>value<span class="op">();</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<blockquote>
+<p>Calling <code>.value()</code> on an empty <code>optional</code> stops
+the program. Always ask <code>has_value()</code> first, unless you are
+certain a value is there.</p>
+</blockquote>
+<p><strong>In this assignment:</strong> a function whose return type is
+<code>std::optional&lt;NodeValue&gt;</code> does one of two things.</p>
+<ul>
+<li>It has a value: <code>return value;</code> (the box is full).</li>
+<li>It has nothing: <code>return std::nullopt;</code> (the box is
+empty).</li>
+</ul>
+<h3 id="watch-out">Watch out</h3>
+<ul>
+<li><code>NodeValue{1}</code> and <code>NodeValue{1.0}</code> are
+<strong>not equal</strong>: <code>variant</code> compares the active
+type first, then the value.</li>
+<li>The fields of <code>DoubleNode</code> are private. The list reads
+and changes links only through <code>getPrev</code>,
+<code>getNext</code>, <code>setPrev</code> and
+<code>setNext</code>.</li>
+<li>Deleting the only node must set <strong>both</strong>
+<code>headPtr</code> and <code>tailPtr</code> to
+<code>nullptr</code>.</li>
+<li>Removing the head: the new head’s previous link must become
+<code>nullptr</code>. Removing the tail: the new tail’s next link must
+become <code>nullptr</code>.</li>
+<li>Removing a middle node needs <strong>two</strong> link repairs.
+Forget one and <code>printBackward</code> or <code>popBackValue</code>
+breaks later, far from the real bug.</li>
+<li>Never read a node after <code>delete</code>. Read what you need
+(<code>getNext()</code>, <code>getValue()</code>) first.</li>
+</ul>
+<p>Example:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> test_pop_order<span class="op">()</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    DoublyLinkedList list<span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    list<span class="op">.</span>pushBackValue<span class="op">(</span>NodeValue<span class="op">{</span><span class="dv">1</span><span class="op">});</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    list<span class="op">.</span>pushBackValue<span class="op">(</span>NodeValue<span class="op">{</span><span class="dv">2</span><span class="op">});</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    list<span class="op">.</span>pushBackValue<span class="op">(</span>NodeValue<span class="op">{</span><span class="dv">3</span><span class="op">});</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    TEST_ASSERT_<span class="op">(</span>list<span class="op">.</span>popBackValue<span class="op">().</span>value<span class="op">()</span> <span class="op">==</span> NodeValue<span class="op">{</span><span class="dv">3</span><span class="op">});</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    TEST_ASSERT_<span class="op">(</span>list<span class="op">.</span>popFrontValue<span class="op">().</span>value<span class="op">()</span> <span class="op">==</span> NodeValue<span class="op">{</span><span class="dv">1</span><span class="op">});</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    TEST_ASSERT_<span class="op">(</span>list<span class="op">.</span>length<span class="op">()</span> <span class="op">==</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> test_pop_on_empty_list<span class="op">()</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    DoublyLinkedList list<span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    TEST_ASSERT_<span class="op">(!</span>list<span class="op">.</span>popFrontValue<span class="op">().</span>has_value<span class="op">());</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    TEST_ASSERT_<span class="op">(!</span>list<span class="op">.</span>popBackValue<span class="op">().</span>has_value<span class="op">());</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="tests-for-the-wrapper">Tests for the wrapper</h3>
+<p>When Part 2 passes, copy the same 6 tests and change only the class
+name from <code>DoublyLinkedList</code> to
+<code>StdDoublyLinkedList</code>. Name them with the suffix
+<code>_std</code>, for example <code>test_pop_order_std</code>.</p>
+<blockquote>
+<p>If the same tests pass for both classes, the two classes implement
+the same interface. That is the point of this assignment.</p>
+</blockquote>
+<hr />
+<h2 id="part-3-class-stddoublylinkedlist">Part 3: Class
+<code>StdDoublyLinkedList</code></h2>
+<p>In Part 2 you wrote the machinery yourself: nodes, pointers,
+<code>new</code>, <code>delete</code>. The C++ standard library already
+contains a doubly linked list: <code>std::list</code>. In this part you
+<strong>do not build a list</strong>. You build a
+<strong>wrapper</strong>: a thin class that holds a
+<code>std::list</code> and makes it behave <strong>exactly like your
+<code>DoublyLinkedList</code></strong>.</p>
+<pre class="text"><code>Outside:   StdDoublyLinkedList   looks the same as   DoublyLinkedList
+Inside:    your own nodes and pointers          vs.   one std::list</code></pre>
+<p>The caller must not be able to tell the two classes apart. The same
+calls, the same results:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>DoublyLinkedList        a<span class="op">;</span>    a<span class="op">.</span>pushBackValue<span class="op">(</span>NodeValue<span class="op">{</span><span class="dv">1</span><span class="op">});</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>StdDoublyLinkedList     b<span class="op">;</span>    b<span class="op">.</span>pushBackValue<span class="op">(</span>NodeValue<span class="op">{</span><span class="dv">1</span><span class="op">});</span></span></code></pre></div>
+<h3 id="why-there-are-no-private-helper-methods">Why there are no
+private helper methods</h3>
+<p><code>DoublyLinkedList</code> has private <code>detachFirst</code>,
+<code>detachLast</code> and <code>detachValue</code>, because
+<strong>you</strong> own the pointers and need building blocks to repair
+them.</p>
+<p><code>StdDoublyLinkedList</code> has <strong>none</strong> of them.
+<code>std::list</code> hides all pointer work inside itself. You never
+see a node, so there is nothing to detach. Your class has <strong>one
+private field</strong> and the <strong>same public methods</strong> as
+Part 2:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;list&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;optional&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;node_value.hpp&quot;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> StdDoublyLinkedList</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>   <span class="kw">private</span><span class="op">:</span> <span class="bu">std::</span>list<span class="op">&lt;</span>NodeValue<span class="op">&gt;</span> data<span class="op">;</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="dt">void</span> pushFrontValue<span class="op">(</span>NodeValue value<span class="op">);</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="dt">void</span> pushBackValue<span class="op">(</span>NodeValue value<span class="op">);</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="bu">std::</span>optional<span class="op">&lt;</span>NodeValue<span class="op">&gt;</span> popFrontValue<span class="op">();</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="bu">std::</span>optional<span class="op">&lt;</span>NodeValue<span class="op">&gt;</span> popBackValue<span class="op">();</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="dt">bool</span> deleteValue<span class="op">(</span>NodeValue value<span class="op">);</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="dt">bool</span> containsValue<span class="op">(</span>NodeValue value<span class="op">)</span> <span class="at">const</span><span class="op">;</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="dt">int</span>  printForward<span class="op">()</span> <span class="at">const</span><span class="op">;</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="dt">int</span>  printBackward<span class="op">()</span> <span class="at">const</span><span class="op">;</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span><span class="op">:</span>  <span class="dt">int</span>  length<span class="op">()</span> <span class="at">const</span><span class="op">;</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<p>Note what is <strong>missing</strong>: no constructor, no destructor,
+no <code>detach*</code>, no <code>= delete</code>.
+<code>std::list</code> cleans up after itself and copies itself
+correctly, so the compiler-generated versions are enough. You write none
+of them.</p>
+<h3 id="the-real-task-discover-the-library">The real task: discover the
+library</h3>
+<p>The task is <strong>not</strong> to write clever code. It is to
+<strong>read the documentation</strong> and find which standard tool
+does the same job as each of your Part 2 methods. Every method body
+should be only a few lines, built from library calls.</p>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr>
+<th>Your method</th>
+<th>The question you must answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pushFrontValue</code>, <code>pushBackValue</code></td>
+<td>Which <code>std::list</code> methods insert at either end?</td>
+</tr>
+<tr>
+<td><code>popFrontValue</code>, <code>popBackValue</code></td>
+<td>How do you read the end element and remove it? What if the list is
+empty?</td>
+</tr>
+<tr>
+<td><code>deleteValue</code></td>
+<td>How do you remove only the <strong>first</strong> element equal to
+<code>value</code>?</td>
+</tr>
+<tr>
+<td><code>containsValue</code></td>
+<td>How do you search without writing a loop?</td>
+</tr>
+<tr>
+<td><code>printForward</code>, <code>printBackward</code></td>
+<td>How do you go through the list from the tail?</td>
+</tr>
+<tr>
+<td><code>length</code></td>
+<td>Which method gives the size, and which type does it return?</td>
+</tr>
+</tbody>
+</table>
+<p>Look things up on <a
+href="https://en.cppreference.com">cppreference.com</a>. Useful starting
+points:</p>
+<ul>
+<li><code>std::list</code>: <code>push_front</code>,
+<code>push_back</code>, <code>front</code>, <code>back</code>,
+<code>pop_front</code>, <code>pop_back</code>, <code>empty</code>,
+<code>size</code>, <code>begin</code>, <code>end</code>,
+<code>rbegin</code>, <code>rend</code>, <code>erase</code>,
+<code>remove</code></li>
+<li><code>&lt;algorithm&gt;</code>: <code>std::find</code></li>
+</ul>
+<h3 id="rules">Rules</h3>
+<p><strong>Forbidden</strong> in
+<code>src/std_doubly_linked_list.cpp</code>:</p>
+<ul>
+<li><code>new</code>, <code>delete</code>, the class
+<code>DoubleNode</code>, any pointer variable (<code>Ptr</code>),</li>
+<li>your own <code>while</code> or <code>for</code> loops that
+<strong>search or remove</strong> elements.</li>
+</ul>
+<p><strong>Allowed:</strong></p>
+<ul>
+<li>methods of <code>std::list</code>,</li>
+<li>functions from <code>&lt;algorithm&gt;</code>,</li>
+<li>iterators,</li>
+<li><code>std::visit</code>,</li>
+<li>a loop <strong>only for printing</strong>.</li>
+</ul>
+<p>The CI greps your file for <code>new</code>, <code>delete</code>,
+<code>DoubleNode</code> and <code>Ptr</code>.</p>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>Some names look like they do the same thing as your methods.
+<strong>Read the documentation, not just the name.</strong> Two of the
+tools behave differently from what you need. Your tests will tell you
+which.</li>
+<li>Some <code>std::list</code> methods are <strong>undefined
+behavior</strong> on an empty list. Your public methods must still
+behave exactly as in Part 2.</li>
+<li><code>size()</code> returns <code>size_t</code>, but
+<code>length()</code> returns <code>int</code>. Use
+<code>static_cast&lt;int&gt;(...)</code>.</li>
+<li>For printing, use <code>std::visit</code> as in
+<code>printList</code> from Assignment 05. Take the value <strong>by
+copy</strong>:
+<code>[](auto x) { std::cout &lt;&lt; x &lt;&lt; " "; }</code>.</li>
+</ul>
+<blockquote>
+<p>Same interface, different inside. That is what an abstract data type
+is. Compare the size of Part 3 with Part 2: this is how much work the
+library does for you.</p>
+</blockquote>
+<hr />
+<h2 id="part-4-your-tests-and-answers.md">Part 4: Your Tests and
+<code>ANSWERS.md</code></h2>
+<p>Write the bodies of <strong>8 short tests</strong> in
+<code>src/tests.cpp</code> using <code>TEST_ASSERT_</code>. They are not
+meant to be exhaustive. Their purpose is to convince
+<strong>you</strong> that you handled the edge cases. The instructor
+tests in CI check correctness in depth.</p>
+<h3 id="tests-for-doublylinkedlist-6">Tests for
+<code>DoublyLinkedList</code> (6)</h3>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 78%" />
+</colgroup>
+<thead>
+<tr>
+<th>Test</th>
+<th>What it should check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>test_new_list_is_empty</code></td>
+<td><code>length()</code> is <code>0</code> on a new list</td>
+</tr>
+<tr>
+<td><code>test_push_increases_length</code></td>
+<td>after <code>pushFrontValue</code> and <code>pushBackValue</code>,
+<code>length()</code> is <code>2</code></td>
+</tr>
+<tr>
+<td><code>test_pop_on_empty_list</code></td>
+<td><code>popFrontValue()</code> and <code>popBackValue()</code> have no
+value</td>
+</tr>
+<tr>
+<td><code>test_pop_order</code></td>
+<td>push <code>1, 2, 3</code> with <code>pushBackValue</code>:
+<code>popBackValue()</code> gives <code>3</code>,
+<code>popFrontValue()</code> gives <code>1</code></td>
+</tr>
+<tr>
+<td><code>test_delete_value_not_found</code></td>
+<td><code>deleteValue</code> returns <code>false</code> and
+<code>length()</code> does not change</td>
+</tr>
+<tr>
+<td><code>test_delete_middle_keeps_links</code></td>
+<td>push <code>1, 2, 3</code>, delete <code>2</code>: then
+<code>popBackValue()</code> gives <code>3</code> and the next
+<code>popBackValue()</code> gives <code>1</code></td>
+</tr>
+</tbody>
+</table>
+<p>The last test is the most important one: <code>popBackValue</code>
+follows <code>prevPtr</code>, so it fails if you forgot to repair the
+backward link.</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> test_pop_order<span class="op">()</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    DoublyLinkedList list<span class="op">;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    list<span class="op">.</span>pushBackValue<span class="op">(</span>NodeValue<span class="op">{</span><span class="dv">1</span><span class="op">});</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    list<span class="op">.</span>pushBackValue<span class="op">(</span>NodeValue<span class="op">{</span><span class="dv">2</span><span class="op">});</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    list<span class="op">.</span>pushBackValue<span class="op">(</span>NodeValue<span class="op">{</span><span class="dv">3</span><span class="op">});</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    TEST_ASSERT_<span class="op">(</span>list<span class="op">.</span>popBackValue<span class="op">().</span>value<span class="op">()</span> <span class="op">==</span> NodeValue<span class="op">{</span><span class="dv">3</span><span class="op">});</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    TEST_ASSERT_<span class="op">(</span>list<span class="op">.</span>popFrontValue<span class="op">().</span>value<span class="op">()</span> <span class="op">==</span> NodeValue<span class="op">{</span><span class="dv">1</span><span class="op">});</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    TEST_ASSERT_<span class="op">(</span>list<span class="op">.</span>length<span class="op">()</span> <span class="op">==</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="tests-for-stddoublylinkedlist-2">Tests for
+<code>StdDoublyLinkedList</code> (2)</h3>
+<p>These two tests are about the <strong>traps</strong> you found in the
+library. Name them with the suffix <code>_std</code>.</p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 78%" />
+</colgroup>
+<thead>
+<tr>
+<th>Test</th>
+<th>What it should check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>test_std_delete_only_first</code></td>
+<td>push <code>1, 2, 1</code>, call
+<code>deleteValue(NodeValue{1})</code>: <code>length()</code> is
+<code>2</code>, and <code>popFrontValue()</code> gives
+<code>2</code></td>
+</tr>
+<tr>
+<td><code>test_std_pop_on_empty_list</code></td>
+<td><code>popFrontValue()</code> and <code>popBackValue()</code> on an
+empty list have no value and do not crash</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> test_std_pop_on_empty_list<span class="op">()</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    StdDoublyLinkedList list<span class="op">;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    TEST_ASSERT_<span class="op">(!</span>list<span class="op">.</span>popFrontValue<span class="op">().</span>has_value<span class="op">());</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    TEST_ASSERT_<span class="op">(!</span>list<span class="op">.</span>popBackValue<span class="op">().</span>has_value<span class="op">());</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="answers.md"><code>ANSWERS.md</code></h3>
+<p>Answer each question in 2–3 sentences:</p>
+<ol type="1">
+<li>Count the lines in Part 2 that have <strong>no counterpart</strong>
+in Part 3: <code>new</code>, <code>delete</code>, pointer repairs. What
+did the standard library do for you?</li>
+<li>Why does <code>StdDoublyLinkedList</code> need no destructor and no
+<code>detach*</code>, while <code>DoublyLinkedList</code> needs
+them?</li>
+<li>Which two tools did <strong>not</strong> behave like your methods at
+first? What did you use instead?</li>
+<li>What does <code>NodeValue{1} == NodeValue{1.0}</code> return, and
+why?</li>
+</ol>
+<hr />
+<h2 id="rules-1">Rules</h2>
+<ul>
+<li>Do <strong>not</strong> modify the headers in <code>include/</code>
+or any function <strong>signature</strong>.</li>
+<li>All code must compile under <strong>C++20</strong>
+(<code>-std=c++20</code>).</li>
+<li>No public method of <code>DoublyLinkedList</code> may take, return
+or expose a <code>DoubleNode*</code>.</li>
+<li>Always guard against <code>nullptr</code> before dereferencing a
+pointer.</li>
+<li>Every node created with <code>new</code> must be deleted exactly
+once, inside the class.</li>
+<li><code>src/std_doubly_linked_list.cpp</code> must not contain
+<code>new</code>, <code>delete</code>, <code>DoubleNode</code> or
+<code>Ptr</code>, and no hand-written loop that searches or removes. CI
+checks it.</li>
+<li>Call <code>.value()</code> on a <code>std::optional</code> only
+after checking <code>has_value()</code> (or when the test guarantees a
+value). <code>.value()</code> on an empty <code>optional</code> stops
+the program.</li>
+<li>Do <strong>not</strong> use references (<code>&amp;</code>) or
+templates in your own code. We have not covered them yet. (The
+<code>= delete</code> lines in the given headers are the only
+exception.)</li>
+<li>CI runs your <code>tests.cpp</code> together with the instructor
+tests. Both must pass.</li>
+</ul>
+<hr />
+<h2 id="suggested-schedule">Suggested schedule</h2>
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Work</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Part 1 and Part 2, plus your 6 tests for
+<code>DoublyLinkedList</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Part 3, your 2 tests for the wrapper, <code>ANSWERS.md</code></td>
+</tr>
+</tbody>
+</table>
+<p>Part 3 is much shorter than Part 2, because you already know every
+operation.</p>
+<hr />
+<h2 id="author-block-required">Author block: required</h2>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>string AUTHOR_NAME       <span class="op">=</span> <span class="st">&quot;Your Name&quot;</span><span class="op">;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>string AUTHOR_AUTHORSHIP <span class="op">=</span> <span class="st">&quot;I acknowledge that I have worked on this &quot;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;assignment independently, except where explicitly noted and referenced. &quot;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Any collaboration or use of external resources has been properly cited. &quot;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;I am fully aware of the consequences of academic dishonesty and agree &quot;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;to abide by the university&#39;s academic integrity policy.&quot;</span><span class="op">;</span></span></code></pre></div>
+</body>
+</html>
