@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>112ass08</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="csci-112-assignment-8-file-access-and-math-functions">CSCI 112
+Assignment 8 – File Access and Math Functions</h1>
+<p>Points: 10</p>
+<p>Automated tests will run on GitHub Actions after every push. Check
+the Actions tab to see which tests pass and which fail.</p>
+<hr />
+<h2 id="instructions">Instructions</h2>
+<ol type="1">
+<li><strong>Fork</strong> the repository on GitHub -
+<code>https://github.com/jpach-cs/112-ass08-template</code>.</li>
+<li>Clone your forked repository to your local machine.</li>
+<li>Open the file <code>code.h</code> and add:
+<ol type="1">
+<li>Include guards at the top: <code>#ifndef CODE_H</code>
+<code>#define CODE_H</code></li>
+<li>Required includes (<code>&lt;stdbool.h&gt;</code>)</li>
+<li>All function prototypes</li>
+<li>Include guards at the bottom: <code>#endif</code></li>
+</ol></li>
+<li>Open the file <code>code.c</code>.
+<ol type="1">
+<li>Include <code>&lt;stdio.h&gt;</code>, <code>&lt;stdlib.h&gt;</code>
+(for <code>abs()</code>), <code>&lt;math.h&gt;</code> (for the other
+math functions) and <code>code.h</code>.</li>
+<li>Implement every function listed below:
+<ul>
+<li>Read the description of each function carefully.</li>
+<li>Follow the rules — use ONLY the standard library
+(<code>stdio.h</code>, <code>stdlib.h</code>, <code>math.h</code>,
+<code>stdbool.h</code>).</li>
+<li>Use the <strong>exact file modes</strong> and <strong>exact file
+formats</strong> specified. The tests inspect your files byte by
+byte.</li>
+</ul></li>
+<li>Test your implementation locally using <code>main.c</code>.</li>
+</ol></li>
+<li>Once all functions are complete — save your changes, then
+<strong>commit</strong> and <strong>push</strong> to your
+repository.</li>
+<li>Go to the <strong>Actions</strong> tab on GitHub and check the test
+results.</li>
+</ol>
+<h3 id="learning-objectives">Learning Objectives</h3>
+<p>After completing this lab, you will:</p>
+<ul>
+<li>Create, read, append to and clear files in <strong>text
+mode</strong> (<code>"w"</code>, <code>"r"</code>,
+<code>"a"</code>)</li>
+<li>Create, read, append to and clear files in <strong>binary
+mode</strong> (<code>"wb"</code>, <code>"rb"</code>,
+<code>"ab"</code>)</li>
+<li>Write and read text with <code>fprintf()</code> /
+<code>fscanf()</code></li>
+<li>Write and read raw bytes with <code>fwrite()</code> /
+<code>fread()</code></li>
+<li>Navigate a binary file with <code>fseek()</code> and
+<code>ftell()</code></li>
+<li>Handle errors (<code>fopen()</code> returning
+<code>NULL</code>)</li>
+<li>Use the math functions: <code>abs()</code>, <code>fabs()</code>,
+<code>sqrt()</code>, <code>pow()</code>, <code>ceil()</code>,
+<code>floor()</code>, <code>round()</code>, <code>fmod()</code></li>
+</ul>
+<hr />
+<h2 id="general-rules">General rules</h2>
+<ol type="1">
+<li>Every function that returns <code>bool</code> returns
+<code>true</code> on success and <code>false</code> on any failure
+(<code>fopen()</code> failed, invalid argument, read/write error).</li>
+<li><strong>Always check</strong> the result of
+<code>fopen()</code>.</li>
+<li><strong>Always close</strong> every file you open (also on error
+paths after a successful <code>fopen()</code>).</li>
+<li>If an argument is invalid (see each function), return
+<code>false</code> <strong>without touching the file</strong> (do not
+create, truncate or modify it).</li>
+<li>All floating point numbers in <strong>text</strong> files are
+written with exactly two digits after the decimal point:
+<code>"%.2f\n"</code>. Integers are written with <code>"%d\n"</code>.
+Every value is on its own line and every line ends with
+<code>\n</code>.</li>
+<li>In <strong>binary</strong> files an <code>int</code> is stored as
+<code>sizeof(int)</code> bytes and a <code>double</code> as
+<code>sizeof(double)</code> bytes, with no separators and no extra
+data.</li>
+</ol>
+<hr />
+<h2 id="implement-20-functions">Implement 20 functions</h2>
+<h3 id="part-a-text-mode">Part A – Text mode</h3>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 26%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr>
+<th>#</th>
+<th>Function</th>
+<th>Mode</th>
+<th>Math</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>bool create_abs_txt(const char *filename, int value)</code></td>
+<td><code>"w"</code></td>
+<td><code>abs()</code></td>
+<td>Creates (or overwrites) the file. Content: <code>abs(value)</code>
+as text.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>bool create_fabs_txt(const char *filename, double value)</code></td>
+<td><code>"w"</code></td>
+<td><code>fabs()</code></td>
+<td>Creates (or overwrites) the file. Content: <code>fabs(value)</code>
+as text.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>bool append_sqrt_txt(const char *filename, double value)</code></td>
+<td><code>"a"</code></td>
+<td><code>sqrt()</code></td>
+<td>Appends <code>sqrt(value)</code> as a new line. Invalid:
+<code>value &lt; 0</code>.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>bool append_pow_txt(const char *filename, double base, double exponent)</code></td>
+<td><code>"a"</code></td>
+<td><code>pow()</code></td>
+<td>Appends <code>pow(base, exponent)</code> as a new line. Invalid:
+<code>base == 0</code> and <code>exponent &lt; 0</code>.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>bool create_ceil_floor_txt(const char *filename, double value)</code></td>
+<td><code>"w"</code></td>
+<td><code>ceil()</code>, <code>floor()</code></td>
+<td>Creates (or overwrites) the file with <strong>two lines</strong>:
+line 1 = <code>ceil(value)</code>, line 2 =
+<code>floor(value)</code>.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>bool append_round_txt(const char *filename, double value)</code></td>
+<td><code>"a"</code></td>
+<td><code>round()</code></td>
+<td>Appends <code>round(value)</code> as a new line.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>bool append_fmod_txt(const char *filename, double x, double y)</code></td>
+<td><code>"a"</code></td>
+<td><code>fmod()</code></td>
+<td>Appends <code>fmod(x, y)</code> as a new line. Invalid:
+<code>y == 0</code>.</td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>int load_txt_values(const char *filename, double *arr, int max_count)</code></td>
+<td><code>"r"</code></td>
+<td>–</td>
+<td>Reads numbers from a text file with <code>fscanf()</code> into
+<code>arr</code>, at most <code>max_count</code> values. Returns the
+number of values read, or <code>-1</code> if the file cannot be
+opened.</td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>bool clear_file(const char *filename)</code></td>
+<td><code>"w"</code></td>
+<td>–</td>
+<td>Removes all content of the file, leaving an empty file (size 0).
+Creates it if it does not exist.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="text-file-examples">Text file examples</h4>
+<pre class="text"><code>create_abs_txt(&quot;a.txt&quot;, -7)            -&gt; a.txt contains:  7\n
+create_fabs_txt(&quot;a.txt&quot;, -2.5)         -&gt; a.txt contains:  2.50\n
+append_sqrt_txt(&quot;a.txt&quot;, 16.0)         -&gt; adds the line:   4.00\n
+append_pow_txt(&quot;a.txt&quot;, 2.0, 10.0)     -&gt; adds the line:   1024.00\n
+create_ceil_floor_txt(&quot;a.txt&quot;, 2.3)    -&gt; a.txt contains:  3.00\n2.00\n
+append_round_txt(&quot;a.txt&quot;, 2.5)         -&gt; adds the line:   3.00\n
+append_fmod_txt(&quot;a.txt&quot;, 7.5, 2.0)     -&gt; adds the line:   1.50\n</code></pre>
+<h3 id="part-b-binary-mode">Part B – Binary mode</h3>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 26%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr>
+<th>#</th>
+<th>Function</th>
+<th>Mode</th>
+<th>Math</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td><code>bool create_abs_bin(const char *filename, int value)</code></td>
+<td><code>"wb"</code></td>
+<td><code>abs()</code></td>
+<td>Creates (or overwrites) the file. Content: <strong>one
+<code>int</code></strong> = <code>abs(value)</code>.</td>
+</tr>
+<tr>
+<td>11</td>
+<td><code>bool create_fabs_bin(const char *filename, double value)</code></td>
+<td><code>"wb"</code></td>
+<td><code>fabs()</code></td>
+<td>Creates (or overwrites) the file. Content: <strong>one
+<code>double</code></strong> = <code>fabs(value)</code>.</td>
+</tr>
+<tr>
+<td>12</td>
+<td><code>bool append_sqrt_bin(const char *filename, double value)</code></td>
+<td><code>"ab"</code></td>
+<td><code>sqrt()</code></td>
+<td>Appends one <code>double</code> = <code>sqrt(value)</code>. Invalid:
+<code>value &lt; 0</code>.</td>
+</tr>
+<tr>
+<td>13</td>
+<td><code>bool append_pow_bin(const char *filename, double base, double exponent)</code></td>
+<td><code>"ab"</code></td>
+<td><code>pow()</code></td>
+<td>Appends one <code>double</code> = <code>pow(base, exponent)</code>.
+Invalid: <code>base == 0</code> and <code>exponent &lt; 0</code>.</td>
+</tr>
+<tr>
+<td>14</td>
+<td><code>bool create_ceil_floor_bin(const char *filename, double value)</code></td>
+<td><code>"wb"</code></td>
+<td><code>ceil()</code>, <code>floor()</code></td>
+<td>Creates (or overwrites) the file with <strong>two
+<code>double</code>s</strong>: first <code>ceil(value)</code>, then
+<code>floor(value)</code>.</td>
+</tr>
+<tr>
+<td>15</td>
+<td><code>bool append_round_bin(const char *filename, double value)</code></td>
+<td><code>"ab"</code></td>
+<td><code>round()</code></td>
+<td>Appends one <code>double</code> = <code>round(value)</code>.</td>
+</tr>
+<tr>
+<td>16</td>
+<td><code>bool append_fmod_bin(const char *filename, double x, double y)</code></td>
+<td><code>"ab"</code></td>
+<td><code>fmod()</code></td>
+<td>Appends one <code>double</code> = <code>fmod(x, y)</code>. Invalid:
+<code>y == 0</code>.</td>
+</tr>
+<tr>
+<td>17</td>
+<td><code>bool load_abs_bin(const char *filename, int *out)</code></td>
+<td><code>"rb"</code></td>
+<td>–</td>
+<td>Reads the first <code>int</code> from the file into
+<code>*out</code>. Returns <code>false</code> if the file cannot be
+opened or does not contain a full <code>int</code>.</td>
+</tr>
+<tr>
+<td>18</td>
+<td><code>int load_bin_values(const char *filename, double *arr, int max_count)</code></td>
+<td><code>"rb"</code></td>
+<td>–</td>
+<td>Reads <code>double</code>s into <code>arr</code>, at most
+<code>max_count</code>. Returns the number of values read, or
+<code>-1</code> if the file cannot be opened.</td>
+</tr>
+<tr>
+<td>19</td>
+<td><code>bool load_bin_value_at(const char *filename, int index, double *out)</code></td>
+<td><code>"rb"</code></td>
+<td>–</td>
+<td>Reads the <code>double</code> stored at position <code>index</code>
+(0-based) using <code>fseek()</code>. Returns <code>false</code> if the
+file cannot be opened, <code>index &lt; 0</code>, or the file is too
+short.</td>
+</tr>
+<tr>
+<td>20</td>
+<td><code>long get_file_size(const char *filename)</code></td>
+<td><code>"rb"</code></td>
+<td>–</td>
+<td>Returns the size of the file in bytes using <code>fseek()</code> and
+<code>ftell()</code>. Returns <code>-1</code> if the file cannot be
+opened.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="binary-file-examples">Binary file examples</h4>
+<pre class="text"><code>create_ceil_floor_bin(&quot;b.bin&quot;, 2.3)   -&gt; b.bin: [3.0 as double][2.0 as double]   (2 * sizeof(double) bytes)
+append_sqrt_bin(&quot;b.bin&quot;, 9.0)         -&gt; b.bin: [3.0][2.0][3.0]                  (3 * sizeof(double) bytes)
+load_bin_value_at(&quot;b.bin&quot;, 1, &amp;v)     -&gt; v == 2.0
+get_file_size(&quot;b.bin&quot;)                -&gt; 3 * sizeof(double)</code></pre>
+<hr />
+<h1 id="background">Background</h1>
+<h2 id="opening-and-closing-a-file">Opening and closing a file</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">FILE</span> <span class="op">*</span>f <span class="op">=</span> fopen<span class="op">(</span><span class="st">&quot;data.txt&quot;</span><span class="op">,</span> <span class="st">&quot;w&quot;</span><span class="op">);</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>f <span class="op">==</span> NULL<span class="op">)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span>       <span class="co">// always check!</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>fprintf<span class="op">(</span>f<span class="op">,</span> <span class="st">&quot;</span><span class="sc">%d\n</span><span class="st">&quot;</span><span class="op">,</span> <span class="dv">42</span><span class="op">);</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>fclose<span class="op">(</span>f<span class="op">);</span>              <span class="co">// always close!</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span></code></pre></div>
+<h2 id="modes-you-need">Modes you need</h2>
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"w"</code> / <code>"wb"</code></td>
+<td>Write. Creates the file, <strong>erases</strong> existing
+content.</td>
+</tr>
+<tr>
+<td><code>"a"</code> / <code>"ab"</code></td>
+<td>Append. Creates the file if needed, adds data at the
+<strong>end</strong>.</td>
+</tr>
+<tr>
+<td><code>"r"</code> / <code>"rb"</code></td>
+<td>Read. The file must exist.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="text-vs.-binary">Text vs. binary</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// text: human readable</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>fprintf<span class="op">(</span>f<span class="op">,</span> <span class="st">&quot;</span><span class="sc">%.2f\n</span><span class="st">&quot;</span><span class="op">,</span> <span class="fl">3.5</span><span class="op">);</span>          <span class="co">// writes the characters 3 . 5 0 \n</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>fscanf<span class="op">(</span>f<span class="op">,</span> <span class="st">&quot;</span><span class="sc">%lf</span><span class="st">&quot;</span><span class="op">,</span> <span class="op">&amp;</span>x<span class="op">);</span>               <span class="co">// reads a double (note: %lf for double)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">// binary: raw bytes</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> d <span class="op">=</span> <span class="fl">3.5</span><span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>fwrite<span class="op">(&amp;</span>d<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>d<span class="op">),</span> <span class="dv">1</span><span class="op">,</span> f<span class="op">);</span>        <span class="co">// writes sizeof(double) bytes</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>fread<span class="op">(&amp;</span>d<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>d<span class="op">),</span> <span class="dv">1</span><span class="op">,</span> f<span class="op">);</span>         <span class="co">// returns the number of elements read</span></span></code></pre></div>
+<h2 id="moving-around-a-binary-file">Moving around a binary file</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fseek<span class="op">(</span>f<span class="op">,</span> index <span class="op">*</span> <span class="kw">sizeof</span><span class="op">(</span><span class="dt">double</span><span class="op">),</span> SEEK_SET<span class="op">);</span>   <span class="co">// jump to the index-th double</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>fseek<span class="op">(</span>f<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> SEEK_END<span class="op">);</span>                        <span class="co">// jump to the end</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dt">long</span> size <span class="op">=</span> ftell<span class="op">(</span>f<span class="op">);</span>                         <span class="co">// current position = size in bytes</span></span></code></pre></div>
+<h2 id="math-functions">Math functions</h2>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 22%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Function</th>
+<th>Header</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int abs(int)</code></td>
+<td><code>stdlib.h</code></td>
+<td>absolute value of an integer</td>
+<td><code>abs(-7)</code> → <code>7</code></td>
+</tr>
+<tr>
+<td><code>double fabs(double)</code></td>
+<td><code>math.h</code></td>
+<td>absolute value of a double</td>
+<td><code>fabs(-2.5)</code> → <code>2.5</code></td>
+</tr>
+<tr>
+<td><code>double sqrt(double)</code></td>
+<td><code>math.h</code></td>
+<td>square root</td>
+<td><code>sqrt(16.0)</code> → <code>4.0</code></td>
+</tr>
+<tr>
+<td><code>double pow(double, double)</code></td>
+<td><code>math.h</code></td>
+<td>power</td>
+<td><code>pow(2.0, 10.0)</code> → <code>1024.0</code></td>
+</tr>
+<tr>
+<td><code>double ceil(double)</code></td>
+<td><code>math.h</code></td>
+<td>round <strong>up</strong></td>
+<td><code>ceil(2.3)</code> → <code>3.0</code></td>
+</tr>
+<tr>
+<td><code>double floor(double)</code></td>
+<td><code>math.h</code></td>
+<td>round <strong>down</strong></td>
+<td><code>floor(2.7)</code> → <code>2.0</code></td>
+</tr>
+<tr>
+<td><code>double round(double)</code></td>
+<td><code>math.h</code></td>
+<td>round to nearest (halves away from zero)</td>
+<td><code>round(2.5)</code> → <code>3.0</code></td>
+</tr>
+<tr>
+<td><code>double fmod(double, double)</code></td>
+<td><code>math.h</code></td>
+<td>floating point remainder</td>
+<td><code>fmod(7.5, 2.0)</code> → <code>1.5</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Note: when compiling by hand, programs using <code>math.h</code>
+functions may need the <code>-lm</code> flag:
+<code>gcc main.c code.c -o main -lm</code></p>
+</blockquote>
+<hr />
+<h1 id="only-for-testing">Only for testing</h1>
+<h2 id="local-testing-sandbox">Local Testing (Sandbox)</h2>
+<p>Create test cases in main.c:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;code.h&quot;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Text mode</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    create_abs_txt<span class="op">(</span><span class="st">&quot;test.txt&quot;</span><span class="op">,</span> <span class="op">-</span><span class="dv">7</span><span class="op">);</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    append_sqrt_txt<span class="op">(</span><span class="st">&quot;test.txt&quot;</span><span class="op">,</span> <span class="fl">16.0</span><span class="op">);</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    append_pow_txt<span class="op">(</span><span class="st">&quot;test.txt&quot;</span><span class="op">,</span> <span class="fl">2.0</span><span class="op">,</span> <span class="fl">10.0</span><span class="op">);</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    append_round_txt<span class="op">(</span><span class="st">&quot;test.txt&quot;</span><span class="op">,</span> <span class="fl">2.5</span><span class="op">);</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    append_fmod_txt<span class="op">(</span><span class="st">&quot;test.txt&quot;</span><span class="op">,</span> <span class="fl">7.5</span><span class="op">,</span> <span class="fl">2.0</span><span class="op">);</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> values<span class="op">[</span><span class="dv">10</span><span class="op">];</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n <span class="op">=</span> load_txt_values<span class="op">(</span><span class="st">&quot;test.txt&quot;</span><span class="op">,</span> values<span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Read </span><span class="sc">%d</span><span class="st"> values from text file:</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> n<span class="op">);</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        printf<span class="op">(</span><span class="st">&quot;  </span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> values<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    clear_file<span class="op">(</span><span class="st">&quot;test.txt&quot;</span><span class="op">);</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Size after clear: </span><span class="sc">%ld\n</span><span class="st">&quot;</span><span class="op">,</span> get_file_size<span class="op">(</span><span class="st">&quot;test.txt&quot;</span><span class="op">));</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Binary mode</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    create_ceil_floor_bin<span class="op">(</span><span class="st">&quot;test.bin&quot;</span><span class="op">,</span> <span class="fl">2.3</span><span class="op">);</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    append_sqrt_bin<span class="op">(</span><span class="st">&quot;test.bin&quot;</span><span class="op">,</span> <span class="fl">9.0</span><span class="op">);</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    append_pow_bin<span class="op">(</span><span class="st">&quot;test.bin&quot;</span><span class="op">,</span> <span class="fl">3.0</span><span class="op">,</span> <span class="fl">2.0</span><span class="op">);</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> load_bin_values<span class="op">(</span><span class="st">&quot;test.bin&quot;</span><span class="op">,</span> values<span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Read </span><span class="sc">%d</span><span class="st"> values from binary file:</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> n<span class="op">);</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>        printf<span class="op">(</span><span class="st">&quot;  </span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> values<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> v<span class="op">;</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>load_bin_value_at<span class="op">(</span><span class="st">&quot;test.bin&quot;</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="op">&amp;</span>v<span class="op">))</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>        printf<span class="op">(</span><span class="st">&quot;Value at index 2: </span><span class="sc">%f\n</span><span class="st">&quot;</span><span class="op">,</span> v<span class="op">);</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;Binary file size: </span><span class="sc">%ld</span><span class="st"> bytes</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> get_file_size<span class="op">(</span><span class="st">&quot;test.bin&quot;</span><span class="op">));</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>    create_abs_bin<span class="op">(</span><span class="st">&quot;abs.bin&quot;</span><span class="op">,</span> <span class="op">-</span><span class="dv">42</span><span class="op">);</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> iv<span class="op">;</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>load_abs_bin<span class="op">(</span><span class="st">&quot;abs.bin&quot;</span><span class="op">,</span> <span class="op">&amp;</span>iv<span class="op">))</span></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>        printf<span class="op">(</span><span class="st">&quot;abs.bin: </span><span class="sc">%d\n</span><span class="st">&quot;</span><span class="op">,</span> iv<span class="op">);</span></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</body>
+</html>
