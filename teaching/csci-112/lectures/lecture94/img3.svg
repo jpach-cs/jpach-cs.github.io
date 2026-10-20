@@ -1,0 +1,23 @@
+<svg viewBox="0 0 850 260" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" stroke="#8B1E2D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="25" y="30" width="180" height="150" rx="12"/>
+    <rect x="235" y="30" width="180" height="150" rx="12"/>
+    <rect x="445" y="30" width="180" height="150" rx="12"/>
+    <rect x="655" y="30" width="170" height="150" rx="12"/>
+    <path d="M65 65 H165 M65 82 H150 M65 99 H158 M275 65 H375 M275 82 H350 M275 99 H365 M485 65 H585 M485 82 H560 M485 99 H575"/>
+    <path d="M695 65 H785 M695 82 H760 M695 99 H775"/>
+    <circle cx="115" cy="135" r="20"/>
+    <path d="M105 135 L113 143 L128 126"/>
+    <path d="M285 135 L315 115 L345 140 L375 120"/>
+    <path d="M485 135 L510 115 L535 145 L560 120 L585 135"/>
+    <circle cx="740" cy="135" r="20"/>
+    <path d="M730 135 L738 143 L753 126"/>
+  </g>
+  <g fill="currentColor" font-size="18" font-weight="bold" text-anchor="middle">
+    <text x="115" y="210">Code</text>
+    <text x="325" y="210">Algorithms</text>
+    <text x="535" y="210">Testing</text>
+    <text x="740" y="210">Teamwork</text>
+  </g>
+  <text x="425" y="248" fill="currentColor" font-size="16" text-anchor="middle">Build it. Test it. Understand it. Improve it.</text>
+</svg>

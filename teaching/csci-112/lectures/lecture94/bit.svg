@@ -1,0 +1,21 @@
+<svg viewBox="0 0 850 410" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#8B1E2D" stroke="#8B1E2D" stroke-width="2">
+    <rect x="230" y="15" width="390" height="48" rx="8"/>
+    <rect x="230" y="92" width="390" height="48" rx="8"/>
+    <rect x="230" y="169" width="390" height="48" rx="8"/>
+    <rect x="230" y="246" width="390" height="48" rx="8"/>
+    <rect x="230" y="323" width="390" height="48" rx="8"/>
+    <path d="M420 63 V87 M412 79 L420 87 L428 79" fill="none"/>
+    <path d="M420 140 V164 M412 156 L420 164 L428 156" fill="none"/>
+    <path d="M420 217 V241 M412 233 L420 241 L428 233" fill="none"/>
+    <path d="M420 294 V318 M412 310 L420 318 L428 310" fill="none"/>
+  </g>
+  <g fill="#FFFFFF" font-size="22" font-weight="bold" text-anchor="middle">
+    <text x="425" y="45">C Programming</text>
+    <text x="425" y="122">Data Structures &amp; Algorithms</text>
+    <text x="425" y="199">Computer Architecture</text>
+    <text x="425" y="276">Embedded Systems &amp; Software Design</text>
+    <text x="425" y="353">Artificial Intelligence</text>
+  </g>
+  <text x="425" y="398" fill="currentColor" font-size="15" text-anchor="middle">One example of how computing topics connect</text>
+</svg>

@@ -1,0 +1,31 @@
+<svg viewBox="0 0 900 330" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" stroke="#8B1E2D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="40" y="35" width="160" height="110" rx="12"/>
+    <path d="M55 60 H185 M75 48 H80 M90 48 H95"/>
+    <circle cx="120" cy="102" r="24"/>
+    <path d="M110 102 L118 110 L133 92"/>
+    <rect x="260" y="35" width="160" height="110" rx="12"/>
+    <rect x="310" y="60" width="60" height="44" rx="5"/>
+    <path d="M340 104 V120 M320 120 H360 M295 80 H310 M370 80 H390"/>
+    <path d="M292 55 L305 45 M385 55 L372 45"/>
+    <rect x="480" y="35" width="160" height="110" rx="12"/>
+    <circle cx="560" cy="80" r="22"/>
+    <path d="M560 58 V102 M538 80 H582 M545 65 L575 95 M575 65 L545 95"/>
+    <path d="M535 110 H585 M545 118 H575"/>
+    <rect x="700" y="35" width="160" height="110" rx="12"/>
+    <path d="M730 110 L750 75 L770 95 L790 55 L830 110 Z"/>
+    <path d="M730 120 H830"/>
+    <path d="M450 175 V205 M120 145 V205 M340 145 V205 M560 145 V205 M780 145 V205"/>
+    <path d="M120 205 H780"/>
+    <path d="M450 205 V230"/>
+    <rect x="260" y="230" width="380" height="65" rx="10"/>
+  </g>
+  <g fill="currentColor" font-size="19" text-anchor="middle">
+    <text x="120" y="25">Apps</text>
+    <text x="340" y="25">Machines</text>
+    <text x="560" y="25">Sensors</text>
+    <text x="780" y="25">Industry</text>
+    <text x="450" y="257" font-weight="bold">Software + Data + Hardware</text>
+    <text x="450" y="280" font-size="15">Different tools, connected by computing</text>
+  </g>
+</svg>

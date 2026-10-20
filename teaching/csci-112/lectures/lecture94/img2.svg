@@ -1,0 +1,21 @@
+<svg viewBox="0 0 850 410" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#8B1E2D" stroke="#8B1E2D" stroke-width="2">
+    <rect x="230" y="15" width="390" height="48" rx="8" />
+    <rect x="230" y="92" width="390" height="48" rx="8" />
+    <rect x="230" y="169" width="390" height="48" rx="8" />
+    <rect x="230" y="246" width="390" height="48" rx="8" />
+    <rect x="230" y="323" width="390" height="48" rx="8" />
+    <path d="M425 63 V87 M417 79 L425 87 L433 79" fill="none" />
+    <path d="M425 140 V164 M417 156 L425 164 L433 156" fill="none" />
+    <path d="M425 217 V241 M417 233 L425 241 L433 233" fill="none" />
+    <path d="M425 294 V318 M417 310 L425 318 L433 310" fill="none" />
+  </g>
+  <g fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">
+    <text x="425" y="45">C Programming</text>
+    <text x="425" y="122">Data Structures &amp; Algorithms</text>
+    <text x="425" y="199">Computer Architecture</text>
+    <text x="425" y="276">Embedded Systems &amp; Software Design</text>
+    <text x="425" y="353">Artificial Intelligence</text>
+  </g>
+  <text x="425" y="398" fill="currentColor" font-family="sans-serif" font-size="15" text-anchor="middle">One example of how computing topics connect</text>
+</svg>
