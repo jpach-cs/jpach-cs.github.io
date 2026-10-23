@@ -33,6 +33,7 @@ This course provides a comprehensive introduction to the C programming language.
 * __Lecture 13__ — [HTML]({{ '/teaching/csci-112/lectures/lecture13/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/lectures/lecture13/index.pdf' | relative_url }})
 * __Lecture 14__ — [HTML]({{ '/teaching/csci-112/lectures/lecture14/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/lectures/lecture14/index.pdf' | relative_url }})
 * __Lecture 15__ — [HTML]({{ '/teaching/csci-112/lectures/lecture15/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/lectures/lecture15/index.pdf' | relative_url }})
+* __Lecture 16__ — [HTML]({{ '/teaching/csci-112/lectures/lecture16/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/lectures/lecture16/index.pdf' | relative_url }})
 
 ## Laboratories
 
