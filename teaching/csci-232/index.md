@@ -33,24 +33,13 @@ This course provides a comprehensive introduction to the C programming language.
 * __Lecture 13__ — [HTML]({{ '/teaching/csci-232/lectures/lecture13/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/lectures/lecture13/index.pdf' | relative_url }})
 * __Lecture 14__ — [HTML]({{ '/teaching/csci-232/lectures/lecture14/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/lectures/lecture14/index.pdf' | relative_url }})
 * __Lecture 15__ — [HTML]({{ '/teaching/csci-232/lectures/lecture15/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/lectures/lecture15/index.pdf' | relative_url }})
-
+* __Lecture 16__ — [HTML]({{ '/teaching/csci-232/lectures/lecture16/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/lectures/lecture16/index.pdf' | relative_url }})
+* __Lecture 17__ — [HTML]({{ '/teaching/csci-232/lectures/lecture17/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/lectures/lecture17/index.pdf' | relative_url }})
+* 
 ## Laboratories
 
 * __Lab 01__ — [HTML]({{ '/teaching/csci-232/laboratories/lab01/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/laboratories/lab01/index.pdf' | relative_url }})
-* __Lab 02__ — [HTML]({{ '/teaching/csci-232/laboratories/lab02/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/laboratories/lab02/index.pdf' | relative_url }})
-* __Lab 03__ — [HTML]({{ '/teaching/csci-232/laboratories/lab03/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/laboratories/lab03/index.pdf' | relative_url }})
-* __Lab 04__ — [HTML]({{ '/teaching/csci-232/laboratories/lab04/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/laboratories/lab04/index.pdf' | relative_url }})
-* __Lab 05__ — [HTML]({{ '/teaching/csci-232/laboratories/lab05/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/laboratories/lab05/index.pdf' | relative_url }})
-* __Lab 06__ — [HTML]({{ '/teaching/csci-232/laboratories/lab06/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/laboratories/lab06/index.pdf' | relative_url }})
-* __Lab 07__ — [HTML]({{ '/teaching/csci-232/laboratories/lab07/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/laboratories/lab07/index.pdf' | relative_url }})
-* __Lab 08__ — [HTML]({{ '/teaching/csci-232/laboratories/lab08/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/laboratories/lab08/index.pdf' | relative_url }})
-* __Lab 09__ — [HTML]({{ '/teaching/csci-232/laboratories/lab09/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/laboratories/lab09/index.pdf' | relative_url }})
-* __Lab 10__ — [HTML]({{ '/teaching/csci-232/laboratories/lab10/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/laboratories/lab10/index.pdf' | relative_url }})
-* __Lab 11__ — [HTML]({{ '/teaching/csci-232/laboratories/lab11/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/laboratories/lab11/index.pdf' | relative_url }})
-* __Lab 12__ — [HTML]({{ '/teaching/csci-232/laboratories/lab12/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/laboratories/lab12/index.pdf' | relative_url }})
-* __Lab 13__ — [HTML]({{ '/teaching/csci-232/laboratories/lab13/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/laboratories/lab13/index.pdf' | relative_url }})
-* __Lab 14__ — [HTML]({{ '/teaching/csci-232/laboratories/lab14/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/laboratories/lab14/index.pdf' | relative_url }})
-* __Lab 15__ — [HTML]({{ '/teaching/csci-232/laboratories/lab15/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/laboratories/lab15/index.pdf' | relative_url }})
+
 
 ## Assignments
 
