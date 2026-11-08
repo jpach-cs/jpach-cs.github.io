@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>232ass07</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1
+id="csci-232-assignment-07-shapes-polymorphism-and-your-own-insertion-sort">CSCI
+232 Assignment 07 – Shapes: Polymorphism and Your Own Insertion
+Sort</h1>
+<p>Points: 10</p>
+<hr />
+<h2 id="instructions">Instructions</h2>
+<ol type="1">
+<li><strong>Fork</strong> the repository on GitHub:
+<code>https://github.com/jpach-cs/232-ass07-template</code></li>
+<li><strong>Clone</strong> your forked repository to your local
+machine.</li>
+<li>Open <code>src/code.cpp</code>, <code>src/tests.cpp</code> and
+<code>include/code.hpp</code>.</li>
+<li>Uncomment the author block in <code>src/code.cpp</code> and fill in
+your name:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// std::string AUTHOR_NAME       = &quot;Your Name&quot;;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">// std::string AUTHOR_AUTHORSHIP = &quot;I acknowledge that I have worked on this</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">// assignment independently...&quot;;</span></span></code></pre></div>
+<ol start="5" type="1">
+<li>Work through each class in <strong>three parts</strong>:</li>
+</ol>
+<h3 id="part-1-class-hierarchy-srccode.cpp">Part 1 — Class Hierarchy
+(<code>src/code.cpp</code>)</h3>
+<ul>
+<li>Implement <code>Shape::operator&lt;</code> (compare shapes by
+<code>area()</code>).</li>
+<li>Implement the constructors (member initializer list),
+<code>area()</code> and <code>name()</code> of <code>Circle</code>,
+<code>Square</code> and <code>Rectangle</code>.</li>
+<li><code>Shape</code> is <strong>abstract</strong>: it is given in the
+header, do not change it.</li>
+</ul>
+<h3 id="part-2-class-shapelist-srccode.cpp">Part 2 — Class
+<code>ShapeList</code> (<code>src/code.cpp</code>)</h3>
+<ul>
+<li>A wrapper around <code>std::list&lt;Shape*&gt;</code> that
+<strong>owns</strong> the shapes (RAII).</li>
+<li>Implement insertion, removal, queries and printing.</li>
+<li>Implement <code>insertionSort()</code> with <strong>your
+own</strong> stable insertion sort. The list must compare
+<strong>shapes</strong>, never pointers.</li>
+<li>The implementation stays hidden: no public method returns a
+<code>Shape*</code> or an iterator.</li>
+</ul>
+<h3 id="part-3-unit-tests-srctests.cpp">Part 3 — Unit Tests
+(<code>src/tests.cpp</code>)</h3>
+<ul>
+<li>Implement the 8 unit test bodies using
+<code>TEST_ASSERT_</code></li>
+</ul>
+<ol type="1">
+<li>Build and run locally using C++20 (<code>g++</code>):</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> clean</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">./run_tests</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">./check_rules.sh</span></span></code></pre></div>
+<ol start="7" type="1">
+<li>When all local tests pass — <strong>commit</strong> and
+<strong>push</strong> to your repository.</li>
+<li>Go to the <strong>Actions</strong> tab on GitHub and verify the CI
+results.</li>
+</ol>
+<hr />
+<h2
+id="classes-shape-circle-square-rectangle-srccode.cpp-part-1">Classes
+<code>Shape</code>, <code>Circle</code>, <code>Square</code>,
+<code>Rectangle</code> — <code>src/code.cpp</code> (Part 1)</h2>
+<p><code>Shape</code> is an abstract class. <code>area()</code> and
+<code>name()</code> are pure virtual, the destructor is virtual (all
+given in <code>include/code.hpp</code>).</p>
+<table>
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Shape::operator&lt;</code></td>
+<td>Return <code>true</code> if this shape has a <strong>strictly
+smaller</strong> <code>area()</code> than <code>other</code>. Use the
+virtual <code>area()</code> of both sides</td>
+</tr>
+<tr>
+<td><code>Circle(double)</code></td>
+<td>Constructor — initialize <code>radius</code> with an initializer
+list</td>
+</tr>
+<tr>
+<td><code>Circle::area</code></td>
+<td><code>pi * radius * radius</code> (use <code>std::numbers::pi</code>
+from <code>&lt;numbers&gt;</code>)</td>
+</tr>
+<tr>
+<td><code>Square(double)</code></td>
+<td>Constructor — initialize <code>side</code> with an initializer
+list</td>
+</tr>
+<tr>
+<td><code>Square::area</code></td>
+<td><code>side * side</code></td>
+</tr>
+<tr>
+<td><code>Rectangle(double, double)</code></td>
+<td>Constructor — initialize <code>width</code> and <code>height</code>
+with an initializer list</td>
+</tr>
+<tr>
+<td><code>Rectangle::area</code></td>
+<td><code>width * height</code></td>
+</tr>
+<tr>
+<td><code>name</code> (each class)</td>
+<td>Return exactly <code>"Circle"</code>, <code>"Square"</code> or
+<code>"Rectangle"</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2
+id="shapelist-class-methods-srccode.cpp-part-2"><code>ShapeList</code>
+Class Methods — <code>src/code.cpp</code> (Part 2)</h2>
+<p>The caller creates a shape with <code>new</code> and <strong>hands it
+over</strong> with <code>addShape</code>. From then on only
+<code>ShapeList</code> may <code>delete</code> it.</p>
+<table>
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ShapeList()</code></td>
+<td>Given: <code>= default</code>, the list starts empty</td>
+</tr>
+<tr>
+<td><code>~ShapeList()</code></td>
+<td>Destructor — delete <strong>every</strong> shape (RAII), then clear
+the list</td>
+</tr>
+<tr>
+<td><code>addShape</code></td>
+<td>Append at the <strong>end</strong>. Return <code>-1</code> and
+change nothing if the pointer is <code>nullptr</code>, <code>0</code> on
+success</td>
+</tr>
+<tr>
+<td><code>removeFirst</code></td>
+<td>Delete the first shape and remove it from the list. Return
+<code>false</code> if the list is empty, <code>true</code>
+otherwise</td>
+</tr>
+<tr>
+<td><code>length</code></td>
+<td>Return the number of shapes</td>
+</tr>
+<tr>
+<td><code>totalArea</code></td>
+<td>Return the sum of <code>area()</code> of all shapes
+(<code>0.0</code> if empty)</td>
+</tr>
+<tr>
+<td><code>printList</code></td>
+<td>Print each shape on its own line: <code>name()</code>, one space,
+<code>area()</code>. Return the number of printed shapes (<code>0</code>
+for an empty list)</td>
+</tr>
+<tr>
+<td><code>areaAt</code></td>
+<td><code>area()</code> of the shape at the 0-based index, or
+<code>std::nullopt</code> if the index is outside the list</td>
+</tr>
+<tr>
+<td><code>nameAt</code></td>
+<td><code>name()</code> of the shape at the index, or
+<code>std::nullopt</code></td>
+</tr>
+<tr>
+<td><code>insertionSort</code></td>
+<td>Sort <strong>in place</strong>, smallest area first, with
+<strong>your own</strong> insertion sort. Must be
+<strong>stable</strong></td>
+</tr>
+<tr>
+<td><code>isSorted</code></td>
+<td>Return <code>true</code> if no shape is smaller than the one before
+it (empty and one-element lists are sorted)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="notes">Notes</h3>
+<ul>
+<li><code>std::list</code> has <strong>no</strong>
+<code>operator[]</code>. To reach the element number <code>i</code>, use
+an iterator: <code>*std::next(data.begin(), i)</code>.</li>
+<li>The list holds <strong><code>Shape*</code></strong>, not
+<code>Shape</code>: <code>Shape</code> is abstract, and a derived object
+stored by value would be sliced.</li>
+<li>Be careful: for two <code>Shape*</code> pointers <code>a</code> and
+<code>b</code>, <code>a &lt; b</code> compares
+<strong>addresses</strong>, exactly like pointers in C. Our overloaded
+<code>operator&lt;</code> takes two <strong>shapes</strong>, so you must
+dereference: <code>*a &lt; *b</code>.</li>
+<li>Inside the list, iterators are one level deeper: an iterator
+<code>it</code> points to a <code>Shape*</code>, so the shape itself is
+<code>**it</code>.</li>
+<li><strong>Stable</strong> means: shapes with equal area keep their
+original order (<code>Square(2)</code> and <code>Rectangle(1, 4)</code>
+both have area 4). Move an element only while the previous one is
+<strong>strictly</strong> bigger than it.</li>
+<li>Idea for <code>insertionSort</code>: take the next element
+<code>currentIt</code>, remember <code>std::next(currentIt)</code> (the
+next round starts there), walk a second iterator left while the previous
+shape is bigger, then move the element with
+<code>data.splice(gapIt, data, currentIt)</code> (it moves a node in
+<span class="math inline"><em>Θ</em>(1)</span> and copies nothing).</li>
+<li>Never <code>delete</code> a shape you gave to <code>addShape</code>:
+the list owns it, a second <code>delete</code> is a crash.</li>
+</ul>
+<hr />
+<h2 id="tests-to-implement-srctests.cpp-part-3">Tests to implement —
+<code>src/tests.cpp</code> (Part 3)</h2>
+<table>
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr>
+<th>Test function</th>
+<th>What to verify</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>test_shape_areas</code></td>
+<td><code>Circle(1)</code>, <code>Square(2)</code>,
+<code>Rectangle(2, 3)</code> have areas pi, 4 and 6</td>
+</tr>
+<tr>
+<td><code>test_shape_names_through_base_pointer</code></td>
+<td>An array of three <code>Shape*</code> returns the right
+<code>name()</code> through the <strong>base</strong> pointer; delete
+the shapes at the end</td>
+</tr>
+<tr>
+<td><code>test_shape_operator_less</code></td>
+<td>With <code>const Shape&amp;</code> to <code>Square(1)</code> and
+<code>Square(2)</code>: <code>small &lt; big</code> is true,
+<code>big &lt; small</code> and <code>small &lt; small</code> are
+false</td>
+</tr>
+<tr>
+<td><code>test_shape_equal_area_not_less</code></td>
+<td><code>Square(2)</code> and <code>Rectangle(1, 4)</code>: neither
+<code>a &lt; b</code> nor <code>b &lt; a</code></td>
+</tr>
+<tr>
+<td><code>test_list_add_and_length</code></td>
+<td>Two <code>addShape</code> calls return <code>0</code> and
+<code>length()</code> is <code>2</code></td>
+</tr>
+<tr>
+<td><code>test_list_add_null_guard</code></td>
+<td><code>addShape(nullptr)</code> returns <code>-1</code> and
+<code>length()</code> stays <code>0</code></td>
+</tr>
+<tr>
+<td><code>test_insertionSort_orders_by_area</code></td>
+<td><code>Rectangle(2, 5)</code>, <code>Circle(1)</code>,
+<code>Square(2)</code> become <code>Circle</code>, <code>Square</code>,
+<code>Rectangle</code>; <code>isSorted()</code> is true</td>
+</tr>
+<tr>
+<td><code>test_insertionSort_empty_and_single</code></td>
+<td>Sorting an empty list does not crash; a one-element list is
+unchanged</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> test_shape_equal_area_not_less<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    Square a<span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    Rectangle b<span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">4</span><span class="op">);</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    TEST_ASSERT_TRUE_MESSAGE<span class="op">(!(</span>a <span class="op">&lt;</span> b<span class="op">),</span> <span class="st">&quot;equal areas: a &lt; b must be false&quot;</span><span class="op">);</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    TEST_ASSERT_TRUE_MESSAGE<span class="op">(!(</span>b <span class="op">&lt;</span> a<span class="op">),</span> <span class="st">&quot;equal areas: b &lt; a must be false&quot;</span><span class="op">);</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Compare <code>double</code> values with a tolerance, never with
+<code>==</code>: <code>std::fabs(x - y) &lt; 1e-9</code>.</p>
+<hr />
+<h2 id="rules">Rules</h2>
+<ul>
+<li>Do <strong>not</strong> modify <code>include/code.hpp</code> or any
+function <strong>signature</strong>.</li>
+<li>All code must compile under <strong>C++20</strong>
+(<code>-std=c++20</code>).</li>
+<li>Write the sort yourself: <code>std::sort</code>,
+<code>std::stable_sort</code>, <code>std::list::sort</code> and
+<code>qsort</code> are <strong>forbidden</strong> (CI checks
+<code>src/code.cpp</code>, <code>check_rules.sh</code>).</li>
+<li>The sort must compare shapes with <code>Shape::operator&lt;</code>.
+Do not hard-code the area formula in <code>ShapeList</code>.</li>
+<li>No public method may return a <code>Shape*</code> or an
+iterator.</li>
+<li>Always guard against <code>nullptr</code> before dereferencing a
+pointer.</li>
+<li>Every shape is deleted <strong>exactly once</strong>, inside
+<code>ShapeList</code>.</li>
+<li>CI builds with AddressSanitizer: memory leaks, double
+<code>delete</code> and use-after-free fail the build.</li>
+<li>CI runs your <code>tests.cpp</code> together with the instructor
+tests — both must pass.</li>
+</ul>
+<hr />
+<h2 id="grading">Grading</h2>
+<table>
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr>
+<th>Component</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shape hierarchy (Part 1)</td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>ShapeList</code> class implementation (RAII, methods, own
+insertion sort)</td>
+<td>5</td>
+</tr>
+<tr>
+<td>All test cases in <code>tests.cpp</code> passing</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>10</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="author-block-required">Author block — required</h2>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>string AUTHOR_NAME       <span class="op">=</span> <span class="st">&quot;Your Name&quot;</span><span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>string AUTHOR_AUTHORSHIP <span class="op">=</span> <span class="st">&quot;I acknowledge that I have worked on this &quot;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;assignment independently, except where explicitly noted and referenced. &quot;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Any collaboration or use of external resources has been properly cited. &quot;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;I am fully aware of the consequences of academic dishonesty and agree &quot;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;to abide by the university&#39;s academic integrity policy.&quot;</span><span class="op">;</span></span></code></pre></div>
+</body>
+</html>
