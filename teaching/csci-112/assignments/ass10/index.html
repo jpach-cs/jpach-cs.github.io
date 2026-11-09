@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>112ass10</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1
+id="csci-112-assignment-10-comparators-generic-bubble-sort-and-qsort">CSCI
+112 Assignment 10 – Comparators, Generic Bubble Sort and
+<code>qsort()</code></h1>
+<p>Points: 10</p>
+<p>Automated tests will run on GitHub Actions after every push. Check
+the Actions tab to see which tests pass and which fail.</p>
+<p><strong>The tests also run with AddressSanitizer.</strong> A memory
+leak or an access outside an array will fail the whole run, even if
+every single assertion passes.</p>
+<hr />
+<h2 id="instructions">Instructions</h2>
+<ol type="1">
+<li><strong>Fork</strong> the repository on GitHub -
+<code>https://github.com/jpach-cs/112-ass10-template</code>.</li>
+<li>Clone your forked repository to your local machine.</li>
+<li>Open the file <code>code.h</code> and read it carefully. It is
+already complete: it contains the <code>Comparator</code> type, the
+<code>Student</code> struct and the prototypes of all 21 functions, each
+with a short description of what the function must do. <strong>Do not
+change any signature</strong> — the automated tests rely on them.</li>
+<li>Open the file <code>code.c</code>.
+<ol type="1">
+<li>The file is a compilable skeleton: every function exists, has
+detailed notes above it, and contains a <code>// TODO</code>
+placeholder. Replace the placeholder (and the <code>(void)...;</code>
+lines under it, which only silence “unused parameter” warnings) with
+your implementation. <code>&lt;stdlib.h&gt;</code> (for
+<code>qsort</code>, <code>malloc</code>, <code>free</code>) and
+<code>&lt;string.h&gt;</code> (for <code>strcmp</code>,
+<code>memcpy</code>) are already included.</li>
+<li>Implement every function listed below, <strong>in the given
+order</strong> — later functions reuse the earlier ones.
+<ul>
+<li>Read the description of each function carefully.</li>
+<li>Use ONLY the standard library (<code>stdlib.h</code>,
+<code>string.h</code>, <code>stdbool.h</code>,
+<code>stddef.h</code>).</li>
+<li>Use the <strong>exact behavior</strong> described. The tests check
+the return values, the order of elements, and even how many times your
+sort calls the comparator.</li>
+</ul></li>
+<li>Test your implementation locally using <code>main.c</code> and
+compile it with the sanitizer (see “Local Testing”).</li>
+</ol></li>
+<li>Once all functions are complete — save your changes, then
+<strong>commit</strong> and <strong>push</strong> to your
+repository.</li>
+<li>Go to the <strong>Actions</strong> tab on GitHub and check the test
+results.</li>
+</ol>
+<h3 id="learning-objectives">Learning Objectives</h3>
+<p>After completing this lab, you will:</p>
+<ul>
+<li>Write <strong>comparator functions</strong> with the signature
+<code>int (*)(const void *, const void *)</code></li>
+<li>Pass functions as parameters (callbacks) – the same idea you used in
+<code>apply_operation()</code></li>
+<li>Work with <code>void *</code> pointers: casting, and pointer
+arithmetic with an element size</li>
+<li>Write a <strong>generic</strong> algorithm that sorts any type of
+data, just like <code>qsort()</code></li>
+<li>Understand the difference between an array of fixed-size strings
+(<code>char[N][LEN]</code>) and an array of pointers
+(<code>char *[N]</code>)</li>
+<li>Use the built-in <code>qsort()</code> correctly (base, count,
+<strong>element size</strong>, comparator)</li>
+<li>Recognize and avoid typical comparator bugs (overflow, truncation to
+<code>int</code>)</li>
+<li>Combine sorting with dynamic memory (sorted copies) without
+leaks</li>
+</ul>
+<hr />
+<h2 id="the-plan-a-snowball">The plan: a snowball</h2>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 17%" />
+<col style="width: 27%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr>
+<th>Part</th>
+<th>Topic</th>
+<th>Functions</th>
+<th>Suggested time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Comparators for <code>int</code>, <code>float</code>, strings</td>
+<td>8</td>
+<td>~35 min</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Your own generic sort: <code>swap_elements</code>,
+<code>bubble_sort</code>, <code>is_sorted_array</code></td>
+<td>3</td>
+<td>~40 min</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Using <code>qsort()</code> and the comparators</td>
+<td>10</td>
+<td>~45 min</td>
+</tr>
+</tbody>
+</table>
+<p>Do <strong>not</strong> skip ahead. Part 2 sorts with the comparator
+<em>you</em> will pass in, and Part 3 reuses the comparators from Part 1
+and the helpers from Part 2.</p>
+<hr />
+<h2 id="general-rules">General rules</h2>
+<ol type="1">
+<li>A comparator <strong>never modifies</strong> the elements it
+compares and has no side effects.</li>
+<li>A comparator returns <strong>any</strong> negative number, zero, or
+any positive number. It does not have to return exactly <code>-1</code>
+/ <code>1</code>. The tests only look at the <strong>sign</strong>.</li>
+<li>Functions taking pointers must survive <code>NULL</code> arguments
+exactly as described (no crash).</li>
+<li>A function that allocates memory must free everything it does not
+return. No leaks.</li>
+<li>In functions that work with <code>void *</code>, convert to
+<code>unsigned char *</code> before you do pointer arithmetic. Never
+rely on <code>void *</code> arithmetic (it is not standard C).</li>
+<li>Sizes and counts are <code>size_t</code>. The size of an element is
+always passed or computed with <code>sizeof</code> — never
+hard-coded.</li>
+</ol>
+<hr />
+<h1 id="part-1-comparators">Part 1 – Comparators</h1>
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 23%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr>
+<th>#</th>
+<th>Function</th>
+<th>Elements of the array are…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>int compare_int_asc(const void *a, const void *b)</code></td>
+<td><code>int</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>int compare_int_desc(const void *a, const void *b)</code></td>
+<td><code>int</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>int compare_float_asc(const void *a, const void *b)</code></td>
+<td><code>float</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>int compare_float_desc(const void *a, const void *b)</code></td>
+<td><code>float</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>int compare_str_asc(const void *a, const void *b)</code></td>
+<td><code>char[LEN]</code> (whole strings stored in the array)</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>int compare_str_desc(const void *a, const void *b)</code></td>
+<td><code>char[LEN]</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>int compare_strptr_asc(const void *a, const void *b)</code></td>
+<td><code>char *</code> (pointers to strings)</td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>int compare_strptr_desc(const void *a, const void *b)</code></td>
+<td><code>char *</code></td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li><strong><code>compare_int_asc</code></strong> – Receives pointers to
+<strong>two ints</strong> (as <code>const void *</code>). Returns a
+negative number if the first is smaller, <code>0</code> if they are
+equal, and a positive number if the first is larger. It must be correct
+for <strong>all</strong> ints, including <code>INT_MIN</code> and
+<code>INT_MAX</code>.</li>
+<li><strong><code>compare_int_desc</code></strong> – The same, but
+larger numbers come first.</li>
+<li><strong><code>compare_float_asc</code></strong> – The same as 1 for
+<code>float</code>. It must tell apart values that differ by less than 1
+(for example <code>1.5</code> and <code>1.2</code>).</li>
+<li><strong><code>compare_float_desc</code></strong> – The same as 3,
+but larger numbers come first.</li>
+<li><strong><code>compare_str_asc</code></strong> – Each element of the
+array is a <strong>whole string</strong> stored inside the array, so the
+pointer you receive points to the first character of that string.
+Compare the <strong>whole strings</strong> (<code>strcmp</code>),
+ascending. The order is by character codes, so <code>"Zebra"</code>
+comes <strong>before</strong> <code>"apple"</code> (<code>'Z'</code> is
+90, <code>'a'</code> is 97).</li>
+<li><strong><code>compare_str_desc</code></strong> – The same, but
+reversed.</li>
+<li><strong><code>compare_strptr_asc</code></strong> – Each element of
+the array is a <strong>pointer to a string</strong>
+(<code>char *</code>). The pointers you receive point <strong>to those
+pointers</strong> (they are really <code>char **</code>). Get the string
+pointer out of the element first, then compare the strings
+(<code>strcmp</code>), ascending.</li>
+<li><strong><code>compare_strptr_desc</code></strong> – The same, but
+reversed.</li>
+</ol>
+<hr />
+<h1 id="part-2-your-own-generic-sort">Part 2 – Your own generic
+sort</h1>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 38%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>#</th>
+<th>Function</th>
+<th>Key concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9</td>
+<td><code>void swap_elements(void *a, void *b, size_t size)</code></td>
+<td>swapping raw bytes</td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>void bubble_sort(void *base, size_t count, size_t size, Comparator compare)</code></td>
+<td>a <code>qsort()</code> look-alike</td>
+</tr>
+<tr>
+<td>11</td>
+<td><code>bool is_sorted_array(const void *base, size_t count, size_t size, Comparator compare)</code></td>
+<td>checking an order</td>
+</tr>
+</tbody>
+</table>
+<ol start="9" type="1">
+<li><strong><code>swap_elements</code></strong> – Exchanges the contents
+of two blocks of <code>size</code> bytes, <strong>byte by byte</strong>
+(no <code>malloc</code>, no helper array). Does nothing if
+<code>a</code> or <code>b</code> is <code>NULL</code>, if both point to
+the same block, or if <code>size</code> is <code>0</code>.</li>
+<li><strong><code>bubble_sort</code></strong> – A generic bubble sort
+with the <strong>same parameters as <code>qsort()</code></strong>: the
+array <code>base</code> has <code>count</code> elements, each
+<code>size</code> bytes long, ordered by <code>compare</code>. It must
+work for <strong>any</strong> element type.
+<ul>
+<li>Does nothing if <code>base</code> or <code>compare</code> is
+<code>NULL</code>, <code>size</code> is <code>0</code>, or
+<code>count &lt; 2</code>.</li>
+<li>The address of element <code>i</code> is
+<code>(unsigned char *)base + i * size</code>.</li>
+<li><strong>Pass number <code>k</code></strong>
+(<code>k = 0, 1, 2, …</code>) compares only the first
+<code>count - 1 - k</code> pairs of neighbours; the last <code>k</code>
+elements are already in place.</li>
+<li>Two neighbours are swapped <strong>only</strong> when
+<code>compare(left, right) &gt; 0</code>. Because equal elements are
+never swapped, the sort is <strong>stable</strong>.</li>
+<li>The sort stops after a pass in which <strong>nothing was
+swapped</strong>.</li>
+<li>Consequently an already sorted array needs exactly
+<code>count - 1</code> comparisons, and a reversed array needs exactly
+<code>count * (count - 1) / 2</code>. The tests count the calls of your
+comparator.</li>
+</ul></li>
+<li><strong><code>is_sorted_array</code></strong> – Returns
+<code>true</code> if
+<code>compare(element i, element i + 1) &lt;= 0</code> for every pair of
+neighbours. An array with fewer than 2 elements is sorted. Returns
+<code>false</code> if <code>compare</code> is <code>NULL</code> or
+<code>size</code> is <code>0</code>, or if <code>base</code> is
+<code>NULL</code> while <code>count &gt;= 2</code>.</li>
+</ol>
+<hr />
+<h1 id="part-3-using-qsort-and-the-comparators">Part 3 – Using
+<code>qsort()</code> and the comparators</h1>
+<p>The <code>Student</code> type is defined in <code>code.h</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define NAME_LEN </span><span class="dv">16</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> name<span class="op">[</span>NAME_LEN<span class="op">];</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> age<span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> score<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Student<span class="op">;</span></span></code></pre></div>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 38%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>#</th>
+<th>Function</th>
+<th>Key concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12</td>
+<td><code>void sort_ints(int *arr, size_t count, bool ascending)</code></td>
+<td><code>qsort</code> + a comparator chosen at run time</td>
+</tr>
+<tr>
+<td>13</td>
+<td><code>void sort_floats(float *arr, size_t count, bool ascending)</code></td>
+<td>the same for <code>float</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td><code>void sort_names(char names[][NAME_LEN], size_t count, bool ascending)</code></td>
+<td>element size = <code>NAME_LEN</code></td>
+</tr>
+<tr>
+<td>15</td>
+<td><code>void sort_string_pointers(char **strs, size_t count, bool ascending)</code></td>
+<td>element size = <code>sizeof(char *)</code></td>
+</tr>
+<tr>
+<td>16</td>
+<td><code>int *sorted_copy(const int *arr, size_t count)</code></td>
+<td><code>malloc</code> + <code>memcpy</code> + <code>qsort</code></td>
+</tr>
+<tr>
+<td>17</td>
+<td><code>bool find_median(const int *arr, size_t count, float *out)</code></td>
+<td>reuse + <code>free</code></td>
+</tr>
+<tr>
+<td>18</td>
+<td><code>bool has_duplicates(const int *arr, size_t count)</code></td>
+<td>sorting makes duplicates neighbours</td>
+</tr>
+<tr>
+<td>19</td>
+<td><code>int compare_students_by_age(const void *a, const void *b)</code></td>
+<td>a comparator for a struct</td>
+</tr>
+<tr>
+<td>20</td>
+<td><code>int compare_students_ranking(const void *a, const void *b)</code></td>
+<td>a comparator with two keys</td>
+</tr>
+<tr>
+<td>21</td>
+<td><code>void rank_students(Student *students, size_t count)</code></td>
+<td><code>qsort</code> with your own comparator</td>
+</tr>
+</tbody>
+</table>
+<ol start="12" type="1">
+<li><strong><code>sort_ints</code></strong> – Sorts an array of
+<code>int</code> with the built-in <code>qsort()</code>: ascending if
+<code>ascending</code> is <code>true</code>, otherwise descending. Use
+the comparators from Part 1. Does nothing if <code>arr</code> is
+<code>NULL</code> or <code>count &lt; 2</code>.</li>
+<li><strong><code>sort_floats</code></strong> – The same for an array of
+<code>float</code>.</li>
+<li><strong><code>sort_names</code></strong> – Sorts an array of
+fixed-size names (<code>NAME_LEN</code> bytes each) with
+<code>qsort()</code>. Think about what the <strong>element size</strong>
+is. Does nothing if <code>names</code> is <code>NULL</code> or
+<code>count &lt; 2</code>.</li>
+<li><strong><code>sort_string_pointers</code></strong> – Sorts an array
+of <code>char *</code> with <code>qsort()</code>. Only the pointers
+move; the strings they point to are not changed. Does nothing if
+<code>strs</code> is <code>NULL</code> or
+<code>count &lt; 2</code>.</li>
+<li><strong><code>sorted_copy</code></strong> – Returns a <strong>new
+heap block</strong> with the elements of <code>arr</code> sorted
+ascending. The original array is <strong>not modified</strong>. The
+caller owns (and frees) the result. Returns <code>NULL</code> if
+<code>arr</code> is <code>NULL</code>, <code>count</code> is
+<code>0</code> or the allocation fails.</li>
+<li><strong><code>find_median</code></strong> – Stores the median in
+<code>*out</code> and returns <code>true</code>.
+<ul>
+<li>Odd <code>count</code>: the middle value of the sorted data.</li>
+<li>Even <code>count</code>: the <strong>average</strong> of the two
+middle values (for <code>{4, 1, 3, 2}</code> the median is
+<code>2.5</code>). Add them as floats, so that two large ints cannot
+overflow.</li>
+<li>The array is not modified, and the copy you made must be freed
+before you return.</li>
+<li>Returns <code>false</code> and leaves <code>*out</code> untouched if
+<code>arr</code> is <code>NULL</code>, <code>count</code> is
+<code>0</code>, <code>out</code> is <code>NULL</code> or an allocation
+fails.</li>
+</ul></li>
+<li><strong><code>has_duplicates</code></strong> – Returns
+<code>true</code> if some value occurs at least twice. The array is not
+modified; free what you allocate. Returns <code>false</code> if
+<code>arr</code> is <code>NULL</code> or <code>count &lt; 2</code> (or
+if an allocation fails).</li>
+<li><strong><code>compare_students_by_age</code></strong> – A comparator
+for an array of <code>Student</code>: younger students first. Students
+with the same age compare as equal.</li>
+<li><strong><code>compare_students_ranking</code></strong> – A
+comparator that builds a ranking: <strong>higher score first</strong>;
+students with the same score are ordered by <strong>name,
+ascending</strong>; same score and same name compare as equal.</li>
+<li><strong><code>rank_students</code></strong> – Sorts an array of
+<code>Student</code> into the ranking order using <code>qsort()</code>
+and <code>compare_students_ranking</code>. Does nothing if
+<code>students</code> is <code>NULL</code> or
+<code>count &lt; 2</code>.</li>
+</ol>
+<hr />
+<h1 id="background">Background</h1>
+<h2 id="function-pointers-as-callbacks">Function pointers as
+callbacks</h2>
+<p>You already passed a function to another function in
+<code>apply_operation(arr, 4, add)</code>. Sorting works the same way:
+the sorting code does not know how to compare your data, so you
+<strong>hand it a comparator</strong>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="dt">int</span> <span class="op">(*</span>Comparator<span class="op">)(</span><span class="dt">const</span> <span class="dt">void</span> <span class="op">*</span>a<span class="op">,</span> <span class="dt">const</span> <span class="dt">void</span> <span class="op">*</span>b<span class="op">);</span></span></code></pre></div>
+<p><code>Comparator</code> is a name for “pointer to a function that
+takes two <code>const void *</code> and returns an <code>int</code>”. It
+is exactly the type that <code>qsort()</code> expects.</p>
+<h2 id="the-comparator-contract">The comparator contract</h2>
+<p>A comparator receives <strong>pointers to two elements</strong> of
+the array (not the elements themselves) and returns:</p>
+<table>
+<thead>
+<tr>
+<th>Return value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>negative</td>
+<td><code>*a</code> must come <strong>before</strong>
+<code>*b</code></td>
+</tr>
+<tr>
+<td><code>0</code></td>
+<td>they are equal (any order is fine)</td>
+</tr>
+<tr>
+<td>positive</td>
+<td><code>*a</code> must come <strong>after</strong>
+<code>*b</code></td>
+</tr>
+</tbody>
+</table>
+<p>Because the arguments are <code>const void *</code>, you must first
+cast them to the right pointer type, then dereference:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> compare_int_asc<span class="op">(</span><span class="dt">const</span> <span class="dt">void</span> <span class="op">*</span>a<span class="op">,</span> <span class="dt">const</span> <span class="dt">void</span> <span class="op">*</span>b<span class="op">)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x <span class="op">=</span> <span class="op">*(</span><span class="dt">const</span> <span class="dt">int</span> <span class="op">*)</span>a<span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> y <span class="op">=</span> <span class="op">*(</span><span class="dt">const</span> <span class="dt">int</span> <span class="op">*)</span>b<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">(</span>x <span class="op">&gt;</span> y<span class="op">)</span> <span class="op">-</span> <span class="op">(</span>x <span class="op">&lt;</span> y<span class="op">);</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><code>(x &gt; y) - (x &lt; y)</code> works because a comparison gives
+<code>1</code> or <code>0</code>: <code>(5 &gt; 3) - (5 &lt; 3)</code>
+is <code>1 - 0 = 1</code>, <code>(3 &gt; 5) - (3 &lt; 5)</code> is
+<code>0 - 1 = -1</code>, and equal values give
+<code>0 - 0 = 0</code>.</p>
+<h2 id="two-classic-comparator-bugs">Two classic comparator bugs</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* </span><span class="al">BUG</span><span class="co"> 1: subtraction can overflow */</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> x <span class="op">-</span> y<span class="op">;</span>                  <span class="co">/* INT_MAX - (-1) overflows: undefined behavior */</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">/* </span><span class="al">BUG</span><span class="co"> 2: truncation to int */</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> <span class="op">(</span><span class="dt">int</span><span class="op">)(</span>fx <span class="op">-</span> fy<span class="op">);</span>         <span class="co">/* 1.5f - 1.2f = 0.3, (int)0.3 = 0 -&gt; &quot;equal&quot;! */</span></span></code></pre></div>
+<h2 id="descending-order-for-free">Descending order for free</h2>
+<p>You do not need a second implementation. Swapping the arguments
+reverses the order:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> compare_int_desc<span class="op">(</span><span class="dt">const</span> <span class="dt">void</span> <span class="op">*</span>a<span class="op">,</span> <span class="dt">const</span> <span class="dt">void</span> <span class="op">*</span>b<span class="op">)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> compare_int_asc<span class="op">(</span>b<span class="op">,</span> a<span class="op">);</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h2 id="qsort"><code>qsort()</code></h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> qsort<span class="op">(</span><span class="dt">void</span> <span class="op">*</span>base<span class="op">,</span> <span class="dt">size_t</span> count<span class="op">,</span> <span class="dt">size_t</span> size<span class="op">,</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>           <span class="dt">int</span> <span class="op">(*</span>compare<span class="op">)(</span><span class="dt">const</span> <span class="dt">void</span> <span class="op">*,</span> <span class="dt">const</span> <span class="dt">void</span> <span class="op">*));</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>base</code></td>
+<td>pointer to the first element</td>
+</tr>
+<tr>
+<td><code>count</code></td>
+<td>number of elements</td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td>size of <strong>one element in bytes</strong></td>
+</tr>
+<tr>
+<td><code>compare</code></td>
+<td>your comparator</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> numbers<span class="op">[]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">5</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">1</span><span class="op">};</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>qsort<span class="op">(</span>numbers<span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span><span class="dt">int</span><span class="op">),</span> compare_int_asc<span class="op">);</span></span></code></pre></div>
+<p>Use <code>sizeof *arr</code> (or <code>sizeof(type)</code>) for the
+element size — never a hard-coded number. A wrong size is the most
+common <code>qsort()</code> mistake: the array is sorted “in pieces” and
+the result looks random.</p>
+<p><code>qsort()</code> is <strong>not guaranteed to be stable</strong>:
+equal elements may end up in a different order than they had before
+sorting. Your <code>bubble_sort</code> <strong>is</strong> stable.</p>
+<h2 id="two-kinds-of-string-arrays">Two kinds of string arrays</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> names<span class="op">[</span><span class="dv">3</span><span class="op">][</span>NAME_LEN<span class="op">]</span> <span class="op">=</span> <span class="op">{</span><span class="st">&quot;pear&quot;</span><span class="op">,</span> <span class="st">&quot;apple&quot;</span><span class="op">,</span> <span class="st">&quot;fig&quot;</span><span class="op">};</span>     <span class="co">/* strings stored IN the array */</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> <span class="op">*</span>strs<span class="op">[</span><span class="dv">3</span><span class="op">]</span>           <span class="op">=</span> <span class="op">{</span><span class="st">&quot;pear&quot;</span><span class="op">,</span> <span class="st">&quot;apple&quot;</span><span class="op">,</span> <span class="st">&quot;fig&quot;</span><span class="op">};</span>     <span class="co">/* array of POINTERS to strings */</span></span></code></pre></div>
+<pre class="text"><code>names (3 * NAME_LEN bytes):                strs (3 pointers):
+┌──────────────────┐                       ┌─────┐      ┌───────┐
+│ p e a r \0 ...   │ element 0             │  ───┼────► │ pear  │
+├──────────────────┤                       ├─────┤      ├───────┤
+│ a p p l e \0 ... │ element 1             │  ───┼────► │ apple │
+├──────────────────┤                       ├─────┤      ├───────┤
+│ f i g \0 ...     │ element 2             │  ───┼────► │ fig   │
+└──────────────────┘                       └─────┘      └───────┘
+element size = NAME_LEN                    element size = sizeof(char *)
+comparator gets: a pointer to the          comparator gets: a pointer to the
+first character (char *)                   pointer (char **)</code></pre>
+<p>So <code>compare_str_asc</code> is
+<code>strcmp((const char *)a, (const char *)b)</code>, while
+<code>compare_strptr_asc</code> must first dereference:
+<code>strcmp(*(const char * const *)a, *(const char * const *)b)</code>.
+Using the wrong one compiles, but crashes or sorts garbage.</p>
+<h2 id="bubble-sort">Bubble sort</h2>
+<p>Bubble sort compares neighbours and swaps them when they are in the
+wrong order. After each pass the largest remaining element has “bubbled
+up” to its final place at the end.</p>
+<pre class="text"><code>{5, 2, 9, 1}   pass 0 (3 pairs):  5&gt;2 swap -&gt; 2 5 9 1 ; 5&lt;9 ok ; 9&gt;1 swap -&gt; 2 5 1 9
+               pass 1 (2 pairs):  2&lt;5 ok ; 5&gt;1 swap -&gt; 2 1 5 9
+               pass 2 (1 pair):   2&gt;1 swap -&gt; 1 2 5 9
+               done: 3 + 2 + 1 = 6 comparisons</code></pre>
+<ul>
+<li>The last <code>k</code> elements are already in place after
+<code>k</code> passes, so pass <code>k</code> compares only
+<code>count - 1 - k</code> pairs.</li>
+<li>If a whole pass makes no swap, the array is sorted and you can
+stop.</li>
+<li>It needs about <code>count²/2</code> comparisons, so it is
+<strong>slow for large arrays</strong>. We write it to understand
+sorting; in real programs use <code>qsort()</code>.</li>
+</ul>
+<h2 id="a-generic-swap">A generic swap</h2>
+<p>You cannot write <code>T tmp = *a;</code> when you do not know
+<code>T</code>. Instead you swap <strong>bytes</strong>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">*</span>pa <span class="op">=</span> a<span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">char</span> <span class="op">*</span>pb <span class="op">=</span> b<span class="op">;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">size_t</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> size<span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">unsigned</span> <span class="dt">char</span> tmp <span class="op">=</span> pa<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    pa<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> pb<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    pb<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> tmp<span class="op">;</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>The same trick gives you the address of element <code>i</code> of any
+array: <code>(unsigned char *)base + i * size</code>.</p>
+<h2 id="why-sort-a-copy">Why sort a copy?</h2>
+<p><code>qsort()</code> sorts <strong>in place</strong>. A function that
+only wants to <em>look</em> at sorted data (a median, duplicates) must
+not reorder the caller’s array. So it copies first:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="op">*</span>copy <span class="op">=</span> malloc<span class="op">(</span>count <span class="op">*</span> <span class="kw">sizeof</span> <span class="op">*</span>copy<span class="op">);</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>memcpy<span class="op">(</span>copy<span class="op">,</span> arr<span class="op">,</span> count <span class="op">*</span> <span class="kw">sizeof</span> <span class="op">*</span>copy<span class="op">);</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>qsort<span class="op">(</span>copy<span class="op">,</span> count<span class="op">,</span> <span class="kw">sizeof</span> <span class="op">*</span>copy<span class="op">,</span> compare_int_asc<span class="op">);</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">/* ... use copy ... */</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>free<span class="op">(</span>copy<span class="op">);</span></span></code></pre></div>
+<hr />
+<h1 id="only-for-testing">Only for testing</h1>
+<h2 id="local-testing-sandbox">Local Testing (Sandbox)</h2>
+<p>Compile with the sanitizer – it reports leaks and accesses outside an
+array:</p>
+<pre class="text"><code>gcc -std=c99 -g -Wall -Wextra -fsanitize=address,undefined main.c code.c -o main
+./main</code></pre>
+<p>Create test cases in main.c:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;code.h&quot;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Part 1 + 3: qsort with the comparators</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> numbers<span class="op">[]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">5</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">7</span><span class="op">};</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    sort_ints<span class="op">(</span>numbers<span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="kw">true</span><span class="op">);</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>        printf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%d</span><span class="st"> &quot;</span><span class="op">,</span> numbers<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> names<span class="op">[</span><span class="dv">4</span><span class="op">][</span>NAME_LEN<span class="op">]</span> <span class="op">=</span> <span class="op">{</span><span class="st">&quot;pear&quot;</span><span class="op">,</span> <span class="st">&quot;Zebra&quot;</span><span class="op">,</span> <span class="st">&quot;apple&quot;</span><span class="op">,</span> <span class="st">&quot;fig&quot;</span><span class="op">};</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    sort_names<span class="op">(</span>names<span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="kw">true</span><span class="op">);</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>        printf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%s</span><span class="st"> &quot;</span><span class="op">,</span> names<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Part 2: your own generic sort works for any type</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> values<span class="op">[]</span> <span class="op">=</span> <span class="op">{</span><span class="fl">2.5</span><span class="bu">f</span><span class="op">,</span> <span class="op">-</span><span class="fl">1.0</span><span class="bu">f</span><span class="op">,</span> <span class="fl">1.2</span><span class="bu">f</span><span class="op">,</span> <span class="fl">1.5</span><span class="bu">f</span><span class="op">};</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>    bubble_sort<span class="op">(</span>values<span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span><span class="dt">float</span><span class="op">),</span> compare_float_asc<span class="op">);</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">4</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>        printf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%.2f</span><span class="st"> &quot;</span><span class="op">,</span> values<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;sorted? </span><span class="sc">%d\n</span><span class="st">&quot;</span><span class="op">,</span> is_sorted_array<span class="op">(</span>values<span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span><span class="dt">float</span><span class="op">),</span> compare_float_asc<span class="op">));</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Part 3: median and duplicates</span></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> data<span class="op">[]</span> <span class="op">=</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">2</span><span class="op">};</span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> median<span class="op">;</span></span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>find_median<span class="op">(</span>data<span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="op">&amp;</span>median<span class="op">))</span></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>        printf<span class="op">(</span><span class="st">&quot;median = </span><span class="sc">%.2f\n</span><span class="st">&quot;</span><span class="op">,</span> median<span class="op">);</span></span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;duplicates: </span><span class="sc">%d\n</span><span class="st">&quot;</span><span class="op">,</span> has_duplicates<span class="op">(</span>data<span class="op">,</span> <span class="dv">4</span><span class="op">));</span></span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Part 3: students</span></span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>    Student students<span class="op">[</span><span class="dv">3</span><span class="op">]</span> <span class="op">=</span> <span class="op">{{</span><span class="st">&quot;Zoe&quot;</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="fl">90.0</span><span class="bu">f</span><span class="op">},</span> <span class="op">{</span><span class="st">&quot;Adam&quot;</span><span class="op">,</span> <span class="dv">22</span><span class="op">,</span> <span class="fl">85.5</span><span class="bu">f</span><span class="op">},</span> <span class="op">{</span><span class="st">&quot;Bob&quot;</span><span class="op">,</span> <span class="dv">21</span><span class="op">,</span> <span class="fl">90.0</span><span class="bu">f</span><span class="op">}};</span></span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>    rank_students<span class="op">(</span>students<span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a>        printf<span class="op">(</span><span class="st">&quot;</span><span class="sc">%d</span><span class="st">. </span><span class="sc">%s</span><span class="st"> (</span><span class="sc">%.1f</span><span class="st">)</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> students<span class="op">[</span>i<span class="op">].</span>name<span class="op">,</span> students<span class="op">[</span>i<span class="op">].</span>score<span class="op">);</span></span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Hints: - If your <code>bubble_sort</code> gives the wrong result for
+<code>float</code> but the right one for <code>int</code>, check how you
+compute the address of element <code>i</code> — it must use
+<code>size</code>, not <code>sizeof(int)</code>. - If
+<code>sort_names</code> scrambles the letters, the element size you
+passed to <code>qsort()</code> is wrong. - Write each function, compile,
+and test it <strong>before</strong> moving to the next one.</p>
+</body>
+</html>
