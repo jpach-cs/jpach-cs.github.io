@@ -35,7 +35,6 @@ This course provides a comprehensive introduction to the C programming language.
 * __Lecture 15__ — [HTML]({{ '/teaching/csci-232/lectures/lecture15/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/lectures/lecture15/index.pdf' | relative_url }})
 * __Lecture 16__ — [HTML]({{ '/teaching/csci-232/lectures/lecture16/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/lectures/lecture16/index.pdf' | relative_url }})
 * __Lecture 17__ — [HTML]({{ '/teaching/csci-232/lectures/lecture17/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/lectures/lecture17/index.pdf' | relative_url }})
-
 * __Lecture 18__ — [HTML]({{ '/teaching/csci-232/lectures/lecture18/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/lectures/lecture18/index.pdf' | relative_url }})
 * __Lecture 19__ — [HTML]({{ '/teaching/csci-232/lectures/lecture19/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/lectures/lecture19/index.pdf' | relative_url }})
 * __Lecture 20__ — [HTML]({{ '/teaching/csci-232/lectures/lecture20/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/lectures/lecture20/index.pdf' | relative_url }})

@@ -201,11 +201,11 @@ __The four-line source-file declaration constitutes the student's acknowledgment
     R7.	Students can evaluate and select the appropriate data structure for a given problem (CS: 6; SE: 1)
     R8.	Students know about intellectual property, including copyright and patent protection on data structures and algorithms. (CS: 4; SE: 4)
     R9.	Students know how to program in C++ and have experience with file input/output, throwing and catching exceptions, dynamic memory allocation, pointers, strings, class templates and the Standard Template Library (STL), inheritance, virtual functions, polymorphism, and abstract base classes. (CS: 2; SE: 1)
-    R10.	Students will be familiar with a modern software configuration and management (SCM) platform.
+    R10. Students will be familiar with a modern software configuration and management (SCM) platform.
 
 ## Expectations:
 
-E1. Students are proficient in a programming language and know basic error-handling, testing and debugging techniques. (CSCI 136)
-E2. Students know how to use advanced programming techniques, including recursion, file I/O, abstraction, multi-file programs, and using programming language libraries. (CSCI 136)
-E3. Students know how to use basic object-oriented programming methodologies; such as object-oriented problem decomposition, class design/implementation, and object creation/ usage. (CSCI 136)
-E4. Students are familiar with summation notation, union and intersection of sets, logarithms, exponential functions, and are able to work with abstractions and manipulate formulas. (CSCI 246)
+    E1. Students are proficient in a programming language and know basic error-handling, testing and debugging techniques. (CSCI 136)
+    E2. Students know how to use advanced programming techniques, including recursion, file I/O, abstraction, multi-file programs, and using programming language libraries. (CSCI 136)
+    E3. Students know how to use basic object-oriented programming methodologies; such as object-oriented problem decomposition, class design/implementation, and object creation/ usage. (CSCI 136)
+    E4. Students are familiar with summation notation, union and intersection of sets, logarithms, exponential functions, and are able to work with abstractions and manipulate formulas. (CSCI 246)
