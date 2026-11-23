@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.14" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>112ass11</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      color: light-dark(#1a1a1a, #fdfdfd);
+      background-color: #fdfdfd;
+      background-color: light-dark(#fdfdfd, #1a1a1a);
+      color-scheme: light dark;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a, a:visited {
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid;
+      border-color: #e6e6e6;
+      border-color: light-dark(#e6e6e6, #4c4c4c);
+      color: #606060;
+      color: light-dark(#606060, #b6b6b6);
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid currentColor;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+    }
+    th {
+      border-top: 1px solid currentColor;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    em, em em em, em em em em em {
+      font-style: italic;
+    }
+    em em, em em em em {
+      font-style: normal;
+    }
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    @media print {
+      html {
+        color-scheme: light only;
+      }
+      html, body, pre, code {
+        background-color: transparent;
+      }
+      body, a, a:visited, blockquote {
+        color: black;
+      }
+      pre, code {
+        padding: 0;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }  </style>
+</head>
+<body>
+<h1 id="csci-112-assignment-11-unit-tests-for-the-standard-library">CSCI
+112 Assignment 11 – Unit Tests for the Standard Library</h1>
+<p>Points: 10</p>
+<p>Automated tests will run on GitHub Actions after every push. Check
+the Actions tab to see which tests pass and which fail.</p>
+<p><strong>This time you write the tests.</strong> In the previous
+assignments someone else tested your code. Now you test the standard
+library: you write the unit tests, and the instructor’s
+<code>main.c</code> runs them.</p>
+<hr />
+<h2 id="instructions">Instructions</h2>
+<ol type="1">
+<li><strong>Fork</strong> the repository on GitHub -
+<code>https://github.com/jpach-cs/112-ass11-template</code>.</li>
+<li>Clone your forked repository to your local machine.</li>
+<li>Open the file <code>code.h</code> and read it carefully. It is
+already complete: it contains the prototypes of all test functions and
+of a few helper functions, each with a description of <strong>what the
+test must verify</strong>. <strong>Do not change any name or
+signature</strong> — <code>main.c</code> calls these functions.</li>
+<li>Do <strong>not</strong> edit <code>main.c</code>. It runs your tests
+with Unity (<code>UNITY_BEGIN</code>, <code>RUN_TEST</code>,
+<code>UNITY_END</code>) and shows you the result.</li>
+<li>Open the file <code>code.c</code>.
+<ol type="1">
+<li>The file is a compilable skeleton. Every test function exists, has
+detailed notes above it, and fails on purpose with the message <em>“Not
+implemented yet”</em>. Replace that line with your assertions.</li>
+<li>Implement the steps <strong>in the given order</strong> — later
+tests reuse the functions checked by the earlier ones.</li>
+<li>Use only the assertions listed below. Do <strong>not</strong> use
+<code>setUp()</code> / <code>tearDown()</code>: everything a test needs
+is created inside the test.</li>
+<li>Test your work locally: compile and run (see “Local Testing”).</li>
+</ol></li>
+<li>Once all tests are written — save your changes, then
+<strong>commit</strong> and <strong>push</strong> to your
+repository.</li>
+<li>Go to the <strong>Actions</strong> tab on GitHub and check the
+results.</li>
+</ol>
+<h3 id="learning-objectives">Learning Objectives</h3>
+<p>After completing this lab, you will:</p>
+<ul>
+<li>Write unit tests with Unity assertions: <em>expected value</em>,
+<em>actual value</em>, <em>message</em></li>
+<li>Know the behavior of the most common standard library functions:
+<code>strlen</code>, <code>strcmp</code>, <code>atoi</code>,
+<code>atol</code>, <code>atof</code>, <code>sqrt</code>,
+<code>pow</code>, <code>floor</code>, <code>ceil</code>,
+<code>round</code>, <code>fmod</code>, <code>memcpy</code>,
+<code>memset</code>, <code>memcmp</code>, <code>strcpy</code>,
+<code>strcat</code>, <code>strchr</code>, <code>sprintf</code>,
+<code>qsort</code></li>
+<li>Choose test cases: typical values, <strong>edge cases</strong>
+(empty, zero, negative, boundary) and invalid input</li>
+<li>Compare integers, doubles, strings, raw memory and arrays with the
+right assertion</li>
+<li>Understand why a test must be able to <strong>fail</strong></li>
+<li>Combine several functions in one test (round trips, properties that
+hold for many values)</li>
+</ul>
+<hr />
+<h2 id="how-your-tests-are-judged">How your tests are judged</h2>
+<ol type="1">
+<li><strong>Your tests must pass.</strong> Every test function you write
+is run against the real standard library. A test that fails there is
+wrong.</li>
+<li><strong>Your tests must be able to fail.</strong> The instructor
+also runs your tests against copies of the standard library that contain
+<strong>deliberate bugs</strong> (for example a <code>strlen</code> that
+is one too long for the empty string, or a <code>qsort</code> that does
+not sort). A good test notices the bug and fails. A test such as
+<code>TEST_ASSERT_EQUAL_INT_MESSAGE(1, 1, "ok")</code> passes on
+everything, so it detects nothing — and it will be reported.</li>
+</ol>
+<p>That is why every step lists the cases your test must cover: empty
+strings, negative numbers, values on the boundary, an unsorted array
+whose smallest element is last. The bugs hide exactly there.</p>
+<hr />
+<h2 id="allowed-assertions">Allowed assertions</h2>
+<p>All of them compare an <strong>expected</strong> value with the
+<strong>actual</strong> one (expected first!):</p>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr>
+<th>Assertion</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TEST_ASSERT_EQUAL_INT_MESSAGE(expected, actual, "message")</code></td>
+<td>integers, characters, and conditions turned into <code>1</code> /
+<code>0</code></td>
+</tr>
+<tr>
+<td><code>TEST_ASSERT_EQUAL_DOUBLE_MESSAGE(expected, actual, "message")</code></td>
+<td><code>double</code> values (compared with a tiny tolerance)</td>
+</tr>
+<tr>
+<td><code>TEST_ASSERT_EQUAL_STRING_MESSAGE(expected, actual, "message")</code></td>
+<td>strings</td>
+</tr>
+<tr>
+<td><code>TEST_ASSERT_EQUAL_MEMORY_MESSAGE(expected, actual, number_of_bytes, "message")</code></td>
+<td>raw bytes</td>
+</tr>
+<tr>
+<td><code>TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(expected, actual, number_of_elements, "message")</code></td>
+<td><code>int</code> arrays</td>
+</tr>
+</tbody>
+</table>
+<p>Write a <strong>meaningful message</strong>: it is what you will read
+when the test fails.</p>
+<hr />
+<h2 id="implement-27-tests-and-4-helpers">Implement 27 tests (and 4
+helpers)</h2>
+<h3 id="part-1-text-and-numbers-every-case-is-listed">Part 1 – Text and
+numbers (every case is listed)</h3>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 57%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>#</th>
+<th>Test function</th>
+<th>Checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>test_strlen_basic</code></td>
+<td><code>strlen</code> of ordinary strings</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>test_strlen_edge_cases</code></td>
+<td>empty string, array vs. text length, embedded <code>'\0'</code>,
+newline</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>test_strcmp_signs</code></td>
+<td>equal, order, prefix, uppercase vs. lowercase, empty — <strong>sign
+only</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>test_atoi_valid</code></td>
+<td><code>atoi</code> with signs, spaces, leading zeros,
+<code>INT_MAX</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>test_atoi_partial_and_invalid</code></td>
+<td><code>atoi</code> with trailing text and with no number</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>test_atol</code></td>
+<td><code>atol</code> with big values (within ±2 billion)</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>test_atof</code></td>
+<td><code>atof</code> with fractions, negative numbers, exponent</td>
+</tr>
+</tbody>
+</table>
+<h3 id="part-2-math-cases-are-listed-you-choose-the-assertion">Part 2 –
+Math (cases are listed, you choose the assertion)</h3>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 57%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>#</th>
+<th>Test function</th>
+<th>Checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td><code>test_sqrt</code></td>
+<td><code>sqrt</code> of perfect squares, fractions and 2</td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>test_pow</code></td>
+<td><code>pow</code> with zero, negative and fractional exponents,
+negative base</td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>test_floor</code></td>
+<td><code>floor</code>, especially for negative numbers</td>
+</tr>
+<tr>
+<td>11</td>
+<td><code>test_ceil</code></td>
+<td><code>ceil</code>, including values that are already integers</td>
+</tr>
+<tr>
+<td>12</td>
+<td><code>test_round</code></td>
+<td><code>round</code>, halves go away from zero</td>
+</tr>
+<tr>
+<td>13</td>
+<td><code>test_fmod</code></td>
+<td><code>fmod</code>, the sign of the result</td>
+</tr>
+<tr>
+<td>14</td>
+<td><code>test_floor_ceil_round_relation</code></td>
+<td>loops: relations between <code>floor</code>, <code>ceil</code>,
+<code>round</code> that hold for <strong>many</strong> values</td>
+</tr>
+</tbody>
+</table>
+<h3 id="part-3-memory-strings-and-formatting">Part 3 – Memory, strings
+and formatting</h3>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 57%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>#</th>
+<th>Test function</th>
+<th>Checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>15</td>
+<td><code>test_memcpy_int_array</code></td>
+<td><code>memcpy</code> of an <code>int</code> array, whole and
+partial</td>
+</tr>
+<tr>
+<td>16</td>
+<td><code>test_memcpy_string_and_zero_bytes</code></td>
+<td><code>memcpy</code> of text, 5 vs. 6 bytes, 0 bytes</td>
+</tr>
+<tr>
+<td>17</td>
+<td><code>test_memset_and_memcmp</code></td>
+<td><code>memset</code> fills, <code>memcmp</code> compares (sign
+only)</td>
+</tr>
+<tr>
+<td>18</td>
+<td><code>test_strcpy_strcat</code></td>
+<td>the terminator, return value, empty string</td>
+</tr>
+<tr>
+<td>19</td>
+<td><code>test_strchr</code></td>
+<td>first occurrence, not found, the terminator</td>
+</tr>
+<tr>
+<td>20</td>
+<td><code>test_sprintf_integers</code></td>
+<td><code>%d %05d %5d %-5d %x %X %o %+d</code> and the return value</td>
+</tr>
+<tr>
+<td>21</td>
+<td><code>test_sprintf_strings_and_doubles</code></td>
+<td><code>%s %c %-6s %.2s %.2f %8.2f %f %%</code></td>
+</tr>
+<tr>
+<td>22</td>
+<td><code>test_sprintf_return_matches_strlen</code></td>
+<td><code>sprintf</code> and <code>strlen</code> checked against each
+other</td>
+</tr>
+</tbody>
+</table>
+<h3 id="part-4-qsort-and-integration-you-choose-the-inputs">Part 4 –
+<code>qsort</code> and integration (you choose the inputs)</h3>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 57%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>#</th>
+<th>Test function</th>
+<th>Checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>23</td>
+<td><code>test_qsort_ints</code></td>
+<td><code>qsort</code> on <code>int</code> arrays, a checklist of
+cases</td>
+</tr>
+<tr>
+<td>24</td>
+<td><code>test_qsort_chars</code></td>
+<td>sorting the letters of a string</td>
+</tr>
+<tr>
+<td>25</td>
+<td><code>test_qsort_strings</code></td>
+<td>sorting strings by length and alphabetically</td>
+</tr>
+<tr>
+<td>26</td>
+<td><code>test_roundtrip_sprintf_atoi_atof</code></td>
+<td>text → number → text round trips</td>
+</tr>
+<tr>
+<td>27</td>
+<td><code>test_anagram_with_qsort</code></td>
+<td>tests a helper that uses <code>strlen</code>, <code>strcpy</code>,
+<code>qsort</code>, <code>strcmp</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="helpers-not-tests">Helpers (not tests)</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr>
+<th>Helper</th>
+<th>What you write</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cmp_int</code></td>
+<td><strong>given</strong> – the pattern for the others</td>
+</tr>
+<tr>
+<td><code>cmp_char</code></td>
+<td>comparator for an array of <code>char</code>, ascending</td>
+</tr>
+<tr>
+<td><code>cmp_strlen</code></td>
+<td>comparator for an array of <code>char *</code>, shorter strings
+first</td>
+</tr>
+<tr>
+<td><code>cmp_str</code></td>
+<td>comparator for an array of <code>char *</code>, alphabetical
+(<code>strcmp</code>)</td>
+</tr>
+<tr>
+<td><code>is_anagram</code></td>
+<td>returns <code>1</code> if two strings contain the same letters,
+<code>0</code> otherwise</td>
+</tr>
+</tbody>
+</table>
+<p>The detailed description of <strong>every</strong> step is in
+<code>code.h</code> and in the notes above each function in
+<code>code.c</code>.</p>
+<hr />
+<h1 id="background">Background</h1>
+<h2 id="what-a-unity-test-looks-like">What a Unity test looks like</h2>
+<p>A test is a function without parameters and without a result. It
+passes when no assertion fails:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> test_strlen_basic<span class="op">(</span><span class="dt">void</span><span class="op">)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    TEST_ASSERT_EQUAL_INT_MESSAGE<span class="op">(</span><span class="dv">5</span><span class="op">,</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span>strlen<span class="op">(</span><span class="st">&quot;hello&quot;</span><span class="op">),</span> <span class="st">&quot;strlen(</span><span class="sc">\&quot;</span><span class="st">hello</span><span class="sc">\&quot;</span><span class="st">) should be 5&quot;</span><span class="op">);</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    TEST_ASSERT_EQUAL_INT_MESSAGE<span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span>strlen<span class="op">(</span><span class="st">&quot;a&quot;</span><span class="op">),</span> <span class="st">&quot;strlen(</span><span class="sc">\&quot;</span><span class="st">a</span><span class="sc">\&quot;</span><span class="st">) should be 1&quot;</span><span class="op">);</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<ul>
+<li>The <strong>first</strong> argument is what you <em>expect</em>, the
+<strong>second</strong> is what the code <em>actually</em> returns. If
+you swap them, the failure message shows the wrong way round.</li>
+<li>The <strong>first failing assertion stops the test</strong>. Put the
+simple cases first.</li>
+<li><code>main.c</code> runs the tests and prints one line per failure
+and a summary:</li>
+</ul>
+<pre class="text"><code>code.c:48:test_strlen_basic:FAIL: strlen(&quot;a&quot;) should be 1. Expected 1 Was 2
+27 Tests 1 Failures 0 Ignored</code></pre>
+<h2 id="turning-a-condition-into-an-assertion">Turning a condition into
+an assertion</h2>
+<p>Some results are not numbers you can predict. <code>strcmp()</code>
+promises only the <strong>sign</strong> of its result: negative, zero or
+positive. A comparison in C gives <code>1</code> when it is true and
+<code>0</code> when it is false, so you can assert it:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>TEST_ASSERT_EQUAL_INT_MESSAGE<span class="op">(</span><span class="dv">1</span><span class="op">,</span> strcmp<span class="op">(</span><span class="st">&quot;apple&quot;</span><span class="op">,</span> <span class="st">&quot;banana&quot;</span><span class="op">)</span> <span class="op">&lt;</span> <span class="dv">0</span><span class="op">,</span> <span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">apple</span><span class="sc">\&quot;</span><span class="st"> should come first&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>The same works for pointers (<code>found == NULL</code>) and for any
+other yes/no question.</p>
+<h2 id="return-types">Return types</h2>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 28%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr>
+<th>Function</th>
+<th>Returns</th>
+<th>Assert with</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>strlen</code></td>
+<td><code>size_t</code></td>
+<td>cast to <code>int</code>: <code>(int)strlen(s)</code></td>
+</tr>
+<tr>
+<td><code>atoi</code></td>
+<td><code>int</code></td>
+<td>directly</td>
+</tr>
+<tr>
+<td><code>atol</code></td>
+<td><code>long</code></td>
+<td>cast to <code>int</code>: <code>(int)atol(s)</code> — keep the
+values within ±2 billion (the automatic tests run in 32-bit mode where
+<code>long</code> has 32 bits)</td>
+</tr>
+<tr>
+<td><code>atof</code>, <code>sqrt</code>, <code>pow</code>, …</td>
+<td><code>double</code></td>
+<td><code>TEST_ASSERT_EQUAL_DOUBLE_MESSAGE</code>, with
+<code>0.5</code>, <code>3.0</code>, …</td>
+</tr>
+<tr>
+<td><code>sprintf</code></td>
+<td><code>int</code> — the number of characters written</td>
+<td>directly</td>
+</tr>
+<tr>
+<td><code>strchr</code></td>
+<td><code>char *</code></td>
+<td>the index is <code>found - s</code>; compare with <code>NULL</code>
+as a condition</td>
+</tr>
+</tbody>
+</table>
+<h2 id="doubles">Doubles</h2>
+<p>Most decimal fractions cannot be stored exactly in binary, so doubles
+are never compared with <code>==</code>.
+<code>TEST_ASSERT_EQUAL_DOUBLE_MESSAGE</code> allows a tiny relative
+error, so <code>1.4142135623730951</code> can be compared with
+<code>sqrt(2.0)</code>. Use <code>2.0</code>, not <code>2</code>, for
+the arguments of math functions.</p>
+<h2 id="edge-cases-and-properties">Edge cases and properties</h2>
+<p>A test with only “friendly” values passes on buggy code too. Think
+about where a function could go wrong:</p>
+<table>
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 47%" />
+</colgroup>
+<thead>
+<tr>
+<th>Look for</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>empty input</td>
+<td><code>strlen("")</code>, <code>atoi("")</code></td>
+</tr>
+<tr>
+<td>zero, one</td>
+<td><code>pow(5, 0)</code>, an array with one element</td>
+</tr>
+<tr>
+<td>negative numbers</td>
+<td><code>floor(-2.1)</code>, <code>round(-2.5)</code></td>
+</tr>
+<tr>
+<td>the boundary</td>
+<td><code>"2147483647"</code>, <code>memcmp</code> that differs only in
+the last byte</td>
+</tr>
+<tr>
+<td>input that is “almost” valid</td>
+<td><code>"12abc"</code>, <code>"  42"</code></td>
+</tr>
+<tr>
+<td>unchanged input</td>
+<td><code>strcat(buf, "")</code>, <code>qsort</code> with count 0</td>
+</tr>
+</tbody>
+</table>
+<p>A <strong>property</strong> is a statement that must be true for many
+values. In step 14 you check, with a loop, that
+<code>ceil(x) - floor(x)</code> is <code>1</code> for every non-integer
+<code>x</code>. One property over six values can say more than six
+separate examples.</p>
+<h2 id="pre-filled-buffers">Pre-filled buffers</h2>
+<p>If a test copies text into a buffer full of zeros, a function that
+forgets to write the terminator <code>'\0'</code> still looks correct —
+the zeros are already there. Fill the buffer with a visible character
+first:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> buf<span class="op">[</span><span class="dv">20</span><span class="op">];</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>memset<span class="op">(</span>buf<span class="op">,</span> <span class="ch">&#39;X&#39;</span><span class="op">,</span> <span class="kw">sizeof</span> buf <span class="op">-</span> <span class="dv">1</span><span class="op">);</span>       <span class="co">/* 19 x &#39;X&#39; ...                          */</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>buf<span class="op">[</span><span class="kw">sizeof</span> buf <span class="op">-</span> <span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="ch">&#39;</span><span class="sc">\0</span><span class="ch">&#39;</span><span class="op">;</span>             <span class="co">/* ... and a terminator at the very end  */</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>strcpy<span class="op">(</span>buf<span class="op">,</span> <span class="st">&quot;abc&quot;</span><span class="op">);</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>TEST_ASSERT_EQUAL_STRING_MESSAGE<span class="op">(</span><span class="st">&quot;abc&quot;</span><span class="op">,</span> buf<span class="op">,</span> <span class="st">&quot;...&quot;</span><span class="op">);</span>   <span class="co">/* fails if the &#39;\0&#39; was not copied */</span></span></code></pre></div>
+<p>Always leave a terminator at the end of the pre-filled buffer, so
+that a failing assertion never reads past the array.</p>
+<h2 id="testing-qsort">Testing <code>qsort</code></h2>
+<p><code>qsort()</code> needs a comparator. You write the missing ones
+as helpers (<code>cmp_char</code>, <code>cmp_strlen</code>,
+<code>cmp_str</code>); <code>cmp_int</code> is given:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> cmp_int<span class="op">(</span><span class="dt">const</span> <span class="dt">void</span> <span class="op">*</span>a<span class="op">,</span> <span class="dt">const</span> <span class="dt">void</span> <span class="op">*</span>b<span class="op">)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> x <span class="op">=</span> <span class="op">*(</span><span class="dt">const</span> <span class="dt">int</span> <span class="op">*)</span>a<span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> y <span class="op">=</span> <span class="op">*(</span><span class="dt">const</span> <span class="dt">int</span> <span class="op">*)</span>b<span class="op">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">(</span>x <span class="op">&gt;</span> y<span class="op">)</span> <span class="op">-</span> <span class="op">(</span>x <span class="op">&lt;</span> y<span class="op">);</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>An array of strings (<code>char *</code>) needs one more dereference
+than an array of <code>int</code>: the comparator receives a pointer
+<strong>to a <code>char *</code></strong>.</p>
+<p>A sort test must use <strong>unsorted</strong> input — a sorted array
+comes out sorted even if <code>qsort</code> does nothing. Also test an
+array whose <strong>smallest element is last</strong>: it only moves if
+every element is really compared.</p>
+<p><code>qsort()</code> is not stable (equal elements may swap places),
+so inputs for the string tests contain no ties.</p>
+<h2 id="round-trips">Round trips</h2>
+<p>A round trip converts a value there and back and expects the
+original:</p>
+<pre class="text"><code>int  → sprintf(&quot;%d&quot;)  → text → atoi → the same int</code></pre>
+<p>If either function is wrong, the number that comes back differs. Use
+arrays of values and a loop.</p>
+<hr />
+<h1 id="only-for-testing">Only for testing</h1>
+<h2 id="local-testing-sandbox">Local Testing (Sandbox)</h2>
+<p><code>main.c</code> already runs all 27 tests. Compile with the
+sanitizer and link the math library (<code>-lm</code>):</p>
+<pre class="text"><code>gcc -std=c99 -g -Wall -Wextra -fsanitize=address,undefined main.c code.c unity.c -lm -o main
+./main</code></pre>
+<p>(adjust the file names and include paths to the layout of your
+repository; <code>unity.c</code> and <code>unity.h</code> are
+provided).</p>
+<p>At the start every test fails with <em>“Not implemented
+yet”</em>:</p>
+<pre class="text"><code>code.c:97:test_strlen_basic:FAIL: Not implemented yet: write test_strlen_basic (see STEP 1 in code.h)
+...
+27 Tests 27 Failures 0 Ignored</code></pre>
+<p>Your goal is <code>27 Tests 0 Failures 0 Ignored</code>.</p>
+<p>Hints: - Write one test, compile, run, and watch it go from red to
+green <strong>before</strong> you start the next one. - To check that a
+test can fail, break it on purpose: change an expected value and make
+sure the run reports a failure. - Do not compute the expected value with
+the function you are testing. Write it as a literal (<code>5</code>,
+<code>"ehllo"</code>, <code>0.5</code>). - If an assertion message looks
+like <code>Expected 5 Was 4</code>, the first number is
+<strong>yours</strong> and the second is what the standard library
+returned.</p>
+</body>
+</html>
