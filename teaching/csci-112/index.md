@@ -58,6 +58,7 @@ This course provides a comprehensive introduction to the C programming language.
 * __Assignment 08__ — [HTML]({{ '/teaching/csci-112/assignments/ass08/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/assignments/ass08/index.pdf' | relative_url }})
 * __Assignment 09__ — [HTML]({{ '/teaching/csci-112/assignments/ass09/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/assignments/ass09/index.pdf' | relative_url }})
 * __Assignment 10__ — [HTML]({{ '/teaching/csci-112/assignments/ass10/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/assignments/ass10/index.pdf' | relative_url }})
+* __Assignment 11__ — [HTML]({{ '/teaching/csci-112/assignments/ass11/' | relative_url }}) \| [PDF]({{ '/teaching/csci-112/assignments/ass11/index.pdf' | relative_url }})
 
 ---
 

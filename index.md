@@ -11,6 +11,8 @@ Montana Technological University — Butte, MT
 
 [![Discord Server](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/38NCc5HEYd)
 
+
+
 ---
 
 [About & Portfolio]({{ '/portfolio/' \| relative_url }}) \| [Research]({{ '/research/' \| relative_url }}) \| [Teaching]({{ '/teaching/' \| relative_url }}) \| [Downloads & Toolchains]({{ '/downloads/' \| relative_url }})
@@ -41,4 +43,6 @@ I am an interdisciplinary scientist and computer science educator with over 12 y
 
 ### Student Club - The Butte Forge
 
-[The Butte Forge](https://butteforge.github.io/)
+[The Butte Forge](https://thebutteforge.github.io/)
+
+[![Server link](https://img.shields.io/badge/-%20%20Discord-%235865F2?style=social&logo=discord)](??)
