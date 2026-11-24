@@ -25,7 +25,9 @@ Welcome to my academic courses portal. Below you can find the active courses for
     *  Thursday 2.30-5pm
     *  Friday 12-5pm
 
-## Active Courses (Fall 2026)
+# Active Courses 
+
+## Fall 2026
 
 ### 1. [CSCI 112 — Programming with C]({{ '/teaching/csci-112/' | relative_url }})
 
@@ -42,3 +44,22 @@ Advanced Git workflows, team-based development, code reviews, and testing strate
 ### 4. [CSCI 446 — Artificial Intelligence]({{ '/teaching/csci-446/' | relative_url }})
 
 A full-scale course covering foundational and modern AI principles, expanding upon classical introduction models.
+
+
+## Spring 2027
+
+### 1. [CSCI 255 — Introduction Embedded Systems]({{ '/teaching/csci-255/' | relative_url }})
+
+...
+
+### 2. [CSCI 332 — Design & Analysis of Algorithms]({{ '/teaching/csci-232/' | relative_url }})
+
+...
+
+### 3. [CSCI 361 — Computer Architecture]({{ '/teaching/esof-322/' | relative_url }})
+
+...
+
+### 4. [ESOF 427 — Software Design & Architecture]({{ '/teaching/csci-446/' | relative_url }})
+
+...

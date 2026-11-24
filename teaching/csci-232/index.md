@@ -5,10 +5,11 @@ title: CSCI 232 — Programming with C
 
 [← Back to Teaching]({{ '/teaching/' | relative_url }})
 
-# CSCI 232 — Programming with C
+# CSCI 232 — Algorithms & Data Structures
 
 ## Course Overview
-This course provides a comprehensive introduction to the C programming language. We focus not only on language syntax but also on practical software development habits: understanding memory, compiling with Makefiles, and utilizing version control.
+
+Operating on large collections of data is at the core of Computer Science. In this class you will study several commonly used structures used to store data and the algorithms used to manipulate them. You will examine the types of problems that each data structure and algorithm can be applied to. Finally, you will learn ways to analyze and compare algorithms in terms of time and space efficiency. Topics include stacks, queues, general lists, trees and graphs, hashing, searching, sorting, and recursion.
 
 
 ## Course Components
