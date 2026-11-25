@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.14" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>232ass08</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      color: light-dark(#1a1a1a, #fdfdfd);
+      background-color: #fdfdfd;
+      background-color: light-dark(#fdfdfd, #1a1a1a);
+      color-scheme: light dark;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a, a:visited {
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid;
+      border-color: #e6e6e6;
+      border-color: light-dark(#e6e6e6, #4c4c4c);
+      color: #606060;
+      color: light-dark(#606060, #b6b6b6);
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid currentColor;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+    }
+    th {
+      border-top: 1px solid currentColor;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    em, em em em, em em em em em {
+      font-style: italic;
+    }
+    em em, em em em em {
+      font-style: normal;
+    }
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    @media print {
+      html {
+        color-scheme: light only;
+      }
+      html, body, pre, code {
+        background-color: transparent;
+      }
+      body, a, a:visited, blockquote {
+        color: black;
+      }
+      pre, code {
+        padding: 0;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }  </style>
+</head>
+<body>
+<h1
+id="csci-232-assignment-08-binary-tree-text-views-and-binary-files">CSCI
+232 Assignment 08 – Binary Tree: Text Views and Binary Files</h1>
+<p>Points: 10</p>
+<hr />
+<h2 id="instructions">Instructions</h2>
+<ol type="1">
+<li><strong>Fork</strong> the repository on GitHub:
+<code>https://github.com/jpach-cs/232-ass08-template</code></li>
+<li><strong>Clone</strong> your forked repository to your local
+machine.</li>
+<li>Open <code>src/code.cpp</code>, <code>src/tests.cpp</code> and
+<code>include/code.hpp</code>.</li>
+<li>Uncomment the author block in <code>src/code.cpp</code> and fill in
+your name:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// std::string AUTHOR_NAME       = &quot;Your Name&quot;;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">// std::string AUTHOR_AUTHORSHIP = &quot;I acknowledge that I have worked on this</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">// assignment independently...&quot;;</span></span></code></pre></div>
+<ol start="5" type="1">
+<li>The whole binary tree from Lecture 18 is <strong>given</strong>
+(<code>TreeNode</code>, <code>BinaryTree</code>, <code>setRoot</code>,
+<code>addLeft</code>, <code>addRight</code>, <code>depthOf</code>, the
+three recursive traversals, the destructor). You work in <strong>three
+parts</strong>:</li>
+</ol>
+<h3 id="part-1-three-text-views-srccode.cpp">Part 1 — Three Text Views
+(<code>src/code.cpp</code>)</h3>
+<ul>
+<li>Implement <code>formatSideways</code>, <code>formatLevelOrder</code>
+and <code>formatDfs</code>.</li>
+<li>They <strong>return</strong> a <code>std::string</code>. They never
+print: the caller prints.</li>
+<li>The level-order view uses a <code>std::queue</code>, the DFS view
+uses a <code>std::stack</code>: no recursion in those two.</li>
+</ul>
+<h3 id="part-2-binary-serialization-srccode.cpp">Part 2 — Binary
+Serialization (<code>src/code.cpp</code>)</h3>
+<ul>
+<li>Implement <code>save</code>, which writes the tree to a file, and
+the <strong>restoring constructor</strong>
+<code>BinaryTree(const std::string &amp;filename)</code>, which builds
+the tree from such a file.</li>
+<li>Use <code>std::ofstream</code> / <code>std::ifstream</code> in
+binary mode with <code>write()</code> and <code>read()</code>. Do not
+use <code>&lt;&lt;</code> or <code>&gt;&gt;</code>.</li>
+<li>Report problems with the given exception <code>TreeFileError</code>,
+and make sure that a bad file leaks no memory.</li>
+</ul>
+<h3 id="part-3-unit-tests-srctests.cpp">Part 3 — Unit Tests
+(<code>src/tests.cpp</code>) <!-- and `ANSWERS.md` --></h3>
+<ul>
+<li>Implement the 8 unit test bodies using <code>TEST_ASSERT_</code>.
+<!-- - Answer the 4 questions in `ANSWERS.md`. --></li>
+</ul>
+<ol start="6" type="1">
+<li>Build and run locally using C++20 (<code>g++</code>):</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> clean</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">./run_tests</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">./check_rules.sh</span></span></code></pre></div>
+<ol start="7" type="1">
+<li>When all local tests pass — <strong>commit</strong> and
+<strong>push</strong> to your repository.</li>
+<li>Go to the <strong>Actions</strong> tab on GitHub and verify the CI
+results.</li>
+</ol>
+<hr />
+<h2 id="what-the-output-looks-like">What the output looks like</h2>
+<p>For the tree
+<code>10 (left 5 (left 3, right 7), right 20)</code>:</p>
+<pre><code>formatSideways()          formatLevelOrder()     formatDfs()
+       --&gt; 20             10                     10 5 3 7 20
+--&gt; 10                    5 20
+              --&gt; 7       3 7
+       --&gt; 5
+              --&gt; 3</code></pre>
+<ul>
+<li>Every line ends with <code>'\n'</code>. Values are separated by
+<strong>one</strong> space, with <strong>no</strong> space at the end of
+a line.</li>
+<li>For an <strong>empty</strong> tree all three methods return
+<code>""</code>.</li>
+<li><code>formatSideways</code> is the tree turned 90 degrees to the
+left: the right subtree is <strong>above</strong> the node, the left
+subtree <strong>below</strong> it. A node at depth <code>d</code> is
+printed as <code>d * indent</code> spaces + <code>"--&gt; "</code> +
+value + <code>"\n"</code>.</li>
+</ul>
+<hr />
+<h2 id="part-1-methods-srccode.cpp">Part 1 Methods —
+<code>src/code.cpp</code></h2>
+<table>
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>formatSideways(int indent = 7)</code></td>
+<td>Throw <code>std::invalid_argument</code> if <code>indent</code> is
+negative. Otherwise create the result string and call
+<code>sidewaysFrom</code></td>
+</tr>
+<tr>
+<td><code>sidewaysFrom</code></td>
+<td>Recursive helper (given signature): first the right subtree, then
+the node, then the left subtree. Depth grows by one in every call</td>
+</tr>
+<tr>
+<td><code>formatLevelOrder</code></td>
+<td>One line per level. Use
+<code>std::queue&lt;const TreeNode *&gt;</code>. At the start of a
+level, <code>q.size()</code> is the number of nodes on that level</td>
+</tr>
+<tr>
+<td><code>formatDfs</code></td>
+<td>Preorder in one line. Use
+<code>std::stack&lt;const TreeNode *&gt;</code>. The stack is LIFO: push
+the <strong>right</strong> child first, then the left one</td>
+</tr>
+</tbody>
+</table>
+<p>Build the text with <code>std::format</code>,
+<code>std::to_string</code> and <code>+=</code>:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>out <span class="op">+=</span> <span class="bu">std::</span>format<span class="op">(</span><span class="st">&quot;</span><span class="sc">{}</span><span class="st">--&gt; </span><span class="sc">{}\n</span><span class="st">&quot;</span><span class="op">,</span> <span class="bu">std::</span>string<span class="op">(</span>depth <span class="op">*</span> indent<span class="op">,</span> <span class="ch">&#39; &#39;</span><span class="op">),</span> node<span class="op">-&gt;</span>value<span class="op">);</span></span></code></pre></div>
+<hr />
+<h2 id="part-2-methods-srccode.cpp">Part 2 Methods —
+<code>src/code.cpp</code></h2>
+<h3 id="the-file-format">The file format</h3>
+<pre><code>header:  the 4 bytes of kMagic (&quot;BTR1&quot;), then an std::int32_t with the number of nodes
+body:    the tree in PREORDER. For every position:
+           - a missing child:  ONE byte with the value 0
+           - a node:           ONE byte with the value 1, then its value as std::int32_t,
+                               then the whole left subtree, then the whole right subtree</code></pre>
+<p>The tree <code>1 (left child 2)</code> is stored as these <strong>21
+bytes</strong>:</p>
+<pre><code>&#39;B&#39; &#39;T&#39; &#39;R&#39; &#39;1&#39; | 2 (int32) | 1 | 1 (int32) | 1 | 2 (int32) | 0 | 0 | 0</code></pre>
+<p>A tree with <code>n</code> nodes always occupies exactly
+<code>6n + 9</code> bytes. The file holds only the <strong>values and
+the shape</strong> of the tree: never a node, never a pointer. The
+numbers are written in the native byte order of the machine.</p>
+<h3 id="methods">Methods</h3>
+<table>
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>save</code></td>
+<td>Open the file (<code>std::ios::binary</code>, an existing file is
+<strong>replaced</strong>), write <code>kMagic</code>, the count, then
+the body. Flush and check the stream. Throw <code>TreeFileError</code>
+if the file cannot be opened or the writing fails. An empty tree is
+valid. <code>save</code> does not change the tree</td>
+</tr>
+<tr>
+<td><code>writeNode</code></td>
+<td>Recursive helper: writes <strong>one</strong> position (a
+<code>0</code> byte, or a <code>1</code> byte + value + left +
+right)</td>
+</tr>
+<tr>
+<td><code>BinaryTree(const std::string &amp;filename)</code></td>
+<td>The restoring constructor. Open the file, check the magic number and
+the count, read the body, check that exactly the announced number of
+nodes was read. Set <code>rootPtr</code> and <code>count</code> only at
+the very end</td>
+</tr>
+<tr>
+<td><code>readNode</code></td>
+<td>Recursive helper: reads <strong>one</strong> position into
+<code>slot</code> (a reference to the pointer that must receive the new
+node). Check the stream after every read</td>
+</tr>
+</tbody>
+</table>
+<h3 id="when-to-throw-treefileerror">When to throw
+<code>TreeFileError</code></h3>
+<p>The constructor throws <code>TreeFileError</code> if:</p>
+<ul>
+<li>the file cannot be opened (the message contains the <strong>file
+name</strong>),</li>
+<li>the first 4 bytes are not <code>kMagic</code>,</li>
+<li>the announced count is negative or larger than
+<code>kMaxNodes</code>,</li>
+<li>the file ends too early (any read fails),</li>
+<li>a position byte is neither <code>0</code> nor <code>1</code>,</li>
+<li>the body holds more nodes than announced, or fewer.</li>
+</ul>
+<p><code>save</code> throws <code>TreeFileError</code> if the file
+cannot be opened for writing (the message contains the file name) or if
+the writing fails.</p>
+<p>An <strong>empty tree</strong> is not an error: it is saved and
+restored like any other tree. Use <code>std::format</code> for the
+messages, for example
+<code>std::format("cannot open '{}' for reading", filename)</code>.</p>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Write every field <strong>separately</strong>.
+<code>out.write(reinterpret_cast&lt;const char *&gt;(&amp;value), sizeof value)</code>
+writes the bytes of one <code>std::int32_t</code>. Never write a whole
+<code>TreeNode</code>: it holds pointers, and a pointer is meaningless
+in the next run of a program.</li>
+<li>The file does not contain parent pointers. <code>readNode</code>
+creates the nodes, so <strong>it</strong> must set
+<code>parentPtr</code> of every new node (the node that is currently
+reading it is the parent).</li>
+<li>Reading uses a <strong>slot</strong>:
+<code>readNode(in, parent, slot, ...)</code> stores the new node in
+<code>slot</code>. At the start <code>slot</code> is the root variable,
+later it is <code>node-&gt;leftPtr</code> or
+<code>node-&gt;rightPtr</code> of the parent.</li>
+<li>Link the new node into the tree <strong>immediately</strong> after
+creating it and <strong>before</strong> reading its children. Then a
+half-built tree is always reachable from the root variable.</li>
+<li><strong>A constructor that throws never finishes: the destructor
+<code>~BinaryTree</code> is not called.</strong> Everything created so
+far must be deleted by the constructor itself, so a bad file leaks
+nothing:</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>TreeNode <span class="op">*</span>newRoot <span class="op">=</span> <span class="kw">nullptr</span><span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>int32_t nodesRead <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    readNode<span class="op">(</span>in<span class="op">,</span> <span class="kw">nullptr</span><span class="op">,</span> newRoot<span class="op">,</span> nodesRead<span class="op">,</span> announced<span class="op">);</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ... check nodesRead against announced, throw if they differ</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="cf">catch</span> <span class="op">(...)</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    destroy<span class="op">(</span>newRoot<span class="op">);</span>      <span class="co">// delete the half-built tree</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">throw</span><span class="op">;</span>                 <span class="co">// and report the problem to the caller</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<ul>
+<li>The reader refuses a header with more than <code>kMaxNodes</code>
+nodes, so a corrupt file cannot make your program allocate without
+limit.</li>
+</ul>
+<hr />
+<h2 id="tests-to-implement-srctests.cpp-part-3">Tests to implement —
+<code>src/tests.cpp</code> (Part 3)</h2>
+<table>
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr>
+<th>Test function</th>
+<th>What to verify</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>test_format_empty_tree_is_empty_string</code></td>
+<td>All three views of an empty tree return <code>""</code></td>
+</tr>
+<tr>
+<td><code>test_format_sideways_single_node</code></td>
+<td>A tree with only the root 42 gives <code>"--&gt; 42\n"</code></td>
+</tr>
+<tr>
+<td><code>test_format_level_order_levels</code></td>
+<td>The sample tree gives <code>"10\n5 20\n3 7\n"</code></td>
+</tr>
+<tr>
+<td><code>test_format_dfs_preorder</code></td>
+<td>The sample tree gives <code>"10 5 3 7 20\n"</code></td>
+</tr>
+<tr>
+<td><code>test_save_and_load_roundtrip</code></td>
+<td>Save the sample tree, restore it: <code>size()</code> is 5,
+<code>preorder()</code> and <code>inorder()</code> match the original.
+Remove the file</td>
+</tr>
+<tr>
+<td><code>test_save_and_load_empty_tree</code></td>
+<td>An empty tree is saved and restored: <code>empty()</code> is true,
+<code>size()</code> is 0. Remove the file</td>
+</tr>
+<tr>
+<td><code>test_load_missing_file_throws</code></td>
+<td>The constructor throws <code>TreeFileError</code> for a file that
+does not exist</td>
+</tr>
+<tr>
+<td><code>test_load_wrong_magic_throws</code></td>
+<td>A file that starts with <code>"XXXX"</code> makes the constructor
+throw <code>TreeFileError</code>. Create the file with
+<code>write()</code>. Remove the file</td>
+</tr>
+</tbody>
+</table>
+<p>Catch an exception in a test with a flag:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> thrown <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    BinaryTree tree<span class="op">(</span><span class="st">&quot;ass08_this_file_does_not_exist.bin&quot;</span><span class="op">);</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="cf">catch</span> <span class="op">(</span><span class="at">const</span> TreeFileError <span class="op">&amp;)</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    thrown <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>TEST_ASSERT_TRUE_MESSAGE<span class="op">(</span>thrown<span class="op">,</span> <span class="st">&quot;a missing file must throw TreeFileError&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>Remove temporary files at the end of the test with
+<code>std::remove(name.c_str())</code> from
+<code>&lt;cstdio&gt;</code>.</p>
+<hr />
+<!-- 
+## `ANSWERS.md`
+
+Answer each question in 2–3 sentences:
+
+1. The file does not contain the `parentPtr` of any node. Why not, and where are the parent pointers set again when the tree is restored?
+2. `formatLevelOrder` and `formatDfs` are almost the same loop. What are the two differences? Which traversal order does the stack version produce, and why do you push the right child first?
+3. When the restoring constructor throws in the middle of reading, the destructor `~BinaryTree` is **not** called. Why not, and how did your code make sure that no node leaks?
+4. Give T(n) and S(n) (auxiliary space) of `formatLevelOrder` and `formatDfs` for a balanced tree and for a tree that is a single chain of n nodes. What decides the size of the queue, and what decides the size of the stack?
+
+---
+
+-->
+<h2 id="rules">Rules</h2>
+<ul>
+<li>Do <strong>not</strong> modify <code>include/code.hpp</code> or any
+function <strong>signature</strong>.</li>
+<li>All code must compile under <strong>C++20</strong>
+(<code>-std=c++20</code>).</li>
+<li>In Part 1 and Part 2 do <strong>not</strong> use
+<code>&lt;&lt;</code>, <code>&gt;&gt;</code>, <code>std::cout</code>,
+<code>printf</code> or string streams. Build text with
+<code>std::format</code>, <code>std::to_string</code> and
+<code>+=</code>; read and write files with <code>write()</code> and
+<code>read()</code>. CI checks it (<code>check_rules.sh</code>).</li>
+<li><code>formatLevelOrder</code> must use <code>std::queue</code> and
+<code>formatDfs</code> must use <code>std::stack</code> (no recursion in
+them).</li>
+<li>Open files with <code>std::ios::binary</code>. Do not use the C file
+API (<code>fopen</code>, <code>fwrite</code>, <code>fread</code>).</li>
+<li>Throw exceptions <strong>only</strong> where this description says
+so. Do not throw for an empty tree.</li>
+<li>Check the state of the stream after reading and after writing.</li>
+<li>A bad file must <strong>not leak memory</strong>: the instructor
+tests count every allocation.</li>
+<li>Remove the temporary files that your tests create.</li>
+<li>CI builds with AddressSanitizer: memory leaks, double
+<code>delete</code> and use-after-free fail the build.</li>
+<li>CI runs your <code>tests.cpp</code> together with the instructor
+tests — both must pass.</li>
+</ul>
+<hr />
+<h2 id="grading">Grading</h2>
+<table>
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr>
+<th>Component</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Part 1: the three text views</td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>save</code> and <code>writeNode</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td>Restoring constructor and <code>readNode</code> (validation,
+exception safety)</td>
+<td>2</td>
+</tr>
+<tr>
+<td>All test cases in <code>tests.cpp</code> passing</td>
+<td>3</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>10</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="author-block-required">Author block — required</h2>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>string AUTHOR_NAME       <span class="op">=</span> <span class="st">&quot;Your Name&quot;</span><span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>string AUTHOR_AUTHORSHIP <span class="op">=</span> <span class="st">&quot;I acknowledge that I have worked on this &quot;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;assignment independently, except where explicitly noted and referenced. &quot;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Any collaboration or use of external resources has been properly cited. &quot;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;I am fully aware of the consequences of academic dishonesty and agree &quot;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;to abide by the university&#39;s academic integrity policy.&quot;</span><span class="op">;</span></span></code></pre></div>
+</body>
+</html>
