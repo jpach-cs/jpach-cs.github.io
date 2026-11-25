@@ -55,7 +55,7 @@ Operating on large collections of data is at the core of Computer Science. In th
 * __Assignment 05__ — [HTML]({{ '/teaching/csci-232/assignments/ass05/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/assignments/ass05/index.pdf' | relative_url }}) 
 * __Assignment 06__ — [HTML]({{ '/teaching/csci-232/assignments/ass06/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/assignments/ass06/index.pdf' | relative_url }}) 
 * __Assignment 07__ — [HTML]({{ '/teaching/csci-232/assignments/ass07/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/assignments/ass07/index.pdf' | relative_url }}) 
-
+* __Assignment 08__ — [HTML]({{ '/teaching/csci-232/assignments/ass08/' | relative_url }}) \| [PDF]({{ '/teaching/csci-232/assignments/ass08/index.pdf' | relative_url }}) 
 
 ---
 
